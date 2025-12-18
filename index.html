@@ -13,20 +13,38 @@
       body {
         font-family: "Montserrat", sans-serif;
       }
+
+      /* ========================================= */
+      /* تعديل مهم جداً للخلفية (الكمبيوتر والموبايل) */
+      /* ========================================= */
       .bg-sharm-hero {
-        /* صورة الخلفية كما طلبت */
+        /* الصورة الأساسية */
         background-image: url("assets/bg.jpeg");
         background-size: cover;
-        background-position: center;
-        background-attachment: fixed; /* تثبيت الخلفية عشان السكرول يبقى ناعم */
+        /* التعديل هنا: خلينا الصورة تتسنتر من فوق عشان الناس تبان */
+        background-position: top center;
+        background-attachment: fixed; /* رجعنا التثبيت عشان الفورم تتزحلق عليها */
+        background-repeat: no-repeat;
       }
+
+      /* إعدادات الموبايل */
+      @media (max-width: 768px) {
+        .bg-sharm-hero {
+          /* صورة الموبايل الطويلة */
+          background-image: url("assets/bg-mobile.jpg");
+          /* تأكيد التثبيت في الموبايل */
+          background-attachment: fixed;
+          background-position: top center;
+        }
+      }
+
       .glass-card {
         background: rgba(255, 255, 255, 0.92);
         backdrop-filter: blur(16px);
         border: 1px solid rgba(255, 255, 255, 0.8);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
       }
-      /* أنيميشن النبض للزرار */
+
       @keyframes pulse-custom {
         0%,
         100% {
@@ -72,7 +90,7 @@
     </div>
 
     <div
-      class="glass-card relative z-10 w-full max-w-md rounded-3xl overflow-visible shadow-2xl mt-[50vh] mb-6"
+      class="glass-card relative z-10 w-full max-w-md rounded-3xl overflow-visible shadow-2xl mt-[55vh] mb-6"
     >
       <div class="absolute -top-12 left-1/2 transform -translate-x-1/2">
         <div
@@ -177,13 +195,11 @@
         >
           <img src="assets/review_1.jpg" alt="Review 1" class="w-full h-auto" />
         </div>
-
         <div
           class="bg-white rounded-2xl overflow-hidden shadow-lg border border-white/20 transform transition hover:scale-[1.02]"
         >
           <img src="assets/review_2.jpg" alt="Review 2" class="w-full h-auto" />
         </div>
-
         <div
           class="bg-white rounded-2xl overflow-hidden shadow-lg border border-white/20 transform transition hover:scale-[1.02]"
         >
@@ -217,9 +233,7 @@
         fetch(scriptURL, { method: "POST", body: new FormData(form) })
           .then((response) => {
             let clientName = document.getElementById("name").value;
-            // الرسالة الإيطالية
             let message = `Ciao Fabio! Sono ${clientName}. Ho visto il tuo sito e voglio il catalogo VIP.`;
-            // التوجيه للواتس
             window.location.href = `https://wa.me/${fabioNumber}?text=${encodeURIComponent(
               message
             )}`;
