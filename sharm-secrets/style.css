@@ -182,52 +182,29 @@ a {
   mix-blend-mode: soft-light;
 }
 
+/* Background Images for Sections */
 .section-hero {
-  background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
-    url("https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1600");
-  background-size: cover;
-  background-position: center;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url("https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1600");
 }
 
 .section-2 {
-  background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.96)),
-    url("https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1600");
-  background-size: cover;
-  background-position: center;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.96)), url("https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1600");
 }
 
 .section-3 {
-  background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-    url("https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1600");
-  background-size: cover;
-  background-position: center;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1600");
 }
 
 .section-4 {
-  background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-    url("https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&w=1600");
-  background-size: cover;
-  background-position: center;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&w=1600");
 }
 
 .section-5 {
-  background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.98)),
-    url("https://images.pexels.com/photos/2404443/pexels-photo-2404443.jpeg?auto=compress&cs=tinysrgb&w=1600");
-  background-size: cover;
-  background-position: center;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.98)), url("https://images.pexels.com/photos/2404443/pexels-photo-2404443.jpeg?auto=compress&cs=tinysrgb&w=1600");
 }
 
 .section-6 {
-  background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.98)),
-    url("https://images.pexels.com/photos/460680/pexels-photo-460680.jpeg?auto=compress&cs=tinysrgb&w=1600");
-  background-size: cover;
-  background-position: center;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.98)), url("https://images.pexels.com/photos/460680/pexels-photo-460680.jpeg?auto=compress&cs=tinysrgb&w=1600");
 }
 
 .section-inner {
@@ -304,86 +281,9 @@ a {
 .services-flow {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
-  margin-top: 1.75rem;
-}
-
-.service-item {
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-  border-radius: var(--radius-card);
-  padding: 1.4rem 1.5rem;
-  background: radial-gradient(circle at top left, rgba(197, 160, 89, 0.18), rgba(0, 0, 0, 0.92));
-  border: 1px solid rgba(197, 160, 89, 0.5);
-  box-shadow: var(--shadow-soft);
-}
-
-.service-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.service-title {
-  font-family: "Playfair Display", "Times New Roman", serif;
-  font-weight: 600;
-  font-size: 1.02rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin: 0;
-  color: var(--color-gold-soft);
-}
-
-.service-desc {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--color-text-muted);
-}
-
-.service-image {
-  margin: 0;
-  border-radius: var(--radius-card);
-  overflow: hidden;
-}
-
-/* .service-photo {
+  gap: 2.5rem;
+  margin-top: 2rem;
   width: 100%;
-  height: clamp(180px, 40vh, 260px);
-  object-fit: cover;
-} */
-.service-photo {
-  /* 1. أبعاد الحاوية */
-  width: 100%;
-  /* الحفاظ على ارتفاع متناسق في الموبايل */
-  height: clamp(200px, 40vh, 280px);
-  /* زودت الارتفاع قليلاً لتبدو الصورة أوضح */
-
-  /* 2. السر هنا: Cover تملأ الفراغ بالكامل */
-  object-fit: cover;
-  /* لضمان أن منتصف الصورة (أهم جزء) هو اللي ظاهر */
-  object-position: center;
-
-  /* 3. لمسات الفخامة (الإطار والظل) */
-  border: 2px solid #C5A059;
-  /* إطار ذهبي */
-  border-radius: 12px;
-  /* حواف ناعمة */
-  box-shadow: 0 10px 25px -5px rgba(0, 31, 63, 0.3);
-  /* ظل عميق */
-
-  /* إزالة لون الخلفية لأنه لم يعد ضرورياً */
-  /* background-color: rgba(0, 31, 63, 0.02); */
-
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* تأثير عند اللمس/المرور */
-.service-photo:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px -8px rgba(197, 160, 89, 0.4);
-  border-color: #d4af67;
 }
 
 .rules-collection {
@@ -392,23 +292,30 @@ a {
   gap: 1.5rem;
 }
 
+.catalog-card,
+.service-item,
 .rule-section {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
   border-radius: var(--radius-card);
   padding: 1.4rem 1.5rem;
-  background: radial-gradient(circle at top left, rgba(197, 160, 89, 0.18), rgba(0, 0, 0, 0.9));
+  background: radial-gradient(circle at top left, rgba(197, 160, 89, 0.18), rgba(0, 0, 0, 0.92));
   border: 1px solid rgba(197, 160, 89, 0.5);
   box-shadow: var(--shadow-soft);
+  margin-bottom: 0.5rem;
 }
 
+.catalog-card-main,
+.service-text,
 .rule-text-content {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
+.catalog-card-title,
+.service-title,
 .rule-title {
   font-family: "Playfair Display", "Times New Roman", serif;
   font-weight: 600;
@@ -419,22 +326,61 @@ a {
   color: var(--color-gold-soft);
 }
 
+.catalog-card-desc,
+.service-desc,
 .rule-desc {
   margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.7;
   color: var(--color-text-muted);
 }
 
+.catalog-card-image,
+.service-image,
 .rule-image-container {
   border-radius: var(--radius-card);
   overflow: hidden;
 }
 
+.catalog-card-img,
+.service-photo,
 .rule-img {
   width: 100%;
   height: clamp(180px, 40vh, 260px);
   object-fit: cover;
+  border: 2px solid #C5A059;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 31, 63, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.catalog-card-img:hover,
+.service-photo:hover,
+.rule-img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px -8px rgba(197, 160, 89, 0.4);
+  border-color: #d4af67;
+}
+
+.catalog-card-extra {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.catalog-card-extra-title {
+  margin: 0;
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--color-gold-soft);
+}
+
+.catalog-card-extra-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
 }
 
 .golden-alert {
@@ -846,9 +792,7 @@ a {
     inset-block-end: 1rem;
   }
 
-  .section-title {
-    font-size: 1.6rem;
-  }
+
 
   .golden-alert {
     padding-inline: 1.4rem;
