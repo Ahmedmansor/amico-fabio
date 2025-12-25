@@ -38,68 +38,31 @@
                 <p class="section-subtitle" data-i18n="page1.subtitle"></p>
                 <p class="section-body" data-i18n="page1.content"></p>
                 <figure class="hero-figure" data-aos="fade-up" data-aos-delay="120">
-                    <img src="../assets/secrets_catalogue/fabio.png" alt="Fabio" class="hero-photo">
+                    <img data-img="page1.hero_img" alt="Fabio" class="hero-photo">
                 </figure>
+                <p class="section-subtitle" data-i18n="page1.extra_title"></p>
+                <p class="section-body" data-i18n="page1.extra_desc"></p>
             </div>
         </section>
-        <section id="page2" class="section section-services section-2">
+        <section id="page2" class="section section-dynamic section-2">
             <div class="section-backdrop"></div>
             <div class="section-inner" data-aos="fade-up">
                 <h2 class="section-title" data-i18n="page2.headline"></h2>
                 <p class="section-intro" data-i18n="page2.intro"></p>
-                <div class="services-flow">
-                    <article class="service-item" data-aos="fade-up">
-                        <div class="service-text">
-                            <h3 class="service-title"></h3>
-                            <p class="service-desc"></p>
-                        </div>
-                        <figure class="service-image">
-                            <img src="../assets/secrets_catalogue/modern-sanitized-private-cars.jpeg" alt=""
-                                class="service-photo">
-                        </figure>
-                    </article>
-                    <article class="service-item" data-aos="fade-up" data-aos-delay="80">
-                        <div class="service-text">
-                            <h3 class="service-title"></h3>
-                            <p class="service-desc"></p>
-                        </div>
-                        <figure class="service-image">
-                            <img src="../assets/secrets_catalogue/autisti-professionisti.jpg" alt=""
-                                class="service-photo">
-                        </figure>
-                    </article>
-                    <article class="service-item" data-aos="fade-up" data-aos-delay="140">
-                        <div class="service-text">
-                            <h3 class="service-title"></h3>
-                            <p class="service-desc"></p>
-                        </div>
-                        <figure class="service-image">
-                            <img src="../assets/secrets_catalogue/imbarcazioni-vip.jpg" alt="" class="service-photo">
-                        </figure>
-                    </article>
-                </div>
+                <div id="servicesFlow" class="catalog-flow"></div>
             </div>
         </section>
-        <section id="page3" class="section section-rules section-3">
+
+        <section id="page3" class="section section-dynamic section-3">
             <div class="section-backdrop"></div>
-            <div class="section-inner">
-                <div class="section-header" data-aos="fade-up">
-                    <h2 class="section-title" data-i18n="page3.headline"></h2>
-                </div>
-                <p class="section-intro" data-i18n="page3.intro" data-aos="fade-up" data-aos-delay="80"></p>
-                <div id="rules-page3" class="rules-collection"></div>
+            <div class="section-inner" data-aos="fade-up">
+                <h2 class="section-title" data-i18n="page3.headline"></h2>
+                <p class="section-intro" data-i18n="page3.intro"></p>
+                <div id="rules-page3" class="catalog-flow"></div>
             </div>
         </section>
-        <section id="page4" class="section section-rules section-4">
-            <div class="section-backdrop"></div>
-            <div class="section-inner">
-                <div class="section-header" data-aos="fade-up">
-                    <h2 class="section-title" data-i18n="page4.headline"></h2>
-                </div>
-                <p class="section-intro" data-i18n="page4.intro" data-aos="fade-up" data-aos-delay="80"></p>
-                <div id="rules-page4" class="rules-collection"></div>
-            </div>
-        </section>
+
+
         <section id="page5" class="section section-advice section-5">
             <div class="section-backdrop"></div>
             <div class="section-inner section-inner-narrow">
@@ -116,12 +79,17 @@
         <section id="page6" class="section section-farsha section-6">
             <div class="section-backdrop"></div>
             <div class="section-inner section-inner-bottom" data-aos="fade-up">
+
+                <div class="golden-alert" data-aos="fade-up">
+                    <p class="golden-alert-text" data-i18n="page6.alert"></p>
+                </div>
+
                 <p class="farsha-highlight" data-i18n="page6.highlight"></p>
                 <p class="farsha-body" data-i18n="page6.body"></p>
                 <p class="farsha-closing" data-i18n="page6.closing"></p>
+
                 <figure class="farsha-figure" data-aos="fade-up" data-aos-delay="120">
-                    <img src="../assets/secrets_catalogue/farsha-café.jpg" alt="Farsha Café con lanterne"
-                        class="farsha-photo">
+                    <img data-img="page6.img" alt="Farsha Café con lanterne" class="farsha-photo">
                 </figure>
             </div>
         </section>
@@ -129,6 +97,7 @@
             <div class="section-backdrop"></div>
             <div class="section-inner section-inner-adventures" data-aos="fade-up">
                 <h2 class="section-title" data-i18n="page7.title"></h2>
+                <p class="checklist-intro" data-i18n="page7.intro"></p>
                 <div id="adventuresGrid" class="adventures-grid"></div>
                 <div class="footer-logo-wrap">
                     <div class="footer-logo-card">

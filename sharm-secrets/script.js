@@ -5,9 +5,20 @@ const i18nData = {
 
 let currentLang = "it";
 
-/**
- * تحسين دالة التوصيف النصي لتشمل العناوين والفقرات والأقسام الجديدة
- */
+function getValueByPath(root, path) {
+  const segments = path.split(".");
+  let value = root;
+  for (let i = 0; i < segments.length; i += 1) {
+    const key = segments[i];
+    if (value && Object.prototype.hasOwnProperty.call(value, key)) {
+      value = value[key];
+    } else {
+      return null;
+    }
+  }
+  return value;
+}
+
 function applyTextContent(lang) {
   const dataset = i18nData[lang];
   if (!dataset) return;
@@ -15,108 +26,121 @@ function applyTextContent(lang) {
   const selectors = document.querySelectorAll("[data-i18n]");
   selectors.forEach((element) => {
     const keyPath = element.getAttribute("data-i18n");
-    const segments = keyPath.split(".");
-    let value = dataset;
-    for (let segment of segments) {
-      if (value && Object.prototype.hasOwnProperty.call(value, segment)) {
-        value = value[segment];
-      } else {
-        value = null;
-        break;
-      }
-    }
+    const value = getValueByPath(dataset, keyPath);
     if (typeof value === "string") {
       element.textContent = value;
     }
   });
 
-  // تحديث نص زر اللغة
   const langToggle = document.getElementById("langToggle");
   if (langToggle) langToggle.textContent = dataset.nav_lang;
 
-  // تحديث قسم الخدمات (Page 2)
-  const services = dataset.page2?.services || [];
-  const serviceItems = document.querySelectorAll(".service-item"); // تأكد من استخدام هذا الكلاس في الـ HTML
-  serviceItems.forEach((item, index) => {
-    const titleEl = item.querySelector(".service-title");
-    const descEl = item.querySelector(".service-desc");
-    if (services[index]) {
-      if (titleEl) titleEl.textContent = services[index].name;
-      if (descEl) descEl.textContent = services[index].desc;
-    }
-  });
+  const heroImage = document.querySelector(".hero-photo");
+  const heroSrc = getValueByPath(dataset, "page1.hero_img");
+  if (heroImage && typeof heroSrc === "string") {
+    heroImage.src = heroSrc;
+  }
+
+  const farshaImage = document.querySelector(".farsha-photo");
+  const farshaSrc = getValueByPath(dataset, "page6.img");
+  if (farshaImage && typeof farshaSrc === "string") {
+    farshaImage.src = farshaSrc;
+  }
 }
 
-/**
- * دالة محسنة لعرض القواعد مع وصف طويل وصور
- */
-function renderRules(containerId, pageKey, lang) {
+function renderComponent(containerId, dataPath, template) {
   const container = document.getElementById(containerId);
   if (!container) return;
+  const dataset = i18nData[currentLang];
+  if (!dataset) return;
 
-  const page = i18nData[lang]?.[pageKey];
-  const rules = page?.rules || [];
-
-  // عرض النص التقديمي للقسم
-  const introEl = document.querySelector(`[data-i18n="${pageKey}.intro"]`);
-  if (introEl) introEl.textContent = page.intro;
-
+  const data = getValueByPath(dataset, dataPath);
   container.innerHTML = "";
-  rules.forEach((rule, index) => {
-    const card = document.createElement("article");
-    card.className = "rule-section"; // Mobile-first structure
-    card.setAttribute("data-aos", "fade-up");
 
-    // الهيكل: نص ثم صورة (كما طلبت للموبايل)
-    const imageSrc = getRuleImageSource(pageKey, index);
-    card.innerHTML = `
-      <div class="rule-text-content">
-        <h3 class="rule-title">${rule.title}</h3>
-        <p class="rule-desc">${rule.desc}</p>
-      </div>
-      <div class="rule-image-container">
-        <img src="${imageSrc}" alt="${rule.title}" class="rule-img" loading="lazy">
-      </div>
-    `;
-    container.appendChild(card);
-  });
+  if (Array.isArray(data)) {
+    const fragment = document.createDocumentFragment();
+    data.forEach((item, index) => {
+      const html = template(item, index, dataset);
+      if (!html) return;
+      const wrapper = document.createElement("div");
+      wrapper.innerHTML = html.trim();
+      while (wrapper.firstChild) {
+        fragment.appendChild(wrapper.firstChild);
+      }
+    });
+    container.appendChild(fragment);
+  } else if (data && typeof data === "object") {
+    const html = template(data, 0, dataset);
+    if (html) {
+      const wrapper = document.createElement("div");
+      wrapper.innerHTML = html.trim();
+      while (wrapper.firstChild) {
+        container.appendChild(wrapper.firstChild);
+      }
+    }
+  }
+
+  if (window.AOS) window.AOS.refreshHard();
 }
 
-/**
- * دالة محسنة لعرض قائمة الحقيبة مع وصف أيقونات
- */
-function renderChecklist(listId, pageKey, lang) {
-  const container = document.getElementById(listId);
-  if (!container) return;
+function universalTemplate(item, index) {
+  if (!item) return "";
+  const delay = index === 0 ? 0 : index * 80;
+  const safeDelay = String(delay);
+  const imgSrc = typeof item.img === "string" ? item.img : "";
+  const title = item.title || item.name || "";
+  const desc = item.desc || "";
+  const extraTitle = item.extra_title || "";
+  const extraDesc = item.extra_desc || "";
+  const hasExtra = extraTitle || extraDesc;
+  const extraBlock = hasExtra
+    ? `
+      <div class="catalog-card-extra">
+        ${extraTitle ? `<h4 class="catalog-card-extra-title">${extraTitle}</h4>` : ""}
+        ${extraDesc ? `<p class="catalog-card-extra-desc">${extraDesc}</p>` : ""}
+      </div>
+    `
+    : "";
+  return `
+    <article class="catalog-card" data-aos="fade-up"${safeDelay !== "0" ? ` data-aos-delay="${safeDelay}"` : ""}>
+      <div class="catalog-card-main">
+        <h3 class="catalog-card-title">${title}</h3>
+        <p class="catalog-card-desc">${desc}</p>
+      </div>
+      <div class="catalog-card-image">
+        <img src="${imgSrc}" alt="${title}" class="catalog-card-img" loading="lazy">
+      </div>
+      ${extraBlock}
+    </article>
+  `;
+}
 
-  const page = i18nData[lang]?.[pageKey];
-  const items = page?.items || [];
-
-  container.innerHTML = "";
-  items.forEach((item, index) => {
-    const itemBox = document.createElement("div");
-    itemBox.className = "checklist-item";
-    itemBox.setAttribute("data-aos", "zoom-in");
-
-    const iconClasses = [
-      "fa-solid fa-shirt",
-      "fa-solid fa-shoe-prints",
-      "fa-solid fa-sun",
-      "fa-solid fa-passport"
-    ];
-    const iconClass = iconClasses[index] || iconClasses[0];
-
-    itemBox.innerHTML = `
+function checklistTemplate(item) {
+  if (!item) return "";
+  const iconToken = typeof item.icon === "string" ? item.icon : "";
+  const iconClass = iconToken ? `fa-solid ${iconToken} checklist-icon-glyph` : "fa-solid fa-circle checklist-icon-glyph";
+  return `
+    <div class="checklist-item" data-aos="zoom-in">
       <div class="checklist-icon">
-        <i class="${iconClass} checklist-icon-glyph" aria-hidden="true"></i>
+        <i class="${iconClass}" aria-hidden="true"></i>
       </div>
       <div class="checklist-text">
-        <h4>${item.title}</h4>
-        <p>${item.desc}</p>
+        <h4>${item.title || ""}</h4>
+        <p>${item.desc || ""}</p>
       </div>
-    `;
-    container.appendChild(itemBox);
-  });
+    </div>
+  `;
+}
+
+function adventuresTemplate(item, index) {
+  if (!item) return "";
+  const imgSrc = typeof item.img === "string" ? item.img : "";
+  return `
+    <button type="button" class="adventure-card" data-index="${String(index)}" data-aos="zoom-in">
+      <img src="${imgSrc}" class="adventure-photo" alt="">
+      <div class="adventure-caption">${item.cap || ""}</div>
+    </button>
+  `;
 }
 
 function scrollToSection(targetId) {
@@ -189,10 +213,11 @@ function applyTranslations(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
   applyTextContent(lang);
-  renderRules("rules-page3", "page3", lang);
-  renderRules("rules-page4", "page4", lang);
-  renderChecklist("packing-checklist", "page5", lang);
-  renderAdventures(lang);
+  renderComponent("servicesFlow", "page2.services", universalTemplate);
+  renderComponent("rules-page3", "page3.rules", universalTemplate);
+  renderComponent("rules-page4", "page4.rules", universalTemplate);
+  renderComponent("packing-checklist", "page5.items", checklistTemplate);
+  renderComponent("adventuresGrid", "page7.items", adventuresTemplate);
   renderIndexMenu(lang);
   const langButtons = document.querySelectorAll(".lang-btn");
   langButtons.forEach((button) => {
@@ -243,53 +268,6 @@ function attachIndexToggle() {
   });
 }
 
-function getRuleImageSource(pageKey, index) {
-  const map = {
-    page3: [
-      "../assets/secrets_catalogue/euro-coins-no.jpg",
-      "../assets/secrets_catalogue/sim-card-solo-negozi-ufficiali.jpg",
-      "../assets/secrets_catalogue/taxi-prezzo-concordato.jpg",
-      "../assets/secrets_catalogue/antinal.jpg"
-    ],
-    page4: [
-      "../assets/secrets_catalogue/dress-code.jpg",
-      "../assets/secrets_catalogue/negoziare.jpg",
-      "../assets/secrets_catalogue/coralli.jpg",
-      "../assets/secrets_catalogue/baksheesh.jpg"
-    ]
-  };
-  const list = map[pageKey] || [];
-  return list[index] || list[0] || "";
-}
-
-function renderAdventures(lang) {
-  const container = document.getElementById("adventuresGrid");
-  if (!container) return;
-  const dataset = i18nData[lang];
-  const page = dataset && dataset.page7;
-  const items = page && Array.isArray(page.items) ? page.items : [];
-  const imageSources = [
-    "../assets/adventures/pilot.jpg",
-    "../assets/adventures/eiffel-tower.jpg",
-    "../assets/adventures/red-square.jpg",
-    "../assets/adventures/diving.jpg"
-  ];
-  container.innerHTML = "";
-  items.forEach((item, index) => {
-    const card = document.createElement("button");
-    card.type = "button";
-    card.className = "adventure-card";
-    card.setAttribute("data-index", String(index));
-    card.setAttribute("data-aos", "zoom-in");
-    const src = imageSources[index] || imageSources[0];
-    card.innerHTML = `
-      <img src="${src}" class="adventure-photo" alt="">
-      <div class="adventure-caption">${item && item.cap ? item.cap : ""}</div>
-    `;
-    container.appendChild(card);
-  });
-}
-
 function attachAdventuresModal() {
   const modal = document.getElementById("adventuresModal");
   const image = document.getElementById("adventuresModalImage");
@@ -308,13 +286,7 @@ function attachAdventuresModal() {
       const page = dataset && dataset.page7;
       const items = page && Array.isArray(page.items) ? page.items : [];
       const item = items[index] || items[0];
-      const imageSources = [
-        "../assets/adventures/pilot.jpg",
-        "../assets/adventures/eiffel-tower.jpg",
-        "../assets/adventures/red-square.jpg",
-        "../assets/adventures/diving.jpg"
-      ];
-      const src = imageSources[index] || imageSources[0];
+      const src = item && typeof item.img === "string" ? item.img : "";
       image.src = src;
       caption.textContent = item && item.cap ? item.cap : "";
       modal.classList.add("is-visible");
