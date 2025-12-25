@@ -87,7 +87,7 @@ window.i18nEn = {
       {
         title: "9. WATER: BOTTLED ONLY",
         desc: "Friendly advice? Avoid tap water at all costs. Stick to sealed bottles... unless you’re eager to meet your new best friend, Antinal! 😉🧊",
-        img: "../assets/secrets_catalogue/acqua.jpg"
+        img: "../assets/secrets_catalogue/water.jpg"
       },
       {
         title: "10. RELAX: LEAVE THE CLOCK BEHIND",
@@ -163,7 +163,7 @@ window.i18nEn = {
       },
       {
         cap: "Urban Explorer",
-        img: "../assets/adventures/Urbano.jpg"
+        img: "../assets/adventures/urbano.jpg"
       },
       {
         cap: "Every city tells a story",

@@ -87,7 +87,7 @@ window.i18nIt = {
       {
         title: "9. ACQUA: SOLO IN BOTTIGLIA",
         desc: "Vuoi un consiglio da amico? L'acqua del rubinetto lasciala stare. Bevi solo da bottiglie sigillate... a meno che tu non voglia diventare subito il migliore amico dell'Antinal! 😉🧊",
-        img: "../assets/secrets_catalogue/acqua.jpg"
+        img: "../assets/secrets_catalogue/water.jpg"
       },
       {
         title: "10. RELAX: DIMENTICA L'OROLOGIO",
@@ -163,7 +163,7 @@ window.i18nIt = {
       },
       {
         cap: "Esploratore Urbano",
-        img: "../assets/adventures/Urbano.jpg"
+        img: "../assets/adventures/urbano.jpg"
       },
       {
         cap: "Ogni città ha una storia da raccontare",
