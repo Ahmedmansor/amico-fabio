@@ -42,7 +42,7 @@ function applyTextContent(lang) {
   }
 
   const farshaImage = document.querySelector(".farsha-photo");
-  const farshaSrc = getValueByPath(dataset, "page6.img");
+  const farshaSrc = getValueByPath(dataset, "page5.img");
   if (farshaImage && typeof farshaSrc === "string") {
     farshaImage.src = farshaSrc;
   }
@@ -136,11 +136,50 @@ function adventuresTemplate(item, index) {
   if (!item) return "";
   const imgSrc = typeof item.img === "string" ? item.img : "";
   return `
-    <button type="button" class="adventure-card" data-index="${String(index)}" data-aos="zoom-in">
-      <img src="${imgSrc}" class="adventure-photo" alt="">
-      <div class="adventure-caption">${item.cap || ""}</div>
-    </button>
+    <div class="swiper-slide">
+      <button type="button" class="adventure-card" data-index="${String(index)}" data-aos="zoom-in">
+        <img src="${imgSrc}" class="adventure-photo" alt="" loading="lazy" decoding="async">
+        <div class="adventure-caption">${item.cap || ""}</div>
+      </button>
+    </div>
   `;
+}
+
+let swiperInstance = null;
+
+function setupAdventuresSlider() {
+  if (swiperInstance) {
+    swiperInstance.destroy(true, true);
+  }
+
+  swiperInstance = new Swiper(".adventures-slider", {
+    loop: true,
+    centeredSlides: true,
+    grabCursor: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    speed: 600,
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 1.5,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      }
+    }
+  });
 }
 
 function scrollToSection(targetId) {
@@ -175,31 +214,20 @@ function renderIndexMenu(lang) {
     { id: "#page1", key: "page1.headline" },
     { id: "#page2", key: "page2.headline" },
     { id: "#page3", key: "page3.headline" },
-    { id: "#page4", key: "page4.headline" },
-    { id: "#page5", key: "page5.list_title" },
-    { id: "#page6", key: "page6.highlight" },
-    { id: "#page7", key: "page7.title" }
+    { id: "#page4", key: "page4.list_title" },
+    { id: "#page5", key: "page5.highlight" },
+    { id: "#page6", key: "page6.title" }
   ];
   nav.innerHTML = "";
   sections.forEach((section, index) => {
-    let labelValue = dataset;
-    const parts = section.key.split(".");
-    for (let i = 0; i < parts.length; i += 1) {
-      const part = parts[i];
-      if (labelValue && Object.prototype.hasOwnProperty.call(labelValue, part)) {
-        labelValue = labelValue[part];
-      } else {
-        labelValue = null;
-        break;
-      }
-    }
+    const labelValue = getValueByPath(dataset, section.key);
     const button = document.createElement("button");
     button.type = "button";
     button.className = "index-link";
     if (typeof labelValue === "string") {
-      button.textContent = String(index + 1) + " · " + labelValue;
+      button.textContent = `${index + 1} · ${labelValue}`;
     } else {
-      button.textContent = "Section " + String(index + 1);
+      button.textContent = `Section ${index + 1}`;
     }
     button.addEventListener("click", () => {
       hideIndexMenu();
@@ -215,9 +243,9 @@ function applyTranslations(lang) {
   applyTextContent(lang);
   renderComponent("servicesFlow", "page2.services", universalTemplate);
   renderComponent("rules-page3", "page3.rules", universalTemplate);
-  renderComponent("rules-page4", "page4.rules", universalTemplate);
-  renderComponent("packing-checklist", "page5.items", checklistTemplate);
-  renderComponent("adventuresGrid", "page7.items", adventuresTemplate);
+  renderComponent("packing-checklist", "page4.items", checklistTemplate);
+  renderComponent("adventuresGrid", "page6.items", adventuresTemplate);
+  setupAdventuresSlider();
   renderIndexMenu(lang);
   const langButtons = document.querySelectorAll(".lang-btn");
   langButtons.forEach((button) => {
@@ -283,7 +311,7 @@ function attachAdventuresModal() {
       const indexValue = card.getAttribute("data-index");
       const index = indexValue ? parseInt(indexValue, 10) : 0;
       const dataset = i18nData[currentLang];
-      const page = dataset && dataset.page7;
+      const page = dataset && dataset.page6;
       const items = page && Array.isArray(page.items) ? page.items : [];
       const item = items[index] || items[0];
       const src = item && typeof item.img === "string" ? item.img : "";

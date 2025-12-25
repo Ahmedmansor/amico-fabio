@@ -96,14 +96,8 @@ window.i18nIt = {
       },
     ]
   },
-  page4: {
-    headline: "🛡️ Le 8 Regole d'Oro di Fabio (Parte 2)",
-    intro: "Continuando il nostro viaggio tra le Regole d'Oro, approfondiamo aspetti culturali e ambientali che renderanno la tua visita a Sharm El Sheikh non solo più piacevole, ma anche più consapevole e rispettosa. Ogni punto è un invito a vivere Sharm con saggezza e apprezzamento.",
-    rules: [
 
-    ]
-  },
-  page5: {
+  page4: {
     alert: "⚠️ Un Consiglio da Amico: Chi offre metà prezzo vi ruba tempo prezioso nei negozi. Con me, pagate per la Libertà e per un servizio impeccabile e trasparente. La vostra vacanza è un investimento in momenti indimenticabili, non in contrattazioni estenuanti.",
     list_title: "La Tua Lista Essenziale per Sharm",
     intro: "Per goderti appieno la tua avventura a Sharm El Sheikh, un'accurata preparazione è la chiave. Questa lista ti aiuterà a non dimenticare nulla di fondamentale, garantendoti comfort e praticità.",
@@ -130,14 +124,14 @@ window.i18nIt = {
       }
     ]
   },
-  page6: {
+  page5: {
     alert: "⚠️ Attenzione ai Menu: Verifica sempre il costo di ingresso e delle consumazioni prima di ordinare nei locali per evitare sorprese sul conto finale.",
     highlight: "📍 Da Non Perdere: Farsha Café. L'anima del Vecchio Cairo.",
     body: "Immergiti nell'atmosfera magica e senza tempo del Farsha Café, un luogo dove la storia e la cultura egiziana si fondono in un'esperienza indimenticabile. Questo gioiello nascosto, incastonato tra le rocce, offre viste mozzafiato sul Mar Rosso, circondato da un arredamento tradizionale e luci soffuse che creano un'ambiance unica. Goditi un tè alla menta o un narghilè, lasciandoti avvolgere dalla musica locale e dalla brezza marina. È più di un caffè; è un viaggio sensoriale nel cuore dell'Egitto, un luogo dove il tempo sembra fermarsi e ogni momento diventa un prezioso ricordo.",
     closing: "🌟 Fabio - Il Tuo Amico a Sharm",
     img: "../assets/secrets_catalogue/farsha-café.jpg"
   },
-  page7: {
+  page6: {
     title: "Il Mondo negli Occhi, L'Egitto nel Cuore",
     intro: "Perché scegliere Fabio? Perché prima di essere una guida, sono un viaggiatore come voi.Dai boulevard di Parigi alla Piazza Rossa di Mosca, fino a sorvolare le nuvole come Assistente di Volo... viaggiare mi ha insegnato una lezione fondamentale: I dettagli fanno la differenza.Non vi offro solo un'escursione, vi offro l'esperienza di chi sa cosa significa essere un turista, esplorare il mondo con occhi curiosi e cercare sempre il meglio.",
     items: [

@@ -12,6 +12,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -25,8 +26,35 @@
         <div class="nav-main">
             <button id="indexToggle" class="nav-index" type="button" data-i18n="nav_index">Indice</button>
             <div class="lang-group">
-                <button type="button" class="lang-btn is-active" data-lang="it">IT</button>
-                <button type="button" class="lang-btn" data-lang="en">EN</button>
+                <button type="button" class="lang-btn is-active" data-lang="it" aria-label="Italian">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="lang-flag-svg">
+                        <circle cx="256" cy="256" r="256" fill="#f0f0f0" />
+                        <path d="M0 256c0 113.4 73.5 209.7 175.4 243.4V12.6C73.5 46.3 0 142.6 0 256z" fill="#6da544" />
+                        <path d="M512 256c0-113.4-73.5-209.7-175.4-243.4v486.8c101.9-33.7 175.4-130 175.4-243.4z"
+                            fill="#d80027" />
+                    </svg>
+                    <span class="lang-label">IT</span>
+                </button>
+                <button type="button" class="lang-btn" data-lang="en" aria-label="English">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="lang-flag-svg">
+                        <circle cx="256" cy="256" r="256" fill="#f0f0f0" />
+                        <g clip-path="url(#clip-us)">
+                            <path
+                                d="M0 0h512v39.4H0zm0 78.8h512v39.4H0zm0 78.8h512v39.4H0zm0 78.8h512v39.4H0zm0 78.8h512v39.3H0zm0 78.8h512v39.4H0zm0 78.8h512v39.4H0z"
+                                fill="#d80027" />
+                            <path d="M0 0h262.2v275.6H0z" fill="#0052b4" />
+                            <path
+                                d="M47.7 44.4l7.1 21.8h23.2l-18.6 13.5 7.1 21.8-18.6-13.5-18.6 13.5 7.1-21.8-18.6-13.5h23.2zm87.4 0l7.1 21.8h23.2l-18.6 13.5 7.1 21.8-18.6-13.5-18.6 13.5 7.1-21.8-18.6-13.5h23.2zm87.4 0l7.1 21.8h23.2l-18.6 13.5 7.1 21.8-18.6-13.5-18.6 13.5 7.1-21.8-18.6-13.5h23.2zM91.4 111.4l7 21.8h23.2l-18.6 13.5 7.1 21.8-18.6-13.5-18.6 13.5 7.1-21.8-18.6-13.5h23.1zm87.4 0l7.1 21.8h23.2l-18.6 13.5 7.1 21.8-18.6-13.5-18.6 13.5 7.1-21.8-18.6-13.5h23.2zM47.7 178.3l7.1 21.8h23.2l-18.6 13.5 7.1 21.8-18.6-13.5-18.6 13.5 7.1-21.8-18.6-13.5h23.2zm87.4 0l7.1 21.8h23.2l-18.6 13.5 7.1 21.8-18.6-13.5-18.6 13.5 7.1-21.8-18.6-13.5h23.2zm87.4 0l7.1 21.8h23.2l-18.6 13.5 7.1 21.8-18.6-13.5-18.6 13.5 7.1-21.8-18.6-13.5h23.2zM91.4 245.3l7 21.8h23.2l-18.6 13.5 7.1 21.8-18.6-13.5-18.6 13.5 7.1-21.8-18.6-13.5h23.1zm87.4 0l7.1 21.8h23.2l-18.6 13.5 7.1 21.8-18.6-13.5-18.6 13.5 7.1-21.8-18.6-13.5h23.2z"
+                                fill="#f0f0f0" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip-us">
+                                <circle cx="256" cy="256" r="256" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <span class="lang-label">EN</span>
+                </button>
             </div>
         </div>
     </header>
@@ -40,8 +68,8 @@
                 <figure class="hero-figure" data-aos="fade-up" data-aos-delay="120">
                     <img data-img="page1.hero_img" alt="Fabio" class="hero-photo">
                 </figure>
-                <p class="section-subtitle" data-i18n="page1.extra_title"></p>
-                <p class="section-body" data-i18n="page1.extra_desc"></p>
+                <p class="section-subtitle hero-extra-title" data-i18n="page1.extra_title"></p>
+                <p class="section-body hero-extra-desc" data-i18n="page1.extra_desc"></p>
             </div>
         </section>
         <section id="page2" class="section section-dynamic section-2">
@@ -56,49 +84,52 @@
         <section id="page3" class="section section-dynamic section-3">
             <div class="section-backdrop"></div>
             <div class="section-inner" data-aos="fade-up">
-                <h2 class="section-title" data-i18n="page3.headline"></h2>
+                <h2 class="section-title section-title-shimmer" data-i18n="page3.headline"></h2>
                 <p class="section-intro" data-i18n="page3.intro"></p>
                 <div id="rules-page3" class="catalog-flow"></div>
             </div>
         </section>
 
 
-        <section id="page5" class="section section-advice section-5">
+        <section id="page4" class="section section-advice section-4">
             <div class="section-backdrop"></div>
             <div class="section-inner section-inner-narrow">
                 <div class="golden-alert" data-aos="fade-up">
-                    <p class="golden-alert-text" data-i18n="page5.alert"></p>
+                    <p class="golden-alert-text" data-i18n="page4.alert"></p>
                 </div>
                 <div class="checklist" data-aos="fade-up">
-                    <h3 class="checklist-title" data-i18n="page5.list_title"></h3>
-                    <p class="checklist-intro" data-i18n="page5.intro"></p>
+                    <h3 class="checklist-title" data-i18n="page4.list_title"></h3>
+                    <p class="checklist-intro" data-i18n="page4.intro"></p>
                     <div id="packing-checklist" class="checklist-items"></div>
                 </div>
             </div>
         </section>
-        <section id="page6" class="section section-farsha section-6">
+        <section id="page5" class="section section-farsha section-5">
             <div class="section-backdrop"></div>
             <div class="section-inner section-inner-bottom" data-aos="fade-up">
 
                 <div class="golden-alert" data-aos="fade-up">
-                    <p class="golden-alert-text" data-i18n="page6.alert"></p>
+                    <p class="golden-alert-text" data-i18n="page5.alert"></p>
                 </div>
 
-                <p class="farsha-highlight" data-i18n="page6.highlight"></p>
-                <p class="farsha-body" data-i18n="page6.body"></p>
-                <p class="farsha-closing" data-i18n="page6.closing"></p>
+                <p class="farsha-highlight" data-i18n="page5.highlight"></p>
+                <p class="farsha-body" data-i18n="page5.body"></p>
+                <p class="farsha-closing" data-i18n="page5.closing"></p>
 
                 <figure class="farsha-figure" data-aos="fade-up" data-aos-delay="120">
-                    <img data-img="page6.img" alt="Farsha Café con lanterne" class="farsha-photo">
+                    <img data-img="page5.img" alt="Farsha Café con lanterne" class="farsha-photo">
                 </figure>
             </div>
         </section>
-        <section id="page7" class="section section-adventures">
+        <section id="page6" class="section section-adventures section-6">
             <div class="section-backdrop"></div>
             <div class="section-inner section-inner-adventures" data-aos="fade-up">
-                <h2 class="section-title" data-i18n="page7.title"></h2>
-                <p class="checklist-intro" data-i18n="page7.intro"></p>
-                <div id="adventuresGrid" class="adventures-grid"></div>
+                <h2 class="section-title" data-i18n="page6.title"></h2>
+                <p class="checklist-intro" data-i18n="page6.intro"></p>
+                <div class="adventures-slider swiper" aria-label="Adventures slider">
+                    <div id="adventuresGrid" class="swiper-wrapper"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
                 <div class="footer-logo-wrap">
                     <div class="footer-logo-card">
                         <img src="../assets/logo-fabio-square.jpg" alt="Fabio Sharm Secrets logo"
@@ -131,6 +162,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="i18n-it.js"></script>
     <script src="i18n-en.js"></script>
     <script src="script.js"></script>

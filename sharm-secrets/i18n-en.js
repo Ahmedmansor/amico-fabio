@@ -96,14 +96,8 @@ window.i18nEn = {
       },
     ]
   },
-  page4: {
-    headline: "🛡️ Fabio's 8 Golden Rules (Part 2)",
-    intro: "We delve into cultural and environmental aspects that will make your visit to Sharm more conscious and respectful. Each point is an invitation to live Sharm with wisdom.",
-    rules: [
 
-    ]
-  },
-  page5: {
+  page4: {
     alert: "⚠️ A Friend’s Advice: Those offering half-price steal your precious time in shops. With me, you pay for Freedom and for an impeccable service. Your holiday is an investment in moments, not in exhausting negotiations.",
     list_title: "Your Essential Packing List",
     intro: "Accurate preparation is key to fully enjoying your adventure. This list will help you not to forget anything fundamental.",
@@ -130,14 +124,14 @@ window.i18nEn = {
       }
     ]
   },
-  page6: {
+  page5: {
     alert: "⚠️ Menu Transparency: Always verify entry fees and drink prices before ordering at local venues to ensure a seamless, surprise-free experience when the final bill arrives.",
     highlight: "📍 Must-See: Farsha Café. The Soul of Old Cairo.",
     body: "Immerse yourself in the magical and timeless atmosphere of Farsha Café, a place where Egyptian history and culture blend into an unforgettable experience. This hidden gem, nestled among the rocks, offers breathtaking views of the Red Sea, surrounded by traditional decor and soft lights that create a unique ambiance. Enjoy a mint tea or a hookah, letting yourself be enveloped by local music and the sea breeze. It's more than just a café; it's a sensory journey into the heart of Egypt, a place where time seems to stand still and every moment becomes a precious memory.",
     closing: "🌟 Fabio - Your Friend in Sharm",
     img: "../assets/secrets_catalogue/farsha-café.jpg"
   },
-  page7: {
+  page6: {
     title: "The World in my Eyes, Egypt in my Heart",
     intro: "Why choose Fabio? Because before becoming your guide, I was a traveler just like you. From the grand boulevards of Paris to Moscow’s Red Square, and soaring high above the clouds as a Flight Attendant... a life of travel has taught me one vital lesson: The details make all the difference. I don’t simply offer you an excursion; I offer the perspective of someone who truly understands the soul of a traveler—someone who explores the world with curious eyes and settles for nothing less than excellence.",
     items: [
