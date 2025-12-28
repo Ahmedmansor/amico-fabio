@@ -5,7 +5,9 @@ const i18nData = {
 
 let currentLang = "it";
 
+// Simple deep object access
 function getValueByPath(root, path) {
+  if (!root || !path) return null;
   const segments = path.split(".");
   let value = root;
   for (let i = 0; i < segments.length; i += 1) {
@@ -33,19 +35,20 @@ function applyTextContent(lang) {
   });
 
   const langToggle = document.getElementById("langToggle");
-  if (langToggle) langToggle.textContent = dataset.nav_lang;
-
-  const heroImage = document.querySelector(".hero-photo");
-  const heroSrc = getValueByPath(dataset, "page1.hero_img");
-  if (heroImage && typeof heroSrc === "string") {
-    heroImage.src = heroSrc;
+  if (langToggle) {
+    const navLang = getValueByPath(dataset, "secrets.nav_lang");
+    if (navLang) langToggle.textContent = navLang;
   }
 
-  const farshaImage = document.querySelector(".farsha-photo");
-  const farshaSrc = getValueByPath(dataset, "page5.img");
-  if (farshaImage && typeof farshaSrc === "string") {
-    farshaImage.src = farshaSrc;
-  }
+  // Images with data-img
+  const imgSelectors = document.querySelectorAll("[data-img]");
+  imgSelectors.forEach((img) => {
+    const keyPath = img.getAttribute("data-img");
+    const src = getValueByPath(dataset, keyPath);
+    if (typeof src === "string") {
+      img.src = src;
+    }
+  });
 }
 
 function renderComponent(containerId, dataPath, template) {
@@ -211,12 +214,12 @@ function renderIndexMenu(lang) {
   const nav = menu.querySelector(".index-menu-nav");
   if (!nav) return;
   const sections = [
-    { id: "#page1", key: "page1.headline" },
-    { id: "#page2", key: "page2.headline" },
-    { id: "#page3", key: "page3.headline" },
-    { id: "#page4", key: "page4.list_title" },
-    { id: "#page5", key: "page5.highlight" },
-    { id: "#page6", key: "page6.title" }
+    { id: "#page1", key: "secrets.page1.headline" },
+    { id: "#page2", key: "secrets.page2.headline" },
+    { id: "#page3", key: "secrets.page3.headline" },
+    { id: "#page4", key: "secrets.page4.list_title" },
+    { id: "#page5", key: "secrets.page5.highlight" },
+    { id: "#page6", key: "secrets.page6.title" }
   ];
   nav.innerHTML = "";
   sections.forEach((section, index) => {
@@ -240,13 +243,21 @@ function renderIndexMenu(lang) {
 function applyTranslations(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
+
+  // Save to localStorage
+  localStorage.setItem("preferredLanguage", lang);
+
   applyTextContent(lang);
-  renderComponent("servicesFlow", "page2.services", universalTemplate);
-  renderComponent("rules-page3", "page3.rules", universalTemplate);
-  renderComponent("packing-checklist", "page4.items", checklistTemplate);
-  renderComponent("adventuresGrid", "page6.items", adventuresTemplate);
+
+  // Note: Updated keys to include 'secrets.'
+  renderComponent("servicesFlow", "secrets.page2.services", universalTemplate);
+  renderComponent("rules-page3", "secrets.page3.rules", universalTemplate);
+  renderComponent("packing-checklist", "secrets.page4.items", checklistTemplate);
+  renderComponent("adventuresGrid", "secrets.page6.items", adventuresTemplate);
+
   setupAdventuresSlider();
   renderIndexMenu(lang);
+
   const langButtons = document.querySelectorAll(".lang-btn");
   langButtons.forEach((button) => {
     const value = button.getAttribute("data-lang");
@@ -311,7 +322,9 @@ function attachAdventuresModal() {
       const indexValue = card.getAttribute("data-index");
       const index = indexValue ? parseInt(indexValue, 10) : 0;
       const dataset = i18nData[currentLang];
-      const page = dataset && dataset.page6;
+
+      // Updated path to include secrets
+      const page = dataset && dataset.secrets && dataset.secrets.page6;
       const items = page && Array.isArray(page.items) ? page.items : [];
       const item = items[index] || items[0];
       const src = item && typeof item.img === "string" ? item.img : "";
@@ -341,11 +354,32 @@ function initializeAOS() {
   }
 }
 
-// تنفيذ الكود عند تحميل الصفحة
+// Skeleton placeholders for future logic
+function fetchAndParseData() {
+  console.log('Fetching data...');
+  // TODO: Implement fetching from Google Sheets CSV
+}
+
+function initPromoBanner() {
+  console.log('Initializing promo banner...');
+  // TODO: Implement promo banner logic based on Global_Settings
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initializeAOS();
+
+  // Check localStorage for preferred language
+  const savedLang = localStorage.getItem("preferredLanguage");
+  if (savedLang && i18nData[savedLang]) {
+    currentLang = savedLang;
+  }
+
   applyTranslations(currentLang);
   attachLanguageToggle();
   attachIndexToggle();
   attachAdventuresModal();
+
+  // Init placeholders
+  fetchAndParseData();
+  initPromoBanner();
 });
