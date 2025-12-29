@@ -1,0 +1,22 @@
+:root {
+  --color-navy: #001f3f;
+  --color-gold: #c5a059;
+  --color-gold-soft: #e2c472;
+  --color-gold-dim: #b08d2e;
+  --color-marble: #f5f5f5;
+  --color-marble-soft: #f1f1f1;
+  --color-glass-dark: rgba(0, 0, 0, 0.6);
+  --color-glass-darker: rgba(0, 0, 0, 0.76);
+  --color-text-light: #fafafa;
+  --color-text-muted: rgba(245, 245, 245, 0.82);
+  --shadow-strong: 0 22px 60px rgba(0, 0, 0, 0.9);
+  --shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.65);
+  --radius-large: 24px;
+  --radius-card: 18px;
+  --radius-pill: 999px;
+  --section-padding: clamp(1.5rem, 4vh, 3.5rem);
+  --content-max-width: 1200px;
+  --transition-fast: 180ms ease-out;
+}
+
+

@@ -1,4 +1,30 @@
 window.i18nEn = {
+  fab: {
+    contact: "Contact",
+    indice: "Index"
+  },
+  hero: {
+    vip_title: "⚠️ VIP ACCESS: Fabio's 10 Commandments",
+    vip_desc: "The ultimate survival manual for Sharm. Avoid tourist traps and live the real insider vacation.",
+    vip_btn: "UNLOCK THE VIP MANUAL"
+  },
+  global: {
+    book_now: "Book via WhatsApp",
+    discover: "Discover",
+    price_from: "Price from",
+    duration: "Duration",
+    highlights: "Highlights",
+    included: "Included",
+    not_included: "Not Included",
+    important: "Important",
+    program: "Program",
+    sale: "SALE",
+    read_secrets: "Read the 10 Commandments",
+    secrets_title: "Don't leave without knowing Fabio's 10 Commandments",
+    contact_us: "Contact Us",
+    follow_us: "Follow Us",
+    why_fabio: "Why Fabio?"
+  },
   secrets: {
     nav_index: "Index",
     nav_lang: "IT",
@@ -166,8 +192,76 @@ window.i18nEn = {
         {
           cap: "Certified Passion: Advanced Open Water Diver",
           img: "../assets/adventures/advanced-open-water.jpg"
-        }
+        },
       ]
+    }
+  },
+  trips: {
+    yacht_white: {
+      title: "White Island Zaga – Yacht",
+      short_desc: "3-story yacht in 'ZAGA STYLE' towards Ras Mohammed.",
+      duration: "10 hours",
+      highlights: [
+        "Exclusive Italian-only group",
+        "Guaranteed 1-hour stop at the White Island",
+        "Buffet lunch and unlimited drinks"
+      ],
+      full_description: "A day on board a three-story yacht EXCLUSIVELY RESERVED for ZAGA clients. Enjoy the luxury and freedom of exploring the crystal-clear waters of Ras Mohammed in style. An experience curated down to the smallest detail to offer you maximum comfort and fun.",
+      program: [
+        "Hotel pickup with private car",
+        "Boarding the luxury yacht",
+        "Snorkeling stop at Ras Mohammed",
+        "Stop at the White Island",
+        "Buffet lunch on board",
+        "Return to port and transfer to hotel"
+      ],
+      includes: ["Hotel pickup", "Lunch on board", "Diving equipment (optional)", "Unlimited drinks"],
+      not_included: ["Mask and fins rental", "Photos and videos"],
+      important: "Bring swimsuit, sunscreen, and passport."
+    },
+    safari_quad: {
+      title: "Safari Quad Adventure",
+      short_desc: "Adrenaline-filled quad bike safari in the desert.",
+      duration: "3 hours",
+      highlights: [
+        "Sunset in the desert",
+        "Tea at Bedouin tent",
+        "Professional guide"
+      ],
+      full_description: "Experience the thrill of driving a quad bike through the Sinai desert dunes. An experience that combines adrenaline and natural wonder, perfect for those seeking some action. We will stop at a traditional Bedouin tent to enjoy hot tea and admire the sunset coloring the mountains red. An unforgettable adventure, organized with maximum attention to your safety.",
+      program: [
+        "Hotel pickup",
+        "Arrival at quad center and safety briefing",
+        "Driving in the desert (approx 1 hour)",
+        "Stop at Bedouin tent for tea",
+        "Return to quad center",
+        "Transfer to hotel"
+      ],
+      includes: ["Hotel pickup", "Quad bike", "Bedouin tea", "Helmet"],
+      not_included: ["Scarf", "Goggles", "Tips"],
+      important: "Wear comfortable clothes, closed shoes, and sunglasses."
+    },
+    cairo_pyramids: {
+      title: "Cairo & Pyramids Tour",
+      short_desc: "Full day trip to Cairo to see the Pyramids and Sphinx.",
+      duration: "20 hours",
+      highlights: [
+        "Visit Giza Pyramids",
+        "Egyptian Museum",
+        "Lunch near the Nile"
+      ],
+      full_description: "Discover the ancient wonders of the world with a guided tour of Cairo. We will leave for Cairo to visit the iconic Pyramids of Giza and the enigmatic Sphinx, eternal symbols of this civilization. We will continue with a visit to the Egyptian Museum, keeper of priceless treasures, including those of Tutankhamun. An intense day rich in emotions that will leave you breathless. All with the comfort and assistance that only Fabio can guarantee.",
+      program: [
+        "Night departure from hotel by bus",
+        "Arrival in Cairo and visit to Egyptian Museum",
+        "Lunch at restaurant",
+        "Visit to Giza Pyramids and Sphinx",
+        "Shopping stop (papyrus/perfumes)",
+        "Return to Sharm El Sheikh"
+      ],
+      includes: ["Bus transfer", "Lunch", "Entry fees", "Egyptologist guide"],
+      not_included: ["Drinks", "Boat ride on Nile (optional)", "Tips"],
+      important: "Bring passport and breakfast box."
     }
   }
 };

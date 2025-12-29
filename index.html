@@ -1,36 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fabio Tours | Sharm El Sheikh</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/catalog.css">
+    <link rel="stylesheet" href="assets/css/catalog-card.css">
+    <link rel="stylesheet" href="assets/css/hero-slider.css">
+    <link rel="stylesheet" href="assets/css/global-header.css">
+    <link rel="stylesheet" href="assets/css/floating-widgets.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        'gold-light': '#F1D78A',
+                        'gold-dark': '#AA8C2C',
+                        'black-rich': '#0a0a0a',
+                        'gray-dark': '#1a1a1a',
+                        'cream': '#F5F5DC',
+                        'brown-dark': '#1a1510'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'spin-slow': 'spin 3s linear infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
-<body class="bg-gray-100 font-sans text-gray-900">
-    <div class="min-h-screen flex flex-col items-center justify-center p-4">
-        <h1 class="text-4xl font-bold mb-8 text-center text-blue-900">Fabio Tours - Sharm El Sheikh</h1>
-        
-        <div class="grid gap-6 md:grid-cols-2 max-w-4xl w-full">
-            <a href="welcome.html" class="block p-8 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow transform hover:-translate-y-1 text-center border-t-4 border-green-500">
-                <h2 class="text-2xl font-bold mb-4">Instagram Leads</h2>
-                <p class="text-gray-600">Main Lead Capture Form</p>
-            </a>
-            
-            <a href="sharm-secrets/index.html" class="block p-8 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow transform hover:-translate-y-1 text-center border-t-4 border-gold-500">
-                <h2 class="text-2xl font-bold mb-4">Sharm Secrets</h2>
-                <p class="text-gray-600">I 10 Comandamenti di Fabio</p>
-            </a>
+
+<body class="bg-black font-sans text-gray-200">
+    <!-- Global UI Placeholders -->
+    <header id="global-header" class="fixed w-full top-0 z-50 transition-all duration-300"></header>
+
+    <section id="hero-slider-section" class="w-full relative overflow-hidden">
+        <div class="hero-slider-box mx-auto">
+            <div class="hero-slider-bg">
+                <img src="assets/images/comandamenti-images/1.jpg" alt="Comandamenti 1" class="hero-slide">
+                <img src="assets/images/comandamenti-images/2.jpg" alt="Comandamenti 2" class="hero-slide">
+                <img src="assets/images/comandamenti-images/3.jpg" alt="Comandamenti 3" class="hero-slide">
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h2 class="hero-title" data-i18n="hero.vip_title">⚠️ VIP ACCESS: I 10 Comandamenti di Fabio</h2>
+                <p class="hero-desc" data-i18n="hero.vip_desc">Il manuale di sopravvivenza definitivo per Sharm. Evita
+                    le trappole per turisti e
+                    vivi la vera vacanza da insider.</p>
+                <a href="sharm-secrets/index.html" class="hero-btn" data-i18n="hero.vip_btn">SBLOCCA IL MANUALE VIP</a>
+            </div>
         </div>
-        
-        <div class="mt-12 text-center text-sm text-gray-500">
-            <p>&copy; 2025 Fabio Tours. All rights reserved.</p>
+    </section>
+    <!-- Bannar -->
+    <div id="promo-banner-container"></div>
+
+    <div id="trips-title-section" class="min-h-screen flex flex-col items-center justify-center p-4 pt-24">
+        <!-- Hero / Title -->
+        <div class="text-center mb-12" data-aos="fade-down">
+            <h1 class="text-5xl md:text-7xl font-playfair font-bold mb-4 text-gold tracking-tighter drop-shadow-lg">
+                FABIO TOURS
+            </h1>
+            <p class="text-gray-400 uppercase tracking-widest text-sm md:text-base">
+                Sharm El Sheikh VIP Experiences
+            </p>
         </div>
+
+        <!-- Catalog Grid -->
+        <div id="trips-grid" class="grid gap-6 grid-cols-2 w-full max-w-5xl px-4 mx-auto"></div>
     </div>
 
-    <script src="assets/lang/global-en.js"></script>
+    <footer id="global-footer"></footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
     <script src="assets/lang/global-it.js"></script>
+    <script src="assets/lang/global-en.js"></script>
+    <script src="assets/js/core/api.js"></script>
+    <script src="assets/js/modules/global-header.js"></script>
+    <script src="assets/js/modules/trips-renderer.js"></script>
+    <script src="assets/js/modules/hero-slider.js"></script>
+    <script src="assets/js/modules/promo-banner.js"></script>
+    <script src="assets/js/modules/ui-layout.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>

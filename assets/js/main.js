@@ -1,3 +1,21 @@
+
+navigator.serviceWorker.getRegistrations().then(regs => {
+  regs.forEach(r => {
+    r.unregister();
+  });
+});
+
+if ('caches' in window) {
+  caches.keys().then((names) => {
+    names.forEach((name) => {
+      caches.delete(name);
+    });
+  });
+}
+// ==========================================
+// App Orchestrator & Main Controller
+// ==========================================
+
 const i18nData = {
   it: window.i18nIt,
   en: window.i18nEn
@@ -21,6 +39,10 @@ function getValueByPath(root, path) {
   return value;
 }
 
+// ==========================================
+// Language Engine
+// ==========================================
+
 function applyTextContent(lang) {
   const dataset = i18nData[lang];
   if (!dataset) return;
@@ -34,12 +56,6 @@ function applyTextContent(lang) {
     }
   });
 
-  const langToggle = document.getElementById("langToggle");
-  if (langToggle) {
-    const navLang = getValueByPath(dataset, "secrets.nav_lang");
-    if (navLang) langToggle.textContent = navLang;
-  }
-
   // Images with data-img
   const imgSelectors = document.querySelectorAll("[data-img]");
   imgSelectors.forEach((img) => {
@@ -50,6 +66,44 @@ function applyTextContent(lang) {
     }
   });
 }
+
+function applyTranslations(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  localStorage.setItem("fabio_lang", lang);
+  localStorage.setItem("preferredLanguage", lang);
+
+  applyTextContent(lang);
+
+  // Re-render components if on Sharm Secrets page
+  if (document.getElementById("servicesFlow")) {
+    renderComponent("servicesFlow", "secrets.page2.services", universalTemplate);
+    renderComponent("rules-page3", "secrets.page3.rules", universalTemplate);
+    renderComponent("packing-checklist", "secrets.page4.items", checklistTemplate);
+    renderComponent("adventuresGrid", "secrets.page6.items", adventuresTemplate);
+    setupAdventuresSlider();
+    renderIndexMenu(lang);
+  }
+
+  // Re-render trips if on Trip Catalog page
+  if (document.getElementById("trips-grid") && window.appData && window.appData.Trips_Prices) {
+    if (window.TripsRenderer) {
+      window.TripsRenderer.render(window.appData.Trips_Prices);
+    }
+  }
+
+  // Re-render promo banner
+  if (window.PromoBanner && window.appData && window.appData.Global_Settings) {
+    window.PromoBanner.render(window.appData.Global_Settings);
+  }
+
+  if (window.AOS) window.AOS.refreshHard();
+}
+
+
+// ==========================================
+// Sharm Secrets Rendering Logic
+// ==========================================
 
 function renderComponent(containerId, dataPath, template) {
   const container = document.getElementById(containerId);
@@ -155,6 +209,9 @@ function setupAdventuresSlider() {
     swiperInstance.destroy(true, true);
   }
 
+  // Only init if element exists
+  if (!document.querySelector(".adventures-slider")) return;
+
   swiperInstance = new Swiper(".adventures-slider", {
     loop: true,
     centeredSlides: true,
@@ -240,53 +297,6 @@ function renderIndexMenu(lang) {
   });
 }
 
-function applyTranslations(lang) {
-  currentLang = lang;
-  document.documentElement.lang = lang;
-
-  // Save to localStorage
-  localStorage.setItem("preferredLanguage", lang);
-
-  applyTextContent(lang);
-
-  // Note: Updated keys to include 'secrets.'
-  renderComponent("servicesFlow", "secrets.page2.services", universalTemplate);
-  renderComponent("rules-page3", "secrets.page3.rules", universalTemplate);
-  renderComponent("packing-checklist", "secrets.page4.items", checklistTemplate);
-  renderComponent("adventuresGrid", "secrets.page6.items", adventuresTemplate);
-
-  setupAdventuresSlider();
-  renderIndexMenu(lang);
-
-  const langButtons = document.querySelectorAll(".lang-btn");
-  langButtons.forEach((button) => {
-    const value = button.getAttribute("data-lang");
-    button.classList.toggle("is-active", value === lang);
-  });
-
-  if (window.AOS) window.AOS.refreshHard();
-}
-
-function attachLanguageToggle() {
-  const langToggle = document.getElementById("langToggle");
-  if (langToggle) {
-    langToggle.addEventListener("click", () => {
-      const nextLang = currentLang === "it" ? "en" : "it";
-      applyTranslations(nextLang);
-    });
-  }
-  const langButtons = document.querySelectorAll(".lang-btn");
-  langButtons.forEach((button) => {
-    const value = button.getAttribute("data-lang");
-    if (!value) return;
-    button.addEventListener("click", () => {
-      if (value !== currentLang) {
-        applyTranslations(value);
-      }
-    });
-  });
-}
-
 function attachIndexToggle() {
   const indexToggle = document.getElementById("indexToggle");
   const menu = document.getElementById("indexMenu");
@@ -323,7 +333,6 @@ function attachAdventuresModal() {
       const index = indexValue ? parseInt(indexValue, 10) : 0;
       const dataset = i18nData[currentLang];
 
-      // Updated path to include secrets
       const page = dataset && dataset.secrets && dataset.secrets.page6;
       const items = page && Array.isArray(page.items) ? page.items : [];
       const item = items[index] || items[0];
@@ -354,32 +363,115 @@ function initializeAOS() {
   }
 }
 
-// Skeleton placeholders for future logic
-function fetchAndParseData() {
-  console.log('Fetching data...');
-  // TODO: Implement fetching from Google Sheets CSV
-}
+// ==========================================
+// App Initialization
+// ==========================================
 
-function initPromoBanner() {
-  console.log('Initializing promo banner...');
-  // TODO: Implement promo banner logic based on Global_Settings
-}
+const App = {
+  init: async () => {
+    // 0. Init UI Layout (Header/Footer) immediately
+    if (window.UILayout) {
+      window.UILayout.init();
+    }
+
+    // Why: Proactively unregister legacy Service Workers to avoid stale caching during refactor.
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function (registrations) {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+
+    // 1. Initialize Language Engine
+    const savedFabioLang = localStorage.getItem("fabio_lang");
+    const legacyPreferred = localStorage.getItem("preferredLanguage");
+    const bootstrapLang = savedFabioLang || legacyPreferred || "it";
+    if (bootstrapLang && i18nData[bootstrapLang]) {
+      currentLang = bootstrapLang;
+    }
+
+    // Initial translation apply
+    applyTranslations(currentLang);
+
+    // 2. Route based on page
+    if (document.getElementById('trips-grid')) {
+      await App.initTripCatalog();
+    } else {
+      App.initSharmSecrets();
+    }
+
+    // Global AOS init
+    initializeAOS();
+  },
+
+  initTripCatalog: async () => {
+    const grid = document.getElementById('trips-grid');
+    if (grid) {
+      // Add loading spinner
+      grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--color-gold);"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
+    }
+
+    // 3. Call Data Layer
+    if (window.api && window.api.fetchAllData) {
+      const data = await window.api.fetchAllData();
+
+      // Safety check: ensure we have data or use dummy
+      const finalData = data || window.api.DUMMY_DATA;
+
+      if (!finalData) {
+        console.error("App: Data fetch returned null and no DUMMY_DATA available.");
+        return;
+      }
+
+      window.appData = finalData; // Store state
+
+      // 4. Trigger Renderer
+      if (window.TripsRenderer && finalData.Trips_Prices) {
+        window.TripsRenderer.render(finalData.Trips_Prices);
+      }
+
+      // 5. Trigger Promo Banner
+      if (window.PromoBanner && finalData.Global_Settings) {
+        window.PromoBanner.render(finalData.Global_Settings);
+      }
+
+      // 6. Init Global UI (Header/Footer)
+      if (window.UILayout) {
+        window.UILayout.init();
+      }
+
+      if (!window.TripsRenderer || !finalData.Trips_Prices) {
+        // Handle empty or failed data
+        const grid = document.getElementById('trips-grid');
+        if (grid) {
+          grid.innerHTML = `<div class="col-span-full text-center py-12">
+                <p class="text-gold text-xl">Loading failed. Please try again later.</p>
+            </div>`;
+        }
+      }
+    } else {
+      console.error("API module not found");
+    }
+  },
+
+  initSharmSecrets: () => {
+    attachIndexToggle();
+    attachAdventuresModal();
+
+    // Note: Render calls are handled in applyTranslations for dynamic language switching
+    // We just ensure initial setup here if needed, but applyTranslations calls them.
+  }
+};
+
+// Global access to App logic if needed
+window.appData = window.appData || {};
+window.appData.openBooking = (tripId) => {
+  const fabioNumber = "201063239261";
+  const message = `Ciao Fabio! I want to book trip: ${tripId}`;
+  window.open(`https://wa.me/${fabioNumber}?text=${encodeURIComponent(message)}`, '_blank');
+};
 
 document.addEventListener("DOMContentLoaded", () => {
-  initializeAOS();
-
-  // Check localStorage for preferred language
-  const savedLang = localStorage.getItem("preferredLanguage");
-  if (savedLang && i18nData[savedLang]) {
-    currentLang = savedLang;
-  }
-
-  applyTranslations(currentLang);
-  attachLanguageToggle();
-  attachIndexToggle();
-  attachAdventuresModal();
-
-  // Init placeholders
-  fetchAndParseData();
-  initPromoBanner();
+  App.init();
 });

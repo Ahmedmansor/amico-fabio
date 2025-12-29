@@ -1,4 +1,30 @@
 window.i18nIt = {
+  fab: {
+    contact: "Contatti",
+    indice: "Indice"
+  },
+  hero: {
+    vip_title: "⚠️ VIP ACCESS: I 10 Comandamenti di Fabio",
+    vip_desc: "Il manuale di sopravvivenza definitivo per Sharm. Evita le trappole per turisti e vivi la vera vacanza da insider.",
+    vip_btn: "SBLOCCA IL MANUALE VIP"
+  },
+  global: {
+    book_now: "Prenota ora",
+    discover: "Scopri",
+    price_from: "A partire da",
+    duration: "Durata",
+    highlights: "In Breve",
+    included: "Include",
+    not_included: "Non Include",
+    important: "Importante",
+    program: "Programma",
+    sale: "OFFERTA",
+    read_secrets: "Leggi i 10 Comandamenti",
+    secrets_title: "Non partire senza conoscere i 10 comandamenti di Fabio",
+    contact_us: "Contattaci",
+    follow_us: "Seguici",
+    why_fabio: "Perché Fabio?"
+  },
   secrets: {
     nav_index: "Indice",
     nav_lang: "EN",
@@ -169,5 +195,73 @@ window.i18nIt = {
         },
       ]
     }
+  },
+  trips: {
+    yacht_white: {
+      title: "Isola che non c’è Zaga – Yacht",
+      short_desc: "Yacht di 3 piani in 'ZAGA STYLE' verso Ras Mohammed.",
+      duration: "10 ore",
+      highlights: [
+        "Gruppo esclusivo solo italiani",
+        "Sosta garantita di 1 ora all’isola che non c’è",
+        "Pranzo buffet e bevande illimitate"
+      ],
+      full_description: "Una giornata a bordo di uno yacht tre piani UNICAMENTE RISERVATO ai clienti ZAGA. Goditi il lusso e la libertà di esplorare le acque cristalline di Ras Mohammed con stile. Un'esperienza curata nei minimi dettagli per offrirti il massimo del comfort e del divertimento.",
+      program: [
+        "Prelievo in hotel con auto privata",
+        "Imbarco sullo yacht di lusso",
+        "Sosta per snorkeling a Ras Mohammed",
+        "Sosta all'Isola che non c'è",
+        "Pranzo a buffet a bordo",
+        "Rientro al porto e trasferimento in hotel"
+      ],
+      includes: ["Prelievo hotel", "Pranzo a bordo", "Attrezzatura subacquea (opzionale)", "Bevande illimitate"],
+      not_included: ["Noleggio maschere e pinne (se non incluse)", "Foto e video professionali"],
+      important: "Porta costume, crema solare e passaporto."
+    },
+    safari_quad: {
+      title: "Safari in Quad nel Deserto",
+      short_desc: "Avventura adrenalinica in quad nel deserto del Sinai al tramonto.",
+      duration: "3 ore",
+      highlights: [
+        "Tramonto mozzafiato nel deserto",
+        "Tè e relax nella tenda beduina",
+        "Guida professionale e sicurezza garantita"
+      ],
+      full_description: "Vivi l'emozione pura di guidare un quad attraverso le dune dorate del deserto del Sinai. Un'esperienza che unisce adrenalina e meraviglia naturale, perfetta per chi cerca un po' di azione. Ci fermeremo in una tenda beduina tradizionale per gustare un tè caldo e ammirare il tramonto che colora di rosso le montagne. Un'avventura indimenticabile, organizzata con la massima attenzione alla tua sicurezza.",
+      program: [
+        "Prelievo in hotel",
+        "Arrivo al centro quad e briefing di sicurezza",
+        "Guida nel deserto (circa 1 ora)",
+        "Sosta in tenda beduina per il tè",
+        "Rientro al centro quad",
+        "Trasferimento in hotel"
+      ],
+      includes: ["Prelievo e rientro in hotel", "Quad bike", "Tè beduino", "Casco"],
+      not_included: ["Sciarpa (kefiah)", "Occhiali protettivi", "Mancia"],
+      important: "Indossa abiti comodi, scarpe chiuse e occhiali da sole."
+    },
+    cairo_pyramids: {
+      title: "Cairo & Piramidi: La Storia",
+      short_desc: "Viaggio di un giorno alla scoperta delle Piramidi di Giza e del Museo Egizio.",
+      duration: "20 ore",
+      highlights: [
+        "Ammira le Grandi Piramidi e la Sfinge",
+        "Visita guidata al Museo Egizio",
+        "Pranzo incluso vicino al Nilo"
+      ],
+      full_description: "Un tuffo nella storia millenaria dell'Egitto. Partiremo per il Cairo per visitare le iconiche Piramidi di Giza e l'enigmatica Sfinge, simboli eterni di questa civiltà. Proseguiremo con una visita al Museo Egizio, custode di tesori inestimabili, inclusi quelli di Tutankhamon. Una giornata intensa ma ricca di emozioni che ti lascerà senza fiato. Il tutto con la comodità e l'assistenza che solo Fabio può garantirti.",
+      program: [
+        "Partenza notturna dall'hotel in bus",
+        "Arrivo al Cairo e visita al Museo Egizio",
+        "Pranzo in ristorante",
+        "Visita alle Piramidi di Giza e Sfinge",
+        "Sosta per shopping (papiri/profumi)",
+        "Rientro a Sharm El Sheikh"
+      ],
+      includes: ["Trasferimento in bus confortevole", "Pranzo al ristorante", "Biglietti d'ingresso", "Guida egittologa"],
+      not_included: ["Bevande al ristorante", "Giro in barca sul Nilo (opzionale)", "Mancia"],
+      important: "Porta il passaporto (o carta d'identità con visto) e il cestino colazione dell'hotel."
+    },
   }
 };

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Details - Fabio Tourism</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        'gold-light': '#F1D78A',
+                        'gold-dark': '#AA8C2C',
+                        'black-rich': '#0a0a0a',
+                        'gray-dark': '#1a1a1a',
+                        'cream': '#F5F5DC',
+                        'brown-dark': '#1a1510'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/global-header.css">
+    <link rel="stylesheet" href="assets/css/floating-widgets.css">
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #f3f4f6;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(5, 5, 5, 1) 100%);
+        }
+
+        .separator {
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            margin: 2rem 0;
+        }
+
+        .prose strong {
+            color: #D4AF37;
+        }
+
+        .bullet-gold li::before {
+            content: "•";
+            color: #D4AF37;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased text-gray-200">
+
+    <!-- Global Header -->
+    <header id="global-header"
+        class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-md border-b border-gold/10 transition-all duration-300">
+    </header>
+
+    <!-- Main Content -->
+    <main class="min-h-screen pt-20">
+
+        <!-- Hero Section -->
+        <section id="detail-hero" class="relative h-[60vh] md:h-[70vh] flex items-end justify-center">
+            <div id="hero-bg" class="absolute inset-0 bg-cover bg-center z-0 transition-all duration-700"></div>
+            <div class="absolute inset-0 hero-overlay z-10"></div>
+
+            <div class="relative z-20 container mx-auto px-4 pb-12 text-center md:text-left" data-aos="fade-up">
+                <span id="detail-badge"
+                    class="inline-block bg-gold text-black font-bold text-xs px-3 py-1 rounded-full mb-4 uppercase tracking-widest shadow-lg"></span>
+                <h1 id="detail-title"
+                    class="text-4xl md:text-6xl font-playfair font-bold text-white mb-4 leading-tight shadow-black drop-shadow-lg">
+                </h1>
+                <div
+                    class="flex flex-wrap items-center justify-center md:justify-start gap-6 text-sm md:text-base text-gray-300">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 text-gold mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span id="detail-duration"></span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 text-gold mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                        <span id="detail-price" class="text-gold font-bold text-lg"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Strip (Horizontal Row) -->
+        <section class="container mx-auto px-4 -mt-10 relative z-30 mb-10">
+            <div id="gallery-grid" class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar snap-x">
+                <!-- Images injected here -->
+            </div>
+        </section>
+
+        <!-- Content & Gallery Grid -->
+        <section class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+                <!-- Left Column: Details -->
+                <div class="lg:col-span-2 space-y-12" data-aos="fade-up" data-aos-delay="100">
+
+                    <!-- Description -->
+                    <div class="prose prose-lg prose-invert max-w-none">
+                        <h2 class="text-3xl font-playfair text-gold mb-6 border-b border-gray-800 pb-2" id="label-desc">
+                            Description</h2>
+                        <p id="detail-desc" class="text-gray-300 leading-loose"></p>
+                    </div>
+
+                    <!-- Highlights -->
+                    <div>
+                        <h3 class="text-2xl font-playfair text-white mb-6 border-b border-gray-800 pb-2"
+                            id="label-highlights">Highlights</h3>
+                        <ul id="detail-highlights" class="space-y-3 text-gray-300 bullet-gold pl-4 text-lg"></ul>
+                    </div>
+
+                    <!-- Itinerary / Full Desc -->
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 shadow-inner">
+                        <h3 class="text-2xl font-playfair text-white mb-6 border-b border-gray-700 pb-2"
+                            id="label-itinerary">Itinerary & Details</h3>
+                        <div id="detail-full-desc" class="text-gray-400 leading-relaxed space-y-4"></div>
+
+                        <!-- Program Timeline -->
+                        <div id="detail-program" class="mt-8 pt-8 border-t border-gray-800"></div>
+                    </div>
+
+                    <!-- Important Info -->
+                    <div class="bg-red-900/10 border border-red-900/30 p-6 rounded-lg mt-8">
+                        <h4 class="text-red-400 font-bold mb-2 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+                                </path>
+                            </svg>
+                            <span id="label-important">Important</span>
+                        </h4>
+                        <p id="detail-important" class="text-sm text-gray-400"></p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Booking & Gallery -->
+                <div class="lg:col-span-1 space-y-8">
+
+                    <!-- Booking Card (Sticky) -->
+                    <div class="sticky top-24 bg-gray-900 border border-gold/30 rounded-xl p-6 shadow-2xl"
+                        data-aos="fade-left">
+                        <div class="text-center mb-6">
+                            <span class="text-gray-400 text-sm block mb-1" id="label-price-from">Price from</span>
+                            <span id="card-price" class="text-4xl font-playfair font-bold text-gold"></span>
+                            <span class="text-gray-500 text-sm block mt-1">per person</span>
+                        </div>
+
+                        <button onclick="window.location.href='#contact'"
+                            class="w-full py-4 bg-gradient-to-r from-gold to-yellow-600 text-black font-bold uppercase tracking-widest rounded-lg shadow-lg hover:shadow-gold/50 transform hover:-translate-y-1 transition-all duration-300 mb-4">
+                            <span id="btn-book">Book via WhatsApp</span>
+                        </button>
+
+                        <div class="space-y-4 pt-6 border-t border-gray-800">
+                            <div>
+                                <h5 class="text-white font-bold text-sm mb-2" id="label-includes">Includes</h5>
+                                <ul id="detail-includes" class="text-sm text-gray-400 space-y-1"></ul>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-sm mb-2" id="label-excludes">Not Included</h5>
+                                <ul id="detail-excludes" class="text-sm text-gray-500 space-y-1"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer id="global-footer"></footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Core & Data -->
+    <script src="assets/lang/global-it.js"></script>
+    <script src="assets/lang/global-en.js"></script>
+    <script src="assets/js/core/api.js"></script>
+
+    <!-- Modules -->
+    <script src="assets/js/modules/global-header.js"></script>
+    <script src="assets/js/modules/ui-layout.js"></script>
+    <script src="assets/js/modules/details-renderer.js"></script>
+
+    <script>
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ duration: 800, once: true });
+
+            // Init Layout
+            if (window.UILayout) window.UILayout.init();
+
+            // Init Details Renderer
+            if (window.DetailsRenderer) window.DetailsRenderer.init();
+        });
+    </script>
+</body>
+
+</html>
