@@ -54,6 +54,9 @@ const GlobalHeader = {
     const host = document.getElementById('global-header');
     if (!host) return;
     const lang = GlobalHeader.initLanguage();
+    const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+    const menuDict = i18n.menu || {};
+    const brandSubtitle = (i18n.global && i18n.global.brand_subtitle) ? i18n.global.brand_subtitle : '';
     const isSecrets = /\/sharm-secrets\//i.test(window.location.pathname);
     const basePath = isSecrets ? '../' : '';
     const flagSvg = (code) => {
@@ -79,6 +82,7 @@ const GlobalHeader = {
       `;
     };
     const markup = `
+      <div id="scroll-progress"></div>
       <div class="gh-container">
         <div class="gh-left">
           <button class="gh-menu-btn" id="gh-menu-btn">
@@ -89,21 +93,37 @@ const GlobalHeader = {
               <rect x="3" y="17" width="18" height="2" fill="#fff"></rect>
             </svg>
           </button>
+          <div class="gh-brand-wrap-left">
+            <img src="${basePath}assets/images/logo/fabio-header-logo.png" class="gh-logo" alt="Fabio Tours Logo" />
+            <div class="gh-brand">
+              <div class="gh-brand-title">FABIO</div>
+              <div class="gh-brand-subtitle" data-i18n="global.brand_subtitle">${brandSubtitle}</div>
+            </div>
+          </div>
           <div class="gh-dynamic-hook" id="gh-dynamic-hook"></div>
           <div class="gh-menu-dropdown" id="gh-menu-dropdown">
-            <a href="#" data-nav="home">Home</a>
-            <a href="#" data-nav="trips">Trips</a>
-            <a href="#" data-nav="reviews">Reviews</a>
-            <a href="#" data-nav="secrets">10 Commandments</a>
-            <a href="#" data-nav="blog">Blog</a>
+            <a href="#" data-nav="home" data-i18n="menu.home">${menuDict.home || ''}</a>
+            <a href="#" data-nav="trips" data-i18n="menu.trips">${menuDict.trips || ''}</a>
+            <a href="#" data-nav="reviews" data-i18n="menu.reviews">${menuDict.reviews || ''}</a>
+            <a href="#" data-nav="secrets" data-i18n="menu.commandments">${menuDict.commandments || ''}</a>
+            <a href="#" data-nav="blog" data-i18n="menu.blog">${menuDict.blog || ''}</a>
           </div>
         </div>
         <div class="gh-center" id="gh-center">
-          <img src="${basePath}assets/images/logo/fabio-header-logo.png" class="gh-logo" alt="Fabio Tours Logo" />
-          <div class="gh-brand">
-            <div class="gh-brand-title">FABIO</div>
-            <div class="gh-brand-subtitle">Guida Turistica Ufficiale</div>
+          <div class="gh-brand-wrap-center">
+            <img src="${basePath}assets/images/logo/fabio-header-logo.png" class="gh-logo" alt="Fabio Tours Logo" />
+            <div class="gh-brand">
+              <div class="gh-brand-title">FABIO</div>
+              <div class="gh-brand-subtitle" data-i18n="global.brand_subtitle">${brandSubtitle}</div>
+            </div>
           </div>
+          <nav class="gh-nav-inline" id="gh-nav-inline">
+            <a href="#" data-nav="home" data-i18n="menu.home">${menuDict.home || ''}</a>
+            <a href="#" data-nav="trips" data-i18n="menu.trips">${menuDict.trips || ''}</a>
+            <a href="#" data-nav="reviews" data-i18n="menu.reviews">${menuDict.reviews || ''}</a>
+            <a href="#" data-nav="secrets" data-i18n="menu.commandments">${menuDict.commandments || ''}</a>
+            <a href="#" data-nav="blog" data-i18n="menu.blog">${menuDict.blog || ''}</a>
+          </nav>
         </div>
         <div class="gh-right">
           <button class="gh-lang-btn" id="gh-lang-btn">
@@ -125,6 +145,8 @@ const GlobalHeader = {
     const langBtn = host.querySelector('#gh-lang-btn');
     const langDd = host.querySelector('#gh-lang-dropdown');
     const center = host.querySelector('#gh-center');
+    const navInline = host.querySelector('#gh-nav-inline');
+    const progressBar = host.querySelector('#scroll-progress');
     menuBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       left.classList.toggle('open');
@@ -171,6 +193,40 @@ const GlobalHeader = {
         return;
       }
     });
+    if (navInline) {
+      navInline.addEventListener('click', (e) => {
+        const target = e.target.closest('[data-nav]');
+        if (!target) return;
+        e.preventDefault();
+        const nav = target.getAttribute('data-nav');
+        if (nav === 'home') {
+          window.location.href = basePath + 'index.html';
+          return;
+        }
+        if (nav === 'trips') {
+          const el = document.getElementById('trips-grid');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.location.href = basePath + 'index.html#trips-grid';
+          }
+          return;
+        }
+        if (nav === 'reviews') {
+          window.location.href = basePath + 'index.html#reviews';
+          return;
+        }
+        if (nav === 'blog') {
+          window.location.href = '#';
+          return;
+        }
+        if (nav === 'secrets') {
+          const link = isSecrets ? 'index.html' : basePath + 'sharm-secrets/index.html';
+          window.location.href = link;
+          return;
+        }
+      });
+    }
     langDd.addEventListener('click', (e) => {
       const btn = e.target.closest('.gh-lang-item');
       if (!btn) return;
@@ -179,10 +235,42 @@ const GlobalHeader = {
       localStorage.setItem('preferredLanguage', newLang);
       window.location.reload();
     });
-    center.addEventListener('click', () => {
-      window.location.href = basePath + 'index.html';
-    });
+    // center navigation handled via gh-nav-inline
 
+    const setActiveNav = (key) => {
+      if (!navInline) return;
+      navInline.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+      const el = navInline.querySelector(`a[data-nav="${key}"]`);
+      if (el) el.classList.add('active');
+    };
+    const sectionMap = [
+      { selector: '#hero-slider-section', key: 'home', i18nKey: 'menu.home' },
+      { selector: '#trips-grid', key: 'trips', i18nKey: 'menu.trips' },
+      { selector: '#reviews', key: 'reviews', i18nKey: 'menu.reviews' }
+    ];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+          const found = sectionMap.find(s => entry.target.matches(s.selector));
+          if (found) setActiveNav(found.key);
+        }
+      });
+    }, { threshold: [0.5] });
+    sectionMap.forEach(s => {
+      const el = document.querySelector(s.selector);
+      if (el) observer.observe(el);
+    });
+    if (isSecrets) setActiveNav('secrets');
+
+    const updateProgress = () => {
+      if (!progressBar) return;
+      const max = document.body.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
+      progressBar.style.width = pct + '%';
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
     if (!document.querySelector('.floating-whatsapp')) {
       const w = document.createElement('div');
       w.id = 'whatsapp-float';

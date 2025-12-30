@@ -131,22 +131,22 @@
 
                     <!-- Description -->
                     <div class="prose prose-lg prose-invert max-w-none">
-                        <h2 class="text-3xl font-playfair text-gold mb-6 border-b border-gray-800 pb-2" id="label-desc">
-                            Description</h2>
+                        <h2 class="text-3xl font-playfair text-gold mb-6 border-b border-gray-800 pb-2" id="label-desc"
+                            data-i18n="global.description"></h2>
                         <p id="detail-desc" class="text-gray-300 leading-loose"></p>
                     </div>
 
                     <!-- Highlights -->
                     <div>
                         <h3 class="text-2xl font-playfair text-white mb-6 border-b border-gray-800 pb-2"
-                            id="label-highlights">Highlights</h3>
+                            id="label-highlights" data-i18n="global.highlights"></h3>
                         <ul id="detail-highlights" class="space-y-3 text-gray-300 bullet-gold pl-4 text-lg"></ul>
                     </div>
 
                     <!-- Itinerary / Full Desc -->
                     <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 shadow-inner">
                         <h3 class="text-2xl font-playfair text-white mb-6 border-b border-gray-700 pb-2"
-                            id="label-itinerary">Itinerary & Details</h3>
+                            id="label-itinerary" data-i18n="global.itinerary_details"></h3>
                         <div id="detail-full-desc" class="text-gray-400 leading-relaxed space-y-4"></div>
 
                         <!-- Program Timeline -->
@@ -161,7 +161,7 @@
                                     d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
                                 </path>
                             </svg>
-                            <span id="label-important">Important</span>
+                            <span id="label-important" data-i18n="global.important"></span>
                         </h4>
                         <p id="detail-important" class="text-sm text-gray-400"></p>
                     </div>
@@ -174,23 +174,26 @@
                     <div class="sticky top-24 bg-gray-900 border border-gold/30 rounded-xl p-6 shadow-2xl"
                         data-aos="fade-left">
                         <div class="text-center mb-6">
-                            <span class="text-gray-400 text-sm block mb-1" id="label-price-from">Price from</span>
+                            <span class="text-gray-400 text-sm block mb-1" id="label-price-from"
+                                data-i18n="global.price_from"></span>
                             <span id="card-price" class="text-4xl font-playfair font-bold text-gold"></span>
-                            <span class="text-gray-500 text-sm block mt-1">per person</span>
+                            <span class="text-gray-500 text-sm block mt-1" data-i18n="global.per_person"></span>
                         </div>
 
                         <button onclick="window.location.href='#contact'"
                             class="w-full py-4 bg-gradient-to-r from-gold to-yellow-600 text-black font-bold uppercase tracking-widest rounded-lg shadow-lg hover:shadow-gold/50 transform hover:-translate-y-1 transition-all duration-300 mb-4">
-                            <span id="btn-book">Book via WhatsApp</span>
+                            <span id="btn-book" data-i18n="global.book_now"></span>
                         </button>
 
                         <div class="space-y-4 pt-6 border-t border-gray-800">
                             <div>
-                                <h5 class="text-white font-bold text-sm mb-2" id="label-includes">Includes</h5>
+                                <h5 class="text-white font-bold text-sm mb-2" id="label-includes"
+                                    data-i18n="global.included"></h5>
                                 <ul id="detail-includes" class="text-sm text-gray-400 space-y-1"></ul>
                             </div>
                             <div>
-                                <h5 class="text-white font-bold text-sm mb-2" id="label-excludes">Not Included</h5>
+                                <h5 class="text-white font-bold text-sm mb-2" id="label-excludes"
+                                    data-i18n="global.not_included"></h5>
                                 <ul id="detail-excludes" class="text-sm text-gray-500 space-y-1"></ul>
                             </div>
                         </div>

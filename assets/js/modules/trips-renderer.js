@@ -76,8 +76,13 @@ const TripsRenderer = {
         });
 
         if (!filteredTrips || filteredTrips.length === 0) {
+            const activeLang = localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
+            const dict = activeLang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+            const emptyText = dict && dict.global && typeof dict.global.no_exclusive_experiences === 'string'
+                ? dict.global.no_exclusive_experiences
+                : '';
             container.innerHTML = `<div class="col-span-full text-center py-20">
-                <p class="text-gray-400 text-xl font-playfair italic">No exclusive experiences available at the moment.</p>
+                <p class="text-gray-400 text-xl font-playfair italic" data-i18n="global.no_exclusive_experiences">${emptyText}</p>
             </div>`;
             return;
         }
@@ -119,7 +124,7 @@ const TripsRenderer = {
             const perc = p_adult > 0 ? Math.round(((p_adult - d_adult) / p_adult) * 100) : 0;
             const ltdText = i18n.global && i18n.global.limited_time_deal
                 ? i18n.global.limited_time_deal
-                : (lang === 'it' ? 'Offerta a tempo limitato' : 'Limited time deal');
+                : '';
             dealBannerHTML = `
                 <div class="deal-banner">
                     <span class="deal-percent">-${perc}%</span>
@@ -147,8 +152,8 @@ const TripsRenderer = {
 
         const delay = index * 100;
 
-        const lblStart = lang === 'it' ? 'A partire da' : 'Starting from';
-        const lblBtn = lang === 'it' ? 'Scopri' : 'Discover';
+        const lblStart = i18n.global && i18n.global.price_from ? i18n.global.price_from : '';
+        const lblBtn = i18n.global && i18n.global.discover ? i18n.global.discover : '';
 
         const standardBadge = lang === 'it' ? trip.badge_it : trip.badge_en;
 
@@ -168,10 +173,10 @@ const TripsRenderer = {
                     <p class="catalog-card-desc">${description}</p>
                     <div class="card-footer">
                         <div class="price-block">
-                            <span class="label-start">${lblStart}</span>
+                            <span class="label-start" data-i18n="global.price_from">${lblStart}</span>
                             ${priceRowHTML}
                         </div>
-                        <button class="card-btn" onclick="window.location.href = 'details.html?id=${trip.trip_id}'">${lblBtn}</button>
+                        <button class="card-btn" onclick="window.location.href = 'details.html?id=${trip.trip_id}'" data-i18n="global.discover">${lblBtn}</button>
                     </div>
                 </div>
             </article>

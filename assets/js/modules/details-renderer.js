@@ -24,9 +24,11 @@ const DetailsRenderer = {
         if (langData || apiData) {
             DetailsRenderer.render(tripId, apiData, langData, lang);
         } else {
+            const dict = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+            const msg = dict && dict.global && typeof dict.global.experience_not_found === 'string' ? dict.global.experience_not_found : '';
             document.querySelector('main').innerHTML = `
                 <div class="h-screen flex items-center justify-center text-white">
-                    <h1 class="text-3xl font-playfair text-gold">Experience not found.</h1>
+                    <h1 class="text-3xl font-playfair text-gold" data-i18n="global.experience_not_found">${msg}</h1>
                 </div>
             `;
         }
@@ -92,7 +94,9 @@ const DetailsRenderer = {
         if (els.cardPrice) els.cardPrice.innerHTML = priceHTML;
 
         if (langData) {
-            if (els.duration) els.duration.textContent = langData.duration || 'Daily';
+            const dict = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+            const daily = dict && dict.global && typeof dict.global.daily === 'string' ? dict.global.daily : '';
+            if (els.duration) els.duration.textContent = langData.duration || daily;
             if (els.desc) els.desc.innerHTML = langData.short_desc || '';
             if (els.fullDesc) els.fullDesc.innerHTML = langData.full_description || '';
             if (els.important) els.important.textContent = langData.important || '';
@@ -109,7 +113,9 @@ const DetailsRenderer = {
         }
 
         // Button Text
-        if (els.btnBook) els.btnBook.textContent = lang === 'it' ? "Prenota su WhatsApp" : "Book via WhatsApp";
+        const dictBtn = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+        const bookNow = dictBtn && dictBtn.global && typeof dictBtn.global.book_now === 'string' ? dictBtn.global.book_now : '';
+        if (els.btnBook) els.btnBook.textContent = bookNow;
 
         // Gallery Loop (Sequential 1.jpg, 2.jpg... stop on 404)
         if (els.gallery) {

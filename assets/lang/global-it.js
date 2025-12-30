@@ -1,4 +1,11 @@
 window.i18nIt = {
+  menu: {
+    home: "Home",
+    trips: "Escursioni",
+    reviews: "Recensioni",
+    commandments: "10 Comandamenti",
+    blog: "Blog"
+  },
   fab: {
     contact: "Contatti",
     indice: "Indice"
@@ -9,9 +16,15 @@ window.i18nIt = {
     vip_btn: "SBLOCCA IL MANUALE VIP"
   },
   global: {
+    brand_title: "FABIO TOURS",
+    brand_subtitle: "Guida Turistica Ufficiale",
+    vip_experiences: "Esperienze VIP a Sharm El Sheikh",
     book_now: "Prenota ora",
     discover: "Scopri",
     price_from: "A partire da",
+    per_person: "a persona",
+    description: "Descrizione",
+    itinerary_details: "Itinerario e Dettagli",
     duration: "Durata",
     highlights: "In Breve",
     included: "Include",
@@ -23,7 +36,15 @@ window.i18nIt = {
     secrets_title: "Non partire senza conoscere i 10 comandamenti di Fabio",
     contact_us: "Contattaci",
     follow_us: "Seguici",
-    why_fabio: "Perché Fabio?"
+    why_fabio: "Perché Fabio?",
+    limited_time_deal: "Offerta a tempo limitato",
+    no_exclusive_experiences: "Nessuna esperienza esclusiva disponibile al momento.",
+    experience_not_found: "Esperienza non trovata.",
+    daily: "Giornaliero",
+    loading_failed: "Caricamento non riuscito. Riprova più tardi.",
+    vip_access: "ACCESSO VIP:",
+    ultimate_guide: "La Guida Definitiva per Sharm",
+    all_rights: "Tutti i diritti riservati."
   },
   secrets: {
     nav_index: "Indice",

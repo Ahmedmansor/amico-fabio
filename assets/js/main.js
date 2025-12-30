@@ -445,8 +445,11 @@ const App = {
         // Handle empty or failed data
         const grid = document.getElementById('trips-grid');
         if (grid) {
+          const lang = localStorage.getItem("fabio_lang") || document.documentElement.lang || "it";
+          const i18n = lang === "en" ? (window.i18nEn || {}) : (window.i18nIt || {});
+          const msg = i18n.global && typeof i18n.global.loading_failed === "string" ? i18n.global.loading_failed : "";
           grid.innerHTML = `<div class="col-span-full text-center py-12">
-                <p class="text-gold text-xl">Loading failed. Please try again later.</p>
+                <p class="text-gold text-xl" data-i18n="global.loading_failed">${msg}</p>
             </div>`;
         }
       }

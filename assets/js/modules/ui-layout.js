@@ -13,7 +13,7 @@ const UILayout = {
         const heroEl = document.getElementById('hero-portal');
         if (!heroEl) return;
 
-        const lang = localStorage.getItem('lang') || 'it';
+        const lang = localStorage.getItem('fabio_lang') || document.documentElement.lang || localStorage.getItem('lang') || 'it';
         const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
 
         // Hero Images (The Stack)
@@ -43,12 +43,12 @@ const UILayout = {
                         ${i18n.global.secrets_title || "Non partire senza conoscere i 10 comandamenti di Fabio"}
                     </h2>
                     
-                    <p class="text-cream text-lg md:text-xl font-light tracking-widest uppercase mb-8 opacity-90">
-                        ${lang === 'it' ? 'La Guida Definitiva per Sharm' : 'The Ultimate Guide for Sharm'}
+                    <p class="text-cream text-lg md:text-xl font-light tracking-widest uppercase mb-8 opacity-90" data-i18n="global.ultimate_guide">
+                        ${i18n.global.ultimate_guide || ''}
                     </p>
                     
                     <a href="sharm-secrets.html" class="px-10 py-4 bg-gold text-black font-bold uppercase tracking-widest rounded-full hover:bg-white transition-all duration-300 shadow-[0_0_30px_rgba(197,160,89,0.4)] hover:scale-105 transform">
-                        ${i18n.global.read_secrets || "Leggi i 10 Comandamenti"}
+                        ${i18n.global.read_secrets || ""}
                     </a>
                 </div>
             </div>
@@ -71,7 +71,7 @@ const UILayout = {
         const existing = document.getElementById('promo-banner');
         if (existing) existing.remove();
 
-        const lang = localStorage.getItem('lang') || 'it';
+        const lang = localStorage.getItem('fabio_lang') || document.documentElement.lang || localStorage.getItem('lang') || 'it';
         const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
 
         const div = document.createElement('div');
@@ -81,8 +81,8 @@ const UILayout = {
             <div class="flex items-center gap-4 w-full justify-center">
                 <span class="text-gold text-xl">✨</span>
                 <p class="text-white text-sm font-medium tracking-wide text-center">
-                    <span class="text-gold font-bold">VIP ACCESS:</span> 
-                    ${i18n.global.secrets_title || "Unlock the hidden gems of Sharm"}
+                    <span class="text-gold font-bold" data-i18n="global.vip_access">${i18n.global.vip_access || ''}</span> 
+                    <span data-i18n="global.secrets_title">${i18n.global.secrets_title || ''}</span>
                 </p>
             </div>
         `;
@@ -92,6 +92,10 @@ const UILayout = {
     renderFooter: () => {
         const footerEl = document.getElementById('global-footer');
         if (!footerEl) return;
+
+        const lang = localStorage.getItem('fabio_lang') || document.documentElement.lang || localStorage.getItem('lang') || 'it';
+        const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+        const year = new Date().getFullYear();
 
         footerEl.innerHTML = `
             <div class="bg-black text-white border-t border-white/10 pt-20 pb-10">
@@ -107,7 +111,7 @@ const UILayout = {
                         </a>
                     </div>
 
-                    <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">&copy; ${new Date().getFullYear()} Fabio VIP Tourism. All Rights Reserved.</p>
+                    <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">&copy; ${year} Fabio VIP Tourism. <span data-i18n="global.all_rights">${i18n.global.all_rights || ''}</span></p>
                 </div>
             </div>
         `;

@@ -1,4 +1,11 @@
 window.i18nEn = {
+  menu: {
+    home: "Home",
+    trips: "Trips",
+    reviews: "Reviews",
+    commandments: "10 Commandments",
+    blog: "Blog"
+  },
   fab: {
     contact: "Contact",
     indice: "Index"
@@ -9,9 +16,15 @@ window.i18nEn = {
     vip_btn: "UNLOCK THE VIP MANUAL"
   },
   global: {
+    brand_title: "FABIO TOURS",
+    brand_subtitle: "Official Tour Guide",
+    vip_experiences: "Sharm El Sheikh VIP Experiences",
     book_now: "Book via WhatsApp",
     discover: "Discover",
     price_from: "Price from",
+    per_person: "per person",
+    description: "Description",
+    itinerary_details: "Itinerary & Details",
     duration: "Duration",
     highlights: "Highlights",
     included: "Included",
@@ -23,7 +36,15 @@ window.i18nEn = {
     secrets_title: "Don't leave without knowing Fabio's 10 Commandments",
     contact_us: "Contact Us",
     follow_us: "Follow Us",
-    why_fabio: "Why Fabio?"
+    why_fabio: "Why Fabio?",
+    limited_time_deal: "Limited time deal",
+    no_exclusive_experiences: "No exclusive experiences available at the moment.",
+    experience_not_found: "Experience not found.",
+    daily: "Daily",
+    loading_failed: "Loading failed. Please try again later.",
+    vip_access: "VIP ACCESS:",
+    ultimate_guide: "The Ultimate Guide for Sharm",
+    all_rights: "All Rights Reserved."
   },
   secrets: {
     nav_index: "Index",
