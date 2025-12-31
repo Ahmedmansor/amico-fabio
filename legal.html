@@ -69,16 +69,13 @@
         if (tocTop) tocTop.innerHTML = '';
         if (indexNav) indexNav.innerHTML = '';
         const tocItems = Array.isArray(lp.toc) ? lp.toc : [];
+        const summaryItems = Array.isArray(lp.summary_items) ? lp.summary_items : tocItems;
         tocItems.forEach(item => {
           const a = document.createElement('a');
           a.href = '#' + item.id;
           a.className = 'legal-link';
           a.textContent = item.label || '';
           toc.appendChild(a);
-          if (tocTop) {
-            const b = a.cloneNode(true);
-            tocTop.appendChild(b);
-          }
           if (indexNav) {
             const link = document.createElement('a');
             link.href = '#' + item.id;
@@ -87,6 +84,16 @@
             indexNav.appendChild(link);
           }
         });
+        if (tocTop) {
+          tocTop.innerHTML = '';
+          summaryItems.forEach(item => {
+            const s = document.createElement('a');
+            s.href = '#' + item.id;
+            s.className = 'legal-link';
+            s.textContent = item.label || '';
+            tocTop.appendChild(s);
+          });
+        }
 
         container.innerHTML = '';
         const sections = Array.isArray(lp.sections) ? lp.sections : [];

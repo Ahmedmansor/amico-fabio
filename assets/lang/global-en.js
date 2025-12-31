@@ -25,6 +25,21 @@ window.i18nEn = {
       { id: "purpose", label: "Purposes of Data Processing" },
       { id: "cookies", label: "Cookie Policy" },
       { id: "third_party", label: "Details on Personal Data Processing" },
+      { id: "motion_data", label: "Sensor Data" },
+      { id: "rights", label: "User Rights (GDPR)" },
+      { id: "liability", label: "Limitation of Liability & Terms" },
+      { id: "definitions", label: "Definitions & Legal References" },
+      { id: "contact", label: "Contact & Requests" }
+    ],
+    summary_items: [
+      { id: "intro", label: "Privacy Policy (GDPR)" },
+      { id: "owner", label: "Data Controller" },
+      { id: "data_types", label: "Types of Data Collected" },
+      { id: "method", label: "Methods & Place of Processing" },
+      { id: "purpose", label: "Purposes of Data Processing" },
+      { id: "cookies", label: "Cookie Policy" },
+      { id: "third_party", label: "Details on Personal Data Processing" },
+      { id: "motion_data", label: "Sensor Data" },
       { id: "rights", label: "User Rights (GDPR)" },
       { id: "liability", label: "Limitation of Liability & Terms" },
       { id: "definitions", label: "Definitions & Legal References" },
@@ -50,7 +65,7 @@ window.i18nEn = {
         id: "data_types",
         heading: "Types of Data Collected",
         paragraphs: [
-          "Among the Personal Data collected by this Website are: Name, Phone number, Nationality, Email, Usage data, Tracking tools, and session statistics. Data may be freely provided by the User (via forms) or collected automatically (via Google Analytics 4)."
+          "Among the Personal Data collected by this Website are: Name, Phone number, Nationality, Email, Usage data, Tracking tools, session statistics, Sensor data (Gyroscope and Accelerometer). Data may be freely provided by the User (via forms) or collected automatically (via Google Analytics 4)."
         ]
       },
       {
@@ -88,6 +103,13 @@ window.i18nEn = {
           "Google Analytics 4 (Google LLC): A statistics service that uses collected Data to track and examine the use of this Website. IP addresses are anonymized before recording.",
           "WhatsApp Business API: Used to facilitate direct communication and sending of invoices or catalogs. Data entered in forms is transferred to WhatsApp to generate the chat.",
           "Google Sheets Integration: Data collected via the '10 Commandments' form is stored on secure Google servers for request management."
+        ]
+      },
+      {
+        id: "motion_data",
+        heading: "Sensor Data & 3D Experience",
+        paragraphs: [
+          "To provide a premium 3D visual experience, we request access to motion sensors. This data is processed locally only and never stored."
         ]
       },
       {

@@ -239,6 +239,21 @@ window.i18nIt = {
       { id: "purpose", label: "Finalità del Trattamento dei Dati" },
       { id: "cookies", label: "Cookie Policy" },
       { id: "third_party", label: "Dettagli sul trattamento dei Dati Personali" },
+      { id: "motion_data", label: "Dati Sensori" },
+      { id: "rights", label: "Diritti dell’Utente (GDPR)" },
+      { id: "liability", label: "Limitazione di Responsabilità e Termini" },
+      { id: "definitions", label: "Definizioni e riferimenti legali" },
+      { id: "contact", label: "Contatti & Richieste" }
+    ],
+    summary_items: [
+      { id: "intro", label: "Informativa sulla Privacy (GDPR)" },
+      { id: "owner", label: "Titolare del Trattamento dei Dati" },
+      { id: "data_types", label: "Tipologie di Dati raccolti" },
+      { id: "method", label: "Modalità e luogo del trattamento" },
+      { id: "purpose", label: "Finalità del Trattamento dei Dati" },
+      { id: "cookies", label: "Cookie Policy" },
+      { id: "third_party", label: "Dettagli sul trattamento dei Dati Personali" },
+      { id: "motion_data", label: "Dati Sensori" },
       { id: "rights", label: "Diritti dell’Utente (GDPR)" },
       { id: "liability", label: "Limitazione di Responsabilità e Termini" },
       { id: "definitions", label: "Definizioni e riferimenti legali" },
@@ -264,7 +279,7 @@ window.i18nIt = {
         id: "data_types",
         heading: "Tipologie di Dati raccolti",
         paragraphs: [
-          "Fra i Dati Personali raccolti da questo Sito Web ci sono: Nome, Numero di telefono, Nazionalità, Email, Dati di utilizzo, Strumenti di Tracciamento e statistiche delle sessioni. I dati possono essere forniti liberamente dall'Utente (tramite moduli) o raccolti automaticamente (tramite Google Analytics 4)."
+          "Fra i Dati Personali raccolti da questo Sito Web ci sono: Nome, Numero di telefono, Nazionalità, Email, Dati di utilizzo, Strumenti di Tracciamento e statistiche delle sessioni, Dati dei sensori (Giroscopio e Accelerometro). I dati possono essere forniti liberamente dall'Utente (tramite moduli) o raccolti automaticamente (tramite Google Analytics 4)."
         ]
       },
       {
@@ -302,6 +317,13 @@ window.i18nIt = {
           "Google Analytics 4 (Google LLC): Un servizio di statistica che utilizza i Dati raccolti allo scopo di tracciare ed esaminare l’utilizzo di questo Sito Web. Gli indirizzi IP vengono anonimizzati prima della registrazione.",
           "WhatsApp Business API: Utilizziamo questa piattaforma per facilitare la comunicazione diretta e l'invio di fatture o cataloghi. I dati inseriti nei moduli vengono trasferiti a WhatsApp per generare la chat.",
           "Google Sheets Integration: I dati raccolti tramite il modulo '10 Comandamenti' vengono archiviati su server sicuri di Google per la gestione delle richieste."
+        ]
+      },
+      {
+        id: "motion_data",
+        heading: "Dati dei Sensori e Esperienza 3D",
+        paragraphs: [
+          "Per offrire un'esperienza visiva 3D premium, richiediamo l'accesso ai sensori di movimento. Questi dati vengono elaborati solo localmente e mai memorizzati."
         ]
       },
       {
