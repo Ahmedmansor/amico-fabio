@@ -1,0 +1,235 @@
+:root {
+  --color-gold: #c5a059;
+}
+
+body {
+  background: radial-gradient(1200px circle at 20% -10%, rgba(212, 175, 55, 0.06), transparent 60%), #0a0a0a;
+  color: #e5e7eb;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.legal-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 140px 1rem 4rem;
+}
+
+.legal-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 992px) {
+  .legal-grid {
+    grid-template-columns: 0.3fr 0.7fr;
+  }
+}
+
+.legal-sidebar {
+  position: sticky;
+  top: 6rem;
+  align-self: start;
+}
+
+.legal-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.legal-section {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(12px);
+}
+
+.legal-title {
+  font-family: 'Cinzel', serif;
+  color: #D4AF37;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.legal-subtitle {
+  font-family: 'Cinzel', serif;
+  color: #D4AF37;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.legal-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  color: #e5e7eb;
+  text-decoration: none;
+  border: 1px dashed rgba(212, 175, 55, 0.3);
+  margin-bottom: 0.5rem;
+}
+
+.legal-link:hover {
+  color: #D4AF37;
+}
+
+.legal-link.active {
+  color: #D4AF37;
+  border-color: #D4AF37;
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.legal-toc-top {
+  display: none;
+}
+
+.heading-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.heading-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  color: #D4AF37;
+}
+
+.gold-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 1rem 0;
+}
+
+.gold-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.35rem;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.gold-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle at top left, #ffe7a0, #D4AF37);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 1rem 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: #e5e7eb;
+  border: 1px solid #D4AF37;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Index Menu (Sharm Secrets style) */
+.index-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: radial-gradient(circle at top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.92));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease-out;
+}
+
+.index-menu-inner {
+  width: 100%;
+  max-width: 520px;
+  margin-inline: 1.1rem;
+  margin-block-end: 1.6rem;
+  padding: 1.4rem 1.6rem 1.8rem;
+  border-radius: 24px;
+  background: linear-gradient(160deg, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.86));
+  border: 1px solid rgba(197, 160, 89, 0.6);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
+  transform: translateY(18px);
+  transition: transform 200ms ease-out;
+}
+
+.index-menu.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.index-menu.is-visible .index-menu-inner {
+  transform: translateY(0);
+}
+
+.index-menu-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-inline-start: auto;
+  margin-block-end: 0.3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(197, 160, 89, 0.6);
+  background: transparent;
+  color: #fafafa;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.index-menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.index-link {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-inline: 1rem;
+  padding-block: 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(197, 160, 89, 0.7);
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.78));
+  color: rgba(245, 245, 245, 0.86);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+}
+
+@media (max-width: 1023px) {
+  .legal-container {
+    padding: 140px 1rem 5rem;
+  }
+
+  .legal-sidebar {
+    display: none;
+  }
+
+  .legal-section {
+    padding: 2rem;
+  }
+}

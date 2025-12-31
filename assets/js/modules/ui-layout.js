@@ -1,8 +1,7 @@
 const UILayout = {
     init: () => {
         UILayout.renderHeroPortal(); // New Hero Portal
-        UILayout.renderPromoBanner(); // New Promo Banner location
-        UILayout.renderFooter();
+        // Footer is now rendered by GlobalFooter module
         UILayout.renderWhatsApp();
     },
 

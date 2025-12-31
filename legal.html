@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal & Privacy | Amico Fabio</title>
+  <link rel="stylesheet" href="assets/css/floating-widgets.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Cinzel:wght@600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/global-header.css">
+  <link rel="stylesheet" href="assets/css/global-footer.css">
+  <link rel="stylesheet" href="assets/css/legal.css">
+</head>
+
+<body>
+  <header id="global-header" class="fixed w-full top-0 z-50"></header>
+  <main class="legal-container">
+    <h1 class="legal-title text-3xl mb-8" data-i18n="legal_page.title"></h1>
+    <nav id="legal-toc-top" class="legal-toc-top"></nav>
+    <div class="legal-grid">
+      <aside class="legal-sidebar">
+        <div class="legal-card">
+          <h2 class="legal-subtitle text-xl mb-3" data-i18n="legal_page.toc_title"></h2>
+          <nav id="legal-toc"></nav>
+        </div>
+      </aside>
+      <section id="legal-content"></section>
+    </div>
+  </main>
+  <div class="gh-fab-label" data-i18n="fab.indice"></div>
+  <button class="fab-base gh-fab" id="legal-fab" aria-label="">
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="#111">
+      <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm3.5 6.5l-2 5-5 2 2-5 5-2z" />
+    </svg>
+  </button>
+  <div id="indexMenu" class="index-menu">
+    <div class="index-menu-inner">
+      <button type="button" class="index-menu-close" aria-label="Close index">×</button>
+      <nav class="index-menu-nav"></nav>
+    </div>
+  </div>
+  <footer id="global-footer"></footer>
+
+  <script src="assets/lang/global-it.js"></script>
+  <script src="assets/lang/global-en.js"></script>
+  <script src="assets/js/modules/global-header.js"></script>
+  <script src="assets/js/modules/global-footer.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    (function () {
+      function getDataset(lang) {
+        return lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+      }
+      function renderLegal(lang) {
+        const container = document.getElementById('legal-content');
+        const toc = document.getElementById('legal-toc');
+        const tocTop = document.getElementById('legal-toc-top');
+        const indexNav = document.querySelector('#indexMenu .index-menu-nav');
+        if (!container || !toc) return;
+
+        const activeLang = lang || localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
+        const dict = getDataset(activeLang);
+        const lp = dict.legal_page || {};
+
+        toc.innerHTML = '';
+        if (tocTop) tocTop.innerHTML = '';
+        if (indexNav) indexNav.innerHTML = '';
+        const tocItems = Array.isArray(lp.toc) ? lp.toc : [];
+        tocItems.forEach(item => {
+          const a = document.createElement('a');
+          a.href = '#' + item.id;
+          a.className = 'legal-link';
+          a.textContent = item.label || '';
+          toc.appendChild(a);
+          if (tocTop) {
+            const b = a.cloneNode(true);
+            tocTop.appendChild(b);
+          }
+          if (indexNav) {
+            const link = document.createElement('a');
+            link.href = '#' + item.id;
+            link.className = 'index-link';
+            link.textContent = item.label || '';
+            indexNav.appendChild(link);
+          }
+        });
+
+        container.innerHTML = '';
+        const sections = Array.isArray(lp.sections) ? lp.sections : [];
+        sections.forEach(sec => {
+          const div = document.createElement('div');
+          div.className = 'legal-section';
+          div.id = sec.id;
+          const h3 = document.createElement('h3');
+          h3.className = 'legal-subtitle text-xl';
+          const row = document.createElement('div');
+          row.className = 'heading-row';
+          const iconWrap = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          iconWrap.setAttribute('viewBox', '0 0 24 24');
+          iconWrap.setAttribute('class', 'heading-icon');
+          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          let pid = sec.id;
+          let d = 'M12 2a10 10 0 100 20 10 10 0 000-20z';
+          if (pid === 'intro') d = 'M12 2a10 10 0 100 20 10 10 0 000-20zm0 5l4 4-4 4-4-4 4-4z';
+          else if (pid === 'owner') d = 'M12 2a10 10 0 100 20 10 10 0 000-20zm0 5a3 3 0 110 6 3 3 0 010-6zm-6 11c0-3 6-3 6-3s6 0 6 3v1H6v-1z';
+          else if (pid === 'data_types') d = 'M4 6h16v12H4V6zm2 2h12v2H6V8zm0 4h12v2H6v-2z';
+          else if (pid === 'method') d = 'M12 2l2 3h3l-2 3 2 3h-3l-2 3-2-3H7l2-3-2-3h3l2-3z';
+          else if (pid === 'purpose') d = 'M3 7h18v2H3V7zm0 4h18v2H3v-2zm0 4h18v2H3v-2z';
+          else if (pid === 'cookies') d = 'M12 2a10 10 0 100 20 10 10 0 000-20zm3 6a2 2 0 110 4 2 2 0 010-4zm-6 2a1 1 0 110 2 1 1 0 010-2zm6 5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z';
+          else if (pid === 'third_party') d = 'M7 12l5-5 5 5-5 5-5-5zm5-9l9 9-9 9-9-9 9-9z';
+          else if (pid === 'rights') d = 'M6 10l6-6 6 6-6 6-6-6zm6 8v4';
+          else if (pid === 'liability') d = 'M5 3h14v2H5V3zm2 4h10l1 12H6l1-12zm2 2v8h2V9H9zm4 0v8h2V9h-2z';
+          else if (pid === 'definitions') d = 'M5 4h12v2H5V4zm0 4h12v10H5V8zm2 2h8v6H7v-6z';
+          else if (pid === 'contact') d = 'M6 2h12v20H6V2zm3 3h6v2H9V5zm0 4h6v2H9V9zm0 4h6v2H9v-2z';
+          path.setAttribute('d', d);
+          path.setAttribute('fill', '#D4AF37');
+          iconWrap.appendChild(path);
+          h3.textContent = sec.heading || '';
+          row.appendChild(iconWrap);
+          row.appendChild(h3);
+          div.appendChild(row);
+          const paras = Array.isArray(sec.paragraphs) ? sec.paragraphs : [];
+          let listEl = null;
+          paras.forEach(p => {
+            const isBullet = typeof p === 'string' && p.trim().startsWith('•');
+            if (isBullet) {
+              if (!listEl) {
+                listEl = document.createElement('ul');
+                listEl.className = 'gold-list';
+                div.appendChild(listEl);
+              }
+              const li = document.createElement('li');
+              li.textContent = p.replace(/^•\s*/, '');
+              listEl.appendChild(li);
+            } else {
+              listEl = null;
+              const para = document.createElement('p');
+              para.className = 'text-sm leading-relaxed text-gray-300 mb-3';
+              para.textContent = p;
+              div.appendChild(para);
+            }
+          });
+          if (sec.id === 'data_types') {
+            const chips = [];
+            for (let i = 0; i < paras.length; i++) {
+              const txt = String(paras[i] || '');
+              const m = txt.match(/:\s*([^\.]+)\.?/);
+              if (m && m[1]) {
+                const raw = m[1];
+                raw.split(',').forEach(item => {
+                  let t = item.trim();
+                  t = t.replace(/^(and|e)\s+/i, '').trim();
+                  if (t) chips.push(t);
+                });
+                break;
+              }
+            }
+            if (chips.length) {
+              const wrap = document.createElement('div');
+              wrap.className = 'chip-list';
+              chips.forEach(c => {
+                const chip = document.createElement('span');
+                chip.className = 'chip';
+                chip.textContent = c;
+                wrap.appendChild(chip);
+              });
+              div.insertBefore(wrap, div.querySelector('p'));
+            }
+          }
+          container.appendChild(div);
+        });
+        function smoothScrollTo(hash) {
+          const target = document.querySelector(hash);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        function bindClicks(nav) {
+          if (!nav) return;
+          nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', e => {
+              e.preventDefault();
+              smoothScrollTo(e.currentTarget.getAttribute('href'));
+              const menu = document.getElementById('indexMenu');
+              if (menu) {
+                menu.classList.remove('is-visible');
+              }
+            });
+          });
+        }
+        bindClicks(toc);
+        bindClicks(tocTop);
+        bindClicks(indexNav);
+        const linkMap = {};
+        toc.querySelectorAll('a').forEach(a => { linkMap[a.getAttribute('href')] = [a]; });
+        if (tocTop) {
+          tocTop.querySelectorAll('a').forEach(a => {
+            const href = a.getAttribute('href');
+            if (linkMap[href]) linkMap[href].push(a); else linkMap[href] = [a];
+          });
+        }
+        if (indexNav) {
+          indexNav.querySelectorAll('a').forEach(a => {
+            const href = a.getAttribute('href');
+            if (linkMap[href]) linkMap[href].push(a); else linkMap[href] = [a];
+          });
+        }
+        function setActive(id) {
+          Object.values(linkMap).forEach(arr => arr.forEach(el => el.classList.remove('active')));
+          const key = '#' + id;
+          const arr = linkMap[key] || [];
+          arr.forEach(el => el.classList.add('active'));
+        }
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) setActive(entry.target.id);
+          });
+        }, { rootMargin: '0px 0px -60% 0px', threshold: 0.25 });
+        sections.forEach(sec => {
+          const el = document.getElementById(sec.id);
+          if (el) observer.observe(el);
+        });
+      }
+      window.renderLegal = renderLegal;
+      document.addEventListener('DOMContentLoaded', function () {
+        const lang = localStorage.getItem('fabio_lang') || 'it';
+        renderLegal(lang);
+        if (typeof applyTranslations === 'function') {
+          applyTranslations(lang);
+        }
+        const fabBtn = document.getElementById('legal-fab');
+        const indexMenu = document.getElementById('indexMenu');
+        const closeBtn = indexMenu ? indexMenu.querySelector('.index-menu-close') : null;
+        if (fabBtn && indexMenu) {
+          const dict = getDataset(lang);
+          const labelEl = document.querySelector('.gh-fab-label');
+          const labelText = dict && dict.fab && typeof dict.fab.indice === 'string' ? dict.fab.indice : (lang === 'en' ? 'Index' : 'Indice');
+          fabBtn.setAttribute('aria-label', labelText);
+          if (labelEl) labelEl.textContent = labelText;
+          fabBtn.addEventListener('click', () => {
+            indexMenu.classList.add('is-visible');
+          });
+        }
+        if (closeBtn && indexMenu) {
+          closeBtn.addEventListener('click', () => {
+            indexMenu.classList.remove('is-visible');
+          });
+        }
+        if (indexMenu) {
+          indexMenu.addEventListener('click', (e) => {
+            if (e.target === indexMenu) {
+              indexMenu.classList.remove('is-visible');
+            }
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>

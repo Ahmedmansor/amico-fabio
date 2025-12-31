@@ -6,12 +6,14 @@ window.i18nIt = {
     commandments: "10 Comandamenti",
     blog: "Blog"
   },
+
+
   fab: {
     contact: "Contatti",
     indice: "Indice"
   },
   hero: {
-    vip_title: "⚠️ VIP ACCESS: I 10 Comandamenti di Fabio",
+    vip_title: "Nota: I 10 Comandamenti di Fabio",
     vip_desc: "Il manuale di sopravvivenza definitivo per Sharm. Evita le trappole per turisti e vivi la vera vacanza da insider.",
     vip_btn: "SBLOCCA IL MANUALE VIP"
   },
@@ -216,6 +218,128 @@ window.i18nIt = {
         },
       ]
     }
+  },
+  footer: {
+    brand_name: "AMICO FABIO",
+    about_bio: "Esperienze VIP a Sharm El Sheikh guidate dal tuo amico di fiducia. Viaggia con eleganza, sicurezza e vera conoscenza da insider.",
+    links_legal: "Legale & Privacy",
+    links_why: "Perché Fabio?",
+    join_community: "Unisciti alla community",
+    heritage: "La nostra eredità: Cross Roots – Stessa esperienza, nuova identità."
+  },
+  legal_page: {
+    title: "Legale & Privacy",
+    toc_title: "Sommario",
+    toc: [
+      { id: "intro", label: "Informativa sulla Privacy (GDPR)" },
+      { id: "owner", label: "Titolare del Trattamento dei Dati" },
+      { id: "data_types", label: "Tipologie di Dati raccolti" },
+      { id: "method", label: "Modalità e luogo del trattamento" },
+      { id: "purpose", label: "Finalità del Trattamento dei Dati" },
+      { id: "cookies", label: "Cookie Policy" },
+      { id: "third_party", label: "Dettagli sul trattamento dei Dati Personali" },
+      { id: "rights", label: "Diritti dell’Utente (GDPR)" },
+      { id: "liability", label: "Limitazione di Responsabilità e Termini" },
+      { id: "definitions", label: "Definizioni e riferimenti legali" },
+      { id: "contact", label: "Contatti & Richieste" }
+    ],
+    sections: [
+      {
+        id: "intro",
+        heading: "Privacy Policy di www.amicofabio.com",
+        paragraphs: [
+          "Benvenuto nella nostra informativa sulla privacy. Questa policy è redatta in conformità al Regolamento Generale sulla Protezione dei Dati (GDPR - UE 2016/679) e ti aiuterà a comprendere quali dati raccogliamo, perché li raccogliamo e quali sono i tuoi diritti.",
+          "Ultima modifica: 31 Dicembre 2025"
+        ]
+      },
+      {
+        id: "owner",
+        heading: "Titolare del Trattamento dei Dati",
+        paragraphs: [
+          "Fabio - Sharm El Sheikh, Egitto. Il Titolare è responsabile della protezione dei tuoi dati e può essere contattato per qualsiasi chiarimento all'indirizzo email: info@amicofabio.com."
+        ]
+      },
+      {
+        id: "data_types",
+        heading: "Tipologie di Dati raccolti",
+        paragraphs: [
+          "Fra i Dati Personali raccolti da questo Sito Web ci sono: Nome, Numero di telefono, Nazionalità, Email, Dati di utilizzo, Strumenti di Tracciamento e statistiche delle sessioni. I dati possono essere forniti liberamente dall'Utente (tramite moduli) o raccolti automaticamente (tramite Google Analytics 4)."
+        ]
+      },
+      {
+        id: "method",
+        heading: "Modalità e luogo del trattamento dei Dati raccolti",
+        paragraphs: [
+          "Il Titolare adotta le opportune misure di sicurezza volte ad impedire l’accesso, la divulgazione o la modifica non autorizzate dei Dati. Il trattamento viene effettuato mediante strumenti informatici e/o telematici.",
+          "I Dati sono trattati presso le sedi operative del Titolare e in ogni altro luogo in cui le parti coinvolte nel trattamento siano localizzate (Server Google Cloud / GitHub Pages).",
+          "I Dati sono trattati e conservati per il tempo richiesto dalla finalità per la quale sono stati raccolti (massimo 24 mesi per scopi di marketing, salvo revoca)."
+        ]
+      },
+      {
+        id: "purpose",
+        heading: "Finalità del Trattamento dei Dati raccolti",
+        paragraphs: [
+          "I Dati dell’Utente sono raccolti per consentire al Titolare di fornire il Servizio, adempiere agli obblighi di legge, rispondere a richieste o azioni esecutive, nonché per le seguenti finalità:",
+          "• Contattare l'Utente: Modulo di contatto (Google Sheets) e integrazione diretta WhatsApp.",
+          "• Statistica: Monitoraggio e analisi dei dati di traffico tramite Google Analytics 4.",
+          "• Hosting ed infrastruttura di backend: GitHub Pages.",
+          "• Visualizzazione di contenuti da piattaforme esterne: Google Fonts e Widget Social."
+        ]
+      },
+      {
+        id: "cookies",
+        heading: "Cookie Policy",
+        paragraphs: [
+          "Utilizziamo cookie essenziali per garantire funzionalità e preferenze del sito (es. lingua).",
+          "Strumenti di analisi possono essere usati per migliorare l'esperienza. Puoi gestire le preferenze nelle impostazioni del browser."
+        ]
+      },
+      {
+        id: "third_party",
+        heading: "Dettagli sul trattamento dei Dati Personali",
+        paragraphs: [
+          "Google Analytics 4 (Google LLC): Un servizio di statistica che utilizza i Dati raccolti allo scopo di tracciare ed esaminare l’utilizzo di questo Sito Web. Gli indirizzi IP vengono anonimizzati prima della registrazione.",
+          "WhatsApp Business API: Utilizziamo questa piattaforma per facilitare la comunicazione diretta e l'invio di fatture o cataloghi. I dati inseriti nei moduli vengono trasferiti a WhatsApp per generare la chat.",
+          "Google Sheets Integration: I dati raccolti tramite il modulo '10 Comandamenti' vengono archiviati su server sicuri di Google per la gestione delle richieste."
+        ]
+      },
+      {
+        id: "rights",
+        heading: "Diritti dell’Utente sulla base del GDPR",
+        paragraphs: [
+          "Gli Utenti possono esercitare determinati diritti con riferimento ai Dati trattati dal Titolare. In particolare, l’Utente ha il diritto di:",
+          "• Revocare il consenso in ogni momento.",
+          "• Opporsi al trattamento dei propri Dati quando esso avviene su una base giuridica diversa dal consenso.",
+          "• Accedere ai propri Dati e ottenerne una copia.",
+          "• Verificare e chiedere la rettificazione dei propri Dati.",
+          "• Ottenere la cancellazione o rimozione dei propri Dati (Diritto all'oblio).",
+          "• Proporre reclamo all’autorità di controllo della protezione dei dati personali competente."
+        ]
+      },
+      {
+        id: "liability",
+        heading: "Limitazione di Responsabilità e Termini",
+        paragraphs: [
+          "Fabio opera come fornitore di esperienze turistiche. Non si assume responsabilità per incidenti derivanti da negligenza dell'utente o per smarrimento di oggetti personali. Le prenotazioni via WhatsApp sono soggette a termini di cancellazione specificati al momento del contatto."
+        ]
+      },
+      {
+        id: "definitions",
+        heading: "Definizioni e riferimenti legali",
+        paragraphs: [
+          "Dati Personali (o Dati): qualunque informazione che renda identificata o identificabile una persona fisica. Cookie: piccole porzioni di dati conservate all'interno del browser dell'Utente. GDPR: Regolamento Generale sulla Protezione dei Dati (UE).",
+          "Questo documento riguarda esclusivamente il sito www.amicofabio.com ed è redatto per garantire la massima trasparenza ai nostri ospiti."
+        ]
+      },
+      {
+        id: "contact",
+        heading: "Contatti & Richieste",
+        paragraphs: [
+          "Per qualsiasi richiesta legale, privacy o relativa ai servizi, contattaci su WhatsApp al +20 106 323 9261.",
+          "Rispondiamo con prontezza e professionalità, mantenendo i più alti standard di servizio."
+        ]
+      }
+    ]
   },
   trips: {
     yacht_white: {

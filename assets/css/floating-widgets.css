@@ -22,17 +22,7 @@
   isolation: isolate;
 }
 
-.floating-whatsapp::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.38), rgba(212, 175, 55, 0));
-  opacity: 0.75;
-  transform: scale(0.88);
-  animation: whatsappPulse 2.4s ease-in-out infinite;
-  z-index: -1;
-}
+
 
 .floating-whatsapp-icon {
   display: inline-flex;
@@ -158,18 +148,6 @@
 }
 
 
-
-.gh-fab::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.38), rgba(212, 175, 55, 0));
-  opacity: 0.75;
-  transform: scale(0.88);
-  animation: whatsappPulse 2.4s ease-in-out infinite;
-  z-index: -1;
-}
 
 .gh-fab:hover::before {
   animation-play-state: paused;

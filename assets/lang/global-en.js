@@ -6,12 +6,134 @@ window.i18nEn = {
     commandments: "10 Commandments",
     blog: "Blog"
   },
+  footer: {
+    brand_name: "AMICO FABIO",
+    about_bio: "Premium VIP experiences in Sharm El Sheikh led by your trusted local friend. Travel elegantly, safely, and with insider knowledge.",
+    links_legal: "Legal & Privacy",
+    links_why: "Why Fabio?",
+    join_community: "Join our community",
+    heritage: "Our heritage: Cross Roots – Same expertise, new identity."
+  },
+  legal_page: {
+    title: "Legal & Privacy",
+    toc_title: "Summary",
+    toc: [
+      { id: "intro", label: "Privacy Policy (GDPR)" },
+      { id: "owner", label: "Data Controller" },
+      { id: "data_types", label: "Types of Data Collected" },
+      { id: "method", label: "Methods & Place of Processing" },
+      { id: "purpose", label: "Purposes of Data Processing" },
+      { id: "cookies", label: "Cookie Policy" },
+      { id: "third_party", label: "Details on Personal Data Processing" },
+      { id: "rights", label: "User Rights (GDPR)" },
+      { id: "liability", label: "Limitation of Liability & Terms" },
+      { id: "definitions", label: "Definitions & Legal References" },
+      { id: "contact", label: "Contact & Requests" }
+    ],
+    sections: [
+      {
+        id: "intro",
+        heading: "Privacy Policy of www.amicofabio.com",
+        paragraphs: [
+          "Welcome to our privacy policy. This policy is drafted in accordance with the General Data Protection Regulation (GDPR - EU 2016/679) and helps you understand which data we collect, why we collect it, and your rights.",
+          "Last update: December 31, 2025"
+        ]
+      },
+      {
+        id: "owner",
+        heading: "Data Controller",
+        paragraphs: [
+          "Fabio - Sharm El Sheikh, Egypt. The Controller is responsible for the protection of your data and can be contacted for any clarification at: info@amicofabio.com."
+        ]
+      },
+      {
+        id: "data_types",
+        heading: "Types of Data Collected",
+        paragraphs: [
+          "Among the Personal Data collected by this Website are: Name, Phone number, Nationality, Email, Usage data, Tracking tools, and session statistics. Data may be freely provided by the User (via forms) or collected automatically (via Google Analytics 4)."
+        ]
+      },
+      {
+        id: "method",
+        heading: "Methods & Place of Processing of Collected Data",
+        paragraphs: [
+          "The Controller takes appropriate security measures to prevent unauthorized access, disclosure, or alteration of the Data. Processing is carried out using IT and/or telematic tools.",
+          "Data is processed at the operational offices of the Controller and in any other place where the parties involved in the processing are located (Google Cloud servers / GitHub Pages).",
+          "Data is processed and stored for the time required by the purposes for which it was collected (maximum 24 months for marketing purposes, unless revoked)."
+        ]
+      },
+      {
+        id: "purpose",
+        heading: "Purposes of Data Processing",
+        paragraphs: [
+          "User Data is collected to allow the Controller to provide the Service, comply with legal obligations, respond to requests, and for the following purposes:",
+          "• Contacting the User: Contact form (Google Sheets) and direct WhatsApp integration.",
+          "• Analytics: Monitoring and analysis of traffic data via Google Analytics 4.",
+          "• Hosting and backend infrastructure: GitHub Pages.",
+          "• Displaying content from external platforms: Google Fonts and Social Widgets."
+        ]
+      },
+      {
+        id: "cookies",
+        heading: "Cookie Policy",
+        paragraphs: [
+          "We use essential cookies to ensure site functionality and preferences (e.g., language).",
+          "Analytics tools may be used to improve user experience. You can manage preferences in your browser settings."
+        ]
+      },
+      {
+        id: "third_party",
+        heading: "Details on Personal Data Processing",
+        paragraphs: [
+          "Google Analytics 4 (Google LLC): A statistics service that uses collected Data to track and examine the use of this Website. IP addresses are anonymized before recording.",
+          "WhatsApp Business API: Used to facilitate direct communication and sending of invoices or catalogs. Data entered in forms is transferred to WhatsApp to generate the chat.",
+          "Google Sheets Integration: Data collected via the '10 Commandments' form is stored on secure Google servers for request management."
+        ]
+      },
+      {
+        id: "rights",
+        heading: "User Rights under GDPR",
+        paragraphs: [
+          "Users may exercise certain rights regarding their processed Data. In particular, the User has the right to:",
+          "• Withdraw consent at any time.",
+          "• Object to the processing of their Data when it occurs on a legal basis other than consent.",
+          "• Access their Data and obtain a copy.",
+          "• Verify and request rectification of their Data.",
+          "• Obtain the deletion or removal of their Data (Right to be forgotten).",
+          "• Lodge a complaint with the competent data protection authority."
+        ]
+      },
+      {
+        id: "liability",
+        heading: "Limitation of Liability & Terms",
+        paragraphs: [
+          "Fabio operates as a provider of tourist experiences. We are not responsible for incidents arising from user negligence or loss of personal belongings. WhatsApp bookings are subject to cancellation terms specified at the time of contact."
+        ]
+      },
+      {
+        id: "definitions",
+        heading: "Definitions & Legal References",
+        paragraphs: [
+          "Personal Data: any information that identifies or makes a natural person identifiable. Cookies: small portions of data stored within the User's browser. GDPR: General Data Protection Regulation (EU).",
+          "This document exclusively concerns the site www.amicofabio.com and is drafted to ensure maximum transparency for our guests."
+        ]
+      },
+      {
+        id: "contact",
+        heading: "Contact & Requests",
+        paragraphs: [
+          "For any legal, privacy, or service-related request, contact us via WhatsApp at +20 106 323 9261.",
+          "We respond promptly and professionally, maintaining the highest standards of service."
+        ]
+      }
+    ]
+  },
   fab: {
     contact: "Contact",
     indice: "Index"
   },
   hero: {
-    vip_title: "⚠️ VIP ACCESS: Fabio's 10 Commandments",
+    vip_title: "Note: Fabio's 10 Commandments",
     vip_desc: "The ultimate survival manual for Sharm. Avoid tourist traps and live the real insider vacation.",
     vip_btn: "UNLOCK THE VIP MANUAL"
   },

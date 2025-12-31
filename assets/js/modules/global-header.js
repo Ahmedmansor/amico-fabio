@@ -233,7 +233,23 @@ const GlobalHeader = {
       const newLang = btn.getAttribute('data-lang');
       localStorage.setItem('fabio_lang', newLang);
       localStorage.setItem('preferredLanguage', newLang);
-      window.location.reload();
+      document.documentElement.lang = newLang;
+      if (typeof applyTranslations === 'function') {
+        applyTranslations(newLang);
+      } else {
+        GlobalHeader.initLanguage();
+      }
+      if (typeof window.renderLegal === 'function') {
+        try { window.renderLegal(newLang); } catch (err) { /* noop */ }
+      }
+      // Update flag button instantly
+      if (langBtn) {
+        langBtn.innerHTML = `${flagSvg(newLang)}<span class="gh-chevron">▼</span>`;
+      }
+      // Update dropdown active state
+      langDd.querySelectorAll('.gh-lang-item').forEach(item => item.classList.remove('active'));
+      const activeItem = langDd.querySelector(`.gh-lang-item[data-lang="${newLang}"]`);
+      if (activeItem) activeItem.classList.add('active');
     });
     // center navigation handled via gh-nav-inline
 

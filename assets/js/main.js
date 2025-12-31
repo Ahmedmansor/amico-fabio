@@ -97,6 +97,11 @@ function applyTranslations(lang) {
     window.PromoBanner.render(window.appData.Global_Settings);
   }
 
+  // Re-render legal page if present
+  if (typeof window.renderLegal === "function") {
+    try { window.renderLegal(lang); } catch (e) { /* noop */ }
+  }
+
   if (window.AOS) window.AOS.refreshHard();
 }
 
