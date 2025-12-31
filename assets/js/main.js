@@ -408,6 +408,14 @@ const App = {
 
     // Global AOS init
     initializeAOS();
+
+    // Who Fabio Parallax (index only)
+    const whoFabioEl = document.getElementById('who-fabio');
+    if (whoFabioEl && window.WhoFabioParallax) {
+      try {
+        window.WFParallax = window.WFParallax || new window.WhoFabioParallax(whoFabioEl);
+      } catch (e) { /* noop */ }
+    }
   },
 
   initTripCatalog: async () => {

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/global-header.css">
     <link rel="stylesheet" href="assets/css/global-footer.css">
     <link rel="stylesheet" href="assets/css/floating-widgets.css">
+    <link rel="stylesheet" href="assets/css/who-fabio.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -63,6 +64,25 @@
             </div>
         </div>
     </section>
+    <!-- Who is Fabio Parallax Section -->
+    <section id="who-fabio" class="who-fabio-section" aria-label="Who is Fabio">
+        <div class="wf-container">
+            <img class="wf-bg" src="assets/images/home-who-fabio/home-who-fabio-bg.webp" alt="Background" loading="lazy"
+                decoding="async">
+            <div class="wf-foreground">
+                <div class="wf-glow" aria-hidden="true"></div>
+                <img class="wf-figure" src="assets/images/home-who-fabio/home-who-fabio-preson.webp" alt="Fabio"
+                    loading="lazy" decoding="async">
+            </div>
+            <button type="button" class="wf-bio-btn" data-i18n="global.who_is_fabio_btn">Who is Fabio</button>
+        </div>
+    </section>
+    <div class="wf-overlay-bio">
+        <div class="wf-overlay-content">
+            <button type="button" class="wf-overlay-close" aria-label="Close">×</button>
+            <div class="wf-overlay-text" data-i18n="secrets.page6.intro"></div>
+        </div>
+    </div>
     <!-- Bannar -->
     <div id="promo-banner-container"></div>
 
@@ -95,6 +115,7 @@
     <script src="assets/js/modules/trips-renderer.js"></script>
     <script src="assets/js/modules/hero-slider.js"></script>
     <script src="assets/js/modules/promo-banner.js"></script>
+    <script src="assets/js/modules/who-fabio.js"></script>
     <script src="assets/js/modules/ui-layout.js"></script>
     <script src="assets/js/main.js"></script>
 </body>

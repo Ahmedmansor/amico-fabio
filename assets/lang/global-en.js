@@ -141,6 +141,7 @@ window.i18nEn = {
     brand_title: "FABIO TOURS",
     brand_subtitle: "Official Tour Guide",
     vip_experiences: "Sharm El Sheikh VIP Experiences",
+    who_is_fabio_btn: "Who is Fabio",
     book_now: "Book via WhatsApp",
     discover: "Discover",
     price_from: "Price from",

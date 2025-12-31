@@ -21,6 +21,7 @@ window.i18nIt = {
     brand_title: "FABIO TOURS",
     brand_subtitle: "Guida Turistica Ufficiale",
     vip_experiences: "Esperienze VIP a Sharm El Sheikh",
+    who_is_fabio_btn: "Chi è Fabio",
     book_now: "Prenota ora",
     discover: "Scopri",
     price_from: "A partire da",
