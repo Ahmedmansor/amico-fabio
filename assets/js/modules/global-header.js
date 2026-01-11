@@ -238,6 +238,7 @@ const GlobalHeader = {
         applyTranslations(newLang);
       } else {
         GlobalHeader.initLanguage();
+        window.dispatchEvent(new CustomEvent('langChanged', { detail: { lang: newLang } }));
       }
       if (typeof window.renderLegal === 'function') {
         try { window.renderLegal(newLang); } catch (err) { /* noop */ }
