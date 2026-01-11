@@ -1,15 +1,4 @@
-// 1. تعريف البيانات التجريبية (Fallback) لضمان عدم ظهور صفحة بيضاء
-const DUMMY_DATA = {
-    Trips_Prices: [
-        { trip_id: "yacht_white", p_adult: "35", badge_en: "Top 🔥", badge_it: "Top 🔥", is_active: "TRUE", featured: "TRUE" },
-        { trip_id: "safari_quad", p_adult: "25", badge_en: "Popular", badge_it: "Popolare", is_active: "TRUE", featured: "TRUE" },
-        { trip_id: "cairo_pyramids", p_adult: "100", badge_en: "Must See", badge_it: "Imperdibile", is_active: "TRUE", featured: "TRUE" }
-    ],
-    Global_Settings: [
-        { key: "promo_banner", val_it: "Offerta Speciale!", val_en: "Special Offer!", is_active: "TRUE" }
-    ],
-    Trip_Addons: []
-};
+
 
 /**
  * 2. دالة الـ Timeout التي نسي Trae تعريفها
@@ -45,23 +34,57 @@ const DATA_CONFIG = {
  * @returns {Array<Object>} Array of objects with keys from the header row.
  */
 function parseCSV(csvText) {
-    const lines = csvText.split(/\r?\n/).filter(line => line.trim() !== '');
-    if (lines.length === 0) return [];
-
-    const headers = parseCSVLine(lines[0]);
-    const data = [];
-
-    for (let i = 1; i < lines.length; i++) {
-        const currentLine = parseCSVLine(lines[i]);
-        if (currentLine.length === headers.length) {
-            const row = {};
-            headers.forEach((header, index) => {
-                row[header.trim()] = currentLine[index].trim();
-            });
-            data.push(row);
+    if (!csvText || typeof csvText !== 'string') return [];
+    const rows = [];
+    let currentRow = [];
+    let currentField = '';
+    let inQuotes = false;
+    for (let i = 0; i < csvText.length; i++) {
+        const ch = csvText[i];
+        const next = csvText[i + 1];
+        if (ch === '"') {
+            if (inQuotes && next === '"') {
+                currentField += '"';
+                i += 1;
+            } else {
+                inQuotes = !inQuotes;
+            }
+        } else if (ch === ',' && !inQuotes) {
+            currentRow.push(currentField);
+            currentField = '';
+        } else if ((ch === '\n' || ch === '\r') && !inQuotes) {
+            if (ch === '\r' && next === '\n') {
+                i += 1;
+            }
+            currentRow.push(currentField);
+            currentField = '';
+            if (currentRow.length > 0 && currentRow.some(cell => String(cell).trim().length > 0)) {
+                rows.push(currentRow);
+            }
+            currentRow = [];
+        } else {
+            currentField += ch;
         }
     }
-    return data;
+    currentRow.push(currentField);
+    if (currentRow.length > 0 && currentRow.some(cell => String(cell).trim().length > 0)) {
+        rows.push(currentRow);
+    }
+    if (rows.length === 0) return [];
+    const headers = rows[0].map(h => String(h).trim());
+    const dataRows = rows.slice(1);
+    const out = [];
+    for (let r = 0; r < dataRows.length; r++) {
+        const rowArr = dataRows[r];
+        const obj = {};
+        for (let c = 0; c < headers.length; c++) {
+            const key = headers[c];
+            const val = rowArr[c] !== undefined ? String(rowArr[c]).replace(/\r?\n/g, ' ').trim() : '';
+            obj[key] = val;
+        }
+        out.push(obj);
+    }
+    return out;
 }
 
 /**
@@ -70,32 +93,36 @@ function parseCSV(csvText) {
  * @returns {Array<string>}
  */
 function parseCSVLine(text) {
-    const result = [];
-    let start = 0;
-    let inQuotes = false;
+    // Deprecated; not used with multi-line aware parser
+    return [];
+};
 
-    for (let i = 0; i < text.length; i++) {
-        if (text[i] === '"') {
-            inQuotes = !inQuotes;
-        } else if (text[i] === ',' && !inQuotes) {
-            let field = text.substring(start, i);
-            // Remove surrounding quotes if present
-            if (field.startsWith('"') && field.endsWith('"')) {
-                field = field.substring(1, field.length - 1);
-            }
-            result.push(field.replace(/""/g, '"')); // Handle escaped quotes
-            start = i + 1;
-        }
-    }
+function normalizeTripId(id) {
+    const map = {
+        yacht_white: 'ras_mohammed_white_island_vip',
+        ras_mohammed_boat: 'ras_mohammed_white_island_vip',
+        ras_mohammed_white_island_vip: 'ras_mohammed_white_island_vip',
+        safari_quad: 'desert_quad_bike_safari',
+        quad_safari: 'desert_quad_bike_safari',
+        cairo_pyramids: 'cairo_pyramids_classic',
+        cairo_by_plane: 'cairo_pyramids_by_plane',
+        ras_mohammed_bus: 'ras_mohammed_bus_half_day',
+        tiran_boat: 'tiran_island_boat_vip',
+        tiran_island_boat_vip: 'tiran_island_boat_vip',
+        luxor_tour: 'luxor_day_trip',
+        aswan_tour: 'aswan_day_trip'
+    };
+    const k = String(id || '').trim();
+    return map.hasOwnProperty(k) ? map[k] : k;
+}
 
-    // Add the last field
-    let lastField = text.substring(start);
-    if (lastField.startsWith('"') && lastField.endsWith('"')) {
-        lastField = lastField.substring(1, lastField.length - 1);
-    }
-    result.push(lastField.replace(/""/g, '"'));
-
-    return result;
+function normalizeTrips(trips) {
+    if (!Array.isArray(trips)) return [];
+    return trips.map(t => {
+        const copy = { ...t };
+        copy.trip_id = normalizeTripId(copy.trip_id);
+        return copy;
+    });
 }
 
 /**
@@ -104,6 +131,13 @@ function parseCSVLine(text) {
  */
 async function fetchAllData() {
     try {
+        const cached = sessionStorage.getItem('fabio_trips_cache');
+        if (cached) {
+            const obj = JSON.parse(cached);
+            if (obj && obj.Trips_Prices && obj.Global_Settings && obj.Trip_Addons) {
+                return obj;
+            }
+        }
         console.log("Fetching data with 5s timeout...");
         const [tripsResponse, settingsResponse, addonsResponse] = await Promise.all([
             fetchWithTimeout(DATA_CONFIG.Trips_Prices),
@@ -119,20 +153,29 @@ async function fetchAllData() {
         const settingsText = await settingsResponse.text();
         const addonsText = await addonsResponse.text();
 
-        return {
-            Trips_Prices: parseCSV(tripsText),
+        const result = {
+            Trips_Prices: normalizeTrips(parseCSV(tripsText)),
             Global_Settings: parseCSV(settingsText),
             Trip_Addons: parseCSV(addonsText)
         };
+        try {
+            sessionStorage.setItem('fabio_trips_cache', JSON.stringify(result));
+        } catch (e) { }
+        return result;
     } catch (error) {
         console.warn("Data Fetch Failed or Timed Out. Using Dummy Data.", error);
-        // Return dummy data immediately so UI renders
-        return DUMMY_DATA;
+        const cached = sessionStorage.getItem('fabio_trips_cache');
+        if (cached) {
+            const obj = JSON.parse(cached);
+            if (obj && obj.Trips_Prices && obj.Global_Settings && obj.Trip_Addons) {
+                return obj;
+            }
+        }
+        return { Trips_Prices: [], Global_Settings: [], Trip_Addons: [] };
     }
 }
 
 // Expose to window for global access (simplest approach without modules for now)
 window.api = {
-    fetchAllData,
-    DUMMY_DATA
+    fetchAllData
 };

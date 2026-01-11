@@ -8,21 +8,30 @@ const DetailsRenderer = {
             return;
         }
 
-        // 1. Static Data (Priority)
-        // Why: Read the unified language state to ensure details page matches global selection.
         const lang = localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
         const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
         const langData = i18n.trips ? i18n.trips[tripId] : null;
 
-        // 2. Dynamic Data (Prices)
         let apiData = null;
-        if (window.api && window.api.fetchAllData) {
-            const data = await window.api.fetchAllData();
-            apiData = data ? data.Trips_Prices.find(t => t.trip_id === tripId) : null;
+        const cached = sessionStorage.getItem('fabio_trips_cache');
+        if (cached) {
+            try {
+                const obj = JSON.parse(cached);
+                apiData = obj && obj.Trips_Prices ? obj.Trips_Prices.find(t => t.trip_id === tripId) : null;
+            } catch (e) { }
         }
 
-        if (langData || apiData) {
-            DetailsRenderer.render(tripId, apiData, langData, lang);
+        if (apiData || langData) {
+            if (apiData) {
+                DetailsRenderer.render(tripId, apiData, langData, lang);
+            } else {
+                DetailsRenderer.renderStaticFirst(tripId, langData, lang);
+                if (window.api && window.api.fetchAllData) {
+                    const data = await window.api.fetchAllData();
+                    const live = data ? data.Trips_Prices.find(t => t.trip_id === tripId) : null;
+                    if (live) DetailsRenderer.updatePriceOnly(live);
+                }
+            }
         } else {
             const dict = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
             const msg = dict && dict.global && typeof dict.global.experience_not_found === 'string' ? dict.global.experience_not_found : '';
@@ -35,11 +44,29 @@ const DetailsRenderer = {
     },
 
     render: (tripId, apiData, langData, lang) => {
-        // Fallbacks
+        const activeLang = localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
+        const i18nCurrent = activeLang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+        const langDataCurrent = i18nCurrent.trips ? i18nCurrent.trips[tripId] : null;
+        lang = activeLang;
+        langData = langDataCurrent || langData;
         const title = (langData && langData.title) || (apiData && apiData.trip_id) || tripId;
-        const price = apiData ? parseFloat(apiData.p_adult) : 0;
-        const discount = apiData ? parseFloat(apiData.d_adult) : 0;
+        const pAdult = apiData ? parseFloat(apiData.p_adult || '0') : 0;
+        const dAdult = apiData ? parseFloat(apiData.d_adult || '0') : 0;
+        const pChild = apiData ? parseFloat(apiData.p_child || '0') : 0;
+        const dChild = apiData ? parseFloat(apiData.d_child || '0') : 0;
+        const minPax = apiData ? parseInt(apiData.min_pax || '1', 10) : 1;
         const badge = apiData ? (lang === 'en' ? apiData.badge_en : apiData.badge_it) : '';
+
+        document.title = `Fabio Tours | ${title}`;
+        const metaDesc = document.querySelector('meta[name="description"]') || (function () {
+            const m = document.createElement('meta');
+            m.setAttribute('name', 'description');
+            document.head.appendChild(m);
+            return m;
+        })();
+        const descText = (langData && langData.short_desc) || (langData && langData.full_description) || '';
+        const cleanDesc = typeof descText === 'string' ? descText.replace(/\s+/g, ' ').trim().slice(0, 200) : '';
+        if (metaDesc) metaDesc.setAttribute('content', cleanDesc);
 
         // Elements
         const els = {
@@ -85,13 +112,25 @@ const DetailsRenderer = {
             }
         }
 
-        // Price Logic (Discount)
-        const priceHTML = discount > 0
-            ? `<span class="price-strike text-lg mr-2">€${price}</span> €${discount}`
-            : `€${price}`;
-
-        if (els.price) els.price.innerHTML = priceHTML;
-        if (els.cardPrice) els.cardPrice.innerHTML = priceHTML;
+        const adultHero = dAdult > 0
+            ? `<span class="inline-flex items-center gap-2"><span>👤</span><span class="line-through text-gray-400">€${pAdult}</span><span class="text-gold font-bold">€${dAdult}</span></span>`
+            : `<span class="inline-flex items-center gap-2"><span>👤</span><span class="text-gold font-bold">€${pAdult}</span></span>`;
+        if (els.price) els.price.innerHTML = adultHero;
+        const headlinePrice = dAdult > 0 ? dAdult : pAdult;
+        if (els.cardPrice) els.cardPrice.textContent = `€${headlinePrice}`;
+        const breakdownEl = document.getElementById('card-price-breakdown');
+        if (breakdownEl) {
+            const adultRow = dAdult > 0
+                ? `<div class="flex items-center gap-2"><span>👤</span><span class="line-through text-gray-400">€${pAdult}</span><span class="text-white font-bold">€${dAdult}</span></div>`
+                : `<div class="flex items-center gap-2"><span>👤</span><span class="text-white font-bold">€${pAdult}</span></div>`;
+            const childRow = (dChild > 0 || pChild > 0)
+                ? (dChild > 0
+                    ? `<div class="flex items-center gap-2"><span>👶</span><span class="line-through text-gray-400">€${pChild}</span><span class="text-white font-bold">€${dChild}</span></div>`
+                    : `<div class="flex items-center gap-2"><span>👶</span><span class="text-white font-bold">€${pChild}</span></div>`)
+                : '';
+            const minPaxRow = `<div class="flex items-center gap-2"><span>👥</span><span class="text-gray-300">Min Pax: ${minPax}</span></div>`;
+            breakdownEl.innerHTML = `${adultRow}${childRow ? childRow : ''}${minPaxRow}`;
+        }
 
         if (langData) {
             const dict = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
@@ -99,14 +138,13 @@ const DetailsRenderer = {
             if (els.duration) els.duration.textContent = langData.duration || daily;
             if (els.desc) els.desc.innerHTML = langData.short_desc || '';
             if (els.fullDesc) els.fullDesc.innerHTML = langData.full_description || '';
-            if (els.important) els.important.textContent = langData.important || '';
+            if (els.important) els.important.textContent = langData.important_notes || '';
 
             // Lists
             DetailsRenderer.renderList(els.highlights, langData.highlights);
             DetailsRenderer.renderList(els.includes, langData.includes, true, 'check');
             DetailsRenderer.renderList(els.excludes, langData.not_included, true, 'cross');
 
-            // Program (New Requirement)
             if (els.program && langData.program) {
                 DetailsRenderer.renderProgram(els.program, langData.program);
             }
@@ -126,6 +164,89 @@ const DetailsRenderer = {
 
             // 2. Start Loop from 1.jpg
             DetailsRenderer.loadGalleryImages(tripId, 1, els.gallery, els.bg);
+        }
+    },
+    renderStaticFirst: (tripId, langData, lang) => {
+        const els = {
+            bg: document.getElementById('hero-bg'),
+            title: document.getElementById('detail-title'),
+            badge: document.getElementById('detail-badge'),
+            duration: document.getElementById('detail-duration'),
+            price: document.getElementById('detail-price'),
+            desc: document.getElementById('detail-desc'),
+            highlights: document.getElementById('detail-highlights'),
+            fullDesc: document.getElementById('detail-full-desc'),
+            program: document.getElementById('detail-program'),
+            important: document.getElementById('detail-important'),
+            cardPrice: document.getElementById('card-price'),
+            cardBreakdown: document.getElementById('card-price-breakdown'),
+            includes: document.getElementById('detail-includes'),
+            excludes: document.getElementById('detail-excludes'),
+            gallery: document.getElementById('gallery-grid'),
+            btnBook: document.getElementById('btn-book')
+        };
+        const posterSrc = `assets/images/trips/${tripId}/poster.jpg`;
+        const fallbackSrc = 'assets/logo-fabio-square.jpg';
+        if (els.bg) {
+            els.bg.style.backgroundImage = `url('${posterSrc}')`;
+            const imgTest = new Image();
+            imgTest.src = posterSrc;
+            imgTest.onerror = () => { els.bg.style.backgroundImage = `url('${fallbackSrc}')`; };
+        }
+        const title = (langData && langData.title) || tripId;
+        if (els.title) els.title.textContent = title;
+        if (els.price) els.price.innerHTML = `<span class="price-skeleton inline-block"></span>`;
+        if (els.cardPrice) els.cardPrice.innerHTML = `<span class="price-skeleton inline-block"></span>`;
+        if (els.cardBreakdown) els.cardBreakdown.innerHTML = `<div class="price-skeleton" style="width: 80%; height: 1.2rem;"></div>`;
+        if (langData) {
+            const dict = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+            const daily = dict && dict.global && typeof dict.global.daily === 'string' ? dict.global.daily : '';
+            if (els.duration) els.duration.textContent = langData.duration || daily;
+            if (els.desc) els.desc.innerHTML = langData.short_desc || '';
+            if (els.fullDesc) els.fullDesc.innerHTML = langData.full_description || '';
+            if (els.important) els.important.textContent = langData.important_notes || '';
+            DetailsRenderer.renderList(els.highlights, langData.highlights);
+            DetailsRenderer.renderList(els.includes, langData.includes, true, 'check');
+            DetailsRenderer.renderList(els.excludes, langData.not_included, true, 'cross');
+            if (els.program && langData.program) {
+                DetailsRenderer.renderProgram(els.program, langData.program);
+            }
+        }
+        if (els.gallery) {
+            els.gallery.innerHTML = '';
+            DetailsRenderer.appendGalleryItem(posterSrc, els.gallery, els.bg);
+            DetailsRenderer.loadGalleryImages(tripId, 1, els.gallery, els.bg);
+        }
+        const dictBtn = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+        const bookNow = dictBtn && dictBtn.global && typeof dictBtn.global.book_now === 'string' ? dictBtn.global.book_now : '';
+        if (els.btnBook) els.btnBook.textContent = bookNow;
+    },
+    updatePriceOnly: (apiData) => {
+        const priceEl = document.getElementById('detail-price');
+        const cardPriceEl = document.getElementById('card-price');
+        const breakdownEl = document.getElementById('card-price-breakdown');
+        const pAdult = parseFloat(apiData.p_adult || '0');
+        const dAdult = parseFloat(apiData.d_adult || '0');
+        const pChild = parseFloat(apiData.p_child || '0');
+        const dChild = parseFloat(apiData.d_child || '0');
+        const minPax = parseInt(apiData.min_pax || '1', 10);
+        const adultHero = dAdult > 0
+            ? `<span class="inline-flex items-center gap-2"><span>👤</span><span class="line-through text-gray-400">€${pAdult}</span><span class="text-gold font-bold">€${dAdult}</span></span>`
+            : `<span class="inline-flex items-center gap-2"><span>👤</span><span class="text-gold font-bold">€${pAdult}</span></span>`;
+        if (priceEl) priceEl.innerHTML = adultHero;
+        const headlinePrice = dAdult > 0 ? dAdult : pAdult;
+        if (cardPriceEl) cardPriceEl.textContent = `€${headlinePrice}`;
+        if (breakdownEl) {
+            const adultRow = dAdult > 0
+                ? `<div class="flex items-center gap-2"><span>👤</span><span class="line-through text-gray-400">€${pAdult}</span><span class="text-white font-bold">€${dAdult}</span></div>`
+                : `<div class="flex items-center gap-2"><span>👤</span><span class="text-white font-bold">€${pAdult}</span></div>`;
+            const childRow = (dChild > 0 || pChild > 0)
+                ? (dChild > 0
+                    ? `<div class="flex items-center gap-2"><span>👶</span><span class="line-through text-gray-400">€${pChild}</span><span class="text-white font-bold">€${dChild}</span></div>`
+                    : `<div class="flex items-center gap-2"><span>👶</span><span class="text-white font-bold">€${pChild}</span></div>`)
+                : '';
+            const minPaxRow = `<div class="flex items-center gap-2"><span>👥</span><span class="text-gray-300">Min Pax: ${minPax}</span></div>`;
+            breakdownEl.innerHTML = `${adultRow}${childRow ? childRow : ''}${minPaxRow}`;
         }
     },
 
@@ -189,7 +310,7 @@ const DetailsRenderer = {
             return `
             <li class="flex items-start leading-relaxed border-b border-gray-100 pb-2 last:border-0">
                 ${icon}
-                <span class="${isCompact ? 'text-gray-600 text-sm' : 'text-gray-800 font-medium'}">${item}</span>
+                <span class="${isCompact ? (container.id === 'detail-highlights' ? 'text-white text-sm' : 'text-gray-600 text-sm') : (container.id === 'detail-highlights' ? 'text-white font-medium' : 'text-gray-800 font-medium')}">${item}</span>
             </li>
             `;
         }).join('');
@@ -197,22 +318,34 @@ const DetailsRenderer = {
 
     renderProgram: (container, steps) => {
         if (!steps || !Array.isArray(steps) || !container) return;
-
-        // Simple vertical timeline
-        container.innerHTML = steps.map((step, i) => `
-            <div class="flex gap-4 mb-6 last:mb-0 relative">
-                <div class="flex flex-col items-center">
-                    <div class="w-8 h-8 rounded-full bg-gold text-white flex items-center justify-center font-bold text-sm shadow-lg z-10">
-                        ${i + 1}
+        const html = steps.map((step, i) => {
+            const isObj = step && typeof step === 'object';
+            const time = isObj ? (step.time || '') : '';
+            const activity = isObj ? (step.activity || '') : '';
+            const details = isObj ? (step.details || '') : String(step || '');
+            return `
+                <div class="flex gap-4 mb-6 last:mb-0 relative">
+                    <div class="flex flex-col items-center">
+                        <div class="w-8 h-8 rounded-full bg-gold text-white flex items-center justify-center font-bold text-sm shadow-lg z-10">
+                            ${i + 1}
+                        </div>
+                        ${i !== steps.length - 1 ? '<div class="w-0.5 h-full bg-gray-100 absolute top-8"></div>' : ''}
                     </div>
-                    ${i !== steps.length - 1 ? '<div class="w-0.5 h-full bg-gray-100 absolute top-8"></div>' : ''}
+                    <div class="pb-2">
+                        ${time ? `<div class="text-sm text-gray-500 mb-1">${time}</div>` : ''}
+                        ${activity ? `<div class="text-white font-semibold mb-1">${activity}</div>` : ''}
+                        <p class="text-gray-300 leading-relaxed">${details}</p>
+                    </div>
                 </div>
-                <div class="pb-2">
-                    <p class="text-gray-700 leading-relaxed">${step}</p>
-                </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
+        container.innerHTML = html;
     }
 };
 
 window.DetailsRenderer = DetailsRenderer;
+window.addEventListener('langChanged', () => {
+    if (window.DetailsRenderer && typeof window.DetailsRenderer.init === 'function') {
+        window.DetailsRenderer.init();
+    }
+});

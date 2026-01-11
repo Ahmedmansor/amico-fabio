@@ -74,6 +74,7 @@ function applyTranslations(lang) {
   localStorage.setItem("preferredLanguage", lang);
 
   applyTextContent(lang);
+  window.dispatchEvent(new CustomEvent('langChanged', { detail: { lang } }));
 
   // Re-render components if on Sharm Secrets page
   if (document.getElementById("servicesFlow")) {
@@ -85,12 +86,7 @@ function applyTranslations(lang) {
     renderIndexMenu(lang);
   }
 
-  // Re-render trips if on Trip Catalog page
-  if (document.getElementById("trips-grid") && window.appData && window.appData.Trips_Prices) {
-    if (window.TripsRenderer) {
-      window.TripsRenderer.render(window.appData.Trips_Prices);
-    }
-  }
+  // Home page uses static location cards; no dynamic re-render on #trips-grid
 
   // Re-render promo banner
   if (window.PromoBanner && window.appData && window.appData.Global_Settings) {
@@ -420,29 +416,23 @@ const App = {
 
   initTripCatalog: async () => {
     const grid = document.getElementById('trips-grid');
-    if (grid) {
-      // Add loading spinner
-      grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--color-gold);"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
-    }
+    // Do not mutate static cards
 
-    // 3. Call Data Layer
+    // 3. Call Data Layer (for promo/settings only)
     if (window.api && window.api.fetchAllData) {
       const data = await window.api.fetchAllData();
 
-      // Safety check: ensure we have data or use dummy
-      const finalData = data || window.api.DUMMY_DATA;
+      // Safety check: ensure we have data
+      const finalData = data;
 
       if (!finalData) {
-        console.error("App: Data fetch returned null and no DUMMY_DATA available.");
+        console.error("App: Data fetch returned null.");
         return;
       }
 
       window.appData = finalData; // Store state
 
-      // 4. Trigger Renderer
-      if (window.TripsRenderer && finalData.Trips_Prices) {
-        window.TripsRenderer.render(finalData.Trips_Prices);
-      }
+      // 4. Leave static cards intact
 
       // 5. Trigger Promo Banner
       if (window.PromoBanner && finalData.Global_Settings) {
@@ -455,7 +445,6 @@ const App = {
       }
 
       if (!window.TripsRenderer || !finalData.Trips_Prices) {
-        // Handle empty or failed data
         const grid = document.getElementById('trips-grid');
         if (grid) {
           const lang = localStorage.getItem("fabio_lang") || document.documentElement.lang || "it";

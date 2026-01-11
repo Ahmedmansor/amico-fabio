@@ -49,6 +49,13 @@
             color: #f3f4f6;
         }
 
+        html,
+        body {
+            overflow-x: hidden !important;
+            width: 100%;
+            position: relative;
+        }
+
         .hero-overlay {
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(5, 5, 5, 1) 100%);
         }
@@ -69,6 +76,25 @@
             display: inline-block;
             width: 1em;
             margin-left: -1em;
+        }
+
+        .price-skeleton {
+            height: 1.8rem;
+            width: 140px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.06) 100%);
+            animation: priceShimmer 1.4s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes priceShimmer {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 200% 0%;
+            }
         }
     </style>
 </head>
@@ -178,6 +204,7 @@
                                 data-i18n="global.price_from"></span>
                             <span id="card-price" class="text-4xl font-playfair font-bold text-gold"></span>
                             <span class="text-gray-500 text-sm block mt-1" data-i18n="global.per_person"></span>
+                            <div id="card-price-breakdown" class="mt-4 space-y-2 text-sm text-gray-200"></div>
                         </div>
 
                         <button onclick="window.location.href='#contact'"

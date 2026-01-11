@@ -5,9 +5,9 @@
   border-radius: var(--radius-card);
   padding: 1rem 1rem;
   background: radial-gradient(circle at top left, rgba(197, 160, 89, 0.18), rgba(0, 0, 0, 0.92));
-  border: 1px solid var(--color-gold-dim);
+  border: 1px solid rgba(212, 175, 55, 0.22);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .catalog-card-main {
@@ -139,12 +139,12 @@
   justify-content: center;
   padding: 0.25rem 0.65rem;
   border-radius: 999px;
-  background: var(--color-gold);
-  color: #111;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
   font-weight: 700;
   font-size: 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
 }
 
 .card-content {
@@ -217,8 +217,9 @@
   width: 100%;
   padding: 0.9rem 1rem;
   border-radius: 14px;
-  background: var(--color-gold);
-  color: #111;
+  background: #313028;
+  color: var(--color-gold);
+  border: 2px solid var(--color-gold);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -227,8 +228,44 @@
 }
 
 .card-btn:hover {
-  background: #fff;
+  background: var(--color-gold);
+  color: #111;
   transform: translateY(-2px);
+}
+
+.price-skeleton {
+  height: 1.8rem;
+  width: 120px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.06) 100%);
+  animation: priceShimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes priceShimmer {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+.fade-in-soft {
+  opacity: 0;
+  animation: fadeInSoft 300ms ease forwards;
+}
+
+@keyframes fadeInSoft {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .trips-grid-container {

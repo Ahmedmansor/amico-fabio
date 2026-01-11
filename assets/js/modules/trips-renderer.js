@@ -65,10 +65,7 @@ const TripsRenderer = {
     renderRealCards: (trips, container) => {
         container.innerHTML = "";
 
-        // Fallback to DUMMY_DATA if empty
-        if ((!trips || trips.length === 0) && window.api && window.api.DUMMY_DATA && window.api.DUMMY_DATA.Trips_Prices) {
-            trips = window.api.DUMMY_DATA.Trips_Prices;
-        }
+        // Strict: do not use dummy fallbacks; render empty state if needed
 
         // Filter: Strictly show featured === 'TRUE'
         const filteredTrips = trips.filter(t => {
@@ -137,12 +134,14 @@ const TripsRenderer = {
                     <span class="deal-inline">${ltdText}</span>
                 </div>
             `;
-        } else {
+        } else if (p_adult > 0) {
             priceRowHTML = `
                 <div class="price-row">
                     <span class="price-new">€${p_adult}</span>
                 </div>
             `;
+        } else {
+            priceRowHTML = `<div class="price-skeleton"></div>`;
         }
 
         const imgPath = `assets/images/trips/${trip.trip_id}/poster.jpg`;
@@ -158,7 +157,7 @@ const TripsRenderer = {
         const standardBadge = lang === 'it' ? trip.badge_it : trip.badge_en;
 
         const cardHTML = `
-            <article class="catalog-card trip-card" data-aos="fade-up" data-aos-delay="${delay}">
+            <article class="catalog-card trip-card" data-trip-id="${trip.trip_id}" data-aos="fade-up" data-aos-delay="${delay}">
                 <div class="catalog-card-image">
                     <img src="${imgPath}" alt="${title}" class="catalog-card-img"
                          loading="lazy" onerror="this.onerror=null; this.src='${fallbackPath}';">
@@ -176,7 +175,7 @@ const TripsRenderer = {
                             <span class="label-start" data-i18n="global.price_from">${lblStart}</span>
                             ${priceRowHTML}
                         </div>
-                        <button class="card-btn" onclick="window.location.href = 'details.html?id=${trip.trip_id}'" data-i18n="global.discover">${lblBtn}</button>
+                        <button class="card-btn" onclick="sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=${trip.trip_id}'" data-i18n="global.discover">${lblBtn}</button>
                     </div>
                 </div>
             </article>
@@ -190,3 +189,63 @@ const TripsRenderer = {
 };
 
 window.TripsRenderer = TripsRenderer;
+
+const LocationRenderer = {
+    render: () => {
+        const container = document.getElementById('trips-grid');
+        if (!container) return;
+        const items = [
+            {
+                id: 'sharm',
+                title: 'Sharm El Sheikh',
+                img: 'assets/images/locations/sharm.jpg'
+            },
+            {
+                id: 'cairo',
+                title: 'Cairo',
+                img: 'assets/images/locations/cairo.jpg'
+            },
+            {
+                id: 'luxor_and_aswan',
+                title: 'Luxor & Aswan',
+                img: 'assets/images/locations/luxor_aswan.jpg'
+            },
+            {
+                id: 'desert',
+                title: 'Sinai Desert',
+                img: 'assets/images/locations/desert.jpg'
+            }
+        ];
+        container.className = "grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl px-4 mx-auto";
+        const frag = document.createDocumentFragment();
+        items.forEach((loc, i) => {
+            const delay = i * 120;
+            const el = document.createElement('article');
+            el.className = "catalog-card trip-card";
+            el.setAttribute('data-aos', 'fade-up');
+            el.setAttribute('data-aos-delay', String(delay));
+            el.innerHTML = `
+                <div class="catalog-card-image">
+                    <img src="${loc.img}" alt="${loc.title}" class="catalog-card-img" loading="lazy"
+                         onerror="this.onerror=null; this.src='assets/logo-fabio-square.jpg';">
+                    <div class="card-badges"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="catalog-card-title">${loc.title}</h3>
+                    <div class="card-divider"></div>
+                    <p class="catalog-card-desc"></p>
+                    <div class="card-footer">
+                        <div class="price-block"></div>
+                        <a class="card-btn" href="explore.html?loc=${loc.id}" data-i18n="global.discover">Explore</a>
+                    </div>
+                </div>
+            `;
+            frag.appendChild(el);
+        });
+        container.innerHTML = '';
+        container.appendChild(frag);
+        if (window.AOS) window.AOS.refresh();
+    }
+};
+
+window.LocationRenderer = LocationRenderer;

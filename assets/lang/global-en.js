@@ -189,7 +189,25 @@ window.i18nEn = {
     loading_failed: "Loading failed. Please try again later.",
     vip_access: "VIP ACCESS:",
     ultimate_guide: "The Ultimate Guide for Sharm",
-    all_rights: "All Rights Reserved."
+    all_rights: "All Rights Reserved.",
+    filters: {
+      all: "All",
+      sea: "Sea",
+      culture: "Culture",
+      desert: "Desert"
+    },
+    locations: {
+      sharm: "Sharm El Sheikh",
+      cairo: "Cairo",
+      luxor_aswan: "Luxor & Aswan"
+    },
+    explore_experiences: "Explore"
+    ,
+    pricing: {
+      adult: "Adult",
+      child: "Child",
+      min_pax: "Min Pax"
+    }
   },
   secrets: {
     nav_index: "Index",
@@ -363,71 +381,207 @@ window.i18nEn = {
     }
   },
   trips: {
-    yacht_white: {
-      title: "White Island Zaga – Yacht",
-      short_desc: "3-story yacht in 'ZAGA STYLE' towards Ras Mohammed.",
-      duration: "10 hours",
-      highlights: [
-        "Exclusive Italian-only group",
-        "Guaranteed 1-hour stop at the White Island",
-        "Buffet lunch and unlimited drinks"
+    ras_mohammed_white_island_vip: {
+      "tour_id": "ras_mohammed_white_island_vip",
+      "title": "Ras Mohammed & White Island: The VIP Experience",
+      "short_desc": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+      "duration": "8-9 Hours (Full Day)",
+
+      "highlights": [
+        "Exclusive stop at the White Island (The Neverland Island)",
+        "2 snorkeling stops on the world's most beautiful coral reef",
+        "Fresh lunch on board with unlimited drinks",
+        "Relaxed atmosphere: No crowds, just fun"
       ],
-      full_description: "A day on board a three-story yacht EXCLUSIVELY RESERVED for ZAGA clients. Enjoy the luxury and freedom of exploring the crystal-clear waters of Ras Mohammed in style. An experience curated down to the smallest detail to offer you maximum comfort and fun.",
-      program: [
-        "Hotel pickup with private car",
-        "Boarding the luxury yacht",
-        "Snorkeling stop at Ras Mohammed",
-        "Stop at the White Island",
-        "Buffet lunch on board",
-        "Return to port and transfer to hotel"
+      "full_description": "It’s not just another boat trip, it’s an unforgettable day signed by Amico Fabio. We will set sail to Ras Mohammed National Park, where the desert meets the bluest sea you’ve ever seen. \n\nThe main stop? White Island: a tongue of white sand that appears and disappears with the tide, creating a natural pool worthy of the Maldives. \n\nBetween dives, our onboard chef will prepare a fresh and tasty buffet lunch. Whether you want to explore the seabed with our expert guides or just sunbathe on the sun deck, this is the perfect excursion to combine adventure and total relaxation.",
+      "program": [
+        {
+          "time": "08:00",
+          "activity": "VIP Pickup",
+          "details": "Our private transfer will pick you up directly at the hotel. No stress."
+        },
+        {
+          "time": "09:00",
+          "activity": "Boarding and Welcome",
+          "details": "Arrival at the port, quick check-in, and welcome on board with a safety briefing."
+        },
+        {
+          "time": "10:30",
+          "activity": "Snorkeling at Ras Mohammed",
+          "details": "First guided stop to admire millenary corals and colorful fish."
+        },
+        {
+          "time": "12:30",
+          "activity": "Magic White Island",
+          "details": "Landing on the famous white sand spit. Free time for Instagrammable photos and relaxation in the water."
+        },
+        {
+          "time": "13:30",
+          "activity": "Lunch with a View",
+          "details": "Rich buffet on board (fish, meat, rice, salads) freshly prepared by the chef."
+        },
+        {
+          "time": "14:30",
+          "activity": "Last Dive or Relaxation",
+          "details": "Second snorkeling stop or time to enjoy the sun while we sail."
+        },
+        {
+          "time": "16:30",
+          "activity": "Return",
+          "details": "Return to the port and comfortable transfer back to your hotel."
+        }
       ],
-      includes: ["Hotel pickup", "Lunch on board", "Diving equipment (optional)", "Unlimited drinks"],
-      not_included: ["Mask and fins rental", "Photos and videos"],
-      important: "Bring swimsuit, sunscreen, and passport."
+      "includes": [
+        "R/T Hotel transfer (A/C Bus)",
+        "Ras Mohammed National Park entry ticket",
+        "Buffet lunch prepared on board",
+        "Unlimited soft drinks all day",
+        "Italian-speaking Snorkeling guide"
+      ],
+      "not_included": [
+        "Snorkeling equipment rental (mask/fins - optional)",
+        "Professional photo/video service",
+        "Tips (at your discretion)"
+      ],
+      "important_notes": "Bring with you: Passport (mandatory), beach towel, sunscreen, sunglasses, and lots of energy. In winter, bring a light sweatshirt for the return.",
+      "seo_tags": [
+        "Ras Mohammed",
+        "White Island Sharm",
+        "Boat Excursion Sharm",
+        "Red Sea Snorkeling",
+        "Amico Fabio Tours"
+      ]
     },
-    safari_quad: {
-      title: "Safari Quad Adventure",
-      short_desc: "Adrenaline-filled quad bike safari in the desert.",
-      duration: "3 hours",
-      highlights: [
-        "Sunset in the desert",
-        "Tea at Bedouin tent",
-        "Professional guide"
+    ras_mohammed_bus_half_day: {
+      "tour_id": "ras_mohammed_bus_half_day",
+      "title": "Ras Mohammed Nature Explorer: The Park by Land",
+      "short_desc": "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
+      "duration": "5-6 Hours (Half Day)",
+
+      "highlights": [
+        "Iconic photo at the 'Gate of Allah'",
+        "Make a wish at the Magic Lake",
+        "Guided snorkeling from the beach (living coral reef)",
+        "Back at the hotel by lunchtime"
       ],
-      full_description: "Experience the thrill of driving a quad bike through the Sinai desert dunes. An experience that combines adrenaline and natural wonder, perfect for those seeking some action. We will stop at a traditional Bedouin tent to enjoy hot tea and admire the sunset coloring the mountains red. An unforgettable adventure, organized with maximum attention to your safety.",
-      program: [
-        "Hotel pickup",
-        "Arrival at quad center and safety briefing",
-        "Driving in the desert (approx 1 hour)",
-        "Stop at Bedouin tent for tea",
-        "Return to quad center",
-        "Transfer to hotel"
+      "full_description": "Discover the exact point where Asia meets Africa. This land excursion is perfect for those who want to see the true nature of Sinai without spending all day on a boat.\n\nWe will cross the monumental 'Gate of Allah' to enter a lunar landscape. We will walk among the aerial roots of the Mangroves, see the earthquake crack, and arrive at the famous 'Magic Lake': a natural pool where, according to Bedouin legend, you just need to throw a pebble and make a wish for it to come true.\n\nSport won't be missing: we'll go snorkeling starting directly from the beach in one of the richest coral spots in the Red Sea.",
+      "program": [
+        {
+          "time": "08:00",
+          "activity": "Departure",
+          "details": "Comfortable pickup from your hotel with an air-conditioned minibus."
+        },
+        {
+          "time": "09:00",
+          "activity": "The Gate of Allah",
+          "details": "Arrival at the Park and photo stop at the monumental entrance."
+        },
+        {
+          "time": "09:45",
+          "activity": "Mangroves & Earthquake",
+          "details": "Nature walk among the trees that grow in salt water and the seismic fault."
+        },
+        {
+          "time": "10:30",
+          "activity": "Magic Lake",
+          "details": "Time to admire the lagoon colors and... make your wish."
+        },
+        {
+          "time": "11:30",
+          "activity": "Beach Snorkeling",
+          "details": "Guided dive to explore the coral reef (suitable also for beginners)."
+        },
+        {
+          "time": "13:30",
+          "activity": "Return",
+          "details": "Back to the hotel just in time for lunch."
+        }
       ],
-      includes: ["Hotel pickup", "Quad bike", "Bedouin tea", "Helmet"],
-      not_included: ["Scarf", "Goggles", "Tips"],
-      important: "Wear comfortable clothes, closed shoes, and sunglasses."
+      "includes": [
+        "R/T Hotel transfer (A/C Minibus)",
+        "Ras Mohammed National Park entry ticket",
+        "Expert Italian-speaking guide",
+        "Mineral water during the trip"
+      ],
+      "not_included": [
+        "Snorkeling gear rental (mask/fins - available at the initial stop)",
+        "Professional photo/video service",
+        "Lunch (the tour ends before lunch)"
+      ],
+      "important_notes": "Bring with you: Passport (mandatory for tourist police), swimsuit, towel, comfortable walking shoes, and coins to make a wish!",
+      "seo_tags": [
+        "Ras Mohammed Bus",
+        "Magic Lake Sharm",
+        "Gate of Allah",
+        "Beach Snorkeling",
+        "Half Day Excursion"
+      ]
     },
-    cairo_pyramids: {
-      title: "Cairo & Pyramids Tour",
-      short_desc: "Full day trip to Cairo to see the Pyramids and Sphinx.",
-      duration: "20 hours",
-      highlights: [
-        "Visit Giza Pyramids",
-        "Egyptian Museum",
-        "Lunch near the Nile"
+    tiran_island_boat_vip: {
+      "tour_id": "tiran_island_boat_vip",
+      "title": "Tiran Island VIP: Wrecks and Coral Reefs",
+      "short_desc": "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
+      "duration": "8 Hours (Full Day)",
+
+      "highlights": [
+        "Panoramic view of the 'Louilla' merchant wreck",
+        "Snorkeling on famous reefs: Gordon, Jackson, or Thomas",
+        "High chance of spotting dolphins during the sail",
+        "Buffet lunch with island view (no landing)"
       ],
-      full_description: "Discover the ancient wonders of the world with a guided tour of Cairo. We will leave for Cairo to visit the iconic Pyramids of Giza and the enigmatic Sphinx, eternal symbols of this civilization. We will continue with a visit to the Egyptian Museum, keeper of priceless treasures, including those of Tutankhamun. An intense day rich in emotions that will leave you breathless. All with the comfort and assistance that only Fabio can guarantee.",
-      program: [
-        "Night departure from hotel by bus",
-        "Arrival in Cairo and visit to Egyptian Museum",
-        "Lunch at restaurant",
-        "Visit to Giza Pyramids and Sphinx",
-        "Shopping stop (papyrus/perfumes)",
-        "Return to Sharm El Sheikh"
+      "full_description": "This is not just a boat trip, it’s an adventure to the borders of the Red Sea. Tiran Island, located at the mouth of the Gulf of Aqaba, is famous for its deep waters and currents that feed the most colorful corals in Sharm.\n\nWe will sail towards the 4 legendary reefs (Jackson, Woodhouse, Thomas, Gordon). We won’t land on the island (military zone), but we will stop right in front to admire the mysterious wreck of the merchant ship 'Louilla', stranded since the 80s.\n\nIt’s the perfect excursion for those looking for a 'wilder' sea compared to Ras Mohammed and want to try their luck at meeting the dolphins that often accompany our wake.",
+      "program": [
+        {
+          "time": "08:00",
+          "activity": "Hotel Pickup",
+          "details": "Punctual transfer with A/C bus to the port."
+        },
+        {
+          "time": "09:30",
+          "activity": "Navigation & Dolphins",
+          "details": "Setting sail! Keep your camera ready, dolphins often play around the boat on this route."
+        },
+        {
+          "time": "11:00",
+          "activity": "Blue Lagoon & Snorkeling",
+          "details": "First guided snorkeling stop in crystal clear waters protected from the wind."
+        },
+        {
+          "time": "13:00",
+          "activity": "Lunch with Wreck View",
+          "details": "Hot buffet served on board while admiring the impressive Louilla ship wreck."
+        },
+        {
+          "time": "14:30",
+          "activity": "Second Dive or Relax",
+          "details": "Snorkeling on the outer reef (richer in fish) or time to sunbathe on the sun deck."
+        },
+        {
+          "time": "16:30",
+          "activity": "Return to Port",
+          "details": "Sailing back with music and relax, then hotel transfer."
+        }
       ],
-      includes: ["Bus transfer", "Lunch", "Entry fees", "Egyptologist guide"],
-      not_included: ["Drinks", "Boat ride on Nile (optional)", "Tips"],
-      important: "Bring passport and breakfast box."
+      "includes": [
+        "R/T Hotel transfer",
+        "Marine Park entry ticket",
+        "Freshly prepared buffet lunch on board",
+        "Unlimited soft drinks (Water, Coke, Sprite, Tea, Coffee)",
+        "Expert Snorkeling guide"
+      ],
+      "not_included": [
+        "Snorkeling gear rental (mask/fins - available at the port)",
+        "Professional photo/video service",
+        "Crew tips"
+      ],
+      "important_notes": "Mandatory: Bring PASSPORT or ID Card (Sinai Only Visa is enough, but document is needed for port controls). Don't forget beach towel and sunscreen.",
+      "seo_tags": [
+        "Tiran Island Sharm",
+        "Louilla Wreck",
+        "Gordon Reef Snorkeling",
+        "Red Sea Dolphins",
+        "Tiran Boat Excursion"
+      ]
     }
   }
 };

@@ -47,7 +47,25 @@ window.i18nIt = {
     loading_failed: "Caricamento non riuscito. Riprova più tardi.",
     vip_access: "ACCESSO VIP:",
     ultimate_guide: "La Guida Definitiva per Sharm",
-    all_rights: "Tutti i diritti riservati."
+    all_rights: "Tutti i diritti riservati.",
+    filters: {
+      all: "Tutte",
+      sea: "Mare",
+      culture: "Cultura",
+      desert: "Deserto"
+    },
+    locations: {
+      sharm: "Sharm El Sheikh",
+      cairo: "Cairo",
+      luxor_aswan: "Luxor e Aswan"
+    },
+    explore_experiences: "Esplora"
+    ,
+    pricing: {
+      adult: "Adulto",
+      child: "Bambino",
+      min_pax: "Min Pax"
+    }
   },
   secrets: {
     nav_index: "Indice",
@@ -365,71 +383,207 @@ window.i18nIt = {
     ]
   },
   trips: {
-    yacht_white: {
-      title: "Isola che non c’è Zaga – Yacht",
-      short_desc: "Yacht di 3 piani in 'ZAGA STYLE' verso Ras Mohammed.",
-      duration: "10 ore",
-      highlights: [
-        "Gruppo esclusivo solo italiani",
-        "Sosta garantita di 1 ora all’isola che non c’è",
-        "Pranzo buffet e bevande illimitate"
+    ras_mohammed_white_island_vip: {
+      "tour_id": "ras_mohammed_white_island_vip",
+      "title": "Ras Mohammed & White Island: L'Esperienza VIP",
+      "short_desc": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+      "duration": "8-9 Ore (Giornata Intera)",
+
+      "highlights": [
+        "Sosta esclusiva all'Isola Bianca (L'Isola che non c'è)",
+        "2 tappe snorkeling sulla barriera corallina più bella del mondo",
+        "Pranzo fresco a bordo con bevande illimitate",
+        "Atmosfera rilassata: Niente folla, solo divertimento"
       ],
-      full_description: "Una giornata a bordo di uno yacht tre piani UNICAMENTE RISERVATO ai clienti ZAGA. Goditi il lusso e la libertà di esplorare le acque cristalline di Ras Mohammed con stile. Un'esperienza curata nei minimi dettagli per offrirti il massimo del comfort e del divertimento.",
-      program: [
-        "Prelievo in hotel con auto privata",
-        "Imbarco sullo yacht di lusso",
-        "Sosta per snorkeling a Ras Mohammed",
-        "Sosta all'Isola che non c'è",
-        "Pranzo a buffet a bordo",
-        "Rientro al porto e trasferimento in hotel"
+      "full_description": "Non è la solita gita in barca, è una giornata indimenticabile firmata Amico Fabio. Salperemo verso il Parco Nazionale di Ras Mohammed, dove il deserto incontra il mare più blu che abbiate mai visto. \n\nLa tappa principale? L'Isola Bianca (Isola che non c'è): una lingua di sabbia bianca che appare e scompare con la marea, creando una piscina naturale degna delle Maldive. \n\nTra un tuffo e l'altro, il nostro chef di bordo preparerà un pranzo a buffet fresco e gustoso. Che tu voglia esplorare i fondali con le nostre guide esperte o semplicemente abbronzarti sul ponte sole, questa è l'escursione perfetta per combinare avventura e totale relax.",
+      "program": [
+        {
+          "time": "08:00",
+          "activity": "Prelievo VIP",
+          "details": "Il nostro transfer privato ti verrà a prendere direttamente in hotel. Niente stress."
+        },
+        {
+          "time": "09:00",
+          "activity": "Imbarco e Benvenuto",
+          "details": "Arrivo al porto, check-in rapido e benvenuto a bordo con briefing sulla sicurezza."
+        },
+        {
+          "time": "10:30",
+          "activity": "Snorkeling a Ras Mohammed",
+          "details": "Prima sosta guidata per ammirare i coralli millenari e pesci coloratissimi."
+        },
+        {
+          "time": "12:30",
+          "activity": "Magic White Island",
+          "details": "Sbarco sulla famosa lingua di sabbia bianca. Tempo libero per foto instagrammabili e relax in acqua."
+        },
+        {
+          "time": "13:30",
+          "activity": "Pranzo con Vista",
+          "details": "Ricco buffet a bordo (pesce, carne, riso, insalate) preparato fresco dallo chef."
+        },
+        {
+          "time": "14:30",
+          "activity": "Ultimo Tuffo o Relax",
+          "details": "Seconda sosta snorkeling o tempo per godersi il sole mentre navighiamo."
+        },
+        {
+          "time": "16:30",
+          "activity": "Rientro",
+          "details": "Ritorno al porto e trasferimento comodo verso il tuo hotel."
+        }
       ],
-      includes: ["Prelievo hotel", "Pranzo a bordo", "Attrezzatura subacquea (opzionale)", "Bevande illimitate"],
-      not_included: ["Noleggio maschere e pinne (se non incluse)", "Foto e video professionali"],
-      important: "Porta costume, crema solare e passaporto."
+      "includes": [
+        "Transfer A/R da hotel (Bus Aria Condizionata)",
+        "Biglietto ingresso Parco Ras Mohammed",
+        "Pranzo a buffet preparato a bordo",
+        "Bevande analcoliche illimitate tutto il giorno",
+        "Guida Snorkeling parlante italiano"
+      ],
+      "not_included": [
+        "Noleggio attrezzatura snorkeling (maschera/pinne - opzionale)",
+        "Servizio foto/video professionale",
+        "Mance (a discrezione)"
+      ],
+      "important_notes": "Porta con te: Passaporto (obbligatorio), telo mare, crema solare, occhiali da sole e tanta voglia di divertirti. In inverno porta una felpa leggera per il rientro.",
+      "seo_tags": [
+        "Ras Mohammed",
+        "White Island Sharm",
+        "Escursione Barco Sharm",
+        "Snorkeling Mar Rosso",
+        "Amico Fabio Tours"
+      ]
     },
-    safari_quad: {
-      title: "Safari in Quad nel Deserto",
-      short_desc: "Avventura adrenalinica in quad nel deserto del Sinai al tramonto.",
-      duration: "3 ore",
-      highlights: [
-        "Tramonto mozzafiato nel deserto",
-        "Tè e relax nella tenda beduina",
-        "Guida professionale e sicurezza garantita"
+    ras_mohammed_bus_half_day: {
+      "tour_id": "ras_mohammed_bus_half_day",
+      "title": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+      "short_desc": "Un viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.",
+      "duration": "5-6 Ore (Mezza Giornata)",
+
+      "highlights": [
+        "Foto iconica alla 'Porta di Allah'",
+        "Esprimi un desiderio al Lago Magico",
+        "Snorkeling guidato dalla spiaggia (barriera corallina viva)",
+        "Rientro in hotel per ora di pranzo"
       ],
-      full_description: "Vivi l'emozione pura di guidare un quad attraverso le dune dorate del deserto del Sinai. Un'esperienza che unisce adrenalina e meraviglia naturale, perfetta per chi cerca un po' di azione. Ci fermeremo in una tenda beduina tradizionale per gustare un tè caldo e ammirare il tramonto che colora di rosso le montagne. Un'avventura indimenticabile, organizzata con la massima attenzione alla tua sicurezza.",
-      program: [
-        "Prelievo in hotel",
-        "Arrivo al centro quad e briefing di sicurezza",
-        "Guida nel deserto (circa 1 ora)",
-        "Sosta in tenda beduina per il tè",
-        "Rientro al centro quad",
-        "Trasferimento in hotel"
+      "full_description": "Scopri il punto esatto dove l'Asia incontra l'Africa. Questa escursione via terra è perfetta per chi vuole vedere la vera natura del Sinai senza passare tutto il giorno in barca.\n\nAttraverseremo la monumentale 'Porta di Allah' per entrare in un paesaggio lunare. Cammineremo tra le radici aeree delle Mangrovie, vedremo la spaccatura del terremoto e arriveremo al famoso 'Lago Magico': una piscina naturale dove, secondo la leggenda beduina, basta lanciare un sassolino ed esprimere un desiderio perché si avveri.\n\nNon mancherà lo sport: faremo snorkeling partendo direttamente dalla spiaggia in uno dei punti più ricchi di coralli del Mar Rosso.",
+      "program": [
+        {
+          "time": "08:00",
+          "activity": "Partenza",
+          "details": "Prelievo comodo dal tuo hotel con minibus climatizzato."
+        },
+        {
+          "time": "09:00",
+          "activity": "La Porta di Allah",
+          "details": "Arrivo al Parco e sosta fotografica all'ingresso monumentale."
+        },
+        {
+          "time": "09:45",
+          "activity": "Mangrovie & Terremoto",
+          "details": "Passeggiata naturalistica tra gli alberi che crescono nell'acqua salata e la faglia sismica."
+        },
+        {
+          "time": "10:30",
+          "activity": "Lago Magico",
+          "details": "Tempo per ammirare i colori della laguna e... esprimere il tuo desiderio."
+        },
+        {
+          "time": "11:30",
+          "activity": "Snorkeling dalla Spiaggia",
+          "details": "Tuffo guidato per esplorare la barriera corallina (adatto anche a principianti)."
+        },
+        {
+          "time": "13:30",
+          "activity": "Rientro",
+          "details": "Ritorno in hotel giusto in tempo per il pranzo."
+        }
       ],
-      includes: ["Prelievo e rientro in hotel", "Quad bike", "Tè beduino", "Casco"],
-      not_included: ["Sciarpa (kefiah)", "Occhiali protettivi", "Mancia"],
-      important: "Indossa abiti comodi, scarpe chiuse e occhiali da sole."
+      "includes": [
+        "Transfer A/R da hotel (Minibus Aria Condizionata)",
+        "Biglietto ingresso Parco Nazionale Ras Mohammed",
+        "Guida italiana esperta del parco",
+        "Acqua minerale durante il viaggio"
+      ],
+      "not_included": [
+        "Noleggio attrezzatura snorkeling (maschera/pinne - noleggiabili alla sosta iniziale)",
+        "Servizio foto/video professionale",
+        "Pranzo (il tour finisce prima di pranzo)"
+      ],
+      "important_notes": "Porta con te: Passaporto (obbligatorio per la polizia turistica), costume, asciugamano, scarpe comode per camminare e monetine per esprimere il desiderio!",
+      "seo_tags": [
+        "Ras Mohammed Bus",
+        "Lago Magico Sharm",
+        "Porta di Allah",
+        "Snorkeling Spiaggia",
+        "Escursione Mezza Giornata"
+      ]
     },
-    cairo_pyramids: {
-      title: "Cairo & Piramidi: La Storia",
-      short_desc: "Viaggio di un giorno alla scoperta delle Piramidi di Giza e del Museo Egizio.",
-      duration: "20 ore",
-      highlights: [
-        "Ammira le Grandi Piramidi e la Sfinge",
-        "Visita guidata al Museo Egizio",
-        "Pranzo incluso vicino al Nilo"
+    tiran_island_boat_vip: {
+      "tour_id": "tiran_island_boat_vip",
+      "title": "Isola di Tiran VIP: Relitti e Barriere Coralline",
+      "short_desc": "Naviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.",
+      "duration": "8 Ore (Giornata Intera)",
+
+      "highlights": [
+        "Vista panoramica sul relitto mercantile 'Louilla'",
+        "Snorkeling sui famosi reef: Gordon, Jackson o Thomas",
+        "Alta probabilità di avvistare delfini durante la navigazione",
+        "Pranzo a buffet con vista sull'isola (senza sbarco)"
       ],
-      full_description: "Un tuffo nella storia millenaria dell'Egitto. Partiremo per il Cairo per visitare le iconiche Piramidi di Giza e l'enigmatica Sfinge, simboli eterni di questa civiltà. Proseguiremo con una visita al Museo Egizio, custode di tesori inestimabili, inclusi quelli di Tutankhamon. Una giornata intensa ma ricca di emozioni che ti lascerà senza fiato. Il tutto con la comodità e l'assistenza che solo Fabio può garantirti.",
-      program: [
-        "Partenza notturna dall'hotel in bus",
-        "Arrivo al Cairo e visita al Museo Egizio",
-        "Pranzo in ristorante",
-        "Visita alle Piramidi di Giza e Sfinge",
-        "Sosta per shopping (papiri/profumi)",
-        "Rientro a Sharm El Sheikh"
+      "full_description": "Questa non è solo una gita in barca, è un'avventura verso i confini del Mar Rosso. L'Isola di Tiran, situata all'imbocco del Golfo di Aqaba, è famosa per le sue acque profonde e le correnti che nutrono i coralli più colorati di Sharm.\n\nNavigheremo verso i 4 reef leggendari (Jackson, Woodhouse, Thomas, Gordon). Non sbarcheremo sull'isola (è zona militare), ma ci fermeremo proprio davanti per ammirare il misterioso relitto della nave mercantile 'Louilla', incagliata dagli anni '80.\n\nÈ l'escursione perfetta per chi cerca un mare più 'selvaggio' rispetto a Ras Mohammed e vuole tentare la fortuna di incontrare i delfini che spesso accompagnano la nostra scia.",
+      "program": [
+        {
+          "time": "08:00",
+          "activity": "Prelievo Hotel",
+          "details": "Transfer puntuale con bus aria condizionata verso il porto."
+        },
+        {
+          "time": "09:30",
+          "activity": "Navigazione & Delfini",
+          "details": "Si salpa! Tieni la macchina fotografica pronta, spesso i delfini giocano intorno alla barca in questa tratta."
+        },
+        {
+          "time": "11:00",
+          "activity": "Laguna Blu & Snorkeling",
+          "details": "Prima sosta snorkeling guidata in acque cristalline e protette dal vento."
+        },
+        {
+          "time": "13:00",
+          "activity": "Pranzo con Vista Relitto",
+          "details": "Buffet caldo servito a bordo mentre ammiriamo l'imponente relitto della nave Louilla."
+        },
+        {
+          "time": "14:30",
+          "activity": "Secondo Tuffo o Relax",
+          "details": "Snorkeling sulla barriera esterna (più ricca di pesci) o tempo per abbronzarsi sul ponte sole."
+        },
+        {
+          "time": "16:30",
+          "activity": "Rientro al Porto",
+          "details": "Navigazione di ritorno con musica e relax, poi transfer in hotel."
+        }
       ],
-      includes: ["Trasferimento in bus confortevole", "Pranzo al ristorante", "Biglietti d'ingresso", "Guida egittologa"],
-      not_included: ["Bevande al ristorante", "Giro in barca sul Nilo (opzionale)", "Mancia"],
-      important: "Porta il passaporto (o carta d'identità con visto) e il cestino colazione dell'hotel."
+      "includes": [
+        "Transfer A/R da hotel",
+        "Biglietto ingresso Parco Marino",
+        "Pranzo a buffet preparato fresco a bordo",
+        "Bevande analcoliche illimitate (Acqua, Coca, Sprite, Tè, Caffè)",
+        "Guida Snorkeling esperta"
+      ],
+      "not_included": [
+        "Noleggio attrezzatura snorkeling (maschera/pinne - noleggiabili al porto)",
+        "Servizio foto/video professionale",
+        "Mance per l'equipaggio"
+      ],
+      "important_notes": "Obbligatorio: Porta il PASSAPORTO o la Carta d'Identità (il Visto Sinai Only è sufficiente, ma il documento serve per i controlli al porto). Non dimenticare telo mare e crema solare.",
+      "seo_tags": [
+        "Isola Tiran Sharm",
+        "Relitto Louilla",
+        "Snorkeling Gordon Reef",
+        "Delfini Mar Rosso",
+        "Escursione Barca Tiran"
+      ]
     },
   }
 };
