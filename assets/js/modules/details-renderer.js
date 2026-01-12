@@ -7,6 +7,9 @@ const DetailsRenderer = {
             window.location.href = 'index.html';
             return;
         }
+        if (typeof DetailsRenderer.renderGalleryImmediate === 'function') {
+            DetailsRenderer.renderGalleryImmediate(tripId);
+        }
 
         const lang = localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
         const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
@@ -87,16 +90,22 @@ const DetailsRenderer = {
             btnBook: document.getElementById('btn-book')
         };
 
-        // Hero Image Logic (poster.jpg -> fallback)
-        const posterSrc = `assets/images/trips/${tripId}/poster.jpg`;
-        const fallbackSrc = 'assets/logo-fabio-square.jpg';
+        const ctx = window.ImagePaths ? window.ImagePaths.resolveTripContext({ trip_id: tripId, ...(apiData || {}) }) : { location: '', category: '', tripId };
+        const posterSrc = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, tripId) : `assets/images/trips/${tripId}/poster.webp`;
+        const fallbackSrc = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : 'assets/logo-fabio-square.jpg';
 
         // Optimistic Load
         if (els.bg) {
             els.bg.style.backgroundImage = `url('${posterSrc}')`;
-            const imgTest = new Image();
-            imgTest.src = posterSrc;
-            imgTest.onerror = () => { els.bg.style.backgroundImage = `url('${fallbackSrc}')`; };
+            if (window.ImagePaths && typeof window.ImagePaths.resolvePosterOrPlaceholder === 'function') {
+                window.ImagePaths.resolvePosterOrPlaceholder(ctx.location, ctx.category, tripId).then(src => {
+                    els.bg.style.backgroundImage = `url('${src}')`;
+                });
+            } else {
+                const imgTest = new Image();
+                imgTest.src = posterSrc;
+                imgTest.onerror = () => { els.bg.style.backgroundImage = `url('${fallbackSrc}')`; };
+            }
         }
 
         // Text Content
@@ -155,15 +164,19 @@ const DetailsRenderer = {
         const bookNow = dictBtn && dictBtn.global && typeof dictBtn.global.book_now === 'string' ? dictBtn.global.book_now : '';
         if (els.btnBook) els.btnBook.textContent = bookNow;
 
-        // Gallery Loop (Sequential 1.jpg, 2.jpg... stop on 404)
+        // Gallery
         if (els.gallery) {
-            els.gallery.innerHTML = ''; // Clear
-
-            // 1. Add Poster as First Thumbnail
-            DetailsRenderer.appendGalleryItem(posterSrc, els.gallery, els.bg);
-
-            // 2. Start Loop from 1.jpg
-            DetailsRenderer.loadGalleryImages(tripId, 1, els.gallery, els.bg);
+            if (els.gallery.children.length === 0) {
+                const totalRaw = window.ImagePaths && typeof window.ImagePaths.pickCI === 'function' ? window.ImagePaths.pickCI(apiData || {}, 'img_count') : '';
+                const total = parseInt(totalRaw || '0', 10);
+                const list = window.ImagePaths && typeof window.ImagePaths.getGalleryArray === 'function'
+                    ? window.ImagePaths.getGalleryArray(ctx.location, ctx.category, tripId, total)
+                    : [];
+                DetailsRenderer.appendGalleryItem(posterSrc, els.gallery, els.bg);
+                if (Array.isArray(list) && list.length > 0) {
+                    list.forEach(src => DetailsRenderer.appendGalleryItem(src, els.gallery, els.bg));
+                }
+            }
         }
     },
     renderStaticFirst: (tripId, langData, lang) => {
@@ -185,13 +198,20 @@ const DetailsRenderer = {
             gallery: document.getElementById('gallery-grid'),
             btnBook: document.getElementById('btn-book')
         };
-        const posterSrc = `assets/images/trips/${tripId}/poster.jpg`;
-        const fallbackSrc = 'assets/logo-fabio-square.jpg';
+        const ctx = window.ImagePaths ? window.ImagePaths.resolveTripContext({ trip_id: tripId }) : { location: '', category: '', tripId };
+        const posterSrc = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, tripId) : `assets/images/trips/${tripId}/poster.webp`;
+        const fallbackSrc = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : 'assets/logo-fabio-square.jpg';
         if (els.bg) {
             els.bg.style.backgroundImage = `url('${posterSrc}')`;
-            const imgTest = new Image();
-            imgTest.src = posterSrc;
-            imgTest.onerror = () => { els.bg.style.backgroundImage = `url('${fallbackSrc}')`; };
+            if (window.ImagePaths && typeof window.ImagePaths.resolvePosterOrPlaceholder === 'function') {
+                window.ImagePaths.resolvePosterOrPlaceholder(ctx.location, ctx.category, tripId).then(src => {
+                    els.bg.style.backgroundImage = `url('${src}')`;
+                });
+            } else {
+                const imgTest = new Image();
+                imgTest.src = posterSrc;
+                imgTest.onerror = () => { els.bg.style.backgroundImage = `url('${fallbackSrc}')`; };
+            }
         }
         const title = (langData && langData.title) || tripId;
         if (els.title) els.title.textContent = title;
@@ -213,9 +233,15 @@ const DetailsRenderer = {
             }
         }
         if (els.gallery) {
-            els.gallery.innerHTML = '';
-            DetailsRenderer.appendGalleryItem(posterSrc, els.gallery, els.bg);
-            DetailsRenderer.loadGalleryImages(tripId, 1, els.gallery, els.bg);
+            if (els.gallery.children.length === 0) {
+                const list = window.ImagePaths && typeof window.ImagePaths.getGalleryArray === 'function'
+                    ? window.ImagePaths.getGalleryArray(ctx.location, ctx.category, tripId, 0)
+                    : [];
+                DetailsRenderer.appendGalleryItem(posterSrc, els.gallery, els.bg);
+                if (Array.isArray(list) && list.length > 0) {
+                    list.forEach(src => DetailsRenderer.appendGalleryItem(src, els.gallery, els.bg));
+                }
+            }
         }
         const dictBtn = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
         const bookNow = dictBtn && dictBtn.global && typeof dictBtn.global.book_now === 'string' ? dictBtn.global.book_now : '';
@@ -250,35 +276,24 @@ const DetailsRenderer = {
         }
     },
 
-    loadGalleryImages: (tripId, index, container, bgEl) => {
-        // Try JPG first
-        const srcJpg = `assets/images/trips/${tripId}/${index}.jpg`;
-        const srcPng = `assets/images/trips/${tripId}/${index}.png`;
-
-        const img = new Image();
-        img.src = srcJpg;
-
-        img.onload = () => {
-            // Success: Append and try next
-            DetailsRenderer.appendGalleryItem(srcJpg, container, bgEl);
-            DetailsRenderer.loadGalleryImages(tripId, index + 1, container, bgEl);
-        };
-
-        img.onerror = () => {
-            // Failed JPG, try PNG
-            const imgPng = new Image();
-            imgPng.src = srcPng;
-            imgPng.onload = () => {
-                DetailsRenderer.appendGalleryItem(srcPng, container, bgEl);
-                DetailsRenderer.loadGalleryImages(tripId, index + 1, container, bgEl);
-            };
-            imgPng.onerror = () => {
-                // Both failed: Stop loop silently for performance and cleanliness.
-            };
-        };
+    renderGalleryImmediate: (tripId) => {
+        const els = { gallery: document.getElementById('gallery-grid'), bg: document.getElementById('hero-bg') };
+        if (!els.gallery) return;
+        const ctx = window.ImagePaths ? window.ImagePaths.resolveTripContext({ trip_id: tripId }) : { location: '', category: '', tripId };
+        const posterSrc = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, tripId) : `assets/images/trips/${tripId}/poster.webp`;
+        els.gallery.innerHTML = '';
+        DetailsRenderer.appendGalleryItem(posterSrc, els.gallery, els.bg);
+        const list = window.ImagePaths && typeof window.ImagePaths.getGalleryArray === 'function'
+            ? window.ImagePaths.getGalleryArray(ctx.location, ctx.category, tripId, 0)
+            : [];
+        if (Array.isArray(list) && list.length > 0) {
+            list.forEach(src => DetailsRenderer.appendGalleryItem(src, els.gallery, els.bg));
+        }
     },
 
     appendGalleryItem: (src, container, bgEl) => {
+        const exists = Array.from(container.querySelectorAll('img')).some(img => img.getAttribute('src') === src);
+        if (exists) return;
         const wrapper = document.createElement('div');
         // Horizontal Scroll Item Styling
         wrapper.className = "flex-shrink-0 w-32 h-32 md:w-40 md:h-40 aspect-square rounded-xl overflow-hidden cursor-pointer relative group border border-gray-100 shadow-md snap-center";

@@ -144,8 +144,10 @@ const TripsRenderer = {
             priceRowHTML = `<div class="price-skeleton"></div>`;
         }
 
-        const imgPath = `assets/images/trips/${trip.trip_id}/poster.jpg`;
-        const fallbackPath = 'assets/logo-fabio-square.jpg';
+        const ctx = window.ImagePaths ? window.ImagePaths.resolveTripContext(trip) : { location: '', category: '', tripId: (trip.trip_id || '') };
+        const imgPath = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, ctx.tripId) : `assets/images/trips/${trip.trip_id}/poster.webp`;
+        const ph = window.ImagePaths ? window.ImagePaths.ui.placeholder : 'assets/images/ui/placeholder.webp';
+        const fb = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : 'assets/logo-fabio-square.jpg';
 
         const description = staticData ? staticData.short_desc : '';
 
@@ -160,7 +162,7 @@ const TripsRenderer = {
             <article class="catalog-card trip-card" data-trip-id="${trip.trip_id}" data-aos="fade-up" data-aos-delay="${delay}">
                 <div class="catalog-card-image">
                     <img src="${imgPath}" alt="${title}" class="catalog-card-img"
-                         loading="lazy" onerror="this.onerror=null; this.src='${fallbackPath}';">
+                         loading="lazy" onerror="this.onerror=function(){this.onerror=null; this.src='${fb}';}; this.src='${ph}';">
                     <div class="card-badges">
                         ${d_adult > 0 ? dealBannerHTML : ''}
                         ${standardBadge ? `<span class="standard-badge">${standardBadge}</span>` : ''}
