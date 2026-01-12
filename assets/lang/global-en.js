@@ -582,6 +582,310 @@ window.i18nEn = {
         "Red Sea Dolphins",
         "Tiran Boat Excursion"
       ]
-    }
+    },
+    dahab_blue_hole_super_safari: {
+      "tour_id": "dahab_blue_hole_super_safari",
+      "title": "Dahab Adventure: Blue Hole, Camels & Canyon",
+      "short_desc": "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
+      "duration": "10-11 Hours (Full Day)",
+      "highlights": [
+        "Snorkeling in the world-famous 'Blue Hole' (UNESCO site)",
+        "Guided trekking in the Canyon (Salama or Colored Canyon)",
+        "Traditional camel ride along the shoreline",
+        "Authentic Bedouin lunch by the sea",
+        "Free time for shopping in Dahab's bohemian hippie village"
+      ],
+      "full_description": "Ready for an off-the-beaten-path adventure? Leave the luxury resorts behind and dive into the real Sinai life. \n\nWe’ll cross the desert by Jeep to reach the famous 'Blue Hole', a stunning 100-meter deep submarine sinkhole that attracts divers from all over the globe. Here, you'll snorkel over the area's richest and most pristine coral reefs.\n\nBut the fun doesn't stop there: ride camels along the coast (a truly unique experience!), walk between the wind-sculpted vibrant rocks of the Canyon, and end your day relaxing or shopping in the bohemian center of Dahab.",
+      "program": [
+        { "time": "07:30", "activity": "Adventurous Departure", "details": "Jeep/Minibus pick-up for a scenic journey through the Sinai desert." },
+        { "time": "09:30", "activity": "Canyon Trekking", "details": "A guided walk through the unique rock formations of the Canyon (approx. 45 min)." },
+        { "time": "11:00", "activity": "Camel Ride by the Sea", "details": "Arrival at the reserve followed by a relaxing camel trek along the coastline." },
+        { "time": "12:00", "activity": "Blue Hole & Snorkeling", "details": "The highlight: dive into the famous Blue Hole with a guided snorkeling session." },
+        { "time": "13:30", "activity": "Bedouin Lunch", "details": "Traditional lunch served in a seaside Bedouin tent (chicken, rice, salads)." },
+        { "time": "15:30", "activity": "Dahab Discovery", "details": "Free time at Dahab promenade for coffee, gelato, or craft shopping." },
+        { "time": "17:30", "activity": "Return", "details": "Heading back to Sharm El Sheikh with a heart full of memories." }
+      ],
+      "includes": [
+        "Round-trip transfers by Jeep/Minibus",
+        "Professional specialized desert guide",
+        "Lunch in a Bedouin tent",
+        "Camel ride (included in price)"
+      ],
+      "not_included": [
+        "National Park Fee (approx. 10-20€ payable on-site - mandatory)",
+        "Snorkeling gear rental (mask/fins/wetsuit)",
+        "Drinks during lunch",
+        "Tips"
+      ],
+      "important_notes": "Good to know: The Blue Hole is deep, but snorkeling is done on the surface in total safety. Bring your passport, comfortable walking shoes for the Canyon (no flip-flops!), and swimwear.",
+      "seo_tags": ["Blue Hole Sharm", "Dahab Excursion", "Colored Canyon", "Sinai Safari", "Camel Ride Dahab"]
+    },
+    private_boat_vip_king: {
+      "tour_id": "private_boat_vip_king",
+      "title": "Private Boat VIP: The King of Red Sea",
+      "short_desc": "The ultimate experience. An entire yacht just for you. You decide the time, the route, and the menu. Absolute privacy and luxury.",
+      "duration": "Flexible (You decide the duration)",
+      "highlights": [
+        "Exclusive yacht charter (No strangers on board)",
+        "Total freedom: Choose between Tiran Island or Ras Mohammed",
+        "Flexible timing: Start and finish whenever you prefer",
+        "Personalized VIP lunch (Seafood or Meat menu upon request)",
+        "Ideal for private parties, birthdays, or family relaxation"
+      ],
+      "full_description": "Welcome aboard the 'King of Red Sea'. Forget group tours, lunch queues, and fixed schedules. Today, you are the captain.\n\nThis solution is designed for those seeking the best: renting a private yacht means having the crew at your complete disposal. Want to stay two hours at the White Island? Done. Want to go dolphin spotting at Tiran? Let's go. Want to party with your own music or enjoy the silence of the open sea? The boat is yours.\n\nIt's the perfect choice for families seeking safety for children, honeymooners looking for romance, or groups of friends wanting to have fun away from prying eyes.",
+      "program": [
+        { "time": "Flexible", "activity": "Tailor-made Departure", "details": "Private transfer picks you up at your preferred time (09:00 recommended)." },
+        { "time": "Flexible", "activity": "Custom Navigation", "details": "Choose your route: Ras Mohammed Marine Park OR Tiran Island. The captain will advise the best spots based on wind conditions." },
+        { "time": "Flexible", "activity": "Snorkeling & Relax", "details": "We stop where the water is bluest. Private guided snorkeling or diving off the deck." },
+        { "time": "Flexible", "activity": "Exclusive Lunch", "details": "No buffet lines. Lunch is served at your table. Luxury menus (Lobster, Shrimp) available upon request." },
+        { "time": "Flexible", "activity": "Sunset & Return", "details": "Enjoy the sunset on the open sea before returning to the port like a true VIP." }
+      ],
+      "includes": [
+        "Exclusive yacht rental (crew and fuel included)",
+        "Private round-trip transfer (Luxury Car/Minivan)",
+        "Lunch on board (Standard menu included, Extras on request)",
+        "Unlimited soft drinks",
+        "Dedicated private guide"
+      ],
+      "not_included": [
+        "Extra Luxury Menu (Lobster/Champagne - upon pre-order)",
+        "National Park fees (if applicable)",
+        "Tips for the crew",
+        "Private photographer (on request)"
+      ],
+      "important_notes": "Price varies based on boat size and number of guests. Contact us for a bespoke quote. We can arrange birthday cakes or romantic decorations.",
+      "seo_tags": ["Yacht Rental Sharm", "Private Boat Red Sea", "Private Boat Ras Mohammed", "VIP Sharm el Sheikh", "Boat Party Sharm"]
+    },
+    dolphin_show_family: {
+      "tour_id": "dolphin_show_family",
+      "title": "Dolphin Show: Thrills for the Whole Family",
+      "short_desc": "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
+      "duration": "2.5 Hours (including transfers)",
+      "highlights": [
+        "60-minute acrobatic performance",
+        "Suitable for all ages (perfect for kids)",
+        "Comfortable AC round-trip transfer",
+        "Photo opportunities with dolphins (from the platform)"
+      ],
+      "full_description": "It’s not just a show; it’s an explosion of joy. \n\nTake your seat in the grand amphitheater and get ready to smile as you watch dolphins dance, jump through hoops, and play with their trainers in perfect harmony. It’s the perfect afternoon excursion to relax and give your children a memory that lasts a lifetime, without getting tired or wet.",
+      "program": [
+        { "time": "14:30", "activity": "Hotel Pick-up", "details": "Our bus will be waiting to take you to the Dolphinarium." },
+        { "time": "15:00", "activity": "Arrival & Seating", "details": "Quick entry and settling into the best seats in the amphitheater." },
+        { "time": "15:30", "activity": "The Show", "details": "Showtime! 1 hour of music, jumps, and applause." },
+        { "time": "16:30", "activity": "Return", "details": "End of show and comfortable return to your hotel." }
+      ],
+      "includes": [
+        "Round-trip hotel transfer",
+        "Show entry ticket",
+        "Amphitheater seating",
+        "English/Italian-speaking assistance"
+      ],
+      "not_included": [
+        "Professional photos with dolphins (available for purchase after the show)",
+        "Drinks and Snacks",
+        "Swimming with dolphins (can be booked separately)"
+      ],
+      "important_notes": "Pro tip: If you sit in the very front rows, you might get a friendly splash from the dolphins! Children under 4 years old enter for free.",
+      "seo_tags": ["Dolphin Show Sharm", "Dolphin Show Egypt", "Kids Activities Sharm", "Dolphinarium Sharm"]
+    },
+    swim_with_dolphins_vip: {
+      "tour_id": "swim_with_dolphins_vip",
+      "title": "Swim with Dolphins: Love at First Sight",
+      "short_desc": "A once-in-a-lifetime experience. Enter the water to dance and play with the world's most intelligent animals. A privilege for the few.",
+      "duration": "2 Hours (Water activity: 15 or 30 min)",
+      "highlights": [
+        "Direct contact: touch, kiss, and dance with the dolphin",
+        "Small groups for maximum interaction",
+        "VIP experience with qualified instructors",
+        "Private transfer (available on request)"
+      ],
+      "full_description": "Meeting the world's most intelligent animal isn't just an excursion; it’s a memory you’ll carry forever. \n\nImagine entering the pool and feeling the smooth skin of the dolphin, being pulled by its fin, and receiving a kiss on the cheek. You don’t need to be an Olympic swimmer; the activity is safe and guided step-by-step by experts. It’s time to fulfill that childhood dream.",
+      "program": [
+        { "time": "Morning/Afternoon", "activity": "VIP Pick-up", "details": "Hotel pick-up (Slots usually at 10:00 or 13:30)." },
+        { "time": "At Dolphinarium", "activity": "Briefing", "details": "Preparation, changing (wetsuit provided if needed), and safety instructions." },
+        { "time": "In the Water", "activity": "The Magical Encounter", "details": "15 or 30 minutes (based on booking) of pure emotion in the water with the dolphin." },
+        { "time": "Post-Activity", "activity": "Photos & Return", "details": "Dry off, view professional photos (optional), and return to hotel." }
+      ],
+      "includes": [
+        "Round-trip hotel transfer",
+        "VIP entry ticket for swimmers",
+        "15 or 30 minutes in the water with dolphins",
+        "Dedicated instructor"
+      ],
+      "not_included": [
+        "Photo/Video service (only center photographers are authorized - extra cost)",
+        "Tips",
+        "Towels (please bring your own)"
+      ],
+      "important_notes": "Important Rules: No rings, bracelets, or watches allowed in the water to avoid hurting the dolphins. Not suitable for pregnant women. Children must be able to swim or be accompanied.",
+      "seo_tags": ["Swim with Dolphins Sharm", "Dolphin Encounter Egypt", "Dolphin Swim Sharm", "VIP Experience Sharm"]
+    },
+    sina_dream_vip_day: {
+      "tour_id": "sina_dream_vip_day",
+      "title": "Sina Dream VIP: The Luxury Sailing Yacht",
+      "short_desc": "Experience the Red Sea aboard an authentic sailing ship. 5-star comfort, over-water hammocks, and the best seafood lunch in Sharm.",
+      "duration": "9 Hours (Full Day)",
+      "highlights": [
+        "Sailing experience (motor + sail) on a unique yacht",
+        "VIP Lunch: Shrimp, Calamari, Kofta, and Fresh Fish",
+        "Relax on hammocks suspended directly over the water",
+        "Stop at the White Island or Tiran (weather dependent)"
+      ],
+      "full_description": "Forget the usual crowded white boats. The Sina Dream is a classic sailing ship equipped with every modern luxury. \n\nImagine lying on the nets suspended above the crystal-clear water as you sail toward Ras Mohammed, hearing only the sound of the wind and waves. This is the only excursion that guarantees a superior dining experience: a freshly prepared seafood and meat grill that will delight your palate.\n\nIt’s the ultimate choice for those who want that extra touch of class.",
+      "program": [
+        { "time": "08:00", "activity": "VIP Pick-up", "details": "Punctual transfer from your hotel to the port." },
+        { "time": "09:30", "activity": "Setting Sail!", "details": "Welcome on board, lounge music, and navigation toward the Marine Park." },
+        { "time": "11:00", "activity": "Snorkeling & Hammocks", "details": "Guided snorkeling stop. Non-swimmers can relax on the famous over-water hammocks." },
+        { "time": "13:00", "activity": "The Grand Lunch", "details": "Buffet featuring Shrimp, Calamari, Grilled Meat, and fresh salads." },
+        { "time": "14:30", "activity": "White Island", "details": "Stop to enjoy the pristine waters of the 'Island that isn't there' (or Tiran depending on the day)." },
+        { "time": "16:30", "activity": "Return", "details": "Sunset sailing back to port and hotel transfer." }
+      ],
+      "includes": [
+        "Round-trip transfer",
+        "National Park entry ticket",
+        "Superior Lunch (Shrimp included)",
+        "Unlimited drinks all day",
+        "Snorkeling guide"
+      ],
+      "not_included": [
+        "Snorkeling equipment rental",
+        "Photo/Video service",
+        "Tips"
+      ],
+      "important_notes": "This is the most requested excursion in Sharm. Booking days in advance is essential. Please bring your passport.",
+      "seo_tags": ["Sina Dream Sharm", "Sailing Egypt", "Seafood Lunch Sharm", "VIP Excursion Sharm"]
+    },
+    dinner_cruise_night_show: {
+      "tour_id": "dinner_cruise_night_show",
+      "title": "Magic Night: Seafood Dinner & Oriental Show",
+      "short_desc": "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
+      "duration": "5 Hours (Evening)",
+      "highlights": [
+        "Romantic buffet dinner featuring Shrimp and Fish",
+        "Full show: Belly Dancing, Tanoura, and Magic acts",
+        "Night navigation with views of illuminated Sharm",
+        "Festive atmosphere perfect for couples and families"
+      ],
+      "full_description": "When the sun sets, Sharm lights up with magic. Step aboard our yacht for a night cruise that combines fine dining with spectacular entertainment.\n\nThis isn't just a dinner; it's a journey into Egyptian culture. While you enjoy a rich seafood and mixed grill buffet, you'll be entertained by the best local artists. The spinning dervish (Tanoura) will mesmerize you, and the belly dancer will bring the party to life. \n\nIt’s the perfect night to celebrate a birthday, an anniversary, or simply enjoy life.",
+      "program": [
+        { "time": "17:30", "activity": "Pick-up", "details": "Hotel pick-up around sunset time." },
+        { "time": "18:30", "activity": "Welcome", "details": "Boarding and welcome cocktail (non-alcoholic) as the boat leaves the port." },
+        { "time": "19:30", "activity": "Buffet Dinner", "details": "Buffet opens: Seafood soup, Shrimp, Fish, Chicken, Rice, and much more." },
+        { "time": "20:30", "activity": "The Show", "details": "Show starts: Live music, Belly Dancing, and Tanoura Show." },
+        { "time": "22:00", "activity": "Return", "details": "Return to port and hotel transfer (or drop-off in the city center if requested)." }
+      ],
+      "includes": [
+        "Round-trip transfer",
+        "Full buffet dinner (Seafood/Meat)",
+        "Unlimited soft drinks",
+        "Folklore show"
+      ],
+      "not_included": [
+        "Fresh juices / Espresso (extra)",
+        "Professional photos",
+        "Birthday cake (available on extra order)"
+      ],
+      "important_notes": "Dress Code: Smart Casual (bringing a light jacket in winter months is recommended for the sea breeze).",
+      "seo_tags": ["Romantic Dinner Sharm", "Oriental Show Boat", "Nightlife Sharm", "Dinner Cruise Egypt"]
+    },
+    water_sports_adrenaline_combo: {
+      "tour_id": "water_sports_adrenaline_combo",
+      "title": "Adrenaline Sky & Sea: Parasailing & Water Toys",
+      "short_desc": "Fly over the Red Sea with a parachute and challenge the waves on a Banana Boat and Tube. Pure fun and adrenaline in total safety.",
+      "duration": "2-3 Hours (Morning or Afternoon)",
+      "highlights": [
+        "Breathtaking bird's-eye view of Sharm (Parasailing)",
+        "Thrilling fun with Banana Boat and Tube",
+        "Guaranteed safety with modern equipment",
+        "No surprises: Transfer included in the package"
+      ],
+      "full_description": "See Sharm from above or jump over the waves? Why choose when you can do both? \n\nWith our 'Adrenaline' package, you'll experience the sea from every angle. Start with Parasailing: take off directly from the boat's platform (without even getting wet!) to enjoy 10 minutes of silent, spectacular flight over the Red Sea.\n\nThen, head down to the water for the wild part: hold on tight to the Banana Boat or the Tube (towed sofa) and challenge your friends to see who can stay on the longest amidst the laughter.",
+      "program": [
+        { "time": "Various Slots", "activity": "Pick-up", "details": "Hotel pick-up available from 10:00 to 16:00." },
+        { "time": "30 min", "activity": "Briefing & Prep", "details": "Arrival at the nautical base, life jackets, and instructions." },
+        { "time": "Activity 1", "activity": "Sky: Parasailing", "details": "Single or double flight. A panorama you will never forget." },
+        { "time": "Activity 2", "activity": "Sea: The Toys", "details": "Time to scream and laugh on the inflatables (Banana/Tube)." },
+        { "time": "End", "activity": "Return", "details": "Dry off and comfortable return to the hotel via our bus." }
+      ],
+      "includes": [
+        "Round-trip transfer (AC Bus)",
+        "Parachute ride (Single or Double)",
+        "Banana Boat / Tube ride",
+        "Life jacket",
+        "Professional instructor"
+      ],
+      "not_included": [
+        "Photo and Video (extra service managed by the center)",
+        "Drinks",
+        "Glass Boat (can be booked separately for companions)"
+      ],
+      "important_notes": "Safety: For double parasailing, the combined weight of two people must NOT exceed 150 kg (otherwise flights will be single). Activity not recommended for pregnant women or those with back problems.",
+      "seo_tags": ["Parasailing Sharm", "Banana Boat Egypt", "Water Sports Sharm", "Parachute Red Sea"]
+    },
+    albatros_aqua_park_full_day: {
+      "tour_id": "albatros_aqua_park_full_day",
+      "title": "Albatros Aqua Park: The Water Kingdom",
+      "short_desc": "A full day of pure fun at the largest water park in the Middle East. Over 60 slides, wave pools, and relaxation for the whole family.",
+      "duration": "7 Hours (Full Day)",
+      "highlights": [
+        "Unlimited access to 60+ slides and attractions",
+        "All-Inclusive Formula: Lunch and drinks included",
+        "Safe kids' area monitored by lifeguards",
+        "Pure adrenaline: Kamikaze, King Kong, and Black Hole slides"
+      ],
+      "full_description": "If you’re looking for a beach alternative where kids can run wild and adults can feel like kids again, Albatros is the number one choice.\n\nIt’s not just a park; it’s a water city located within a 5-star resort. Here you’ll find world-record attractions: from adrenaline towers for the brave to the 'lazy river' for those who just want to relax on a tube. \n\nAnd the best part? You don’t have to worry about a thing: lunch and soft drinks are included in your ticket all day long.",
+      "program": [
+        { "time": "09:30", "activity": "Departure", "details": "Climate-controlled bus from your hotel to the park entrance." },
+        { "time": "10:00", "activity": "VIP Entry", "details": "Ticket collection and the fun begins. No ticket counter lines." },
+        { "time": "13:00", "activity": "Lunch", "details": "Lunch break at the park's restaurants (included) with cold drinks." },
+        { "time": "14:00", "activity": "Round 2", "details": "Afternoon dedicated to pool relaxation or the final slides." },
+        { "time": "17:00", "activity": "Return", "details": "Exit the park and return transfer to the hotel." }
+      ],
+      "includes": [
+        "Round-trip hotel transfer",
+        "Entrance ticket (Access to all rides)",
+        "Buffet Lunch / Snacks",
+        "Unlimited soft drinks all day"
+      ],
+      "not_included": [
+        "Locker for personal items (payable on-site)",
+        "Beach towel (recommended to bring your own from the hotel)",
+        "Wi-Fi (extra charge)"
+      ],
+      "important_notes": "Pro tip: Bring your hotel beach towel (towels there carry a fee). Don't forget sunscreen, the sun is strong while you play!",
+      "seo_tags": ["Albatros Aqua Park", "Water Parks Sharm", "Sharm el Sheikh Slides", "Family Fun Egypt"]
+    },
+    seascope_semi_submarine: {
+      "tour_id": "seascope_semi_submarine",
+      "title": "Sea Scope: The Underwater Cinema",
+      "short_desc": "Discover the coral reef while staying dry. A semi-submarine experience with AC. Ideal for families and non-swimmers.",
+      "duration": "3 Hours (including transfers)",
+      "highlights": [
+        "Admire the seabed through large panoramic windows",
+        "Comfortable air-conditioned environment (Zero stress)",
+        "Perfect for kids, seniors, and non-swimmers",
+        "Take incredible photos as if you were a diver"
+      ],
+      "full_description": "Want to see the colors of the Red Sea without getting wet? The Sea Scope is the perfect solution. \n\nThis special vessel (Semi-Submarine) has a submerged hull equipped with large glass windows and swivel seats. It feels like being in a cinema, but the show is real: corals, clownfish, and the incredible marine life of Sharm will parade before your eyes.\n\nIt’s the ideal excursion for families with young children (who will go crazy for 'Nemo'), for those who can’t swim, or simply for those who want to enjoy the sea in total relaxation and cool AC comfort.",
+      "program": [
+        { "time": "Various Slots", "activity": "Hotel Pick-up", "details": "Choose your preferred time (Morning or Afternoon). The bus will take you to the port." },
+        { "time": "30 min", "activity": "Boarding & Sailing", "details": "Departure! Enjoy the panoramic view from the top deck as we approach the reef." },
+        { "time": "1 hour", "activity": "'Dry' Dive", "details": "Descending to the observatory salon (below sea level). 45-60 minutes of pure show among the corals." },
+        { "time": "30 min", "activity": "Return", "details": "Returning to port and comfortable transfer back to the hotel." }
+      ],
+      "includes": [
+        "Round-trip hotel transfer (AC Bus)",
+        "Sea Scope entry ticket",
+        "Welcome soft drink (usually included)",
+        "Assistant guide"
+      ],
+      "not_included": [
+        "Professional photo/video service",
+        "Tips",
+        "Personal expenses"
+      ],
+      "important_notes": "Slots usually start at 09:00, 11:00, or 13:00. Perfect for filling half a day without getting too tired.",
+      "seo_tags": ["Submarine Sharm", "Sea Scope Egypt", "Family Excursion Sharm", "Dry Coral Reef View", "See fish without swimming"]
+    },
   }
 };
