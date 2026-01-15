@@ -1796,5 +1796,136 @@ window.i18nIt = {
         "Meraviglie del Mondo"
       ]
     },
+    // --- CAIRO DUMMY
+    cairo_pyramids_classic_dummy: {
+      "tour_id": "cairo_pyramids_classic_dummy",
+      "title": "Piramidi di Giza & Sfinge: Le Icone Antiche",
+      "short_desc": "Fermati davanti alle Grandi Piramidi e alla Sfinge. Un viaggio indietro di 4.500 anni nel cuore dell'antico Egitto.",
+      "duration": "Mezza Giornata (4-5 Ore)",
+      "highlights": [
+        "Visita alle 3 Grandi Piramidi (Cheope, Chefren, Micerino)",
+        "Selfie con la Grande Sfinge",
+        "Visita al Tempio a Valle",
+        "Punto panoramico per le foto migliori",
+        "Guida Egittologa Privata"
+      ],
+      "full_description": "Nessun viaggio in Egitto è completo senza questo. Ti portiamo direttamente sulla Piana di Giza.\n\nStarai ai piedi della Grande Piramide, l'unica meraviglia sopravvissuta del mondo antico. La tua guida spiegherà come queste enormi strutture sono state costruite senza la tecnologia moderna.\n\nPoi, ci sposteremo verso la Sfinge, il leggendario guardiano con il corpo di leone e la testa di re. È pura storia, cultura e momenti da 'Lista dei Desideri'.",
+      "program": [
+        { "time": "08:00", "activity": "Prelievo", "details": "Prelievo dal tuo hotel al Cairo/Giza." },
+        { "time": "09:00", "activity": "Le Piramidi", "details": "Tour della Piana di Giza e delle tre piramidi." },
+        { "time": "11:00", "activity": "La Sfinge", "details": "Visita alla Sfinge e al Tempio a Valle." },
+        { "time": "12:30", "activity": "Sosta Papiro", "details": "Breve visita per imparare come veniva fatta la carta antica." },
+        { "time": "13:30", "activity": "Rientro", "details": "Ritorno in hotel." }
+      ],
+      "includes": [
+        "Trasporto Privato A/C",
+        "Biglietti d'ingresso alla Piana di Giza",
+        "Guida Esperta",
+        "Bottiglia d'acqua"
+      ],
+      "not_included": [
+        "Ingresso dentro le Piramidi (Biglietto Extra)",
+        "Pranzo",
+        "Mance"
+      ],
+      "important_notes": "Indossa scarpe comode. Il sole può essere forte, porta un cappello.",
+      "seo_tags": ["Piramidi Cairo", "Tour Sfinge", "Piana di Giza", "Storia Egitto"]
+    },
+    cairo_nile_dinner_dummy: {
+      "tour_id": "cairo_nile_dinner_dummy",
+      "title": "Nile Maxim: Cena Crociera 5 Stelle & Show",
+      "short_desc": "Una serata elegante sul Nilo. Cena a buffet, Danza del Ventre, spettacolo Tanoura e navigazione tra le luci scintillanti del Cairo.",
+      "duration": "3 Ore (Sera)",
+      "highlights": [
+        "2 Ore di navigazione sul Fiume Nilo",
+        "Cena Internazionale a Buffet Aperto",
+        "Intrattenimento dal vivo (Danza del Ventre & Folklore)",
+        "Viste mozzafiato del Cairo di notte",
+        "Atmosfera romantica"
+      ],
+      "full_description": "Vivi il Cairo dall'acqua. Sali a bordo di uno dei ristoranti galleggianti più lussuosi sul Nilo.\n\nGoditi una deliziosa cena a buffet mentre navighi oltre lo skyline illuminato della città. L'intrattenimento include un'autentica Danzatrice del Ventre e uno spettacolo di Tanoura (gonna rotante).\n\nÈ il modo perfetto per rilassarsi dopo una giornata polverosa alle piramidi.",
+      "program": [
+        { "time": "19:00", "activity": "Prelievo", "details": "Trasferimento al molo." },
+        { "time": "20:00", "activity": "Navigazione", "details": "La barca inizia a navigare. Apre il buffet della cena." },
+        { "time": "21:00", "activity": "Show Time", "details": "Inizia lo spettacolo orientale." },
+        { "time": "22:00", "activity": "Sbarco", "details": "Fine della crociera e trasferimento di ritorno." }
+      ],
+      "includes": ["Cena a Buffet", "Intrattenimento", "Trasferimenti"],
+      "not_included": ["Bevande", "Mance"],
+      "important_notes": "Consigliato abbigliamento Smart Casual (elegante informale).",
+      "seo_tags": ["Crociera Nilo Cairo", "Cena sul Nilo", "Vita Notturna Cairo"]
+    },
+    cairo_quad_pyramids_dummy: {
+      "tour_id": "cairo_quad_pyramids_dummy",
+      "title": "Quad alle Piramidi: Adrenalina & Storia",
+      "short_desc": "Sfreccia attraverso le sabbie del deserto con le Piramidi di Giza come sfondo. Un modo avventuroso per vedere l'antica meraviglia.",
+      "duration": "2 Ore",
+      "highlights": [
+        "1 Ora di guida in Quad (Moto a 4 ruote)",
+        "Viste panoramiche delle Piramidi dal deserto",
+        "Disponibile all'Alba o al Tramonto",
+        "Sosta per Tè Beduino"
+      ],
+      "full_description": "Combina l'avventura con la storia! Guida un potente Quad nella piana desertica fuori dall'area delle Piramidi di Giza.\n\nOtterrai angolazioni e foto delle Piramidi che i turisti normali non vedono. È veloce, divertente e la vista è iconica.",
+      "program": [
+        { "time": "Flessibile", "activity": "Inizio", "details": "Prelievo e briefing di sicurezza." },
+        { "time": "+30 min", "activity": "Guida", "details": "Accendete i motori! Guida attraverso le dune." },
+        { "time": "+90 min", "activity": "Stop Foto", "details": "Il punto migliore per foto panoramiche." },
+        { "time": "+2 ore", "activity": "Fine", "details": "Trasferimento di ritorno." }
+      ],
+      "includes": ["Noleggio Quad", "Guida", "Trasferimenti"],
+      "not_included": ["Sciarpe/Occhiali", "Mance"],
+      "important_notes": "L'età minima per guidare è 16 anni.",
+      "seo_tags": ["Quad Cairo", "ATV Piramidi", "Avventura Deserto Cairo"]
+    },
+
+    // --- LUXOR & ASWAN DUMMY
+    luxor_kings_valley_dummy: {
+      "tour_id": "luxor_kings_valley_dummy",
+      "title": "Riva Ovest: Valle dei Re & Hatshepsut",
+      "short_desc": "Entra nell'aldilà. Visita le tombe colorate dei Faraoni e il magnifico tempio della Regina Hatshepsut.",
+      "duration": "Mezza Giornata (Mattina)",
+      "highlights": [
+        "Ingresso a 3 Tombe nella Valle dei Re",
+        "Tempio della Regina Hatshepsut",
+        "Colossi di Memnone",
+        "Visita alla fabbrica di Alabastro"
+      ],
+      "full_description": "Luxor è il più grande museo a cielo aperto del mondo. Attraversiamo il Nilo verso la 'Città dei Morti'.\n\nEsplora le tombe sotterranee dove i colori rimangono vividi dopo 3000 anni. Resta a bocca aperta davanti al tempio a terrazze della potente Regina Hatshepsut scolpito nella montagna.",
+      "program": [
+        { "time": "07:00", "activity": "Prelievo", "details": "Dal tuo Hotel/Crociera a Luxor." },
+        { "time": "08:00", "activity": "Valle dei Re", "details": "Visita a 3 Tombe Reali." },
+        { "time": "10:00", "activity": "Hatshepsut", "details": "Esplora il tempio funerario." },
+        { "time": "11:30", "activity": "Memnone", "details": "Sosta foto ai Colossi." },
+        { "time": "12:30", "activity": "Rientro", "details": "Ritorno alla Riva Est." }
+      ],
+      "includes": ["Trasferimenti", "Guida", "Biglietti d'Ingresso"],
+      "not_included": ["Biglietto Tomba Tutankhamon", "Mance"],
+      "important_notes": "Per fotografare dentro le tombe serve un biglietto extra.",
+      "seo_tags": ["Valle dei Re", "Tour Luxor", "Tempio Hatshepsut"]
+    },
+    aswan_felucca_dummy: {
+      "tour_id": "aswan_felucca_dummy",
+      "title": "Feluca ad Assuan: Tramonto & Botanica",
+      "short_desc": "Rilassati su una barca a vela egiziana tradizionale (Feluca). Naviga intorno all'Isola Elefantina e vedi il Giardino Botanico.",
+      "duration": "2 Ore",
+      "highlights": [
+        "Navigazione tradizionale a vela",
+        "Vista del Mausoleo dell'Aga Khan",
+        "Rilassante atmosfera Nubiana",
+        "Viste del tramonto sul Nilo"
+      ],
+      "full_description": "La vita scorre più lenta ad Assuan. Vivi la pace del Nilo su una Feluca, un design di barca usato fin dai tempi dei Faraoni.\n\nLascia che il vento ti porti intorno all'Isola Elefantina. Guarda il tramonto dorato riflettersi sull'acqua e goditi la vera vibrazione Nubiana.",
+      "program": [
+        { "time": "16:00", "activity": "Imbarco", "details": "Sali sulla Feluca." },
+        { "time": "16:30", "activity": "Vela", "details": "Navigazione intorno alle isole." },
+        { "time": "17:30", "activity": "Tramonto", "details": "Foto magiche al calare del sole." },
+        { "time": "18:00", "activity": "Fine", "details": "Ritorno al molo." }
+      ],
+      "includes": ["Giro in Feluca", "Capitano"],
+      "not_included": ["Bevande", "Mance"],
+      "important_notes": "Dipende dalle condizioni del vento.",
+      "seo_tags": ["Feluca Assuan", "Vela sul Nilo", "Nubia Assuan"]
+    },
   }
 };

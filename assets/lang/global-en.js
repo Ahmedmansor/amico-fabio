@@ -1278,5 +1278,136 @@ window.i18nEn = {
         "Wonders of the World"
       ]
     },
+    // Cairo Dummy
+    cairo_pyramids_classic_dummy: {
+      "tour_id": "cairo_pyramids_classic_dummy",
+      "title": "Giza Pyramids & Sphinx: The Ancient Icons",
+      "short_desc": "Stand before the Great Pyramids of Giza and the Sphinx. A journey back 4,500 years to the heart of ancient Egypt.",
+      "duration": "Half Day (4-5 Hours)",
+      "highlights": [
+        "Visit the 3 Great Pyramids (Cheops, Chephren, Mykerinos)",
+        "Selfie with the Great Sphinx",
+        "Valley Temple visit",
+        "Panoramic view point for best photos",
+        "Private Egyptologist Guide"
+      ],
+      "full_description": "No trip to Egypt is complete without this. We take you straight to the Giza Plateau.\n\nYou will stand at the foot of the Great Pyramid, the only surviving wonder of the ancient world. Your guide will explain how these massive structures were built without modern technology.\n\nThen, we move to the Sphinx, the legendary guardian with the body of a lion and the head of a king. It's strictly history, culture, and 'Bucket List' moments.",
+      "program": [
+        { "time": "08:00", "activity": "Pickup", "details": "Pickup from your hotel in Cairo/Giza." },
+        { "time": "09:00", "activity": "The Pyramids", "details": "Tour of the Giza Plateau and the three pyramids." },
+        { "time": "11:00", "activity": "The Sphinx", "details": "Visit the Sphinx and the Valley Temple." },
+        { "time": "12:30", "activity": "Papyrus Stop", "details": "Quick visit to learn how ancient paper was made." },
+        { "time": "13:30", "activity": "Return", "details": "Back to your hotel." }
+      ],
+      "includes": [
+        "Private A/C Transport",
+        "Entrance Fees to Giza Plateau",
+        "Expert Guide",
+        "Water bottle"
+      ],
+      "not_included": [
+        "Entrance inside the Pyramids (Extra ticket)",
+        "Lunch",
+        "Tips"
+      ],
+      "important_notes": "Wear comfortable shoes. The sun can be strong, bring a hat.",
+      "seo_tags": ["Cairo Pyramids", "Sphinx Tour", "Giza Plateau", "Egypt History"]
+    },
+    cairo_nile_dinner_dummy: {
+      "tour_id": "cairo_nile_dinner_dummy",
+      "title": "Nile Maxim: 5-Star Dinner Cruise & Show",
+      "short_desc": "An elegant evening on the Nile. Open buffet dinner, Belly Dancer, Tanoura show, and sailing through the glittering lights of Cairo.",
+      "duration": "3 Hours (Evening)",
+      "highlights": [
+        "2 Hours sailing on the River Nile",
+        "Open Buffet International Dinner",
+        "Live Entertainment (Belly Dance & Folklore)",
+        "Stunning views of Cairo at night",
+        "Romantic atmosphere"
+      ],
+      "full_description": "Experience Cairo from the water. Board one of the most luxurious floating restaurants on the Nile.\n\nEnjoy a delicious open buffet dinner while gliding past the illuminated skyline of the city. The entertainment includes an authentic Belly Dancer and a Tanoura (spinning skirt) show.\n\nIt's the perfect way to relax after a dusty day at the pyramids.",
+      "program": [
+        { "time": "19:00", "activity": "Pickup", "details": "Transfer to the dock." },
+        { "time": "20:00", "activity": "Sailing", "details": "Boat starts sailing. Dinner buffet opens." },
+        { "time": "21:00", "activity": "Show Time", "details": "Oriental show begins." },
+        { "time": "22:00", "activity": "Docking", "details": "End of cruise and transfer back." }
+      ],
+      "includes": ["Dinner Buffet", "Entertainment", "Transfers"],
+      "not_included": ["Drinks", "Tips"],
+      "important_notes": "Smart casual dress code recommended.",
+      "seo_tags": ["Nile Cruise Cairo", "Dinner on Nile", "Cairo Nightlife"]
+    },
+    cairo_quad_pyramids_dummy: {
+      "tour_id": "cairo_quad_pyramids_dummy",
+      "title": "Pyramids Quad Bike: Adrenaline & History",
+      "short_desc": "Race through the desert sands with the Pyramids of Giza as your backdrop. An adventurous way to see the ancient wonder.",
+      "duration": "2 Hours",
+      "highlights": [
+        "1 Hour Quad Biking (ATV)",
+        "Panoramic views of the Pyramids from the desert",
+        "Sunrise or Sunset slots available",
+        "Bedouin Tea stop"
+      ],
+      "full_description": "Combine adventure with history! Ride a powerful Quad bike in the desert plain outside the Giza Pyramids area.\n\nYou'll get angles and photos of the Pyramids that normal tourists don't see. It's fast, it's fun, and the view is iconic.",
+      "program": [
+        { "time": "Flexible", "activity": "Start", "details": "Pickup and safety briefing." },
+        { "time": "+30 min", "activity": "Ride", "details": "Start your engines! Ride through the dunes." },
+        { "time": "+90 min", "activity": "Photo Stop", "details": "Best spot for panoramic photos." },
+        { "time": "+2 hrs", "activity": "Finish", "details": "Transfer back." }
+      ],
+      "includes": ["Quad Bike Rental", "Guide", "Transfers"],
+      "not_included": ["Scarves/Goggles", "Tips"],
+      "important_notes": "Minimum age for driving is 16.",
+      "seo_tags": ["Cairo Quad", "Pyramids ATV", "Desert Adventure Cairo"]
+    },
+
+    //Luxor & aswan  Dummy
+    luxor_kings_valley_dummy: {
+      "tour_id": "luxor_kings_valley_dummy",
+      "title": "West Bank: Valley of the Kings & Hatshepsut",
+      "short_desc": "Enter the afterlife. Visit the colorful tombs of the Pharaohs and the magnificent temple of Queen Hatshepsut.",
+      "duration": "Half Day (Morning)",
+      "highlights": [
+        "Entry to 3 Tombs in Valley of the Kings",
+        "Temple of Queen Hatshepsut",
+        "Colossi of Memnon",
+        "Alabaster factory visit"
+      ],
+      "full_description": "Luxor is the world's greatest open-air museum. We cross the Nile to the 'City of the Dead'.\n\nExplore the underground tombs where colors remain vivid after 3000 years. Stand in awe before the terraced temple of the powerful Queen Hatshepsut carved into the mountain.",
+      "program": [
+        { "time": "07:00", "activity": "Pickup", "details": "From your Luxor Hotel/Cruise." },
+        { "time": "08:00", "activity": "Valley of Kings", "details": "Visit 3 Royal Tombs." },
+        { "time": "10:00", "activity": "Hatshepsut", "details": "Explore the mortuary temple." },
+        { "time": "11:30", "activity": "Memnon", "details": "Photo stop at the Colossi." },
+        { "time": "12:30", "activity": "Return", "details": "Back to East Bank." }
+      ],
+      "includes": ["Transfers", "Guide", "Entrance Tickets"],
+      "not_included": ["Tutankhamun Tomb Ticket", "Tips"],
+      "important_notes": "Photography inside tombs requires an extra ticket.",
+      "seo_tags": ["Valley of Kings", "Luxor Tour", "Hatshepsut Temple"]
+    },
+    aswan_felucca_dummy: {
+      "tour_id": "aswan_felucca_dummy",
+      "title": "Aswan Felucca: Sunset Sailing & Botanicals",
+      "short_desc": "Relax on a traditional Egyptian sailboat (Felucca). Sail around Elephantine Island and see the Botanical Gardens.",
+      "duration": "2 Hours",
+      "highlights": [
+        "Traditional wind-powered sailing",
+        "View of Aga Khan Mausoleum",
+        "Relaxing Nubian atmosphere",
+        "Sunset views over the Nile"
+      ],
+      "full_description": "Life moves slower in Aswan. Experience the peace of the Nile on a Felucca, a boat design used since the Pharaohs.\n\nLet the wind take you around Elephantine Island. Watch the golden sunset reflect on the water and enjoy the true Nubian vibe.",
+      "program": [
+        { "time": "16:00", "activity": "Boarding", "details": "Step onto the Felucca." },
+        { "time": "16:30", "activity": "Sailing", "details": "Sail around the islands." },
+        { "time": "17:30", "activity": "Sunset", "details": "Magical sunset photos." },
+        { "time": "18:00", "activity": "End", "details": "Return to dock." }
+      ],
+      "includes": ["Felucca Ride", "Captain"],
+      "not_included": ["Drinks", "Tips"],
+      "important_notes": "Depends on wind conditions.",
+      "seo_tags": ["Aswan Felucca", "Nile Sailing", "Nubian Aswan"]
+    },
   }
 };
