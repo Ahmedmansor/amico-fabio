@@ -383,6 +383,7 @@ window.i18nIt = {
     ]
   },
   trips: {
+    // --- SHARM SEA
     ras_mohammed_white_island_vip: {
       "tour_id": "ras_mohammed_white_island_vip",
       "title": "Ras Mohammed & White Island: L'Esperienza VIP",
@@ -1119,6 +1120,681 @@ window.i18nIt = {
         "Vedere pesci senza nuotare"
       ]
     },
-
+    // --- SHARM DESERT
+    super_safari_5_senses: {
+      "tour_id": "super_safari_5_senses",
+      "title": "Super Safari: I 5 Sensi del Sinai",
+      "short_desc": "L'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.",
+      "duration": "5-6 Ore (Pomeriggio/Sera)",
+      "highlights": [
+        "Adrenalina pura in Quad (Moto a 4 ruote)",
+        "Tramonto magico nel cuore del deserto",
+        "Cammellata tradizionale (breve e divertente)",
+        "Cena Barbecue illimitata sotto il cielo stellato",
+        "Osservazione delle costellazioni con telescopio"
+      ],
+      "full_description": "Perché scegliere quando puoi avere tutto? Il Super Safari è il nostro best-seller perché racchiude l'essenza dell'Egitto in una sola serata.\n\nInizieremo con l'adrenalina dei Quad, sfrecciando tra le montagne rocciose del Sinai mentre il sole scende all'orizzonte. Arriveremo all'accampamento beduino dove il tempo sembra essersi fermato. \n\nQui, vivrai le tradizioni locali: salirai sul dorso di un cammello, assaggerai il pane appena sfornato e ti godrai una cena barbecue con spettacolo orientale. E per finire? Spegneremo tutte le luci per guardare le stelle con un telescopio professionale, guidati da un esperto.",
+      "program": [
+        {
+          "time": "15:30",
+          "activity": "Partenza Avventurosa",
+          "details": "Prelievo in hotel e trasferimento al centro Moto nel deserto."
+        },
+        {
+          "time": "16:30",
+          "activity": "Motori Accesi",
+          "details": "Briefing di sicurezza, prova guida e partenza! 45-60 minuti di guida emozionante tra le dune."
+        },
+        {
+          "time": "17:30",
+          "activity": "L'Accampamento",
+          "details": "Arrivo alla tenda beduina. Accoglienza con tè alla menta e pane fresco."
+        },
+        {
+          "time": "18:00",
+          "activity": "Tramonto & Cammelli",
+          "details": "Passeggiata sui cammelli mentre il deserto si tinge di rosso al tramonto."
+        },
+        {
+          "time": "19:00",
+          "activity": "Cena & Show",
+          "details": "Grande cena a buffet (BBQ, riso, insalate) accompagnata da Danza del Ventre e Tanoura."
+        },
+        {
+          "time": "20:30",
+          "activity": "Le Stelle",
+          "details": "Momento magico: osservazione delle costellazioni al telescopio."
+        },
+        {
+          "time": "21:30",
+          "activity": "Rientro",
+          "details": "Ritorno in hotel con gli occhi pieni di meraviglia."
+        }
+      ],
+      "includes": [
+        "Trasferimenti A/R (Bus Aria Condizionata)",
+        "Noleggio Quad (Singolo o Doppio)",
+        "Cena Beduina con bevande (Acqua/Soft Drinks)",
+        "Giro in Cammello",
+        "Guida Astronomica e Telescopio"
+      ],
+      "not_included": [
+        "Tassa Statale del Deserto (1€/$ a persona - obbligatoria per legge)",
+        "Kefiah (foulard per la polvere - acquistabile in loco)",
+        "Occhiali da sabbia (noleggiabili)",
+        "Mance",
+        "Servizio Foto/Video professionale"
+      ],
+      "important_notes": "Nota sulla Tassa: All'arrivo nel deserto verrà richiesto il pagamento di una piccola tassa governativa di 1€/$ a persona. Si prega di portare monete. Abbigliamento consigliato: Pantaloni lunghi e scarpe chiuse.",
+      "seo_tags": [
+        "Super Safari Sharm",
+        "Quad e Cammellata",
+        "Cena Beduina Egitto",
+        "Stelle Deserto Sinai",
+        "Escursione Completa Sharm"
+      ]
+    },
+    vip_romantic_dinner_desert: {
+      "tour_id": "vip_romantic_dinner_desert",
+      "title": "Cena Romantica VIP: Mille e Una Notte",
+      "short_desc": "L'esperienza più esclusiva di Sharm. Una cena privata nel cuore del deserto, sotto un tappeto di stelle. Solo per coppie e occasioni speciali.",
+      "duration": "4-5 Ore (Serata Privata)",
+      "highlights": [
+        "Privacy Assoluta: Niente gruppi, niente caos, solo voi due",
+        "Trasferimento Privato con auto di lusso",
+        "Tenda/Tavolo riservato a lume di candela",
+        "Menu 'A la Carte' con grigliata mista servita al tavolo",
+        "Ideale per: Proposte di matrimonio, Compleanni, Anniversari"
+      ],
+      "full_description": "Vuoi stupire la persona che ami? Dimentica le escursioni turistiche affollate. Ti portiamo dove il deserto diventa magia.\n\nQuesta serata è disegnata per chi cerca l'intimità e il 'Mazaag Aaly' (l'Alto Livello). Verrete prelevati da un'auto privata che vi porterà in un'area riservata, lontano dal rumore dei motori.\n\nLì, troverete il vostro angolo di paradiso: un tavolo apparecchiato elegantemente sulla sabbia, circondato da candele e lanterne. Il silenzio del deserto, il cielo stellato e una cena prelibata servita solo per voi renderanno questa notte indimenticabile. È il regalo perfetto che lei (o lui) non si aspetta.",
+      "program": [
+        {
+          "time": "17:00",
+          "activity": "Prelievo VIP",
+          "details": "L'autista privato verrà a prendervi in hotel (orario tramonto)."
+        },
+        {
+          "time": "17:45",
+          "activity": "Arrivo nel Silenzio",
+          "details": "Benvenuto esclusivo nell'area riservata. Atmosfera soft e relax."
+        },
+        {
+          "time": "18:15",
+          "activity": "Tramonto & Foto",
+          "details": "Il momento d'oro per scattare foto romantiche con il deserto che si tinge di rosso."
+        },
+        {
+          "time": "19:00",
+          "activity": "Cena a Lume di Candela",
+          "details": "Cena servita al tavolo (non buffet): Antipasti, Grigliata mista di carne, contorni e dolci orientali."
+        },
+        {
+          "time": "20:30",
+          "activity": "Le Stelle",
+          "details": "Tempo per sdraiarsi sui tappeti, guardare le stelle e godersi la pace assoluta."
+        },
+        {
+          "time": "21:30",
+          "activity": "Rientro",
+          "details": "Ritorno in hotel con auto privata."
+        }
+      ],
+      "includes": [
+        "Auto Privata A/R (Niente Bus)",
+        "Cena VIP servita al tavolo (Menu carne)",
+        "Bevande analcoliche illimitate",
+        "Allestimento romantico (Candele/Lanterne)",
+        "Servizio cameriere dedicato"
+      ],
+      "not_included": [
+        "Torta di compleanno (ordinabile extra)",
+        "Fiori o regali speciali (organizzabili su richiesta)",
+        "Mance",
+        "Alcolici"
+      ],
+      "important_notes": "Questa escursione richiede prenotazione anticipata per preparare l'allestimento esclusivo. Possibilità di aggiungere una breve passeggiata a cavallo o cammello al tramonto su richiesta.",
+      "seo_tags": [
+        "Cena Romantica Sharm",
+        "VIP Desert Dinner",
+        "Proposta Matrimonio Egitto",
+        "Serata Privata Sharm",
+        "Luxury Experience Sinai"
+      ]
+    },
+    vip_cena_romantica: {
+      "tour_id": "vip_cena_romantica",
+      "title": "Cena Romantica VIP: Mille e Una Notte",
+      "short_desc": "L'esperienza più esclusiva di Sharm. Una cena privata nel cuore del deserto, sotto un tappeto di stelle. Solo per coppie e occasioni speciali.",
+      "duration": "4-5 Ore (Serata Privata)",
+      "highlights": [
+        "Privacy Assoluta: Niente gruppi, niente caos, solo voi due",
+        "Trasferimento Privato con auto di lusso",
+        "Tenda/Tavolo riservato a lume di candela",
+        "Menu 'A la Carte' con grigliata mista servita al tavolo",
+        "Ideale per: Proposte di matrimonio, Compleanni, Anniversari"
+      ],
+      "full_description": "Vuoi stupire la persona che ami? Dimentica le escursioni turistiche affollate. Ti portiamo dove il deserto diventa magia.\n\nQuesta serata è disegnata per chi cerca l'intimità e il 'Mazaag Aaly' (l'Alto Livello). Verrete prelevati da un'auto privata che vi porterà in un'area riservata, lontano dal rumore dei motori.\n\nLì, troverete il vostro angolo di paradiso: un tavolo apparecchiato elegantemente sulla sabbia, circondato da candele e lanterne. Il silenzio del deserto, il cielo stellato e una cena prelibata servita solo per voi renderanno questa notte indimenticabile. È il regalo perfetto che lei (o lui) non si aspetta.",
+      "program": [
+        {
+          "time": "17:00",
+          "activity": "Prelievo VIP",
+          "details": "L'autista privato verrà a prendervi in hotel (orario tramonto)."
+        },
+        {
+          "time": "17:45",
+          "activity": "Arrivo nel Silenzio",
+          "details": "Benvenuto esclusivo nell'area riservata. Atmosfera soft e relax."
+        },
+        {
+          "time": "18:15",
+          "activity": "Tramonto & Foto",
+          "details": "Il momento d'oro per scattare foto romantiche con il deserto che si tinge di rosso."
+        },
+        {
+          "time": "19:00",
+          "activity": "Cena a Lume di Candela",
+          "details": "Cena servita al tavolo (non buffet): Antipasti, Grigliata mista di carne, contorni e dolci orientali."
+        },
+        {
+          "time": "20:30",
+          "activity": "Le Stelle",
+          "details": "Tempo per sdraiarsi sui tappeti, guardare le stelle e godersi la pace assoluta."
+        },
+        {
+          "time": "21:30",
+          "activity": "Rientro",
+          "details": "Ritorno in hotel con auto privata."
+        }
+      ],
+      "includes": [
+        "Auto Privata A/R (Niente Bus)",
+        "Cena VIP servita al tavolo (Menu carne)",
+        "Bevande analcoliche illimitate",
+        "Allestimento romantico (Candele/Lanterne)",
+        "Servizio cameriere dedicato"
+      ],
+      "not_included": [
+        "Torta di compleanno (ordinabile extra)",
+        "Fiori o regali speciali (organizzabili su richiesta)",
+        "Mance",
+        "Alcolici"
+      ],
+      "important_notes": "Questa escursione richiede prenotazione anticipata per preparare l'allestimento esclusivo. Possibilità di aggiungere una breve passeggiata a cavallo o cammello al tramonto su richiesta.",
+      "seo_tags": [
+        "Cena Romantica Sharm",
+        "VIP Desert Dinner",
+        "Proposta Matrimonio Egitto",
+        "Serata Privata Sharm",
+        "Luxury Experience Sinai"
+      ]
+    },
+    // --- SHARM Culture 
+    sharm_old_market_ultimate_shopping:
+    {
+      "tour_id": "sharm_old_market_ultimate_shopping",
+      "title": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+      "short_desc": "Il tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!",
+      "duration": "3-4 Ore (Serale)",
+      "highlights": [
+        "Visita alla spettacolare Moschea di Al Sahaba",
+        "Accesso esclusivo ai negozi di Borse e Pelle (Prezzi shock)",
+        "Il regno delle spezie: 'L'India Egiziana' a portata di mano",
+        "Essenze e profumi puri (niente roba turistica)",
+        "Garanzia Fabio: Qualità top e zero fregature"
+      ],
+      "full_description": "Preparate i sensi (e il portafoglio)! Vi porto nel cuore vero di Sharm.\n\nInizieremo con la magia della Moschea di Al Sahaba per le foto più belle della vacanza. Poi, passeremo agli affari seri.\n\nVi aprirò le porte dei miei negozi segreti di pelletteria (borse e scarpe di lusso a prezzi di fabbrica). Ma non finisce qui! Sapevate che per trovare le spezie migliori non serve andare in India? Fabio vi porta 'l'India Egiziana' proprio qui!\n\nEntreremo nelle erboristerie più antiche dove troverete zafferano, curry, e profumi oleosi che durano giorni sulla pelle. È la qualità più pura e pulita del mondo, roba che nei supermercati in Italia vi sognate.",
+      "program": [
+        {
+          "time": "20:00",
+          "activity": "Partenza",
+          "details": "Prelievo in hotel e trasferimento a Sharm Vecchia."
+        },
+        {
+          "time": "20:30",
+          "activity": "Cultura & Foto",
+          "details": "Ammiriamo la Moschea Al Sahaba illuminata."
+        },
+        {
+          "time": "21:00",
+          "activity": "Fashion Stop",
+          "details": "Shopping di Borse e Scarpe in vera pelle (Prezzi incredibili)."
+        },
+        {
+          "time": "21:45",
+          "activity": "L'India d'Egitto",
+          "details": "Immersione nel mondo delle spezie e dei profumi. Un'esplosione di odori e colori."
+        },
+        {
+          "time": "23:00",
+          "activity": "Rientro",
+          "details": "Ritorno in hotel felici e profumati."
+        }
+      ],
+      "includes": [
+        "Transfer A/R (Minibus Aria Condizionata)",
+        "Guida locale parlante italiano",
+        "Ingresso Moschea",
+        "Tour shopping guidato (Pelle + Spezie)"
+      ],
+      "not_included": [
+        "Cena",
+        "Spese personali",
+        "Mance"
+      ],
+      "important_notes": "Consiglio: Non comprate spezie a caso per strada! Vi porto io dove la roba è fresca e pulita al 100%.",
+      "seo_tags": [
+        "Sharm Vecchia Shopping",
+        "Spezie Egitto",
+        "Profumi Sharm",
+        "Borse Pelle Sharm",
+        "Moschea Al Sahaba"
+      ]
+    },
+    cairo_plane_flexible_museum:
+    {
+      "tour_id": "cairo_plane_flexible_museum",
+      "title": "Il Cairo in Aereo: Piramidi & Tu Scegli il Museo",
+      "short_desc": "Vola al Cairo e decidi tu la storia. Piramidi di Giza + La tua scelta tra il 'Museo Classico' (Tahrir) o il 'Nuovo GEM' (Il Futuro).",
+      "duration": "Giornata Intera (16 Ore)",
+      "highlights": [
+        "Volo comodo da Sharm (solo 50 minuti)",
+        "Piramidi di Giza e Sfinge (Tappa fissa)",
+        "SCELTA LIBERA DEL MUSEO (Vedi opzioni sotto)",
+        "Pranzo incluso in ristorante",
+        "Nessuno stress, tutto organizzato"
+      ],
+      "full_description": "Il Cairo è magico, ma ognuno ha i suoi gusti (e il suo budget). Per questo, con noi sei tu a decidere che tipo di esperienza vivere.\n\nLa mattinata è dedicata ai giganti: Le Piramidi e la Sfinge. Ma per il pomeriggio, ti offro due strade:\n\n🅰️ Opzione A (Il Classico - Economica): Il vecchio Museo Egizio di Piazza Tahrir. È il museo storico, pieno di fascino antico, polvere e storia (stile Indiana Jones). Perfetto per chi vuole risparmiare e vedere il Cairo tradizionale.\n\n🅱️ Opzione B (Il Futuro - VIP): Il Nuovo GEM (Grand Egyptian Museum). È il museo più grande del mondo, moderno, luccicante e ospita tutto il tesoro di Tutankhamon. Costa di più, ma è un'esperienza mondiale.\n\nNota: Troverai la differenza di prezzo nel listino. Scegli quello che ti fa battere il cuore!",
+      "program": [
+        {
+          "time": "04:30",
+          "activity": "Volo",
+          "details": "Partenza dall'aeroporto di Sharm."
+        },
+        {
+          "time": "Mattina",
+          "activity": "Giza",
+          "details": "Visita alle Piramidi e alla Sfinge con la guida."
+        },
+        {
+          "time": "Pranzo",
+          "activity": "Relax",
+          "details": "Pranzo a buffet."
+        },
+        {
+          "time": "Pomeriggio",
+          "activity": "IL TUO MUSEO",
+          "details": "Qui il gruppo si divide: chi va al Vecchio Museo (Tahrir) e chi va al Nuovo (GEM) in base alla prenotazione."
+        },
+        {
+          "time": "Sera",
+          "activity": "Rientro",
+          "details": "Volo di ritorno per Sharm."
+        }
+      ],
+      "includes": [
+        "Volo Aereo A/R",
+        "Guida Egittologa",
+        "Trasferimenti",
+        "Ingresso Piramidi",
+        "Pranzo",
+        "Ingresso Museo (A o B in base alla scelta)"
+      ],
+      "not_included": [
+        "Visto Egitto (Obbligatorio)",
+        "Bevande",
+        "Supplemento per il GEM (se scelto)",
+        "Giro in Feluca (Facoltativo)",
+        "Mance"
+      ],
+      "important_notes": "Scegli l'opzione Museo al momento della prenotazione per organizzare i biglietti. Il Visto d'ingresso è obbligatorio.",
+      "seo_tags": [
+        "Cairo da Sharm Aereo",
+        "Museo Egizio Tahrir",
+        "Grand Egyptian Museum GEM",
+        "Piramidi Giza"
+      ]
+    },
+    cairo_bus_adventure_choice: {
+      "tour_id": "cairo_bus_adventure_choice",
+      "title": "Il Cairo in Bus: L'Avventura Smart & La Tua Scelta",
+      "short_desc": "La storia a piccolo prezzo. Un viaggio 'On the Road' verso le Piramidi. Scegli tu: il fascino del Vecchio Museo o il futuro del Nuovo GEM.",
+      "duration": "24 Ore (Maratona Giornaliera)",
+      "highlights": [
+        "Il prezzo più basso per vedere le Piramidi",
+        "Viaggio notturno in Bus GT (Aria condizionata e bagno)",
+        "Piramidi di Giza e Sfinge (Tappa fissa)",
+        "SCELTA DEL MUSEO (Classico o Nuovo GEM)",
+        "Pranzo incluso al Cairo"
+      ],
+      "full_description": "Vuoi vedere le Piramidi senza spendere una fortuna? Questa è l'opzione giusta per te.\n\nSaremo onesti: è un viaggio lungo (partenza dopo mezzanotte), una vera 'maratona' per chi ha spirito di avventura. Ma la ricompensa è grande: vedrai la stessa storia di chi va in aereo, ma risparmiando.\n\nAnche qui, Fabio ti dà il potere di scegliere la tua esperienza:\n\n🅰️ Opzione A (Tahrir - Il Classico): Visita il storico Museo di Piazza Tahrir. È l'opzione standard, perfetta per chi vuole vedere l'arte antica nell'atmosfera del Cairo centro.\n\n🅱️ Opzione B (GEM - Il Nuovo): Vuoi vedere il museo di cui parla tutto il mondo? Con un piccolo supplemento, puoi entrare nel Grande Museo Egizio (GEM) e ammirare i tesori in una struttura futuristica.\n\nIl Bus è economico, ma la storia che vedrai non ha prezzo.",
+      "program": [
+        {
+          "time": "00:30",
+          "activity": "Partenza Notturna",
+          "details": "Prelievo in hotel. Si viaggia di notte per arrivare al Cairo all'alba (portare cuscino da viaggio!)."
+        },
+        {
+          "time": "08:30",
+          "activity": "Arrivo al Cairo",
+          "details": "Incontro con la guida egittologa e inizio del tour."
+        },
+        {
+          "time": "Mattina",
+          "activity": "IL TUO MUSEO",
+          "details": "Il gruppo si divide: Visita al Museo di Tahrir o al Nuovo GEM (in base alla scelta)."
+        },
+        {
+          "time": "Pranzo",
+          "activity": "Sosta Food",
+          "details": "Pranzo a buffet per ricaricare le energie."
+        },
+        {
+          "time": "Pomeriggio",
+          "activity": "Giza",
+          "details": "Le Piramidi e la Sfinge. Il momento che aspettavi."
+        },
+        {
+          "time": "17:00",
+          "activity": "Shopping & Rientro",
+          "details": "Breve sosta shopping e ripartenza verso Sharm."
+        },
+        {
+          "time": "Notte",
+          "activity": "Arrivo",
+          "details": "Arrivo in hotel a Sharm (verso mezzanotte)."
+        }
+      ],
+      "includes": [
+        "Viaggio in Bus A/R (Bagno a bordo)",
+        "Guida Egittologa parlante italiano",
+        "Ingresso Piramidi & Sfinge",
+        "Ingresso Museo (A o B a scelta)",
+        "Pranzo"
+      ],
+      "not_included": [
+        "Visto Egitto (Obbligatorio)",
+        "Bevande al pranzo",
+        "Giro in Feluca (Facoltativo)",
+        "Supplemento per il GEM (se scelto)",
+        "Mance"
+      ],
+      "important_notes": "Il viaggio in bus dura circa 7-8 ore a tratta. Si consiglia di ordinare la colazione al sacco (Breakfast Box) in hotel la sera prima. Portare vestiti comodi e una felpa per l'aria condizionata del bus.",
+      "seo_tags": [
+        "Cairo Bus da Sharm",
+        "Escursione Economica Piramidi",
+        "Nuovo Museo GEM Bus",
+        "Piramidi Giza Low Cost"
+      ]
+    },
+    santa_caterina_monastery_morning:
+    {
+      "tour_id": "santa_caterina_monastery_morning",
+      "title": "Santa Caterina: Il Monastero Sacro (Classic & VIP)",
+      "short_desc": "Un viaggio spirituale nella Terra Santa. Visita il Monastero più antico del mondo e il Roveto Ardente. Disponibile in Bus (Gruppo) o Auto Privata (VIP).",
+      "duration": "Giornata Intera (Partenza Mattina 06:00)",
+      "highlights": [
+        "Viaggio attraverso il deserto del Sinai",
+        "Visita guidata al Monastero di Santa Caterina (UNESCO)",
+        "Il 'Roveto Ardente': L'albero sacro che non muore mai",
+        "Il Pozzo di Mosè e la Basilica",
+        "Pranzo incluso in ristorante",
+        "Possibilità di UPGRADE VIP (Auto Privata & Ristorante Chic a Dahab)"
+      ],
+      "full_description": "Questa non è un'escursione, è un pellegrinaggio nella storia e nella pace.\n\nVi porto nella 'Terra Santa', dove il cielo ha toccato la terra. Attraverseremo le valli colorate del Sinai per arrivare al Monastero di Santa Caterina, un luogo sacro per tre religioni, rimasto intatto per 15 secoli.\n\nQui respirerete un'aria diversa. Vedrete il 'Roveto Ardente' e ammirerete icone antiche che vi guardano nell'anima. È un'esperienza di pura cultura e spiritualità.\n\n🍽️ Il Pranzo: È incluso un pranzo rigenerante in un ristorante locale durante il viaggio di ritorno.\n\n💎 VUOI IL SOGNO? SCEGLI LA VERSIONE 'FABIO VIP':\nSiamo onesti: quante volte verrai nella Terra Santa nella tua vita? Una volta? Allora falla contare!\nPosso organizzare questo tour in Auto Privata di Lusso solo per te (o la tua famiglia). \nAvrai una guida personale tutta per te (niente attese, chiedi quello che vuoi), partirai all'orario che preferisci e, soprattutto, ti porterò a pranzo in un Ristorante Chic sul mare a Dahab. È un'esperienza spirituale 'Top Class' che non vedrai neanche nei sogni. Non risparmiare sui ricordi che durano per sempre. Te lo meriti.",
+      "program": [
+        {
+          "time": "06:00",
+          "activity": "Partenza",
+          "details": "Prelievo in hotel (Orario flessibile se scegli VIP)."
+        },
+        {
+          "time": "09:00",
+          "activity": "Arrivo al Sacro",
+          "details": "Arrivo a Santa Caterina. Ingresso nelle mura fortificate."
+        },
+        {
+          "time": "Visita",
+          "activity": "Il Monastero",
+          "details": "Tour guidato: La Basilica, il Mosaico della Trasfigurazione, il Pozzo di Mosè e il Roveto Ardente."
+        },
+        {
+          "time": "13:30",
+          "activity": "Pranzo",
+          "details": "Sosta pranzo in ristorante (Standard per Bus / Chic a Dahab per VIP)."
+        },
+        {
+          "time": "17:00",
+          "activity": "Rientro",
+          "details": "Ritorno a Sharm el Sheikh."
+        }
+      ],
+      "includes": [
+        "Transfer A/R (Bus per Gruppo / Auto Privata per VIP)",
+        "Guida specializzata in storia e religione",
+        "Biglietti ingresso Parco Nazionale e Monastero",
+        "Pranzo"
+      ],
+      "not_included": [
+        "Bevande al pranzo",
+        "Ingresso al Museo delle Icone (facoltativo)",
+        "Mance"
+      ],
+      "important_notes": "Luogo Sacro: Dress Code rigoroso (spalle e ginocchia coperte). Nota VIP: Se vuoi il trattamento regale, seleziona l'opzione 'Private Tour' nel modulo di prenotazione.",
+      "seo_tags": [
+        "Monastero Santa Caterina Tour",
+        "Escursione Privata Sinai",
+        "Santa Caterina VIP",
+        "Terra Santa Egitto"
+      ]
+    },
+    mount_sinai_sunrise_adventure: {
+      "tour_id": "mount_sinai_sunrise_adventure",
+      "title": "Monte Sinai Adventure: L'Alba Sacra & Monastero",
+      "short_desc": "La sfida della vita. Scala il Monte di Mosè sotto le stelle, guarda l'alba più bella del mondo e visita il Monastero. Disponibile in Bus o Versione VIP (Salva-Schiena).",
+      "duration": "16-18 Ore (Notte Intera + Mattina)",
+      "highlights": [
+        "Trekking notturno sotto un cielo stellato incredibile",
+        "Vedere l'alba dalla cima del Monte Horeb (2285m)",
+        "Visita guidata al Monastero di Santa Caterina (UNESCO)",
+        "Guida Beduina esperta per la scalata",
+        "Pranzo incluso dopo la discesa"
+      ],
+      "full_description": "Sei pronto per l'avventura più epica del Sinai? Questa non è una gita per turisti pigri, è una sfida per l'anima e il corpo.\n\nPartiremo di notte per scalare il Monte di Mosè. Camminerai sotto un tappeto di stelle, sentirai il freddo del deserto e l'adrenalina della salita. Ma quando arriverai in cima e vedrai il sole nascere tra le montagne, capirai che ogni passo ne è valso la pena. È un momento che ti cambia dentro.\n\nDopo l'alba, scenderemo per visitare il sacro Monastero di Santa Caterina e il Roveto Ardente.\n\n🚑 IL CONSIGLIO D'ORO DI FABIO (UPGRADE VIP):\nSii onesto con te stesso: dopo 7 km di camminata e una notte in bianco, sarai distrutto. Nel bus di gruppo dovrai aspettare gli altri seduto scomodo.\nFatti furbo: Scegli l'opzione VIP (Auto Privata).\nPerché? Perché la tua auto privata diventerà il tuo 'Letto Mobile'. Appena scendi dalla montagna, entri in auto, abbassi il sedile e dormi come un re fino a Dahab, dove ti porterò in un ristorante chic sul mare per un pranzo rigenerante. \nÈ la differenza tra tornare in hotel 'morto' o tornare 'felice'. La tua schiena ringrazierà!",
+      "program": [
+        {
+          "time": "20:30",
+          "activity": "Partenza",
+          "details": "Prelievo in hotel. Viaggio notturno verso Santa Caterina."
+        },
+        {
+          "time": "02:00",
+          "activity": "La Scalata",
+          "details": "Inizio del trekking con la guida beduina (a piedi o cammello facoltativo)."
+        },
+        {
+          "time": "05:30",
+          "activity": "L'Alba",
+          "details": "Arrivo in vetta. Il momento magico del sorgere del sole."
+        },
+        {
+          "time": "07:30",
+          "activity": "Discesa & Monastero",
+          "details": "Discesa e visita al Monastero, Roveto Ardente e Pozzo di Mosè."
+        },
+        {
+          "time": "13:00",
+          "activity": "Relax & Pranzo",
+          "details": "Pranzo meritato (Standard per Bus / Ristorante Chic a Dahab per VIP)."
+        },
+        {
+          "time": "14:30",
+          "activity": "Rientro",
+          "details": "Viaggio di ritorno a Sharm (si dorme!)."
+        }
+      ],
+      "includes": [
+        "Transfer A/R (Bus o Auto Privata VIP)",
+        "Guida Turistica Italiana",
+        "Guida Beduina per la montagna",
+        "Biglietti ingresso Parco",
+        "Pranzo",
+        "Torcia (da portare o noleggiare)"
+      ],
+      "not_included": [
+        "Bevande",
+        "Salita in Cammello (Facoltativa - si paga ai beduini)",
+        "Mance",
+        "Colazione (ordinare box hotel)"
+      ],
+      "important_notes": "⚠️ Fatigue Warning: Questa escursione richiede una buona condizione fisica. Fa MOLTO freddo in cima (porta giacca pesante, sciarpa e guanti). Indossa scarpe da trekking o ginnastica robuste. Passaporto obbligatorio.",
+      "seo_tags": [
+        "Scalata Monte Sinai",
+        "Alba Monte Mosè",
+        "Santa Caterina Tour",
+        "Trekking Egitto",
+        "Escursione Avventura Sharm"
+      ]
+    },
+    luxor_plane_classic: {
+      "tour_id": "luxor_plane_classic",
+      "title": "Luxor in Aereo: La Valle dei Re & I Templi d'Oro",
+      "short_desc": "Il museo a cielo aperto più grande del mondo. Vola da Sharm per scoprire Karnak, la Valle dei Re e il Tempio della Regina Hatshepsut in un giorno indimenticabile.",
+      "duration": "Giornata Intera (16 Ore)",
+      "highlights": [
+        "Volo comodo e veloce (45 min) da Sharm El Sheikh",
+        "Tempio di Karnak: La foresta di colonne più grande del mondo",
+        "Valle dei Re: Entra nelle tombe colorate dei Faraoni (3 Tombe)",
+        "Tempio della Regina Hatshepsut & Colossi di Memnone",
+        "Pranzo a buffet in ristorante con vista sul Nilo",
+        "Visita alla Fabbrica di Alabastro (L'arte dell'Antico Egitto)"
+      ],
+      "full_description": "Preparatevi a restare a bocca aperta. Luxor non è una semplice città, è un altro pianeta dove il tempo si è fermato 4000 anni fa.\n\nGrazie al volo veloce da Sharm, arriveremo freschi e pronti per camminare letteralmente dentro la storia. Sulla sponda Est, visiteremo il maestoso Tempio di Karnak, un labirinto di colonne giganti che vi farà sentire piccoli di fronte alla grandezza dei Faraoni.\n\nPoi attraverseremo il Nilo verso la sponda Ovest, la 'Città dei Morti'. Qui entrerete nelle tombe della Valle dei Re, dove i colori dei dipinti sono ancora così vivi che sembrano fatti ieri. Vedrete anche il tempio unico della Regina Hatshepsut scavato nella montagna.\n\nÈ una giornata densa di emozioni, cultura e bellezza che capita una volta nella vita.",
+      "program": [
+        {
+          "time": "04:30",
+          "activity": "Volo",
+          "details": "Partenza dall'aeroporto di Sharm. In meno di un'ora siamo nella storia."
+        },
+        {
+          "time": "Mattina",
+          "activity": "Karnak",
+          "details": "Visita al complesso templare di Karnak e alla via delle Sfingi."
+        },
+        {
+          "time": "Pranzo",
+          "activity": "Sul Nilo",
+          "details": "Sosta pranzo in un ristorante locale per gustare la cucina egiziana."
+        },
+        {
+          "time": "Pomeriggio",
+          "activity": "West Bank",
+          "details": "Valle dei Re (visita a 3 tombe), Tempio di Hatshepsut e sosta ai Colossi di Memnone."
+        },
+        {
+          "time": "Shopping",
+          "activity": "Alabastro",
+          "details": "Visita all'istituto dell'Alabastro per vedere gli artigiani al lavoro (souvenir unici)."
+        },
+        {
+          "time": "Rientro",
+          "activity": "Volo",
+          "details": "Volo di ritorno per Sharm e trasferimento in hotel."
+        }
+      ],
+      "includes": [
+        "Volo Aereo A/R",
+        "Tutti i trasferimenti in Bus con aria condizionata",
+        "Guida Egittologa parlante italiano",
+        "Biglietti ingresso (Karnak, Valle dei Re, Hatshepsut)",
+        "Pranzo"
+      ],
+      "not_included": [
+        "Visto Egitto (OBBLIGATORIO)",
+        "Bevande al pranzo",
+        "Tomba di Tutankhamon (Extra facoltativo)",
+        "Giro in barca sul Nilo / Isola delle Banane (Facoltativo in loco)",
+        "Mance"
+      ],
+      "important_notes": "⚠️ VISTO: Il visto d'ingresso (Visa) è indispensabile per volare a Luxor. Controllate di averlo sul passaporto! Si consiglia abbigliamento comodo e scarpe da ginnastica.",
+      "seo_tags": [
+        "Escursione Luxor da Sharm",
+        "Valle dei Re Tour",
+        "Tempio Karnak",
+        "Volo Sharm Luxor",
+        "Alabastro Egitto"
+      ]
+    },
+    petra_jordan_expedition: {
+      "tour_id": "petra_jordan_expedition",
+      "title": "Petra: La Città Rosa (Una delle 7 Meraviglie del Mondo)",
+      "short_desc": "Un viaggio epico in Giordania. Naviga il Mar Rosso, attraversa il Canyon 'Il Siq' e scopri il Tesoro di Petra. Un'esperienza da lista dei desideri.",
+      "duration": "Giornata Intera (20-22 Ore)",
+      "highlights": [
+        "Attraversamento di 3 confini e mini-crociera nel Golfo di Aqaba",
+        "Camminata nel 'Siq': Il canyon naturale mozzafiato",
+        "Il momento 'WOW': La vista improvvisa del Tesoro (Al Khazneh)",
+        "Il Teatro Romano e le Tombe Reali",
+        "Pranzo in ristorante 5 Stelle incluso",
+        "Visti e tasse portuali TUTTO INCLUSO"
+      ],
+      "full_description": "Sei così vicino a una delle '7 Meraviglie del Mondo Moderno', non perdere l'occasione!\n\nQuesto non è solo un tour, è un'avventura internazionale. Partiremo da Sharm per attraversare il Golfo di Aqaba in barca, arrivando in Giordania.\n\nLì inizierà la magia. Cammineremo nel 'Siq', un canyon stretto e altissimo di rocce rosa e rosse. L'emozione cresce passo dopo passo finché, all'improvviso, apparirà davanti ai vostri occhi 'Il Tesoro' (famoso per il film di Indiana Jones). È un momento che toglie il fiato.\n\nEsploreremo le tombe reali scavate nella roccia e il teatro romano, il tutto accompagnati da una guida esperta che vi svelerà i segreti del popolo Nabateo. È una giornata lunga e intensa, ma tornerete con foto e ricordi che valgono oro.",
+      "program": [
+        {
+          "time": "01:00",
+          "activity": "Partenza",
+          "details": "Prelievo notturno in hotel e viaggio in Bus verso il porto di Taba."
+        },
+        {
+          "time": "Alba",
+          "activity": "Navigazione",
+          "details": "Imbarco sul traghetto per Aqaba (Giordania). Goditi l'alba sul mare tra 4 paesi."
+        },
+        {
+          "time": "Mattina",
+          "activity": "Arrivo a Petra",
+          "details": "Viaggio in bus verso Petra e inizio del cammino nel Siq."
+        },
+        {
+          "time": "Highlight",
+          "activity": "Il Tesoro",
+          "details": "Arrivo di fronte ad Al Khazneh (Il Tesoro) e tempo per foto epiche."
+        },
+        {
+          "time": "14:00",
+          "activity": "Pranzo",
+          "details": "Pranzo a buffet in un Hotel/Ristorante di lusso."
+        },
+        {
+          "time": "Pomeriggio",
+          "activity": "Ritorno",
+          "details": "Viaggio verso Aqaba, traghetto per Taba e rientro a Sharm."
+        },
+        {
+          "time": "Notte",
+          "activity": "Arrivo",
+          "details": "Arrivo in hotel a Sharm (verso le 23:00)."
+        }
+      ],
+      "includes": [
+        "Tutti i trasferimenti (Bus + Traghetto)",
+        "Visto d'ingresso in Giordania e Tasse",
+        "Biglietto ingresso sito archeologico di Petra",
+        "Guida parlante italiano (o multilingue)",
+        "Pranzo a buffet"
+      ],
+      "not_included": [
+        "Bevande al pranzo",
+        "Mance",
+        "Cavalli o carrozze all'interno di Petra (Facoltativo)"
+      ],
+      "important_notes": "⚠️ PASSAPORTO OBBLIGATORIO: Per entrare in Giordania serve il passaporto con almeno 6 mesi di validità. La carta d'identità NON è accettata. Si consigliano scarpe molto comode per camminare.",
+      "seo_tags": [
+        "Escursione Petra da Sharm",
+        "Traghetto Taba Aqaba",
+        "Petra Giordania Tour",
+        "Siq e Tesoro Petra",
+        "Meraviglie del Mondo"
+      ]
+    },
   }
 };
