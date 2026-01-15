@@ -15,8 +15,17 @@
     seascope_semi_submarine: 2,
 
     // --- SHARM DESERT ---
+    super_safari_5_senses: 2,
+    vip_romantic_dinner_desert: 2,
+    vip_cena_romantica: 2,
 
     // --- SHARM Culture ---
+    cairo_plane_flexible_museum: 2,
+    cairo_bus_adventure_choice: 2,
+    santa_caterina_monastery_morning: 2,
+    mount_sinai_sunrise_adventure: 2,
+    luxor_plane_classic: 2,
+    petra_jordan_expedition: 2,
 
 
 
