@@ -252,15 +252,17 @@
 }
 
 .chip-skeleton {
-  height: 36px;
-  width: 84px;
+  height: 32px;
+  width: 64px;
+  display: inline-flex;
+  align-items: center;
   border-radius: 999px;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.06) 100%);
   animation: chipPulse 1.5s ease-in-out infinite;
 }
 
 #filter-chips {
-  min-height: 44px;
+  min-height: 40px;
 }
 
 #pagination-controls {
