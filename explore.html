@@ -20,7 +20,12 @@
   <main class="pt-24">
     <section class="max-w-6xl mx-auto px-4">
       <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
-        <div id="filter-chips" class="flex gap-2"></div>
+        <div id="filter-chips" class="flex flex-wrap gap-2 min-h-[40px] items-center">
+          <div class="chip-skeleton"></div>
+          <div class="chip-skeleton"></div>
+          <div class="chip-skeleton"></div>
+          <div class="chip-skeleton"></div>
+        </div>
         <div>
           <label for="price-sort" class="sr-only">Sort</label>
           <select id="price-sort" class="bg-gray-900 text-white border border-gray-700 rounded-lg px-3 py-2">
@@ -31,6 +36,7 @@
         </div>
       </div>
       <div id="explore-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6"></div>
+      <div id="pagination-controls" class="mt-12 flex justify-center items-center gap-4 hidden"></div>
     </section>
   </main>
 

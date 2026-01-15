@@ -3,6 +3,10 @@ const DetailsRenderer = {
         const params = new URLSearchParams(window.location.search);
         const tripId = params.get('id');
 
+        // 1. Handshake Signal (أضف هذا السطر)
+        // هذا السطر يخبر صفحة Explore أننا قادمون من التفاصيل عند العودة
+        sessionStorage.setItem('fabio_nav_source', 'details');
+
         if (!tripId) {
             window.location.href = 'index.html';
             return;
@@ -16,11 +20,17 @@ const DetailsRenderer = {
         const langData = i18n.trips ? i18n.trips[tripId] : null;
 
         let apiData = null;
-        const cached = sessionStorage.getItem('fabio_trips_cache');
+        // 2. Cache Name Fix (عدل هذا السطر)
+        // غيرنا الاسم ليتطابق مع Explore Page
+        const cached = sessionStorage.getItem('fabio_data_cache');
+
         if (cached) {
             try {
                 const obj = JSON.parse(cached);
-                apiData = obj && obj.Trips_Prices ? obj.Trips_Prices.find(t => t.trip_id === tripId) : null;
+                // 3. Data Structure Fix (تأكد من قراءة الهيكل الصحيح)
+                // الكاش الجديد قد يكون array مباشر أو object، نتحوط للاثنين
+                const tripsList = Array.isArray(obj) ? obj : (obj.Trips_Prices || []);
+                apiData = tripsList.find(t => t.trip_id === tripId);
             } catch (e) { }
         }
 
@@ -31,7 +41,11 @@ const DetailsRenderer = {
                 DetailsRenderer.renderStaticFirst(tripId, langData, lang);
                 if (window.api && window.api.fetchAllData) {
                     const data = await window.api.fetchAllData();
-                    const live = data ? data.Trips_Prices.find(t => t.trip_id === tripId) : null;
+                    // تحديث الكاش بالمرة لو اضطرينا نجيب داتا جديدة
+                    sessionStorage.setItem('fabio_data_cache', JSON.stringify(data));
+
+                    const tripsList = data.Trips_Prices || [];
+                    const live = tripsList.find(t => t.trip_id === tripId);
                     if (live) DetailsRenderer.updatePriceOnly(live);
                 }
             }
