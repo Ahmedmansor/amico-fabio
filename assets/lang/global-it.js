@@ -44,6 +44,28 @@ window.i18nIt = {
     no_exclusive_experiences: "Nessuna esperienza esclusiva disponibile al momento.",
     experience_not_found: "Esperienza non trovata.",
     daily: "Giornaliero",
+    total_estimate: "Totale stimato",
+    full_name: "Nome Completo",
+    nationality: "Nazionalità",
+    trip_date: "Data del Viaggio",
+    adults_12_plus: "Adulti (+12)",
+    children_2_11: "Bambini (2-11)",
+    addons_extras: "Extra & Supplementi",
+    select_country: "Seleziona paese...",
+    errors: {
+      required_name: "Per favore inserisci il Nome completo",
+      required_date: "Per favore seleziona la Data del Viaggio",
+      required_nation: "Per favore seleziona la Nazionalità",
+      required_field: "Questo campo è obbligatorio"
+    },
+    placeholders: {
+      full_name: "Fabio Mansour"
+    },
+    pricing: {
+      adult: "Adulto",
+      child: "Bambino",
+      min_pax: "Min Pax"
+    },
     loading_failed: "Caricamento non riuscito. Riprova più tardi.",
     vip_access: "ACCESSO VIP:",
     ultimate_guide: "La Guida Definitiva per Sharm",
@@ -65,6 +87,21 @@ window.i18nIt = {
       adult: "Adulto",
       child: "Bambino",
       min_pax: "Min Pax"
+    },
+    whatsapp: {
+      greeting: "Ciao Fabio, mi chiamo *{name}*.",
+      check_availability: "Vorrei verificare la disponibilità per questa escursione:",
+      details_heading: "*DETTAGLI:*",
+      trip_label: "*Escursione:*",
+      date_label: "*Data:*",
+      nation_label: "*Nazionalità:*",
+      guests_label: "*Ospiti:*",
+      adults_word: "Adulti",
+      children_word: "Bambini",
+      extras_label: "*Extra:*",
+      total_label: "*Totale Stimato:*",
+      waiting_confirmation: "In attesa della tua conferma.",
+      full_message: "{greeting}\n{check_availability}\n\n{details_heading}\n{trip_label} {trip}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}"
     }
   },
   secrets: {

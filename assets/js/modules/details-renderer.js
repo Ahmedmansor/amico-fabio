@@ -6,6 +6,10 @@ const DetailsRenderer = {
         // 1. Handshake Signal (أضف هذا السطر)
         // هذا السطر يخبر صفحة Explore أننا قادمون من التفاصيل عند العودة
         sessionStorage.setItem('fabio_nav_source', 'details');
+        const waFloat = document.getElementById('whatsapp-float');
+        if (waFloat) waFloat.remove();
+        const waLabel = document.querySelector('.wa-fab-label');
+        if (waLabel) waLabel.remove();
 
         if (!tripId) {
             window.location.href = 'index.html';
@@ -60,6 +64,13 @@ const DetailsRenderer = {
         }
     },
 
+    state: {
+        apiData: null,
+        langData: null,
+        lang: 'it',
+        tripId: ''
+    },
+
     render: (tripId, apiData, langData, lang) => {
         const activeLang = localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
         const i18nCurrent = activeLang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
@@ -101,7 +112,7 @@ const DetailsRenderer = {
             includes: document.getElementById('detail-includes'),
             excludes: document.getElementById('detail-excludes'),
             gallery: document.getElementById('gallery-grid'),
-            btnBook: document.getElementById('btn-book')
+            btnBook: document.getElementById('btn-submit-booking') || document.getElementById('btn-book')
         };
 
         const ctx = window.ImagePaths ? window.ImagePaths.resolveTripContext({ trip_id: tripId, ...(apiData || {}) }) : { location: '', category: '', tripId };
@@ -141,8 +152,12 @@ const DetailsRenderer = {
         if (els.price) els.price.innerHTML = adultHero;
         const headlinePrice = dAdult > 0 ? dAdult : pAdult;
         if (els.cardPrice) els.cardPrice.textContent = `€${headlinePrice}`;
+        const totalEl = document.getElementById('live-total-price');
+        if (totalEl) totalEl.textContent = `€${headlinePrice}`;
         const breakdownEl = document.getElementById('card-price-breakdown');
         if (breakdownEl) {
+            const dictPricing = (i18nCurrent && i18nCurrent.global && i18nCurrent.global.pricing) ? i18nCurrent.global.pricing : {};
+            const lblMinPax = dictPricing.min_pax || 'Min Pax';
             const adultRow = dAdult > 0
                 ? `<div class="flex items-center gap-2"><span>👤</span><span class="line-through text-gray-400">€${pAdult}</span><span class="text-white font-bold">€${dAdult}</span></div>`
                 : `<div class="flex items-center gap-2"><span>👤</span><span class="text-white font-bold">€${pAdult}</span></div>`;
@@ -151,7 +166,7 @@ const DetailsRenderer = {
                     ? `<div class="flex items-center gap-2"><span>👶</span><span class="line-through text-gray-400">€${pChild}</span><span class="text-white font-bold">€${dChild}</span></div>`
                     : `<div class="flex items-center gap-2"><span>👶</span><span class="text-white font-bold">€${pChild}</span></div>`)
                 : '';
-            const minPaxRow = `<div class="flex items-center gap-2"><span>👥</span><span class="text-gray-300">Min Pax: ${minPax}</span></div>`;
+            const minPaxRow = `<div class="flex items-center gap-2"><span>👥</span><span class="text-gray-300">${lblMinPax}: ${minPax}</span></div>`;
             breakdownEl.innerHTML = `${adultRow}${childRow ? childRow : ''}${minPaxRow}`;
         }
 
@@ -177,6 +192,11 @@ const DetailsRenderer = {
         const dictBtn = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
         const bookNow = dictBtn && dictBtn.global && typeof dictBtn.global.book_now === 'string' ? dictBtn.global.book_now : '';
         if (els.btnBook) els.btnBook.textContent = bookNow;
+        const stickyMobile = document.getElementById('sticky-mobile-book');
+        if (stickyMobile) {
+            setTimeout(() => { stickyMobile.classList.remove('translate-y-32'); }, 200);
+            DetailsRenderer.setupStickyBehavior();
+        }
 
         // Gallery
         if (els.gallery) {
@@ -192,6 +212,50 @@ const DetailsRenderer = {
                 }
             }
         }
+        try {
+            const cachedObjStr = sessionStorage.getItem('fabio_data_cache') || sessionStorage.getItem('fabio_trips_cache');
+            let addonsList = [];
+            if (cachedObjStr) {
+                const obj = JSON.parse(cachedObjStr);
+                const all = obj && Array.isArray(obj.Trip_Addons) ? obj.Trip_Addons : [];
+                addonsList = Array.isArray(all) ? all.filter(x => String(x.trip_id || '') === tripId) : [];
+            }
+            DetailsRenderer.state.apiData = apiData;
+            DetailsRenderer.state.langData = langData;
+            DetailsRenderer.state.lang = lang;
+            DetailsRenderer.state.tripId = tripId;
+            if (window.BookingManager) window.BookingManager.init(tripId, apiData, langData, addonsList);
+        } catch (e) {
+            DetailsRenderer.state.apiData = apiData;
+            DetailsRenderer.state.langData = langData;
+            DetailsRenderer.state.lang = lang;
+            DetailsRenderer.state.tripId = tripId;
+            if (window.BookingManager) window.BookingManager.init(tripId, apiData, langData, []);
+        }
+    },
+    setupStickyBehavior: () => {
+        const sticky = document.getElementById('sticky-mobile-book');
+        const formCard = document.getElementById('booking-card-container');
+        if (!sticky || !formCard) return;
+        const txt = sticky.querySelector('span[data-i18n="global.book_now"]');
+        let animTimer = null;
+        const runAnim = () => {
+            if (!txt) return;
+            txt.classList.add('animate-wiggle');
+            setTimeout(() => txt.classList.remove('animate-wiggle'), 1200);
+        };
+        animTimer = setInterval(runAnim, 8000);
+        const io = new IntersectionObserver((entries) => {
+            const e = entries[0];
+            if (e && e.isIntersecting && e.intersectionRatio > 0.2) {
+                sticky.classList.add('opacity-0', 'pointer-events-none');
+                sticky.classList.remove('opacity-100');
+            } else {
+                sticky.classList.add('opacity-100');
+                sticky.classList.remove('opacity-0', 'pointer-events-none');
+            }
+        }, { root: null, threshold: [0, 0.2, 0.5, 1] });
+        io.observe(formCard);
     },
     renderStaticFirst: (tripId, langData, lang) => {
         const els = {
@@ -210,7 +274,7 @@ const DetailsRenderer = {
             includes: document.getElementById('detail-includes'),
             excludes: document.getElementById('detail-excludes'),
             gallery: document.getElementById('gallery-grid'),
-            btnBook: document.getElementById('btn-book')
+            btnBook: document.getElementById('btn-submit-booking') || document.getElementById('btn-book')
         };
         const ctx = window.ImagePaths ? window.ImagePaths.resolveTripContext({ trip_id: tripId }) : { location: '', category: '', tripId };
         const posterSrc = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, tripId) : `assets/images/trips/${tripId}/poster.webp`;
@@ -232,6 +296,8 @@ const DetailsRenderer = {
         if (els.price) els.price.innerHTML = `<span class="price-skeleton inline-block"></span>`;
         if (els.cardPrice) els.cardPrice.innerHTML = `<span class="price-skeleton inline-block"></span>`;
         if (els.cardBreakdown) els.cardBreakdown.innerHTML = `<div class="price-skeleton" style="width: 80%; height: 1.2rem;"></div>`;
+        const totalEl = document.getElementById('live-total-price');
+        if (totalEl) totalEl.textContent = `€0`;
         if (langData) {
             const dict = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
             const daily = dict && dict.global && typeof dict.global.daily === 'string' ? dict.global.daily : '';
@@ -260,6 +326,8 @@ const DetailsRenderer = {
         const dictBtn = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
         const bookNow = dictBtn && dictBtn.global && typeof dictBtn.global.book_now === 'string' ? dictBtn.global.book_now : '';
         if (els.btnBook) els.btnBook.textContent = bookNow;
+        const stickyMobile = document.getElementById('sticky-mobile-book');
+        if (stickyMobile) setTimeout(() => { stickyMobile.classList.remove('translate-y-32'); }, 200);
     },
     updatePriceOnly: (apiData) => {
         const priceEl = document.getElementById('detail-price');
@@ -276,7 +344,18 @@ const DetailsRenderer = {
         if (priceEl) priceEl.innerHTML = adultHero;
         const headlinePrice = dAdult > 0 ? dAdult : pAdult;
         if (cardPriceEl) cardPriceEl.textContent = `€${headlinePrice}`;
+        const totalEl = document.getElementById('live-total-price');
+        if (totalEl) totalEl.textContent = `€${headlinePrice}`;
+        DetailsRenderer.state.apiData = apiData;
+        if (window.BookingManager) {
+            BookingManager.state.apiData = apiData;
+            BookingManager.calculateTotal();
+        }
         if (breakdownEl) {
+            const lang = localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
+            const i18nCurrent = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+            const dictPricing = (i18nCurrent && i18nCurrent.global && i18nCurrent.global.pricing) ? i18nCurrent.global.pricing : {};
+            const lblMinPax = dictPricing.min_pax || 'Min Pax';
             const adultRow = dAdult > 0
                 ? `<div class="flex items-center gap-2"><span>👤</span><span class="line-through text-gray-400">€${pAdult}</span><span class="text-white font-bold">€${dAdult}</span></div>`
                 : `<div class="flex items-center gap-2"><span>👤</span><span class="text-white font-bold">€${pAdult}</span></div>`;
@@ -285,7 +364,7 @@ const DetailsRenderer = {
                     ? `<div class="flex items-center gap-2"><span>👶</span><span class="line-through text-gray-400">€${pChild}</span><span class="text-white font-bold">€${dChild}</span></div>`
                     : `<div class="flex items-center gap-2"><span>👶</span><span class="text-white font-bold">€${pChild}</span></div>`)
                 : '';
-            const minPaxRow = `<div class="flex items-center gap-2"><span>👥</span><span class="text-gray-300">Min Pax: ${minPax}</span></div>`;
+            const minPaxRow = `<div class="flex items-center gap-2"><span>👥</span><span class="text-gray-300">${lblMinPax}: ${minPax}</span></div>`;
             breakdownEl.innerHTML = `${adultRow}${childRow ? childRow : ''}${minPaxRow}`;
         }
     },

@@ -1,7 +1,6 @@
 const UILayout = {
     init: () => {
-        UILayout.renderHeroPortal(); // New Hero Portal
-        // Footer is now rendered by GlobalFooter module
+        UILayout.renderHeroPortal();
         UILayout.renderWhatsApp();
     },
 
@@ -88,6 +87,8 @@ const UILayout = {
 
     renderWhatsApp: () => {
         if (document.getElementById('whatsapp-float') || document.querySelector('.floating-whatsapp')) return;
+        const isDetails = /\/details\.html$/i.test(window.location.pathname);
+        if (isDetails) return;
 
         const div = document.createElement('div');
         div.id = 'whatsapp-float';

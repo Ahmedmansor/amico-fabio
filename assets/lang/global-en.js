@@ -164,7 +164,7 @@ window.i18nEn = {
     brand_subtitle: "Official Tour Guide",
     vip_experiences: "Sharm El Sheikh VIP Experiences",
     who_is_fabio_btn: "Who is Fabio",
-    book_now: "Book via WhatsApp",
+    book_now: "Book Now",
     discover: "Discover",
     price_from: "Price from",
     per_person: "per person",
@@ -190,6 +190,23 @@ window.i18nEn = {
     vip_access: "VIP ACCESS:",
     ultimate_guide: "The Ultimate Guide for Sharm",
     all_rights: "All Rights Reserved.",
+    total_estimate: "Total Estimate",
+    full_name: "Full Name",
+    nationality: "Nationality",
+    trip_date: "Trip Date",
+    adults_12_plus: "Adults (12+)",
+    children_2_11: "Children (2-11)",
+    addons_extras: "Add-ons & Extras",
+    select_country: "Select country...",
+    errors: {
+      required_name: "Please enter your full name",
+      required_date: "Please select the trip date",
+      required_nation: "Please select your nationality",
+      required_field: "This field is required"
+    },
+    placeholders: {
+      full_name: "Fabio Mansour"
+    },
     filters: {
       all: "All",
       sea: "Sea",
@@ -207,6 +224,21 @@ window.i18nEn = {
       adult: "Adult",
       child: "Child",
       min_pax: "Min Pax"
+    },
+    whatsapp: {
+      greeting: "Ciao Fabio, my name is *{name}*.",
+      check_availability: "I would like to check availability for this trip:",
+      details_heading: "*TRIP DETAILS:*",
+      trip_label: "*Trip:*",
+      date_label: "*Date:*",
+      nation_label: "*Nationality:*",
+      guests_label: "*Guests:*",
+      adults_word: "Adults",
+      children_word: "Children",
+      extras_label: "*Extras:*",
+      total_label: "*Total Estimated:*",
+      waiting_confirmation: "Waiting for your confirmation.",
+      full_message: "{greeting}\n{check_availability}\n\n{details_heading}\n{trip_label} {trip}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}"
     }
   },
   secrets: {

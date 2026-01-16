@@ -288,24 +288,32 @@ const GlobalHeader = {
     updateProgress();
     window.addEventListener('scroll', updateProgress, { passive: true });
     window.addEventListener('resize', updateProgress);
-    if (!document.querySelector('.floating-whatsapp')) {
-      const w = document.createElement('div');
-      w.id = 'whatsapp-float';
-      w.className = 'fab-base floating-whatsapp';
-      w.innerHTML = `
-        <span class="floating-whatsapp-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" class="floating-whatsapp-svg">
-            <path d="M16 3C9.4 3 4.1 8.1 4.1 14.6c0 2.5.8 4.8 2.3 6.8L5 27.5l6.3-1.9c1.8 1 3.8 1.5 5.8 1.5 6.6 0 11.9-5.1 11.9-11.6C29 8.1 22.6 3 16 3zm0 2.3c5.3 0 9.6 4.1 9.6 9.3 0 5.1-4.3 9.3-9.6 9.3-1.8 0-3.5-.5-5-1.3l-.4-.2-3.7 1.1 1.1-3.5-.2-.4c-1.2-1.5-1.8-3.3-1.8-5.1C6 9.4 10.3 5.3 16 5.3zm-3.4 4c-.3 0-.7.1-1 .1-.3.1-.8.4-.9.9-.2.5-.5 1.5-.5 1.7 0 .2-.1 .6 .3 1.1 .4 .5 1.1 1.7 2.4 2.8 1.3 1.2 2.9 1.9 3.4 2.1 .5 .2 1 .2 1.3 .1 .4 -.1 1.3 -.6 1.5 -1.1 .2 -.5 .2 -1 .2 -1.1 s-.1 -.3 -.3 -.4 c-.2 -.1 -1.3 -.6 -1.5 -.7 -.2 -.1 -.4 -.1 -.6 .1 -.2 .3 -.7 .8 -.9 1 -.2 .1 -.4 .1 -.6 0 -.2 -.1 -.9 -.3 -1.7 -1 -.6 -.6 -1 -1.3 -1.2 -1.5 -.1 -.3 0 -.5 .1 -.6 .1 -.1 .2 -.2 .3 -.4 .1 -.1 .1 -.3 0 -.4 -.1 -.1 -.9 -2.3 -1.1 -2.6 -.1 -.3 -.3 -.3 -.4 -.3 z"></path>
-          </svg>
-        </span>
-      `;
-      w.addEventListener('click', () => window.open('https://wa.me/201063239261', '_blank'));
-      document.body.appendChild(w);
-      const wl = document.createElement('div');
-      wl.className = 'wa-fab-label';
-      wl.setAttribute('data-i18n', 'fab.contact');
-      document.body.appendChild(wl);
-      GlobalHeader.initLanguage();
+    const isDetails = /\/details\.html$/i.test(window.location.pathname);
+    if (!isDetails) {
+      if (!document.querySelector('.floating-whatsapp')) {
+        const w = document.createElement('div');
+        w.id = 'whatsapp-float';
+        w.className = 'fab-base floating-whatsapp';
+        w.innerHTML = `
+          <span class="floating-whatsapp-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" class="floating-whatsapp-svg">
+              <path d="M16 3C9.4 3 4.1 8.1 4.1 14.6c0 2.5.8 4.8 2.3 6.8L5 27.5l6.3-1.9c1.8 1 3.8 1.5 5.8 1.5 6.6 0 11.9-5.1 11.9-11.6C29 8.1 22.6 3 16 3zm0 2.3c5.3 0 9.6 4.1 9.6 9.3 0 5.1-4.3 9.3-9.6 9.3-1.8 0-3.5-.5-5-1.3l-.4-.2-3.7 1.1 1.1-3.5-.2-.4c-1.2-1.5-1.8-3.3-1.8-5.1C6 9.4 10.3 5.3 16 5.3zm-3.4 4c-.3 0-.7.1-1 .1-.3.1-.8.4-.9.9-.2.5-.5 1.5-.5 1.7 0 .2-.1 .6 .3 1.1 .4 .5 1.1 1.7 2.4 2.8 1.3 1.2 2.9 1.9 3.4 2.1 .5 .2 1 .2 1.3 .1 .4 -.1 1.3 -.6 1.5 -1.1 .2 -.5 .2 -1 .2 -1.1 s-.1 -.3 -.3 -.4 c-.2 -.1 -1.3 -.6 -1.5 -.7 -.2 -.1 -.4 -.1 -.6 .1 -.2 .3 -.7 .8 -.9 1 -.2 .1 -.4 .1 -.6 0 -.2 -.1 -.9 -.3 -1.7 -1 -.6 -.6 -1 -1.3 -1.2 -1.5 -.1 -.3 0 -.5 .1 -.6 .1 -.1 .2 -.2 .3 -.4 .1 -.1 .1 -.3 0 -.4 -.1 -.1 -.9 -2.3 -1.1 -2.6 -.1 -.3 -.3 -.3 -.4 -.3 z"></path>
+            </svg>
+          </span>
+        `;
+        w.addEventListener('click', () => window.open('https://wa.me/201063239261', '_blank'));
+        document.body.appendChild(w);
+        const wl = document.createElement('div');
+        wl.className = 'wa-fab-label';
+        wl.setAttribute('data-i18n', 'fab.contact');
+        document.body.appendChild(wl);
+        GlobalHeader.initLanguage();
+      }
+    } else {
+      const ex = document.getElementById('whatsapp-float');
+      if (ex) ex.remove();
+      const lbl = document.querySelector('.wa-fab-label');
+      if (lbl) lbl.remove();
     }
 
     const banner = document.getElementById('promo-banner-container');
