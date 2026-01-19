@@ -23,7 +23,9 @@ window.i18nIt = {
     vip_experiences: "Esperienze VIP a Sharm El Sheikh",
     who_is_fabio_btn: "Chi è Fabio",
     book_now: "Prenota ora",
+    book_package_now: "Prenota il pacchetto",
     discover: "Scopri",
+    discover_package: "Scopri il pacchetto",
     price_from: "A partire da",
     per_person: "a persona",
     description: "Descrizione",
@@ -74,8 +76,10 @@ window.i18nIt = {
       all: "Tutte",
       sea: "Mare",
       culture: "Cultura",
-      desert: "Deserto"
+      desert: "Deserto",
+      packages: "Pacchetti"
     },
+    premium_package: "Pacchetto Premium",
     locations: {
       sharm: "Sharm El Sheikh",
       cairo: "Cairo",
@@ -101,7 +105,23 @@ window.i18nIt = {
       extras_label: "*Extra:*",
       total_label: "*Totale Stimato:*",
       waiting_confirmation: "In attesa della tua conferma.",
-      full_message: "{greeting}\n{check_availability}\n\n{details_heading}\n{trip_label} {trip}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}"
+      full_message: "{greeting}\n{check_availability}\n\n{details_heading}\n{trip_label} {trip}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}",
+      package_check_availability: "Vorrei verificare la disponibilità per questo pacchetto:",
+      package_details_heading: "*DETTAGLI PACCHETTO:*",
+      package_label: "*Pacchetto:*",
+      package_message: "{greeting}\n{check_availability}\n\n{details_heading}\n{package_label} {package}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}"
+    },
+    badges: {
+      BEST_SELLER: "Best seller",
+      LIMITED_TIME: "Offerta a tempo limitato",
+      HOT_DEAL: "Offerta speciale",
+      NEW: "Novità",
+      TOP_RATED: "Più votato",
+      FAMILY_FRIENDLY: "Adatta alle famiglie",
+      VIP_EXCLUSIVE: "VIP esclusivo",
+      CHEAPEST_PRICE: "Prezzo più basso",
+      RECOMMENDED: "Consigliato",
+      POPULAR: "Molto richiesto"
     }
   },
   secrets: {
@@ -421,6 +441,67 @@ window.i18nIt = {
   },
   trips: {
     // --- SHARM SEA
+    sharm_confidential: {
+      "tour_id": "sharm_confidential",
+      "title": "Sharm Confidential: Il Pacchetto Firma di Fabio",
+      "short_desc": "Un pacchetto curato personalmente da Fabio che unisce le sue esperienze più amate a Sharm in un unico viaggio elegante, senza stress e con assistenza VIP continua.",
+      "duration": "3-5 Giorni (Pacchetto Flessibile)",
+      "highlights": [
+        "Combinazione su misura di mare, deserto e cultura",
+        "Un unico referente: Fabio coordina trasferimenti, orari e dettagli",
+        "Accesso prioritario e piccoli gruppi per una vera esperienza VIP",
+        "Perfetto per coppie, famiglie e piccoli gruppi privati"
+      ],
+      "full_description": "Sharm Confidential non è una semplice escursione, è il modo più personale con cui Fabio ti fa vivere Sharm come un vero insider.\n\nInvece di prenotare singole gite sperando che combacino, questo pacchetto intreccia il meglio del Mar Rosso, del deserto e della cultura locale in un unico percorso fluido. Trasferimenti, orari e piccoli dettagli vengono gestiti direttamente da Fabio, così tu hai un solo compito: goderti la vacanza.\n\nDal primo messaggio WhatsApp all’ultimo tramonto sul mare, ogni passo è pensato per rispettare i tuoi ritmi, il tuo stile di viaggio e le tue esigenze di sicurezza e trasparenza.",
+      "program": [
+        {
+          "time": "GIORNO 1",
+          "activity": "Arrivo & Primo Contatto con Sharm",
+          "details": "Transfer privato di benvenuto, supporto al check‑in in hotel e briefing serale rilassato con Fabio per personalizzare il pacchetto."
+        },
+        {
+          "time": "GIORNO 2",
+          "activity": "Esperienza Mare",
+          "details": "Una delle giornate in barca firmate Fabio (es. Ras Mohammed o Tiran) con snorkeling, pranzo a bordo e soste foto flessibili."
+        },
+        {
+          "time": "GIORNO 3",
+          "activity": "Deserto & Stelle",
+          "details": "Avventura nel deserto con quad o jeep, cena beduina e osservazione delle stelle nel cielo del Sinai (in base alla stagione e alle preferenze)."
+        },
+        {
+          "time": "GIORNO 4",
+          "activity": "Cultura & Tempo Libero",
+          "details": "Possibile giornata a Il Cairo o Dahab, oppure una giornata più leggera a Sharm con consigli personalizzati su locali, spiagge e shopping."
+        },
+        {
+          "time": "GIORNO 5",
+          "activity": "Saluti & Ultimi Segreti",
+          "details": "Supporto al check‑out, ultime raccomandazioni e transfer di rientro in aeroporto con la massima serenità."
+        }
+      ],
+      "includes": [
+        "Call o chat di pianificazione dedicata con Fabio",
+        "Trasferimenti A/R pre-organizzati per tutte le esperienze incluse",
+        "Selezione curata di escursioni dal catalogo di Fabio",
+        "Coordinamento prioritario con partner locali di fiducia",
+        "Supporto WhatsApp continuo prima e durante il soggiorno"
+      ],
+      "not_included": [
+        "Voli internazionali e assicurazione di viaggio",
+        "Soggiorno in hotel (può essere consigliato ma non venduto direttamente)",
+        "Spese personali, mance e qualsiasi servizio non esplicitamente indicato",
+        "Visto di ingresso ed eventuali tasse locali"
+      ],
+      "important_notes": "Sharm Confidential è un pacchetto flessibile. Contenuti finali, ordine delle giornate e prezzo complessivo vengono confermati insieme a Fabio in base alla stagione, al numero di ospiti e alle tue preferenze personali. Alcune attività sono soggette alle condizioni meteo e alle normative locali.",
+      "seo_tags": [
+        "Sharm Confidential Pacchetto",
+        "Pacchetto Fabio Tours",
+        "Sharm VIP Package",
+        "Pacchetto esperienze Sharm",
+        "Tour planner privato Sharm El Sheikh"
+      ]
+    },
     ras_mohammed_white_island_vip: {
       "tour_id": "ras_mohammed_white_island_vip",
       "title": "Ras Mohammed & White Island: L'Esperienza VIP",

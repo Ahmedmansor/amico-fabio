@@ -70,15 +70,22 @@ const ExploreRenderer = {
     const tripsData = data.Trips_Prices || [];
     const packagesData = data.Packages || [];
     const combined = [...tripsData, ...packagesData];
+    const loc = String(ExploreRenderer.state.loc || 'all').toLowerCase().trim();
 
-    ExploreRenderer.state.allRawTrips = combined.filter(t => {
+    ExploreRenderer.state.allRawTrips = ExploreRenderer._filterTrips(combined, loc);
+
+    if (ExploreRenderer.renderDynamicFilters) ExploreRenderer.renderDynamicFilters();
+    if (ExploreRenderer.applyFiltersAndRender) ExploreRenderer.applyFiltersAndRender();
+  },
+
+  _filterTrips: (list, loc) => {
+    return list.filter(t => {
       const pickCI = (obj, name) => {
         const key = Object.keys(obj || {}).find(k => k.toLowerCase().trim() === name);
         return key ? obj[key] : '';
       };
       const explicitRaw = pickCI(t, 'location') || pickCI(t, 'loc') || pickCI(t, 'city') || '';
       const explicit = String(explicitRaw).toLowerCase().trim();
-      const loc = String(ExploreRenderer.state.loc || 'all').toLowerCase().trim();
 
       const isLocMatch = loc === 'all' ||
         (loc === 'luxor_and_aswan' ? (explicit.includes('luxor') || explicit.includes('aswan')) : explicit.includes(loc));
@@ -86,14 +93,15 @@ const ExploreRenderer = {
       const isActive = String(t.is_active).toLowerCase() === 'true' || t.is_active === '1' || t.is_active === true;
       return isLocMatch && isActive;
     });
-
-    if (ExploreRenderer.renderDynamicFilters) ExploreRenderer.renderDynamicFilters();
-    if (ExploreRenderer.applyFiltersAndRender) ExploreRenderer.applyFiltersAndRender();
   },
 
   resolveCategory: (trip) => {
-    const explicit = String((trip && trip.category) || '').toLowerCase().trim();
-    if (explicit) return explicit;
+    const explicitRaw = (trip && trip.category) || '';
+    const explicit = String(explicitRaw).toLowerCase().trim();
+    if (explicit) {
+      if (explicit === 'packages') return 'bundles';
+      return explicit;
+    }
     if (window.ImagePaths && typeof window.ImagePaths.resolveTripContext === 'function') {
       const ctx = window.ImagePaths.resolveTripContext(trip || {});
       const cat = String((ctx && ctx.category) || '').toLowerCase().trim();
@@ -101,6 +109,7 @@ const ExploreRenderer = {
     }
     return 'others';
   },
+
   renderDynamicFilters: () => {
     const chipsHost = document.getElementById('filter-chips');
     if (!chipsHost) return;
@@ -112,9 +121,23 @@ const ExploreRenderer = {
 
     chipsHost.innerHTML = categories.map(cat => {
       const isActive = ExploreRenderer.state.category === cat;
-      const label = filtersDict[cat] || (cat.charAt(0).toUpperCase() + cat.slice(1));
+      let label;
+      if (cat === 'bundles') {
+        label = filtersDict.packages || 'Packages';
+      } else {
+        label = filtersDict[cat] || (cat.charAt(0).toUpperCase() + cat.slice(1));
+      }
       const base = 'inline-flex items-center justify-center h-8 px-3 rounded-full text-xs min-w-[64px] transition-colors';
-      const style = isActive ? 'bg-transparent text-white border border-gold' : 'bg-black/60 text-white border border-gray-700 hover:border-gray-500';
+      let style;
+      if (cat === 'bundles') {
+        style = isActive
+          ? 'bg-gold text-white font-bold border border-gold shadow-[0_0_24px_rgba(212,175,55,0.8)]'
+          : 'bg-black/90 text-gold border border-gray-700 hover:border-gold shadow-none';
+      } else {
+        style = isActive
+          ? 'bg-transparent text-white border border-gold'
+          : 'bg-black/60 text-white border border-gray-700 hover:border-gray-500';
+      }
       return `<button class="${base} ${style}" onclick="ExploreRenderer.handleFilterClick('${cat}')">${label}</button>`;
     }).join('');
 
@@ -169,24 +192,33 @@ const ExploreRenderer = {
       return scoreDiff !== 0 ? scoreDiff : priceVal(a) - priceVal(b);
     });
   },
+
   renderPage: () => {
     const grid = document.getElementById('explore-grid');
-    const paginationHost = document.getElementById('pagination-controls');
     if (!grid) return;
 
     if (ExploreRenderer.state.filteredTrips.length === 0) {
-      const lang = localStorage.getItem('fabio_lang') || 'it';
-      const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
-      const msg = i18n.global?.no_exclusive_experiences || "No experiences found.";
-      grid.innerHTML = `<div class="col-span-full text-center py-20"><p class="text-gray-400 text-xl font-playfair italic">${msg}</p></div>`;
-      if (paginationHost) paginationHost.classList.add('hidden');
+      ExploreRenderer._renderNoResults(grid);
+      ExploreRenderer._updatePagination(true);
       return;
     }
 
+    ExploreRenderer._renderGridItems(grid);
+    ExploreRenderer._updatePagination(false);
+    ExploreRenderer._postRenderEffects();
+  },
+
+  _renderNoResults: (grid) => {
+    const lang = localStorage.getItem('fabio_lang') || 'it';
+    const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+    const msg = i18n.global?.no_exclusive_experiences || "No experiences found.";
+    grid.innerHTML = `<div class="col-span-full text-center py-20"><p class="text-gray-400 text-xl font-playfair italic">${msg}</p></div>`;
+  },
+
+  _renderGridItems: (grid) => {
     const startIndex = (ExploreRenderer.state.currentPage - 1) * ExploreRenderer.state.itemsPerPage;
     const endIndex = startIndex + ExploreRenderer.state.itemsPerPage;
     const pageItems = ExploreRenderer.state.filteredTrips.slice(startIndex, endIndex);
-    const totalPages = Math.ceil(ExploreRenderer.state.filteredTrips.length / ExploreRenderer.state.itemsPerPage);
     const lang = localStorage.getItem('fabio_lang') || 'it';
 
     grid.innerHTML = '';
@@ -195,21 +227,32 @@ const ExploreRenderer = {
       if (card) grid.appendChild(card);
     });
 
-    ExploreRenderer.updateCardsWithPrices(pageItems);
+    ExploreRenderer._updateCardsWithPrices(pageItems);
+  },
 
-    if (paginationHost) {
-      if (totalPages > 1) {
-        paginationHost.classList.remove('hidden');
-        paginationHost.innerHTML = ` 
-          <button class="w-10 h-10 rounded-full border border-gold text-gold flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gold hover:text-black transition-colors" ${ExploreRenderer.state.currentPage === 1 ? 'disabled' : ''} onclick="ExploreRenderer.changePage(${ExploreRenderer.state.currentPage - 1})">←</button> 
-          <span class="text-white font-playfair text-lg">Page <span class="text-gold">${ExploreRenderer.state.currentPage}</span> of ${totalPages}</span> 
-          <button class="w-10 h-10 rounded-full border border-gold text-gold flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gold hover:text-black transition-colors" ${ExploreRenderer.state.currentPage === totalPages ? 'disabled' : ''} onclick="ExploreRenderer.changePage(${ExploreRenderer.state.currentPage + 1})">→</button> 
-        `;
-      } else {
-        paginationHost.classList.add('hidden');
-      }
+  _updatePagination: (hide) => {
+    const paginationHost = document.getElementById('pagination-controls');
+    if (!paginationHost) return;
+
+    if (hide) {
+      paginationHost.classList.add('hidden');
+      return;
     }
 
+    const totalPages = Math.ceil(ExploreRenderer.state.filteredTrips.length / ExploreRenderer.state.itemsPerPage);
+    if (totalPages > 1) {
+      paginationHost.classList.remove('hidden');
+      paginationHost.innerHTML = ` 
+        <button class="w-10 h-10 rounded-full border border-gold text-gold flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gold hover:text-black transition-colors" ${ExploreRenderer.state.currentPage === 1 ? 'disabled' : ''} onclick="ExploreRenderer.changePage(${ExploreRenderer.state.currentPage - 1})">←</button> 
+        <span class="text-white font-playfair text-lg">Page <span class="text-gold">${ExploreRenderer.state.currentPage}</span> of ${totalPages}</span> 
+        <button class="w-10 h-10 rounded-full border border-gold text-gold flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gold hover:text-black transition-colors" ${ExploreRenderer.state.currentPage === totalPages ? 'disabled' : ''} onclick="ExploreRenderer.changePage(${ExploreRenderer.state.currentPage + 1})">→</button> 
+      `;
+    } else {
+      paginationHost.classList.add('hidden');
+    }
+  },
+
+  _postRenderEffects: () => {
     if (window.AOS) window.AOS.refresh();
     if (ExploreRenderer.state.hasLoadedOnce) {
       const section = document.querySelector('section');
@@ -223,6 +266,7 @@ const ExploreRenderer = {
     try { sessionStorage.setItem('fabio_explore_page', newPage); } catch (e) { }
     ExploreRenderer.renderPage();
   },
+
   renderFilterSkeleton: () => {
     const chipsHost = document.getElementById('filter-chips');
     if (chipsHost) chipsHost.innerHTML = Array(4).fill(0).map(() => `<div class="chip-skeleton"></div>`).join('');
@@ -239,7 +283,7 @@ const ExploreRenderer = {
       </div>`).join('');
   },
 
-  updateCardsWithPrices: (trips) => {
+  _updateCardsWithPrices: (trips) => {
     const lang = localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
     trips.forEach(t => {
       const el = document.querySelector(`article.catalog-card[data-trip-id="${t.trip_id}"]`);

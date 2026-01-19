@@ -48,18 +48,36 @@ const BookingManager = {
     const dataset = BookingManager.utils.getI18n(lang);
     const g = dataset.global || {};
     const pricingDict = g.pricing || {};
+
     const txt = {
       name: g.full_name || (lang === 'en' ? 'Full Name' : 'Nome Completo'),
       nation: g.nationality || (lang === 'en' ? 'Nationality' : 'Nazionalità'),
       date: g.trip_date || (lang === 'en' ? 'Trip Date' : 'Data del Viaggio'),
       adults: g.adults_12_plus || pricingDict.adult || (lang === 'en' ? 'Adults (12+)' : 'Adulti (+12)'),
       children: g.children_2_11 || pricingDict.child || (lang === 'en' ? 'Children (2-11)' : 'Bambini (2-11)'),
-      addons: g.addons_extras || (lang === 'en' ? 'Add-ons & Extras' : 'Extra & Supplementi')
+      addons: g.addons_extras || (lang === 'en' ? 'Add-ons & Extras' : 'Extra & Supplementi'),
+      select_country: g.select_country || (lang === 'en' ? 'Select country...' : 'Seleziona paese...')
     };
 
     const prices = BookingManager.utils.getPrices(BookingManager.state.apiData);
 
-    let html = `
+    let html = BookingManager._renderTextFields(txt, g, lang);
+    html += BookingManager._renderPaxControls(txt, prices);
+    html += BookingManager._renderAddons(txt, lang);
+
+    container.innerHTML = html;
+
+    BookingManager._updatePaxCounts();
+    BookingManager._setupDateInput();
+    BookingManager._setupNationPicker(txt.select_country);
+
+    if (btnSubmit) {
+      btnSubmit.onclick = () => BookingManager.validateAndShowInvoice();
+    }
+  },
+
+  _renderTextFields: (txt, g, lang) => {
+    return `
       <div class="grid grid-cols-1 gap-3">
         <div>
           <label class="block text-xs text-gray-400 mb-1">${txt.name} <span class="text-gold">*</span></label>
@@ -70,7 +88,7 @@ const BookingManager = {
           <label class="block text-xs text-gray-400 mb-1">${txt.nation} <span class="text-gold">*</span></label>
           <input type="hidden" id="inp-nation" value="">
           <button type="button" id="nation-picker" class="w-full bg-black/50 border border-gray-700 rounded p-2 text-white focus:border-gold outline-none flex items-center justify-between">
-            <span id="nation-selected" class="flex items-center gap-2 text-gray-400">${g.select_country || (lang === 'en' ? 'Select country...' : 'Seleziona paese...')}</span>
+            <span id="nation-selected" class="flex items-center gap-2 text-gray-400">${txt.select_country}</span>
             <span class="text-gray-500">▼</span>
           </button>
           <div id="nation-list" class="absolute left-0 right-0 mt-1 bg-black/80 border border-gray-700 rounded-lg max-h-56 overflow-auto z-20 hidden shadow-xl"></div>
@@ -83,7 +101,11 @@ const BookingManager = {
         <div id="err-date" class="text-red-500 text-xs mt-1 hidden"></div>
       </div>
       <div class="border-t border-gray-800 my-3"></div>
+    `;
+  },
 
+  _renderPaxControls: (txt, prices) => {
+    return `
       <div class="flex justify-between items-center bg-gray-800/50 p-2 rounded border border-white/5">
         <div class="text-sm"><div class="text-white font-bold">${txt.adults}</div><div class="text-gold text-xs">€${prices.adult}</div></div>
         <div class="flex items-center gap-3">
@@ -101,44 +123,50 @@ const BookingManager = {
         </div>
       </div>
     `;
+  },
 
-    if (BookingManager.state.addons.length > 0) {
-      html += `<div class="border-t border-gray-800 my-3 pt-2"><label class="block text-xs text-gold mb-2 font-bold uppercase tracking-wider">${txt.addons}</label><div class="space-y-2">`;
-      BookingManager.state.addons.forEach(addon => {
-        const label = lang === 'it' ? addon.label_it : addon.label_en;
-        const price = parseFloat(addon.price || 0);
-        html += `
-          <label class="flex items-center justify-between cursor-pointer hover:bg-gray-800 p-2 rounded transition border border-transparent hover:border-gray-700">
-            <div class="flex items-center">
-              <input type="checkbox" value="${addon.addon_id}" data-price="${price}" onchange="BookingManager.toggleAddon(this)">
-              <span class="ml-3 text-white">${label}</span>
-            </div>
-            <span class="text-gold font-bold">€${price}</span>
-          </label>
-        `;
-      });
-      html += `</div></div>`;
-    }
+  _renderAddons: (txt, lang) => {
+    if (BookingManager.state.addons.length === 0) return '';
 
-    container.innerHTML = html;
+    let html = `<div class="border-t border-gray-800 my-3 pt-2"><label class="block text-xs text-gold mb-2 font-bold uppercase tracking-wider">${txt.addons}</label><div class="space-y-2">`;
+    BookingManager.state.addons.forEach(addon => {
+      const label = lang === 'it' ? addon.label_it : addon.label_en;
+      const price = parseFloat(addon.price || 0);
+      html += `
+        <label class="flex items-center justify-between cursor-pointer hover:bg-gray-800 p-2 rounded transition border border-transparent hover:border-gray-700">
+          <div class="flex items-center">
+            <input type="checkbox" value="${addon.addon_id}" data-price="${price}" onchange="BookingManager.toggleAddon(this)">
+            <span class="ml-3 text-white">${label}</span>
+          </div>
+          <span class="text-gold font-bold">€${price}</span>
+        </label>
+      `;
+    });
+    html += `</div></div>`;
+    return html;
+  },
+
+  _updatePaxCounts: () => {
     const adultsEl = document.getElementById('count-adults');
     const childrenEl = document.getElementById('count-children');
     if (adultsEl) adultsEl.textContent = String(BookingManager.state.adults);
     if (childrenEl) childrenEl.textContent = String(BookingManager.state.children);
+  },
 
+  _setupDateInput: () => {
     const inpDate = document.getElementById('inp-date');
     if (inpDate && typeof inpDate.showPicker === 'function') {
       inpDate.addEventListener('click', () => inpDate.showPicker());
       inpDate.addEventListener('focus', () => inpDate.showPicker());
     }
-    if (btnSubmit) {
-      btnSubmit.onclick = () => BookingManager.validateAndShowInvoice();
-    }
+  },
 
+  _setupNationPicker: (placeholderText) => {
     const nationHidden = document.getElementById('inp-nation');
     const nationPicker = document.getElementById('nation-picker');
     const nationSelected = document.getElementById('nation-selected');
     const nationList = document.getElementById('nation-list');
+
     if (nationPicker && nationList && nationHidden && nationSelected) {
       const flagSvg = (colors, pattern = 'h3') => {
         const w = 24, h = 16;
@@ -407,34 +435,58 @@ const BookingManager = {
     modal.classList.remove('hidden');
   },
 
+  _generateWhatsAppMessage: (s, i18n, isPackage) => {
+    const w = i18n.global.whatsapp;
+    const tripTitle = s.langData?.title || s.tripId;
+    const totalEl = document.getElementById('live-total-price');
+    const total = totalEl ? totalEl.textContent : '€0';
+    const lang = BookingManager.utils.getLang();
+    const addonsList = BookingManager.utils.buildExtrasListString(s, lang);
+    const guests = `${s.adults} ${w.adults_word}, ${s.children} ${w.children_word}`;
+
+    const replacements = {
+      '{greeting}': w.greeting.replace('{name}', s.formData.name),
+      '{trip}': tripTitle,
+      '{package}': tripTitle,
+      '{date}': s.formData.date,
+      '{nation}': s.formData.nation || 'N/A',
+      '{guests}': guests,
+      '{extras}': addonsList || 'N/A',
+      '{total}': total,
+      '{check_availability}': isPackage ? w.package_check_availability : w.check_availability,
+      '{details_heading}': isPackage ? w.package_details_heading : w.details_heading,
+      '{trip_label}': w.trip_label,
+      '{package_label}': w.package_label,
+      '{date_label}': w.date_label,
+      '{nation_label}': w.nation_label,
+      '{guests_label}': w.guests_label,
+      '{extras_label}': w.extras_label,
+      '{total_label}': w.total_label,
+      '{waiting_confirmation}': w.waiting_confirmation
+    };
+
+    let msg = isPackage ? w.package_message : w.full_message;
+    for (const [key, value] of Object.entries(replacements)) {
+      msg = msg.split(key).join(value);
+    }
+    return msg;
+  },
+
   sendToWhatsApp: () => {
     const s = BookingManager.state;
     const totalEl = document.getElementById('live-total-price');
     const total = totalEl ? totalEl.textContent : '€0';
-    const tripTitle = s.langData?.title || s.tripId;
     const lang = BookingManager.utils.getLang();
     const i18n = BookingManager.utils.getI18n(lang);
-    const w = i18n.global.whatsapp;
-    const addonsList = BookingManager.utils.buildExtrasListString(s, lang);
-    const guests = `${s.adults} ${w.adults_word}, ${s.children} ${w.children_word}`;
-    const msgTemplate = w.full_message;
-    const msg = msgTemplate
-      .replace('{greeting}', w.greeting.replace('{name}', s.formData.name))
-      .replace('{check_availability}', w.check_availability)
-      .replace('{details_heading}', w.details_heading)
-      .replace('{trip_label}', w.trip_label)
-      .replace('{trip}', tripTitle)
-      .replace('{date_label}', w.date_label)
-      .replace('{date}', s.formData.date)
-      .replace('{nation_label}', w.nation_label)
-      .replace('{nation}', s.formData.nation || 'N/A')
-      .replace('{guests_label}', w.guests_label)
-      .replace('{guests}', guests)
-      .replace('{extras_label}', w.extras_label)
-      .replace('{extras}', addonsList || 'N/A')
-      .replace('{total_label}', w.total_label)
-      .replace('{total}', total)
-      .replace('{waiting_confirmation}', w.waiting_confirmation);
+
+    // Check if it's a package
+    const isPackage = s.apiData && (
+      String(s.apiData.type || '').toLowerCase() === 'package' ||
+      String(s.apiData.category || '').toLowerCase() === 'bundles'
+    );
+
+    const msg = BookingManager._generateWhatsAppMessage(s, i18n, isPackage);
+
     const phone = "201063239261";
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
     const modal = document.getElementById('invoice-modal');

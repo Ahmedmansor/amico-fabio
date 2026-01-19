@@ -24,7 +24,8 @@ async function fetchWithTimeout(resource, options = {}) {
 const DATA_CONFIG = {
     Trips_Prices: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvcO6TH0o6KOqLY6vy-jp-ZcBEeLq_dGmAzmcOCWUeIOSfOAJLPJAFa1D80a4Bv-XVLbdYOJxclEwj/pub?gid=0&single=true&output=csv",
     Global_Settings: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvcO6TH0o6KOqLY6vy-jp-ZcBEeLq_dGmAzmcOCWUeIOSfOAJLPJAFa1D80a4Bv-XVLbdYOJxclEwj/pub?gid=1501122855&single=true&output=csv",
-    Trip_Addons: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvcO6TH0o6KOqLY6vy-jp-ZcBEeLq_dGmAzmcOCWUeIOSfOAJLPJAFa1D80a4Bv-XVLbdYOJxclEwj/pub?gid=468088862&single=true&output=csv"
+    Trip_Addons: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvcO6TH0o6KOqLY6vy-jp-ZcBEeLq_dGmAzmcOCWUeIOSfOAJLPJAFa1D80a4Bv-XVLbdYOJxclEwj/pub?gid=468088862&single=true&output=csv",
+    Packages: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvcO6TH0o6KOqLY6vy-jp-ZcBEeLq_dGmAzmcOCWUeIOSfOAJLPJAFa1D80a4Bv-XVLbdYOJxclEwj/pub?gid=457429210&single=true&output=csv"
 };
 
 /**
@@ -135,28 +136,51 @@ async function fetchAllData() {
         if (cached) {
             const obj = JSON.parse(cached);
             if (obj && obj.Trips_Prices && obj.Global_Settings && obj.Trip_Addons) {
+                if (!obj.Packages) obj.Packages = [];
                 return obj;
             }
         }
         console.log("Fetching data with 5s timeout...");
-        const [tripsResponse, settingsResponse, addonsResponse] = await Promise.all([
+        const [tripsResponse, settingsResponse, addonsResponse, packagesResponse] = await Promise.all([
             fetchWithTimeout(DATA_CONFIG.Trips_Prices),
             fetchWithTimeout(DATA_CONFIG.Global_Settings),
-            fetchWithTimeout(DATA_CONFIG.Trip_Addons)
+            fetchWithTimeout(DATA_CONFIG.Trip_Addons),
+            fetchWithTimeout(DATA_CONFIG.Packages)
         ]);
 
-        if (!tripsResponse.ok || !settingsResponse.ok || !addonsResponse.ok) {
+        if (!tripsResponse.ok || !settingsResponse.ok || !addonsResponse.ok || !packagesResponse.ok) {
             throw new Error("Failed to fetch one or more data sources.");
         }
 
         const tripsText = await tripsResponse.text();
         const settingsText = await settingsResponse.text();
         const addonsText = await addonsResponse.text();
+        const packagesText = await packagesResponse.text();
+
+        const tripsParsed = normalizeTrips(parseCSV(tripsText));
+        const packagesRaw = parseCSV(packagesText);
+        const packagesMapped = Array.isArray(packagesRaw) ? packagesRaw.map(p => {
+            const pkg = { ...p };
+            const rawPkgId = String(pkg.package_id || '').trim();
+            if (rawPkgId) {
+                pkg.package_id = rawPkgId;
+                pkg.trip_id = normalizeTripId(rawPkgId);
+            }
+            const rawIncluded = String(pkg.included_trip_ids || '').trim();
+            if (rawIncluded) {
+                pkg.included_trip_ids = rawIncluded.split(',').map(x => normalizeTripId(x.trim())).filter(Boolean);
+            } else {
+                pkg.included_trip_ids = [];
+            }
+            pkg.type = 'package';
+            return pkg;
+        }) : [];
 
         const result = {
-            Trips_Prices: normalizeTrips(parseCSV(tripsText)),
+            Trips_Prices: tripsParsed,
             Global_Settings: parseCSV(settingsText),
-            Trip_Addons: parseCSV(addonsText)
+            Trip_Addons: parseCSV(addonsText),
+            Packages: packagesMapped
         };
         try {
             sessionStorage.setItem('fabio_trips_cache', JSON.stringify(result));
@@ -168,10 +192,11 @@ async function fetchAllData() {
         if (cached) {
             const obj = JSON.parse(cached);
             if (obj && obj.Trips_Prices && obj.Global_Settings && obj.Trip_Addons) {
+                if (!obj.Packages) obj.Packages = [];
                 return obj;
             }
         }
-        return { Trips_Prices: [], Global_Settings: [], Trip_Addons: [] };
+        return { Trips_Prices: [], Global_Settings: [], Trip_Addons: [], Packages: [] };
     }
 }
 

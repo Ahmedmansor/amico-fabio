@@ -109,7 +109,7 @@
   inset: 0;
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 0.6rem;
   pointer-events: none;
 }
@@ -131,6 +131,33 @@
   font-weight: 700;
   font-size: 0.8rem;
   letter-spacing: 0.02em;
+}
+
+/* New Ribbon Style for Packages */
+.discount-ribbon {
+  position: absolute;
+  top: 12px;
+  left: -8px;
+  background: #CC0C39;
+  color: white;
+  padding: 4px 12px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.discount-ribbon::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 0;
+  border-top: 6px solid #8a0826;
+  border-left: 8px solid transparent;
 }
 
 .standard-badge {
@@ -301,4 +328,32 @@
 .trips-grid-container {
   max-width: 100%;
   padding-inline: 0rem;
+}
+
+.premium-package-card {
+  position: relative;
+  border: 2px solid var(--color-gold);
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.55);
+  background: radial-gradient(circle at top, rgba(212, 175, 55, 0.18), #050505);
+}
+
+.premium-package-card .catalog-card-img {
+  border-color: var(--color-gold);
+}
+
+.standard-badge-premium {
+  background: rgba(0, 0, 0, 0.9);
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.premium-package-card .card-btn {
+  background: var(--color-gold);
+  color: #111;
+  border-color: var(--color-gold);
+}
+
+.premium-package-card .card-btn:hover {
+  background: #f1d78a;
+  color: #000;
 }

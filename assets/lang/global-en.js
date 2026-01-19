@@ -165,7 +165,9 @@ window.i18nEn = {
     vip_experiences: "Sharm El Sheikh VIP Experiences",
     who_is_fabio_btn: "Who is Fabio",
     book_now: "Book Now",
+    book_package_now: "Book Package Now",
     discover: "Discover",
+    discover_package: "Discover package",
     price_from: "Price from",
     per_person: "per person",
     description: "Description",
@@ -211,8 +213,10 @@ window.i18nEn = {
       all: "All",
       sea: "Sea",
       culture: "Culture",
-      desert: "Desert"
+      desert: "Desert",
+      packages: "Packages"
     },
+    premium_package: "Premium Package",
     locations: {
       sharm: "Sharm El Sheikh",
       cairo: "Cairo",
@@ -238,7 +242,23 @@ window.i18nEn = {
       extras_label: "*Extras:*",
       total_label: "*Total Estimated:*",
       waiting_confirmation: "Waiting for your confirmation.",
-      full_message: "{greeting}\n{check_availability}\n\n{details_heading}\n{trip_label} {trip}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}"
+      full_message: "{greeting}\n{check_availability}\n\n{details_heading}\n{trip_label} {trip}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}",
+      package_check_availability: "I would like to check availability for this package:",
+      package_details_heading: "*PACKAGE DETAILS:*",
+      package_label: "*Package:*",
+      package_message: "{greeting}\n{check_availability}\n\n{details_heading}\n{package_label} {package}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}"
+    },
+    badges: {
+      BEST_SELLER: "Best seller",
+      LIMITED_TIME: "Limited time only",
+      HOT_DEAL: "Hot deal",
+      NEW: "New",
+      TOP_RATED: "Top rated",
+      FAMILY_FRIENDLY: "Family friendly",
+      VIP_EXCLUSIVE: "VIP exclusive",
+      CHEAPEST_PRICE: "Cheapest price",
+      RECOMMENDED: "Recommended",
+      POPULAR: "Popular choice"
     }
   },
   secrets: {
@@ -414,6 +434,67 @@ window.i18nEn = {
   },
   trips: {
     // --- SHARM SEA
+    sharm_confidential: {
+      "tour_id": "sharm_confidential",
+      "title": "Sharm Confidential: Fabio’s Signature Bundle",
+      "short_desc": "A curated bundle of Fabio’s most loved experiences in Sharm, designed as an elegant all‑in‑one journey with zero stress and full VIP assistance.",
+      "duration": "3-5 Days (Flexible Bundle)",
+      "highlights": [
+        "Tailor-made combination of sea, desert and culture experiences",
+        "Single point of contact: Fabio coordinates every transfer and schedule",
+        "Priority access and small groups for a true VIP feeling",
+        "Perfect for couples, families and small private groups"
+      ],
+      "full_description": "Sharm Confidential is not a simple excursion, it is Fabio’s most personal way to make you live Sharm like a true insider.\n\nInstead of booking single tours and hoping they fit together, this bundle weaves the best of the Red Sea, the desert and the local culture into one fluid journey. Transfers, timings and small details are handled directly by Fabio so that you only have to do one thing: enjoy.\n\nFrom the first WhatsApp message to the last sunset over the sea, every step is designed to respect your pace, your style of travel and your expectations for safety and transparency.",
+      "program": [
+        {
+          "time": "DAY 1",
+          "activity": "Arrival & First Contact with Sharm",
+          "details": "Private welcome transfer, hotel check‑in support and relaxed evening briefing with Fabio to customise your bundle."
+        },
+        {
+          "time": "DAY 2",
+          "activity": "Sea Experience",
+          "details": "One of Fabio’s signature boat days (e.g. Ras Mohammed or Tiran) with snorkeling, lunch on board and flexible photo stops."
+        },
+        {
+          "time": "DAY 3",
+          "activity": "Desert & Stars",
+          "details": "Desert adventure with quad or jeep, Bedouin dinner and stargazing under the Sinai sky (depending on season and preferences)."
+        },
+        {
+          "time": "DAY 4",
+          "activity": "Culture & Free Time",
+          "details": "Optional trip to Cairo or Dahab, or a lighter day in Sharm with personalised suggestions for cafés, beaches and local shopping."
+        },
+        {
+          "time": "DAY 5",
+          "activity": "Farewell & Last Secrets",
+          "details": "Check‑out assistance, last recommendations and transfer back to the airport with complete peace of mind."
+        }
+      ],
+      "includes": [
+        "Dedicated planning call or chat with Fabio",
+        "Pre-arranged round-trip transfers for all bundled experiences",
+        "Curated selection of excursions from Fabio’s catalogue",
+        "Priority coordination with trusted local partners",
+        "Continuous WhatsApp support before and during your stay"
+      ],
+      "not_included": [
+        "International flights and travel insurance",
+        "Hotel accommodation (can be suggested but not sold directly)",
+        "Personal expenses, tips and any service not explicitly listed",
+        "Entry visas and possible local taxes"
+      ],
+      "important_notes": "Sharm Confidential is a flexible bundle. Final content, order of days and total price will be confirmed together with Fabio based on season, number of guests and your personal preferences. Some activities are subject to weather conditions and local regulations.",
+      "seo_tags": [
+        "Sharm Confidential Package",
+        "Fabio Tours Bundle",
+        "Sharm VIP Package",
+        "All inclusive experiences Sharm",
+        "Private tour planner Sharm El Sheikh"
+      ]
+    },
     ras_mohammed_white_island_vip: {
       "tour_id": "ras_mohammed_white_island_vip",
       "title": "Ras Mohammed & White Island: The VIP Experience",
