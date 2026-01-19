@@ -289,17 +289,22 @@
     <script src="assets/js/core/api.js"></script>
     <script src="assets/js/trips_metadata.js"></script>
     <script src="assets/js/image_paths.js"></script>
+
     <script src="assets/js/modules/global-header.js"></script>
     <script src="assets/js/modules/ui-layout.js"></script>
     <script src="assets/js/modules/booking-manager.js"></script>
-    <script src="assets/js/modules/package-renderer.js"></script>
+
+    <script src="assets/js/features/packages/packages.service.js"></script>
+    <script src="assets/js/features/packages/packages.model.js"></script>
+    <script src="assets/js/features/packages/packages.view.js"></script>
+    <script src="assets/js/features/packages/packages.controller.js"></script>
     <script src="assets/js/modules/global-footer.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             AOS.init({ duration: 800, once: true });
             if (window.UILayout) window.UILayout.init();
-            if (window.PackageRenderer) window.PackageRenderer.init();
+            if (window.PackagesController) window.PackagesController.init();
         });
     </script>
 </body>
