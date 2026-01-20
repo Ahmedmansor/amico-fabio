@@ -117,7 +117,7 @@ const DetailsRenderer = {
 
         const ctx = window.ImagePaths ? window.ImagePaths.resolveTripContext({ trip_id: tripId, ...(apiData || {}) }) : { location: '', category: '', tripId };
         const posterSrc = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, tripId) : `assets/images/trips/${tripId}/poster.webp`;
-        const fallbackSrc = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : 'assets/logo-fabio-square.jpg';
+        const fallbackSrc = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : 'assets/images/logo/logo-fabio-square.webp';
 
         // Optimistic Load
         if (els.bg) {
@@ -278,7 +278,7 @@ const DetailsRenderer = {
         };
         const ctx = window.ImagePaths ? window.ImagePaths.resolveTripContext({ trip_id: tripId }) : { location: '', category: '', tripId };
         const posterSrc = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, tripId) : `assets/images/trips/${tripId}/poster.webp`;
-        const fallbackSrc = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : 'assets/logo-fabio-square.jpg';
+        const fallbackSrc = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : 'assets/images/logo/logo-fabio-square.webp';
         if (els.bg) {
             els.bg.style.backgroundImage = `url('${posterSrc}')`;
             if (window.ImagePaths && typeof window.ImagePaths.resolvePosterOrPlaceholder === 'function') {

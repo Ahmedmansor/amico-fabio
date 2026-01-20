@@ -19,7 +19,7 @@ const GlobalFooter = {
           <div class="af-grid">
             <div class="af-col af-about">
               <div class="af-logo-wrap">
-                <img src="${basePath}assets/images/logo/fabio-header-logo.png" alt="FABIO" class="af-logo">
+                <img src="${window.ImagePaths ? window.ImagePaths.ui.headerLogo : basePath + 'assets/images/logo/fabio-header-logo.webp'}" alt="FABIO" class="af-logo" width="84" height="81" loading="lazy">
                 <div class="af-brand">
                   <div class="af-brand-title">FABIO</div>
                   <div class="af-brand-subtitle" data-i18n="global.brand_subtitle">${brandSubtitle}</div>
@@ -48,7 +48,7 @@ const GlobalFooter = {
             </div>
           </div>
           <div class="af-legacy">
-            <img src="${basePath}assets/images/logo/cross-roots-logo.png" alt="Cross Roots Logo" class="af-legacy-logo">
+            <img src="${window.ImagePaths ? window.ImagePaths.ui.crossRootsLogo : basePath + 'assets/images/logo/cross-roots-logo.webp'}" alt="Cross Roots Logo" class="af-legacy-logo" width="75" height="50" loading="lazy">
             <span class="af-legacy-text" data-i18n="footer.heritage">${heritage}</span>
           </div>
         </div>

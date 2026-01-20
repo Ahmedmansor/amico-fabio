@@ -65,6 +65,19 @@ function applyTextContent(lang) {
       img.src = src;
     }
   });
+
+  // Images with data-landing-img (Direct ImagePaths access)
+  const landingImgSelectors = document.querySelectorAll("[data-landing-img]");
+  landingImgSelectors.forEach((img) => {
+    const keyPath = img.getAttribute("data-landing-img");
+    // Ensure ImagePaths is available
+    if (window.ImagePaths) {
+        const src = getValueByPath(window.ImagePaths, keyPath);
+        if (typeof src === "string") {
+            img.src = src;
+        }
+    }
+  });
 }
 
 function applyTranslations(lang) {

@@ -79,7 +79,9 @@ const PackagesView = {
         (apiData && (apiData.location || apiData.category || "sharm")) ||
         "sharm";
       const loc = String(locRaw).toLowerCase().trim();
-      posterSrc = "assets/images/packages/" + loc + "/" + tripId + "/poster.webp";
+      posterSrc = window.ImagePaths && typeof window.ImagePaths.getPackagePoster === 'function'
+        ? window.ImagePaths.getPackagePoster(loc, tripId)
+        : "assets/images/packages/" + loc + "/" + tripId + "/poster.webp";
     } else {
       ctx = window.ImagePaths
         ? window.ImagePaths.resolveTripContext({
@@ -98,7 +100,7 @@ const PackagesView = {
     const bgEl = document.getElementById("hero-bg");
     const fallbackSrc = window.ImagePaths
       ? window.ImagePaths.ui.fallbackLogo
-      : "assets/logo-fabio-square.jpg";
+      : "assets/images/logo/logo-fabio-square.webp";
     if (bgEl) {
       bgEl.style.backgroundImage = "url('" + posterSrc + "')";
       if (

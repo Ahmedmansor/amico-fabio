@@ -13,11 +13,13 @@ const UILayout = {
         const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
 
         // Hero Images (The Stack)
-        const images = [
-            "assets/images/comandamenti-imsges/1.jpg",
-            "assets/images/comandamenti-imsges/2.jpg",
-            "assets/images/comandamenti-imsges/3.jpg"
-        ];
+        const images = (window.ImagePaths && window.ImagePaths.landing && window.ImagePaths.landing.hero)
+            ? window.ImagePaths.landing.hero
+            : [
+                "assets/images/comandamenti-images/1.webp",
+                "assets/images/comandamenti-images/2.webp",
+                "assets/images/comandamenti-images/3.webp"
+            ];
 
         heroEl.innerHTML = `
             <div class="relative w-full h-[500px] md:aspect-[21/9] rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 group mx-auto">
@@ -63,26 +65,9 @@ const UILayout = {
     },
 
     renderPromoBanner: () => {
-        // Remove existing banner if any
+        // Disabled per user request
         const existing = document.getElementById('promo-banner');
         if (existing) existing.remove();
-
-        const lang = localStorage.getItem('fabio_lang') || document.documentElement.lang || localStorage.getItem('lang') || 'it';
-        const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
-
-        const div = document.createElement('div');
-        div.id = 'promo-banner';
-        div.className = 'promo-floating backdrop-blur-md';
-        div.innerHTML = `
-            <div class="flex items-center gap-4 w-full justify-center">
-                <span class="text-gold text-xl">✨</span>
-                <p class="text-white text-sm font-medium tracking-wide text-center">
-                    <span class="text-gold font-bold" data-i18n="global.vip_access">${i18n.global.vip_access || ''}</span> 
-                    <span data-i18n="global.secrets_title">${i18n.global.secrets_title || ''}</span>
-                </p>
-            </div>
-        `;
-        document.body.appendChild(div);
     },
 
     renderWhatsApp: () => {

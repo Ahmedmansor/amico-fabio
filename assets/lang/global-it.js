@@ -131,7 +131,7 @@ window.i18nIt = {
       headline: "MANUALE DI SOPRAVVIVENZA",
       subtitle: "I Segreti di Sharm che Nessuno Ti Dice. Benvenuti nella 'Vera' Sharm El Sheikh.",
       content: "Caro Viaggiatore, Sharm El Sheikh è un paradiso. Mi chiamo Fabio, Assistente di Volo e Guida Ufficiale. Il mio manuale nasce dal rispetto per il tuo tempo e i tuoi soldi. Ho curato ogni dettaglio per assicurarti un'esperienza indimenticabile, al riparo da ogni inconveniente. Con anni di esperienza e una profonda conoscenza del territorio, ho distillato per te le informazioni più preziose, quelle che solo un vero 'insider' può darti. Preparati a scoprire una Sharm autentica, esclusiva e senza sorprese. Ogni consiglio, ogni suggerimento è frutto di una passione autentica per questa terra e del desiderio di farti vivere il meglio.",
-      hero_img: "../assets/secrets_catalogue/fabio.png",
+      hero_img: window.ImagePaths.secrets.fabio,
       extra_title: "Dal cielo alla terra, la tua sicurezza è la mia priorità.",
       extra_desc: "Se cerchi questa precisione e cura in ogni dettaglio della tua vacanza, sono qui per te. Organizziamo?"
     },
@@ -142,19 +142,19 @@ window.i18nIt = {
         {
           name: "🚗 Auto private sanificate moderne",
           desc: "Viaggiate nel lusso e nella pulizia, con veicoli all'avanguardia che garantiscono comfort e igiene impeccabili.",
-          img: "../assets/secrets_catalogue/modern-sanitized-private-cars.jpeg",
+          img: window.ImagePaths.secrets.cars,
           extra_title: "lusso che meriti, senza stress.",
           extra_desc: "Ti piace l'idea di spostarti come un VIP senza stress? La mia auto è pronta, dimmi solo dove vuoi anda"
         },
         {
           name: "👮‍♂️ Autisti professionisti",
           desc: "Al volante, solo personale esperto e fidato, che conosce ogni angolo di Sharm e vi condurrà a destinazione con la massima discrezione e sicurezza.",
-          img: "../assets/secrets_catalogue/autisti-professionisti.jpg"
+          img: window.ImagePaths.secrets.drivers
         },
         {
           name: "⛵ Imbarcazioni VIP",
           desc: "Esplorate il Mar Rosso a bordo di yacht esclusivi, dotati di tutti i comfort, per giornate indimenticabili tra le meraviglie sottomarine.",
-          img: "../assets/secrets_catalogue/imbarcazioni-vip.jpg"
+          img: window.ImagePaths.secrets.boats
         }
       ]
     },
@@ -165,60 +165,60 @@ window.i18nIt = {
         {
           title: "1. Euro Monete: No!",
           desc: "Qui le monete non vengono cambiate o accettate. Porta solo banconote. Assicurati di avere tagli piccoli per le spese quotidiane.",
-          img: "../assets/secrets_catalogue/euro-coins-no.jpg"
+          img: window.ImagePaths.secrets.coins
         },
         {
           title: "2. SIM Card: Solo negozi ufficiali",
           desc: "Acquista la SIM solo da rivenditori autorizzati come Orange o Vodafone per evitare spiacevoli sorprese e garantire la migliore copertura.",
-          img: "../assets/secrets_catalogue/sim-card-solo-negozi-ufficiali.jpg"
+          img: window.ImagePaths.secrets.sim
         },
         {
           title: "3. Taxi: Prezzo concordato",
           desc: "Prima di salire, concorda sempre il prezzo o, ancora meglio, opta per il nostro servizio privato che ti garantisce tariffe fisse e comfort.",
-          img: "../assets/secrets_catalogue/taxi-prezzo-concordato.jpg",
+          img: window.ImagePaths.secrets.taxi,
           extra_title: "Evita le 'trappole per turisti' fin dal primo chilometro.",
           extra_desc: "Taxi? No, grazie. Viaggia come un locale, non come un turista da spennare. Vuoi spostarti senza pensieri, con tariffe fisse e zero sorprese? Affidati al servizio privato di Fabio: la tua tranquillità non ha prezzo."
         },
         {
           title: "4. Antinal: Il rimedio locale",
           desc: "Per piccoli disturbi intestinali, chiedi in farmacia l'Antinal. È un rimedio efficace e molto conosciuto, un vero 'salvavita' locale.",
-          img: "../assets/secrets_catalogue/antinal.jpg",
+          img: window.ImagePaths.secrets.antinal,
           extra_title: "Niente sorprese, solo bei ricordi. Ci penso io a te.",
           extra_desc: "Vuoi goderti il cibo locale senza preoccupazioni? Tieni il mio contatto a portata di mano, sarò il tuo 'angelo custode'."
         },
         {
           title: "5. Dress Code: Rispetto e classe",
           desc: "Fuori dai resort, opta per un abbigliamento discreto per rispetto della cultura locale. All'interno, sfoggia il tuo stile vacanziero con eleganza.",
-          img: "../assets/secrets_catalogue/dress-code.jpg",
+          img: window.ImagePaths.secrets.dress,
           extra_title: "Sentiti locale, non solo un turista.",
           extra_desc: "Vuoi scoprire i segreti della città con eleganza e rispetto? Lasciati guidare da chi conosce ogni angolo."
         },
         {
           title: "6. Negoziare: Un gioco divertente",
           desc: "Nei souk e nei mercati, la contrattazione è parte dell'esperienza. Fallo con un sorriso, è un modo per interagire e apprezzare la cultura del luogo.",
-          img: "../assets/secrets_catalogue/negoziare.jpg",
+          img: window.ImagePaths.secrets.negotiate,
           extra_title: "Lo shopping migliore? Quello al prezzo 'egiziano'.",
           extra_desc: "Vuoi fare affari d'oro ed evitare le 'trappole per turisti'? Vieni con me, al prezzo ci penso io",
         },
         {
           title: "7. Coralli: Proteggi la natura",
           desc: "I coralli sono ecosistemi fragili. Ammira ma non toccare, non raccogliere. Contribuirai a preservare la bellezza del Mar Rosso per tutti.",
-          img: "../assets/secrets_catalogue/coralli.jpg"
+          img: window.ImagePaths.secrets.corals
         },
         {
           title: "8. Baksheesh: Cultura della mancia",
           desc: "La mancia è parte integrante della cultura locale per riconoscere un buon servizio. Offrila con generosità per esprimere il tuo apprezzamento.",
-          img: "../assets/secrets_catalogue/baksheesh.jpg"
+          img: window.ImagePaths.secrets.baksheesh
         },
         {
           title: "9. ACQUA: SOLO IN BOTTIGLIA",
           desc: "Vuoi un consiglio da amico? L'acqua del rubinetto lasciala stare. Bevi solo da bottiglie sigillate... a meno che tu non voglia diventare subito il migliore amico dell'Antinal! 😉🧊",
-          img: "../assets/secrets_catalogue/water.jpg"
+          img: window.ImagePaths.secrets.water
         },
         {
           title: "10. RELAX: DIMENTICA L'OROLOGIO",
           desc: "In Egitto il tempo scorre diversamente. Non avere fretta e abbraccia la filosofia del piano piano. Se c'è un po' da aspettare, fallo con un sorriso: fa parte del fascino e dell'accoglienza locale.",
-          img: "../assets/secrets_catalogue/relax.jpg"
+          img: window.ImagePaths.secrets.relax
         },
       ]
     },
@@ -254,7 +254,7 @@ window.i18nIt = {
       highlight: "📍 Da Non Perdere: Farsha Café. L'anima del Vecchio Cairo.",
       body: "Immergiti nell'atmosfera magica e senza tempo del Farsha Café, un luogo dove la storia e la cultura egiziana si fondono in un'esperienza indimenticabile. Questo gioiello nascosto, incastonato tra le rocce, offre viste mozzafiato sul Mar Rosso, circondato da un arredamento tradizionale e luci soffuse che creano un'ambiance unica. Goditi un tè alla menta o un narghilè, lasciandoti avvolgere dalla musica locale e dalla brezza marina. È più di un caffè; è un viaggio sensoriale nel cuore dell'Egitto, un luogo dove il tempo sembra fermarsi e ogni momento diventa un prezioso ricordo.",
       closing: "🌟 Fabio - Il Tuo Amico a Sharm",
-      img: "../assets/secrets_catalogue/farsha-café.jpg"
+      img: window.ImagePaths.secrets.farsha
     },
     page6: {
       title: "Il Mondo negli Occhi, L'Egitto nel Cuore",
@@ -262,35 +262,35 @@ window.i18nIt = {
       items: [
         {
           cap: "✈️ Professionalità ad Alta Quota",
-          img: "../assets/adventures/pilot.jpg"
+          img: window.ImagePaths.adventures.pilot
         },
         {
           cap: "🌍 Cittadino del Mondo",
-          img: "../assets/adventures/eiffel-tower.jpg"
+          img: window.ImagePaths.adventures.eiffel
         },
         {
           cap: "🇷🇺 Alla scoperta di nuove culture",
-          img: "../assets/adventures/red-square.jpg"
+          img: window.ImagePaths.adventures.redSquare
         },
         {
           cap: "🤿 Esploratore dei Due Mondi (Cielo e Mare)",
-          img: "../assets/adventures/diving.jpg"
+          img: window.ImagePaths.adventures.diving
         },
         {
           cap: "Faccia a faccia  con la natura selvaggia",
-          img: "../assets/adventures/dessert.jpg"
+          img: window.ImagePaths.adventures.desert
         },
         {
           cap: "Esploratore Urbano",
-          img: "../assets/adventures/urbano.jpg"
+          img: window.ImagePaths.adventures.urbano
         },
         {
           cap: "Ogni città ha una storia da raccontare",
-          img: "../assets/adventures/ogni.jpg"
+          img: window.ImagePaths.adventures.ogni
         },
         {
           cap: "Passione Certificata: Advanced Open Water",
-          img: "../assets/adventures/advanced-open-water.jpg"
+          img: window.ImagePaths.adventures.advanced
         },
       ]
     }

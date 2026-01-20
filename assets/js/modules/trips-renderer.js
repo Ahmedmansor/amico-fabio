@@ -140,7 +140,7 @@ const TripsRenderer = {
 
         // UI Constants
         const ph = window.ImagePaths ? window.ImagePaths.ui.placeholder : 'assets/images/ui/placeholder.webp';
-        const fb = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : 'assets/logo-fabio-square.jpg';
+        const fb = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : 'assets/images/logo/logo-fabio-square.webp';
         const delay = index * 100;
 
         // Labels
@@ -312,7 +312,7 @@ const LocationRenderer = {
             el.innerHTML = `
                 <div class="catalog-card-image">
                     <img src="${loc.img}" alt="${loc.title}" class="catalog-card-img" loading="lazy"
-                         onerror="this.onerror=null; this.src='assets/logo-fabio-square.jpg';">
+                         onerror="this.onerror=null; this.src='${window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : 'assets/logo-fabio-square.jpg'}';">
                     <div class="card-badges"></div>
                 </div>
                 <div class="card-content">

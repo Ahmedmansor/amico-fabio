@@ -86,20 +86,13 @@ const GlobalHeader = {
       <div class="gh-container">
         <div class="gh-left">
           <button class="gh-menu-btn" id="gh-menu-btn">
-            <img src="${basePath}assets/images/image_86a171.png" alt="Menu" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" />
+            <img src="${basePath + (window.ImagePaths ? window.ImagePaths.ui.menuIcon : 'assets/images/image_86a171.png')}" alt="Menu" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" />
             <svg class="gh-menu-fallback" viewBox="0 0 24 24">
               <rect x="3" y="5" width="18" height="2" fill="#fff"></rect>
               <rect x="3" y="11" width="18" height="2" fill="#fff"></rect>
               <rect x="3" y="17" width="18" height="2" fill="#fff"></rect>
             </svg>
           </button>
-          <div class="gh-brand-wrap-left">
-            <img src="${basePath}assets/images/logo/fabio-header-logo.png" class="gh-logo" alt="Fabio Tours Logo" />
-            <div class="gh-brand">
-              <div class="gh-brand-title">FABIO</div>
-              <div class="gh-brand-subtitle" data-i18n="global.brand_subtitle">${brandSubtitle}</div>
-            </div>
-          </div>
           <div class="gh-dynamic-hook" id="gh-dynamic-hook"></div>
           <div class="gh-menu-dropdown" id="gh-menu-dropdown">
             <a href="#" data-nav="home" data-i18n="menu.home">${menuDict.home || ''}</a>
@@ -111,7 +104,7 @@ const GlobalHeader = {
         </div>
         <div class="gh-center" id="gh-center">
           <div class="gh-brand-wrap-center">
-            <img src="${basePath}assets/images/logo/fabio-header-logo.png" class="gh-logo" alt="Fabio Tours Logo" />
+            <img src="${window.ImagePaths ? window.ImagePaths.ui.headerLogo : basePath + 'assets/images/logo/fabio-header-logo.webp'}" class="gh-logo" alt="Fabio Tours Logo" width="84" height="81" style="max-width:84px; max-height:81px;" />
             <div class="gh-brand">
               <div class="gh-brand-title">FABIO</div>
               <div class="gh-brand-subtitle" data-i18n="global.brand_subtitle">${brandSubtitle}</div>
