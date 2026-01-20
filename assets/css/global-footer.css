@@ -134,19 +134,18 @@
 }
 
 .af-social-icon {
-  width: 20px;
-  height: 20px;
-  fill: var(--af-text);
+  width: 30px;
+  height: 30px;
 }
 
 .af-legacy {
-  position: absolute;
-  left: 0;
-  bottom: 0.75rem;
+  margin-top: 3rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   opacity: 0.4;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .af-legacy-logo {
@@ -169,7 +168,9 @@
   }
 
   .af-legacy {
-    position: static;
+    margin-top: 0;
     opacity: 0.5;
+    border-top: none;
+    padding-top: 0;
   }
 }

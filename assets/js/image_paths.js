@@ -206,6 +206,27 @@
       ogni: p('assets/images/adventures/ogni.webp'),
       advanced: p('assets/images/adventures/advanced-open-water.webp')
     },
+    icons: {
+      legal: {
+        intro: p('assets/images/icons/legal/intro.svg'),
+        owner: p('assets/images/icons/legal/owner.svg'),
+        data_types: p('assets/images/icons/legal/data_types.svg'),
+        method: p('assets/images/icons/legal/method.svg'),
+        purpose: p('assets/images/icons/legal/purpose.svg'),
+        cookies: p('assets/images/icons/legal/cookies.svg'),
+        third_party: p('assets/images/icons/legal/third_party.svg'),
+        rights: p('assets/images/icons/legal/rights.svg'),
+        liability: p('assets/images/icons/legal/liability.svg'),
+        definitions: p('assets/images/icons/legal/definitions.svg'),
+        contact: p('assets/images/icons/legal/contact.svg'),
+        // Fallback icon
+        default: p('assets/images/icons/legal/intro.svg')
+      },
+      social: {
+        facebook: p('assets/images/icons/social/facebook.svg'),
+        instagram: p('assets/images/icons/social/instagram.svg')
+      }
+    },
     pickCI,
     normalizeParam,
     getTripFolder,

@@ -98,6 +98,25 @@
   }
 }
 
+/* Hide floating widgets when footer is visible */
+body.hide-floating-widgets .floating-whatsapp,
+body.hide-floating-widgets .gh-fab,
+body.hide-floating-widgets .index-toggle,
+body.hide-floating-widgets .wa-fab-label,
+body.hide-floating-widgets .gh-fab-label {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease-out;
+}
+
+.floating-whatsapp,
+.gh-fab,
+.index-toggle,
+.wa-fab-label,
+.gh-fab-label {
+  transition: opacity 0.4s ease-in;
+}
+
 
 
 .gh-fab {

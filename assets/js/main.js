@@ -72,10 +72,10 @@ function applyTextContent(lang) {
     const keyPath = img.getAttribute("data-landing-img");
     // Ensure ImagePaths is available
     if (window.ImagePaths) {
-        const src = getValueByPath(window.ImagePaths, keyPath);
-        if (typeof src === "string") {
-            img.src = src;
-        }
+      const src = getValueByPath(window.ImagePaths, keyPath);
+      if (typeof src === "string") {
+        img.src = src;
+      }
     }
   });
 }
@@ -371,6 +371,23 @@ function attachAdventuresModal() {
   });
 }
 
+function setupSecretsBackgrounds() {
+  if (!window.ImagePaths || !window.ImagePaths.secrets || !window.ImagePaths.secrets.bg) return;
+  const bg = window.ImagePaths.secrets.bg;
+
+  const setBg = (selector, imageUrl) => {
+    const el = document.querySelector(selector);
+    if (el) el.style.setProperty('--bg-image', `url('${imageUrl}')`);
+  };
+
+  setBg('.section-hero', bg.hero);
+  setBg('.section-2', bg.sec2);
+  setBg('.section-3', bg.sec3);
+  setBg('.section-4', bg.sec4);
+  setBg('.section-5', bg.sec5);
+  setBg('.section-6', bg.sec6);
+}
+
 function initializeAOS() {
   if (window.AOS) {
     window.AOS.init({ once: true, duration: 800, easing: "ease-out-cubic", offset: 100 });
@@ -474,13 +491,36 @@ const App = {
   },
 
   initSharmSecrets: () => {
+    setupSecretsBackgrounds();
     attachIndexToggle();
     attachAdventuresModal();
+    setupFooterObserver();
 
     // Note: Render calls are handled in applyTranslations for dynamic language switching
     // We just ensure initial setup here if needed, but applyTranslations calls them.
   }
 };
+
+function setupFooterObserver() {
+  const footer = document.getElementById('global-footer') || document.querySelector('footer');
+  if (!footer) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // Toggle a class on body to control floating widgets
+      if (entry.isIntersecting) {
+        document.body.classList.add('hide-floating-widgets');
+      } else {
+        document.body.classList.remove('hide-floating-widgets');
+      }
+    });
+  }, {
+    root: null,
+    threshold: 0.1 // Trigger when 10% of footer is visible
+  });
+
+  observer.observe(footer);
+}
 
 // Global access to App logic if needed
 window.appData = window.appData || {};
