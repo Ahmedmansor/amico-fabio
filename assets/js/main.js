@@ -485,6 +485,7 @@ const App = {
             </div>`;
         }
       }
+      setupFooterObserver();
     } else {
       console.error("API module not found");
     }

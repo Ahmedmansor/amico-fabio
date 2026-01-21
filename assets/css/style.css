@@ -1076,7 +1076,6 @@
    7. assets/css/floating-widgets.css
    ========================================= */
 .fab-base {
-  position: fixed;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -1088,9 +1087,46 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-.floating-whatsapp {
-  inset-block-end: 2.8rem;
+.fab-wrap {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  z-index: 100;
+}
+
+.wa-wrap {
+  inset-block-end: 1rem;
   inset-inline-end: 1.4rem;
+}
+
+.gh-wrap {
+  inset-block-end: 1rem;
+  inset-inline-start: 1.4rem;
+}
+
+.fab-wrap .floating-whatsapp,
+.fab-wrap .gh-fab {
+  position: static;
+  inset: auto;
+
+}
+
+.fab-wrap .wa-fab-label,
+.fab-wrap .gh-fab-label {
+  position: static;
+  inset: auto;
+  order: 2;
+  width: auto !important;
+  min-width: unset;
+  white-space: nowrap;
+  padding: 2px 4px;
+  text-align: center;
+  margin-top: 0;
+}
+
+.floating-whatsapp {
   background: radial-gradient(circle at top left, #ffe7a0, var(--color-gold));
   color: #0b1724;
   font-weight: 700;
@@ -1165,17 +1201,18 @@
 }
 
 @media (max-width: 520px) {
-  .floating-whatsapp {
+  .wa-wrap {
     inset-inline-end: 1rem;
-    inset-block-end: 2.5rem;
+    inset-block-end: 0.8rem;
   }
 
-  .gh-fab {
-    inset-block-end: 2.5rem;
+  .gh-wrap {
+    inset-block-end: 0.8rem;
   }
 }
 
 /* Hide floating widgets when footer is visible */
+body.hide-floating-widgets .fab-wrap,
 body.hide-floating-widgets .floating-whatsapp,
 body.hide-floating-widgets .gh-fab,
 body.hide-floating-widgets .index-toggle,
@@ -1186,6 +1223,7 @@ body.hide-floating-widgets .gh-fab-label {
   transition: opacity 0.4s ease-out;
 }
 
+.fab-wrap,
 .floating-whatsapp,
 .gh-fab,
 .index-toggle,
@@ -1793,12 +1831,18 @@ body {
 /* =========================================
    11. assets/css/package-details.css
    ========================================= */
-.floating-whatsapp,
-#whatsapp-widget,
-.fab-base,
-.gh-fab,
-.gh-fab-label,
-.wa-fab-label {
+body.details-page .floating-whatsapp,
+body.details-page #whatsapp-widget,
+body.details-page .fab-base,
+body.details-page .gh-fab,
+body.details-page .gh-fab-label,
+body.details-page .wa-fab-label,
+body.package-details-page .floating-whatsapp,
+body.package-details-page #whatsapp-widget,
+body.package-details-page .fab-base,
+body.package-details-page .gh-fab,
+body.package-details-page .gh-fab-label,
+body.package-details-page .wa-fab-label {
   display: none !important;
 }
 
