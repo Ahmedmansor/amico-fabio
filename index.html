@@ -5,45 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fabio Tours | Sharm El Sheikh</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: '#D4AF37',
-                        'gold-light': '#F1D78A',
-                        'gold-dark': '#AA8C2C',
-                        'black-rich': '#0a0a0a',
-                        'gray-dark': '#1a1a1a',
-                        'cream': '#F5F5DC',
-                        'brown-dark': '#1a1510'
-                    },
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                        playfair: ['Playfair Display', 'serif'],
-                    },
-                    animation: {
-                        'spin-slow': 'spin 3s linear infinite',
-                        'bounce-slow': 'bounce 3s infinite',
-                    }
-                }
-            }
-        }
-    </script>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Playfair+Display:wght@400;700&family=Cinzel:wght@600;700&display=swap"
         rel="stylesheet">
 </head>
 
 <body class="bg-black font-sans text-gray-200">
-    <!-- Global UI Placeholders -->
     <header id="global-header" class="fixed w-full top-0 z-50 transition-all duration-300"></header>
 
     <section id="hero-slider-section" class="w-full relative overflow-hidden">
         <div class="hero-slider-box mx-auto">
-            //hero-slider-bg
             <div class="hero-slider-bg">
                 <img src="assets/images/comandamenti-images/1.webp" data-landing-img="landing.hero.0"
                     alt="Comandamenti 1" class="hero-slide" fetchpriority="high" width="720" height="1280">
@@ -63,7 +35,6 @@
             </div>
         </div>
     </section>
-    <!-- Who is Fabio Parallax Section -->
     <section id="who-fabio" class="who-fabio-section" aria-label="Who is Fabio">
         <div class="wf-container">
             <img class="wf-bg" data-landing-img="landing.whoFabio.bg" alt="Background" loading="lazy" decoding="async">
@@ -81,19 +52,15 @@
             <div class="wf-overlay-text" data-i18n="secrets.page6.intro"></div>
         </div>
     </div>
-    <!-- Bannar -->
     <div id="promo-banner-container"></div>
 
     <div id="trips-title-section" class="min-h-screen flex flex-col items-center justify-center p-4 pt-24">
-        <!-- Hero / Title -->
         <div class="text-center mb-12" data-aos="fade-down">
-            <h1 class="text-5xl md:text-7xl font-playfair font-bold mb-4 text-gold tracking-tighter drop-shadow-lg"
-                data-i18n="global.brand_title"></h1>
+            <h1 class="main-brand-title" data-i18n="global.brand_title"></h1>
             <p class="text-gray-400 uppercase tracking-widest text-sm md:text-base" data-i18n="global.vip_experiences">
             </p>
         </div>
 
-        <!-- Catalog Grid -->
         <div id="trips-grid" class="grid gap-8 grid-cols-1 w-full max-w-5xl px-4 mx-auto">
 
             <a class="lux-entry-card" href="explore.html?loc=sharm" data-aos="fade-up" data-aos-delay="0">
@@ -136,7 +103,6 @@
 
     <footer id="global-footer"></footer>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
@@ -155,6 +121,8 @@
     <script src="assets/js/modules/who-fabio.js"></script>
     <script src="assets/js/modules/ui-layout.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

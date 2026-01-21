@@ -1,3 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
 /*search with assets/css/*/
 
 /* =========================================
@@ -811,87 +821,216 @@
 /* =========================================
    5. assets/css/location-entry.css
    ========================================= */
+
 /* Luxury Full-Width Entry Cards */
 .lux-entry-card {
   position: relative;
   display: block;
-  width: 100%;
-  height: 240px;
-  border-radius: 18px;
+  /* مسحنا width: 100% عشان المارجن يشتغل صح من غير ما يكسر الشاشة */
+  height: 320px;
+  /* طولناه سنة عشان يستوعب الكلام والزرار تحت بعض */
+  margin: 1.5rem;
+  /* مارجن متساوي من كل الاتجاهات */
+  border-radius: 24px;
+  /* كيرف أنعم */
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+
+  /* بوردر دهبي خفيف جداً للفخامة */
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  background-color: #000;
+  /* لون احتياطي لو الصورة محملتش */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
   transform: translateZ(0);
-  transition: transform 500ms ease, box-shadow 500ms ease;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.3s ease;
 }
 
+/* Hover Effect: الكارت بيترفع لفوق والظل بيزيد */
 .lux-entry-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(212, 175, 55, 0.15);
+  /* ظل فيه لمسة دهبي خفيفة */
+  border-color: rgba(212, 175, 55, 0.6);
 }
 
 .lux-entry-image {
   position: absolute;
   inset: 0;
+  z-index: 0;
 }
 
 .lux-entry-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(1.05) contrast(1.05);
+  filter: brightness(1) saturate(1.15);
+  /* تغميق بسيط للصورة عشان الكلام يبان */
+  transition: transform 0.6s ease, filter 0.6s ease;
 }
 
+/* زووم هادي للصورة لما تقف عليها */
+.lux-entry-card:hover .lux-entry-image img {
+  transform: scale(1.08);
+  filter: brightness(1);
+}
+
+/* التدرج اللوني: خليته يجي من الجنب عشان يغطي تحت الكلام */
 .lux-entry-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.55) 40%, rgba(0, 0, 0, 0.25) 100%);
+
+  /* 🔥 التعديل: تدرج خفيف جداً يبدأ من الشمال ويختفي في النص */
+  background: linear-gradient(90deg,
+      rgba(0, 0, 0, 0.65) 0%,
+      /* كانت 0.9 خليناها 0.65 */
+      rgba(0, 0, 0, 0.3) 40%,
+      /* ضلمة خفيفة ورا الكلام */
+      transparent 80%);
+  /* باقي الصورة صااافي */
+  z-index: 1;
 }
 
+/* كونتينر المحتوى: هنا السر في ترتيب العناصر تحت بعض */
 .lux-entry-content {
   position: relative;
   z-index: 2;
   height: 100%;
+  padding: 2.5rem 4rem;
+  /* مساحة داخلية مريحة */
+
+  /* Flexbox Column Layout */
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 24px;
+  flex-direction: column;
+  /* يرصهم عمودي */
+  justify-content: center;
+  /* يوسطنهم بالطول */
+  align-items: flex-start;
+  /* يحاذيهم للشمال */
+  gap: 1.5rem;
+  /* مسافة بين العنوان والزرار */
 }
 
 .lux-entry-title {
   font-family: 'Cinzel', serif;
-  font-size: 2rem;
-  line-height: 1.1;
+  font-size: clamp(2em, 22vw, 2rem);
+  /* فونت متجاوب مع الشاشات */
+  line-height: 1;
   color: #D4AF37;
-  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.65);
-}
-
-.lux-entry-cta {
-  display: inline-block;
-  font-weight: 700;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
+
+  max-width: 100%;
+
+  /* ظل للنص عشان يبرز عن الخلفية */
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+/* الزرار: تصميم جديد */
+.lux-entry-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
+  /* الزرار شفاف بحدود دهبي (Ghost Button Style) */
+  background: rgba(0, 0, 0, 0.4);
+  color: #D4AF37;
+  border: 1px solid #D4AF37;
+
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
+
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* تأثير الهوفر على الزرار */
+.lux-entry-cta:hover {
   background: #D4AF37;
-  color: #0a0a0a;
-  padding: 10px 18px;
-  border-radius: 999px;
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.35);
-  transition: transform 300ms ease, box-shadow 300ms ease;
-}
-
-.lux-entry-card:hover .lux-entry-cta {
+  /* يقلب دهبي */
+  color: #000;
+  /* الكلام يسود */
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  /* وهج دهبي */
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(212, 175, 55, 0.45);
+  cursor: pointer;
 }
 
-@media (min-width: 768px) {
+/* للموبايل: نعدل الارتفاع والخطوط */
+@media (max-width: 768px) {
   .lux-entry-card {
-    height: 300px;
+    height: 280px;
+    /* أقصر شوية في الموبايل */
+    margin: 1rem;
+    /* نقلل المارجن */
+    border-radius: 16px;
+  }
+
+  .lux-entry-content {
+    padding: 0.5rem;
+    align-items: flex-start;
+    /* تأكيد المحاذاة لليسار */
+  }
+
+  .lux-entry-overlay {
+    /* تغميق زيادة في الموبايل عشان القراءة */
+    background: linear-gradient(0deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.4) 100%);
+    /* ممكن نغير الترتيب لـ column-reverse لو عايز الكلام تحت في الموبايل */
+  }
+}
+
+/* =========================================
+   تعديلات خاصة بشاشات اللاب توب والديسك توب
+   ========================================= */
+@media (min-width: 1024px) {
+  .lux-entry-card {
+    /* 🔥 التعديل الضروري: لازم نرجع العرض 100% عشان يملأ المكان */
+    width: 100%;
+
+    /* الارتفاع يتحدد أوتوماتيك بناءً على العرض (نسبة سينمائية) */
+    height: auto;
+    aspect-ratio: 16 / 9;
+
+    /* تنسيقات المارجن */
+    margin: 1.5rem auto;
+    max-width: 800px;
   }
 
   .lux-entry-title {
-    font-size: 2.4rem;
+    font-size: 3.5rem;
   }
+
+  .lux-entry-content {
+    padding-left: 6rem;
+  }
+}
+
+/* 2. عنوان FABIO TOURS: خط Cinzel الفخم */
+.main-brand-title {
+  font-family: 'Cinzel', serif;
+  /* استخدام الخط الموجود في الهيد */
+  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 5rem);
+  /* حجم كبير ومتجاوب */
+  color: #D4AF37;
+  text-align: center;
+  margin-bottom: 1rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+
+  /* ضل عشان يفصل الكلمة عن الخلفية */
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(212, 175, 55, 0.3);
 }
 
 /* =========================================
@@ -3024,4 +3163,74 @@ a {
   .golden-alert {
     padding-inline: 1.4rem;
   }
+}
+
+
+/* =========================================
+   13. assets/css/global-header.css
+   Force Banner Style (الحل الإجباري للبانر العايم)
+   ========================================= */
+/* 1. الكونتينر: بيمسك الشاشة كلها ويوسطن اللي جواه */
+#promo-banner-container {
+  position: fixed !important;
+  top: 10px !important;
+  /* المسافة من فوق */
+  left: 0 !important;
+  right: 0 !important;
+  /* يمسك من اليمين للشمال */
+  width: 100% !important;
+
+  z-index: 9999 !important;
+  display: flex !important;
+  justify-content: center !important;
+  /* السحر: ده اللي بيجيبه في النص */
+  align-items: flex-start !important;
+  pointer-events: none !important;
+  /* عشان تعرف تدوس حوليه */
+}
+
+/* 2. الكارت نفسه */
+#promo-banner-container>div {
+  pointer-events: auto !important;
+  /* تفعيل الزرار */
+
+  /* إلغاء أي كلاسات قديمة */
+  position: static !important;
+  transform: none !important;
+  margin: 0 auto !important;
+
+  /* الشكل */
+  width: 90% !important;
+  max-width: 500px !important;
+  background: linear-gradient(90deg, #D4AF37 0%, #F1D78A 50%, #D4AF37 100%) !important;
+  border-radius: 18px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 12px 24px !important;
+}
+
+/* 3. النصوص والأزرار (زي ما هي) */
+#promo-banner-container>div>div:first-child {
+  color: #000 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 0.9rem !important;
+  text-align: center !important;
+  flex: 1 !important;
+}
+
+#promo-banner-container button {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin-left: 15px !important;
+  cursor: pointer !important;
+}
+
+#promo-banner-container img {
+  width: 22px !important;
+  height: 22px !important;
+  display: block !important;
 }
