@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ] # لو الفرع بتاعك اسمه master غير دي لـ master
+    branches: [ main, css-merge-test ] 
 
 permissions:
   contents: read

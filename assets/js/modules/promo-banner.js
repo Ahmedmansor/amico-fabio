@@ -50,7 +50,7 @@ window.PromoBanner = {
                   style="background: transparent; border: none; margin-left: 12px; cursor: pointer; display: flex; align-items: center;"
                   onclick="window.PromoBanner.dismiss()" 
                   aria-label="Close">
-            <img src="assets/images/icons/close-icon.svg" alt="Close" style="width: 24px; height: 24px; display: block;" />
+            <img src="assets/images/icons/close-icon.svg/." alt="Close" style="width: 24px; height: 24px; display: block;" />
           </button>
         </div>
       </div>
