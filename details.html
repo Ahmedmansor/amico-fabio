@@ -6,39 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trip Details - Fabio Tourism</title>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: '#D4AF37',
-                        'gold-light': '#F1D78A',
-                        'gold-dark': '#AA8C2C',
-                        'black-rich': '#0a0a0a',
-                        'gray-dark': '#1a1a1a',
-                        'cream': '#F5F5DC',
-                        'brown-dark': '#1a1510'
-                    },
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                        playfair: ['Playfair Display', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="preload" href="/amico-fabio/assets/montserrat-v31-latin-regular-BLhwKU8k.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/amico-fabio/assets/cinzel-v26-latin-700-Dkw14w9r.woff2" as="font" type="font/woff2" crossorigin>
 
-    <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap"
-        rel="stylesheet">
 
-    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
 
     <style>
         body {
@@ -46,11 +18,16 @@
             color: #f3f4f6;
         }
 
-        html,
-        body {
-            overflow-x: hidden !important;
-            width: 100%;
-            position: relative;
+        /* ... باقي الستايلات الخاصة بصفحة التفاصيل سيبها زي ما هي مؤقتاً عشان التصميم ما يضربش ... */
+        /* بس شيلنا الخطوط من هنا لأن style.css ماسكها */
+
+        /* تأكيد الخطوط للعناوين */
+        h1,
+        h2,
+        h3,
+        #detail-title,
+        #card-price {
+            font-family: 'Cinzel', serif !important;
         }
 
         .hero-overlay {
@@ -95,7 +72,9 @@
         }
 
         @keyframes wiggle {
-            0% {
+
+            0%,
+            100% {
                 transform: translateX(0) rotate(0);
             }
 
@@ -118,21 +97,17 @@
             75% {
                 transform: translateX(-0.5px) rotate(-0.3deg);
             }
-
-            100% {
-                transform: translateX(0) rotate(0);
-            }
         }
 
         .animate-wiggle {
             animation: wiggle 1.2s ease-in-out;
         }
     </style>
-  <script type="module" crossorigin src="/amico-fabio/assets/details-DHjqSh_u.js"></script>
-  <link rel="modulepreload" crossorigin href="/amico-fabio/assets/global-header-4j9IadTc.js">
+  <script type="module" crossorigin src="/amico-fabio/assets/details-BScobTqF.js"></script>
+  <link rel="modulepreload" crossorigin href="/amico-fabio/assets/global-header-B4AxPn_2.js">
   <link rel="modulepreload" crossorigin href="/amico-fabio/assets/ui-layout-YpVXqCmA.js">
   <link rel="modulepreload" crossorigin href="/amico-fabio/assets/booking-manager-mPVp2E2z.js">
-  <link rel="stylesheet" crossorigin href="/amico-fabio/assets/global-header-DIhOD-iO.css">
+  <link rel="stylesheet" crossorigin href="/amico-fabio/assets/global-header-CLqfJh3t.css">
 </head>
 
 <body class="font-sans antialiased text-gray-200 details-page">
