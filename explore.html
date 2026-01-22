@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Trips</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script type="module" crossorigin src="/amico-fabio/assets/explore-CESBMMn1.js"></script>
+  <link rel="modulepreload" crossorigin href="/amico-fabio/assets/global-header-4j9IadTc.js">
+  <link rel="modulepreload" crossorigin href="/amico-fabio/assets/ui-layout-YpVXqCmA.js">
+  <link rel="modulepreload" crossorigin href="/amico-fabio/assets/global-footer-D0aab2x-.js">
+  <link rel="modulepreload" crossorigin href="/amico-fabio/assets/trips-renderer-CJODgN6j.js">
+  <link rel="stylesheet" crossorigin href="/amico-fabio/assets/global-header-DIhOD-iO.css">
+</head>
+
+<body class="bg-black font-sans text-gray-200">
+  <header id="global-header" class="fixed w-full top-0 z-50 transition-all duration-300"></header>
+
+  <main class="pt-24">
+    <section class="max-w-6xl mx-auto px-4">
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+        <div id="filter-chips"
+          class="flex flex-nowrap gap-2 min-h-[40px] items-center overflow-x-auto overflow-y-hidden whitespace-nowrap">
+          <div class="chip-skeleton"></div>
+          <div class="chip-skeleton"></div>
+          <div class="chip-skeleton"></div>
+          <div class="chip-skeleton"></div>
+        </div>
+        <div>
+          <label for="price-sort" class="sr-only">Sort</label>
+          <select id="price-sort" class="bg-gray-900 text-white border border-gray-700 rounded-lg px-3 py-2">
+            <option value="default" selected>Recommended (VIP)</option>
+            <option value="price_asc">Price: Low to High</option>
+            <option value="price_desc">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+      <div id="explore-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6"></div>
+      <div id="pagination-controls" class="mt-12 flex justify-center items-center gap-4 hidden"></div>
+    </section>
+  </main>
+
+  <footer id="global-footer"></footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.UILayout) window.UILayout.init();
+      if (window.ExploreRenderer) window.ExploreRenderer.init();
+    });
+  </script>
+</body>
+
+</html>
