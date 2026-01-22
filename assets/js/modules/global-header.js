@@ -59,6 +59,16 @@ const GlobalHeader = {
     const brandSubtitle = (i18n.global && i18n.global.brand_subtitle) ? i18n.global.brand_subtitle : '';
     const isSecrets = /\/sharm-secrets\//i.test(window.location.pathname);
     const basePath = isSecrets ? '../' : '';
+    const __parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
+    const __repo = __parts.filter(Boolean)[0] || '';
+    const __fallbackBase = __repo ? `/${__repo}/` : '/';
+    const __BASE = (typeof window !== 'undefined' && window.FABIO_BASE_URL) || __fallbackBase;
+    const __menuIconSrc = (window.ImagePaths && window.ImagePaths.ui && window.ImagePaths.ui.menuIcon)
+      ? window.ImagePaths.ui.menuIcon
+      : `${__BASE}assets/images/image_86a171.png`;
+    const __headerLogoSrc = (window.ImagePaths && window.ImagePaths.ui && window.ImagePaths.ui.headerLogo)
+      ? window.ImagePaths.ui.headerLogo
+      : `${__BASE}assets/images/logo/fabio-header-logo.webp`;
     const flagSvg = (code) => {
       if (code === 'en') {
         return `
@@ -86,7 +96,7 @@ const GlobalHeader = {
       <div class="gh-container">
         <div class="gh-left">
           <button class="gh-menu-btn" id="gh-menu-btn">
-            <img src="${basePath + (window.ImagePaths ? window.ImagePaths.ui.menuIcon : 'assets/images/image_86a171.png')}" alt="Menu" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" />
+            <img src="${__menuIconSrc}" alt="Menu" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" />
             <svg class="gh-menu-fallback" viewBox="0 0 24 24">
               <rect x="3" y="5" width="18" height="2" fill="#fff"></rect>
               <rect x="3" y="11" width="18" height="2" fill="#fff"></rect>
@@ -104,7 +114,7 @@ const GlobalHeader = {
         </div>
         <div class="gh-center" id="gh-center">
           <div class="gh-brand-wrap-center">
-            <img src="${window.ImagePaths ? window.ImagePaths.ui.headerLogo : basePath + 'assets/images/logo/fabio-header-logo.webp'}" class="gh-logo" alt="Fabio Tours Logo" width="84" height="81" style="max-width:84px; max-height:81px;" />
+            <img src="${__headerLogoSrc}" class="gh-logo" alt="Fabio Tours Logo" width="84" height="81" style="max-width:84px; max-height:81px;" />
             <div class="gh-brand">
               <div class="gh-brand-title">FABIO</div>
               <div class="gh-brand-subtitle" data-i18n="global.brand_subtitle">${brandSubtitle}</div>

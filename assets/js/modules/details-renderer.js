@@ -115,9 +115,13 @@ const DetailsRenderer = {
             btnBook: document.getElementById('btn-submit-booking') || document.getElementById('btn-book')
         };
 
+        const __parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
+        const __repo = __parts.filter(Boolean)[0] || '';
+        const __fallbackBase = __repo ? `/${__repo}/` : '/';
+        const __BASE = (typeof window !== 'undefined' && window.FABIO_BASE_URL) || __fallbackBase;
         const ctx = window.ImagePaths ? window.ImagePaths.resolveTripContext({ trip_id: tripId, ...(apiData || {}) }) : { location: '', category: '', tripId };
-        const posterSrc = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, tripId) : `assets/images/trips/${tripId}/poster.webp`;
-        const fallbackSrc = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : 'assets/images/logo/logo-fabio-square.webp';
+        const posterSrc = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, tripId) : `${__BASE}assets/images/trips/${tripId}/poster.webp`;
+        const fallbackSrc = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : `${__BASE}assets/images/logo/logo-fabio-square.webp`;
 
         // Optimistic Load
         if (els.bg) {
@@ -276,9 +280,13 @@ const DetailsRenderer = {
             gallery: document.getElementById('gallery-grid'),
             btnBook: document.getElementById('btn-submit-booking') || document.getElementById('btn-book')
         };
+        const __parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
+        const __repo = __parts.filter(Boolean)[0] || '';
+        const __fallbackBase = __repo ? `/${__repo}/` : '/';
+        const __BASE = (typeof window !== 'undefined' && window.FABIO_BASE_URL) || __fallbackBase;
         const ctx = window.ImagePaths ? window.ImagePaths.resolveTripContext({ trip_id: tripId }) : { location: '', category: '', tripId };
-        const posterSrc = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, tripId) : `assets/images/trips/${tripId}/poster.webp`;
-        const fallbackSrc = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : 'assets/images/logo/logo-fabio-square.webp';
+        const posterSrc = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, tripId) : `${__BASE}assets/images/trips/${tripId}/poster.webp`;
+        const fallbackSrc = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : `${__BASE}assets/images/logo/logo-fabio-square.webp`;
         if (els.bg) {
             els.bg.style.backgroundImage = `url('${posterSrc}')`;
             if (window.ImagePaths && typeof window.ImagePaths.resolvePosterOrPlaceholder === 'function') {
@@ -373,7 +381,11 @@ const DetailsRenderer = {
         const els = { gallery: document.getElementById('gallery-grid'), bg: document.getElementById('hero-bg') };
         if (!els.gallery) return;
         const ctx = window.ImagePaths ? window.ImagePaths.resolveTripContext({ trip_id: tripId }) : { location: '', category: '', tripId };
-        const posterSrc = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, tripId) : `assets/images/trips/${tripId}/poster.webp`;
+        const __parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
+        const __repo = __parts.filter(Boolean)[0] || '';
+        const __fallbackBase = __repo ? `/${__repo}/` : '/';
+        const __BASE = (typeof window !== 'undefined' && window.FABIO_BASE_URL) || __fallbackBase;
+        const posterSrc = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, tripId) : `${__BASE}assets/images/trips/${tripId}/poster.webp`;
         els.gallery.innerHTML = '';
         DetailsRenderer.appendGalleryItem(posterSrc, els.gallery, els.bg);
         const list = window.ImagePaths && typeof window.ImagePaths.getGalleryArray === 'function'

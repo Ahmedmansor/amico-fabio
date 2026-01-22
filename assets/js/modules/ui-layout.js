@@ -13,12 +13,16 @@ const UILayout = {
         const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
 
         // Hero Images (The Stack)
+        const __parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
+        const __repo = __parts.filter(Boolean)[0] || '';
+        const __fallbackBase = __repo ? `/${__repo}/` : '/';
+        const __BASE = (typeof window !== 'undefined' && window.FABIO_BASE_URL) || __fallbackBase;
         const images = (window.ImagePaths && window.ImagePaths.landing && window.ImagePaths.landing.hero)
             ? window.ImagePaths.landing.hero
             : [
-                "assets/images/comandamenti-images/1.webp",
-                "assets/images/comandamenti-images/2.webp",
-                "assets/images/comandamenti-images/3.webp"
+                `${__BASE}assets/images/comandamenti-images/1.webp`,
+                `${__BASE}assets/images/comandamenti-images/2.webp`,
+                `${__BASE}assets/images/comandamenti-images/3.webp`
             ];
 
         heroEl.innerHTML = `

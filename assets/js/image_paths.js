@@ -1,7 +1,9 @@
 ; (function () {
-  // --- Base Path Logic ---
-  const basePath = window.location.pathname.includes('/sharm-secrets/') ? '../' : '';
-  const p = (path) => basePath + path;
+  const parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
+  const repo = parts.filter(Boolean)[0] || '';
+  const fallbackBase = repo ? `/${repo}/` : '/';
+  const BASE = (typeof window !== 'undefined' && window.FABIO_BASE_URL) || fallbackBase;
+  const p = (path) => BASE + path;
 
   // --- Helper Functions ---
   function normalizeParam(v) {
@@ -88,8 +90,8 @@
     const id = normalizeParam(tripId);
 
     // Standard path: assets/images/trips/sharm/sea/trip_id/
-    if (cat) return `assets/images/trips/${loc}/${cat}/${id}/`;
-    return `assets/images/trips/${loc}/${id}/`;
+    if (cat) return `${BASE}assets/images/trips/${loc}/${cat}/${id}/`;
+    return `${BASE}assets/images/trips/${loc}/${id}/`;
   }
 
   // --- Main Image Functions (WebP Enforced) ---
