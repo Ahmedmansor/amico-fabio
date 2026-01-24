@@ -1,4 +1,17 @@
+// assets/js/main.js
 
+// 1. استدعاء الموديولز كلها هنا
+import './image_paths.js';
+import './core/api.js';
+import './trips_metadata.js';
+import './modules/global-header.js';
+import './modules/global-footer.js';
+import './modules/hero-slider.js';
+// ... وباقي الملفات
+
+// 2. كود التشغيل الأساسي بتاعك
+console.log('Fabio Tours App Started');
+// ...
 navigator.serviceWorker.getRegistrations().then(regs => {
   regs.forEach(r => {
     r.unregister();
@@ -95,7 +108,7 @@ function applyTranslations(lang) {
     renderComponent("rules-page3", "secrets.page3.rules", universalTemplate);
     renderComponent("packing-checklist", "secrets.page4.items", checklistTemplate);
     renderComponent("adventuresGrid", "secrets.page6.items", adventuresTemplate);
-    setupAdventuresSlider();
+    setupAdventuresAutoScroll();
     renderIndexMenu(lang);
   }
 
@@ -111,7 +124,7 @@ function applyTranslations(lang) {
     try { window.renderLegal(lang); } catch (e) { /* noop */ }
   }
 
-  if (window.AOS) window.AOS.refreshHard();
+
 }
 
 
@@ -151,7 +164,7 @@ function renderComponent(containerId, dataPath, template) {
     }
   }
 
-  if (window.AOS) window.AOS.refreshHard();
+
 }
 
 function universalTemplate(item, index) {
@@ -173,7 +186,7 @@ function universalTemplate(item, index) {
     `
     : "";
   return `
-    <article class="catalog-card" data-aos="fade-up"${safeDelay !== "0" ? ` data-aos-delay="${safeDelay}"` : ""}>
+    <article class="catalog-card sharm-reveal"${safeDelay !== "0" ? ` style="animation-delay: ${safeDelay}ms"` : ""}>
       <div class="catalog-card-main">
         <h3 class="catalog-card-title">${title}</h3>
         <p class="catalog-card-desc">${desc}</p>
@@ -186,12 +199,12 @@ function universalTemplate(item, index) {
   `;
 }
 
-function checklistTemplate(item) {
+function checklistTemplate(item, index) {
   if (!item) return "";
   const iconToken = typeof item.icon === "string" ? item.icon : "";
   const iconClass = iconToken ? `fa-solid ${iconToken} checklist-icon-glyph` : "fa-solid fa-circle checklist-icon-glyph";
   return `
-    <div class="checklist-item" data-aos="zoom-in">
+    <div class="checklist-item sharm-reveal" style="animation-delay: ${index * 70}ms">
       <div class="checklist-icon">
         <i class="${iconClass}" aria-hidden="true"></i>
       </div>
@@ -207,8 +220,8 @@ function adventuresTemplate(item, index) {
   if (!item) return "";
   const imgSrc = typeof item.img === "string" ? item.img : "";
   return `
-    <div class="swiper-slide">
-      <button type="button" class="adventure-card" data-index="${String(index)}" data-aos="zoom-in">
+    <div class="adventure-slide">
+      <button type="button" class="adventure-card sharm-reveal" data-index="${String(index)}" style="animation-delay: ${index * 80}ms">
         <img src="${imgSrc}" class="adventure-photo" alt="" loading="lazy" decoding="async">
         <div class="adventure-caption">${item.cap || ""}</div>
       </button>
@@ -216,44 +229,49 @@ function adventuresTemplate(item, index) {
   `;
 }
 
-let swiperInstance = null;
+let adventuresAutoTimer = null;
+let adventuresResumeTimer = null;
 
-function setupAdventuresSlider() {
-  if (swiperInstance) {
-    swiperInstance.destroy(true, true);
-  }
+function setupAdventuresAutoScroll() {
+  const track = document.getElementById("adventuresGrid");
+  if (!track) return;
+  if (track.dataset.autoScrollBound === "true") return;
+  track.dataset.autoScrollBound = "true";
 
-  // Only init if element exists
-  if (!document.querySelector(".adventures-slider")) return;
+  const getStep = () => {
+    const slide = track.querySelector(".adventure-slide");
+    if (!slide) return 0;
+    const styles = window.getComputedStyle(track);
+    const gap = parseFloat(styles.gap || styles.columnGap || "0");
+    const width = slide.getBoundingClientRect().width;
+    return width + gap;
+  };
 
-  swiperInstance = new Swiper(".adventures-slider", {
-    loop: true,
-    centeredSlides: true,
-    grabCursor: true,
-    slidesPerView: 1,
-    spaceBetween: 20,
-    speed: 600,
-    autoplay: {
-      delay: 3500,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: true,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 1.5,
-      },
-      768: {
-        slidesPerView: 2,
-      },
-      1024: {
-        slidesPerView: 3,
-      }
-    }
-  });
+  const scrollNext = () => {
+    const step = getStep();
+    if (!step) return;
+    const max = track.scrollWidth - track.clientWidth;
+    if (max <= 0) return;
+    const next = track.scrollLeft + step;
+    track.scrollTo({ left: next >= max - 2 ? 0 : next, behavior: "smooth" });
+  };
+
+  const start = () => {
+    if (adventuresAutoTimer) clearInterval(adventuresAutoTimer);
+    adventuresAutoTimer = setInterval(scrollNext, 2000);
+  };
+
+  const pause = () => {
+    if (adventuresAutoTimer) clearInterval(adventuresAutoTimer);
+    if (adventuresResumeTimer) clearTimeout(adventuresResumeTimer);
+    adventuresResumeTimer = setTimeout(start, 2500);
+  };
+
+  track.addEventListener("pointerdown", pause, { passive: true });
+  track.addEventListener("wheel", pause, { passive: true });
+  track.addEventListener("touchstart", pause, { passive: true });
+  track.addEventListener("scroll", pause, { passive: true });
+  start();
 }
 
 function scrollToSection(targetId) {
@@ -388,12 +406,6 @@ function setupSecretsBackgrounds() {
   setBg('.section-6', bg.sec6);
 }
 
-function initializeAOS() {
-  if (window.AOS) {
-    window.AOS.init({ once: true, duration: 800, easing: "ease-out-cubic", offset: 100 });
-  }
-}
-
 // ==========================================
 // App Initialization
 // ==========================================
@@ -431,9 +443,6 @@ const App = {
     } else {
       App.initSharmSecrets();
     }
-
-    // Global AOS init
-    initializeAOS();
 
     // Who Fabio Parallax (index only)
     const whoFabioEl = document.getElementById('who-fabio');

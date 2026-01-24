@@ -112,9 +112,7 @@ const TripsRenderer = {
 
         container.appendChild(fragment);
 
-        if (window.AOS) {
-            window.AOS.refresh();
-        }
+        
     },
 
     _renderEmptyState: (container) => {
@@ -167,7 +165,7 @@ const TripsRenderer = {
         const badgeExtraClass = isPackage ? ' standard-badge-premium' : '';
 
         const cardHTML = `
-            <article class="${cardClasses.join(' ')}" data-trip-id="${trip.trip_id}" data-aos="fade-up" data-aos-delay="${delay}">
+            <article class="${cardClasses.join(' ')}" data-trip-id="${trip.trip_id}">
                 <div class="catalog-card-image">
                     <img src="${imgPath}" alt="${title}" class="catalog-card-img"
                          loading="lazy" onerror="this.onerror=function(){this.onerror=null; this.src='${fb}';}; this.src='${ph}';">
@@ -311,8 +309,6 @@ const LocationRenderer = {
             const delay = i * 120;
             const el = document.createElement('article');
             el.className = "catalog-card trip-card";
-            el.setAttribute('data-aos', 'fade-up');
-            el.setAttribute('data-aos-delay', String(delay));
             el.innerHTML = `
                 <div class="catalog-card-image">
                     <img src="${loc.img}" alt="${loc.title}" class="catalog-card-img" loading="lazy"
@@ -333,7 +329,6 @@ const LocationRenderer = {
         });
         container.innerHTML = '';
         container.appendChild(frag);
-        if (window.AOS) window.AOS.refresh();
     }
 };
 

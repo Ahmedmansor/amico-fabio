@@ -253,7 +253,6 @@ const ExploreRenderer = {
   },
 
   _postRenderEffects: () => {
-    if (window.AOS) window.AOS.refresh();
     if (ExploreRenderer.state.hasLoadedOnce) {
       const section = document.querySelector('section');
       if (section) section.scrollIntoView({ behavior: 'smooth' });

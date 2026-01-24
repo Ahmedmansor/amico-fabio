@@ -16,7 +16,7 @@
         const toc = document.getElementById('legal-toc');
         const tocTop = document.getElementById('legal-toc-top');
         const indexNav = document.querySelector('#indexMenu .index-menu-nav');
-        
+
         if (!container || !toc) return;
 
         const activeLang = lang || localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
@@ -36,7 +36,7 @@
             const a = createEl('a', 'legal-link', item.label || '');
             a.href = '#' + item.id;
             toc.appendChild(a);
-            
+
             if (indexNav) {
                 const link = createEl('a', 'index-link', item.label || '');
                 link.href = '#' + item.id;
@@ -56,17 +56,20 @@
         container.innerHTML = '';
         const sections = Array.isArray(lp.sections) ? lp.sections : [];
 
-        sections.forEach(sec => {
+        sections.forEach((sec, idx) => {
             const div = createEl('div', 'legal-section');
             div.id = sec.id;
+            div.classList.add('animate-fade-up');
+            if (idx === 1) div.classList.add('delay-100');
+            if (idx === 2) div.classList.add('delay-200');
 
             const row = createEl('div', 'heading-row');
-            
+
             // Icon handling using window.ImagePaths
-            const iconPath = (window.ImagePaths && window.ImagePaths.icons && window.ImagePaths.icons.legal && window.ImagePaths.icons.legal[sec.id]) 
-                ? window.ImagePaths.icons.legal[sec.id] 
+            const iconPath = (window.ImagePaths && window.ImagePaths.icons && window.ImagePaths.icons.legal && window.ImagePaths.icons.legal[sec.id])
+                ? window.ImagePaths.icons.legal[sec.id]
                 : (window.ImagePaths && window.ImagePaths.icons && window.ImagePaths.icons.legal ? window.ImagePaths.icons.legal.default : '');
-            
+
             if (iconPath) {
                 const img = createEl('img', 'heading-icon');
                 img.src = iconPath;
@@ -193,21 +196,33 @@
     document.addEventListener('DOMContentLoaded', function () {
         const lang = localStorage.getItem('fabio_lang') || 'it';
         renderLegal(lang);
-        
+
         if (typeof applyTranslations === 'function') {
             applyTranslations(lang);
         }
 
-        // FAB and Menu Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.legal-section').forEach(sec => observer.observe(sec));
+
         const fabBtn = document.getElementById('legal-fab');
         const indexMenu = document.getElementById('indexMenu');
         const closeBtn = indexMenu ? indexMenu.querySelector('.index-menu-close') : null;
+        const fabLabel = document.querySelector('.gh-fab-label');
+        const waWrap = document.getElementById('whatsapp-wrapper');
+        const waBtn = document.querySelector('.floating-whatsapp');
+        const waLabel = document.querySelector('.wa-fab-label');
 
         if (fabBtn && indexMenu) {
             const dict = getDataset(lang);
             const labelEl = document.querySelector('.gh-fab-label');
             const labelText = dict && dict.fab && typeof dict.fab.indice === 'string' ? dict.fab.indice : (lang === 'en' ? 'Index' : 'Indice');
-            
+
             fabBtn.setAttribute('aria-label', labelText);
             if (labelEl) labelEl.textContent = labelText;
 
@@ -228,6 +243,23 @@
                     indexMenu.classList.remove('is-visible');
                 }
             });
+        }
+
+        const footer = document.getElementById('global-footer') || document.querySelector('footer');
+        const setFabHidden = (hidden) => {
+            [fabBtn, fabLabel, waBtn, waLabel, waWrap].forEach(el => {
+                if (!el) return;
+                el.classList.toggle('fab-hidden', hidden);
+            });
+        };
+        setFabHidden(false);
+        if (footer) {
+            const footerObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    setFabHidden(entry.isIntersecting);
+                });
+            }, { threshold: 0.1 });
+            footerObserver.observe(footer);
         }
     });
 

@@ -261,6 +261,12 @@ window.i18nEn = {
       POPULAR: "Popular choice"
     }
   },
+  explore: {
+    sort_label: "Sort by price",
+    sort_recommended: "Recommended (VIP)",
+    sort_low_high: "Price: Low → High",
+    sort_high_low: "Price: High → Low"
+  },
   secrets: {
     nav_index: "Index",
     nav_lang: "IT",

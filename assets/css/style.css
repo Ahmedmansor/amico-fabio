@@ -1,14 +1,108 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+/*search with assets/css/*/
+/* =========================================
+   1. Montserrat (v31)
+   ========================================= */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/montserrat-v31-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/montserrat-v31-latin-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../fonts/montserrat-v31-latin-900.woff2') format('woff2');
+}
+
+/* =========================================
+   2. Playfair Display (v40)
+   ========================================= */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/playfair-display-v40-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/playfair-display-v40-latin-700.woff2') format('woff2');
+}
+
+/* =========================================
+   3. Cinzel (v26)
+   ========================================= */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/cinzel-v26-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/cinzel-v26-latin-700.woff2') format('woff2');
+}
+
+/* =========================================
+   توزيع الخطوط على العناصر
+   ========================================= */
+
+/* العناوين الكبيرة (Cinzel) */
+h1,
+h2,
+h3,
+.hero-title,
+.main-brand-title,
+.section-title {
+  font-family: 'Cinzel', serif;
+}
+
+/* النصوص المميزة والاقتباسات (Playfair) */
+.vip-text,
+.luxury-quote,
+.handwritten-style {
+  font-family: 'Playfair Display', serif;
+}
+
+/* باقي الموقع بياخد Montserrat أوتوماتيك من كود الـ html اللي فوق */
 @layer base {
   html {
     font-family: "Montserrat", sans-serif;
   }
 }
 
-/*search with assets/css/*/
+
 
 /* =========================================
    1. assets/css/global-header.css
@@ -23,6 +117,12 @@
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+  min-height: 72px;
+}
+
+.sharm-secrets-page #global-header {
+  background: #000000;
+  backdrop-filter: none;
 }
 
 
@@ -432,6 +532,7 @@
 }
 
 /* =========================================
+   explore.html
    3. assets/css/catalog-card.css
    ========================================= */
 .catalog-card {
@@ -792,6 +893,160 @@
 .premium-package-card .card-btn:hover {
   background: #f1d78a;
   color: #000;
+}
+
+/* =========================================
+   Explore Page Animations (AOS Replacement)
+   ========================================= */
+
+/* 1. حركة ظهور الكروت (Stagger Effect simulation) */
+/* الكود ده بيخلي الكروت تظهر وهي بتطلع لفوق بنعومة */
+#explore-grid .trip-card {
+  opacity: 0;
+  /* مخفي في البداية */
+  animation: fadeInUpCard 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUpCard {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. تحسين شكل الفلتر (Filter Chips) */
+#filter-chips .chip {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+#filter-chips .chip:hover {
+  background: rgba(212, 175, 55, 0.15);
+  transform: translateY(-2px);
+  border-color: #D4AF37;
+}
+
+#filter-chips .chip.active {
+  background: #D4AF37;
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  border-color: #D4AF37;
+}
+
+/* 3. تحسين شكل القائمة المنسدلة (Select Box) */
+#price-sort {
+  transition: all 0.3s ease;
+}
+
+#price-sort:hover {
+  background-color: rgba(212, 175, 55, 0.05);
+}
+
+/* هذا الجزء ناقص في ملف style.css لكي يعمل الأنيميشن */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  /* مهم جداً عشان العنصر يبدأ مخفي */
+}
+
+/* تأخير العناصر */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+/* =========================================
+   15. Animations & Explore Page
+   ========================================= */
+
+/* 1. الأنيميشن الأساسي (للعناوين والفلتر) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+/* 2. أنيميشن الكروت (Trip Cards) */
+/* هذا الكلاس سيتم إضافته أوتوماتيكياً بواسطة الجافاسكربت للكروت */
+@keyframes popInCard {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.trip-card {
+  /* الكروت تبدأ مخفية */
+  opacity: 0;
+  animation: popInCard 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* 3. تحسين شكل الفلتر (Filter Chips) */
+#filter-chips .chip {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+#filter-chips .chip:hover {
+  background: rgba(212, 175, 55, 0.15);
+  transform: translateY(-2px);
+  border-color: #D4AF37;
+}
+
+#filter-chips .chip.active {
+  background: #D4AF37;
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  border-color: #D4AF37;
 }
 
 /* =========================================
@@ -1362,6 +1617,11 @@ body.hide-floating-widgets .gh-fab-label {
   transition: opacity 0.4s ease-out;
 }
 
+.fab-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .fab-wrap,
 .floating-whatsapp,
 .gh-fab,
@@ -1374,6 +1634,7 @@ body.hide-floating-widgets .gh-fab-label {
 
 
 .gh-fab {
+  position: fixed;
   inset-block-end: 2.8rem;
   /* الارتفاع عن القاع */
   inset-inline-start: 1.4rem;
@@ -2379,16 +2640,22 @@ a {
   animation: shimmerMove 2.6s ease-in-out infinite;
 }
 
-.section-3 .section-inner.aos-animate {
-  animation: commandmentAura 1.8s ease-out both;
+.sharm-reveal {
+  transform: translateY(24px) scale(0.98);
+  animation: sharmReveal 0.8s ease-out forwards;
+  will-change: transform, opacity;
 }
 
-.section-3 .section-title-shimmer.aos-animate {
-  animation: commandmentTitleGlow 1.9s ease-out both;
+.section-3 .section-inner.sharm-reveal {
+  animation: sharmReveal 0.8s ease-out forwards, commandmentAura 1.8s ease-out 0.12s both;
 }
 
-.section-3 .section-intro.aos-animate {
-  animation: commandmentTextPolish 1.9s ease-out both;
+.section-3 .section-title-shimmer.sharm-reveal {
+  animation: sharmReveal 0.8s ease-out forwards, commandmentTitleGlow 1.9s ease-out 0.1s both, shimmerMove 2.6s ease-in-out infinite;
+}
+
+.section-3 .section-intro.sharm-reveal {
+  animation: sharmReveal 0.8s ease-out forwards, commandmentTextPolish 1.9s ease-out 0.18s both;
 }
 
 @keyframes commandmentAura {
@@ -2442,6 +2709,16 @@ a {
   }
 }
 
+@keyframes sharmReveal {
+  from {
+    transform: translateY(24px) scale(0.98);
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+  }
+}
+
 @keyframes shimmerMove {
   0% {
     background-position: 0% 50%;
@@ -2461,10 +2738,13 @@ a {
     animation: none;
   }
 
-  .section-3 .section-inner.aos-animate,
-  .section-3 .section-title-shimmer.aos-animate,
-  .section-3 .section-intro.aos-animate {
+  .sharm-reveal,
+  .section-3 .section-inner.sharm-reveal,
+  .section-3 .section-title-shimmer.sharm-reveal,
+  .section-3 .section-intro.sharm-reveal {
     animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
 
@@ -2506,6 +2786,14 @@ a {
   gap: 2.5rem;
   margin-top: 2rem;
   width: 100%;
+}
+
+.catalog-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+  min-height: clamp(320px, 60vh, 720px);
 }
 
 .rules-collection {
@@ -2681,6 +2969,7 @@ a {
   flex-direction: column;
   gap: 1.2rem;
   margin-top: 1.4rem;
+  min-height: 220px;
 }
 
 .checklist-intro {
@@ -2771,25 +3060,42 @@ a {
   max-width: 960px;
 }
 
-.adventures-slider {
+.adventures-scroll {
   margin-top: 1.8rem;
-  padding-bottom: 3rem;
+  padding-bottom: 1.8rem;
   cursor: grab;
 }
 
-.adventures-slider:active {
+.adventures-scroll:active {
   cursor: grabbing;
+}
+
+.adventures-track {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.5rem;
+  scroll-behavior: smooth;
+}
+
+.adventure-slide {
+  flex: 0 0 clamp(220px, 70vw, 320px);
+  height: clamp(280px, 45vh, 400px);
+  scroll-snap-align: start;
+  display: flex;
 }
 
 .adventure-card {
   position: relative;
   width: 100%;
+  height: 100%;
   border-radius: var(--radius-card);
   overflow: hidden;
   box-shadow: var(--shadow-soft);
   transform: translateZ(0);
   transition: transform 300ms ease, box-shadow 300ms ease;
-  height: 100%;
 }
 
 .adventure-card:hover {
@@ -2799,23 +3105,10 @@ a {
 
 .adventure-photo {
   width: 100%;
-  height: clamp(280px, 45vh, 400px);
+  height: 100%;
   object-fit: cover;
 }
 
-.swiper-pagination-bullet {
-  background: rgba(197, 160, 89, 0.4) !important;
-  opacity: 1 !important;
-  width: 10px !important;
-  height: 10px !important;
-  transition: all 0.3s ease !important;
-}
-
-.swiper-pagination-bullet-active {
-  background: linear-gradient(145deg, var(--color-gold), var(--color-gold-soft)) !important;
-  width: 24px !important;
-  border-radius: 5px !important;
-}
 
 @media (min-width: 1024px) {
   .hero-figure {
@@ -3233,4 +3526,248 @@ a {
   width: 22px !important;
   height: 22px !important;
   display: block !important;
+}
+
+/* =========================================
+assets/css/
+   14. Trips Details Page Specifics
+   ========================================= */
+
+/* تحسينات عامة للصفحة */
+body.details-page {
+  background-color: #050505;
+  color: #f3f4f6;
+  overflow-x: hidden;
+}
+
+/* تدرج الخلفية في الهيرو */
+.details-page .hero-overlay {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(5, 5, 5, 1) 100%);
+}
+
+/* أنيميشن الظهور (Fade Up) - بديل خفيف لـ AOS */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  /* يبدأ مخفي */
+}
+
+/* تأخير الأنيميشن للعناصر المتتالية */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+/* أنيميشن تحميل السعر (Skeleton) */
+.price-skeleton {
+  height: 1.8rem;
+  width: 140px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.06) 100%);
+  background-size: 200% 100%;
+  animation: priceShimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes priceShimmer {
+  0% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* إخفاء السكرول بار (للجاليري الأفقي) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* تنسيقات القوائم المخصصة */
+.details-page .bullet-gold li {
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.details-page .bullet-gold li::before {
+  content: "•";
+  color: #D4AF37;
+  /* لون الذهب */
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+/* تنسيق النصوص داخل المقالات */
+.details-page .prose strong {
+  color: #D4AF37;
+  font-weight: 700;
+}
+
+.text-gold {
+  color: #D4AF37 !important;
+  /* important للتأكيد */
+}
+
+.text-gold-light {
+  color: #F1D78A !important;
+}
+
+.bg-gold {
+  background-color: #D4AF37 !important;
+}
+
+.border-gold {
+  border-color: #D4AF37 !important;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif !important;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* إصلاح حجم الأيقونات (لو تيلويند مش ظابطها) */
+svg.text-gold {
+  fill: currentColor;
+  /* عشان ياخد لون النص */
+}
+
+/* 1. زرار "Book Now" في الفورم (تأثير اللمعة الذهبية) */
+#btn-submit-booking {
+  position: relative;
+  overflow: hidden;
+  /* عشان اللمعة متخرجش بره */
+  transition: all 0.3s ease;
+  z-index: 1;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+/* اللمعة نفسها (عبارة عن شعاع أبيض شفاف بيمر بسرعة) */
+#btn-submit-booking::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  /* بيبدأ من بره الشمال */
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent);
+  transition: all 0.6s ease;
+  z-index: -1;
+}
+
+/* لما تقف عليه */
+#btn-submit-booking:hover {
+  transform: translateY(-3px);
+  /* يترفع لفوق سنة */
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+  /* ضل دهبي */
+}
+
+/* حركة اللمعة عند الهوفر */
+#btn-submit-booking:hover::before {
+  left: 100%;
+  /* يتحرك لليمين */
+}
+
+/* عند الضغط (Click) */
+#btn-submit-booking:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(212, 175, 55, 0.3);
+}
+
+
+/* 2. الزرار العايم للموبايل (Sticky Mobile Button) */
+/* هنعمل له نبض (Pulse) عشان يلفت الانتباه */
+#sticky-mobile-book button {
+  animation: goldPulse 2s infinite;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+/* تعريف أنيميشن النبض */
+@keyframes goldPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+    transform: scale(1);
+  }
+
+  70% {
+    box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+    /* الظل يكبر ويختفي */
+    transform: scale(1.02);
+    /* يكبر حاجة بسيطة */
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+    transform: scale(1);
+  }
+}
+
+/* إضافة أيقونة كالندر صغيرة بتتحرك جوه الزرار العايم */
+#sticky-mobile-book button span:first-child {
+  display: inline-block;
+  animation: wiggleIcon 3s ease-in-out infinite;
+}
+
+@keyframes wiggleIcon {
+
+  0%,
+  90% {
+    transform: rotate(0deg);
+  }
+
+  92% {
+    transform: rotate(-10deg);
+  }
+
+  94% {
+    transform: rotate(10deg);
+  }
+
+  96% {
+    transform: rotate(-10deg);
+  }
+
+  98% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }

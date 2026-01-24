@@ -124,6 +124,12 @@ window.i18nIt = {
       POPULAR: "Molto richiesto"
     }
   },
+  explore: {
+    sort_label: "Ordina per prezzo",
+    sort_recommended: "Consigliati (VIP)",
+    sort_low_high: "Prezzo: Basso → Alto",
+    sort_high_low: "Prezzo: Alto → Basso"
+  },
   secrets: {
     nav_index: "Indice",
     nav_lang: "EN",
