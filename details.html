@@ -5,155 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trip Details - Fabio Tourism</title>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: '#D4AF37',
-                        'gold-light': '#F1D78A',
-                        'gold-dark': '#AA8C2C',
-                        'black-rich': '#0a0a0a',
-                        'gray-dark': '#1a1a1a',
-                        'cream': '#F5F5DC',
-                        'brown-dark': '#1a1510'
-                    },
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                        playfair: ['Playfair Display', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap"
-        rel="stylesheet">
-
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/global-header.css">
-    <link rel="stylesheet" href="assets/css/floating-widgets.css">
-
-    <style>
-        body {
-            background-color: #050505;
-            color: #f3f4f6;
-        }
-
-        html,
-        body {
-            overflow-x: hidden !important;
-            width: 100%;
-            position: relative;
-        }
-
-        .hero-overlay {
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(5, 5, 5, 1) 100%);
-        }
-
-        .separator {
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            margin: 2rem 0;
-        }
-
-        .prose strong {
-            color: #D4AF37;
-        }
-
-        .bullet-gold li::before {
-            content: "•";
-            color: #D4AF37;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-
-        .price-skeleton {
-            height: 1.8rem;
-            width: 140px;
-            border-radius: 10px;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.06) 100%);
-            animation: priceShimmer 1.4s ease-in-out infinite;
-            display: inline-block;
-        }
-
-        @keyframes priceShimmer {
-            0% {
-                background-position: 0% 0%;
-            }
-
-            100% {
-                background-position: 200% 0%;
-            }
-        }
-
-        @keyframes wiggle {
-            0% {
-                transform: translateX(0) rotate(0);
-            }
-
-            15% {
-                transform: translateX(-1px) rotate(-0.5deg);
-            }
-
-            30% {
-                transform: translateX(1px) rotate(0.5deg);
-            }
-
-            45% {
-                transform: translateX(-1px) rotate(-0.5deg);
-            }
-
-            60% {
-                transform: translateX(1px) rotate(0.5deg);
-            }
-
-            75% {
-                transform: translateX(-0.5px) rotate(-0.3deg);
-            }
-
-            100% {
-                transform: translateX(0) rotate(0);
-            }
-        }
-
-        .animate-wiggle {
-            animation: wiggle 1.2s ease-in-out;
-        }
-    </style>
+    <meta name="description" content="Detailed trip itinerary and booking for Fabio Tourism requests.">
+    <meta name="robots" content="index, follow">
+    <link rel="preload" href="assets/fonts/montserrat-v31-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/cinzel-v26-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="font-sans antialiased text-gray-200">
+<body class="font-sans antialiased text-gray-200 details-page">
 
-    <!-- Global Header -->
     <header id="global-header"
         class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-md border-b border-gold/10 transition-all duration-300">
     </header>
 
-    <!-- Main Content -->
     <main class="min-h-screen pt-20">
 
-        <!-- Hero Section -->
         <section id="detail-hero" class="relative h-[60vh] md:h-[70vh] flex items-end justify-center">
             <div id="hero-bg" class="absolute inset-0 bg-cover bg-center z-0 transition-all duration-700"></div>
             <div class="absolute inset-0 hero-overlay z-10"></div>
 
-            <div class="relative z-20 container mx-auto px-4 pb-12 text-center md:text-left" data-aos="fade-up">
+            <div class="relative z-20 container mx-auto px-4 pb-12 text-center md:text-left animate-fade-up">
                 <span id="detail-badge"
                     class="inline-block bg-gold text-black font-bold text-xs px-3 py-1 rounded-full mb-4 uppercase tracking-widest shadow-lg"></span>
                 <h1 id="detail-title"
-                    class="text-4xl md:text-6xl font-playfair font-bold text-white mb-4 leading-tight shadow-black drop-shadow-lg">
+                    class="text-4xl md:text-6xl font-playfair font-bold text-white mb-4 leading-tight drop-shadow-lg">
                 </h1>
+
                 <div
                     class="flex flex-wrap items-center justify-center md:justify-start gap-6 text-sm md:text-base text-gray-300">
                     <div class="flex items-center">
@@ -175,45 +52,35 @@
             </div>
         </section>
 
-        <!-- Gallery Strip (Horizontal Row) -->
         <section class="container mx-auto px-4 -mt-10 relative z-30 mb-10">
             <div id="gallery-grid" class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar snap-x">
-                <!-- Images injected here -->
             </div>
         </section>
 
-        <!-- Content & Gallery Grid -->
         <section class="container mx-auto px-4 py-8">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
-                <!-- Left Column: Details -->
-                <div class="lg:col-span-2 space-y-12" data-aos="fade-up" data-aos-delay="100">
+                <div class="lg:col-span-2 space-y-12 animate-fade-up delay-100">
 
-                    <!-- Description -->
                     <div class="prose prose-lg prose-invert max-w-none">
                         <h2 class="text-3xl font-playfair text-gold mb-6 border-b border-gray-800 pb-2" id="label-desc"
                             data-i18n="global.description"></h2>
                         <p id="detail-desc" class="text-gray-300 leading-loose"></p>
                     </div>
 
-                    <!-- Highlights -->
                     <div>
                         <h3 class="text-2xl font-playfair text-white mb-6 border-b border-gray-800 pb-2"
                             id="label-highlights" data-i18n="global.highlights"></h3>
                         <ul id="detail-highlights" class="space-y-3 text-gray-300 bullet-gold pl-4 text-lg"></ul>
                     </div>
 
-                    <!-- Itinerary / Full Desc -->
                     <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 shadow-inner">
                         <h3 class="text-2xl font-playfair text-white mb-6 border-b border-gray-700 pb-2"
                             id="label-itinerary" data-i18n="global.itinerary_details"></h3>
                         <div id="detail-full-desc" class="text-gray-400 leading-relaxed space-y-4"></div>
-
-                        <!-- Program Timeline -->
                         <div id="detail-program" class="mt-8 pt-8 border-t border-gray-800"></div>
                     </div>
 
-                    <!-- Important Info -->
                     <div class="bg-red-900/10 border border-red-900/30 p-6 rounded-lg mt-8">
                         <h4 class="text-red-400 font-bold mb-2 flex items-center">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -227,8 +94,7 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Booking & Gallery -->
-                <div class="lg:col-span-1 space-y-8">
+                <div class="lg:col-span-1 space-y-8 animate-fade-up delay-200">
                     <div id="detail-info-card"
                         class="sticky top-24 bg-gray-900 border border-gold/30 rounded-xl p-6 shadow-2xl transition-all duration-300">
                         <div class="text-center mb-6 border-b border-gray-800 pb-4">
@@ -252,6 +118,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div id="booking-card-container"
                         class="bg-gray-900 border border-gold/30 rounded-xl p-6 shadow-2xl transition-all duration-300">
                         <form id="trip-booking-form" class="space-y-5" onsubmit="return false;">
@@ -266,7 +133,7 @@
                             <span id="live-total-price" class="text-2xl font-bold text-white">€0</span>
                         </div>
                         <button id="btn-submit-booking" type="button"
-                            class="w-full mt-4 py-4 bg-gradient-to-r from-gold to-yellow-600 text-black font-bold uppercase tracking-widest rounded-lg shadow-lg hover:shadow-gold/50 transform hover:-translate-y-1 transition-all duration-300">
+                            class="w-full mt-4 py-4 bg-gradient-to-r from-gold to-yellow-600 text-black font-bold uppercase tracking-widest rounded-lg shadow-lg">
                             <span data-i18n="global.book_now">Book Now</span>
                         </button>
                     </div>
@@ -285,17 +152,14 @@
 
     </main>
 
-    <!-- Global Footer -->
     <footer id="global-footer"></footer>
 
-    <!-- Scripts -->
     <div id="invoice-modal"
         class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4">
         <div
             class="bg-gray-900 border border-gold rounded-2xl w-full max-w-md p-6 relative shadow-[0_0_50px_rgba(212,175,55,0.2)]">
             <h3 class="text-2xl font-playfair text-gold mb-4 text-center">Invoice Summary</h3>
-            <div id="invoice-content" class="space-y-4 text-gray-300 text-sm mb-6">
-            </div>
+            <div id="invoice-content" class="space-y-4 text-gray-300 text-sm mb-6"></div>
             <div class="flex gap-4">
                 <button onclick="document.getElementById('invoice-modal').classList.add('hidden')"
                     class="flex-1 py-3 border border-gray-600 rounded-lg text-gray-400 hover:bg-gray-800 transition">Cancel</button>
@@ -306,30 +170,21 @@
             </div>
         </div>
     </div>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- Core & Data -->
-    <script src="assets/js/image_paths.js"></script>
-    <script src="assets/lang/global-it.js"></script>
-    <script src="assets/lang/global-en.js"></script>
-    <script src="assets/js/core/api.js"></script>
-    <script src="assets/js/trips_metadata.js"></script>
+    <script type="module" src="assets/js/image_paths.js"></script>
+    <script type="module" src="assets/lang/global-it.js"></script>
+    <script type="module" src="assets/lang/global-en.js"></script>
+    <script type="module" src="assets/js/core/api.js"></script>
+    <script type="module" src="assets/js/trips_metadata.js"></script>
 
-    <!-- Modules -->
-    <script src="assets/js/modules/global-header.js"></script>
-    <script src="assets/js/modules/ui-layout.js"></script>
-    <script src="assets/js/modules/booking-manager.js"></script>
-    <script src="assets/js/modules/details-renderer.js"></script>
+    <script type="module" src="assets/js/modules/global-header.js"></script>
+    <script type="module" src="assets/js/modules/ui-layout.js"></script>
+    <script type="module" src="assets/js/modules/booking-manager.js"></script>
+    <script type="module" src="assets/js/modules/details-renderer.js"></script>
 
     <script>
-        // Init
         document.addEventListener('DOMContentLoaded', () => {
-            AOS.init({ duration: 800, once: true });
-
-            // Init Layout
             if (window.UILayout) window.UILayout.init();
-
-            // Init Details Renderer
             if (window.DetailsRenderer) window.DetailsRenderer.init();
         });
     </script>

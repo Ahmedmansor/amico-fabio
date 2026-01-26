@@ -1,63 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Explore Trips</title>
-  <link rel="stylesheet" href="assets/css/catalog.css">
-  <link rel="stylesheet" href="assets/css/global-header.css">
-  <link rel="stylesheet" href="assets/css/global-footer.css">
-  <link rel="stylesheet" href="assets/css/catalog-card.css">
-  <link rel="stylesheet" href="assets/css/floating-widgets.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <title>Esplora i Viaggi | Fabio Egypt Tours</title>
+  <meta name="description"
+    content="Scegli la tua prossima avventura in Egitto. Tour privati a Sharm, Cairo, Luxor e Aswan. I migliori prezzi e servizio VIP.">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preload" href="assets/fonts/montserrat-v31-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cinzel-v26-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="bg-black font-sans text-gray-200">
-  <header id="global-header" class="fixed w-full top-0 z-50 transition-all duration-300"></header>
 
-  <main class="pt-24">
-    <section class="max-w-6xl mx-auto px-4">
-      <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+  <header id="global-header" class="fixed w-full top-0 z-50 transition-all duration-300"></header>
+  <main class="pt-24 min-h-screen">
+    <section class="max-w-7xl mx-auto px-4">
+      <h1 class="sr-only" data-i18n="explore.title">Esplora i Viaggi</h1>
+      <div class="mb-8 flex flex-col md:flex-row items-center justify-between gap-4 animate-fade-up delay-100">
         <div id="filter-chips"
-          class="flex flex-nowrap gap-2 min-h-[40px] items-center overflow-x-auto overflow-y-hidden whitespace-nowrap">
-          <div class="chip-skeleton"></div>
+          class="flex flex-nowrap gap-3 min-h-[40px] items-center overflow-x-auto overflow-y-hidden whitespace-nowrap w-full md:w-auto pb-2 md:pb-0 hide-scrollbar">
           <div class="chip-skeleton"></div>
           <div class="chip-skeleton"></div>
           <div class="chip-skeleton"></div>
         </div>
-        <div>
-          <label for="price-sort" class="sr-only">Sort</label>
-          <select id="price-sort" class="bg-gray-900 text-white border border-gray-700 rounded-lg px-3 py-2">
-            <option value="default" selected>Recommended (VIP)</option>
-            <option value="price_asc">Price: Low to High</option>
-            <option value="price_desc">Price: High to Low</option>
+        <div class="w-auto self-start md:self-auto">
+          <label for="price-sort" class="sr-only" data-i18n="explore.sort_label"></label>
+          <select id="price-sort"
+            class="bg-gray-900 text-white border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:border-gold cursor-pointer w-full md:w-auto">
+            <option value="default" data-i18n="explore.sort_recommended" selected></option>
+            <option value="price_asc" data-i18n="explore.sort_low_high"></option>
+            <option value="price_desc" data-i18n="explore.sort_high_low"></option>
           </select>
         </div>
       </div>
-      <div id="explore-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6"></div>
-      <div id="pagination-controls" class="mt-12 flex justify-center items-center gap-4 hidden"></div>
+      <div id="explore-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-up delay-200">
+      </div>
+
+      <div id="pagination-controls"
+        class="mt-16 flex justify-center items-center gap-4 hidden animate-fade-up delay-200"></div>
     </section>
   </main>
 
   <footer id="global-footer"></footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+  <script type="module" src="assets/js/image_paths.js"></script>
+  <script type="module" src="assets/lang/global-it.js"></script>
+  <script type="module" src="assets/lang/global-en.js"></script>
+  <script type="module" src="assets/js/core/api.js"></script>
+  <script type="module" src="assets/js/trips_metadata.js"></script>
+  <script type="module" src="assets/js/modules/global-header.js"></script>
+  <script type="module" src="assets/js/modules/global-footer.js"></script>
+  <script type="module" src="assets/js/modules/ui-layout.js"></script>
+  <script type="module" src="assets/js/modules/trips-renderer.js"></script>
+  <script type="module" src="assets/js/modules/explore-renderer.js"></script>
 
-  <script src="assets/js/image_paths.js"></script>
-  <script src="assets/lang/global-it.js"></script>
-  <script src="assets/lang/global-en.js"></script>
-  <script src="assets/js/core/api.js"></script>
-  <script src="assets/js/trips_metadata.js"></script>
-  <script src="assets/js/modules/global-header.js"></script>
-  <script src="assets/js/modules/global-footer.js"></script>
-  <script src="assets/js/modules/ui-layout.js"></script>
-  <script src="assets/js/modules/trips-renderer.js"></script>
-  <script src="assets/js/modules/explore-renderer.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       if (window.UILayout) window.UILayout.init();

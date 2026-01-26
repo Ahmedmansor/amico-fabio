@@ -59,6 +59,16 @@ const GlobalHeader = {
     const brandSubtitle = (i18n.global && i18n.global.brand_subtitle) ? i18n.global.brand_subtitle : '';
     const isSecrets = /\/sharm-secrets\//i.test(window.location.pathname);
     const basePath = isSecrets ? '../' : '';
+    const __parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
+    const __repo = __parts.filter(Boolean)[0] || '';
+    const __fallbackBase = __repo ? `/${__repo}/` : '/';
+    const __BASE = (typeof window !== 'undefined' && window.FABIO_BASE_URL) || __fallbackBase;
+    const __menuIconSrc = (window.ImagePaths && window.ImagePaths.ui && window.ImagePaths.ui.menuIcon)
+      ? window.ImagePaths.ui.menuIcon
+      : `${__BASE}assets/images/image_86a171.png`;
+    const __headerLogoSrc = (window.ImagePaths && window.ImagePaths.ui && window.ImagePaths.ui.headerLogo)
+      ? window.ImagePaths.ui.headerLogo
+      : `${__BASE}assets/images/logo/fabio-header-logo.webp`;
     const flagSvg = (code) => {
       if (code === 'en') {
         return `
@@ -86,7 +96,7 @@ const GlobalHeader = {
       <div class="gh-container">
         <div class="gh-left">
           <button class="gh-menu-btn" id="gh-menu-btn">
-            <img src="${basePath + (window.ImagePaths ? window.ImagePaths.ui.menuIcon : 'assets/images/image_86a171.png')}" alt="Menu" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" />
+            <img src="${__menuIconSrc}" alt="Menu" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" />
             <svg class="gh-menu-fallback" viewBox="0 0 24 24">
               <rect x="3" y="5" width="18" height="2" fill="#fff"></rect>
               <rect x="3" y="11" width="18" height="2" fill="#fff"></rect>
@@ -104,7 +114,7 @@ const GlobalHeader = {
         </div>
         <div class="gh-center" id="gh-center">
           <div class="gh-brand-wrap-center">
-            <img src="${window.ImagePaths ? window.ImagePaths.ui.headerLogo : basePath + 'assets/images/logo/fabio-header-logo.webp'}" class="gh-logo" alt="Fabio Tours Logo" width="84" height="81" style="max-width:84px; max-height:81px;" />
+            <img src="${__headerLogoSrc}" class="gh-logo" alt="Fabio Tours Logo" width="84" height="81" style="max-width:84px; max-height:81px;" />
             <div class="gh-brand">
               <div class="gh-brand-title">FABIO</div>
               <div class="gh-brand-subtitle" data-i18n="global.brand_subtitle">${brandSubtitle}</div>
@@ -283,7 +293,10 @@ const GlobalHeader = {
     window.addEventListener('resize', updateProgress);
     const isDetails = /\/details\.html$/i.test(window.location.pathname);
     if (!isDetails) {
-      if (!document.querySelector('.floating-whatsapp')) {
+      if (!document.getElementById('whatsapp-wrapper')) {
+        const wrap = document.createElement('div');
+        wrap.id = 'whatsapp-wrapper';
+        wrap.className = 'fab-wrap wa-wrap';
         const w = document.createElement('div');
         w.id = 'whatsapp-float';
         w.className = 'fab-base floating-whatsapp';
@@ -295,18 +308,17 @@ const GlobalHeader = {
           </span>
         `;
         w.addEventListener('click', () => window.open('https://wa.me/201063239261', '_blank'));
-        document.body.appendChild(w);
+        wrap.appendChild(w);
         const wl = document.createElement('div');
         wl.className = 'wa-fab-label';
         wl.setAttribute('data-i18n', 'fab.contact');
-        document.body.appendChild(wl);
+        wrap.appendChild(wl);
+        document.body.appendChild(wrap);
         GlobalHeader.initLanguage();
       }
     } else {
-      const ex = document.getElementById('whatsapp-float');
-      if (ex) ex.remove();
-      const lbl = document.querySelector('.wa-fab-label');
-      if (lbl) lbl.remove();
+      const wrap = document.getElementById('whatsapp-wrapper');
+      if (wrap) wrap.remove();
     }
 
     const banner = document.getElementById('promo-banner-container');
@@ -315,47 +327,55 @@ const GlobalHeader = {
     }
 
     if (isSecrets) {
-      const container = document.createElement('div');
-      container.innerHTML = `
-        <div class="gh-fab-label" data-i18n="fab.indice"></div>
-        <button class="fab-base gh-fab" id="gh-fab" aria-label="">
+      if (!document.getElementById('gh-fab-wrapper')) {
+        const wrap = document.createElement('div');
+        wrap.id = 'gh-fab-wrapper';
+        wrap.className = 'fab-wrap gh-wrap';
+        const labelEl = document.createElement('div');
+        labelEl.className = 'gh-fab-label';
+        labelEl.setAttribute('data-i18n', 'fab.indice');
+        const btnEl = document.createElement('button');
+        btnEl.className = 'fab-base gh-fab';
+        btnEl.innerHTML = `
           <svg viewBox="0 0 24 24" width="26" height="26" fill="#111">
             <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm3.5 6.5l-2 5-5 2 2-5 5-2z"/>
           </svg>
-        </button>
-      `;
-      const labelEl = container.firstElementChild;
-      const btnEl = container.lastElementChild;
-      document.body.appendChild(labelEl);
-      document.body.appendChild(btnEl);
-      const activeLang = GlobalHeader.initLanguage();
-      const dict = activeLang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
-      const indexLabel = dict && dict.fab && typeof dict.fab.indice === 'string'
-        ? dict.fab.indice
-        : (activeLang === 'en' ? 'Index' : 'Indice');
-      btnEl.setAttribute('aria-label', indexLabel);
-      btnEl.addEventListener('click', () => {
-        const menu = document.getElementById('indexMenu');
-        if (typeof showIndexMenu === 'function') {
-          showIndexMenu();
-        } else if (menu) {
-          menu.classList.add('is-visible');
-        }
-      });
-      const menu = document.getElementById('indexMenu');
-      if (menu) {
-        const closeBtn = menu.querySelector('.index-menu-close');
-        if (closeBtn) {
-          closeBtn.addEventListener('click', () => {
-            menu.classList.remove('is-visible');
-          });
-        }
-        menu.addEventListener('click', (e) => {
-          if (!e.target.closest('.index-menu-inner')) {
-            menu.classList.remove('is-visible');
+        `;
+        wrap.appendChild(btnEl);
+        wrap.appendChild(labelEl);
+        document.body.appendChild(wrap);
+        const activeLang = GlobalHeader.initLanguage();
+        const dict = activeLang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+        const indexLabel = dict && dict.fab && typeof dict.fab.indice === 'string'
+          ? dict.fab.indice
+          : (activeLang === 'en' ? 'Index' : 'Indice');
+        btnEl.setAttribute('aria-label', indexLabel);
+        btnEl.addEventListener('click', () => {
+          const menu = document.getElementById('indexMenu');
+          if (typeof showIndexMenu === 'function') {
+            showIndexMenu();
+          } else if (menu) {
+            menu.classList.add('is-visible');
           }
         });
+        const menu = document.getElementById('indexMenu');
+        if (menu) {
+          const closeBtn = menu.querySelector('.index-menu-close');
+          if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+              menu.classList.remove('is-visible');
+            });
+          }
+          menu.addEventListener('click', (e) => {
+            if (!e.target.closest('.index-menu-inner')) {
+              menu.classList.remove('is-visible');
+            }
+          });
+        }
       }
+    } else {
+      const wrap = document.getElementById('gh-fab-wrapper');
+      if (wrap) wrap.remove();
     }
   }
 };

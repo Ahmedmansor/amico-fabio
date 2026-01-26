@@ -112,9 +112,7 @@ const TripsRenderer = {
 
         container.appendChild(fragment);
 
-        if (window.AOS) {
-            window.AOS.refresh();
-        }
+        
     },
 
     _renderEmptyState: (container) => {
@@ -139,8 +137,12 @@ const TripsRenderer = {
         const standardBadge = TripsRenderer._resolveBadge(trip, lang, i18n);
 
         // UI Constants
-        const ph = window.ImagePaths ? window.ImagePaths.ui.placeholder : 'assets/images/ui/placeholder.webp';
-        const fb = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : 'assets/images/logo/logo-fabio-square.webp';
+        const __parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
+        const __repo = __parts.filter(Boolean)[0] || '';
+        const __fallbackBase = __repo ? `/${__repo}/` : '/';
+        const __BASE = (typeof window !== 'undefined' && window.FABIO_BASE_URL) || __fallbackBase;
+        const ph = window.ImagePaths ? window.ImagePaths.ui.placeholder : `${__BASE}assets/images/ui/placeholder.webp`;
+        const fb = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : `${__BASE}assets/images/logo/logo-fabio-square.webp`;
         const delay = index * 100;
 
         // Labels
@@ -163,7 +165,7 @@ const TripsRenderer = {
         const badgeExtraClass = isPackage ? ' standard-badge-premium' : '';
 
         const cardHTML = `
-            <article class="${cardClasses.join(' ')}" data-trip-id="${trip.trip_id}" data-aos="fade-up" data-aos-delay="${delay}">
+            <article class="${cardClasses.join(' ')}" data-trip-id="${trip.trip_id}">
                 <div class="catalog-card-image">
                     <img src="${imgPath}" alt="${title}" class="catalog-card-img"
                          loading="lazy" onerror="this.onerror=function(){this.onerror=null; this.src='${fb}';}; this.src='${ph}';">
@@ -251,13 +253,13 @@ const TripsRenderer = {
 
     _resolveImage: (trip, isPackage) => {
         const ctx = window.ImagePaths ? window.ImagePaths.resolveTripContext(trip) : { location: '', category: '', tripId: (trip.trip_id || '') };
-        let imgPath = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, ctx.tripId) : `assets/images/trips/${trip.trip_id}/poster.webp`;
+        let imgPath = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, ctx.tripId) : `${__BASE}assets/images/trips/${trip.trip_id}/poster.webp`;
 
         if (isPackage) {
             const locRaw = trip.location || trip.Location || trip.loc || trip.Loc || 'sharm';
             const loc = String(locRaw).toLowerCase().trim();
             const pkgId = trip.package_id || trip.trip_id;
-            imgPath = `assets/images/packages/${loc}/${pkgId}/poster.webp`;
+            imgPath = `${__BASE}assets/images/packages/${loc}/${pkgId}/poster.webp`;
         }
         return imgPath;
     },
@@ -283,22 +285,22 @@ const LocationRenderer = {
             {
                 id: 'sharm',
                 title: 'Sharm El Sheikh',
-                img: 'assets/images/locations/sharm.jpg'
+                img: `${__BASE}assets/images/locations/sharm.jpg`
             },
             {
                 id: 'cairo',
                 title: 'Cairo',
-                img: 'assets/images/locations/cairo.jpg'
+                img: `${__BASE}assets/images/locations/cairo.jpg`
             },
             {
                 id: 'luxor_and_aswan',
                 title: 'Luxor & Aswan',
-                img: 'assets/images/locations/luxor_aswan.jpg'
+                img: `${__BASE}assets/images/locations/luxor_aswan.jpg`
             },
             {
                 id: 'desert',
                 title: 'Sinai Desert',
-                img: 'assets/images/locations/desert.jpg'
+                img: `${__BASE}assets/images/locations/desert.jpg`
             }
         ];
         container.className = "grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl px-4 mx-auto";
@@ -307,12 +309,10 @@ const LocationRenderer = {
             const delay = i * 120;
             const el = document.createElement('article');
             el.className = "catalog-card trip-card";
-            el.setAttribute('data-aos', 'fade-up');
-            el.setAttribute('data-aos-delay', String(delay));
             el.innerHTML = `
                 <div class="catalog-card-image">
                     <img src="${loc.img}" alt="${loc.title}" class="catalog-card-img" loading="lazy"
-                         onerror="this.onerror=null; this.src='${window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : 'assets/logo-fabio-square.jpg'}';">
+                         onerror="this.onerror=null; this.src='${window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : `${__BASE}assets/images/logo/logo-fabio-square.webp`}';">
                     <div class="card-badges"></div>
                 </div>
                 <div class="card-content">
@@ -329,7 +329,6 @@ const LocationRenderer = {
         });
         container.innerHTML = '';
         container.appendChild(frag);
-        if (window.AOS) window.AOS.refresh();
     }
 };
 

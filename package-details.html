@@ -4,40 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Package Details - Fabio Tourism</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: '#D4AF37',
-                        'gold-light': '#F1D78A',
-                        'gold-dark': '#AA8C2C',
-                        'black-rich': '#0a0a0a',
-                        'gray-dark': '#1a1a1a',
-                        'cream': '#F5F5DC',
-                        'brown-dark': '#1a1510'
-                    },
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                        playfair: ['Playfair Display', 'serif']
-                    }
-                }
-            }
-        };
-    </script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/global-header.css">
-    <link rel="stylesheet" href="assets/css/global-footer.css">
-    <link rel="stylesheet" href="assets/css/package-details.css">
+    <title>Fabio Egypt | Guida Italiana Privata - Sharm, Il Cairo & Luxor</title>
+
+    <meta name="description"
+        content="Scopri il vero Egitto con Fabio. Escursioni VIP private a Sharm El Sheikh, Piramidi del Cairo, Luxor e Aswan. Esperienze autentiche, zero stress. Prenota ora la tua avventura.">
+
+    <meta name="keywords"
+        content="Fabio Egypt, Guida Italiana Egitto, Escursioni Sharm El Sheikh, Piramidi Cairo, Tour Luxor, Crociera sul Nilo, Viaggi Egitto VIP, Immersioni Mar Rosso, Amico Fabio">
+
+    <link rel="canonical" href="https://ahmedmansor.github.io/amico-fabio/">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Fabio Egypt">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:url" content="https://ahmedmansor.github.io/amico-fabio/">
+    <meta property="og:site_name" content="Fabio Egypt Tours">
+
+    <meta property="og:title" content="Fabio Egypt | L'Esperienza VIP Autentica">
+    <meta property="og:description"
+        content="Non visitare l'Egitto, vivilo con Fabio. Tour privati dalle Piramidi al Mar Rosso. I 10 comandamenti per una vacanza perfetta.">
+
+    <meta property="og:image"
+        content="https://ahmedmansor.github.io/amico-fabio/assets/images/logo/logo-fabio-square.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <link rel="icon" type="image/webp" href="assets/images/logo/logo-fabio-square.webp">
+    <link rel="apple-touch-icon" href="assets/images/logo/logo-fabio-square.webp">
+
+    <link rel="preload" href="assets/fonts/montserrat-v31-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/cinzel-v26-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preload" as="image" href="assets/images/comandamenti-images/1.webp" fetchpriority="high">
 </head>
 
-<body class="font-sans antialiased text-gray-200">
+<body class="font-sans antialiased text-gray-200 package-details-page">
     <header id="global-header"
         class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-md border-b border-gold/10 transition-all duration-300">
     </header>
@@ -45,7 +47,7 @@
         <section id="detail-hero" class="relative h-[60vh] md:h-[70vh] flex items-end justify-center">
             <div id="hero-bg" class="absolute inset-0 bg-cover bg-center z-0 transition-all duration-700"></div>
             <div class="absolute inset-0 hero-overlay z-10"></div>
-            <div class="relative z-20 container mx-auto px-4 pb-12 text-center md:text-left" data-aos="fade-up">
+            <div class="relative z-20 container mx-auto px-4 pb-12 text-center md:text-left animate-fade-up">
                 <span id="detail-badge"
                     class="inline-block bg-gold text-black font-bold text-xs px-3 py-1 rounded-full mb-4 uppercase tracking-widest shadow-lg"></span>
                 <h1 id="detail-title"
@@ -76,7 +78,7 @@
         </section>
         <section class="container mx-auto px-4 py-8">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                <div class="lg:col-span-2 space-y-12" data-aos="fade-up" data-aos-delay="100">
+                <div class="lg:col-span-2 space-y-12 animate-fade-up delay-100">
                     <div class="prose prose-lg prose-invert max-w-none">
                         <h2 class="text-3xl font-playfair text-gold mb-6 border-b border-gray-800 pb-2" id="label-desc"
                             data-i18n="global.description"></h2>
@@ -111,7 +113,7 @@
                         <p id="detail-important" class="text-sm text-gray-400"></p>
                     </div>
                 </div>
-                <div class="lg:col-span-1 space-y-8">
+                <div class="lg:col-span-1 space-y-8 animate-fade-up delay-200">
                     <div id="detail-info-card"
                         class="sticky top-24 bg-gray-900 border border-gold/30 rounded-xl p-6 shadow-2xl transition-all duration-300">
                         <div class="text-center mb-6 border-b border-gray-800 pb-4">
@@ -149,7 +151,7 @@
                             <span id="live-total-price" class="text-2xl font-bold text-white">€0</span>
                         </div>
                         <button id="btn-submit-booking" type="button"
-                            class="w-full mt-4 py-4 bg-gradient-to-r from-gold to-yellow-600 text-black font-bold uppercase tracking-widest rounded-lg shadow-lg hover:shadow-gold/50 transform hover:-translate-y-1 transition-all duration-300">
+                            class="w-full mt-4 py-4 bg-gradient-to-r from-gold to-yellow-600 font-bold uppercase tracking-widest rounded-lg shadow-lg hover:shadow-gold/50 transform hover:-translate-y-1 transition-all duration-300">
                             <span data-i18n="global.book_package_now">Book Package Now</span>
                         </button>
                     </div>
@@ -159,7 +161,7 @@
         <div id="sticky-mobile-book"
             class="fixed bottom-4 left-4 right-4 z-50 transform translate-y-32 transition-transform duration-500 lg:hidden transition-opacity duration-500 opacity-100">
             <button onclick="document.getElementById('booking-card-container').scrollIntoView({behavior: 'smooth'})"
-                class="w-full py-3 bg-gold text-black font-bold rounded-lg shadow-2xl flex items-center justify-center gap-2 border-2 border-white/20">
+                class="w-full py-3 bg-gold font-bold rounded-lg shadow-2xl flex items-center justify-center gap-2 border-2 border-white/20">
                 <span data-i18n="global.book_package_now">Book Package Now</span>
             </button>
         </div>
@@ -283,30 +285,26 @@
             </div>
         </div>
     </div>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="assets/js/image_paths.js"></script>
-    <script src="assets/lang/global-it.js"></script>
-    <script src="assets/lang/global-en.js"></script>
-    <script src="assets/js/core/api.js"></script>
-    <script src="assets/js/trips_metadata.js"></script>
+    <script type="module" src="assets/js/image_paths.js"></script>
+    <script type="module" src="assets/lang/global-it.js"></script>
+    <script type="module" src="assets/lang/global-en.js"></script>
+    <script type="module" src="assets/js/core/api.js"></script>
+    <script type="module" src="assets/js/trips_metadata.js"></script>
 
-    <script src="assets/js/modules/global-header.js"></script>
-    <script src="assets/js/modules/ui-layout.js"></script>
-    <script src="assets/js/modules/booking-manager.js"></script>
+    <script type="module" src="assets/js/modules/global-header.js"></script>
+    <script type="module" src="assets/js/modules/ui-layout.js"></script>
+    <script type="module" src="assets/js/modules/booking-manager.js"></script>
 
-    <script src="assets/js/features/packages/packages.service.js"></script>
-    <script src="assets/js/features/packages/packages.model.js"></script>
-    <script src="assets/js/features/packages/packages.view.js"></script>
-    <script src="assets/js/features/packages/packages.controller.js"></script>
-    <script src="assets/js/modules/global-footer.js"></script>
+    <script type="module" src="assets/js/features/packages/packages.service.js"></script>
+    <script type="module" src="assets/js/features/packages/packages.model.js"></script>
+    <script type="module" src="assets/js/features/packages/packages.view.js"></script>
+    <script type="module" src="assets/js/features/packages/packages.controller.js"></script>
+    <script type="module" src="assets/js/modules/global-footer.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            AOS.init({ duration: 800, once: true });
             if (window.UILayout) window.UILayout.init();
             if (window.PackagesController) window.PackagesController.init();
         });
     </script>
 </body>
-
-</html>

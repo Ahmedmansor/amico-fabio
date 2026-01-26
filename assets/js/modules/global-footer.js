@@ -16,6 +16,10 @@ const GlobalFooter = {
 
     const isSecrets = /\/sharm-secrets\//i.test(window.location.pathname);
     const basePath = isSecrets ? '../' : '';
+    const __parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
+    const __repo = __parts.filter(Boolean)[0] || '';
+    const __fallbackBase = __repo ? `/${__repo}/` : '/';
+    const __BASE = (typeof window !== 'undefined' && window.FABIO_BASE_URL) || __fallbackBase;
     const lang = localStorage.getItem('fabio_lang') || localStorage.getItem('preferredLanguage') || document.documentElement.lang || 'it';
     const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
     const year = new Date().getFullYear();
@@ -27,10 +31,10 @@ const GlobalFooter = {
     const brandSubtitle = (i18n.global && i18n.global.brand_subtitle) ? i18n.global.brand_subtitle : (lang === 'en' ? 'Official Tour Guide' : 'Guida Turistica Ufficiale');
 
     // Resolve paths
-    const headerLogo = getPath('ui.headerLogo') || (basePath + 'assets/images/logo/fabio-header-logo.webp');
-    const crossRootsLogo = getPath('ui.crossRootsLogo') || (basePath + 'assets/images/logo/cross-roots-logo.webp');
-    const facebookIcon = getPath('icons.social.facebook') || (basePath + 'assets/images/icons/social/facebook.svg');
-    const instagramIcon = getPath('icons.social.instagram') || (basePath + 'assets/images/icons/social/instagram.svg');
+    const headerLogo = getPath('ui.headerLogo') || (`${__BASE}assets/images/logo/fabio-header-logo.webp`);
+    const crossRootsLogo = getPath('ui.crossRootsLogo') || (`${__BASE}assets/images/logo/cross-roots-logo.webp`);
+    const facebookIcon = getPath('icons.social.facebook') || (`${__BASE}assets/images/icons/social/facebook.svg`);
+    const instagramIcon = getPath('icons.social.instagram') || (`${__BASE}assets/images/icons/social/instagram.svg`);
 
     const markup = `
       <footer class="af-footer">

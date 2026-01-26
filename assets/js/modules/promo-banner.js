@@ -1,25 +1,28 @@
 // ==========================================
-// Promo Banner Module
+// Promo Banner Module (Fixed & Centered)
 // ==========================================
+
+const __parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
+const __repo = __parts.filter(Boolean)[0] || '';
+const __fallbackBase = __repo ? `/${__repo}/` : '/';
+const __BASE = (typeof window !== 'undefined' && window.FABIO_BASE_URL) || __fallbackBase;
 
 window.PromoBanner = {
   render: (settingsData) => {
     const container = document.getElementById('promo-banner-container');
     if (!container || !settingsData) return;
 
-    // settingsData is now an array. Find the row where key == 'promo_banner'
+    // البحث عن إعدادات البانر
     let settings = null;
     if (Array.isArray(settingsData)) {
       settings = settingsData.find(row => row.key === 'promo_banner');
     } else {
-      // Fallback if it's already an object
       settings = settingsData;
     }
 
     if (!settings) return;
 
-    // Check if promo is active
-    // Note: CSV booleans often come as string "TRUE" or "FALSE"
+    // التحقق من التفعيل
     const isActive = String(settings.is_active).toUpperCase() === 'TRUE';
 
     if (!isActive) {
@@ -28,23 +31,31 @@ window.PromoBanner = {
       return;
     }
 
-    // Get current language
+    // تحديد اللغة والنص
     const lang = localStorage.getItem('lang') || 'it';
-    // Use val_en / val_it based on mapping
     const text = lang === 'en' ? settings.val_en : settings.val_it;
 
-    // Luxurious Dark Theme Styling
-    // Gold background with black text for high visibility
+    // 🔥 التعديل الجذري هنا:
+    // استخدمنا style مباشر عشان نضمن التوسط (Centering) 100%
     const template = `
-      <div class="bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 text-black shadow-lg">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <div class="flex-1 text-center font-bold text-sm md:text-base tracking-wide">
+      <div style="
+          position: fixed;
+          top: 115px; /* المسافة من فوق */
+          left: 50%;
+          transform: translateX(-50%); /* السحر اللي بيوسطنه */
+          z-index: 9999;
+          width: 90%;
+          max-width: 500px;
+      ">
+        <div class="bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 text-black border border-white/30 shadow-2xl rounded-2xl px-4 py-3 flex items-center justify-between">
+          <div class="flex-1 text-center font-bold text-sm md:text-base tracking-wide" style="font-family: 'Montserrat', sans-serif;">
             ${text}
           </div>
-          <button type="button" class="ml-4 text-black hover:text-gray-800 focus:outline-none" onclick="window.PromoBanner.dismiss()">
-            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
+          <button type="button" 
+                  style="background: transparent; border: none; margin-left: 12px; cursor: pointer; display: flex; align-items: center;"
+                  onclick="window.PromoBanner.dismiss()" 
+                  aria-label="Close">
+            <img src="${__BASE}assets/images/icons/close-icon.svg" alt="Close" style="width: 24px; height: 24px; display: block;" />
           </button>
         </div>
       </div>
@@ -57,13 +68,12 @@ window.PromoBanner = {
   dismiss: () => {
     const container = document.getElementById('promo-banner-container');
     if (container) {
-      // Animate out
       container.style.transition = 'opacity 0.5s ease-out';
       container.style.opacity = '0';
       setTimeout(() => {
         container.style.display = 'none';
         container.innerHTML = '';
-        container.style.opacity = '1'; // Reset for next time
+        container.style.opacity = '1';
       }, 500);
     }
   }
