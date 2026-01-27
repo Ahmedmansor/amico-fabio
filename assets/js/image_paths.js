@@ -27,8 +27,12 @@
       'dinner_cruise_night_show', 'swim_with_dolphins_vip', 'water_sports_adrenaline_combo',
       'dahab_blue_hole_super_safari', 'albatros_aqua_park_full_day', 'dolphin_show_family',
       // Desert
-      'desert_quad_bike_safari', 'super_safari_5_senses', 'vip_romantic_dinner_desert', 'vip_cena_romantica',
-      'mount_sinai_sunrise_adventure', 'santa_caterina_monastery_morning',
+      'super_safari_5_senses', 'vip_romantic_dinner_desert', 'vip_cena_romantica',
+      //'desert_quad_bike_safari'
+      //culture
+      'mount_sinai_sunrise_adventure', 'santa_caterina_monastery_morning', 'cairo_bus_adventure_choice', 'cairo_plane_flexible_museum', 'petra_jordan_expedition',
+      , 'luxor_plane_classic',
+
       // Packages
       'sharm_confidential', 'sharm_confidential_l\'esperienza_totale'
     ];
@@ -36,16 +40,16 @@
     // Cairo Trips List
     const cairo = [
       'cairo_pyramids_classic', 'cairo_pyramids_by_plane',
-      'cairo_bus_adventure_choice', 'cairo_plane_flexible_museum'
+
     ];
 
     // Luxor & Aswan Trips List
     const luxor = [
-      'luxor_day_trip', 'aswan_day_trip', 'luxor_plane_classic',
+      'luxor_day_trip', 'aswan_day_trip',
       'luxor_and_aswan'
     ];
 
-    const petra = ['petra_jordan_expedition'];
+
 
     if (sharm.some(k => id.includes(k)) || id.includes('sharm')) return 'sharm';
     if (cairo.some(k => id.includes(k)) || id.includes('cairo')) return 'cairo';
