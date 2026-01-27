@@ -6,7 +6,7 @@ const ExploreRenderer = {
     allRawTrips: [],
     filteredTrips: [],
     currentPage: 1,
-    itemsPerPage: 10,
+    itemsPerPage: 9,
     hasLoadedOnce: false
   },
 

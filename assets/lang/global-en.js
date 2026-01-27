@@ -6,6 +6,43 @@ window.i18nEn = {
     commandments: "10 Commandments",
     blog: "Blog"
   },
+  faq: {
+    headline: "FAQ & Insider Tips",
+    items: [
+      {
+        q: "Do I have to pay everything online?",
+        a: "Absolutely not. Trust is everything. We usually ask for a small deposit to secure spots (especially for VIP boats), and the balance is paid comfortably upon arrival in Sharm, in cash or local currency. No risk, zero stress."
+      },
+      {
+        q: "How do I know the exact pickup time?",
+        a: "Forget the anxiety! The night before every excursion, you will receive a personal WhatsApp message from Fabio with the exact time, meeting point, and transfer details. Swiss organization, Egyptian heart."
+      },
+      {
+        q: "What happens if plans change or I get sick?",
+        a: "We are humans, not robots! If something comes up, message us on WhatsApp immediately. We'll do our best to reschedule without extra costs. ⚠️ Exception: For flights (Cairo/Luxor), we depend on airline rules, so flight tickets are non-refundable."
+      },
+      {
+        q: "Do I need a Visa for excursions?",
+        a: "Crucial detail: If you stay in Sharm (e.g., Safari), the free 'Only Sinai' stamp is enough. But if you choose Ras Mohammed (by land) or go to Cairo/Luxor, you MUST buy the Egypt Visa ($25) upon arrival. Ask us if unsure!"
+      },
+      {
+        q: "What should I pack?",
+        a: "Keyword: Comfort. Desert: closed shoes, sunglasses, scarf. Sea: swimwear, sunscreen. Insider Tip: Always bring a light hoodie, even in summer, for the strong A/C in buses or the desert breeze at night."
+      },
+      {
+        q: "Euro or Local Currency?",
+        a: "Insider Tip: Bring Euros/Dollars for hotels and tours (accepted everywhere). Exchange a small amount into Egyptian Pounds for small expenses: taxis, tips, and markets. Paying small things in local currency saves you money!"
+      },
+      {
+        q: "Internet and Wi-Fi?",
+        a: "Hotel Wi-Fi is often slow. Golden advice: Buy a Data SIM (Vodafone or Etisalat) directly at the airport upon arrival. It's cheap and gives you fast internet everywhere."
+      },
+      {
+        q: "Is food and water safe?",
+        a: "Drink ONLY sealed bottled water (even for brushing teeth). For food, during our excursions, we select only certified restaurants with high hygiene standards."
+      }
+    ]
+  },
   footer: {
     brand_name: "AMICO FABIO",
     about_bio: "Premium VIP experiences in Sharm El Sheikh led by your trusted local friend. Travel elegantly, safely, and with insider knowledge.",
@@ -1092,6 +1129,73 @@ window.i18nEn = {
         "Romantic Dinner Sharm",
         "VIP Desert Dinner",
         "Marriage Proposal Egypt",
+        "Private Night Sharm",
+        "Luxury Experience Sinai"
+      ]
+    },
+    vip_cena_romantica: {
+      "tour_id": "vip_cena_romantica",
+      "title": "VIP Romantic Dinner: 1001 Nights",
+      "short_desc": "Sharm's most exclusive experience. A private dinner in the heart of the desert, under a canopy of stars. Strictly for couples and special occasions.",
+      "duration": "4-5 Hours (Private Evening)",
+      "highlights": [
+        "Absolute Privacy: No groups, no chaos, just the two of you",
+        "Private Transfer in a luxury car",
+        "Reserved Tent/Table by candlelight",
+        "A la Carte Menu with mixed grill served at your table",
+        "Ideal for: Marriage proposals, Birthdays, Anniversaries"
+      ],
+      "full_description": "Want to impress the one you love? Forget crowded tourist excursions. We take you where the desert becomes magic.\n\nThis evening is designed for those seeking intimacy and 'Mazaag Aaly' (High Mood/High Level). You will be picked up by a private car that will take you to a reserved area, far from the noise of engines.\n\nThere, you will find your own corner of paradise: an elegantly set table on the sand, surrounded by candles and lanterns. The silence of the desert, the starry sky, and a delicious dinner served just for you will make this night unforgettable. It is the perfect gift that she (or he) is not expecting.",
+      "program": [
+        {
+          "time": "17:00",
+          "activity": "VIP Pickup",
+          "details": "Private driver picks you up at your hotel (sunset time)."
+        },
+        {
+          "time": "17:45",
+          "activity": "Arrival in Silence",
+          "details": "Exclusive welcome in the reserved area. Soft atmosphere and relaxation."
+        },
+        {
+          "time": "18:15",
+          "activity": "Sunset & Photos",
+          "details": "The golden hour for taking romantic photos as the desert turns red."
+        },
+        {
+          "time": "19:00",
+          "activity": "Candlelight Dinner",
+          "details": "Dinner served at the table (not buffet): Appetizers, Mixed Meat Grill, side dishes, and oriental sweets."
+        },
+        {
+          "time": "20:30",
+          "activity": "The Stars",
+          "details": "Time to lie on the carpets, gaze at the stars, and enjoy absolute peace."
+        },
+        {
+          "time": "21:30",
+          "activity": "Return",
+          "details": "Return to the hotel by private car."
+        }
+      ],
+      "includes": [
+        "Private Car Round Trip (No Bus)",
+        "VIP Dinner served at the table (Meat menu)",
+        "Unlimited soft drinks",
+        "Romantic setup (Candles/Lanterns)",
+        "Dedicated waiter service"
+      ],
+      "not_included": [
+        "Birthday cake (can be ordered as extra)",
+        "Flowers or special gifts (can be arranged upon request)",
+        "Gratuities (Tips)",
+        "Alcoholic beverages"
+      ],
+      "important_notes": "This excursion requires advance booking to prepare the exclusive setup. A short horse or camel ride at sunset can be added upon request.",
+      "seo_tags": [
+        "Romantic Dinner Sharm",
+        "VIP Desert Dinner",
+        "Egypt Marriage Proposal",
         "Private Night Sharm",
         "Luxury Experience Sinai"
       ]

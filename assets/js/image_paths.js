@@ -30,8 +30,8 @@
       'super_safari_5_senses', 'vip_romantic_dinner_desert', 'vip_cena_romantica',
       //'desert_quad_bike_safari'
       //culture
-      'mount_sinai_sunrise_adventure', 'santa_caterina_monastery_morning', 'cairo_bus_adventure_choice', 'cairo_plane_flexible_museum', 'petra_jordan_expedition',
-      , 'luxor_plane_classic',
+      'sharm_old_market_ultimate_shopping', 'mount_sinai_sunrise_adventure', 'santa_caterina_monastery_morning', 'cairo_bus_adventure_choice', 'cairo_plane_flexible_museum', 'petra_jordan_expedition',
+      'luxor_plane_classic',
 
       // Packages
       'sharm_confidential', 'sharm_confidential_l\'esperienza_totale'
@@ -63,10 +63,15 @@
   function inferCategory(tripId) {
     const id = normalizeParam(tripId);
 
+    const explicitDesertIds = ['vip_cena_romantica'];
+    const explicitCultureIds = ['sharm_old_market_ultimate_shopping'];
+    if (explicitDesertIds.some(k => id === k)) return 'desert';
+    if (explicitCultureIds.some(k => id === k)) return 'culture';
+
     // Category Keywords
     const sea = ['ras', 'mohammed', 'tiran', 'boat', 'dolphin', 'sea', 'water', 'aqua', 'cruise', 'sub', 'dahab', 'blue_hole'];
-    const desert = ['safari', 'quad', 'bike', 'dinner', 'bedouin', 'mountain', 'camel', 'sinai', 'caterina'];
-    const culture = ['cairo', 'luxor', 'aswan', 'petra', 'museum', 'pyramids'];
+    const desert = ['safari', 'quad', 'bike', 'dinner', 'bedouin', 'mountain', 'camel', 'sinai', 'caterina', 'romantica', 'cena'];
+    const culture = ['cairo', 'luxor', 'aswan', 'petra', 'museum', 'pyramids', 'market', 'shopping', 'old_market', 'bazaar', 'souq'];
     const bundles = ['confidential', 'package', 'bundle', 'offer'];
 
     if (bundles.some(k => id.includes(k))) return 'bundles'; // New Packages Category
@@ -213,6 +218,11 @@
       advanced: p('assets/images/adventures/advanced-open-water.webp')
     },
     icons: {
+      people: {
+        personMale: p('assets/images/icons/person-male.svg'),
+        child: p('assets/images/icons/child-svgrepo.svg'),
+        persons: p('assets/images/icons/persons.svg')
+      },
       legal: {
         intro: p('assets/images/icons/legal/intro.svg'),
         owner: p('assets/images/icons/legal/owner.svg'),

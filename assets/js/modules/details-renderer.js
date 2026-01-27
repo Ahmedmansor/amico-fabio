@@ -11,6 +11,18 @@ const DetailsRenderer = {
         const waLabel = document.querySelector('.wa-fab-label');
         if (waLabel) waLabel.remove();
 
+        const backBtn = document.getElementById('hero-back-btn');
+        if (backBtn) {
+            backBtn.onclick = () => {
+                if (document && document.referrer) {
+                    window.history.back();
+                } else {
+                    window.location.href = 'explore.html';
+                }
+            };
+        }
+        DetailsRenderer.setupFaqAccordion();
+
         if (!tripId) {
             window.location.href = 'index.html';
             return;
@@ -68,7 +80,60 @@ const DetailsRenderer = {
         apiData: null,
         langData: null,
         lang: 'it',
-        tripId: ''
+        tripId: '',
+        autoTimer: null,
+        autoIndex: 0,
+        autoList: []
+    },
+
+    iconMarkup: (key, fallback) => {
+        const icons = window.ImagePaths && window.ImagePaths.icons && window.ImagePaths.icons.people
+            ? window.ImagePaths.icons.people
+            : null;
+        const src = icons && icons[key] ? icons[key] : '';
+        return src ? `<img src="${src}" alt="" class="price-icon-img">` : fallback;
+    },
+
+    applyHeroImage: (bgEl, src) => {
+        if (!bgEl || !src) return;
+        bgEl.classList.remove('hero-img-animate');
+        void bgEl.offsetWidth;
+        bgEl.src = src;
+        bgEl.classList.add('hero-img-animate');
+    },
+
+    startAutoHero: (slides, bgEl, startIndex = 0) => {
+        if (!bgEl || !Array.isArray(slides) || slides.length < 2) return;
+        if (DetailsRenderer.state.autoTimer) {
+            clearInterval(DetailsRenderer.state.autoTimer);
+            DetailsRenderer.state.autoTimer = null;
+        }
+        DetailsRenderer.state.autoList = slides.slice();
+        DetailsRenderer.state.autoIndex = Math.max(0, Math.min(startIndex, slides.length - 1));
+        DetailsRenderer.state.autoTimer = setInterval(() => {
+            const list = DetailsRenderer.state.autoList || [];
+            if (!list.length) return;
+            const next = (DetailsRenderer.state.autoIndex + 1) % list.length;
+            DetailsRenderer.state.autoIndex = next;
+            DetailsRenderer.applyHeroImage(bgEl, list[next]);
+        }, 2000);
+    },
+
+    setHeroImage: (bgEl, src, container) => {
+        if (!bgEl || !src) return;
+        DetailsRenderer.applyHeroImage(bgEl, src);
+        const list = DetailsRenderer.state.autoList || [];
+        if (list.length) {
+            const idx = list.indexOf(src);
+            DetailsRenderer.startAutoHero(list, bgEl, idx >= 0 ? idx : 0);
+        }
+        if (container) {
+            const match = container.querySelector(`img[src="${src}"]`);
+            const item = match ? match.closest('div') : null;
+            if (item && typeof item.scrollIntoView === 'function') {
+                item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+        }
     },
 
     render: (tripId, apiData, langData, lang) => {
@@ -98,7 +163,7 @@ const DetailsRenderer = {
 
         // Elements
         const els = {
-            bg: document.getElementById('hero-bg'),
+            bg: document.getElementById('hero-bg-img'),
             title: document.getElementById('detail-title'),
             badge: document.getElementById('detail-badge'),
             duration: document.getElementById('detail-duration'),
@@ -125,15 +190,13 @@ const DetailsRenderer = {
 
         // Optimistic Load
         if (els.bg) {
-            els.bg.style.backgroundImage = `url('${posterSrc}')`;
+            DetailsRenderer.applyHeroImage(els.bg, posterSrc);
             if (window.ImagePaths && typeof window.ImagePaths.resolvePosterOrPlaceholder === 'function') {
                 window.ImagePaths.resolvePosterOrPlaceholder(ctx.location, ctx.category, tripId).then(src => {
-                    els.bg.style.backgroundImage = `url('${src}')`;
+                    DetailsRenderer.applyHeroImage(els.bg, src);
                 });
             } else {
-                const imgTest = new Image();
-                imgTest.src = posterSrc;
-                imgTest.onerror = () => { els.bg.style.backgroundImage = `url('${fallbackSrc}')`; };
+                els.bg.onerror = () => { DetailsRenderer.applyHeroImage(els.bg, fallbackSrc); };
             }
         }
 
@@ -141,18 +204,21 @@ const DetailsRenderer = {
         if (els.title) els.title.textContent = title;
 
         // Badge
-        if (els.badge) {
-            if (badge) {
+        if (badge) {
+            if (els.badge) {
                 els.badge.textContent = badge;
                 els.badge.style.display = 'inline-block';
-            } else {
-                els.badge.style.display = 'none';
             }
+        } else {
+            if (els.badge) els.badge.style.display = 'none';
         }
 
+        const personIcon = DetailsRenderer.iconMarkup('personMale', '👤');
+        const personsIcon = DetailsRenderer.iconMarkup('persons', '👥');
+        const childIcon = DetailsRenderer.iconMarkup('child', '👶');
         const adultHero = dAdult > 0
-            ? `<span class="inline-flex items-center gap-2"><span>👤</span><span class="line-through text-gray-400">€${pAdult}</span><span class="text-gold font-bold">€${dAdult}</span></span>`
-            : `<span class="inline-flex items-center gap-2"><span>👤</span><span class="text-gold font-bold">€${pAdult}</span></span>`;
+            ? `<span class="inline-flex items-center gap-2">${personIcon}<span class="line-through text-gray-400">€${pAdult}</span><span class="text-gold font-bold">€${dAdult}</span></span>`
+            : `<span class="inline-flex items-center gap-2">${personIcon}<span class="text-gold font-bold">€${pAdult}</span></span>`;
         if (els.price) els.price.innerHTML = adultHero;
         const headlinePrice = dAdult > 0 ? dAdult : pAdult;
         if (els.cardPrice) els.cardPrice.textContent = `€${headlinePrice}`;
@@ -163,14 +229,14 @@ const DetailsRenderer = {
             const dictPricing = (i18nCurrent && i18nCurrent.global && i18nCurrent.global.pricing) ? i18nCurrent.global.pricing : {};
             const lblMinPax = dictPricing.min_pax || 'Min Pax';
             const adultRow = dAdult > 0
-                ? `<div class="flex items-center gap-2"><span>👤</span><span class="line-through text-gray-400">€${pAdult}</span><span class="text-white font-bold">€${dAdult}</span></div>`
-                : `<div class="flex items-center gap-2"><span>👤</span><span class="text-white font-bold">€${pAdult}</span></div>`;
+                ? `<div class="flex items-center gap-2">${personIcon}<span class="line-through text-gray-400">€${pAdult}</span><span class="text-white font-bold">€${dAdult}</span></div>`
+                : `<div class="flex items-center gap-2">${personIcon}<span class="text-white font-bold">€${pAdult}</span></div>`;
             const childRow = (dChild > 0 || pChild > 0)
                 ? (dChild > 0
-                    ? `<div class="flex items-center gap-2"><span>👶</span><span class="line-through text-gray-400">€${pChild}</span><span class="text-white font-bold">€${dChild}</span></div>`
-                    : `<div class="flex items-center gap-2"><span>👶</span><span class="text-white font-bold">€${pChild}</span></div>`)
+                    ? `<div class="flex items-center gap-2">${childIcon}<span class="line-through text-gray-400">€${pChild}</span><span class="text-white font-bold">€${dChild}</span></div>`
+                    : `<div class="flex items-center gap-2">${childIcon}<span class="text-white font-bold">€${pChild}</span></div>`)
                 : '';
-            const minPaxRow = `<div class="flex items-center gap-2"><span>👥</span><span class="text-gray-300">${lblMinPax}: ${minPax}</span></div>`;
+            const minPaxRow = `<div class="flex items-center gap-2">${personsIcon}<span class="text-gray-300">${lblMinPax}: ${minPax}</span></div>`;
             breakdownEl.innerHTML = `${adultRow}${childRow ? childRow : ''}${minPaxRow}`;
         }
 
@@ -203,19 +269,21 @@ const DetailsRenderer = {
         }
 
         // Gallery
+        const totalRaw = window.ImagePaths && typeof window.ImagePaths.pickCI === 'function' ? window.ImagePaths.pickCI(apiData || {}, 'img_count') : '';
+        const total = parseInt(totalRaw || '0', 10);
+        const list = window.ImagePaths && typeof window.ImagePaths.getGalleryArray === 'function'
+            ? window.ImagePaths.getGalleryArray(ctx.location, ctx.category, tripId, total)
+            : [];
+        const slides = [posterSrc, ...(Array.isArray(list) ? list : [])];
         if (els.gallery) {
             if (els.gallery.children.length === 0) {
-                const totalRaw = window.ImagePaths && typeof window.ImagePaths.pickCI === 'function' ? window.ImagePaths.pickCI(apiData || {}, 'img_count') : '';
-                const total = parseInt(totalRaw || '0', 10);
-                const list = window.ImagePaths && typeof window.ImagePaths.getGalleryArray === 'function'
-                    ? window.ImagePaths.getGalleryArray(ctx.location, ctx.category, tripId, total)
-                    : [];
                 DetailsRenderer.appendGalleryItem(posterSrc, els.gallery, els.bg);
                 if (Array.isArray(list) && list.length > 0) {
                     list.forEach(src => DetailsRenderer.appendGalleryItem(src, els.gallery, els.bg));
                 }
             }
         }
+        if (els.bg) DetailsRenderer.startAutoHero(slides, els.bg, 0);
         try {
             const cachedObjStr = sessionStorage.getItem('fabio_data_cache') || sessionStorage.getItem('fabio_trips_cache');
             let addonsList = [];
@@ -263,7 +331,7 @@ const DetailsRenderer = {
     },
     renderStaticFirst: (tripId, langData, lang) => {
         const els = {
-            bg: document.getElementById('hero-bg'),
+            bg: document.getElementById('hero-bg-img'),
             title: document.getElementById('detail-title'),
             badge: document.getElementById('detail-badge'),
             duration: document.getElementById('detail-duration'),
@@ -288,15 +356,13 @@ const DetailsRenderer = {
         const posterSrc = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, tripId) : `${__BASE}assets/images/trips/${tripId}/poster.webp`;
         const fallbackSrc = window.ImagePaths ? window.ImagePaths.ui.fallbackLogo : `${__BASE}assets/images/logo/logo-fabio-square.webp`;
         if (els.bg) {
-            els.bg.style.backgroundImage = `url('${posterSrc}')`;
+            DetailsRenderer.applyHeroImage(els.bg, posterSrc);
             if (window.ImagePaths && typeof window.ImagePaths.resolvePosterOrPlaceholder === 'function') {
                 window.ImagePaths.resolvePosterOrPlaceholder(ctx.location, ctx.category, tripId).then(src => {
-                    els.bg.style.backgroundImage = `url('${src}')`;
+                    DetailsRenderer.applyHeroImage(els.bg, src);
                 });
             } else {
-                const imgTest = new Image();
-                imgTest.src = posterSrc;
-                imgTest.onerror = () => { els.bg.style.backgroundImage = `url('${fallbackSrc}')`; };
+                els.bg.onerror = () => { DetailsRenderer.applyHeroImage(els.bg, fallbackSrc); };
             }
         }
         const title = (langData && langData.title) || tripId;
@@ -320,17 +386,19 @@ const DetailsRenderer = {
                 DetailsRenderer.renderProgram(els.program, langData.program);
             }
         }
+        const list = window.ImagePaths && typeof window.ImagePaths.getGalleryArray === 'function'
+            ? window.ImagePaths.getGalleryArray(ctx.location, ctx.category, tripId, 0)
+            : [];
+        const slides = [posterSrc, ...(Array.isArray(list) ? list : [])];
         if (els.gallery) {
             if (els.gallery.children.length === 0) {
-                const list = window.ImagePaths && typeof window.ImagePaths.getGalleryArray === 'function'
-                    ? window.ImagePaths.getGalleryArray(ctx.location, ctx.category, tripId, 0)
-                    : [];
                 DetailsRenderer.appendGalleryItem(posterSrc, els.gallery, els.bg);
                 if (Array.isArray(list) && list.length > 0) {
                     list.forEach(src => DetailsRenderer.appendGalleryItem(src, els.gallery, els.bg));
                 }
             }
         }
+        if (els.bg) DetailsRenderer.startAutoHero(slides, els.bg, 0);
         const dictBtn = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
         const bookNow = dictBtn && dictBtn.global && typeof dictBtn.global.book_now === 'string' ? dictBtn.global.book_now : '';
         if (els.btnBook) els.btnBook.textContent = bookNow;
@@ -346,9 +414,10 @@ const DetailsRenderer = {
         const pChild = parseFloat(apiData.p_child || '0');
         const dChild = parseFloat(apiData.d_child || '0');
         const minPax = parseInt(apiData.min_pax || '1', 10);
+        const personIcon = DetailsRenderer.iconMarkup('personMale', '👤');
         const adultHero = dAdult > 0
-            ? `<span class="inline-flex items-center gap-2"><span>👤</span><span class="line-through text-gray-400">€${pAdult}</span><span class="text-gold font-bold">€${dAdult}</span></span>`
-            : `<span class="inline-flex items-center gap-2"><span>👤</span><span class="text-gold font-bold">€${pAdult}</span></span>`;
+            ? `<span class="inline-flex items-center gap-2">${personIcon}<span class="line-through text-gray-400">€${pAdult}</span><span class="text-gold font-bold">€${dAdult}</span></span>`
+            : `<span class="inline-flex items-center gap-2">${personIcon}<span class="text-gold font-bold">€${pAdult}</span></span>`;
         if (priceEl) priceEl.innerHTML = adultHero;
         const headlinePrice = dAdult > 0 ? dAdult : pAdult;
         if (cardPriceEl) cardPriceEl.textContent = `€${headlinePrice}`;
@@ -364,21 +433,24 @@ const DetailsRenderer = {
             const i18nCurrent = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
             const dictPricing = (i18nCurrent && i18nCurrent.global && i18nCurrent.global.pricing) ? i18nCurrent.global.pricing : {};
             const lblMinPax = dictPricing.min_pax || 'Min Pax';
+            const personIcon = DetailsRenderer.iconMarkup('personMale', '👤');
+            const personsIcon = DetailsRenderer.iconMarkup('persons', '👥');
+            const childIcon = DetailsRenderer.iconMarkup('child', '👶');
             const adultRow = dAdult > 0
-                ? `<div class="flex items-center gap-2"><span>👤</span><span class="line-through text-gray-400">€${pAdult}</span><span class="text-white font-bold">€${dAdult}</span></div>`
-                : `<div class="flex items-center gap-2"><span>👤</span><span class="text-white font-bold">€${pAdult}</span></div>`;
+                ? `<div class="flex items-center gap-2">${personIcon}<span class="line-through text-gray-400">€${pAdult}</span><span class="text-white font-bold">€${dAdult}</span></div>`
+                : `<div class="flex items-center gap-2">${personIcon}<span class="text-white font-bold">€${pAdult}</span></div>`;
             const childRow = (dChild > 0 || pChild > 0)
                 ? (dChild > 0
-                    ? `<div class="flex items-center gap-2"><span>👶</span><span class="line-through text-gray-400">€${pChild}</span><span class="text-white font-bold">€${dChild}</span></div>`
-                    : `<div class="flex items-center gap-2"><span>👶</span><span class="text-white font-bold">€${pChild}</span></div>`)
+                    ? `<div class="flex items-center gap-2">${childIcon}<span class="line-through text-gray-400">€${pChild}</span><span class="text-white font-bold">€${dChild}</span></div>`
+                    : `<div class="flex items-center gap-2">${childIcon}<span class="text-white font-bold">€${pChild}</span></div>`)
                 : '';
-            const minPaxRow = `<div class="flex items-center gap-2"><span>👥</span><span class="text-gray-300">${lblMinPax}: ${minPax}</span></div>`;
+            const minPaxRow = `<div class="flex items-center gap-2">${personsIcon}<span class="text-gray-300">${lblMinPax}: ${minPax}</span></div>`;
             breakdownEl.innerHTML = `${adultRow}${childRow ? childRow : ''}${minPaxRow}`;
         }
     },
 
     renderGalleryImmediate: (tripId) => {
-        const els = { gallery: document.getElementById('gallery-grid'), bg: document.getElementById('hero-bg') };
+        const els = { gallery: document.getElementById('gallery-grid'), bg: document.getElementById('hero-bg-img') };
         if (!els.gallery) return;
         const ctx = window.ImagePaths ? window.ImagePaths.resolveTripContext({ trip_id: tripId }) : { location: '', category: '', tripId };
         const __parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
@@ -394,6 +466,8 @@ const DetailsRenderer = {
         if (Array.isArray(list) && list.length > 0) {
             list.forEach(src => DetailsRenderer.appendGalleryItem(src, els.gallery, els.bg));
         }
+        const slides = [posterSrc, ...(Array.isArray(list) ? list : [])];
+        if (els.bg) DetailsRenderer.startAutoHero(slides, els.bg, 0);
     },
 
     appendGalleryItem: (src, container, bgEl) => {
@@ -410,10 +484,7 @@ const DetailsRenderer = {
         `;
 
         wrapper.onclick = () => {
-            if (bgEl) {
-                bgEl.style.backgroundImage = `url('${src}')`;
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+            DetailsRenderer.setHeroImage(bgEl, src, container);
         };
 
         container.appendChild(wrapper);
@@ -460,6 +531,35 @@ const DetailsRenderer = {
             `;
         }).join('');
         container.innerHTML = html;
+    },
+    setupFaqAccordion: () => {
+        const items = document.querySelectorAll('.faq-item');
+        if (!items.length) return;
+        items.forEach((item) => {
+            const btn = item.querySelector('.faq-toggle');
+            const answer = item.querySelector('.faq-answer');
+            const icon = item.querySelector('.faq-icon');
+            if (!btn || !answer) return;
+            if (btn.dataset.bound === 'true') return;
+            btn.dataset.bound = 'true';
+            btn.setAttribute('aria-expanded', 'false');
+            answer.style.maxHeight = '0px';
+            item.classList.remove('is-open');
+            btn.addEventListener('click', () => {
+                const isOpen = btn.getAttribute('aria-expanded') === 'true';
+                if (isOpen) {
+                    btn.setAttribute('aria-expanded', 'false');
+                    answer.style.maxHeight = '0px';
+                    item.classList.remove('is-open');
+                    if (icon) icon.classList.remove('rotate-45');
+                    return;
+                }
+                btn.setAttribute('aria-expanded', 'true');
+                item.classList.add('is-open');
+                answer.style.maxHeight = `${answer.scrollHeight}px`;
+                if (icon) icon.classList.add('rotate-45');
+            });
+        });
     }
 };
 

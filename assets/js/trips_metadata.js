@@ -20,6 +20,7 @@
     vip_cena_romantica: 11,
 
     // --- SHARM Culture ---
+    sharm_old_market_ultimate_shopping: 4,
     cairo_plane_flexible_museum: 9,
     cairo_bus_adventure_choice: 9,
     santa_caterina_monastery_morning: 6,

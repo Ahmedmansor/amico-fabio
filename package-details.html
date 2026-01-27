@@ -166,6 +166,7 @@
             </button>
         </div>
     </main>
+    <div id="faq-section-container"></div>
     <footer id="global-footer"></footer>
     <div id="invoice-modal"
         class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4">
@@ -300,11 +301,18 @@
     <script type="module" src="assets/js/features/packages/packages.view.js"></script>
     <script type="module" src="assets/js/features/packages/packages.controller.js"></script>
     <script type="module" src="assets/js/modules/global-footer.js"></script>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             if (window.UILayout) window.UILayout.init();
             if (window.PackagesController) window.PackagesController.init();
+        });
+    </script>
+    <script type="module">
+        import { initFaqSection } from './assets/js/modules/faq-loader.js';
+
+        // الحل: نستخدم Arrow Function عشان نمنع تمرير الـ Event
+        document.addEventListener('DOMContentLoaded', () => {
+            initFaqSection();
         });
     </script>
 </body>

@@ -6,7 +6,43 @@ window.i18nIt = {
     commandments: "10 Comandamenti",
     blog: "Blog"
   },
-
+  faq: {
+    headline: "Domande Frequenti & Consigli",
+    items: [
+      {
+        q: "Devo pagare tutto in anticipo online?",
+        a: "Assolutamente no. Con Fabio Egypt la fiducia è tutto. Solitamente chiediamo un piccolo acconto per bloccare i posti (specialmente per le barche VIP), e il saldo si fa comodamente al tuo arrivo a Sharm, in contanti o valuta locale. Nessun rischio, zero stress."
+      },
+      {
+        q: "Come so l'orario esatto del prelievo?",
+        a: "Dimentica l'ansia da attesa! La sera prima di ogni escursione, riceverai un messaggio WhatsApp personale da Fabio con l'orario preciso, il punto d'incontro e i dettagli del transfer. Organizzazione svizzera, cuore egiziano."
+      },
+      {
+        q: "Cosa succede se cambio piani o mi ammalo?",
+        a: "Siamo umani, non robot! Se hai un imprevisto, scrivici subito su WhatsApp. Faremo del nostro meglio per spostare la tua escursione senza costi extra. ⚠️ Unica eccezione: Per i voli (Cairo/Luxor) dipendiamo dalle compagnie aeree, quindi non possiamo rimborsare i biglietti aerei."
+      },
+      {
+        q: "Serve il Visto per le escursioni?",
+        a: "Attenzione: Se resti a Sharm (es. Safari, Motorata), il timbro gratuito 'Only Sinai' è sufficiente. Ma se scegli 'Il Grande Blu' (Ras Mohammed via terra) o vai al Cairo/Luxor, devi fare il Visto Egitto (25$) in arrivo. Chiedici se hai dubbi!"
+      },
+      {
+        q: "Cosa devo mettere in valigia?",
+        a: "Parola d'ordine: Comodità. Deserto: scarpe chiuse, occhiali e sciarpa. Mare: costume e crema solare. Insider Tip: Porta sempre una felpa leggera, anche d'estate, per l'aria condizionata nei bus o il fresco del deserto la sera."
+      },
+      {
+        q: "Meglio Euro o Valuta Locale?",
+        a: "Insider Tip: Porta gli Euro per pagare hotel ed escursioni (accettati ovunque). Cambia una piccola somma in Lire Egiziane per le piccole spese: taxi, mance e market. Pagare in valuta locale le piccole cose ti fa risparmiare molto!"
+      },
+      {
+        q: "Internet e Wi-Fi?",
+        a: "Il Wi-Fi degli hotel spesso è lento. Consiglio d'oro: Compra una SIM dati (Vodafone o Etisalat) direttamente in aeroporto all'arrivo. Costa poco e avrai internet veloce ovunque."
+      },
+      {
+        q: "È sicuro mangiare e bere?",
+        a: "Bevi SOLO acqua in bottiglia sigillata (anche per lavarti i denti). Per il cibo, durante le nostre escursioni selezioniamo solo ristoranti certificati con standard igienici europei."
+      }
+    ]
+  },
 
   fab: {
     contact: "Contatti",

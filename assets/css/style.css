@@ -3533,6 +3533,42 @@ assets/css/
    14. Trips Details Page Specifics
    ========================================= */
 
+.details-page #hero-bg-img {
+  transition: opacity 350ms ease, transform 600ms ease;
+}
+
+.details-page #detail-title {
+  letter-spacing: 0.01em;
+}
+
+.details-page .price-icon {
+  font-size: 0.85em;
+  line-height: 1;
+}
+
+.details-page .price-icon-img {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  filter: brightness(0) invert(1);
+}
+
+.details-page #hero-bg-img.hero-img-animate {
+  animation: heroImageFade 600ms ease;
+}
+
+@keyframes heroImageFade {
+  0% {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* تحسينات عامة للصفحة */
 body.details-page {
   background-color: #050505;
@@ -3543,6 +3579,30 @@ body.details-page {
 /* تدرج الخلفية في الهيرو */
 .details-page .hero-overlay {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(5, 5, 5, 1) 100%);
+}
+
+.details-page #faq-accordion .faq-toggle,
+.package-details-page #faq-accordion .faq-toggle {
+  text-align: left;
+}
+
+.details-page #faq-accordion .faq-q,
+.package-details-page #faq-accordion .faq-q {
+  line-height: 1.5;
+}
+
+.details-page #faq-accordion .faq-answer,
+.package-details-page #faq-accordion .faq-answer {
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+  transition: max-height 300ms ease, opacity 200ms ease;
+}
+
+.details-page #faq-accordion .faq-item.is-open .faq-answer,
+.package-details-page #faq-accordion .faq-item.is-open .faq-answer {
+  padding-bottom: 1.25rem;
+  opacity: 1;
 }
 
 /* أنيميشن الظهور (Fade Up) - بديل خفيف لـ AOS */
