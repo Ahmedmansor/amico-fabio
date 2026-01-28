@@ -1,4 +1,47 @@
 const PackagesView = {
+  state: {
+    modalAutoTimer: null,
+    modalAutoList: [],
+    modalAutoIndex: 0
+  },
+
+  applyHeroImage: (imgEl, src) => {
+    if (!imgEl || !src) return;
+    imgEl.classList.remove("hero-img-animate");
+    void imgEl.offsetWidth;
+    imgEl.src = src;
+    imgEl.classList.add("hero-img-animate");
+  },
+
+  startAutoModalHero: (slides, imgEl, startIndex = 0) => {
+    if (!imgEl || !Array.isArray(slides) || slides.length < 2) return;
+    if (PackagesView.state.modalAutoTimer) {
+      clearInterval(PackagesView.state.modalAutoTimer);
+      PackagesView.state.modalAutoTimer = null;
+    }
+    PackagesView.state.modalAutoList = slides.slice();
+    PackagesView.state.modalAutoIndex = Math.max(
+      0,
+      Math.min(startIndex, slides.length - 1)
+    );
+    PackagesView.state.modalAutoTimer = setInterval(() => {
+      const list = PackagesView.state.modalAutoList || [];
+      if (!list.length) return;
+      const next = (PackagesView.state.modalAutoIndex + 1) % list.length;
+      PackagesView.state.modalAutoIndex = next;
+      PackagesView.applyHeroImage(imgEl, list[next]);
+    }, 2000);
+  },
+
+  setModalHeroImage: (imgEl, src) => {
+    if (!imgEl || !src) return;
+    PackagesView.applyHeroImage(imgEl, src);
+    const list = PackagesView.state.modalAutoList || [];
+    if (list.length) {
+      const idx = list.indexOf(src);
+      PackagesView.startAutoModalHero(list, imgEl, idx >= 0 ? idx : 0);
+    }
+  },
   renderNotFound: (i18n, lang) => {
     const dict = i18n.global || {};
     const msg =
@@ -97,12 +140,13 @@ const PackagesView = {
   },
 
   setupHero: (posterSrc, ctx, isPackage, tripId) => {
-    const bgEl = document.getElementById("hero-bg");
+    const bgEl = document.getElementById("hero-bg-img");
     const fallbackSrc = window.ImagePaths
       ? window.ImagePaths.ui.fallbackLogo
       : "assets/images/logo/logo-fabio-square.webp";
     if (bgEl) {
-      bgEl.style.backgroundImage = "url('" + posterSrc + "')";
+      bgEl.src = posterSrc;
+      bgEl.classList.add("hero-img-animate");
       if (
         !isPackage &&
         window.ImagePaths &&
@@ -111,13 +155,15 @@ const PackagesView = {
         window.ImagePaths
           .resolvePosterOrPlaceholder(ctx.location, ctx.category, tripId)
           .then((src) => {
-            bgEl.style.backgroundImage = "url('" + src + "')";
+            bgEl.src = src;
+            bgEl.classList.add("hero-img-animate");
           });
       } else {
         const imgTest = new Image();
         imgTest.src = posterSrc;
         imgTest.onerror = () => {
-          bgEl.style.backgroundImage = "url('" + fallbackSrc + "')";
+          bgEl.src = fallbackSrc;
+          bgEl.classList.add("hero-img-animate");
         };
       }
     }
@@ -231,7 +277,7 @@ const PackagesView = {
 
   setupGallery: (apiData, imagesData, tripId) => {
     const galleryEl = document.getElementById("gallery-grid");
-    const bgEl = document.getElementById("hero-bg");
+    const bgEl = document.getElementById("hero-bg-img");
     if (!galleryEl || galleryEl.children.length > 0) return;
     const ctx = imagesData.ctx;
     const posterSrc = imagesData.posterSrc;
@@ -250,10 +296,20 @@ const PackagesView = {
           total
         )
         : [];
-    PackagesView.createGalleryThumb(posterSrc, galleryEl, bgEl, "w-40 h-24");
+    PackagesView.createGalleryThumb(
+      posterSrc,
+      galleryEl,
+      bgEl,
+      "w-32 h-32 md:w-40 md:h-40"
+    );
     if (Array.isArray(list) && list.length > 0) {
       list.forEach((src) => {
-        PackagesView.createGalleryThumb(src, galleryEl, bgEl, "w-40 h-24");
+        PackagesView.createGalleryThumb(
+          src,
+          galleryEl,
+          bgEl,
+          "w-32 h-32 md:w-40 md:h-40"
+        );
       });
     }
   },
@@ -394,9 +450,6 @@ const PackagesView = {
     PackagesView.populateModalHero(tripId, apiTrip, lang, langTrip);
     PackagesView.populateModalInfo(tripId, langTrip, globalDict);
     PackagesView.populateModalLists(langTrip);
-    PackagesView.populateModalPrice(apiTrip, globalDict);
-
-
     modal.classList.remove("hidden");
 
     const scrollableContainer = modal.querySelector('.overflow-y-auto');
@@ -412,13 +465,13 @@ const PackagesView = {
   },
 
   populateModalHero: (tripId, apiTrip, lang, langTrip) => {
-    const heroEl = document.getElementById("included-trip-modal-hero");
+    const heroEl = document.getElementById("included-trip-modal-hero-img");
     const galleryEl = document.getElementById("included-trip-modal-gallery");
     const badgeEl = document.getElementById("included-trip-badge");
     const images = PackagesView.getImagesForTrip(tripId, apiTrip);
     const posterSrc = images[0];
     if (heroEl) {
-      heroEl.style.backgroundImage = "url('" + posterSrc + "')";
+      PackagesView.applyHeroImage(heroEl, posterSrc);
       const ctx = window.ImagePaths
         ? window.ImagePaths.resolveTripContext({
           trip_id: tripId,
@@ -432,7 +485,7 @@ const PackagesView = {
         window.ImagePaths
           .resolvePosterOrPlaceholder(ctx.location, ctx.category, tripId)
           .then((src) => {
-            heroEl.style.backgroundImage = "url('" + src + "')";
+            PackagesView.applyHeroImage(heroEl, src);
           });
       }
     }
@@ -455,8 +508,14 @@ const PackagesView = {
       galleryEl.innerHTML = "";
       const uniqueImages = [...new Set(images)].filter(Boolean);
       uniqueImages.forEach((src) => {
-        PackagesView.createGalleryThumb(src, galleryEl, heroEl, "w-24 h-16");
+        PackagesView.createGalleryThumb(
+          src,
+          galleryEl,
+          heroEl,
+          "w-24 h-24 md:w-28 md:h-28"
+        );
       });
+      PackagesView.startAutoModalHero(uniqueImages, heroEl, 0);
     }
   },
 
@@ -469,15 +528,7 @@ const PackagesView = {
     if (titleEl) titleEl.textContent = langTrip.title || tripId;
     const daily =
       typeof globalDict.daily === "string" ? globalDict.daily : "";
-    if (durEl) {
-      durEl.innerHTML =
-        '<svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
-        '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>' +
-        "</svg>" +
-        "<span>" +
-        (langTrip.duration || daily) +
-        "</span>";
-    }
+    if (durEl) durEl.textContent = langTrip.duration || daily;
     if (descEl) descEl.textContent = langTrip.short_desc || "";
     if (fullDescEl) fullDescEl.innerHTML = langTrip.full_description || "";
     if (importantEl) importantEl.textContent = langTrip.important_notes || "";
@@ -693,13 +744,22 @@ const PackagesView = {
     btn.type = "button";
     btn.className =
       classes +
-      " rounded-lg overflow-hidden bg-gray-800 flex-shrink-0 border border-gray-700 hover:border-gold transition";
+      " relative rounded-xl overflow-hidden bg-gray-900 flex-shrink-0 border border-gray-100 shadow-md snap-center group transition";
     btn.innerHTML =
       '<img src="' +
       src +
-      '" class="w-full h-full object-cover" loading="lazy">';
+      '" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110" loading="lazy">' +
+      '<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">' +
+      '<svg class="w-8 h-8 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>' +
+      "</div>";
     btn.addEventListener("click", () => {
-      if (bgEl) bgEl.style.backgroundImage = "url('" + src + "')";
+      if (!bgEl) return;
+      const tag = bgEl.tagName ? bgEl.tagName.toLowerCase() : "";
+      if (tag === "img") {
+        PackagesView.setModalHeroImage(bgEl, src);
+      } else {
+        bgEl.style.backgroundImage = "url('" + src + "')";
+      }
     });
     host.appendChild(btn);
   },
@@ -712,6 +772,10 @@ const PackagesView = {
       modal.classList.add("hidden");
       if (document && document.body) {
         document.body.style.overflow = "";
+      }
+      if (PackagesView.state.modalAutoTimer) {
+        clearInterval(PackagesView.state.modalAutoTimer);
+        PackagesView.state.modalAutoTimer = null;
       }
     };
     if (closeBtn && !closeBtn.__bound) {
@@ -728,4 +792,3 @@ const PackagesView = {
 };
 
 window.PackagesView = PackagesView;
-

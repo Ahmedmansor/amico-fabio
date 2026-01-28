@@ -3533,11 +3533,15 @@ assets/css/
    14. Trips Details Page Specifics
    ========================================= */
 
-.details-page #hero-bg-img {
+.details-page #hero-bg-img,
+.package-details-page #hero-bg-img,
+.package-details-page #included-trip-modal-hero-img {
   transition: opacity 350ms ease, transform 600ms ease;
 }
 
-.details-page #detail-title {
+.details-page #detail-title,
+.package-details-page #detail-title,
+.package-details-page #included-trip-title {
   letter-spacing: 0.01em;
 }
 
@@ -3553,7 +3557,9 @@ assets/css/
   filter: brightness(0) invert(1);
 }
 
-.details-page #hero-bg-img.hero-img-animate {
+.details-page #hero-bg-img.hero-img-animate,
+.package-details-page #hero-bg-img.hero-img-animate,
+.package-details-page #included-trip-modal-hero-img.hero-img-animate {
   animation: heroImageFade 600ms ease;
 }
 
