@@ -326,9 +326,15 @@ const BookingManager = {
   calculateTotal: () => {
     const { adult, child } = BookingManager.utils.getPrices(BookingManager.state.apiData);
     let total = (BookingManager.state.adults * adult) + (BookingManager.state.children * child);
+
+    const paxCount = BookingManager.state.adults + BookingManager.state.children;
+
     BookingManager.state.selectedAddons.forEach(id => {
       const addon = BookingManager.state.addons.find(a => a.addon_id === id);
-      if (addon) total += parseFloat(addon.price || 0);
+      if (addon) {
+        const addonPrice = parseFloat(addon.price || 0);
+        total += (addonPrice * paxCount);
+      }
     });
     const totalEl = document.getElementById('live-total-price');
     if (totalEl) totalEl.textContent = BookingManager.utils.formatEUR(total);

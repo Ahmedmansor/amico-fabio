@@ -223,14 +223,30 @@ const PackagesView = {
     const dChild = apiData ? parseFloat(apiData.d_child || "0") : 0;
     const minPax = apiData ? parseInt(apiData.min_pax || "1", 10) : 1;
     const priceEl = document.getElementById("detail-price");
+    const iconMarkup = (key, fallback) => {
+      const icons =
+        window.ImagePaths &&
+          window.ImagePaths.icons &&
+          window.ImagePaths.icons.people
+          ? window.ImagePaths.icons.people
+          : null;
+      const src = icons && icons[key] ? icons[key] : "";
+      return src
+        ? '<img src="' + src + '" alt="" class="price-icon-img">'
+        : '<span class="price-icon">' + fallback + "</span>";
+    };
     const adultHero =
       dAdult > 0
-        ? '<span class="inline-flex items-center gap-2"><span>👤</span><span class="line-through text-gray-400">€' +
+        ? '<span class="inline-flex items-center gap-2">' +
+        iconMarkup("personMale", "👤") +
+        '<span class="line-through text-gray-400">€' +
         pAdult +
         '</span><span class="text-gold font-bold">€' +
         dAdult +
         "</span></span>"
-        : '<span class="inline-flex items-center gap-2"><span>👤</span><span class="text-gold font-bold">€' +
+        : '<span class="inline-flex items-center gap-2">' +
+        iconMarkup("personMale", "👤") +
+        '<span class="text-gold font-bold">€' +
         pAdult +
         "</span></span>";
     if (priceEl) priceEl.innerHTML = adultHero;
@@ -245,28 +261,38 @@ const PackagesView = {
       const lblMinPax = pricingDict.min_pax || "Min Pax";
       const adultRow =
         dAdult > 0
-          ? '<div class="flex items-center gap-2"><span>👤</span><span class="line-through text-gray-400">€' +
+          ? '<div class="flex items-center gap-2">' +
+          iconMarkup("personMale", "👤") +
+          '<span class="line-through text-gray-400">€' +
           pAdult +
           '</span><span class="text-white font-bold">€' +
           dAdult +
           "</span></div>"
-          : '<div class="flex items-center gap-2"><span>👤</span><span class="text-white font-bold">€' +
+          : '<div class="flex items-center gap-2">' +
+          iconMarkup("personMale", "👤") +
+          '<span class="text-white font-bold">€' +
           pAdult +
           "</span></div>";
       const childRow =
         dChild > 0 || pChild > 0
           ? dChild > 0
-            ? '<div class="flex items-center gap-2"><span>👶</span><span class="line-through text-gray-400">€' +
+            ? '<div class="flex items-center gap-2">' +
+            iconMarkup("child", "👶") +
+            '<span class="line-through text-gray-400">€' +
             pChild +
             '</span><span class="text-white font-bold">€' +
             dChild +
             "</span></div>"
-            : '<div class="flex items-center gap-2"><span>👶</span><span class="text-white font-bold">€' +
+            : '<div class="flex items-center gap-2">' +
+            iconMarkup("child", "👶") +
+            '<span class="text-white font-bold">€' +
             pChild +
             "</span></div>"
           : "";
       const minPaxRow =
-        '<div class="flex items-center gap-2"><span>👥</span><span class="text-gray-300">' +
+        '<div class="flex items-center gap-2">' +
+        iconMarkup("persons", "👥") +
+        '<span class="text-gray-300">' +
         lblMinPax +
         ": " +
         minPax +

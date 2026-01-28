@@ -3550,7 +3550,8 @@ assets/css/
   line-height: 1;
 }
 
-.details-page .price-icon-img {
+.details-page .price-icon-img,
+.package-details-page .price-icon-img {
   width: 14px;
   height: 14px;
   display: inline-block;
@@ -3561,6 +3562,20 @@ assets/css/
 .package-details-page #hero-bg-img.hero-img-animate,
 .package-details-page #included-trip-modal-hero-img.hero-img-animate {
   animation: heroImageFade 600ms ease;
+}
+
+.details-page .gallery-thumb.is-active {
+  border-color: #d4af37;
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.6), 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.details-page .gallery-thumb.is-active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(212, 175, 55, 0.9);
+  border-radius: 0.75rem;
+  pointer-events: none;
 }
 
 @keyframes heroImageFade {

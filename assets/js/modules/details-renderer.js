@@ -102,7 +102,24 @@ const DetailsRenderer = {
         bgEl.classList.add('hero-img-animate');
     },
 
-    startAutoHero: (slides, bgEl, startIndex = 0) => {
+    setGalleryActive: (container, src, shouldScroll = true) => {
+        if (!container || !src) return;
+        const items = Array.from(container.querySelectorAll('.gallery-thumb'));
+        items.forEach(item => item.classList.remove('is-active'));
+        const match = container.querySelector(`img[src="${src}"]`);
+        const item = match ? match.closest('.gallery-thumb') : null;
+        if (item) {
+            item.classList.add('is-active');
+            if (shouldScroll) {
+                const containerWidth = container.clientWidth || 0;
+                const itemWidth = item.offsetWidth || 0;
+                const left = item.offsetLeft - Math.max(0, (containerWidth - itemWidth) / 2);
+                container.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+            }
+        }
+    },
+
+    startAutoHero: (slides, bgEl, startIndex = 0, container = null) => {
         if (!bgEl || !Array.isArray(slides) || slides.length < 2) return;
         if (DetailsRenderer.state.autoTimer) {
             clearInterval(DetailsRenderer.state.autoTimer);
@@ -116,6 +133,7 @@ const DetailsRenderer = {
             const next = (DetailsRenderer.state.autoIndex + 1) % list.length;
             DetailsRenderer.state.autoIndex = next;
             DetailsRenderer.applyHeroImage(bgEl, list[next]);
+            DetailsRenderer.setGalleryActive(container, list[next], true);
         }, 2000);
     },
 
@@ -125,15 +143,9 @@ const DetailsRenderer = {
         const list = DetailsRenderer.state.autoList || [];
         if (list.length) {
             const idx = list.indexOf(src);
-            DetailsRenderer.startAutoHero(list, bgEl, idx >= 0 ? idx : 0);
+            DetailsRenderer.startAutoHero(list, bgEl, idx >= 0 ? idx : 0, container);
         }
-        if (container) {
-            const match = container.querySelector(`img[src="${src}"]`);
-            const item = match ? match.closest('div') : null;
-            if (item && typeof item.scrollIntoView === 'function') {
-                item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-            }
-        }
+        DetailsRenderer.setGalleryActive(container, src, true);
     },
 
     render: (tripId, apiData, langData, lang) => {
@@ -283,7 +295,8 @@ const DetailsRenderer = {
                 }
             }
         }
-        if (els.bg) DetailsRenderer.startAutoHero(slides, els.bg, 0);
+        if (els.bg) DetailsRenderer.startAutoHero(slides, els.bg, 0, els.gallery);
+        DetailsRenderer.setGalleryActive(els.gallery, posterSrc, false);
         try {
             const cachedObjStr = sessionStorage.getItem('fabio_data_cache') || sessionStorage.getItem('fabio_trips_cache');
             let addonsList = [];
@@ -398,7 +411,8 @@ const DetailsRenderer = {
                 }
             }
         }
-        if (els.bg) DetailsRenderer.startAutoHero(slides, els.bg, 0);
+        if (els.bg) DetailsRenderer.startAutoHero(slides, els.bg, 0, els.gallery);
+        DetailsRenderer.setGalleryActive(els.gallery, posterSrc, false);
         const dictBtn = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
         const bookNow = dictBtn && dictBtn.global && typeof dictBtn.global.book_now === 'string' ? dictBtn.global.book_now : '';
         if (els.btnBook) els.btnBook.textContent = bookNow;
@@ -467,7 +481,8 @@ const DetailsRenderer = {
             list.forEach(src => DetailsRenderer.appendGalleryItem(src, els.gallery, els.bg));
         }
         const slides = [posterSrc, ...(Array.isArray(list) ? list : [])];
-        if (els.bg) DetailsRenderer.startAutoHero(slides, els.bg, 0);
+        if (els.bg) DetailsRenderer.startAutoHero(slides, els.bg, 0, els.gallery);
+        DetailsRenderer.setGalleryActive(els.gallery, posterSrc, false);
     },
 
     appendGalleryItem: (src, container, bgEl) => {
@@ -475,7 +490,7 @@ const DetailsRenderer = {
         if (exists) return;
         const wrapper = document.createElement('div');
         // Horizontal Scroll Item Styling
-        wrapper.className = "flex-shrink-0 w-32 h-32 md:w-40 md:h-40 aspect-square rounded-xl overflow-hidden cursor-pointer relative group border border-gray-100 shadow-md snap-center";
+        wrapper.className = "gallery-thumb flex-shrink-0 w-32 h-32 md:w-40 md:h-40 aspect-square rounded-xl overflow-hidden cursor-pointer relative group border border-gray-100 shadow-md snap-center";
         wrapper.innerHTML = `
             <img src="${src}" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
             <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">

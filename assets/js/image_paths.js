@@ -64,7 +64,7 @@
     const id = normalizeParam(tripId);
 
     const explicitDesertIds = ['vip_cena_romantica'];
-    const explicitCultureIds = ['sharm_old_market_ultimate_shopping'];
+    const explicitCultureIds = ['sharm_old_market_ultimate_shopping', 'mount_sinai_sunrise_adventure', 'santa_caterina_monastery_morning'];
     if (explicitDesertIds.some(k => id === k)) return 'desert';
     if (explicitCultureIds.some(k => id === k)) return 'culture';
 
