@@ -1,4 +1,23 @@
+import faqHtml from '../../partials/faq-section.html?raw';
+
+console.log('🚀 FAQ Module Loaded');
+console.log('📄 HTML Content Length:', faqHtml ? faqHtml.length : 'UNDEFINED');
+
 export function initFaqSection(containerId = 'faq-section-container') {
+    console.log('🏁 initFaqSection called for:', containerId);
+    const host = document.getElementById(containerId);
+    if (!host) {
+        console.error('❌ Error: Container element not found:', containerId);
+        return;
+    }
+    if (host.dataset.loaded === 'true') return;
+    if (!faqHtml) {
+        console.error('❌ Error: faqHtml is empty or undefined');
+        return;
+    }
+    host.innerHTML = faqHtml;
+    host.dataset.loaded = 'true';
+
     const getLang = () => localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
     const getDataset = (lang) => (lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {}));
     const getValueByPath = (root, path) => {
@@ -16,8 +35,6 @@ export function initFaqSection(containerId = 'faq-section-container') {
         return value;
     };
     const applyFaqTranslations = () => {
-        const host = document.getElementById(containerId);
-        if (!host) return;
         const lang = getLang();
         const dataset = getDataset(lang);
         host.querySelectorAll('[data-i18n]').forEach((el) => {
@@ -33,7 +50,7 @@ export function initFaqSection(containerId = 'faq-section-container') {
             window.DetailsRenderer.setupFaqAccordion();
             return;
         }
-        const items = document.querySelectorAll('.faq-item');
+        const items = host.querySelectorAll('.faq-item');
         if (!items.length) return;
         items.forEach((item) => {
             const btn = item.querySelector('.faq-toggle');
@@ -61,31 +78,7 @@ export function initFaqSection(containerId = 'faq-section-container') {
             });
         });
     };
-    const loadFaqSection = () => {
-        const host = document.getElementById(containerId);
-        if (!host || host.dataset.loaded === 'true') return;
-        const parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
-        const repo = parts.filter(Boolean)[0] || '';
-        const fallbackBase = repo ? `/${repo}/` : '/';
-        const base = (typeof window !== 'undefined' && window.FABIO_BASE_URL) || fallbackBase;
-        fetch(`${base}assets/partials/faq-section.html`).then((res) => {
-            if (!res.ok) return '';
-            return res.text();
-        }).then((html) => {
-            if (!html) return;
-            host.innerHTML = html;
-            host.dataset.loaded = 'true';
-            applyFaqTranslations();
-            setupFaqAccordion();
-        }).catch(() => { });
-    };
-    const ensureLoaded = () => {
-        loadFaqSection();
-    };
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', ensureLoaded);
-    } else {
-        ensureLoaded();
-    }
+    applyFaqTranslations();
+    setupFaqAccordion();
     window.addEventListener('langChanged', applyFaqTranslations);
 }

@@ -216,10 +216,17 @@
     <script type="module">
         import { initFaqSection } from './assets/js/modules/faq-loader.js';
 
-        // الحل: نستخدم Arrow Function عشان نمنع تمرير الـ Event
-        document.addEventListener('DOMContentLoaded', () => {
+        console.log('Trying to init FAQ...');
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                console.log('DOM ready, initializing FAQ...');
+                initFaqSection();
+            });
+        } else {
+            console.log('DOM already loaded, initializing FAQ immediately...');
             initFaqSection();
-        });
+        }
     </script>
 </body>
 
