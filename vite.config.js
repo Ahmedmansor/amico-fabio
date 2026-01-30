@@ -2,12 +2,12 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
 export default defineConfig({
-  base: '/amico-fabio/',
+  base: '/',
 
   // 👇 الإضافة السحرية: دي بتزرع المتغير جوه كود الجافاسكريبت
   define: {
-    '__BASE': JSON.stringify('/amico-fabio/'),
-    // أو لو عايزها أوتوماتيك ممكن تكتب: JSON.stringify(process.env.BASE_URL || '/amico-fabio/')
+    // 👇 لازم دي كمان تبقى شرطة بس، عشان إحنا بقينا ع الدومين الرئيسي
+    '__BASE': JSON.stringify('/'),
   },
 
   build: {

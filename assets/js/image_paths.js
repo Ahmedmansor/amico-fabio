@@ -1,9 +1,13 @@
 ; (function () {
-  const parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
-  const repo = parts.filter(Boolean)[0] || '';
-  const fallbackBase = repo ? `/${repo}/` : '/';
-  const BASE = (typeof window !== 'undefined' && window.FABIO_BASE_URL) || fallbackBase;
-  const p = (path) => BASE + path;
+  // بما إننا على دومين رئيسي، المسار دايماً هو الروت
+  const BASE = '/';
+
+  // دالة بسيطة بتلزق المسار
+  const p = (path) => {
+    // لو المسار أصلاً بيبدأ بـ / شيلها عشان منكررهاش
+    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+    return BASE + cleanPath;
+  };
 
   // --- Helper Functions ---
   function normalizeParam(v) {
