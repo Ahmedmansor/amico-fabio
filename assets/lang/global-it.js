@@ -58,6 +58,48 @@ window.i18nIt = {
     brand_subtitle: "Guida Turistica Ufficiale",
     vip_experiences: "Esperienze VIP a Sharm El Sheikh",
     who_is_fabio_btn: "Chi è Fabio",
+    who_is_fabio_content: `
+        <p>Cari ospiti,</p>
+
+        <p>A Sharm El Sheikh troverete centinaia di venditori che vi offriranno "il prezzo più basso". Io ho fatto una scelta diversa: <strong>offrirvi la qualità più alta</strong>.</p>
+
+        <p>Il mio catalogo non contiene tutto, ma solo il meglio. Ho selezionato personalmente ogni barca, ogni guida e ogni angolo di deserto per garantirvi tre cose che non hanno prezzo: <strong>Sicurezza, Privacy e Magia</strong>.</p>
+
+       
+
+        <p style="margin-top: 20px; font-style: italic; color: #fff;">Chi è Fabio? Più di un amico, un’istituzione.</p>
+
+        <p>Affidare la propria vacanza a qualcuno è una questione di fiducia. Ecco perché sono diverso:</p>
+
+
+
+        <span class="wf-text-highlight">Eccellenza & Legalità</span>
+
+        <p>Laureato in Lingue (Al-Alsun) e Guida Ufficiale autorizzata dal Ministero. A Sharm, dove l'abusivismo è diffuso, scegliere me significa scegliere la competenza certificata.</p>
+
+
+
+        <span class="wf-text-highlight">Servizio VIP (Assistente di Volo)</span>
+
+        <p>Il mio altro ufficio è "il cielo". Come Assistente di Volo, unisco il calore dell'ospitalità egiziana alla precisione degli standard internazionali.</p>
+
+
+
+        <span class="wf-text-highlight">Ospiti, Non Numeri</span>
+
+        <p>Mentre altri vi stipano in bus affollati, io scelgo la concretezza: Auto privata, flessibilità totale e zero sorprese.</p>
+
+
+
+        <span class="wf-text-highlight">Il Valore dei Ricordi</span>
+
+        <p>Ricordate: un'escursione rovinata per risparmiare pochi euro... alla fine costa molto cara.</p>
+
+
+
+        <span class="wf-quote">"La qualità ha un prezzo, ma i vostri ricordi più belli non hanno prezzo."</span>
+
+      `,
     book_now: "Prenota ora",
     book_package_now: "Prenota il pacchetto",
     discover: "Scopri",
@@ -1354,73 +1396,73 @@ window.i18nIt = {
         "Escursione Completa Sharm"
       ]
     },
-    vip_romantic_dinner_desert: {
-      "tour_id": "vip_romantic_dinner_desert",
-      "title": "Cena Romantica VIP: Mille e Una Notte",
-      "short_desc": "L'esperienza più esclusiva di Sharm. Una cena privata nel cuore del deserto, sotto un tappeto di stelle. Solo per coppie e occasioni speciali.",
-      "duration": "4-5 Ore (Serata Privata)",
-      "highlights": [
-        "Privacy Assoluta: Niente gruppi, niente caos, solo voi due",
-        "Trasferimento Privato con auto di lusso",
-        "Tenda/Tavolo riservato a lume di candela",
-        "Menu 'A la Carte' con grigliata mista servita al tavolo",
-        "Ideale per: Proposte di matrimonio, Compleanni, Anniversari"
-      ],
-      "full_description": "Vuoi stupire la persona che ami? Dimentica le escursioni turistiche affollate. Ti portiamo dove il deserto diventa magia.\n\nQuesta serata è disegnata per chi cerca l'intimità e il 'Mazaag Aaly' (l'Alto Livello). Verrete prelevati da un'auto privata che vi porterà in un'area riservata, lontano dal rumore dei motori.\n\nLì, troverete il vostro angolo di paradiso: un tavolo apparecchiato elegantemente sulla sabbia, circondato da candele e lanterne. Il silenzio del deserto, il cielo stellato e una cena prelibata servita solo per voi renderanno questa notte indimenticabile. È il regalo perfetto che lei (o lui) non si aspetta.",
-      "program": [
-        {
-          "time": "17:00",
-          "activity": "Prelievo VIP",
-          "details": "L'autista privato verrà a prendervi in hotel (orario tramonto)."
-        },
-        {
-          "time": "17:45",
-          "activity": "Arrivo nel Silenzio",
-          "details": "Benvenuto esclusivo nell'area riservata. Atmosfera soft e relax."
-        },
-        {
-          "time": "18:15",
-          "activity": "Tramonto & Foto",
-          "details": "Il momento d'oro per scattare foto romantiche con il deserto che si tinge di rosso."
-        },
-        {
-          "time": "19:00",
-          "activity": "Cena a Lume di Candela",
-          "details": "Cena servita al tavolo (non buffet): Antipasti, Grigliata mista di carne, contorni e dolci orientali."
-        },
-        {
-          "time": "20:30",
-          "activity": "Le Stelle",
-          "details": "Tempo per sdraiarsi sui tappeti, guardare le stelle e godersi la pace assoluta."
-        },
-        {
-          "time": "21:30",
-          "activity": "Rientro",
-          "details": "Ritorno in hotel con auto privata."
-        }
-      ],
-      "includes": [
-        "Auto Privata A/R (Niente Bus)",
-        "Cena VIP servita al tavolo (Menu carne)",
-        "Bevande analcoliche illimitate",
-        "Allestimento romantico (Candele/Lanterne)",
-        "Servizio cameriere dedicato"
-      ],
-      "not_included": [
-        "Torta di compleanno (ordinabile extra)",
-        "Fiori o regali speciali (organizzabili su richiesta)",
-        "Mance",
-        "Alcolici"
-      ],
-      "important_notes": "Questa escursione richiede prenotazione anticipata per preparare l'allestimento esclusivo. Possibilità di aggiungere una breve passeggiata a cavallo o cammello al tramonto su richiesta.",
-      "seo_tags": [
-        "Cena Romantica Sharm",
-        "VIP Desert Dinner",
-        "Proposta Matrimonio Egitto",
-        "Serata Privata Sharm",
-        "Luxury Experience Sinai"
-      ]
-    },
+    moto_safari_quad_echo:{
+"tour_id": "moto_safari_quad_echo",
+"title": "Moto Safari: Quad, Tramonto & Valle dell'Eco",
+"short_desc": "Adrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.",
+"duration": "3 Ore (Partenza Pomeriggio)",
+"highlights": [
+"Guida avventurosa in Quad (Moto a 4 ruote)",
+"Sosta nella famosa 'Valle dell'Eco' (Prova a urlare!)",
+"Tè beduino in una tenda tradizionale",
+"Foto spettacolari al tramonto nel deserto",
+"Adatto a principianti ed esperti"
+],
+"full_description": "Il deserto non si guarda dalla finestra, si vive!\n\nPreparati a impolverarti e a sentire il vento in faccia. Ti porterò a guidare il Quad (moto a 4 ruote) attraverso le piste sabbiose e le rocce del Sinai. Non serve la patente, serve solo voglia di divertirsi.\n\nAttraverseremo paesaggi che sembrano Marte, fino ad arrivare alla magica 'Valle dell'Eco'. Qui le montagne 'rispondono': urla il tuo nome e senti la natura che ti parla. \n\nPoi, ci fermeremo in una tenda beduina vera per bere il tradizionale tè alla menta (Habbak) e guardare il sole che scende dietro le montagne, colorando tutto di rosso e oro. È il momento perfetto per le foto.",
+"program": [
+{
+"time": "15:30",
+"activity": "Prelievo",
+"details": "Pick-up in hotel e trasferimento al centro Quad."
+},
+{
+"time": "16:00",
+"activity": "Briefing",
+"details": "Istruzioni di guida e prova del Quad (sicurezza al 100%)."
+},
+{
+"time": "16:30",
+"activity": "L'Avventura",
+"details": "Inizia il safari! Guida nel deserto tra dune e rocce."
+},
+{
+"time": "17:15",
+"activity": "Valle dell'Eco",
+"details": "Sosta speciale per provare l'effetto eco e fare foto."
+},
+{
+"time": "17:45",
+"activity": "Tè Beduino",
+"details": "Relax in tenda con tè caldo al tramonto."
+},
+{
+"time": "18:30",
+"activity": "Rientro",
+"details": "Ritorno al centro e trasferimento in hotel."
+}
+],
+"includes": [
+"Transfer A/R (Bus/Minivan)",
+"Noleggio Quad (Singolo o Doppio)",
+"Guida specializzata nel deserto",
+"Tè Beduino"
+],
+"not_included": [
+"Kefiah (Sciarpa per la sabbia - Obbligatoria)",
+"Occhiali da sole/maschera (Obbligatori)",
+"Bevande extra (acqua/bibite)",
+"Foto professionali (facoltative)",
+"Mance"
+],
+"important_notes": "Dress Code: Porta occhiali da sole e una sciarpa (Kefiah) per coprirti dalla sabbia. Indossa vestiti comodi che si possono sporcare. I bambini sotto i 16 anni non guidano (vanno dietro con un adulto).",
+"seo_tags": [
+"Moto Safari Sharm",
+"Quad Tour Sinai",
+"Valle dell'Eco",
+"Tramonto Deserto",
+"Escursione Avventura"
+]
+},
     vip_cena_romantica: {
       "tour_id": "vip_cena_romantica",
       "title": "Cena Romantica VIP: Mille e Una Notte",

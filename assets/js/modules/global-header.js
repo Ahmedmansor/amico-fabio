@@ -170,15 +170,16 @@ const GlobalHeader = {
       e.preventDefault();
       const nav = target.getAttribute('data-nav');
       if (nav === 'home') {
-        window.location.href = basePath + 'index.html';
+        window.location.href = '/'; // ✅ كدة هيروح للروت علطول من غير زيادات
         return;
       }
       if (nav === 'trips') {
         const el = document.getElementById('trips-grid');
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
+          history.replaceState(null, null, ' ');
         } else {
-          window.location.href = basePath + 'index.html#trips-grid';
+          window.location.href = '/#trips-grid';
         }
         return;
       }
@@ -203,15 +204,16 @@ const GlobalHeader = {
         e.preventDefault();
         const nav = target.getAttribute('data-nav');
         if (nav === 'home') {
-          window.location.href = basePath + 'index.html';
+          window.location.href = '/'; // ✅ كدة هيروح للروت علطول من غير زيادات
           return;
         }
         if (nav === 'trips') {
           const el = document.getElementById('trips-grid');
           if (el) {
             el.scrollIntoView({ behavior: 'smooth' });
+            history.replaceState(null, null, ' ');
           } else {
-            window.location.href = basePath + 'index.html#trips-grid';
+            window.location.href = '/#trips-grid';
           }
           return;
         }

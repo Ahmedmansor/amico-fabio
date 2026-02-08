@@ -31,7 +31,7 @@
       'dinner_cruise_night_show', 'swim_with_dolphins_vip', 'water_sports_adrenaline_combo',
       'dahab_blue_hole_super_safari', 'albatros_aqua_park_full_day', 'dolphin_show_family',
       // Desert
-      'super_safari_5_senses', 'vip_romantic_dinner_desert', 'vip_cena_romantica',
+      'super_safari_5_senses', 'moto_safari_quad_echo', 'vip_cena_romantica',
       //'desert_quad_bike_safari'
       //culture
       'sharm_old_market_ultimate_shopping', 'mount_sinai_sunrise_adventure', 'santa_caterina_monastery_morning', 'cairo_bus_adventure_choice', 'cairo_plane_flexible_museum', 'petra_jordan_expedition',

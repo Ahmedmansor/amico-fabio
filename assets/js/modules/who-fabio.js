@@ -25,6 +25,7 @@ class WhoFabioParallax {
     this.onMouseMove = this.onMouseMove.bind(this);
     this.onOrientation = this.onOrientation.bind(this);
     this.onResize = this.onResize.bind(this);
+    this.onLangChanged = this.onLangChanged.bind(this);
     this.tick = this.tick.bind(this);
     this.requestOrientationPermission = this.requestOrientationPermission.bind(this);
 
@@ -42,6 +43,8 @@ class WhoFabioParallax {
     } else {
       this.attachBioInteractions();
     }
+
+    window.addEventListener('langChanged', this.onLangChanged);
   }
 
   onResize() {
@@ -98,6 +101,13 @@ class WhoFabioParallax {
       this.observer = null;
     }
     window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('langChanged', this.onLangChanged);
+  }
+
+  onLangChanged() {
+    if (!this.overlay) return;
+    if (!this.overlay.classList.contains('is-visible')) return;
+    this.setBioText();
   }
 
   onMouseMove(e) {
@@ -154,13 +164,12 @@ class WhoFabioParallax {
         e.stopPropagation();
         if (!this.active) return;
         console.log('WhoFabio: bio button clicked');
-        const lang = localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
-        const dict = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
-        const intro = dict && dict.secrets && dict.secrets.page6 && dict.secrets.page6.intro;
-        console.log('Target Text:', intro);
         setTimeout(() => this.setBioText(), 10);
         this.isBioActive = true;
         if (this.overlay) this.overlay.classList.add('is-visible');
+        if (this.overlayContent) {
+           this.overlayContent.scrollTop = 0;
+        }
       });
     }
     if (this.overlay) {
@@ -187,9 +196,13 @@ class WhoFabioParallax {
     if (!el) return;
     const lang = localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
     const dict = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
-    const intro = dict && dict.secrets && dict.secrets.page6 && dict.secrets.page6.intro;
-    if (typeof intro === 'string') {
-      el.innerText = intro;
+    const bioContent = dict && dict.global && dict.global.who_is_fabio_content;
+    if (typeof bioContent === 'string') {
+      if (bioContent.includes('<') && bioContent.includes('>')) {
+        el.innerHTML = bioContent;
+      } else {
+        el.textContent = bioContent;
+      }
     }
   }
   tick() {

@@ -201,6 +201,28 @@ window.i18nEn = {
     brand_subtitle: "Official Tour Guide",
     vip_experiences: "Sharm El Sheikh VIP Experiences",
     who_is_fabio_btn: "Who is Fabio",
+    who_is_fabio_content: `
+    <p>Dear Guests,</p>
+    <p>In Sharm El Sheikh, you will find hundreds of vendors offering you "the lowest price." I have made a different choice: <strong>to offer you the highest quality</strong>.</p>
+    <p>My catalog does not contain everything, only the best. I have personally selected every boat, every guide, and every corner of the desert to guarantee you three things that are priceless: <strong>Safety, Privacy, and Magic</strong>.</p>
+    
+    <p style="margin-top: 20px; font-style: italic; color: #fff;">Who is Fabio? More than a friend, an institution.</p>
+    <p>Entrusting your vacation to someone is a matter of trust. This is why I am different:</p>
+
+    <span class="wf-text-highlight">Excellence & Legality</span>
+    <p>A graduate in Languages (Al-Alsun) and an Official Guide authorized by the Ministry. In Sharm, where unlicensed operators are common, choosing me means choosing certified competence.</p>
+
+    <span class="wf-text-highlight">VIP Service (Flight Attendant)</span>
+    <p>My other office is "the sky." As a Flight Attendant, I combine the warmth of Egyptian hospitality with the precision of international standards.</p>
+
+    <span class="wf-text-highlight">Guests, Not Numbers</span>
+    <p>While others cram you into crowded buses, I choose substance: Private cars, total flexibility, and zero surprises.</p>
+
+    <span class="wf-text-highlight">The Value of Memories</span>
+    <p>Remember: an excursion ruined to save a few euros... ends up costing you very dearly.</p>
+
+    <span class="wf-quote">"Quality has a price, but your most beautiful memories are priceless."</span>
+  `,
     book_now: "Book Now",
     book_package_now: "Book Package Now",
     discover: "Discover",
@@ -1090,49 +1112,73 @@ window.i18nEn = {
         "Best Sharm Excursions"
       ]
     },
-    vip_romantic_dinner_desert: {
-      "tour_id": "vip_romantic_dinner_desert",
-      "title": "VIP Romantic Dinner: Arabian Nights",
-      "short_desc": "The most exclusive experience in Sharm. A private dinner in the heart of the desert, under a carpet of stars. Strictly for couples and special occasions.",
-      "duration": "4-5 Hours (Private Evening)",
-      "highlights": [
-        "Absolute Privacy: No groups, no chaos, just the two of you",
-        "Private Transfer with Luxury Car",
-        "Reserved Tent/Table by Candlelight",
-        " 'A la Carte' Menu with Mixed Grill served at the table",
-        "Ideal for: Marriage Proposals, Birthdays, Anniversaries"
-      ],
-      "full_description": "Want to impress the one you love? Forget crowded tourist excursions. We take you where the desert becomes magic.\n\nThis evening is designed for those seeking intimacy and 'Mazaag Aaly' (High Mood). You will be picked up by a private car taking you to a reserved area, far from engine noise.\n\nThere, you will find your corner of paradise: an elegantly set table on the sand, surrounded by candles and lanterns. The silence of the desert, the starry sky, and a delicious dinner served just for you will make this night unforgettable. It's the perfect gift she (or he) doesn't expect.",
-      "program": [
-        { "time": "17:00", "activity": "VIP Pickup", "details": "Private driver picks you up at the hotel (sunset time)." },
-        { "time": "17:45", "activity": "Arrival in Silence", "details": "Exclusive welcome in the reserved area. Soft atmosphere and relaxation." },
-        { "time": "18:15", "activity": "Sunset & Photos", "details": "The golden moment to take romantic photos as the desert turns red." },
-        { "time": "19:00", "activity": "Candlelight Dinner", "details": "Dinner served at the table (not buffet): Appetizers, Mixed Grill meat, sides, and oriental sweets." },
-        { "time": "20:30", "activity": "The Stars", "details": "Time to lie on carpets, watch the stars, and enjoy absolute peace." },
-        { "time": "21:30", "activity": "Return", "details": "Return to hotel by private car." }
-      ],
-      "includes": [
-        "Private Car A/R (No Bus)",
-        "VIP Dinner served at table (Meat Menu)",
-        "Unlimited Soft Drinks",
-        "Romantic Setup (Candles/Lanterns)",
-        "Dedicated Waiter Service"
-      ],
-      "not_included": [
-        "Birthday Cake (orderable extra)",
-        "Flowers or special gifts (arrangeable on request)",
-        "Tips",
-        "Alcohol"
-      ],
-      "important_notes": "This excursion requires advance booking to prepare the exclusive setup. Possibility to add a short horse or camel ride at sunset upon request.",
-      "seo_tags": [
-        "Romantic Dinner Sharm",
-        "VIP Desert Dinner",
-        "Marriage Proposal Egypt",
-        "Private Night Sharm",
-        "Luxury Experience Sinai"
-      ]
+    moto_safari_quad_echo:{
+  "tour_id": "moto_safari_quad_echo",
+  "title": "Moto Safari: Quad, Sunset & Echo Valley",
+  "short_desc": "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
+  "duration": "3 Hours (Afternoon Departure)",
+  "highlights": [
+    "Adventurous Quad Biking (4-wheeled motorbike)",
+    "Stop at the famous 'Echo Valley' (Try screaming!)",
+    "Bedouin tea in a traditional tent",
+    "Spectacular sunset photos in the desert",
+    "Suitable for beginners and experts"
+  ],
+  "full_description": "The desert isn't meant to be watched from a window; it's meant to be lived!\n\nGet ready to get dusty and feel the wind on your face. I'll take you Quad biking through the sandy tracks and rocks of Sinai. You don't need a license, just a desire to have fun.\n\nWe will cross landscapes that look like Mars, until we reach the magical 'Echo Valley'. Here the mountains 'answer back': scream your name and hear nature speak to you.\n\nThen, we will stop in a real Bedouin tent to drink traditional mint tea (Habbak) and watch the sun go down behind the mountains, coloring everything red and gold. It's the perfect moment for photos.",
+  "program": [
+    {
+      "time": "15:30",
+      "activity": "Pick-up",
+      "details": "Pick-up at the hotel and transfer to the Quad center."
     },
+    {
+      "time": "16:00",
+      "activity": "Briefing",
+      "details": "Driving instructions and Quad test run (100% safety)."
+    },
+    {
+      "time": "16:30",
+      "activity": "The Adventure",
+      "details": "The safari begins! Drive into the desert between dunes and rocks."
+    },
+    {
+      "time": "17:15",
+      "activity": "Echo Valley",
+      "details": "Special stop to try the echo effect and take photos."
+    },
+    {
+      "time": "17:45",
+      "activity": "Bedouin Tea",
+      "details": "Relax in the tent with hot tea at sunset."
+    },
+    {
+      "time": "18:30",
+      "activity": "Return",
+      "details": "Return to the center and transfer back to the hotel."
+    }
+  ],
+  "includes": [
+    "Round-trip Transfer (Bus/Minivan)",
+    "Quad Rental (Single or Double)",
+    "Specialized Desert Guide",
+    "Bedouin Tea"
+  ],
+  "not_included": [
+    "Kefiah (Scarf for sand - Mandatory)",
+    "Sunglasses/Goggles (Mandatory)",
+    "Extra drinks (water/soda)",
+    "Professional photos (optional)",
+    "Tips"
+  ],
+  "important_notes": "Dress Code: Bring sunglasses and a scarf (Kefiah) to protect yourself from the sand. Wear comfortable clothes that you don't mind getting dirty. Children under 16 do not drive (they ride as passengers with an adult).",
+  "seo_tags": [
+    "Moto Safari Sharm",
+    "Quad Tour Sinai",
+    "Echo Valley",
+    "Desert Sunset",
+    "Adventure Excursion"
+  ]
+},
     vip_cena_romantica: {
       "tour_id": "vip_cena_romantica",
       "title": "VIP Romantic Dinner: 1001 Nights",

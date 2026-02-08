@@ -16,8 +16,8 @@
 
     // --- SHARM DESERT ---
     super_safari_5_senses: 10,
-    vip_romantic_dinner_desert: 4,
-    vip_cena_romantica: 11,
+    moto_safari_quad_echo: 11,
+    vip_cena_romantica: 4,
 
     // --- SHARM Culture ---
     sharm_old_market_ultimate_shopping: 4,
