@@ -3,7 +3,9 @@
 // ==========================================
 
 const __parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
-const __repo = __parts.filter(Boolean)[0] || '';
+const __firstSegment = __parts.filter(Boolean)[0] || '';
+// If we're on "/legal.html" (or any "/something.html"), the first segment is a file name, not a repo base.
+const __repo = (__firstSegment && !__firstSegment.includes('.')) ? __firstSegment : '';
 const __fallbackBase = __repo ? `/${__repo}/` : '/';
 const __BASE = (typeof window !== 'undefined' && window.FABIO_BASE_URL) || __fallbackBase;
 
@@ -37,6 +39,10 @@ window.PromoBanner = {
 
     // 🔥 التعديل الجذري هنا:
     // استخدمنا style مباشر عشان نضمن التوسط (Centering) 100%
+    const closeIconSrc = (window.ImagePaths && window.ImagePaths.icons && window.ImagePaths.icons.closeIcon)
+      ? window.ImagePaths.icons.closeIcon
+      : `${__BASE}assets/images/icons/close-icon.svg`;
+
     const template = `
       <div style="
           position: fixed;
@@ -55,7 +61,7 @@ window.PromoBanner = {
                   style="background: transparent; border: none; margin-left: 12px; cursor: pointer; display: flex; align-items: center;"
                   onclick="window.PromoBanner.dismiss()" 
                   aria-label="Close">
-            <img src="${__BASE}assets/images/icons/close-icon.svg" alt="Close" style="width: 24px; height: 24px; display: block;" />
+            <img src="${closeIconSrc}" alt="Close" style="width: 24px; height: 24px; display: block;" />
           </button>
         </div>
       </div>

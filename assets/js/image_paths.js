@@ -222,6 +222,7 @@
       advanced: p('assets/images/adventures/advanced-open-water.webp')
     },
     icons: {
+      closeIcon: p('assets/images/icons/close-icon.svg'),
       people: {
         personMale: p('assets/images/icons/person-male.svg'),
         child: p('assets/images/icons/child-svgrepo.svg'),

@@ -170,7 +170,7 @@ const GlobalHeader = {
       e.preventDefault();
       const nav = target.getAttribute('data-nav');
       if (nav === 'home') {
-        window.location.href = '/'; // ✅ كدة هيروح للروت علطول من غير زيادات
+        window.location.href = basePath + 'index.html'; // ✅ always go to home file (works on subpaths + from /sharm-secrets/)
         return;
       }
       if (nav === 'trips') {
@@ -179,7 +179,7 @@ const GlobalHeader = {
           el.scrollIntoView({ behavior: 'smooth' });
           history.replaceState(null, null, ' ');
         } else {
-          window.location.href = '/#trips-grid';
+          window.location.href = basePath + 'index.html#trips-grid';
         }
         return;
       }
@@ -189,7 +189,7 @@ const GlobalHeader = {
           el.scrollIntoView({ behavior: 'smooth' });
           history.replaceState(null, null, ' ');
         } else {
-          window.location.href = basePath + '#reviews-section';
+          window.location.href = basePath + 'index.html#reviews-section';
         }
         return;
       }
@@ -210,7 +210,7 @@ const GlobalHeader = {
         e.preventDefault();
         const nav = target.getAttribute('data-nav');
         if (nav === 'home') {
-          window.location.href = '/'; // ✅ كدة هيروح للروت علطول من غير زيادات
+          window.location.href = basePath + 'index.html'; // ✅ always go to home file (works on subpaths + from /sharm-secrets/)
           return;
         }
         if (nav === 'trips') {
@@ -219,7 +219,7 @@ const GlobalHeader = {
             el.scrollIntoView({ behavior: 'smooth' });
             history.replaceState(null, null, ' ');
           } else {
-            window.location.href = '/#trips-grid';
+            window.location.href = basePath + 'index.html#trips-grid';
           }
           return;
         }
@@ -229,7 +229,7 @@ const GlobalHeader = {
             el.scrollIntoView({ behavior: 'smooth' });
             history.replaceState(null, null, ' ');
           } else {
-            window.location.href = basePath + '#reviews-section';
+            window.location.href = basePath + 'index.html#reviews-section';
           }
           return;
         }
