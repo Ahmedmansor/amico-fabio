@@ -6,6 +6,104 @@ window.i18nIt = {
     commandments: "10 Comandamenti",
     blog: "Blog"
   },
+  reviews: {
+        title: "Dicono di Noi",
+        subtitle: "Le parole dei nostri ospiti su Facebook",
+        facebook_btn: "Leggi su Facebook",
+        items: [
+            {
+                name: "Siciliano Irene Veronica",
+                date: "5 Febbraio 2026",
+                text: "Wonderful experience spectacular organization Fabio wonderful person and above all very helpful I highly recommend it",
+                rating: 5,
+                source: "facebook"
+            },
+            {
+                name: "Federico Selmi",
+                date: "23 Novembre 2024",
+                text: "Cross roots. Fabio un NOME UNA GARANZIA. La guida perfetta per delle bellissime escursioni. Fabio ci ha accompagnati nel nostro meraviglioso viaggio da prima della partenza al nostro rientro a Catania. Abbiamo passato una settimana meravigliosa con numerose escursioni... Grazie Fabio!",
+                rating: 5,
+                source: "facebook"
+            },
+            {
+                name: "Vittorio Mazzullo",
+                date: "27 Settembre 2022",
+                text: "Consiglio vivamente cross roots travel, Fabio gentilissimo e sempre a disposizione anche di notte… non ti lascia mai da solo! Arrivato in Hotel tutto lo staff mi sconsigliava di fidarmi di qualcuno e invece io con la fiducia di Fathy ho risparmiato un casinò di soldi e ho fatto esperienze uniche!",
+                rating: 5,
+                source: "facebook"
+            },
+            {
+                name: "Brandon Rigano",
+                date: "6 Settembre 2022",
+                text: "Ringraziamo infinitamente Fabio per questa fantastica vacanza, un grande organizzatore. È riuscito a pianificare tutte le escursioni nei minimi dettagli, facendoci vivere esperienze uniche. Dispone di servizi ottimi, pronto a soddisfare tutte le nostre richieste.",
+                rating: 5,
+                source: "facebook"
+            },
+            {
+                name: "Francesca Mannelli",
+                date: "30 Agosto 2022",
+                text: "Ho contattato Fathy dall’Italia, ci ha indicato le migliori escursioni da poter svolgere e sono state davvero formidabili. È stato presente ad ogni ora del giorno e della notte, affidandoci a guide super preparate. Ci siamo sentiti protetti in ogni secondo.",
+                rating: 5,
+                source: "facebook"
+            },
+            {
+                name: "Lorenzo Alberti",
+                date: "23 Ottobre 2019",
+                text: "Consiglio vivamente le escursioni. Fabio è una grande persona competente e gentile... lo ringrazio molto se tornerò a sharm sicuramente mi affiderò di nuovo a lui 🎉🎉 impegno e serietà non mancano divertimento assoluto.",
+                rating: 5,
+                source: "facebook"
+            },
+            {
+                name: "Vincenzo Novacco",
+                date: "10 Ottobre 2019",
+                text: "Per chi viaggia cercando di conoscere e scambiare non superficialmente con l'antichissima e ricchissima cultura egiziana... consiglio vivamente e con fiducia la CROSS ROOTS Travel di Fathy (Fabio) Mansur, preparato, pronto ad ogni spiegazione ben disposto all'interscambio culturale.",
+                rating: 5,
+                source: "facebook"
+            },
+            {
+                name: "Antonella Testa",
+                date: "10 Ottobre 2019",
+                text: "Mi sono affidata a Fabio per le escursioni nella penisola del Sinai per un gruppo di 30 persone, siamo stati benissimo, puntualissimo, prodigo di spiegazioni... professionale ed affidabile. Sicuramente lo consiglio.",
+                rating: 5,
+                source: "facebook"
+            },
+            {
+                name: "Verdiana Troìa",
+                date: "9 Ottobre 2019",
+                text: "Per le escursioni a Sharm mi sono affidata a Fabio, puntuale, preparato e sempre a disposizione. Ottimo il suo team in particolare l'archeologo Ali, simpaticissimo e molto colto pronto a rispondere ad ogni tua domanda.",
+                rating: 5,
+                source: "facebook"
+            },
+            {
+                name: "Katia Rusciano",
+                date: "4 Settembre 2019",
+                text: "Una vacanza meravigliosa... resa ancor più bella dalla nostra guida... grazie Fabio per averci fatto vivere delle splendide giornate... ci vediamo spero al più presto 😘",
+                rating: 5,
+                source: "facebook"
+            },
+            {
+                name: "Francesca Delfine",
+                date: "24 Settembre 2019",
+                text: "Bellissima vacanza trascorsa a sharm con un’ottima guida di Fabio, grazie per aver reso la nostra vacanza speciale, ci torneremo sicuramente! 😘",
+                rating: 5,
+                source: "facebook"
+            },
+            {
+                name: "Annalaura Borrelli",
+                date: "23 Settembre 2019",
+                text: "Grazie di aver reso il nostro soggiorno a Sharm indimenticabile. Grazie di averci seguito in tutto e per le bellissime escursioni consigliate. Fathy un nome, una garanzia. Ci vediamo presto ❤️",
+                rating: 5,
+                source: "facebook"
+            },
+            {
+                name: "Oliva Duran",
+                date: "27 Maggio 2019",
+                text: "The excellent service that provides to every group or individual that ambition to explore Egypt. From arrival to departure! Highly educated multilingual guides are perfectly organized. They coordinate and manage every aspect of the tours.",
+                rating: 5,
+                source: "facebook"
+            },
+        ]
+    },
   faq: {
     headline: "Domande Frequenti & Consigli",
     items: [

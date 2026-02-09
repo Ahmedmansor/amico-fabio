@@ -43,8 +43,8 @@ const GlobalHeader = {
       });
     };
     // Prefer the central applyTranslations if available (re-renders dynamic components consistently)
-    if (typeof applyTranslations === 'function') {
-      applyTranslations(lang);
+    if (typeof window.applyTranslations === 'function') {
+      window.applyTranslations(lang);
     } else {
       applyDocumentTranslations();
     }
@@ -184,7 +184,13 @@ const GlobalHeader = {
         return;
       }
       if (nav === 'reviews') {
-        window.location.href = basePath + 'index.html#reviews';
+        const el = document.getElementById('reviews-section');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+          history.replaceState(null, null, ' ');
+        } else {
+          window.location.href = basePath + '#reviews-section';
+        }
         return;
       }
       if (nav === 'blog') {
@@ -218,7 +224,13 @@ const GlobalHeader = {
           return;
         }
         if (nav === 'reviews') {
-          window.location.href = basePath + 'index.html#reviews';
+          const el = document.getElementById('reviews-section');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+            history.replaceState(null, null, ' ');
+          } else {
+            window.location.href = basePath + '#reviews-section';
+          }
           return;
         }
         if (nav === 'blog') {
@@ -239,8 +251,8 @@ const GlobalHeader = {
       localStorage.setItem('fabio_lang', newLang);
       localStorage.setItem('preferredLanguage', newLang);
       document.documentElement.lang = newLang;
-      if (typeof applyTranslations === 'function') {
-        applyTranslations(newLang);
+      if (typeof window.applyTranslations === 'function') {
+        window.applyTranslations(newLang);
       } else {
         GlobalHeader.initLanguage();
         window.dispatchEvent(new CustomEvent('langChanged', { detail: { lang: newLang } }));
@@ -268,7 +280,7 @@ const GlobalHeader = {
     const sectionMap = [
       { selector: '#hero-slider-section', key: 'home', i18nKey: 'menu.home' },
       { selector: '#trips-grid', key: 'trips', i18nKey: 'menu.trips' },
-      { selector: '#reviews', key: 'reviews', i18nKey: 'menu.reviews' }
+      { selector: '#reviews-section', key: 'reviews', i18nKey: 'menu.reviews' }
     ];
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {

@@ -7,6 +7,7 @@ import './trips_metadata.js';
 import './modules/global-header.js';
 import './modules/global-footer.js';
 import './modules/hero-slider.js';
+import { initReviews } from './modules/reviews-renderer.js';
 // ... وباقي الملفات
 
 // 2. كود التشغيل الأساسي بتاعك
@@ -100,6 +101,7 @@ function applyTranslations(lang) {
   localStorage.setItem("preferredLanguage", lang);
 
   applyTextContent(lang);
+  initReviews(lang);
   window.dispatchEvent(new CustomEvent('langChanged', { detail: { lang } }));
 
   // Re-render components if on Sharm Secrets page
@@ -126,6 +128,8 @@ function applyTranslations(lang) {
 
 
 }
+
+window.applyTranslations = applyTranslations;
 
 
 // ==========================================
