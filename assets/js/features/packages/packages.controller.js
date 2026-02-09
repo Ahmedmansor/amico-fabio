@@ -24,8 +24,9 @@ const PackagesController = {
         return;
       }
       const tripKey = pkg.trip_id || pkg.package_id;
+      const langPackages = i18n.packages || {};
       const langTrips = i18n.trips || {};
-      const langData = langTrips[tripKey] || null;
+      const langData = langPackages[tripKey] || langTrips[tripKey] || null;
       PackagesModel.setStateFromData(pkg, data.tripsList, langData, lang);
       PackagesView.renderPackageShell(PackagesModel.state, i18n);
       const addonsList = Array.isArray(data.addonsList)

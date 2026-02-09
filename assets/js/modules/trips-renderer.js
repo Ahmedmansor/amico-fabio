@@ -138,7 +138,8 @@ const TripsRenderer = {
 
         // UI Constants
         const __parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
-        const __repo = __parts.filter(Boolean)[0] || '';
+        const __cleanParts = __parts.filter(Boolean);
+        const __repo = __cleanParts.length > 1 ? (__cleanParts[0] || '') : '';
         const __fallbackBase = __repo ? `/${__repo}/` : '/';
         const __BASE = (typeof window !== 'undefined' && window.FABIO_BASE_URL) || __fallbackBase;
         const ph = window.ImagePaths ? window.ImagePaths.ui.placeholder : `${__BASE}assets/images/ui/placeholder.webp`;
@@ -164,8 +165,9 @@ const TripsRenderer = {
         if (isPackage) cardClasses.push('premium-package-card');
         const badgeExtraClass = isPackage ? ' standard-badge-premium' : '';
 
+        const dataTripId = trip.trip_id || trip.package_id || '';
         const cardHTML = `
-            <article class="${cardClasses.join(' ')}" data-trip-id="${trip.trip_id}">
+            <article class="${cardClasses.join(' ')}" data-trip-id="${dataTripId}">
                 <div class="catalog-card-image">
                     <img src="${imgPath}" alt="${title}" class="catalog-card-img"
                          loading="lazy" onerror="this.onerror=function(){this.onerror=null; this.src='${fb}';}; this.src='${ph}';">
@@ -198,9 +200,13 @@ const TripsRenderer = {
 
     _resolveTextData: (trip, i18n) => {
         const tripKey = trip.trip_id || trip.package_id || '';
-        const staticData = i18n.trips && i18n.trips[tripKey] ? i18n.trips[tripKey] : null;
+        const isPackage = TripsRenderer._utils.isPackage(trip);
+        const dict = isPackage
+            ? ((i18n && i18n.packages) ? i18n.packages : (i18n && i18n.trips) ? i18n.trips : null)
+            : ((i18n && i18n.trips) ? i18n.trips : null);
+        const staticData = dict && dict[tripKey] ? dict[tripKey] : null;
         return {
-            title: staticData ? staticData.title : (trip.trip_id || "").replace(/_/g, " "),
+            title: staticData ? staticData.title : (tripKey || "").replace(/_/g, " "),
             description: staticData ? staticData.short_desc : ''
         };
     },
@@ -252,6 +258,11 @@ const TripsRenderer = {
     },
 
     _resolveImage: (trip, isPackage) => {
+        const __parts = (typeof window !== 'undefined' && window.location && window.location.pathname ? window.location.pathname.split('/') : []);
+        const __cleanParts = __parts.filter(Boolean);
+        const __repo = __cleanParts.length > 1 ? (__cleanParts[0] || '') : '';
+        const __fallbackBase = __repo ? `/${__repo}/` : '/';
+        const __BASE = (typeof window !== 'undefined' && window.FABIO_BASE_URL) || __fallbackBase;
         const ctx = window.ImagePaths ? window.ImagePaths.resolveTripContext(trip) : { location: '', category: '', tripId: (trip.trip_id || '') };
         let imgPath = window.ImagePaths ? window.ImagePaths.getPoster(ctx.location, ctx.category, ctx.tripId) : `${__BASE}assets/images/trips/${trip.trip_id}/poster.webp`;
 

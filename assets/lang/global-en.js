@@ -497,8 +497,8 @@ window.i18nEn = {
       ]
     }
   },
-  trips: {
-    // --- SHARM SEA
+  packages: {
+     // --- SHARM
     sharm_confidential: {
       "tour_id": "sharm_confidential",
       "title": "Sharm Confidential: Fabio’s Signature Bundle",
@@ -560,6 +560,258 @@ window.i18nEn = {
         "Private tour planner Sharm El Sheikh"
       ]
     },
+    dolce_vita_family: {
+    "tour_id": "dolce_vita_family",
+    "title": "Dolce Vita: Family & Relax",
+    "short_desc": "The perfect holiday for families. Happy kids (Dolphins & Submarine) and relaxed parents (VIP Yacht & Romantic Dinner). Zero stress.",
+    "duration": "5 Days (Relaxed Pace)",
+    "highlights": [
+      "4 Experiences included (Yacht, Submarine, Dolphins, Dinner)",
+      "Ideal for children of all ages (100% Safe)",
+      "Slow and comfortable rhythms (no early morning starts)",
+      "Private air-conditioned transfers for every excursion"
+    ],
+    "full_description": "We know traveling with kids can be a challenge. That's why we created 'Dolce Vita', a package designed to eliminate parental stress and maximize fun for the little ones.\n\nNo alarm clocks at dawn, no uncomfortable transfers. Everything is organized with comfortable timings and total safety. The kids will discover the sea without getting wet in the submarine and laugh with the dolphins, while you enjoy the sun on the yacht and a romantic dinner on the sea.",
+    "program": [
+      {
+        "time": "DAY 1",
+        "activity": "Welcome to Egypt",
+        "details": "Arrival at Sharm airport, VIP welcome by Fabio's team, and private transfer to the hotel. Quick briefing to explain the week's comfortable schedule."
+      },
+      {
+        "time": "DAY 2",
+        "activity": "Neverland (White Island)",
+        "details": "A fairytale day. Sailing towards the famous White Island (a sand strip similar to the Maldives) where children can play in safe shallow water, while parents relax on the yacht. Lunch included."
+      },
+      {
+        "time": "DAY 3",
+        "activity": "Finding Nemo (Seascope)",
+        "details": "Morning dedicated to discovering the seabed with the Seascope Submarine. Children can see colorful fish and corals through panoramic windows without getting wet. Free afternoon by the pool."
+      },
+      {
+        "time": "DAY 4",
+        "activity": "Dolphins & Dinner Show",
+        "details": "Day of emotions. Afternoon at the Dolphin Show to make the kids laugh. In the evening, grand finale with the Dinner Cruise: buffet dinner on a luxury ship with music, Tanoura show, and sea breeze."
+      },
+      {
+        "time": "DAY 5",
+        "activity": "Farewell & Transfer",
+        "details": "Relaxed breakfast, check-out from the hotel, and private transfer to the airport with a small souvenir from Friend Fabio."
+      }
+    ],
+    "includes": [
+      "All private transfers (Airport & Excursions)",
+      "Entrance tickets (Marine Park, Dolphin Show)",
+      "Lunch on board the Yacht and Dinner on the cruise ship",
+      "Priority assistance for families (WhatsApp 24/7)",
+      "Basic snorkeling gear for kids (upon request)"
+    ],
+    "not_included": [
+      "International flights and travel insurance",
+      "Hotel accommodation (we can suggest best family resorts)",
+      "Tips and personal extras",
+      "Professional photos and videos during excursions"
+    ],
+    "important_notes": "The package is flexible: schedules can be adapted to your children's rhythms. It is recommended to bring sunscreen, hats, and swimsuits for all marine activities.",
+    "seo_tags": [
+      "Family holiday Sharm",
+      "Sharm with kids",
+      "Dolce Vita Family Package",
+      "Safe excursions Sharm",
+      "Dolphins and Submarine Sharm"
+    ]
+  },
+  mille_e_una_notte: {
+    "tour_id": "mille_e_una_notte",
+    "title": "One Thousand and One Nights: Romantic Escape",
+    "short_desc": "The most exclusive package for couples. Desert sunsets, candlelight dinners, and luxury sailing. Just for the two of you.",
+    "duration": "5 Days (Privacy & Magic)",
+    "highlights": [
+      "4 Romantic Experiences (Sailing Ship, Private Quad, VIP Dinner, Dinner Cruise)",
+      "Private Guides (No large groups, just the two of you)",
+      "Focus on Sunset and Atmosphere",
+      "Private and discreet luxury transfers"
+    ],
+    "full_description": "This is not a group tour; it is your honeymoon (or your romantic escape) organized down to the smallest detail.\n\nWe have eliminated the crowds and added privacy. In this package, the desert becomes your private refuge at sunset, and the sea turns into a romantic stage. Fabio will ensure that every moment is perfect, from the toast on the Pirate Ship to the candlelight dinner under the starry sky of Sinai.",
+    "program": [
+      {
+        "time": "DAY 1",
+        "activity": "Welcome to Paradise",
+        "details": "VIP Arrival. Private transfer by luxury car to your hotel. No waiting, just relaxation from the very first moment."
+      },
+      {
+        "time": "DAY 2",
+        "activity": "Sails in the Wind: Pirate Boat & White Island",
+        "details": "A unique day aboard the 'Pirates' Sailboat'. A luxury sailing vessel, furnished in wood and classic style, taking you to the magical 'Neverland' (White Island). Seafood lunch served on board."
+      },
+      {
+        "time": "DAY 3",
+        "activity": "Private Sunset: Quad & VIP Dinner",
+        "details": "The highlight experience. Private guide (just for the two of you) with Quads in the desert during the golden hour of sunset. Followed by not the usual dinner, but a 'VIP Bedouin Dinner' by candlelight in a reserved tent, with mixed grill and total privacy."
+      },
+      {
+        "time": "DAY 4",
+        "activity": "Last Night: Romantic Dinner Cruise",
+        "details": "Free morning for the beach. In the evening, dress elegantly for a night cruise (Dinner Cruise) with an international buffet dinner, soft music, and sailing under the moon along the coast of Sharm."
+      },
+      {
+        "time": "DAY 5",
+        "activity": "Goodbye Love",
+        "details": "Breakfast in room (if hotel permits), relaxed check-out, and private transfer to the airport for your return."
+      }
+    ],
+    "includes": [
+      "All VIP private transfers (Luxury Car)",
+      "Full day on Pirate Sailboat with seafood lunch",
+      "Private Safari (Quad just for the couple) + Reserved Bedouin Dinner",
+      "Romantic dinner on the cruise ship (Dinner Cruise)",
+      "Personal assistance from Fabio 24/7 for special requests"
+    ],
+    "not_included": [
+      "International flights and hotel accommodation",
+      "Alcoholic beverages (available as extra)",
+      "Professional photoshoot (recommended, upon request)",
+      "Tips and personal extras"
+    ],
+    "important_notes": "For the Dinner Cruise, 'Smart Casual' attire is required. Please bring passports for the boat excursion. We can organize surprise cakes or flowers upon request.",
+    "seo_tags": [
+      "Honeymoon Sharm",
+      "Romantic package Egypt",
+      "Romantic dinner desert",
+      "White Island sailing",
+      "Sharm El Sheikh couples trip"
+    ]
+  },
+  indiana_jones_adventure: {
+    "tour_id": "indiana_jones_adventure",
+    "title": "Indiana Jones: Pure Adrenaline",
+    "short_desc": "Not for the lazy. An explosive mix of adventure: Jeep Safari, Canyon Trekking, Desert Bikes, Parasailing, and your first Scuba Dive.",
+    "duration": "5 Days (Action Mode)",
+    "highlights": [
+      "4 Extreme Activities (Jeep, Dive, Quad, Parasailing)",
+      "Colored Canyon Exploration (Exclusive)",
+      "All technical equipment included",
+      "Expert guides in safety and adventure"
+    ],
+    "full_description": "If your idea of a vacation is lying in the sun, change packages. 'Indiana Jones' is designed for those seeking strong thrills.\n\nWe will take you off the beaten path: you will climb the rocks of the Colored Canyon, dive into the depths of the Blue Hole, drive powerful bikes through the dunes, and fly over the Red Sea with a parachute. Five days lived to the max, with Fabio's impeccable safety and organization.",
+    "program": [
+      {
+        "time": "DAY 1",
+        "activity": "Arrival & Briefing",
+        "details": "Landing in Sharm, private transfer to hotel, and energetic briefing with the team to prepare equipment for the upcoming adventures."
+      },
+      {
+        "time": "DAY 2",
+        "activity": "On the Trail of Indiana Jones (Canyon & Blue Hole)",
+        "details": "The real adventure. Departure by Jeep Safari into the desert, trekking on foot among the psychedelic rocks of the 'Colored Canyon', and snorkeling in the legendary 'Blue Hole' of Dahab. Bedouin lunch included."
+      },
+      {
+        "time": "DAY 3",
+        "activity": "Abyss Mission: Intro Dive",
+        "details": "It's time to breathe underwater. A professional instructor will guide you through your first scuba dive (Intro Dive). You will discover an alien and colorful world that few have the courage to see up close."
+      },
+      {
+        "time": "DAY 4",
+        "activity": "Speed Day: Moto & Water Sports",
+        "details": "Day dedicated to speed. Morning: Water Sports Mix (Parasailing flight + Banana Boat). Afternoon: Double Quad or Buggy in the open desert for a wild ride through the dunes at sunset."
+      },
+      {
+        "time": "DAY 5",
+        "activity": "Game Over & Farewells",
+        "details": "Energy recovery, champion's breakfast, check-out, and private transfer to the airport with plenty of stories to tell."
+      }
+    ],
+    "includes": [
+      "All transfers (4x4 Jeep, Bus, Private Car)",
+      "Bedouin lunch in Dahab",
+      "Quad/Buggy rental and full diving equipment",
+      "Certified PADI instructor for Intro Dive",
+      "First aid medical assistance available"
+    ],
+    "not_included": [
+      "International flights and hotel",
+      "Blue Hole entrance fee (payable on spot)",
+      "Extra drinks and tips",
+      "GoPro photo/video service (highly recommended)"
+    ],
+    "important_notes": "Good health is required for diving (no flights for 24 hours after diving). Bring comfortable shoes for the canyon and a valid passport for the Dahab checkpoint.",
+    "seo_tags": [
+      "Adventure Sharm El Sheikh",
+      "Blue Hole Dahab",
+      "Colored Canyon tour",
+      "Quad Safari Sharm",
+      "Intro Dive Red Sea"
+    ]
+  },
+  il_grande_blu: {
+    "tour_id": "il_grande_blu",
+    "title": "The Big Blue: Treasures of the Red Sea",
+    "short_desc": "Paradise for those who live with fins on. 4 Complete marine excursions: Ras Mohammed (Sea & Land), Tiran, and the legendary Blue Hole.",
+    "duration": "6 Days (Full Sea Immersion)",
+    "highlights": [
+      "4 Sea Days included (Maximize your holiday)",
+      "Perfect mix of Luxury Boats and Beach Snorkeling",
+      "Complete visit to Ras Mohammed (by Sea and Land)",
+      "All lunches and drinks during excursions included"
+    ],
+    "full_description": "Did you choose Sharm for its world-unique coral reef? This is your package.\n\nWe stripped away everything else to focus solely on the sea. Every day we'll take you to a different spot: from the crystal-clear waters of White Island to the mysterious shipwrecks of Tiran, passing through the depths of the Blue Hole and the wild nature of Ras Mohammed by land. A total immersion in the blue, with maximum comfort.",
+    "program": [
+      {
+        "time": "DAY 1",
+        "activity": "Arrival & Relax",
+        "details": "Landing in Sharm, private transfer to hotel. Free time to settle in and prepare equipment for the week of sea activities."
+      },
+      {
+        "time": "DAY 2",
+        "activity": "The Maldives of Egypt (White Island)",
+        "details": "Starting strong. VIP Yacht day towards Ras Mohammed with a special stop on the white sand strip appearing in the middle of the sea. Guided snorkeling and lunch on board."
+      },
+      {
+        "time": "DAY 3",
+        "activity": "Ras Mohammed by Land (Nature)",
+        "details": "Today we discover the National Park from a different perspective. Bus trip to the Gate of Allah, swimming in the Magic Lake, and snorkeling from Yolanda Reef beach. Direct contact with untouched nature."
+      },
+      {
+        "time": "DAY 4",
+        "activity": "The Legend: Blue Hole & Dahab",
+        "details": "Jeep trip to the divers' mecca: the Blue Hole. Snorkeling in this deep blue abyss, Bedouin lunch by the sea, and a visit to the relaxed town of Dahab."
+      },
+      {
+        "time": "DAY 5",
+        "activity": "Lagoons & Wrecks: Tiran Island",
+        "details": "Total relaxation day on the boat towards Tiran Island. We will see the famous stranded shipwrecks and snorkel in the quietest turquoise lagoons of Sharm."
+      },
+      {
+        "time": "DAY 6",
+        "activity": "Last Dip & Farewell",
+        "details": "Free morning, check-out, and private transfer to the airport. Heading home with the perfect tan."
+      }
+    ],
+    "includes": [
+      "All transfers (Boat, Bus, Jeep, Private Car)",
+      "Entrance fees to National Parks (Ras Mohammed/Blue Hole)",
+      "Buffet or Bedouin lunch + drinks on all excursions",
+      "Professional snorkeling guide in the water",
+      "Marine taxes and permits"
+    ],
+    "not_included": [
+      "International flights and Hotel",
+      "Snorkeling equipment rental (mask, fins, wetsuit)",
+      "Tips for the crew",
+      "Professional underwater photos"
+    ],
+    "important_notes": "Passport is mandatory ('Sinai Only' visa or full visa depending on duration). Bring towels and sunscreen every day. Equipment can be rented on the first day.",
+    "seo_tags": [
+      "Snorkeling Sharm El Sheikh",
+      "Ras Mohammed tour",
+      "Blue Hole Dahab",
+      "Tiran Island excursion",
+      "Diving trips Egypt"
+    ]
+  },
+  },
+  trips: {
+    // --- SHARM SEA
     ras_mohammed_white_island_vip: {
       "tour_id": "ras_mohammed_white_island_vip",
       "title": "Ras Mohammed & White Island: The VIP Experience",
