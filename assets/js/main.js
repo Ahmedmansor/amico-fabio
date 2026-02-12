@@ -546,4 +546,37 @@ window.appData.openBooking = (tripId) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   App.init();
+  
+  // Handle hash navigation for smooth scrolling to sections
+  if (window.location.hash) {
+    const targetId = window.location.hash;
+    
+    // Enhanced function to check if page is fully ready
+    const isPageReady = () => {
+      const target = document.querySelector(targetId);
+      if (!target) return false;
+      
+      // Check if target has dimensions (is rendered)
+      const rect = target.getBoundingClientRect();
+      return rect.height > 0 && rect.width > 0;
+    };
+    
+    // Try multiple times with increasing delays and checks
+    const attempts = [
+      { delay: 100, check: isPageReady },
+      { delay: 300, check: isPageReady },
+      { delay: 600, check: isPageReady },
+      { delay: 1000, check: isPageReady },
+      { delay: 1500, check: isPageReady },
+      { delay: 2000, check: () => true } // Force scroll at 2s even if not perfect
+    ];
+    
+    attempts.forEach(({ delay, check }) => {
+      setTimeout(() => {
+        if (check()) {
+          scrollToSection(targetId);
+        }
+      }, delay);
+    });
+  }
 });

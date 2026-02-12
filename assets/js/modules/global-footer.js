@@ -60,11 +60,19 @@ const GlobalFooter = {
             </div>
             <div class="af-col af-community">
               <h4 class="af-heading" data-i18n="footer.join_community">${joinCommunity}</h4>
+              <div class="af-email">
+                <a href="mailto:info@fabioegypt.com" class="af-email-btn">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="#fff" class="af-email-icon">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                  info@fabioegypt.com
+                </a>
+              </div>
               <div class="af-social">
-                <a href="https://www.facebook.com/groups/762287932356507" target="_blank" rel="noopener" aria-label="Facebook" class="af-social-btn">
+                <a href="https://www.facebook.com/share/1GTtjC4JsK/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" class="af-social-btn">
                   <img src="${facebookIcon}" class="af-social-icon" width="24" height="24" alt="Facebook">
                 </a>
-                <a href="https://www.instagram.com/fabio_sharm_el_sheikh_/" target="_blank" rel="noopener" aria-label="Instagram" class="af-social-btn">
+                <a href="https://www.instagram.com/fabio_egypt?igsh=ZDd1Y2dhbG83aXE0&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" class="af-social-btn">
                   <img src="${instagramIcon}" class="af-social-icon" width="24" height="24" alt="Instagram">
                 </a>
               </div>

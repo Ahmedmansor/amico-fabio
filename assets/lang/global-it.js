@@ -519,7 +519,7 @@ window.i18nIt = {
     sections: [
       {
         id: "intro",
-        heading: "Privacy Policy di www.amicofabio.com",
+        heading: "Privacy Policy di www.fabioegypt.com",
         paragraphs: [
           "Benvenuto nella nostra informativa sulla privacy. Questa policy è redatta in conformità al Regolamento Generale sulla Protezione dei Dati (GDPR - UE 2016/679) e ti aiuterà a comprendere quali dati raccogliamo, perché li raccogliamo e quali sono i tuoi diritti.",
           "Ultima modifica: 31 Dicembre 2025"
@@ -529,7 +529,7 @@ window.i18nIt = {
         id: "owner",
         heading: "Titolare del Trattamento dei Dati",
         paragraphs: [
-          "Fabio - Sharm El Sheikh, Egitto. Il Titolare è responsabile della protezione dei tuoi dati e può essere contattato per qualsiasi chiarimento all'indirizzo email: info@amicofabio.com."
+          "Fabio - Sharm El Sheikh, Egitto. Il Titolare è responsabile della protezione dei tuoi dati e può essere contattato per qualsiasi chiarimento all'indirizzo email: info@fabioegypt.com."
         ]
       },
       {
@@ -608,7 +608,7 @@ window.i18nIt = {
         heading: "Definizioni e riferimenti legali",
         paragraphs: [
           "Dati Personali (o Dati): qualunque informazione che renda identificata o identificabile una persona fisica. Cookie: piccole porzioni di dati conservate all'interno del browser dell'Utente. GDPR: Regolamento Generale sulla Protezione dei Dati (UE).",
-          "Questo documento riguarda esclusivamente il sito www.amicofabio.com ed è redatto per garantire la massima trasparenza ai nostri ospiti."
+          "Questo documento riguarda esclusivamente il sito www.fabioegypt.com ed è redatto per garantire la massima trasparenza ai nostri ospiti."
         ]
       },
       {
@@ -623,66 +623,72 @@ window.i18nIt = {
   },
    packages: {
      // --- SHARM
-    sharm_confidential: {
-      "tour_id": "sharm_confidential",
-      "title": "Sharm Confidential: Il Pacchetto Firma di Fabio",
-      "short_desc": "Un pacchetto curato personalmente da Fabio che unisce le sue esperienze più amate a Sharm in un unico viaggio elegante, senza stress e con assistenza VIP continua.",
-      "duration": "3-5 Giorni (Pacchetto Flessibile)",
-      "highlights": [
-        "Combinazione su misura di mare, deserto e cultura",
-        "Un unico referente: Fabio coordina trasferimenti, orari e dettagli",
-        "Accesso prioritario e piccoli gruppi per una vera esperienza VIP",
-        "Perfetto per coppie, famiglie e piccoli gruppi privati"
-      ],
-      "full_description": "Sharm Confidential non è una semplice escursione, è il modo più personale con cui Fabio ti fa vivere Sharm come un vero insider.\n\nInvece di prenotare singole gite sperando che combacino, questo pacchetto intreccia il meglio del Mar Rosso, del deserto e della cultura locale in un unico percorso fluido. Trasferimenti, orari e piccoli dettagli vengono gestiti direttamente da Fabio, così tu hai un solo compito: goderti la vacanza.\n\nDal primo messaggio WhatsApp all’ultimo tramonto sul mare, ogni passo è pensato per rispettare i tuoi ritmi, il tuo stile di viaggio e le tue esigenze di sicurezza e trasparenza.",
-      "program": [
-        {
-          "time": "GIORNO 1",
-          "activity": "Arrivo & Primo Contatto con Sharm",
-          "details": "Transfer privato di benvenuto, supporto al check‑in in hotel e briefing serale rilassato con Fabio per personalizzare il pacchetto."
-        },
-        {
-          "time": "GIORNO 2",
-          "activity": "Esperienza Mare",
-          "details": "Una delle giornate in barca firmate Fabio (es. Ras Mohammed o Tiran) con snorkeling, pranzo a bordo e soste foto flessibili."
-        },
-        {
-          "time": "GIORNO 3",
-          "activity": "Deserto & Stelle",
-          "details": "Avventura nel deserto con quad o jeep, cena beduina e osservazione delle stelle nel cielo del Sinai (in base alla stagione e alle preferenze)."
-        },
-        {
-          "time": "GIORNO 4",
-          "activity": "Cultura & Tempo Libero",
-          "details": "Possibile giornata a Il Cairo o Dahab, oppure una giornata più leggera a Sharm con consigli personalizzati su locali, spiagge e shopping."
-        },
-        {
-          "time": "GIORNO 5",
-          "activity": "Saluti & Ultimi Segreti",
-          "details": "Supporto al check‑out, ultime raccomandazioni e transfer di rientro in aeroporto con la massima serenità."
-        }
-      ],
-      "includes": [
-        "Call o chat di pianificazione dedicata con Fabio",
-        "Trasferimenti A/R pre-organizzati per tutte le esperienze incluse",
-        "Selezione curata di escursioni dal catalogo di Fabio",
-        "Coordinamento prioritario con partner locali di fiducia",
-        "Supporto WhatsApp continuo prima e durante il soggiorno"
-      ],
-      "not_included": [
-        "Voli internazionali e assicurazione di viaggio",
-        "Soggiorno in hotel (può essere consigliato ma non venduto direttamente)",
-        "Spese personali, mance e qualsiasi servizio non esplicitamente indicato",
-        "Visto di ingresso ed eventuali tasse locali"
-      ],
-      "important_notes": "Sharm Confidential è un pacchetto flessibile. Contenuti finali, ordine delle giornate e prezzo complessivo vengono confermati insieme a Fabio in base alla stagione, al numero di ospiti e alle tue preferenze personali. Alcune attività sono soggette alle condizioni meteo e alle normative locali.",
-      "seo_tags": [
-        "Sharm Confidential Pacchetto",
-        "Pacchetto Fabio Tours",
-        "Sharm VIP Package",
-        "Pacchetto esperienze Sharm",
-        "Tour planner privato Sharm El Sheikh"
-      ]
+  sharm_confidential: {
+        "tour_id": "sharm_confidential",
+        "title": "Sharm Confidential: L'Esperienza Totale",
+        "short_desc": "Il pacchetto definitivo di 6 giorni. Include TUTTO: Yacht VIP, Ras Mohammed via terra, Super Safari, Dahab e City Tour. Non dovrai pensare a nulla.",
+        "duration": "6 Giorni / 5 Notti (Programma Completo)",
+        "highlights": [
+            "5 Escursioni incluse (Mare, Terra, Deserto, Città)",
+            "Doppia esperienza Ras Mohammed (Yacht + Bus)",
+            "Dahab e Blue Hole in Jeep",
+            "Tutti i trasferimenti e le cene menzionate inclusi"
+        ],
+        "full_description": "Perché scegliere quando puoi avere tutto? Questo itinerario è la fusione perfetta tra relax e avventura.\n\nAbbiamo creato un flusso logico che ti permette di esplorare Sharm da ogni angolazione: navigherai verso l'Isola Bianca, farai snorkeling dalla spiaggia a Ras Mohammed, cavalcherai le dune del deserto e viaggerai fino al Blue Hole di Dahab.\n\nOgni giornata è bilanciata per non stancarti, con trasferimenti privati e l'assistenza continua di Fabio.",
+        "program": [
+            {
+                "time": "GIORNO 1",
+                "activity": "Arrivo & City Tour (Benvenuti a Sharm)",
+                "details": "Transfer privato in hotel e sistemazione. In serata, 'Fabio City Tour': visita guidata alla Moschea Al Sahaba, shopping nell'Old Market e consigli sui migliori locali per la cena."
+            },
+            {
+                "time": "GIORNO 2",
+                "activity": "Il Grande Blu: Yacht VIP & Isola Bianca",
+                "details": "Giornata intera in mare. Navigazione di lusso verso il Parco Nazionale di Ras Mohammed e sosta sulla famosa 'Isola Bianca' (le Maldive d'Egitto). Pranzo a bordo incluso."
+            },
+            {
+                "time": "GIORNO 3",
+                "activity": "Natura Selvaggia: Ras Mohammed in Bus",
+                "details": "Mezza giornata dedicata alla scoperta di Ras Mohammed via terra. Snorkeling dalla spiaggia (Yolanda Reef), visita alla Porta di Allah, il Lago Magico e le mangrovie. Pomeriggio libero per relax."
+            },
+            {
+                "time": "GIORNO 4",
+                "activity": "Super Safari: I 5 Sensi del Sinai",
+                "details": "Mattinata libera. Nel pomeriggio inizia l'avventura: Quad (moto) nel deserto, cammellata al tramonto, tè beduino e cena tradizionale sotto le stelle con spettacolo."
+            },
+            {
+                "time": "GIORNO 5",
+                "activity": "Dahab Adventure & Blue Hole",
+                "details": "Escursione in Jeep verso la città hippie di Dahab. Snorkeling nel leggendario Blue Hole, pranzo sul mare e passeggiata nel colorato mercatino locale (Canyon opzionale)."
+            },
+            {
+                "time": "GIORNO 6",
+                "activity": "Saluti & Transfer Finale",
+                "details": "Colazione, check-out e trasferimento privato verso l'aeroporto. Assistenza fino alla partenza e saluti finali."
+            }
+        ],
+        "includes": [
+            "Tutti i trasferimenti privati (Aeroporto & Escursioni)",
+            "Biglietti d'ingresso ai Parchi Nazionali",
+            "Pranzo sullo Yacht e a Dahab",
+            "Cena Beduina nel deserto",
+            "Attrezzatura snorkeling base (su richiesta)",
+            "Assistenza prioritaria Fabio via WhatsApp"
+        ],
+        "not_included": [
+            "Voli internazionali e assicurazione di viaggio",
+            "Soggiorno in hotel (possiamo suggerire i migliori resort)",
+            "Mance ed extra personali",
+            "Foto e video professionali durante le escursioni"
+        ],
+        "important_notes": "L'ordine delle escursioni può essere modificato in base alle condizioni meteo o alle tue preferenze. Si consiglia di portare passaporto, crema solare e scarpe comode.",
+        "seo_tags": [
+            "Pacchetto completo Sharm",
+            "Ras Mohammed Bus e Barca",
+            "Blue Hole Dahab",
+            "Safari Deserto Sharm",
+            "Migliori escursioni Sharm el Sheikh"
+        ]
     },
     dolce_vita_family: {
     "tour_id": "dolce_vita_family",
