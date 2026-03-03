@@ -1,0 +1,28 @@
+/* =========================================
+   TYPOGRAPHY
+   Font family assignments for different elements
+   ========================================= */
+
+/* Large headings (Cinzel) */
+h1,
+h2,
+h3,
+.hero-title,
+.main-brand-title,
+.section-title {
+  font-family: 'Cinzel', serif;
+}
+
+/* Featured text and quotes (Playfair) */
+.vip-text,
+.luxury-quote,
+.handwritten-style {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Base font for entire site (Montserrat) */
+@layer base {
+  html {
+    font-family: "Montserrat", sans-serif;
+  }
+}

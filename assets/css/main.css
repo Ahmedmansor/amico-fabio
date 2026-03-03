@@ -1,0 +1,42 @@
+/* =========================================
+   MAIN CSS ENTRY POINT
+   Vite-friendly modular architecture
+   ========================================= */
+
+/* Base */
+@import "./base/_fonts.css";
+@import "./base/_variables.css";
+@import "./base/_typography.css";
+
+/* Layout */
+@import "./layout/_header.css";
+@import "./layout/_footer.css";
+@import "./layout/_hero.css";
+@import "./layout/_floating-widgets.css";
+
+/* Components */
+@import "./components/_cards.css";
+@import "./components/_badges.css";
+@import "./components/_buttons.css";
+@import "./components/_modals.css";
+@import "./components/_animations.css";
+
+/* Sections */
+@import "./sections/_who-fabio.css";
+@import "./sections/_reviews.css";
+@import "./sections/_location-entry.css";
+@import "./sections/_promo-banner.css";
+
+/* Pages */
+@import "./pages/_welcome.css";
+@import "./pages/_legal.css";
+@import "./pages/_details.css";
+@import "./pages/_secrets.css";
+
+/* Utilities */
+@import "./utilities/_helpers.css";
+
+/* Tailwind - Must be after @import statements */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

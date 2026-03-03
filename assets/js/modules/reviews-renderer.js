@@ -35,7 +35,14 @@ export function initReviews(langOverride) {
     || 'it';
   const lang = String(rawLang).toLowerCase().trim();
 
-  const i18n = lang.startsWith('en') ? (window.i18nEn || {}) : (window.i18nIt || {});
+  // Use I18nService if available, fallback to window globals
+  let i18n;
+  if (window.I18nService && typeof window.I18nService.getAll === 'function') {
+    i18n = window.I18nService.getAll();
+  } else {
+    i18n = lang.startsWith('en') ? (window.i18nEn || {}) : (window.i18nIt || {});
+  }
+  
   const reviews = normalizeReviews(i18n.reviews);
 
   if (!reviews.length) {

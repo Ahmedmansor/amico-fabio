@@ -9,6 +9,8 @@ coverage/
 # Production (Build output)
 dist/
 build/
+!build/*.js
+!build/*.json
 
 # IDEs and Editors
 .vscode/

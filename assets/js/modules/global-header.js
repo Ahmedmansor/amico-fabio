@@ -248,26 +248,32 @@ const GlobalHeader = {
       const btn = e.target.closest('.gh-lang-item');
       if (!btn) return;
       const newLang = btn.getAttribute('data-lang');
+      const currentLang = localStorage.getItem('fabio_lang') || 'it';
+      
+      if (newLang === currentLang) return;
+      
       localStorage.setItem('fabio_lang', newLang);
       localStorage.setItem('preferredLanguage', newLang);
       document.documentElement.lang = newLang;
-      if (typeof window.applyTranslations === 'function') {
-        window.applyTranslations(newLang);
-      } else {
-        GlobalHeader.initLanguage();
-        window.dispatchEvent(new CustomEvent('langChanged', { detail: { lang: newLang } }));
+      
+      // Check if we're in i18n URL mode
+      const currentPath = window.location.pathname;
+      const langMatch = currentPath.match(/^\/(en|it)\//);
+      
+      if (langMatch) {
+        // i18n mode: update URL with new language prefix
+        const oldLang = langMatch[1];
+        const newPath = currentPath.replace(`/${oldLang}/`, `/${newLang}/`);
+        window.location.href = newPath + window.location.search + window.location.hash;
+        return;
       }
-      if (typeof window.renderLegal === 'function') {
-        try { window.renderLegal(newLang); } catch (err) { /* noop */ }
-      }
-      // Update flag button instantly
-      if (langBtn) {
-        langBtn.innerHTML = `${flagSvg(newLang)}<span class="gh-chevron">▼</span>`;
-      }
-      // Update dropdown active state
-      langDd.querySelectorAll('.gh-lang-item').forEach(item => item.classList.remove('active'));
-      const activeItem = langDd.querySelector(`.gh-lang-item[data-lang="${newLang}"]`);
-      if (activeItem) activeItem.classList.add('active');
+      
+      // Non-i18n mode: redirect to i18n URL with language prefix
+      // Map current page to i18n version
+      const pageName = currentPath.split('/').pop() || 'index.html';
+      const cleanPage = pageName.replace(/\.html$/, '') + '.html';
+      window.location.href = `/${newLang}/${cleanPage}`;
+      return;
     });
     // center navigation handled via gh-nav-inline
 

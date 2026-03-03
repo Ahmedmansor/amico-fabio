@@ -1,0 +1,286 @@
+/* =========================================
+   WHO FABIO SECTION
+   Parallax bio section with modal
+   ========================================= */
+
+.who-fabio-section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.wf-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  touch-action: pan-x pan-y;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 640px) {
+  .wf-container {
+    height: 520px;
+  }
+}
+
+.wf-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.wf-bg {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  left: -5%;
+  top: -5%;
+  object-fit: cover;
+  transform: scale(1.1);
+  will-change: transform;
+  transition: transform 0.2s cubic-bezier(0.2, 0.49, 0.32, 0.99);
+  filter: saturate(1.1) contrast(1.1);
+}
+
+.wf-foreground {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.wf-glow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 50%;
+  background: radial-gradient(50% 50% at 50% 80%, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.05) 60%, transparent 80%);
+  filter: blur(20px);
+  z-index: 0;
+}
+
+.wf-figure {
+  position: relative;
+  z-index: 1;
+  max-height: 95%;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 24px 36px rgba(0, 0, 0, 0.8));
+  will-change: transform;
+  transition: transform 0.2s ease-out;
+}
+
+.wf-bio-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  width: max-content;
+  min-width: 140px;
+  font-size: 0.9rem;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  border: 1px solid rgba(212, 175, 55, 0.8);
+  color: #D4AF37;
+  background: rgba(0, 0, 0, 0.75);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  z-index: 15;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+  cursor: pointer;
+}
+
+.wf-bio-btn:hover {
+  transform: translateX(-50%) translateY(-3px);
+  background: #D4AF37;
+  color: #000;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+.wf-overlay-bio {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.wf-overlay-bio.is-visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.wf-overlay-content {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  padding: 3rem 2.5rem 2.5rem;
+  color: #fff;
+  text-align: left;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(212, 175, 55, 0.1) inset;
+  display: flex;
+  flex-direction: column;
+}
+
+.wf-overlay-close {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  border: 1px solid #D4AF37;
+  color: #D4AF37;
+  border-radius: 50%;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10005;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.wf-overlay-close:hover {
+  background: #D4AF37;
+  color: #000;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+}
+
+.wf-overlay-text {
+  font-family: "Montserrat", sans-serif;
+  color: #cccccc;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  font-weight: 300;
+}
+
+.wf-overlay-text p {
+  margin-bottom: 1.5rem;
+}
+
+.wf-overlay-text strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.wf-text-highlight {
+  display: inline-block;
+  font-family: "Cinzel", serif;
+  color: #D4AF37;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.wf-text-highlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 1px;
+  background: #D4AF37;
+}
+
+.wf-quote {
+  display: block;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: #fff;
+  margin-top: 3rem;
+  padding: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.wf-overlay-content::-webkit-scrollbar {
+  width: 6px;
+}
+.wf-overlay-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  margin-block: 10px;
+  border-radius: 10px;
+}
+.wf-overlay-content::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 10px;
+}
+.wf-overlay-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.8);
+}
+
+@media (max-width: 640px) {
+  .wf-overlay-content {
+    padding: 2rem 1.5rem;
+    max-height: 80vh;
+    margin-top: 2rem;
+  }
+  
+  .wf-overlay-close {
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .wf-text-highlight {
+    font-size: 1.15rem;
+  }
+  
+  .wf-quote {
+    font-size: 1.1rem;
+  }
+}

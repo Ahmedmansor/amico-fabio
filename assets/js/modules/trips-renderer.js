@@ -10,7 +10,13 @@ const TripsRenderer = {
 
     _utils: {
         getLang: () => localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it',
-        getI18n: (lang) => lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {}),
+        getI18n: (lang) => {
+            // Use I18nService if available
+            if (window.I18nService && typeof window.I18nService.getAll === 'function') {
+                return window.I18nService.getAll();
+            }
+            return lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+        },
         resolveCategory: (trip) => {
             if (window.ExploreRenderer && typeof window.ExploreRenderer.resolveCategory === 'function') {
                 return window.ExploreRenderer.resolveCategory(trip);
@@ -20,6 +26,29 @@ const TripsRenderer = {
         isPackage: (trip) => {
             const cat = TripsRenderer._utils.resolveCategory(trip);
             return String(trip.type || '').toLowerCase() === 'package' || cat === 'bundles';
+        },
+        toSlug: (id) => {
+            return String(id || '').replace(/_/g, '-');
+        },
+        getLanguagePrefix: () => {
+            const pathname = window.location.pathname;
+            return pathname.includes('/en/') ? '/en' : '';
+        },
+        buildTripURL: (tripId, isPackage) => {
+            const slug = TripsRenderer._utils.toSlug(tripId);
+            
+            // Always use i18n URLs - get language from localStorage or URL
+            let lang = localStorage.getItem('fabio_lang') || 'it';
+            
+            // If we're already in an i18n URL, use that language
+            const currentPath = window.location.pathname;
+            const langMatch = currentPath.match(/^\/(en|it)\//);
+            if (langMatch) {
+                lang = langMatch[1];
+            }
+            
+            // Always return i18n URL format
+            return `/${lang}/trips/${slug}.html`;
         }
     },
 
@@ -154,12 +183,9 @@ const TripsRenderer = {
         const btnKey = isPackage ? 'global.discover_package' : 'global.discover';
         const lblPremium = i18n.global && i18n.global.premium_package ? i18n.global.premium_package : 'Premium Package';
 
-        // Links and Classes
+        // Links and Classes - SSG Static Pages
         const targetIdRaw = trip.package_id || trip.trip_id || '';
-        const encodedId = encodeURIComponent(targetIdRaw);
-        const href = isPackage
-            ? `package-details.html?id=${encodedId}`
-            : `details.html?id=${encodedId}`;
+        const href = TripsRenderer._utils.buildTripURL(targetIdRaw, isPackage);
 
         const cardClasses = ['catalog-card', 'trip-card'];
         if (isPackage) cardClasses.push('premium-package-card');
@@ -186,7 +212,7 @@ const TripsRenderer = {
                             <span class="label-start" data-i18n="global.price_from">${lblStart}</span>
                             ${priceRowHTML}
                         </div>
-                        <button class="card-btn" onclick="sessionStorage.setItem('fabio_nav_source','details'); window.location.href = '${href}'" data-i18n="${btnKey}">${btnLabel}</button>
+                        <a href="${href}" class="card-btn" onclick="sessionStorage.setItem('fabio_nav_source','details');" data-i18n="${btnKey}">${btnLabel}</a>
                     </div>
                 </div>
             </article>

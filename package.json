@@ -6,8 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:ssg": "node build/ssg-builder.js",
+    "build:i18n": "node build/copy-pages-i18n.js",
+    "build:trips": "node build/ssg-trips-generator.js",
+    "build:full": "npm run build && npm run build:i18n && npm run build:trips",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build:full",
     "deploy": "gh-pages -d dist"
   },
   "keywords": [],

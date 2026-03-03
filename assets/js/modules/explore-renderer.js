@@ -11,9 +11,11 @@ const ExploreRenderer = {
   },
 
   init: async () => {
+    console.log('🚀 ExploreRenderer.init() called');
     const params = new URLSearchParams(window.location.search);
     const currentLoc = params.get('loc') || 'all';
     const navSource = sessionStorage.getItem('fabio_nav_source');
+    console.log('📍 Location:', currentLoc, '| Nav Source:', navSource);
 
     // 1. State Recovery 
     if (navSource === 'details') {
@@ -54,7 +56,11 @@ const ExploreRenderer = {
       if (ExploreRenderer.renderFilterSkeleton) ExploreRenderer.renderFilterSkeleton();
       if (ExploreRenderer.renderCardSkeleton) ExploreRenderer.renderCardSkeleton(6);
 
-      if (window.api && window.api.fetchAllData) {
+      if (window.ApiService && window.ApiService.fetchAllData) {
+        const data = await window.ApiService.fetchAllData();
+        sessionStorage.setItem('fabio_data_cache', JSON.stringify(data));
+        ExploreRenderer.processData(data);
+      } else if (window.api && window.api.fetchAllData) {
         const data = await window.api.fetchAllData();
         sessionStorage.setItem('fabio_data_cache', JSON.stringify(data));
         ExploreRenderer.processData(data);
@@ -100,6 +106,8 @@ const ExploreRenderer = {
     const explicit = String(explicitRaw).toLowerCase().trim();
     if (explicit) {
       if (explicit === 'packages') return 'bundles';
+      // Group classic, luxor, aswan under culture
+      if (['classic', 'luxor', 'aswan'].includes(explicit)) return 'culture';
       return explicit;
     }
     if (window.ImagePaths && typeof window.ImagePaths.resolveTripContext === 'function') {
@@ -111,13 +119,25 @@ const ExploreRenderer = {
   },
 
   renderDynamicFilters: () => {
+    console.log('🎯 renderDynamicFilters() called');
     const chipsHost = document.getElementById('filter-chips');
-    if (!chipsHost) return;
-    const uniqueCats = new Set(ExploreRenderer.state.allRawTrips.map(t => ExploreRenderer.resolveCategory(t)));
-    const categories = ['all', ...Array.from(uniqueCats).sort()];
-    const lang = localStorage.getItem('fabio_lang') || 'it';
-    const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
-    const filtersDict = (i18n.global && i18n.global.filters) ? i18n.global.filters : {};
+    if (!chipsHost) {
+      console.error('❌ filter-chips element not found!');
+      return;
+    }
+    const categories = ['all', 'sea', 'desert', 'culture', 'bundles'];
+    console.log('📊 Categories:', categories);
+    
+    // Use I18nService if available
+    let filtersDict = {};
+    if (window.I18nService && typeof window.I18nService.getAll === 'function') {
+      const i18n = window.I18nService.getAll();
+      filtersDict = (i18n.global && i18n.global.filters) ? i18n.global.filters : {};
+    } else {
+      const lang = localStorage.getItem('fabio_lang') || 'it';
+      const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+      filtersDict = (i18n.global && i18n.global.filters) ? i18n.global.filters : {};
+    }
 
     chipsHost.innerHTML = categories.map(cat => {
       const isActive = ExploreRenderer.state.category === cat;
@@ -209,9 +229,14 @@ const ExploreRenderer = {
   },
 
   _renderNoResults: (grid) => {
-    const lang = localStorage.getItem('fabio_lang') || 'it';
-    const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
-    const msg = i18n.global?.no_exclusive_experiences || "No experiences found.";
+    let msg = "No experiences found.";
+    if (window.I18nService && typeof window.I18nService.translate === 'function') {
+      msg = window.I18nService.translate('global.no_exclusive_experiences') || msg;
+    } else {
+      const lang = localStorage.getItem('fabio_lang') || 'it';
+      const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+      msg = i18n.global?.no_exclusive_experiences || msg;
+    }
     grid.innerHTML = `<div class="col-span-full text-center py-20"><p class="text-gray-400 text-xl font-playfair italic">${msg}</p></div>`;
   },
 

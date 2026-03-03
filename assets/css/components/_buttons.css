@@ -1,0 +1,28 @@
+/* =========================================
+   BUTTONS
+   Button styles for cards and actions
+   ========================================= */
+.card-btn {
+  display: inline-block;
+  max-width: 220px;
+  width: auto;
+  padding: 0.7rem 2rem;
+  border-radius: 14px;
+  background: #313028;
+  color: var(--color-gold);
+  border: 2px solid var(--color-gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  transition: transform 300ms ease, background 300ms ease;
+  align-self: center;
+}
+
+.card-btn:hover {
+  background: var(--color-gold);
+  color: #111;
+  transform: translateY(-2px);
+}

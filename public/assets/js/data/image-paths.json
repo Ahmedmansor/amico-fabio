@@ -1,0 +1,78 @@
+{
+  "ui": {
+    "placeholder": "assets/images/ui/placeholder.webp",
+    "headerLogo": "assets/images/logo/fabio-header-logo.webp",
+    "crossRootsLogo": "assets/images/logo/cross-roots-logo.webp",
+    "menuIcon": "assets/images/icons/menu-icon.webp",
+    "fallbackLogo": "assets/images/logo/logo-fabio-square.webp"
+  },
+  "landing": {
+    "hero": [
+      "assets/images/comandamenti-images/1.webp",
+      "assets/images/comandamenti-images/2.webp",
+      "assets/images/comandamenti-images/3.webp"
+    ],
+    "whoFabio": {
+      "bg": "assets/images/home-who-fabio/home-who-fabio-bg.webp",
+      "person": "assets/images/home-who-fabio/home-who-fabio-preson.webp"
+    },
+    "locations": {
+      "sharm": "assets/images/home-fabio-tours-sections/sharm.webp",
+      "cairo": "assets/images/home-fabio-tours-sections/cairo.webp",
+      "luxor": "assets/images/home-fabio-tours-sections/Luxor-and-aswan.webp"
+    }
+  },
+  "secrets": {
+    "fabio": "assets/images/10-comandamenti-images/fabio.webp",
+    "cars": "assets/images/10-comandamenti-images/modern-sanitized-private-cars.webp",
+    "drivers": "assets/images/10-comandamenti-images/autisti-professionisti.webp",
+    "boats": "assets/images/10-comandamenti-images/imbarcazioni-vip.webp",
+    "coins": "assets/images/10-comandamenti-images/euro-coins-no.webp",
+    "sim": "assets/images/10-comandamenti-images/sim-card-solo-negozi-ufficiali.webp",
+    "taxi": "assets/images/10-comandamenti-images/taxi-prezzo-concordato.webp",
+    "antinal": "assets/images/10-comandamenti-images/antinal.webp",
+    "dress": "assets/images/10-comandamenti-images/dress-code.webp",
+    "negotiate": "assets/images/10-comandamenti-images/negoziare.webp",
+    "corals": "assets/images/10-comandamenti-images/coralli.webp",
+    "baksheesh": "assets/images/10-comandamenti-images/baksheesh.webp",
+    "water": "assets/images/10-comandamenti-images/water.webp",
+    "relax": "assets/images/10-comandamenti-images/relax.webp",
+    "farsha": "assets/images/10-comandamenti-images/farsha-café.webp"
+  },
+  "adventures": {
+    "pilot": "assets/images/adventures/pilot.webp",
+    "eiffel": "assets/images/adventures/eiffel-tower.webp",
+    "redSquare": "assets/images/adventures/red-square.webp",
+    "diving": "assets/images/adventures/diving.webp",
+    "desert": "assets/images/adventures/dessert.webp",
+    "urbano": "assets/images/adventures/urbano.webp",
+    "ogni": "assets/images/adventures/ogni.webp",
+    "advanced": "assets/images/adventures/advanced-open-water.webp"
+  },
+  "icons": {
+    "closeIcon": "assets/images/icons/close-icon.svg",
+    "people": {
+      "personMale": "assets/images/icons/person-male.svg",
+      "child": "assets/images/icons/child-svgrepo.svg",
+      "persons": "assets/images/icons/persons.svg"
+    },
+    "legal": {
+      "intro": "assets/images/icons/legal/intro.svg",
+      "owner": "assets/images/icons/legal/owner.svg",
+      "data_types": "assets/images/icons/legal/data_types.svg",
+      "method": "assets/images/icons/legal/method.svg",
+      "purpose": "assets/images/icons/legal/purpose.svg",
+      "cookies": "assets/images/icons/legal/cookies.svg",
+      "third_party": "assets/images/icons/legal/third_party.svg",
+      "rights": "assets/images/icons/legal/rights.svg",
+      "liability": "assets/images/icons/legal/liability.svg",
+      "definitions": "assets/images/icons/legal/definitions.svg",
+      "contact": "assets/images/icons/legal/contact.svg",
+      "default": "assets/images/icons/legal/intro.svg"
+    },
+    "social": {
+      "facebook": "assets/images/icons/social/facebook.svg",
+      "instagram": "assets/images/icons/social/instagram.svg"
+    }
+  }
+}

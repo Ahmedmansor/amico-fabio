@@ -3,6 +3,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   base: '/',
+  publicDir: 'public',
 
   // 👇 الإضافة السحرية: دي بتزرع المتغير جوه كود الجافاسكريبت
   define: {
@@ -22,5 +23,6 @@ export default defineConfig({
       },
     },
     outDir: 'dist',
+    emptyOutDir: true,
   }
 })

@@ -1,0 +1,37 @@
+/* =========================================
+   UTILITY HELPERS
+   Helper classes and utilities
+   ========================================= */
+
+.text-gold {
+  color: #D4AF37 !important;
+}
+
+.text-gold-light {
+  color: #F1D78A !important;
+}
+
+.bg-gold {
+  background-color: #D4AF37 !important;
+}
+
+.border-gold {
+  border-color: #D4AF37 !important;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif !important;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

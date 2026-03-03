@@ -1,18 +1,35 @@
 // assets/js/main.js
 
-// 1. استدعاء الموديولز كلها هنا
+// ==========================================
+// Phase 4: Service Layer Integration
+// ==========================================
+import { I18nService } from './services/i18n.service.js';
+import { ApiService } from './services/api.service.js';
+import { ImageService } from './services/image.service.js';
+import { StorageService } from './services/storage.service.js';
+
+// Legacy imports (will be phased out)
 import './image_paths.js';
 import './core/api.js';
 import './trips_metadata.js';
+
+// UI Modules
 import './modules/global-header.js';
 import './modules/global-footer.js';
 import './modules/hero-slider.js';
+import './modules/who-fabio.js';
+import './modules/trips-renderer.js';
 import { initReviews } from './modules/reviews-renderer.js';
-// ... وباقي الملفات
 
-// 2. كود التشغيل الأساسي بتاعك
-console.log('Fabio Tours App Started');
-// ...
+// Backward Compatibility: Expose services to window for legacy scripts
+window.I18nService = I18nService;
+window.ApiService = ApiService;
+window.ImageService = ImageService;
+window.StorageService = StorageService;
+
+console.log('Fabio Tours App Started (Phase 4)');
+
+// Service Worker cleanup
 navigator.serviceWorker.getRegistrations().then(regs => {
   regs.forEach(r => {
     r.unregister();
@@ -26,14 +43,10 @@ if ('caches' in window) {
     });
   });
 }
+
 // ==========================================
 // App Orchestrator & Main Controller
 // ==========================================
-
-const i18nData = {
-  it: window.i18nIt,
-  en: window.i18nEn
-};
 
 let currentLang = "it";
 
@@ -58,13 +71,13 @@ function getValueByPath(root, path) {
 // ==========================================
 
 function applyTextContent(lang) {
-  const dataset = i18nData[lang];
+  const dataset = I18nService.getAll();
   if (!dataset) return;
 
   const selectors = document.querySelectorAll("[data-i18n]");
   selectors.forEach((element) => {
     const keyPath = element.getAttribute("data-i18n");
-    const value = getValueByPath(dataset, keyPath);
+    const value = I18nService.translate(keyPath);
     if (typeof value === "string") {
       element.textContent = value;
     }
@@ -74,29 +87,31 @@ function applyTextContent(lang) {
   const imgSelectors = document.querySelectorAll("[data-img]");
   imgSelectors.forEach((img) => {
     const keyPath = img.getAttribute("data-img");
-    const src = getValueByPath(dataset, keyPath);
-    if (typeof src === "string") {
-      img.src = src;
+    const value = I18nService.translate(keyPath);
+    if (typeof value === "string") {
+      img.src = value;
     }
   });
 
-  // Images with data-landing-img (Direct ImagePaths access)
+  // Images with data-landing-img (ImageService access)
   const landingImgSelectors = document.querySelectorAll("[data-landing-img]");
   landingImgSelectors.forEach((img) => {
     const keyPath = img.getAttribute("data-landing-img");
-    // Ensure ImagePaths is available
-    if (window.ImagePaths) {
-      const src = getValueByPath(window.ImagePaths, keyPath);
-      if (typeof src === "string") {
-        img.src = src;
-      }
+    const imagePaths = ImageService.getAll();
+    const src = getValueByPath(imagePaths, keyPath);
+    if (typeof src === "string") {
+      img.src = ImageService.resolve(src);
     }
   });
 }
 
-function applyTranslations(lang) {
+async function applyTranslations(lang) {
+  // Switch language using I18nService
+  await I18nService.switchLanguage(lang);
+  
   currentLang = lang;
   document.documentElement.lang = lang;
+  StorageService.setLocal("lang", lang);
   localStorage.setItem("fabio_lang", lang);
   localStorage.setItem("preferredLanguage", lang);
 
@@ -139,10 +154,10 @@ window.applyTranslations = applyTranslations;
 function renderComponent(containerId, dataPath, template) {
   const container = document.getElementById(containerId);
   if (!container) return;
-  const dataset = i18nData[currentLang];
+  const dataset = I18nService.getAll();
   if (!dataset) return;
 
-  const data = getValueByPath(dataset, dataPath);
+  const data = I18nService.translate(dataPath);
   container.innerHTML = "";
 
   if (Array.isArray(data)) {
@@ -300,7 +315,7 @@ function hideIndexMenu() {
 }
 
 function renderIndexMenu(lang) {
-  const dataset = i18nData[lang];
+  const dataset = I18nService.getAll();
   if (!dataset) return;
   const menu = document.getElementById("indexMenu");
   if (!menu) return;
@@ -316,7 +331,7 @@ function renderIndexMenu(lang) {
   ];
   nav.innerHTML = "";
   sections.forEach((section, index) => {
-    const labelValue = getValueByPath(dataset, section.key);
+    const labelValue = I18nService.translate(section.key);
     const button = document.createElement("button");
     button.type = "button";
     button.className = "index-link";
@@ -367,7 +382,7 @@ function attachAdventuresModal() {
       if (!card) return;
       const indexValue = card.getAttribute("data-index");
       const index = indexValue ? parseInt(indexValue, 10) : 0;
-      const dataset = i18nData[currentLang];
+      const dataset = I18nService.getAll();
 
       const page = dataset && dataset.secrets && dataset.secrets.page6;
       const items = page && Array.isArray(page.items) ? page.items : [];
@@ -394,8 +409,9 @@ function attachAdventuresModal() {
 }
 
 function setupSecretsBackgrounds() {
-  if (!window.ImagePaths || !window.ImagePaths.secrets || !window.ImagePaths.secrets.bg) return;
-  const bg = window.ImagePaths.secrets.bg;
+  const imagePaths = ImageService.getAll();
+  if (!imagePaths || !imagePaths.secrets || !imagePaths.secrets.bg) return;
+  const bg = imagePaths.secrets.bg;
 
   const setBg = (selector, imageUrl) => {
     const el = document.querySelector(selector);
@@ -416,92 +432,141 @@ function setupSecretsBackgrounds() {
 
 const App = {
   init: async () => {
-    // 0. Init UI Layout (Header/Footer) immediately
-    if (window.UILayout) {
-      window.UILayout.init();
-    }
+    try {
+      // 0. Init UI Layout (Header/Footer) immediately - ALWAYS RUN
+      if (window.UILayout) {
+        window.UILayout.init();
+      }
 
-    // Why: Proactively unregister legacy Service Workers to avoid stale caching during refactor.
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then(function (registrations) {
-        for (let registration of registrations) {
-          registration.unregister();
-        }
-      });
-    }
+      // Why: Proactively unregister legacy Service Workers to avoid stale caching during refactor.
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function (registrations) {
+          for (let registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
 
-    // 1. Initialize Language Engine
-    const savedFabioLang = localStorage.getItem("fabio_lang");
-    const legacyPreferred = localStorage.getItem("preferredLanguage");
-    const bootstrapLang = savedFabioLang || legacyPreferred || "it";
-    if (bootstrapLang && i18nData[bootstrapLang]) {
+      // 1. Initialize Language Engine with I18nService
+      const savedFabioLang = StorageService.getLocal("lang", null) || localStorage.getItem("fabio_lang");
+      const legacyPreferred = localStorage.getItem("preferredLanguage");
+      const bootstrapLang = savedFabioLang || legacyPreferred || "it";
+      
+      // Load initial language data
+      await I18nService.loadLanguage(bootstrapLang);
       currentLang = bootstrapLang;
-    }
 
-    // Initial translation apply
-    applyTranslations(currentLang);
+      // SSG Hydration Guard: Only skip translations if page is pre-rendered for current language
+      const isStaticPage = window.IS_STATIC && window.STATIC_LANG === currentLang;
+      
+      if (!isStaticPage) {
+        // Initial translation apply for dynamic pages or language mismatch
+        await applyTranslations(currentLang);
+      } else {
+        console.log('SSG Hydration: Content pre-translated. Skipping text replacement.');
+        // Still need to initialize reviews and dispatch lang event
+        initReviews(currentLang);
+        window.dispatchEvent(new CustomEvent('langChanged', { detail: { lang: currentLang } }));
+      }
 
-    // 2. Route based on page
-    if (document.getElementById('trips-grid')) {
-      await App.initTripCatalog();
-    } else {
-      App.initSharmSecrets();
-    }
+      // 2. Route based on page - ALWAYS RUN to render UI components
+      if (document.getElementById('trips-grid')) {
+        await App.initTripCatalog();
+      } else {
+        App.initSharmSecrets();
+      }
 
-    // Who Fabio Parallax (index only)
-    const whoFabioEl = document.getElementById('who-fabio');
-    if (whoFabioEl && window.WhoFabioParallax) {
-      try {
-        window.WFParallax = window.WFParallax || new window.WhoFabioParallax(whoFabioEl);
-      } catch (e) { /* noop */ }
+      // Who Fabio Parallax (index only)
+      const whoFabioEl = document.getElementById('who-fabio');
+      if (whoFabioEl && window.WhoFabioParallax) {
+        try {
+          window.WFParallax = window.WFParallax || new window.WhoFabioParallax(whoFabioEl);
+        } catch (e) { /* noop */ }
+      }
+    } catch (error) {
+      console.error('App initialization error:', error);
+      
+      // Show error message to user
+      const main = document.querySelector('main');
+      if (main) {
+        const msg = I18nService.translate('global.loading_failed') || "An error occurred. Please refresh the page.";
+        main.innerHTML = `<div class="h-screen flex items-center justify-center text-white">
+          <p class="text-xl text-gold">${msg}</p>
+        </div>`;
+      }
+    } finally {
+      // SPINNER SAFETY: Always hide loading spinner
+      const spinner = document.getElementById('loading-spinner') || document.querySelector('.loading-spinner');
+      if (spinner) {
+        spinner.style.display = 'none';
+        spinner.classList.add('hidden');
+      }
     }
   },
 
   initTripCatalog: async () => {
     const grid = document.getElementById('trips-grid');
-    // Do not mutate static cards
 
-    // 3. Call Data Layer (for promo/settings only)
-    if (window.api && window.api.fetchAllData) {
-      const data = await window.api.fetchAllData();
+    // 3. Fetch data using ApiService
+    const data = await ApiService.fetchAllData();
 
-      // Safety check: ensure we have data
-      const finalData = data;
-
-      if (!finalData) {
-        console.error("App: Data fetch returned null.");
-        return;
-      }
-
-      window.appData = finalData; // Store state
-
-      // 4. Leave static cards intact
-
-      // 5. Trigger Promo Banner
-      if (window.PromoBanner && finalData.Global_Settings) {
-        window.PromoBanner.render(finalData.Global_Settings);
-      }
-
-      // 6. Init Global UI (Header/Footer)
-      if (window.UILayout) {
-        window.UILayout.init();
-      }
-
-      if (!window.TripsRenderer || !finalData.Trips_Prices) {
-        const grid = document.getElementById('trips-grid');
-        if (grid) {
-          const lang = localStorage.getItem("fabio_lang") || document.documentElement.lang || "it";
-          const i18n = lang === "en" ? (window.i18nEn || {}) : (window.i18nIt || {});
-          const msg = i18n.global && typeof i18n.global.loading_failed === "string" ? i18n.global.loading_failed : "";
-          grid.innerHTML = `<div class="col-span-full text-center py-12">
-                <p class="text-gold text-xl" data-i18n="global.loading_failed">${msg}</p>
-            </div>`;
-        }
-      }
-      setupFooterObserver();
-    } else {
-      console.error("API module not found");
+    // Safety check: ensure we have data
+    if (!data) {
+      console.error("App: Data fetch returned null.");
+      return;
     }
+
+    window.appData = data; // Store state for backward compatibility
+
+    // 4. Filter trips/packages to only include those with valid i18n entries
+    if (data.Trips_Prices && Array.isArray(data.Trips_Prices)) {
+      const originalCount = data.Trips_Prices.length;
+      const validTrips = data.Trips_Prices.filter(trip => {
+        // Skip items with empty or undefined trip_id
+        if (!trip.trip_id || String(trip.trip_id).trim() === '') {
+          return false;
+        }
+        const tripKey = `trips.${trip.trip_id}`;
+        const translation = I18nService.translate(tripKey);
+        // Only include if translation exists and is an object (not the key itself)
+        return translation && typeof translation === 'object' && translation !== tripKey;
+      });
+      data.Trips_Prices = validTrips;
+      console.log(`Filtered trips: ${validTrips.length} valid out of ${originalCount} total`);
+    }
+
+    if (data.Packages && Array.isArray(data.Packages)) {
+      const originalCount = data.Packages.length;
+      const validPackages = data.Packages.filter(pkg => {
+        // Skip items with empty or undefined package_id/trip_id
+        const pkgId = pkg.package_id || pkg.trip_id;
+        if (!pkgId || String(pkgId).trim() === '') {
+          return false;
+        }
+        const pkgKey = `packages.${pkgId}`;
+        const translation = I18nService.translate(pkgKey);
+        return translation && typeof translation === 'object' && translation !== pkgKey;
+      });
+      data.Packages = validPackages;
+      console.log(`Filtered packages: ${validPackages.length} valid out of ${originalCount} total`);
+    }
+
+    // 5. Trigger Promo Banner
+    if (window.PromoBanner && data.Global_Settings) {
+      window.PromoBanner.render(data.Global_Settings);
+    }
+
+    // 6. Init Global UI (Header/Footer) - ALWAYS RUN
+    if (window.UILayout) {
+      window.UILayout.init();
+    }
+
+    // 7. Trip Cards are NOT rendered on homepage (index.html)
+    // Homepage only shows the 3 location entry cards (Sharm, Cairo, Luxor/Aswan)
+    // Trips are rendered in explore.html via ExploreRenderer
+    // Keep this section for backward compatibility but don't render
+    window.appData = data; // Store for other modules if needed
+    setupFooterObserver();
   },
 
   initSharmSecrets: () => {

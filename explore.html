@@ -30,19 +30,16 @@
     content="Scegli la tua prossima avventura in Egitto. Tour privati a Sharm, Cairo, Luxor e Aswan. I migliori prezzi e servizio VIP.">
   <meta property="twitter:image" content="https://fabioegypt.com/assets/images/logo/logo-fabio-square.webp">
 
-  <link rel="icon" type="image/webp" href="assets/images/logo/logo-fabio-square.webp">
-  <link rel="apple-touch-icon" href="assets/images/logo/logo-fabio-square.webp">
+  <link rel="icon" type="image/webp" href="/assets/images/logo/logo-fabio-square.webp">
+  <link rel="apple-touch-icon" href="/assets/images/logo/logo-fabio-square.webp">
 
-  <link rel="preload" href="assets/fonts/montserrat-v31-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/cinzel-v26-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
 <body class="bg-black font-sans text-gray-200">
 
   <header id="global-header" class="fixed w-full top-0 z-50 transition-all duration-300"></header>
-  <main class="pt-24 min-h-screen">
+  <main class="pt-40 min-h-screen">
     <section class="max-w-7xl mx-auto px-4">
       <h1 class="sr-only" data-i18n="explore.title">Esplora i Viaggi</h1>
       <div class="mb-8 flex flex-col md:flex-row items-center justify-between gap-4 animate-fade-up delay-100">
@@ -72,22 +69,32 @@
 
   <footer id="global-footer"></footer>
 
-  <script type="module" src="assets/js/image_paths.js"></script>
-  <script type="module" src="assets/lang/global-it.js"></script>
-  <script type="module" src="assets/lang/global-en.js"></script>
-  <script type="module" src="assets/js/core/api.js"></script>
-  <script type="module" src="assets/js/trips_metadata.js"></script>
-  <script type="module" src="assets/js/modules/global-header.js"></script>
-  <script type="module" src="assets/js/modules/global-footer.js"></script>
-  <script type="module" src="assets/js/modules/ui-layout.js"></script>
-  <script type="module" src="assets/js/modules/trips-renderer.js"></script>
-  <script type="module" src="assets/js/modules/explore-renderer.js"></script>
+  <!-- Phase 4: Main entry point with Services -->
+  <script type="module" src="/assets/js/main.js"></script>
+  <script type="module" src="/assets/js/modules/ui-layout.js"></script>
+  <script type="module" src="/assets/js/modules/explore-renderer.js"></script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (window.UILayout) window.UILayout.init();
-      if (window.ExploreRenderer) window.ExploreRenderer.init();
+  <script type="module">
+    // Wait for all modules to load
+    await new Promise(resolve => {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', resolve);
+      } else {
+        resolve();
+      }
     });
+    
+    // Initialize UI Layout
+    if (window.UILayout) {
+      window.UILayout.init();
+    }
+    
+    // Initialize Explore Renderer
+    if (window.ExploreRenderer) {
+      await window.ExploreRenderer.init();
+    } else {
+      console.error('❌ ExploreRenderer not found on window object!');
+    }
   </script>
 </body>
 

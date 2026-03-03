@@ -1,10 +1,16 @@
 const DetailsRenderer = {
     init: async () => {
-        const params = new URLSearchParams(window.location.search);
-        const tripId = params.get('id');
+        // SSG-Aware: PRIORITY 1 - Check if SSG injected the trip ID
+        let tripId = window.TRIP_ID;
+        const isPackage = window.IS_PACKAGE || false;
 
-        // 1. Handshake Signal (أضف هذا السطر)
-        // هذا السطر يخبر صفحة Explore أننا قادمون من التفاصيل عند العودة
+        // PRIORITY 2: Fallback to URL query (for legacy/dev mode)
+        if (!tripId) {
+            const params = new URLSearchParams(window.location.search);
+            tripId = params.get('id');
+        }
+
+        // 1. Handshake Signal
         sessionStorage.setItem('fabio_nav_source', 'details');
         const waFloat = document.getElementById('whatsapp-float');
         if (waFloat) waFloat.remove();
@@ -24,7 +30,19 @@ const DetailsRenderer = {
         DetailsRenderer.setupFaqAccordion();
 
         if (!tripId) {
-            window.location.href = 'index.html';
+            console.error('No trip ID provided in URL');
+            const main = document.querySelector('main');
+            if (main) {
+                main.innerHTML = `
+                    <div class="container mx-auto px-4 py-20 text-center">
+                        <h1 class="text-3xl font-cinzel text-gold mb-4">Trip Not Found</h1>
+                        <p class="text-gray-400 mb-8">Please select a trip from the explore page.</p>
+                        <a href="explore.html" class="inline-block px-8 py-3 bg-gold text-black rounded-lg hover:bg-gold/90 transition-colors">
+                            Browse Trips
+                        </a>
+                    </div>
+                `;
+            }
             return;
         }
         if (typeof DetailsRenderer.renderGalleryImmediate === 'function') {
@@ -32,8 +50,24 @@ const DetailsRenderer = {
         }
 
         const lang = localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
-        const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
-        const langData = i18n.trips ? i18n.trips[tripId] : null;
+        
+        // Wait for I18nService to be ready
+        let langData = null;
+        if (window.I18nService && typeof window.I18nService.translate === 'function') {
+            // Ensure language is loaded before accessing translations
+            if (!window.I18nService.translations || Object.keys(window.I18nService.translations).length === 0) {
+                await window.I18nService.loadLanguage(lang);
+            }
+            
+            const tripKey = `trips.${tripId}`;
+            langData = window.I18nService.translate(tripKey);
+            if (typeof langData !== 'object' || langData === tripKey) {
+                langData = null;
+            }
+        } else {
+            const i18n = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+            langData = i18n.trips ? i18n.trips[tripId] : null;
+        }
 
         let apiData = null;
         // 2. Cache Name Fix (عدل هذا السطر)
@@ -55,7 +89,14 @@ const DetailsRenderer = {
                 DetailsRenderer.render(tripId, apiData, langData, lang);
             } else {
                 DetailsRenderer.renderStaticFirst(tripId, langData, lang);
-                if (window.api && window.api.fetchAllData) {
+                if (window.ApiService && window.ApiService.fetchAllData) {
+                    const data = await window.ApiService.fetchAllData();
+                    sessionStorage.setItem('fabio_data_cache', JSON.stringify(data));
+                    const apiData = DetailsRenderer.findTripInData(data, tripId);
+                    if (apiData) {
+                        DetailsRenderer.render(tripId, apiData, langData, lang);
+                    }
+                } else if (window.api && window.api.fetchAllData) {
                     const data = await window.api.fetchAllData();
                     // تحديث الكاش بالمرة لو اضطرينا نجيب داتا جديدة
                     sessionStorage.setItem('fabio_data_cache', JSON.stringify(data));
@@ -150,8 +191,21 @@ const DetailsRenderer = {
 
     render: (tripId, apiData, langData, lang) => {
         const activeLang = localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
-        const i18nCurrent = activeLang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
-        const langDataCurrent = i18nCurrent.trips ? i18nCurrent.trips[tripId] : null;
+        
+        // Use I18nService if available
+        let i18nCurrent, langDataCurrent;
+        if (window.I18nService && typeof window.I18nService.translate === 'function') {
+            i18nCurrent = window.I18nService.getAll();
+            const tripKey = `trips.${tripId}`;
+            langDataCurrent = window.I18nService.translate(tripKey);
+            if (typeof langDataCurrent !== 'object' || langDataCurrent === tripKey) {
+                langDataCurrent = null;
+            }
+        } else {
+            i18nCurrent = activeLang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+            langDataCurrent = i18nCurrent.trips ? i18nCurrent.trips[tripId] : null;
+        }
+        
         lang = activeLang;
         langData = langDataCurrent || langData;
         const title = (langData && langData.title) || (apiData && apiData.trip_id) || tripId;
@@ -212,8 +266,11 @@ const DetailsRenderer = {
             }
         }
 
-        // Text Content
-        if (els.title) els.title.textContent = title;
+        // Text Content - Remove shimmer and set title
+        if (els.title) {
+            els.title.innerHTML = ''; // Clear shimmer
+            els.title.textContent = title;
+        }
 
         // Badge
         if (badge) {
@@ -253,8 +310,13 @@ const DetailsRenderer = {
         }
 
         if (langData) {
-            const dict = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
-            const daily = dict && dict.global && typeof dict.global.daily === 'string' ? dict.global.daily : '';
+            let daily = '';
+            if (window.I18nService && typeof window.I18nService.translate === 'function') {
+                daily = window.I18nService.translate('global.daily') || '';
+            } else {
+                const dict = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+                daily = dict && dict.global && typeof dict.global.daily === 'string' ? dict.global.daily : '';
+            }
             if (els.duration) els.duration.textContent = langData.duration || daily;
             if (els.desc) els.desc.innerHTML = langData.short_desc || '';
             if (els.fullDesc) els.fullDesc.innerHTML = langData.full_description || '';
@@ -271,8 +333,13 @@ const DetailsRenderer = {
         }
 
         // Button Text
-        const dictBtn = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
-        const bookNow = dictBtn && dictBtn.global && typeof dictBtn.global.book_now === 'string' ? dictBtn.global.book_now : '';
+        let bookNow = '';
+        if (window.I18nService && typeof window.I18nService.translate === 'function') {
+            bookNow = window.I18nService.translate('global.book_now') || '';
+        } else {
+            const dictBtn = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+            bookNow = dictBtn && dictBtn.global && typeof dictBtn.global.book_now === 'string' ? dictBtn.global.book_now : '';
+        }
         if (els.btnBook) els.btnBook.textContent = bookNow;
         const stickyMobile = document.getElementById('sticky-mobile-book');
         if (stickyMobile) {
@@ -386,8 +453,13 @@ const DetailsRenderer = {
         const totalEl = document.getElementById('live-total-price');
         if (totalEl) totalEl.textContent = `€0`;
         if (langData) {
-            const dict = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
-            const daily = dict && dict.global && typeof dict.global.daily === 'string' ? dict.global.daily : '';
+            let daily = '';
+            if (window.I18nService && typeof window.I18nService.translate === 'function') {
+                daily = window.I18nService.translate('global.daily') || '';
+            } else {
+                const dict = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+                daily = dict && dict.global && typeof dict.global.daily === 'string' ? dict.global.daily : '';
+            }
             if (els.duration) els.duration.textContent = langData.duration || daily;
             if (els.desc) els.desc.innerHTML = langData.short_desc || '';
             if (els.fullDesc) els.fullDesc.innerHTML = langData.full_description || '';
@@ -444,8 +516,14 @@ const DetailsRenderer = {
         }
         if (breakdownEl) {
             const lang = localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
-            const i18nCurrent = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
-            const dictPricing = (i18nCurrent && i18nCurrent.global && i18nCurrent.global.pricing) ? i18nCurrent.global.pricing : {};
+            let dictPricing = {};
+            if (window.I18nService && typeof window.I18nService.translate === 'function') {
+                const pricing = window.I18nService.translate('global.pricing');
+                dictPricing = (pricing && typeof pricing === 'object') ? pricing : {};
+            } else {
+                const i18nCurrent = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+                dictPricing = (i18nCurrent && i18nCurrent.global && i18nCurrent.global.pricing) ? i18nCurrent.global.pricing : {};
+            }
             const lblMinPax = dictPricing.min_pax || 'Min Pax';
             const personIcon = DetailsRenderer.iconMarkup('personMale', '👤');
             const personsIcon = DetailsRenderer.iconMarkup('persons', '👥');

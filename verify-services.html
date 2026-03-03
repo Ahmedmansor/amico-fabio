@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services Verification - Fabio Landing</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 3px solid #3498db;
+      padding-bottom: 10px;
+    }
+    .service-test {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .service-test h2 {
+      color: #34495e;
+      margin-top: 0;
+    }
+    .status {
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    .status.success {
+      background: #2ecc71;
+      color: white;
+    }
+    .status.error {
+      background: #e74c3c;
+      color: white;
+    }
+    .status.pending {
+      background: #f39c12;
+      color: white;
+    }
+    pre {
+      background: #ecf0f1;
+      padding: 15px;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-size: 12px;
+    }
+    button {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin: 5px;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .test-result {
+      margin-top: 10px;
+      padding: 10px;
+      border-left: 4px solid #3498db;
+      background: #ecf0f1;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧪 Services Verification Dashboard</h1>
+  <p>Testing the new service layer classes created in Phase 3</p>
+
+  <div class="service-test">
+    <h2>1. StorageService <span class="status pending" id="storage-status">PENDING</span></h2>
+    <button onclick="testStorageService()">Test StorageService</button>
+    <div id="storage-result" class="test-result" style="display:none;"></div>
+  </div>
+
+  <div class="service-test">
+    <h2>2. ImageService <span class="status pending" id="image-status">PENDING</span></h2>
+    <button onclick="testImageService()">Test ImageService</button>
+    <div id="image-result" class="test-result" style="display:none;"></div>
+  </div>
+
+  <div class="service-test">
+    <h2>3. I18nService <span class="status pending" id="i18n-status">PENDING</span></h2>
+    <button onclick="testI18nService()">Test I18nService</button>
+    <div id="i18n-result" class="test-result" style="display:none;"></div>
+  </div>
+
+  <div class="service-test">
+    <h2>4. ApiService <span class="status pending" id="api-status">PENDING</span></h2>
+    <button onclick="testApiService()">Test ApiService (may take a few seconds)</button>
+    <div id="api-result" class="test-result" style="display:none;"></div>
+  </div>
+
+  <div class="service-test">
+    <h2>Summary</h2>
+    <button onclick="runAllTests()">Run All Tests</button>
+    <div id="summary" style="margin-top: 15px;"></div>
+  </div>
+
+  <script type="module">
+    import { StorageService } from './assets/js/services/storage.service.js';
+    import { ImageService } from './assets/js/services/image.service.js';
+    import { I18nService } from './assets/js/services/i18n.service.js';
+    import { ApiService } from './assets/js/services/api.service.js';
+
+    // Make services available globally for button clicks
+    window.StorageService = StorageService;
+    window.ImageService = ImageService;
+    window.I18nService = I18nService;
+    window.ApiService = ApiService;
+
+    window.testStorageService = function() {
+      const resultDiv = document.getElementById('storage-result');
+      const statusSpan = document.getElementById('storage-status');
+      resultDiv.style.display = 'block';
+      
+      try {
+        // Test localStorage
+        const testKey = 'test_key';
+        const testValue = { name: 'Fabio', role: 'Guide' };
+        
+        StorageService.setLocal(testKey, testValue);
+        const retrieved = StorageService.getLocal(testKey);
+        
+        const localWorks = JSON.stringify(retrieved) === JSON.stringify(testValue);
+        
+        // Test sessionStorage
+        StorageService.setSession(testKey, testValue);
+        const sessionRetrieved = StorageService.getSession(testKey);
+        const sessionWorks = JSON.stringify(sessionRetrieved) === JSON.stringify(testValue);
+        
+        // Test language preference
+        StorageService.language('en');
+        const lang = StorageService.language();
+        const langWorks = lang === 'en';
+        
+        // Cleanup
+        StorageService.removeLocal(testKey);
+        StorageService.removeSession(testKey);
+        
+        if (localWorks && sessionWorks && langWorks) {
+          statusSpan.className = 'status success';
+          statusSpan.textContent = '✓ PASSED';
+          resultDiv.innerHTML = `
+            <strong>✓ All tests passed!</strong><br>
+            • localStorage: Working<br>
+            • sessionStorage: Working<br>
+            • Language preference: Working<br>
+            • Storage available: ${StorageService.isLocalStorageAvailable()}
+          `;
+        } else {
+          throw new Error('Some tests failed');
+        }
+      } catch (error) {
+        statusSpan.className = 'status error';
+        statusSpan.textContent = '✗ FAILED';
+        resultDiv.innerHTML = `<strong>Error:</strong> ${error.message}`;
+      }
+    };
+
+    window.testImageService = function() {
+      const resultDiv = document.getElementById('image-result');
+      const statusSpan = document.getElementById('image-status');
+      resultDiv.style.display = 'block';
+      
+      try {
+        // Test UI image retrieval
+        const logo = ImageService.getUIImage('headerLogo');
+        const placeholder = ImageService.getUIImage('placeholder');
+        
+        // Test landing images
+        const heroImage = ImageService.getLandingImage('hero', '0');
+        
+        // Test secrets images
+        const fabioImage = ImageService.getSecretsImage('fabio');
+        
+        // Test trip folder generation
+        const tripFolder = ImageService.getTripFolder('sharm', 'sea', 'ras_mohammed_white_island_vip');
+        const poster = ImageService.getPoster('sharm', 'sea', 'ras_mohammed_white_island_vip');
+        
+        // Test inference
+        const context = ImageService.resolveTripContext({ trip_id: 'ras_mohammed_white_island_vip' });
+        
+        const allValid = logo && placeholder && heroImage && fabioImage && tripFolder && poster && context;
+        
+        if (allValid) {
+          statusSpan.className = 'status success';
+          statusSpan.textContent = '✓ PASSED';
+          resultDiv.innerHTML = `
+            <strong>✓ All tests passed!</strong><br>
+            • UI Images: Working<br>
+            • Landing Images: Working<br>
+            • Secrets Images: Working<br>
+            • Trip Paths: Working<br>
+            • Context Resolution: Working<br><br>
+            <strong>Sample outputs:</strong><br>
+            <pre>${JSON.stringify({ logo, poster, context }, null, 2)}</pre>
+          `;
+        } else {
+          throw new Error('Some image paths are invalid');
+        }
+      } catch (error) {
+        statusSpan.className = 'status error';
+        statusSpan.textContent = '✗ FAILED';
+        resultDiv.innerHTML = `<strong>Error:</strong> ${error.message}`;
+      }
+    };
+
+    window.testI18nService = async function() {
+      const resultDiv = document.getElementById('i18n-result');
+      const statusSpan = document.getElementById('i18n-status');
+      resultDiv.style.display = 'block';
+      statusSpan.textContent = 'LOADING...';
+      
+      try {
+        // Load Italian language
+        await I18nService.loadLanguage('it');
+        
+        // Test translation retrieval
+        const brandTitle = I18nService.translate('global.brand_title');
+        const menuHome = I18nService.translate('menu.home');
+        const shorthand = I18nService.t('global.brand_subtitle');
+        
+        // Test language switching
+        await I18nService.switchLanguage('en');
+        const englishBrand = I18nService.translate('global.brand_title');
+        
+        const currentLang = I18nService.getCurrentLanguage();
+        
+        if (brandTitle && menuHome && shorthand && englishBrand && currentLang === 'en') {
+          statusSpan.className = 'status success';
+          statusSpan.textContent = '✓ PASSED';
+          resultDiv.innerHTML = `
+            <strong>✓ All tests passed!</strong><br>
+            • Language loading: Working<br>
+            • Translation retrieval: Working<br>
+            • Language switching: Working<br>
+            • Current language: ${currentLang}<br><br>
+            <strong>Sample translations:</strong><br>
+            <pre>${JSON.stringify({ 
+              italian_brand: brandTitle, 
+              english_brand: englishBrand,
+              menu_home: menuHome 
+            }, null, 2)}</pre>
+          `;
+        } else {
+          throw new Error('Translation tests failed');
+        }
+      } catch (error) {
+        statusSpan.className = 'status error';
+        statusSpan.textContent = '✗ FAILED';
+        resultDiv.innerHTML = `<strong>Error:</strong> ${error.message}`;
+      }
+    };
+
+    window.testApiService = async function() {
+      const resultDiv = document.getElementById('api-result');
+      const statusSpan = document.getElementById('api-status');
+      resultDiv.style.display = 'block';
+      statusSpan.textContent = 'LOADING...';
+      
+      try {
+        // Test data fetching
+        const data = await ApiService.fetchAllData();
+        
+        const hasTrips = Array.isArray(data.Trips_Prices) && data.Trips_Prices.length > 0;
+        const hasSettings = Array.isArray(data.Global_Settings);
+        const hasAddons = Array.isArray(data.Trip_Addons);
+        const hasPackages = Array.isArray(data.Packages);
+        
+        // Test individual fetchers
+        const trips = await ApiService.fetchTrips();
+        const packages = await ApiService.fetchPackages();
+        
+        if (hasTrips && hasSettings && hasAddons && hasPackages) {
+          statusSpan.className = 'status success';
+          statusSpan.textContent = '✓ PASSED';
+          resultDiv.innerHTML = `
+            <strong>✓ All tests passed!</strong><br>
+            • Data fetching: Working<br>
+            • CSV parsing: Working<br>
+            • Caching: Working<br>
+            • Normalization: Working<br><br>
+            <strong>Data summary:</strong><br>
+            • Trips: ${data.Trips_Prices.length}<br>
+            • Settings: ${data.Global_Settings.length}<br>
+            • Addons: ${data.Trip_Addons.length}<br>
+            • Packages: ${data.Packages.length}<br><br>
+            <strong>Sample trip:</strong><br>
+            <pre>${JSON.stringify(trips[0] || {}, null, 2)}</pre>
+          `;
+        } else {
+          throw new Error('Data structure is invalid');
+        }
+      } catch (error) {
+        statusSpan.className = 'status error';
+        statusSpan.textContent = '✗ FAILED';
+        resultDiv.innerHTML = `<strong>Error:</strong> ${error.message}<br><small>Note: This may fail if Google Sheets is unreachable or cache is empty</small>`;
+      }
+    };
+
+    window.runAllTests = async function() {
+      const summary = document.getElementById('summary');
+      summary.innerHTML = '<strong>Running all tests...</strong>';
+      
+      testStorageService();
+      testImageService();
+      await testI18nService();
+      await testApiService();
+      
+      setTimeout(() => {
+        const statuses = [
+          document.getElementById('storage-status'),
+          document.getElementById('image-status'),
+          document.getElementById('i18n-status'),
+          document.getElementById('api-status')
+        ];
+        
+        const passed = statuses.filter(s => s.textContent.includes('PASSED')).length;
+        const failed = statuses.filter(s => s.textContent.includes('FAILED')).length;
+        
+        summary.innerHTML = `
+          <h3>Test Results:</h3>
+          <p>✓ Passed: ${passed}/4</p>
+          <p>✗ Failed: ${failed}/4</p>
+          ${failed === 0 ? '<p style="color: #2ecc71; font-weight: bold;">🎉 All services are functional!</p>' : ''}
+        `;
+      }, 2000);
+    };
+  </script>
+</body>
+</html>

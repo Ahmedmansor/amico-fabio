@@ -8,6 +8,10 @@
     }
 
     function getDataset(lang) {
+        // Use I18nService if available
+        if (window.I18nService && typeof window.I18nService.getAll === 'function') {
+            return window.I18nService.getAll();
+        }
         return lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
     }
 

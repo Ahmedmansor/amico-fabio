@@ -194,17 +194,20 @@ class WhoFabioParallax {
   setBioText() {
     const el = this.overlay ? this.overlay.querySelector('.wf-overlay-text') : null;
     if (!el) return;
-    const lang = localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
-    const dict = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
-    const bioContent = dict && dict.global && dict.global.who_is_fabio_content;
-    if (typeof bioContent === 'string') {
-      if (bioContent.includes('<') && bioContent.includes('>')) {
-        el.innerHTML = bioContent;
-      } else {
-        el.textContent = bioContent;
-      }
+    
+    // Use I18nService if available, fallback to window globals
+    let txt = '';
+    if (window.I18nService && typeof window.I18nService.translate === 'function') {
+      txt = window.I18nService.translate('global.who_is_fabio_content') || '';
+    } else {
+      const lang = localStorage.getItem('fabio_lang') || document.documentElement.lang || 'it';
+      const dict = lang === 'en' ? (window.i18nEn || {}) : (window.i18nIt || {});
+      txt = dict && dict.global && dict.global.who_is_fabio_content ? dict.global.who_is_fabio_content : '';
     }
+    
+    el.innerHTML = txt;
   }
+
   tick() {
     if (!this._cx) this._cx = 0;
     if (!this._cy) this._cy = 0;
