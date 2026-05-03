@@ -4,150 +4,151 @@ window.i18nEn = {
     trips: "Trips",
     reviews: "Reviews",
     commandments: "10 Commandments",
-    blog: "Blog"
+    blog: "Blog",
   },
   reviews: {
-        title: "Guest Reviews",
-        subtitle: "What our guests say on Facebook",
-        facebook_btn: "Read on Facebook",
-        items: [
-            {
-                name: "Siciliano Irene Veronica",
-                date: "5 February 2026",
-                text: "Wonderful experience, spectacular organization. Fabio is a wonderful person and above all very helpful. I highly recommend it.",
-                rating: 5,
-                source: "facebook"
-            },
-            {
-                name: "Federico Selmi",
-                date: "23 November 2024",
-                text: "Cross roots. Fabio: A NAME YOU CAN TRUST. The perfect guide for beautiful excursions. Fabio accompanied us on our wonderful journey from before departure until our return. We spent a wonderful week with numerous excursions... Thank you Fabio!",
-                rating: 5,
-                source: "facebook"
-            },
-            {
-                name: "Vittorio Mazzullo",
-                date: "27 September 2022",
-                text: "I highly recommend Cross Roots Travel. Fabio is very kind and always available, even at night... he never leaves you alone! While hotel staff advised against trusting outsiders, trusting Fathy saved me a fortune and gave me unique experiences!",
-                rating: 5,
-                source: "facebook"
-            },
-            {
-                name: "Brandon Rigano",
-                date: "6 September 2022",
-                text: "We thank Fabio infinitely for this fantastic holiday. A great organizer who planned every excursion in minute detail. He offers excellent services and is ready to satisfy all requests and solve problems at any hour.",
-                rating: 5,
-                source: "facebook"
-            },
-            {
-                name: "Francesca Mannelli",
-                date: "30 August 2022",
-                text: "I contacted Fathy from Italy, and he pointed out the best excursions, which were truly formidable. He was present at every hour of the day and night, entrusting us to super-prepared guides. We felt protected every second.",
-                rating: 5,
-                source: "facebook"
-            },
-            {
-                name: "Lorenzo Alberti",
-                date: "23 October 2019",
-                text: "I highly recommend the excursions. Fabio is a great, competent, and kind person... If I return to Sharm, I will definitely rely on him again. Commitment and seriousness are not lacking, absolute fun.",
-                rating: 5,
-                source: "facebook"
-            },
-            {
-                name: "Vincenzo Novacco",
-                date: "10 October 2019",
-                text: "For those seeking to deeply know the ancient Egyptian culture... I highly and confidently recommend CROSS ROOTS Travel by Fathy (Fabio) Mansur. Prepared, ready for any explanation, and open to cultural exchange.",
-                rating: 5,
-                source: "facebook"
-            },
-            {
-                name: "Antonella Testa",
-                date: "10 October 2019",
-                text: "I relied on Fabio for excursions in Sinai for a group of 30 people. We had a great time, he was very punctual, lavish with explanations... professional and reliable. I definitely recommend him.",
-                rating: 5,
-                source: "facebook"
-            },
-            {
-                name: "Verdiana Troìa",
-                date: "9 October 2019",
-                text: "I relied on Fabio for excursions in Sharm. Punctual, prepared, and always available. Excellent team, especially the archaeologist Ali, very funny and knowledgeable, ready to answer any question.",
-                rating: 5,
-                source: "facebook"
-            },
-            {
-                name: "Katia Rusciano",
-                date: "4 September 2019",
-                text: "A wonderful vacation... made even more beautiful by our guide... thank you Fabio for letting us live splendid days... see you soon! 😘",
-                rating: 5,
-                source: "facebook"
-            },
-            {
-                name: "Francesca Delfine",
-                date: "24 September 2019",
-                text: "Beautiful vacation spent in Sharm with an excellent guide, Fabio. Thanks for making our vacation special, we will definitely be back! 😘",
-                rating: 5,
-                source: "facebook"
-            },
-            {
-                name: "Annalaura Borrelli",
-                date: "23 September 2019",
-                text: "Thanks for making our stay in Sharm unforgettable. Thanks for following us in everything and for the beautiful recommended excursions. Fathy, a name, a guarantee. See you soon ❤️",
-                rating: 5,
-                source: "facebook"
-            },
-            {
-                name: "Oliva Duran",
-                date: "27 May 2019",
-                text: "The excellent service provided to every group or individual with the ambition to explore Egypt. From arrival to departure! Highly educated multilingual guides are perfectly organized.",
-                rating: 5,
-                source: "facebook"
-            },
-        ]
-    },
+    title: "Guest Reviews",
+    subtitle: "What our guests say on Facebook",
+    facebook_btn: "Read on Facebook",
+    items: [
+      {
+        name: "Siciliano Irene Veronica",
+        date: "5 February 2026",
+        text: "Wonderful experience, spectacular organization. Fabio is a wonderful person and above all very helpful. I highly recommend it.",
+        rating: 5,
+        source: "facebook",
+      },
+      {
+        name: "Federico Selmi",
+        date: "23 November 2024",
+        text: "Cross roots. Fabio: A NAME YOU CAN TRUST. The perfect guide for beautiful excursions. Fabio accompanied us on our wonderful journey from before departure until our return. We spent a wonderful week with numerous excursions... Thank you Fabio!",
+        rating: 5,
+        source: "facebook",
+      },
+      {
+        name: "Vittorio Mazzullo",
+        date: "27 September 2022",
+        text: "I highly recommend Cross Roots Travel. Fabio is very kind and always available, even at night... he never leaves you alone! While hotel staff advised against trusting outsiders, trusting Fathy saved me a fortune and gave me unique experiences!",
+        rating: 5,
+        source: "facebook",
+      },
+      {
+        name: "Brandon Rigano",
+        date: "6 September 2022",
+        text: "We thank Fabio infinitely for this fantastic holiday. A great organizer who planned every excursion in minute detail. He offers excellent services and is ready to satisfy all requests and solve problems at any hour.",
+        rating: 5,
+        source: "facebook",
+      },
+      {
+        name: "Francesca Mannelli",
+        date: "30 August 2022",
+        text: "I contacted Fathy from Italy, and he pointed out the best excursions, which were truly formidable. He was present at every hour of the day and night, entrusting us to super-prepared guides. We felt protected every second.",
+        rating: 5,
+        source: "facebook",
+      },
+      {
+        name: "Lorenzo Alberti",
+        date: "23 October 2019",
+        text: "I highly recommend the excursions. Fabio is a great, competent, and kind person... If I return to Sharm, I will definitely rely on him again. Commitment and seriousness are not lacking, absolute fun.",
+        rating: 5,
+        source: "facebook",
+      },
+      {
+        name: "Vincenzo Novacco",
+        date: "10 October 2019",
+        text: "For those seeking to deeply know the ancient Egyptian culture... I highly and confidently recommend CROSS ROOTS Travel by Fathy (Fabio) Mansur. Prepared, ready for any explanation, and open to cultural exchange.",
+        rating: 5,
+        source: "facebook",
+      },
+      {
+        name: "Antonella Testa",
+        date: "10 October 2019",
+        text: "I relied on Fabio for excursions in Sinai for a group of 30 people. We had a great time, he was very punctual, lavish with explanations... professional and reliable. I definitely recommend him.",
+        rating: 5,
+        source: "facebook",
+      },
+      {
+        name: "Verdiana Troìa",
+        date: "9 October 2019",
+        text: "I relied on Fabio for excursions in Sharm. Punctual, prepared, and always available. Excellent team, especially the archaeologist Ali, very funny and knowledgeable, ready to answer any question.",
+        rating: 5,
+        source: "facebook",
+      },
+      {
+        name: "Katia Rusciano",
+        date: "4 September 2019",
+        text: "A wonderful vacation... made even more beautiful by our guide... thank you Fabio for letting us live splendid days... see you soon! 😘",
+        rating: 5,
+        source: "facebook",
+      },
+      {
+        name: "Francesca Delfine",
+        date: "24 September 2019",
+        text: "Beautiful vacation spent in Sharm with an excellent guide, Fabio. Thanks for making our vacation special, we will definitely be back! 😘",
+        rating: 5,
+        source: "facebook",
+      },
+      {
+        name: "Annalaura Borrelli",
+        date: "23 September 2019",
+        text: "Thanks for making our stay in Sharm unforgettable. Thanks for following us in everything and for the beautiful recommended excursions. Fathy, a name, a guarantee. See you soon ❤️",
+        rating: 5,
+        source: "facebook",
+      },
+      {
+        name: "Oliva Duran",
+        date: "27 May 2019",
+        text: "The excellent service provided to every group or individual with the ambition to explore Egypt. From arrival to departure! Highly educated multilingual guides are perfectly organized.",
+        rating: 5,
+        source: "facebook",
+      },
+    ],
+  },
   faq: {
     headline: "FAQ & Insider Tips",
     items: [
       {
         q: "Do I have to pay everything online?",
-        a: "Absolutely not. Trust is everything. We usually ask for a small deposit to secure spots (especially for VIP boats), and the balance is paid comfortably upon arrival in Sharm, in cash or local currency. No risk, zero stress."
+        a: "Absolutely not. Trust is everything. We usually ask for a small deposit to secure spots (especially for VIP boats), and the balance is paid comfortably upon arrival in Sharm, in cash or local currency. No risk, zero stress.",
       },
       {
         q: "How do I know the exact pickup time?",
-        a: "Forget the anxiety! The night before every excursion, you will receive a personal WhatsApp message from Fabio with the exact time, meeting point, and transfer details. Swiss organization, Egyptian heart."
+        a: "Forget the anxiety! The night before every excursion, you will receive a personal WhatsApp message from Fabio with the exact time, meeting point, and transfer details. Swiss organization, Egyptian heart.",
       },
       {
         q: "What happens if plans change or I get sick?",
-        a: "We are humans, not robots! If something comes up, message us on WhatsApp immediately. We'll do our best to reschedule without extra costs. ⚠️ Exception: For flights (Cairo/Luxor), we depend on airline rules, so flight tickets are non-refundable."
+        a: "We are humans, not robots! If something comes up, message us on WhatsApp immediately. We'll do our best to reschedule without extra costs. ⚠️ Exception: For flights (Cairo/Luxor), we depend on airline rules, so flight tickets are non-refundable.",
       },
       {
         q: "Do I need a Visa for excursions?",
-        a: "Crucial detail: If you stay in Sharm (e.g., Safari), the free 'Only Sinai' stamp is enough. But if you choose Ras Mohammed (by land) or go to Cairo/Luxor, you MUST buy the Egypt Visa ($25) upon arrival. Ask us if unsure!"
+        a: "Crucial detail: If you stay in Sharm (e.g., Safari), the free 'Only Sinai' stamp is enough. But if you choose Ras Mohammed (by land) or go to Cairo/Luxor, you MUST buy the Egypt Visa ($25) upon arrival. Ask us if unsure!",
       },
       {
         q: "What should I pack?",
-        a: "Keyword: Comfort. Desert: closed shoes, sunglasses, scarf. Sea: swimwear, sunscreen. Insider Tip: Always bring a light hoodie, even in summer, for the strong A/C in buses or the desert breeze at night."
+        a: "Keyword: Comfort. Desert: closed shoes, sunglasses, scarf. Sea: swimwear, sunscreen. Insider Tip: Always bring a light hoodie, even in summer, for the strong A/C in buses or the desert breeze at night.",
       },
       {
         q: "Euro or Local Currency?",
-        a: "Insider Tip: Bring Euros/Dollars for hotels and tours (accepted everywhere). Exchange a small amount into Egyptian Pounds for small expenses: taxis, tips, and markets. Paying small things in local currency saves you money!"
+        a: "Insider Tip: Bring Euros/Dollars for hotels and tours (accepted everywhere). Exchange a small amount into Egyptian Pounds for small expenses: taxis, tips, and markets. Paying small things in local currency saves you money!",
       },
       {
         q: "Internet and Wi-Fi?",
-        a: "Hotel Wi-Fi is often slow. Golden advice: Buy a Data SIM (Vodafone or Etisalat) directly at the airport upon arrival. It's cheap and gives you fast internet everywhere."
+        a: "Hotel Wi-Fi is often slow. Golden advice: Buy a Data SIM (Vodafone or Etisalat) directly at the airport upon arrival. It's cheap and gives you fast internet everywhere.",
       },
       {
         q: "Is food and water safe?",
-        a: "Drink ONLY sealed bottled water (even for brushing teeth). For food, during our excursions, we select only certified restaurants with high hygiene standards."
-      }
-    ]
+        a: "Drink ONLY sealed bottled water (even for brushing teeth). For food, during our excursions, we select only certified restaurants with high hygiene standards.",
+      },
+    ],
   },
   footer: {
     brand_name: "AMICO FABIO",
-    about_bio: "Premium VIP experiences in Sharm El Sheikh led by your trusted local friend. Travel elegantly, safely, and with insider knowledge.",
+    about_bio:
+      "Premium VIP experiences in Sharm El Sheikh led by your trusted local friend. Travel elegantly, safely, and with insider knowledge.",
     links_legal: "Legal & Privacy",
     links_why: "Why Fabio?",
     join_community: "Join our community",
-    heritage: "Our heritage: Cross Roots – Same expertise, new identity."
+    heritage: "Our heritage: Cross Roots – Same expertise, new identity.",
   },
   legal_page: {
     title: "Legal & Privacy",
@@ -164,7 +165,7 @@ window.i18nEn = {
       { id: "rights", label: "User Rights (GDPR)" },
       { id: "liability", label: "Limitation of Liability & Terms" },
       { id: "definitions", label: "Definitions & Legal References" },
-      { id: "contact", label: "Contact & Requests" }
+      { id: "contact", label: "Contact & Requests" },
     ],
     summary_items: [
       { id: "intro", label: "Privacy Policy (GDPR)" },
@@ -178,7 +179,7 @@ window.i18nEn = {
       { id: "rights", label: "User Rights (GDPR)" },
       { id: "liability", label: "Limitation of Liability & Terms" },
       { id: "definitions", label: "Definitions & Legal References" },
-      { id: "contact", label: "Contact & Requests" }
+      { id: "contact", label: "Contact & Requests" },
     ],
     sections: [
       {
@@ -186,22 +187,22 @@ window.i18nEn = {
         heading: "Privacy Policy of www.fabioegypt.com",
         paragraphs: [
           "Welcome to our privacy policy. This policy is drafted in accordance with the General Data Protection Regulation (GDPR - EU 2016/679) and helps you understand which data we collect, why we collect it, and your rights.",
-          "Last update: December 31, 2025"
-        ]
+          "Last update: December 31, 2025",
+        ],
       },
       {
         id: "owner",
         heading: "Data Controller",
         paragraphs: [
-          "Fabio - Sharm El Sheikh, Egypt. The Controller is responsible for the protection of your data and can be contacted for any clarification at: info@fabioegypt.com."
-        ]
+          "Fabio - Sharm El Sheikh, Egypt. The Controller is responsible for the protection of your data and can be contacted for any clarification at: info@fabioegypt.com.",
+        ],
       },
       {
         id: "data_types",
         heading: "Types of Data Collected",
         paragraphs: [
-          "Among the Personal Data collected by this Website are: Name, Phone number, Nationality, Email, Usage data, Tracking tools, session statistics, Sensor data (Gyroscope and Accelerometer). Data may be freely provided by the User (via forms) or collected automatically (via Google Analytics 4)."
-        ]
+          "Among the Personal Data collected by this Website are: Name, Phone number, Nationality, Email, Usage data, Tracking tools, session statistics, Sensor data (Gyroscope and Accelerometer). Data may be freely provided by the User (via forms) or collected automatically (via Google Analytics 4).",
+        ],
       },
       {
         id: "method",
@@ -209,8 +210,8 @@ window.i18nEn = {
         paragraphs: [
           "The Controller takes appropriate security measures to prevent unauthorized access, disclosure, or alteration of the Data. Processing is carried out using IT and/or telematic tools.",
           "Data is processed at the operational offices of the Controller and in any other place where the parties involved in the processing are located (Google Cloud servers / GitHub Pages).",
-          "Data is processed and stored for the time required by the purposes for which it was collected (maximum 24 months for marketing purposes, unless revoked)."
-        ]
+          "Data is processed and stored for the time required by the purposes for which it was collected (maximum 24 months for marketing purposes, unless revoked).",
+        ],
       },
       {
         id: "purpose",
@@ -220,16 +221,16 @@ window.i18nEn = {
           "• Contacting the User: Contact form (Google Sheets) and direct WhatsApp integration.",
           "• Analytics: Monitoring and analysis of traffic data via Google Analytics 4.",
           "• Hosting and backend infrastructure: GitHub Pages.",
-          "• Displaying content from external platforms: Google Fonts and Social Widgets."
-        ]
+          "• Displaying content from external platforms: Google Fonts and Social Widgets.",
+        ],
       },
       {
         id: "cookies",
         heading: "Cookie Policy",
         paragraphs: [
           "We use essential cookies to ensure site functionality and preferences (e.g., language).",
-          "Analytics tools may be used to improve user experience. You can manage preferences in your browser settings."
-        ]
+          "Analytics tools may be used to improve user experience. You can manage preferences in your browser settings.",
+        ],
       },
       {
         id: "third_party",
@@ -237,15 +238,15 @@ window.i18nEn = {
         paragraphs: [
           "Google Analytics 4 (Google LLC): A statistics service that uses collected Data to track and examine the use of this Website. IP addresses are anonymized before recording.",
           "WhatsApp Business API: Used to facilitate direct communication and sending of invoices or catalogs. Data entered in forms is transferred to WhatsApp to generate the chat.",
-          "Google Sheets Integration: Data collected via the '10 Commandments' form is stored on secure Google servers for request management."
-        ]
+          "Google Sheets Integration: Data collected via the '10 Commandments' form is stored on secure Google servers for request management.",
+        ],
       },
       {
         id: "motion_data",
         heading: "Sensor Data & 3D Experience",
         paragraphs: [
-          "To provide a premium 3D visual experience, we request access to motion sensors. This data is processed locally only and never stored."
-        ]
+          "To provide a premium 3D visual experience, we request access to motion sensors. This data is processed locally only and never stored.",
+        ],
       },
       {
         id: "rights",
@@ -257,42 +258,43 @@ window.i18nEn = {
           "• Access their Data and obtain a copy.",
           "• Verify and request rectification of their Data.",
           "• Obtain the deletion or removal of their Data (Right to be forgotten).",
-          "• Lodge a complaint with the competent data protection authority."
-        ]
+          "• Lodge a complaint with the competent data protection authority.",
+        ],
       },
       {
         id: "liability",
         heading: "Limitation of Liability & Terms",
         paragraphs: [
-          "Fabio operates as a provider of tourist experiences. We are not responsible for incidents arising from user negligence or loss of personal belongings. WhatsApp bookings are subject to cancellation terms specified at the time of contact."
-        ]
+          "Fabio operates as a provider of tourist experiences. We are not responsible for incidents arising from user negligence or loss of personal belongings. WhatsApp bookings are subject to cancellation terms specified at the time of contact.",
+        ],
       },
       {
         id: "definitions",
         heading: "Definitions & Legal References",
         paragraphs: [
           "Personal Data: any information that identifies or makes a natural person identifiable. Cookies: small portions of data stored within the User's browser. GDPR: General Data Protection Regulation (EU).",
-          "This document exclusively concerns the site www.fabioegypt.com and is drafted to ensure maximum transparency for our guests."
-        ]
+          "This document exclusively concerns the site www.fabioegypt.com and is drafted to ensure maximum transparency for our guests.",
+        ],
       },
       {
         id: "contact",
         heading: "Contact & Requests",
         paragraphs: [
           "For any legal, privacy, or service-related request, contact us via WhatsApp at +20 106 323 9261.",
-          "We respond promptly and professionally, maintaining the highest standards of service."
-        ]
-      }
-    ]
+          "We respond promptly and professionally, maintaining the highest standards of service.",
+        ],
+      },
+    ],
   },
   fab: {
     contact: "Contact",
-    indice: "Index"
+    indice: "Index",
   },
   hero: {
     vip_title: "Note: Fabio's 10 Commandments",
-    vip_desc: "The ultimate survival manual for Sharm. Avoid tourist traps and live the real insider vacation.",
-    vip_btn: "UNLOCK THE VIP MANUAL"
+    vip_desc:
+      "The ultimate survival manual for Sharm. Avoid tourist traps and live the real insider vacation.",
+    vip_btn: "UNLOCK THE VIP MANUAL",
   },
   global: {
     brand_title: "FABIO TOURS",
@@ -342,7 +344,8 @@ window.i18nEn = {
     follow_us: "Follow Us",
     why_fabio: "Why Fabio?",
     limited_time_deal: "Limited time deal",
-    no_exclusive_experiences: "No exclusive experiences available at the moment.",
+    no_exclusive_experiences:
+      "No exclusive experiences available at the moment.",
     experience_not_found: "Experience not found.",
     daily: "Daily",
     loading_failed: "Loading failed. Please try again later.",
@@ -361,30 +364,29 @@ window.i18nEn = {
       required_name: "Please enter your full name",
       required_date: "Please select the trip date",
       required_nation: "Please select your nationality",
-      required_field: "This field is required"
+      required_field: "This field is required",
     },
     placeholders: {
-      full_name: "Fabio Mansour"
+      full_name: "Fabio Mansour",
     },
     filters: {
       all: "All",
       sea: "Sea",
       culture: "Culture",
       desert: "Desert",
-      packages: "Packages"
+      packages: "Packages",
     },
     premium_package: "Premium Package",
     locations: {
       sharm: "Sharm El Sheikh",
       cairo: "Cairo",
-      luxor_aswan: "Luxor & Aswan"
+      luxor_aswan: "Luxor & Aswan",
     },
-    explore_experiences: "Explore"
-    ,
+    explore_experiences: "Explore",
     pricing: {
       adult: "Adult",
       child: "Child",
-      min_pax: "Min Pax"
+      min_pax: "Min Pax",
     },
     whatsapp: {
       greeting: "Ciao Fabio, my name is *{name}*.",
@@ -399,11 +401,14 @@ window.i18nEn = {
       extras_label: "*Extras:*",
       total_label: "*Total Estimated:*",
       waiting_confirmation: "Waiting for your confirmation.",
-      full_message: "{greeting}\n{check_availability}\n\n{details_heading}\n{trip_label} {trip}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}",
-      package_check_availability: "I would like to check availability for this package:",
+      full_message:
+        "{greeting}\n{check_availability}\n\n{details_heading}\n{trip_label} {trip}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}",
+      package_check_availability:
+        "I would like to check availability for this package:",
       package_details_heading: "*PACKAGE DETAILS:*",
       package_label: "*Package:*",
-      package_message: "{greeting}\n{check_availability}\n\n{details_heading}\n{package_label} {package}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}"
+      package_message:
+        "{greeting}\n{check_availability}\n\n{details_heading}\n{package_label} {package}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}",
     },
     badges: {
       BEST_SELLER: "Best seller",
@@ -415,1624 +420,2954 @@ window.i18nEn = {
       VIP_EXCLUSIVE: "VIP exclusive",
       CHEAPEST_PRICE: "Cheapest price",
       RECOMMENDED: "Recommended",
-      POPULAR: "Popular choice"
-    }
+      POPULAR: "Popular choice",
+    },
   },
   explore: {
     sort_label: "Sort by price",
     sort_recommended: "Recommended (VIP)",
     sort_low_high: "Price: Low → High",
-    sort_high_low: "Price: High → Low"
+    sort_high_low: "Price: High → Low",
   },
   secrets: {
     nav_index: "Index",
     nav_lang: "IT",
     page1: {
       headline: "SURVIVAL MANUAL",
-      subtitle: "Sharm’s Secrets No One Tells You. Welcome to the 'Real' Sharm El Sheikh.",
-      content: "Dear Traveler, Sharm El Sheikh is a paradise. My name is Fabio, Flight Attendant and Official Guide. My manual is born from respect for your time and money. I have curated every detail to ensure an unforgettable experience. With years of experience and deep local knowledge, I have distilled for you the most precious insider information. Get ready to discover an authentic, exclusive Sharm without surprises. Every piece of advice is the result of a true passion for this land and the desire to make you experience the best.",
+      subtitle:
+        "Sharm’s Secrets No One Tells You. Welcome to the 'Real' Sharm El Sheikh.",
+      content:
+        "Dear Traveler, Sharm El Sheikh is a paradise. My name is Fabio, Flight Attendant and Official Guide. My manual is born from respect for your time and money. I have curated every detail to ensure an unforgettable experience. With years of experience and deep local knowledge, I have distilled for you the most precious insider information. Get ready to discover an authentic, exclusive Sharm without surprises. Every piece of advice is the result of a true passion for this land and the desire to make you experience the best.",
       hero_img: window.ImagePaths.secrets.fabio,
-      extra_title: "From the skies to the shore, your safety is my utmost priority.",
-      extra_desc: "If you value this level of precision and meticulous care in every detail of your journey, I am at your service. Shall we begin?"
+      extra_title:
+        "From the skies to the shore, your safety is my utmost priority.",
+      extra_desc:
+        "If you value this level of precision and meticulous care in every detail of your journey, I am at your service. Shall we begin?",
     },
     page2: {
       headline: "Transparency & Security: The Price of Your Peace of Mind",
-      intro: "Recently, I have chosen not to compromise on your safety. Your peace of mind is my absolute priority. Forget uncertainties and trust a partner who guarantees very high standards, because the quality of your trip is about total trust, not just comfort.",
+      intro:
+        "Recently, I have chosen not to compromise on your safety. Your peace of mind is my absolute priority. Forget uncertainties and trust a partner who guarantees very high standards, because the quality of your trip is about total trust, not just comfort.",
       services: [
         {
           name: "🚗 Modern sanitized private cars",
           desc: "Travel in luxury and cleanliness with state-of-the-art vehicles that guarantee impeccable hygiene.",
           img: window.ImagePaths.secrets.cars,
           extra_title: "The Luxury You Deserve, Effortlessly Delivered.",
-          extra_desc: "Do you appreciate the ease of seamless VIP travel? My private fleet is standing by—simply choose your destination, and I will handle the rest."
+          extra_desc:
+            "Do you appreciate the ease of seamless VIP travel? My private fleet is standing by—simply choose your destination, and I will handle the rest.",
         },
         {
           name: "👮‍♂️ Professional drivers",
           desc: "At the wheel, only expert and trusted staff who know every corner of Sharm and will lead you with discretion.",
-          img: window.ImagePaths.secrets.drivers
+          img: window.ImagePaths.secrets.drivers,
         },
         {
           name: "⛵ VIP Vessels",
           desc: "Explore the Red Sea aboard exclusive yachts equipped with all comforts for unforgettable days.",
-          img: window.ImagePaths.secrets.boats
-        }
-      ]
+          img: window.ImagePaths.secrets.boats,
+        },
+      ],
     },
     page3: {
       headline: "🛡️ THE 10 COMMANDMENTS OF FABIO",
-      intro: "For an authentic and worry-free experience in Sharm El Sheikh, it's fundamental to know a few small but important rules. These rules were created to guide you through the local nuances.",
+      intro:
+        "For an authentic and worry-free experience in Sharm El Sheikh, it's fundamental to know a few small but important rules. These rules were created to guide you through the local nuances.",
       rules: [
         {
           title: "1. Euro Coins: No!",
           desc: "Coins are not exchanged or accepted here. Bring only banknotes. Ensure you have small denominations for daily expenses.",
-          img: window.ImagePaths.secrets.coins
+          img: window.ImagePaths.secrets.coins,
         },
         {
           title: "2. SIM Cards: Official stores only",
           desc: "Buy only from authorized retailers like Orange or Vodafone to avoid surprises and ensure best coverage.",
-          img: window.ImagePaths.secrets.sim
+          img: window.ImagePaths.secrets.sim,
         },
         {
           title: "3. Taxis: Agreed price",
           desc: "Always agree on the price before or use our private service which guarantees fixed rates and comfort.",
           img: window.ImagePaths.secrets.taxi,
           extra_title: "Avoid the 'Tourist Traps' from Mile One.",
-          extra_desc: "Taxis? No, thank you. Travel like an insider, not a target for overcharging. Seeking worry-free transport with fixed rates and absolute transparency? Trust Fabio’s private service: your peace of mind is priceless."
+          extra_desc:
+            "Taxis? No, thank you. Travel like an insider, not a target for overcharging. Seeking worry-free transport with fixed rates and absolute transparency? Trust Fabio’s private service: your peace of mind is priceless.",
         },
         {
           title: "4. Antinal: The local remedy",
           desc: "For minor intestinal upsets, ask the pharmacy for Antinal. It's a very effective and well-known local 'lifesaver'.",
           img: window.ImagePaths.secrets.antinal,
-          extra_title: "Zero Surprises, Only Unforgettable Memories. Your peace of mind is my promise.",
-          extra_desc: "Wish to savor authentic local cuisine without a single worry? Keep my contact close at hand; consider me your dedicated 'guardian angel' in Sharm."
+          extra_title:
+            "Zero Surprises, Only Unforgettable Memories. Your peace of mind is my promise.",
+          extra_desc:
+            "Wish to savor authentic local cuisine without a single worry? Keep my contact close at hand; consider me your dedicated 'guardian angel' in Sharm.",
         },
         {
           title: "5. Dress Code: Respect and Class",
           desc: "Outside resorts, opt for discreet clothing out of respect for local culture. Inside, show off your vacation style with elegance.",
           img: window.ImagePaths.secrets.dress,
           extra_title: "Experience the City as an Insider, Not Just a Tourist.",
-          extra_desc: "Do you wish to uncover the city’s secrets with elegance and respect? Allow yourself to be guided by an expert who knows every hidden gem and secret corner."
+          extra_desc:
+            "Do you wish to uncover the city’s secrets with elegance and respect? Allow yourself to be guided by an expert who knows every hidden gem and secret corner.",
         },
         {
           title: "6. Negotiation: A Fun Game",
           desc: "In souks and markets, bargaining is part of the experience. Do it with a smile; it's a way to interact with the local culture.",
           img: window.ImagePaths.secrets.negotiate,
           extra_title: "Experience Sharm as a Local, Not Just a Guest.",
-          extra_desc: "Seeking to uncover the city’s hidden gems with elegance and respect? Allow yourself to be guided by someone who knows every secret corner of this land."
+          extra_desc:
+            "Seeking to uncover the city’s hidden gems with elegance and respect? Allow yourself to be guided by someone who knows every secret corner of this land.",
         },
         {
           title: "7. Corals: Protect Nature",
           desc: "Corals are fragile ecosystems. Admire but do not touch or collect. You will help preserve the beauty of the Red Sea for everyone.",
-          img: window.ImagePaths.secrets.corals
+          img: window.ImagePaths.secrets.corals,
         },
         {
           title: "8. Baksheesh: Tipping Culture",
           desc: "Tipping is an integral part of the local culture to recognize good service. Offer it generously to express appreciation.",
-          img: window.ImagePaths.secrets.baksheesh
+          img: window.ImagePaths.secrets.baksheesh,
         },
         {
           title: "9. WATER: BOTTLED ONLY",
           desc: "Friendly advice? Avoid tap water at all costs. Stick to sealed bottles... unless you’re eager to meet your new best friend, Antinal! 😉🧊",
-          img: window.ImagePaths.secrets.water
+          img: window.ImagePaths.secrets.water,
         },
         {
           title: "10. RELAX: LEAVE THE CLOCK BEHIND",
           desc: "In Egypt, time has its own rhythm. Forget the rush and embrace the 'piano piano' philosophy. If things take a moment longer, meet it with a smile—it’s part of the authentic charm and local hospitality.",
-          img: window.ImagePaths.secrets.relax
+          img: window.ImagePaths.secrets.relax,
         },
-      ]
+      ],
     },
     page4: {
-      alert: "⚠️ A Friend’s Advice: Those offering half-price steal your precious time in shops. With me, you pay for Freedom and for an impeccable service. Your holiday is an investment in moments, not in exhausting negotiations.",
+      alert:
+        "⚠️ A Friend’s Advice: Those offering half-price steal your precious time in shops. With me, you pay for Freedom and for an impeccable service. Your holiday is an investment in moments, not in exhausting negotiations.",
       list_title: "Your Essential Packing List",
-      intro: "Accurate preparation is key to fully enjoying your adventure. This list will help you not to forget anything fundamental.",
+      intro:
+        "Accurate preparation is key to fully enjoying your adventure. This list will help you not to forget anything fundamental.",
       items: [
         {
           title: "Natural fabrics",
           desc: "Linen and light cotton to face the heat with style and comfort.",
-          icon: "fa-shirt"
+          icon: "fa-shirt",
         },
         {
           title: "Water shoes",
           desc: "Essential for protecting your feet in the crystal clear waters of the Red Sea.",
-          icon: "fa-shoe-prints"
+          icon: "fa-shoe-prints",
         },
         {
           title: "Sunscreen",
           desc: "With a high protection factor to enjoy the sun safely.",
-          icon: "fa-sun"
+          icon: "fa-sun",
         },
         {
           title: "Passport and visas",
           desc: "Always at hand, essential documents for a smooth trip.",
-          icon: "fa-passport"
-        }
-      ]
+          icon: "fa-passport",
+        },
+      ],
     },
     page5: {
-      alert: "⚠️ Menu Transparency: Always verify entry fees and drink prices before ordering at local venues to ensure a seamless, surprise-free experience when the final bill arrives.",
+      alert:
+        "⚠️ Menu Transparency: Always verify entry fees and drink prices before ordering at local venues to ensure a seamless, surprise-free experience when the final bill arrives.",
       highlight: "📍 Must-See: Farsha Café. The Soul of Old Cairo.",
       body: "Immerse yourself in the magical and timeless atmosphere of Farsha Café, a place where Egyptian history and culture blend into an unforgettable experience. This hidden gem, nestled among the rocks, offers breathtaking views of the Red Sea, surrounded by traditional decor and soft lights that create a unique ambiance. Enjoy a mint tea or a hookah, letting yourself be enveloped by local music and the sea breeze. It's more than just a café; it's a sensory journey into the heart of Egypt, a place where time seems to stand still and every moment becomes a precious memory.",
       closing: "🌟 Fabio - Your Friend in Sharm",
-      img: window.ImagePaths.secrets.farsha
+      img: window.ImagePaths.secrets.farsha,
     },
     page6: {
       title: "The World in my Eyes, Egypt in my Heart",
-      intro: "Why choose Fabio? Because before becoming your guide, I was a traveler just like you. From the grand boulevards of Paris to Moscow’s Red Square, and soaring high above the clouds as a Flight Attendant... a life of travel has taught me one vital lesson: The details make all the difference. I don’t simply offer you an excursion; I offer the perspective of someone who truly understands the soul of a traveler—someone who explores the world with curious eyes and settles for nothing less than excellence.",
+      intro:
+        "Why choose Fabio? Because before becoming your guide, I was a traveler just like you. From the grand boulevards of Paris to Moscow’s Red Square, and soaring high above the clouds as a Flight Attendant... a life of travel has taught me one vital lesson: The details make all the difference. I don’t simply offer you an excursion; I offer the perspective of someone who truly understands the soul of a traveler—someone who explores the world with curious eyes and settles for nothing less than excellence.",
       items: [
         {
           cap: "✈️ Professionalism at High Altitudes",
-          img: window.ImagePaths.adventures.pilot
+          img: window.ImagePaths.adventures.pilot,
         },
         {
           cap: "🌍 Citizen of the World",
-          img: window.ImagePaths.adventures.eiffel
+          img: window.ImagePaths.adventures.eiffel,
         },
         {
           cap: "🇷🇺 Discovering New Cultures",
-          img: window.ImagePaths.adventures.redSquare
+          img: window.ImagePaths.adventures.redSquare,
         },
         {
           cap: "🤿 Explorer of Two Worlds (Sky & Sea)",
-          img: window.ImagePaths.adventures.diving
+          img: window.ImagePaths.adventures.diving,
         },
         {
           cap: "Face-to-face with the Wild",
-          img: window.ImagePaths.adventures.desert
+          img: window.ImagePaths.adventures.desert,
         },
         {
           cap: "Urban Explorer",
-          img: window.ImagePaths.adventures.urbano
+          img: window.ImagePaths.adventures.urbano,
         },
         {
           cap: "Every city tells a story",
-          img: window.ImagePaths.adventures.ogni
+          img: window.ImagePaths.adventures.ogni,
         },
         {
           cap: "Certified Passion: Advanced Open Water Diver",
-          img: window.ImagePaths.adventures.advanced
+          img: window.ImagePaths.adventures.advanced,
         },
-      ]
-    }
+      ],
+    },
   },
   packages: {
-     // --- SHARM
-   sharm_confidential: {
-        "tour_id": "sharm_confidential",
-        "title": "Sharm Confidential: The Total Experience",
-        "short_desc": "The ultimate 6-day package. Includes EVERYTHING: VIP Yacht, Ras Mohammed by land, Super Safari, Dahab, and City Tour. You won't have to worry about a thing.",
-        "duration": "6 Days / 5 Nights (Full Program)",
-        "highlights": [
-            "5 Experiences included (Sea, Land, Desert, City)",
-            "Double Ras Mohammed experience (Yacht + Bus)",
-            "Dahab and Blue Hole via Jeep",
-            "All transfers and mentioned dinners included"
-        ],
-        "full_description": "Why choose when you can have it all? This itinerary is the perfect fusion of relaxation and adventure.\n\nWe created a logical flow that allows you to explore Sharm from every angle: sail to the White Island, snorkel from the beach at Ras Mohammed, ride the desert dunes, and travel to the legendary Blue Hole in Dahab.\n\nEvery day is balanced so you don't get tired, with private transfers and continuous assistance from Fabio.",
-        "program": [
-            {
-                "time": "DAY 1",
-                "activity": "Arrival & City Tour (Welcome to Sharm)",
-                "details": "Private transfer to the hotel and check-in. In the evening, 'Fabio City Tour': guided visit to Al Sahaba Mosque, shopping in the Old Market, and tips on the best dinner spots."
-            },
-            {
-                "time": "DAY 2",
-                "activity": "The Big Blue: VIP Yacht & White Island",
-                "details": "Full day at sea. Luxury sailing towards Ras Mohammed National Park and a stop at the famous 'White Island' (the Egyptian Maldives). Lunch on board included."
-            },
-            {
-                "time": "DAY 3",
-                "activity": "Wild Nature: Ras Mohammed by Bus",
-                "details": "Half-day dedicated to discovering Ras Mohammed by land. Snorkeling from the beach (Yolanda Reef), visit to the Gate of Allah, the Magic Lake, and mangroves. Free afternoon for relaxation."
-            },
-            {
-                "time": "DAY 4",
-                "activity": "Super Safari: The 5 Senses of Sinai",
-                "details": "Free morning. In the afternoon, the adventure begins: Quad biking in the desert, sunset camel ride, Bedouin tea, and a traditional dinner under the stars with a show."
-            },
-            {
-                "time": "DAY 5",
-                "activity": "Dahab Adventure & Blue Hole",
-                "details": "Jeep excursion to the hippie town of Dahab. Snorkeling at the legendary Blue Hole, lunch by the sea, and a walk in the colorful local market (Canyon optional)."
-            },
-            {
-                "time": "DAY 6",
-                "activity": "Farewell & Final Transfer",
-                "details": "Breakfast, hotel check-out, and private transfer to the airport. Assistance until departure and final goodbyes."
-            }
-        ],
-        "includes": [
-            "All private transfers (Airport & Excursions)",
-            "Entrance tickets to National Parks",
-            "Lunch on the Yacht and in Dahab",
-            "Bedouin Dinner in the desert",
-            "Basic snorkeling gear (upon request)",
-            "Priority assistance via WhatsApp 24/7"
-        ],
-        "not_included": [
-            "International flights and travel insurance",
-            "Hotel accommodation (we can suggest best resorts)",
-            "Tips and personal extras",
-            "Professional photos and videos during excursions"
-        ],
-        "important_notes": "The order of excursions can be modified based on weather conditions or your preferences. It is recommended to bring your passport, sunscreen, and comfortable shoes.",
-        "seo_tags": [
-            "Sharm el Sheikh full package",
-            "Ras Mohammed Bus and Boat",
-            "Blue Hole Dahab trip",
-            "Desert Safari Sharm",
-            "Best excursions in Sharm"
-        ]
+    // --- SHARM
+    sharm_confidential: {
+      tour_id: "sharm_confidential",
+      title: "Sharm Confidential: The Total Experience",
+      short_desc:
+        "The ultimate 6-day package. Includes EVERYTHING: VIP Yacht, Ras Mohammed by land, Super Safari, Dahab, and City Tour. You won't have to worry about a thing.",
+      duration: "6 Days / 5 Nights (Full Program)",
+      highlights: [
+        "5 Experiences included (Sea, Land, Desert, City)",
+        "Double Ras Mohammed experience (Yacht + Bus)",
+        "Dahab and Blue Hole via Jeep",
+        "All transfers and mentioned dinners included",
+      ],
+      full_description:
+        "Why choose when you can have it all? This itinerary is the perfect fusion of relaxation and adventure.\n\nWe created a logical flow that allows you to explore Sharm from every angle: sail to the White Island, snorkel from the beach at Ras Mohammed, ride the desert dunes, and travel to the legendary Blue Hole in Dahab.\n\nEvery day is balanced so you don't get tired, with private transfers and continuous assistance from Fabio.",
+      program: [
+        {
+          time: "DAY 1",
+          activity: "Arrival & City Tour (Welcome to Sharm)",
+          details:
+            "Private transfer to the hotel and check-in. In the evening, 'Fabio City Tour': guided visit to Al Sahaba Mosque, shopping in the Old Market, and tips on the best dinner spots.",
+        },
+        {
+          time: "DAY 2",
+          activity: "The Big Blue: VIP Yacht & White Island",
+          details:
+            "Full day at sea. Luxury sailing towards Ras Mohammed National Park and a stop at the famous 'White Island' (the Egyptian Maldives). Lunch on board included.",
+        },
+        {
+          time: "DAY 3",
+          activity: "Wild Nature: Ras Mohammed by Bus",
+          details:
+            "Half-day dedicated to discovering Ras Mohammed by land. Snorkeling from the beach (Yolanda Reef), visit to the Gate of Allah, the Magic Lake, and mangroves. Free afternoon for relaxation.",
+        },
+        {
+          time: "DAY 4",
+          activity: "Super Safari: The 5 Senses of Sinai",
+          details:
+            "Free morning. In the afternoon, the adventure begins: Quad biking in the desert, sunset camel ride, Bedouin tea, and a traditional dinner under the stars with a show.",
+        },
+        {
+          time: "DAY 5",
+          activity: "Dahab Adventure & Blue Hole",
+          details:
+            "Jeep excursion to the hippie town of Dahab. Snorkeling at the legendary Blue Hole, lunch by the sea, and a walk in the colorful local market (Canyon optional).",
+        },
+        {
+          time: "DAY 6",
+          activity: "Farewell & Final Transfer",
+          details:
+            "Breakfast, hotel check-out, and private transfer to the airport. Assistance until departure and final goodbyes.",
+        },
+      ],
+      includes: [
+        "All private transfers (Airport & Excursions)",
+        "Entrance tickets to National Parks",
+        "Lunch on the Yacht and in Dahab",
+        "Bedouin Dinner in the desert",
+        "Basic snorkeling gear (upon request)",
+        "Priority assistance via WhatsApp 24/7",
+      ],
+      not_included: [
+        "International flights and travel insurance",
+        "Hotel accommodation (we can suggest best resorts)",
+        "Tips and personal extras",
+        "Professional photos and videos during excursions",
+      ],
+      important_notes:
+        "The order of excursions can be modified based on weather conditions or your preferences. It is recommended to bring your passport, sunscreen, and comfortable shoes.",
+      seo_tags: [
+        "Sharm el Sheikh full package",
+        "Ras Mohammed Bus and Boat",
+        "Blue Hole Dahab trip",
+        "Desert Safari Sharm",
+        "Best excursions in Sharm",
+      ],
     },
     dolce_vita_family: {
-    "tour_id": "dolce_vita_family",
-    "title": "Dolce Vita: Family & Relax",
-    "short_desc": "The perfect holiday for families. Happy kids (Dolphins & Submarine) and relaxed parents (VIP Yacht & Romantic Dinner). Zero stress.",
-    "duration": "5 Days (Relaxed Pace)",
-    "highlights": [
-      "4 Experiences included (Yacht, Submarine, Dolphins, Dinner)",
-      "Ideal for children of all ages (100% Safe)",
-      "Slow and comfortable rhythms (no early morning starts)",
-      "Private air-conditioned transfers for every excursion"
-    ],
-    "full_description": "We know traveling with kids can be a challenge. That's why we created 'Dolce Vita', a package designed to eliminate parental stress and maximize fun for the little ones.\n\nNo alarm clocks at dawn, no uncomfortable transfers. Everything is organized with comfortable timings and total safety. The kids will discover the sea without getting wet in the submarine and laugh with the dolphins, while you enjoy the sun on the yacht and a romantic dinner on the sea.",
-    "program": [
-      {
-        "time": "DAY 1",
-        "activity": "Welcome to Egypt",
-        "details": "Arrival at Sharm airport, VIP welcome by Fabio's team, and private transfer to the hotel. Quick briefing to explain the week's comfortable schedule."
-      },
-      {
-        "time": "DAY 2",
-        "activity": "Neverland (White Island)",
-        "details": "A fairytale day. Sailing towards the famous White Island (a sand strip similar to the Maldives) where children can play in safe shallow water, while parents relax on the yacht. Lunch included."
-      },
-      {
-        "time": "DAY 3",
-        "activity": "Finding Nemo (Seascope)",
-        "details": "Morning dedicated to discovering the seabed with the Seascope Submarine. Children can see colorful fish and corals through panoramic windows without getting wet. Free afternoon by the pool."
-      },
-      {
-        "time": "DAY 4",
-        "activity": "Dolphins & Dinner Show",
-        "details": "Day of emotions. Afternoon at the Dolphin Show to make the kids laugh. In the evening, grand finale with the Dinner Cruise: buffet dinner on a luxury ship with music, Tanoura show, and sea breeze."
-      },
-      {
-        "time": "DAY 5",
-        "activity": "Farewell & Transfer",
-        "details": "Relaxed breakfast, check-out from the hotel, and private transfer to the airport with a small souvenir from Friend Fabio."
-      }
-    ],
-    "includes": [
-      "All private transfers (Airport & Excursions)",
-      "Entrance tickets (Marine Park, Dolphin Show)",
-      "Lunch on board the Yacht and Dinner on the cruise ship",
-      "Priority assistance for families (WhatsApp 24/7)",
-      "Basic snorkeling gear for kids (upon request)"
-    ],
-    "not_included": [
-      "International flights and travel insurance",
-      "Hotel accommodation (we can suggest best family resorts)",
-      "Tips and personal extras",
-      "Professional photos and videos during excursions"
-    ],
-    "important_notes": "The package is flexible: schedules can be adapted to your children's rhythms. It is recommended to bring sunscreen, hats, and swimsuits for all marine activities.",
-    "seo_tags": [
-      "Family holiday Sharm",
-      "Sharm with kids",
-      "Dolce Vita Family Package",
-      "Safe excursions Sharm",
-      "Dolphins and Submarine Sharm"
-    ]
-  },
-  mille_e_una_notte: {
-    "tour_id": "mille_e_una_notte",
-    "title": "One Thousand and One Nights: Romantic Escape",
-    "short_desc": "The most exclusive package for couples. Desert sunsets, candlelight dinners, and luxury sailing. Just for the two of you.",
-    "duration": "5 Days (Privacy & Magic)",
-    "highlights": [
-      "4 Romantic Experiences (Sailing Ship, Private Quad, VIP Dinner, Dinner Cruise)",
-      "Private Guides (No large groups, just the two of you)",
-      "Focus on Sunset and Atmosphere",
-      "Private and discreet luxury transfers"
-    ],
-    "full_description": "This is not a group tour; it is your honeymoon (or your romantic escape) organized down to the smallest detail.\n\nWe have eliminated the crowds and added privacy. In this package, the desert becomes your private refuge at sunset, and the sea turns into a romantic stage. Fabio will ensure that every moment is perfect, from the toast on the Pirate Ship to the candlelight dinner under the starry sky of Sinai.",
-    "program": [
-      {
-        "time": "DAY 1",
-        "activity": "Welcome to Paradise",
-        "details": "VIP Arrival. Private transfer by luxury car to your hotel. No waiting, just relaxation from the very first moment."
-      },
-      {
-        "time": "DAY 2",
-        "activity": "Sails in the Wind: Pirate Boat & White Island",
-        "details": "A unique day aboard the 'Pirates' Sailboat'. A luxury sailing vessel, furnished in wood and classic style, taking you to the magical 'Neverland' (White Island). Seafood lunch served on board."
-      },
-      {
-        "time": "DAY 3",
-        "activity": "Private Sunset: Quad & VIP Dinner",
-        "details": "The highlight experience. Private guide (just for the two of you) with Quads in the desert during the golden hour of sunset. Followed by not the usual dinner, but a 'VIP Bedouin Dinner' by candlelight in a reserved tent, with mixed grill and total privacy."
-      },
-      {
-        "time": "DAY 4",
-        "activity": "Last Night: Romantic Dinner Cruise",
-        "details": "Free morning for the beach. In the evening, dress elegantly for a night cruise (Dinner Cruise) with an international buffet dinner, soft music, and sailing under the moon along the coast of Sharm."
-      },
-      {
-        "time": "DAY 5",
-        "activity": "Goodbye Love",
-        "details": "Breakfast in room (if hotel permits), relaxed check-out, and private transfer to the airport for your return."
-      }
-    ],
-    "includes": [
-      "All VIP private transfers (Luxury Car)",
-      "Full day on Pirate Sailboat with seafood lunch",
-      "Private Safari (Quad just for the couple) + Reserved Bedouin Dinner",
-      "Romantic dinner on the cruise ship (Dinner Cruise)",
-      "Personal assistance from Fabio 24/7 for special requests"
-    ],
-    "not_included": [
-      "International flights and hotel accommodation",
-      "Alcoholic beverages (available as extra)",
-      "Professional photoshoot (recommended, upon request)",
-      "Tips and personal extras"
-    ],
-    "important_notes": "For the Dinner Cruise, 'Smart Casual' attire is required. Please bring passports for the boat excursion. We can organize surprise cakes or flowers upon request.",
-    "seo_tags": [
-      "Honeymoon Sharm",
-      "Romantic package Egypt",
-      "Romantic dinner desert",
-      "White Island sailing",
-      "Sharm El Sheikh couples trip"
-    ]
-  },
-  indiana_jones_adventure: {
-    "tour_id": "indiana_jones_adventure",
-    "title": "Indiana Jones: Pure Adrenaline",
-    "short_desc": "Not for the lazy. An explosive mix of adventure: Jeep Safari, Canyon Trekking, Desert Bikes, Parasailing, and your first Scuba Dive.",
-    "duration": "5 Days (Action Mode)",
-    "highlights": [
-      "4 Extreme Activities (Jeep, Dive, Quad, Parasailing)",
-      "Colored Canyon Exploration (Exclusive)",
-      "All technical equipment included",
-      "Expert guides in safety and adventure"
-    ],
-    "full_description": "If your idea of a vacation is lying in the sun, change packages. 'Indiana Jones' is designed for those seeking strong thrills.\n\nWe will take you off the beaten path: you will climb the rocks of the Colored Canyon, dive into the depths of the Blue Hole, drive powerful bikes through the dunes, and fly over the Red Sea with a parachute. Five days lived to the max, with Fabio's impeccable safety and organization.",
-    "program": [
-      {
-        "time": "DAY 1",
-        "activity": "Arrival & Briefing",
-        "details": "Landing in Sharm, private transfer to hotel, and energetic briefing with the team to prepare equipment for the upcoming adventures."
-      },
-      {
-        "time": "DAY 2",
-        "activity": "On the Trail of Indiana Jones (Canyon & Blue Hole)",
-        "details": "The real adventure. Departure by Jeep Safari into the desert, trekking on foot among the psychedelic rocks of the 'Colored Canyon', and snorkeling in the legendary 'Blue Hole' of Dahab. Bedouin lunch included."
-      },
-      {
-        "time": "DAY 3",
-        "activity": "Abyss Mission: Intro Dive",
-        "details": "It's time to breathe underwater. A professional instructor will guide you through your first scuba dive (Intro Dive). You will discover an alien and colorful world that few have the courage to see up close."
-      },
-      {
-        "time": "DAY 4",
-        "activity": "Speed Day: Moto & Water Sports",
-        "details": "Day dedicated to speed. Morning: Water Sports Mix (Parasailing flight + Banana Boat). Afternoon: Double Quad or Buggy in the open desert for a wild ride through the dunes at sunset."
-      },
-      {
-        "time": "DAY 5",
-        "activity": "Game Over & Farewells",
-        "details": "Energy recovery, champion's breakfast, check-out, and private transfer to the airport with plenty of stories to tell."
-      }
-    ],
-    "includes": [
-      "All transfers (4x4 Jeep, Bus, Private Car)",
-      "Bedouin lunch in Dahab",
-      "Quad/Buggy rental and full diving equipment",
-      "Certified PADI instructor for Intro Dive",
-      "First aid medical assistance available"
-    ],
-    "not_included": [
-      "International flights and hotel",
-      "Blue Hole entrance fee (payable on spot)",
-      "Extra drinks and tips",
-      "GoPro photo/video service (highly recommended)"
-    ],
-    "important_notes": "Good health is required for diving (no flights for 24 hours after diving). Bring comfortable shoes for the canyon and a valid passport for the Dahab checkpoint.",
-    "seo_tags": [
-      "Adventure Sharm El Sheikh",
-      "Blue Hole Dahab",
-      "Colored Canyon tour",
-      "Quad Safari Sharm",
-      "Intro Dive Red Sea"
-    ]
-  },
-  il_grande_blu: {
-    "tour_id": "il_grande_blu",
-    "title": "The Big Blue: Treasures of the Red Sea",
-    "short_desc": "Paradise for those who live with fins on. 4 Complete marine excursions: Ras Mohammed (Sea & Land), Tiran, and the legendary Blue Hole.",
-    "duration": "6 Days (Full Sea Immersion)",
-    "highlights": [
-      "4 Sea Days included (Maximize your holiday)",
-      "Perfect mix of Luxury Boats and Beach Snorkeling",
-      "Complete visit to Ras Mohammed (by Sea and Land)",
-      "All lunches and drinks during excursions included"
-    ],
-    "full_description": "Did you choose Sharm for its world-unique coral reef? This is your package.\n\nWe stripped away everything else to focus solely on the sea. Every day we'll take you to a different spot: from the crystal-clear waters of White Island to the mysterious shipwrecks of Tiran, passing through the depths of the Blue Hole and the wild nature of Ras Mohammed by land. A total immersion in the blue, with maximum comfort.",
-    "program": [
-      {
-        "time": "DAY 1",
-        "activity": "Arrival & Relax",
-        "details": "Landing in Sharm, private transfer to hotel. Free time to settle in and prepare equipment for the week of sea activities."
-      },
-      {
-        "time": "DAY 2",
-        "activity": "The Maldives of Egypt (White Island)",
-        "details": "Starting strong. VIP Yacht day towards Ras Mohammed with a special stop on the white sand strip appearing in the middle of the sea. Guided snorkeling and lunch on board."
-      },
-      {
-        "time": "DAY 3",
-        "activity": "Ras Mohammed by Land (Nature)",
-        "details": "Today we discover the National Park from a different perspective. Bus trip to the Gate of Allah, swimming in the Magic Lake, and snorkeling from Yolanda Reef beach. Direct contact with untouched nature."
-      },
-      {
-        "time": "DAY 4",
-        "activity": "The Legend: Blue Hole & Dahab",
-        "details": "Jeep trip to the divers' mecca: the Blue Hole. Snorkeling in this deep blue abyss, Bedouin lunch by the sea, and a visit to the relaxed town of Dahab."
-      },
-      {
-        "time": "DAY 5",
-        "activity": "Lagoons & Wrecks: Tiran Island",
-        "details": "Total relaxation day on the boat towards Tiran Island. We will see the famous stranded shipwrecks and snorkel in the quietest turquoise lagoons of Sharm."
-      },
-      {
-        "time": "DAY 6",
-        "activity": "Last Dip & Farewell",
-        "details": "Free morning, check-out, and private transfer to the airport. Heading home with the perfect tan."
-      }
-    ],
-    "includes": [
-      "All transfers (Boat, Bus, Jeep, Private Car)",
-      "Entrance fees to National Parks (Ras Mohammed/Blue Hole)",
-      "Buffet or Bedouin lunch + drinks on all excursions",
-      "Professional snorkeling guide in the water",
-      "Marine taxes and permits"
-    ],
-    "not_included": [
-      "International flights and Hotel",
-      "Snorkeling equipment rental (mask, fins, wetsuit)",
-      "Tips for the crew",
-      "Professional underwater photos"
-    ],
-    "important_notes": "Passport is mandatory ('Sinai Only' visa or full visa depending on duration). Bring towels and sunscreen every day. Equipment can be rented on the first day.",
-    "seo_tags": [
-      "Snorkeling Sharm El Sheikh",
-      "Ras Mohammed tour",
-      "Blue Hole Dahab",
-      "Tiran Island excursion",
-      "Diving trips Egypt"
-    ]
-  },
+      tour_id: "dolce_vita_family",
+      title: "Dolce Vita: Family & Relax",
+      short_desc:
+        "The perfect holiday for families. Happy kids (Dolphins & Submarine) and relaxed parents (VIP Yacht & Romantic Dinner). Zero stress.",
+      duration: "5 Days (Relaxed Pace)",
+      highlights: [
+        "4 Experiences included (Yacht, Submarine, Dolphins, Dinner)",
+        "Ideal for children of all ages (100% Safe)",
+        "Slow and comfortable rhythms (no early morning starts)",
+        "Private air-conditioned transfers for every excursion",
+      ],
+      full_description:
+        "We know traveling with kids can be a challenge. That's why we created 'Dolce Vita', a package designed to eliminate parental stress and maximize fun for the little ones.\n\nNo alarm clocks at dawn, no uncomfortable transfers. Everything is organized with comfortable timings and total safety. The kids will discover the sea without getting wet in the submarine and laugh with the dolphins, while you enjoy the sun on the yacht and a romantic dinner on the sea.",
+      program: [
+        {
+          time: "DAY 1",
+          activity: "Welcome to Egypt",
+          details:
+            "Arrival at Sharm airport, VIP welcome by Fabio's team, and private transfer to the hotel. Quick briefing to explain the week's comfortable schedule.",
+        },
+        {
+          time: "DAY 2",
+          activity: "Neverland (White Island)",
+          details:
+            "A fairytale day. Sailing towards the famous White Island (a sand strip similar to the Maldives) where children can play in safe shallow water, while parents relax on the yacht. Lunch included.",
+        },
+        {
+          time: "DAY 3",
+          activity: "Finding Nemo (Seascope)",
+          details:
+            "Morning dedicated to discovering the seabed with the Seascope Submarine. Children can see colorful fish and corals through panoramic windows without getting wet. Free afternoon by the pool.",
+        },
+        {
+          time: "DAY 4",
+          activity: "Dolphins & Dinner Show",
+          details:
+            "Day of emotions. Afternoon at the Dolphin Show to make the kids laugh. In the evening, grand finale with the Dinner Cruise: buffet dinner on a luxury ship with music, Tanoura show, and sea breeze.",
+        },
+        {
+          time: "DAY 5",
+          activity: "Farewell & Transfer",
+          details:
+            "Relaxed breakfast, check-out from the hotel, and private transfer to the airport with a small souvenir from Friend Fabio.",
+        },
+      ],
+      includes: [
+        "All private transfers (Airport & Excursions)",
+        "Entrance tickets (Marine Park, Dolphin Show)",
+        "Lunch on board the Yacht and Dinner on the cruise ship",
+        "Priority assistance for families (WhatsApp 24/7)",
+        "Basic snorkeling gear for kids (upon request)",
+      ],
+      not_included: [
+        "International flights and travel insurance",
+        "Hotel accommodation (we can suggest best family resorts)",
+        "Tips and personal extras",
+        "Professional photos and videos during excursions",
+      ],
+      important_notes:
+        "The package is flexible: schedules can be adapted to your children's rhythms. It is recommended to bring sunscreen, hats, and swimsuits for all marine activities.",
+      seo_tags: [
+        "Family holiday Sharm",
+        "Sharm with kids",
+        "Dolce Vita Family Package",
+        "Safe excursions Sharm",
+        "Dolphins and Submarine Sharm",
+      ],
+    },
+    mille_e_una_notte: {
+      tour_id: "mille_e_una_notte",
+      title: "One Thousand and One Nights: Romantic Escape",
+      short_desc:
+        "The most exclusive package for couples. Desert sunsets, candlelight dinners, and luxury sailing. Just for the two of you.",
+      duration: "5 Days (Privacy & Magic)",
+      highlights: [
+        "4 Romantic Experiences (Sailing Ship, Private Quad, VIP Dinner, Dinner Cruise)",
+        "Private Guides (No large groups, just the two of you)",
+        "Focus on Sunset and Atmosphere",
+        "Private and discreet luxury transfers",
+      ],
+      full_description:
+        "This is not a group tour; it is your honeymoon (or your romantic escape) organized down to the smallest detail.\n\nWe have eliminated the crowds and added privacy. In this package, the desert becomes your private refuge at sunset, and the sea turns into a romantic stage. Fabio will ensure that every moment is perfect, from the toast on the Pirate Ship to the candlelight dinner under the starry sky of Sinai.",
+      program: [
+        {
+          time: "DAY 1",
+          activity: "Welcome to Paradise",
+          details:
+            "VIP Arrival. Private transfer by luxury car to your hotel. No waiting, just relaxation from the very first moment.",
+        },
+        {
+          time: "DAY 2",
+          activity: "Sails in the Wind: Pirate Boat & White Island",
+          details:
+            "A unique day aboard the 'Pirates' Sailboat'. A luxury sailing vessel, furnished in wood and classic style, taking you to the magical 'Neverland' (White Island). Seafood lunch served on board.",
+        },
+        {
+          time: "DAY 3",
+          activity: "Private Sunset: Quad & VIP Dinner",
+          details:
+            "The highlight experience. Private guide (just for the two of you) with Quads in the desert during the golden hour of sunset. Followed by not the usual dinner, but a 'VIP Bedouin Dinner' by candlelight in a reserved tent, with mixed grill and total privacy.",
+        },
+        {
+          time: "DAY 4",
+          activity: "Last Night: Romantic Dinner Cruise",
+          details:
+            "Free morning for the beach. In the evening, dress elegantly for a night cruise (Dinner Cruise) with an international buffet dinner, soft music, and sailing under the moon along the coast of Sharm.",
+        },
+        {
+          time: "DAY 5",
+          activity: "Goodbye Love",
+          details:
+            "Breakfast in room (if hotel permits), relaxed check-out, and private transfer to the airport for your return.",
+        },
+      ],
+      includes: [
+        "All VIP private transfers (Luxury Car)",
+        "Full day on Pirate Sailboat with seafood lunch",
+        "Private Safari (Quad just for the couple) + Reserved Bedouin Dinner",
+        "Romantic dinner on the cruise ship (Dinner Cruise)",
+        "Personal assistance from Fabio 24/7 for special requests",
+      ],
+      not_included: [
+        "International flights and hotel accommodation",
+        "Alcoholic beverages (available as extra)",
+        "Professional photoshoot (recommended, upon request)",
+        "Tips and personal extras",
+      ],
+      important_notes:
+        "For the Dinner Cruise, 'Smart Casual' attire is required. Please bring passports for the boat excursion. We can organize surprise cakes or flowers upon request.",
+      seo_tags: [
+        "Honeymoon Sharm",
+        "Romantic package Egypt",
+        "Romantic dinner desert",
+        "White Island sailing",
+        "Sharm El Sheikh couples trip",
+      ],
+    },
+    indiana_jones_adventure: {
+      tour_id: "indiana_jones_adventure",
+      title: "Indiana Jones: Pure Adrenaline",
+      short_desc:
+        "Not for the lazy. An explosive mix of adventure: Jeep Safari, Canyon Trekking, Desert Bikes, Parasailing, and your first Scuba Dive.",
+      duration: "5 Days (Action Mode)",
+      highlights: [
+        "4 Extreme Activities (Jeep, Dive, Quad, Parasailing)",
+        "Colored Canyon Exploration (Exclusive)",
+        "All technical equipment included",
+        "Expert guides in safety and adventure",
+      ],
+      full_description:
+        "If your idea of a vacation is lying in the sun, change packages. 'Indiana Jones' is designed for those seeking strong thrills.\n\nWe will take you off the beaten path: you will climb the rocks of the Colored Canyon, dive into the depths of the Blue Hole, drive powerful bikes through the dunes, and fly over the Red Sea with a parachute. Five days lived to the max, with Fabio's impeccable safety and organization.",
+      program: [
+        {
+          time: "DAY 1",
+          activity: "Arrival & Briefing",
+          details:
+            "Landing in Sharm, private transfer to hotel, and energetic briefing with the team to prepare equipment for the upcoming adventures.",
+        },
+        {
+          time: "DAY 2",
+          activity: "On the Trail of Indiana Jones (Canyon & Blue Hole)",
+          details:
+            "The real adventure. Departure by Jeep Safari into the desert, trekking on foot among the psychedelic rocks of the 'Colored Canyon', and snorkeling in the legendary 'Blue Hole' of Dahab. Bedouin lunch included.",
+        },
+        {
+          time: "DAY 3",
+          activity: "Abyss Mission: Intro Dive",
+          details:
+            "It's time to breathe underwater. A professional instructor will guide you through your first scuba dive (Intro Dive). You will discover an alien and colorful world that few have the courage to see up close.",
+        },
+        {
+          time: "DAY 4",
+          activity: "Speed Day: Moto & Water Sports",
+          details:
+            "Day dedicated to speed. Morning: Water Sports Mix (Parasailing flight + Banana Boat). Afternoon: Double Quad or Buggy in the open desert for a wild ride through the dunes at sunset.",
+        },
+        {
+          time: "DAY 5",
+          activity: "Game Over & Farewells",
+          details:
+            "Energy recovery, champion's breakfast, check-out, and private transfer to the airport with plenty of stories to tell.",
+        },
+      ],
+      includes: [
+        "All transfers (4x4 Jeep, Bus, Private Car)",
+        "Bedouin lunch in Dahab",
+        "Quad/Buggy rental and full diving equipment",
+        "Certified PADI instructor for Intro Dive",
+        "First aid medical assistance available",
+      ],
+      not_included: [
+        "International flights and hotel",
+        "Blue Hole entrance fee (payable on spot)",
+        "Extra drinks and tips",
+        "GoPro photo/video service (highly recommended)",
+      ],
+      important_notes:
+        "Good health is required for diving (no flights for 24 hours after diving). Bring comfortable shoes for the canyon and a valid passport for the Dahab checkpoint.",
+      seo_tags: [
+        "Adventure Sharm El Sheikh",
+        "Blue Hole Dahab",
+        "Colored Canyon tour",
+        "Quad Safari Sharm",
+        "Intro Dive Red Sea",
+      ],
+    },
+    il_grande_blu: {
+      tour_id: "il_grande_blu",
+      title: "The Big Blue: Treasures of the Red Sea",
+      short_desc:
+        "Paradise for those who live with fins on. 4 Complete marine excursions: Ras Mohammed (Sea & Land), Tiran, and the legendary Blue Hole.",
+      duration: "6 Days (Full Sea Immersion)",
+      highlights: [
+        "4 Sea Days included (Maximize your holiday)",
+        "Perfect mix of Luxury Boats and Beach Snorkeling",
+        "Complete visit to Ras Mohammed (by Sea and Land)",
+        "All lunches and drinks during excursions included",
+      ],
+      full_description:
+        "Did you choose Sharm for its world-unique coral reef? This is your package.\n\nWe stripped away everything else to focus solely on the sea. Every day we'll take you to a different spot: from the crystal-clear waters of White Island to the mysterious shipwrecks of Tiran, passing through the depths of the Blue Hole and the wild nature of Ras Mohammed by land. A total immersion in the blue, with maximum comfort.",
+      program: [
+        {
+          time: "DAY 1",
+          activity: "Arrival & Relax",
+          details:
+            "Landing in Sharm, private transfer to hotel. Free time to settle in and prepare equipment for the week of sea activities.",
+        },
+        {
+          time: "DAY 2",
+          activity: "The Maldives of Egypt (White Island)",
+          details:
+            "Starting strong. VIP Yacht day towards Ras Mohammed with a special stop on the white sand strip appearing in the middle of the sea. Guided snorkeling and lunch on board.",
+        },
+        {
+          time: "DAY 3",
+          activity: "Ras Mohammed by Land (Nature)",
+          details:
+            "Today we discover the National Park from a different perspective. Bus trip to the Gate of Allah, swimming in the Magic Lake, and snorkeling from Yolanda Reef beach. Direct contact with untouched nature.",
+        },
+        {
+          time: "DAY 4",
+          activity: "The Legend: Blue Hole & Dahab",
+          details:
+            "Jeep trip to the divers' mecca: the Blue Hole. Snorkeling in this deep blue abyss, Bedouin lunch by the sea, and a visit to the relaxed town of Dahab.",
+        },
+        {
+          time: "DAY 5",
+          activity: "Lagoons & Wrecks: Tiran Island",
+          details:
+            "Total relaxation day on the boat towards Tiran Island. We will see the famous stranded shipwrecks and snorkel in the quietest turquoise lagoons of Sharm.",
+        },
+        {
+          time: "DAY 6",
+          activity: "Last Dip & Farewell",
+          details:
+            "Free morning, check-out, and private transfer to the airport. Heading home with the perfect tan.",
+        },
+      ],
+      includes: [
+        "All transfers (Boat, Bus, Jeep, Private Car)",
+        "Entrance fees to National Parks (Ras Mohammed/Blue Hole)",
+        "Buffet or Bedouin lunch + drinks on all excursions",
+        "Professional snorkeling guide in the water",
+        "Marine taxes and permits",
+      ],
+      not_included: [
+        "International flights and Hotel",
+        "Snorkeling equipment rental (mask, fins, wetsuit)",
+        "Tips for the crew",
+        "Professional underwater photos",
+      ],
+      important_notes:
+        "Passport is mandatory ('Sinai Only' visa or full visa depending on duration). Bring towels and sunscreen every day. Equipment can be rented on the first day.",
+      seo_tags: [
+        "Snorkeling Sharm El Sheikh",
+        "Ras Mohammed tour",
+        "Blue Hole Dahab",
+        "Tiran Island excursion",
+        "Diving trips Egypt",
+      ],
+    },
+
+
+    // --- Cairo
+    cairo_piramidi_saqqara_vip: {
+      tour_id: "cairo_piramidi_saqqara_vip",
+      title: "Eternal Grandeur: Pyramids of Giza, Sphinx & Saqqara",
+      short_desc:
+        "A VIP journey through time: the iconic Pyramids of Giza, the enigmatic Sphinx, and the world's oldest pyramid at Saqqara.",
+      duration: "8-9 Hours (Full Day)",
+      highlights: [
+        "Walk across the magical Giza Plateau",
+        "Visit the majestic Sphinx and the Valley Temple",
+        "Explore Djoser's Step Pyramid at Saqqara",
+        "Private Italian-speaking Egyptologist guide",
+      ],
+      full_description:
+        "Get ready for an unforgettable journey through time. You won't just look at the Pyramids — you'll walk where the pharaohs wrote history. Together we'll discover the grandeur of the Great Pyramid of Khufu, the mystery surrounding the Sphinx, and travel to Saqqara to admire Djoser's Step Pyramid, the oldest stone structure in the world. With Fabio Egypt, you'll experience Ancient Egypt with VIP service, no rush, and a dedicated expert guide.",
+      program: [
+        {
+          time: "08:30",
+          activity: "Hotel Pickup",
+          details:
+            "Our private air-conditioned transfer will pick you up directly from your Cairo or Giza hotel.",
+        },
+        {
+          time: "09:30",
+          activity: "Giza Plateau & Pyramids",
+          details:
+            "Arrival at the Pyramids (Khufu, Khafre & Menkaure). Time for memorable panoramic photos and historical explanations.",
+        },
+        {
+          time: "11:30",
+          activity: "The Great Sphinx",
+          details:
+            "Visit to the Valley Temple and a face-to-face encounter with the iconic Sphinx.",
+        },
+        {
+          time: "13:00",
+          activity: "Traditional Lunch",
+          details:
+            "Stop at a quality local restaurant to savor authentic Egyptian dishes.",
+        },
+        {
+          time: "14:30",
+          activity: "Saqqara",
+          details:
+            "Transfer to Saqqara to explore Djoser's funerary complex and the first pyramid ever built.",
+        },
+        {
+          time: "16:30",
+          activity: "Return",
+          details:
+            "Relaxing drive back to the hotel after a history-packed day.",
+        },
+      ],
+      includes: [
+        "Private R/T transfer in air-conditioned vehicle",
+        "Lunch at a local restaurant (drinks excluded)",
+        "Expert Italian-speaking Egyptologist guide",
+        "Bottled water during transfers",
+      ],
+      not_included: [
+        "Entry tickets to archaeological sites (payable on-site)",
+        "Entry inside the Great Pyramid (optional)",
+        "Tips (at your discretion)",
+      ],
+      important_notes:
+        "Bring: Passport, very comfortable walking shoes for the sand, hat, sunscreen, and sunglasses.",
+      seo_tags: [
+        "Pyramids of Giza",
+        "Saqqara Tour",
+        "Sphinx Egypt",
+        "Cairo VIP Tour",
+        "Fabio Egypt",
+      ],
+    },
+    cairo_cuore_pulsante_museo_cittadella: {
+      tour_id: "cairo_cuore_pulsante_museo_cittadella",
+      title: "The Beating Heart of Cairo: Egyptian Museum, Citadel & Khan El Khalili",
+      short_desc:
+        "Discover the soul of Cairo: Tutankhamun's golden treasures, breathtaking views from the Citadel, and magical shopping in the bazaar.",
+      duration: "8 Hours (Full Day)",
+      highlights: [
+        "Admire the golden treasures of King Tutankhamun",
+        "Explore Saladin's Citadel and the Alabaster Mosque",
+        "Get lost in the scents and colors of Khan El Khalili",
+        "Lunch with a Nile view or in the city",
+      ],
+      full_description:
+        "A total immersion into the soul of the Egyptian capital! We start by exploring the priceless treasures of the Egyptian Museum, including the legendary golden mask of King Tutankhamun. Then we ascend to Saladin's Citadel to admire the majestic Alabaster Mosque and enjoy a breathtaking panoramic view over Cairo. To end on a high note, we dive into the scents, colors, and energy of Khan El Khalili market — the oldest and most fascinating bazaar in the Middle East.",
+      program: [
+        {
+          time: "09:00",
+          activity: "Pickup",
+          details:
+            "Meet your private guide and depart from the hotel in an air-conditioned car.",
+        },
+        {
+          time: "09:30",
+          activity: "Egyptian Museum",
+          details:
+            "Guided tour through the immense collections of ancient artifacts and masterpieces of Ancient Egypt.",
+        },
+        {
+          time: "12:30",
+          activity: "Lunch",
+          details:
+            "Lunch break at an excellent restaurant to recharge your energy.",
+        },
+        {
+          time: "14:00",
+          activity: "Saladin's Citadel",
+          details:
+            "Visit to the medieval fortress and the wonderful Mosque of Muhammad Ali.",
+        },
+        {
+          time: "15:30",
+          activity: "Khan El Khalili",
+          details:
+            "Stroll through the historic market. Free time for shopping, mint tea, and Turkish coffee.",
+        },
+        {
+          time: "17:00",
+          activity: "Return",
+          details: "End of tour and comfortable return to the hotel.",
+        },
+      ],
+      includes: [
+        "Private R/T car/minibus transfer",
+        "Lunch at a local restaurant",
+        "Italian-speaking tourist guide",
+        "Bottled water",
+      ],
+      not_included: [
+        "Entry tickets to museums and monuments",
+        "Drinks during lunch",
+        "Tips (at your discretion)",
+      ],
+      important_notes:
+        "Dress code: Modest attire for the Mosque visit (shoulders and knees covered for both men and women). Comfortable shoes for the bazaar.",
+      seo_tags: [
+        "Egyptian Museum Cairo",
+        "Saladin's Citadel",
+        "Khan El Khalili",
+        "What to see in Cairo",
+        "Cairo City Tour",
+      ],
+    },
+    cairo_crociera_nilo_cena: {
+      tour_id: "cairo_crociera_nilo_cena",
+      title: "Night Magic on the Nile: VIP Dinner Cruise & Show",
+      short_desc:
+        "Experience the magic of the Nile at night. First-class buffet dinner, belly dancing, and a Tanoura show.",
+      duration: "3-4 Hours (Evening)",
+      highlights: [
+        "Romantic sailing on the illuminated Nile River",
+        "Rich buffet dinner with Egyptian and international dishes",
+        "Folkloric Tanoura show",
+        "Live music and belly dancing",
+      ],
+      full_description:
+        "Experience Cairo from a completely different perspective: gliding gently over the waters of the legendary Nile River under a starry sky. We invite you to an evening of pure luxury aboard a first-class cruise. Savor a delicious buffet dinner rich with local and international specialties, while enjoying a vibrant belly dance show and the hypnotic traditional Tanoura dance. A magical experience, perfect for couples and families.",
+      program: [
+        {
+          time: "18:30",
+          activity: "Pick-up",
+          details:
+            "The driver will meet you at the hotel to take you to the Nile boarding dock.",
+        },
+        {
+          time: "19:30",
+          activity: "Boarding & Navigation",
+          details:
+            "Welcome aboard. The boat begins to sail while you enjoy the illuminated city skyline.",
+        },
+        {
+          time: "20:00",
+          activity: "Buffet Dinner",
+          details:
+            "The rich buffet opens with a wide selection of delicious foods.",
+        },
+        {
+          time: "21:00",
+          activity: "Show",
+          details:
+            "Live entertainment begins: belly dance, whirling dervishes (Tanoura), and music.",
+        },
+        {
+          time: "22:00",
+          activity: "Return",
+          details: "Disembark at the dock and transfer back to your hotel.",
+        },
+      ],
+      includes: [
+        "Private R/T transfer from hotel",
+        "2-hour Nile cruise",
+        "Open buffet dinner",
+        "Entertainment shows",
+      ],
+      not_included: ["Drinks (available to purchase on board)", "Tips (at your discretion)"],
+      important_notes:
+        "Dress code: Smart Casual. Great opportunity to celebrate birthdays or anniversaries.",
+      seo_tags: [
+        "Nile Dinner Cruise",
+        "Nile at Night",
+        "Tanoura Show",
+        "Romantic Dinner Cairo",
+        "Fabio Egypt Events",
+      ],
+    },
+    cairo_mistico_copto_islamico: {
+      tour_id: "cairo_mistico_copto_islamico",
+      title: "Mystic Cairo: Between Coptic Christianity & Islamic Heritage",
+      short_desc:
+        "A spiritual journey through the oldest districts: walk in the footsteps of the Holy Family and discover historic mosques.",
+      duration: "6-7 Hours",
+      highlights: [
+        "Visit to the Hanging Church (Al-Muallaqa)",
+        "Exploration of Abu Serga Church (Refuge of the Holy Family)",
+        "Tour of the Ben Ezra Synagogue",
+        "Evocative stroll along Al-Muizz Street in Islamic Cairo",
+      ],
+      full_description:
+        "A spiritual and cultural tour of the city's oldest districts. We explore Coptic Cairo, walking through the sacred sites where the Holy Family took refuge. We visit the evocative 'Hanging Church', built upon the ruins of an ancient Roman fortress, and the Ben Ezra Synagogue. We then continue to Islamic Cairo, strolling among ancient mosques and breathtaking architecture that tells centuries of peaceful coexistence and deep spirituality.",
+      program: [
+        {
+          time: "09:00",
+          activity: "Pickup",
+          details:
+            "Departure from the hotel with your specialized guide in history and religions.",
+        },
+        {
+          time: "09:45",
+          activity: "Coptic Cairo",
+          details:
+            "Exploration of the Hanging Church and descent into Abu Serga's crypt.",
+        },
+        {
+          time: "11:30",
+          activity: "Synagogue",
+          details:
+            "Visit to the historic Ben Ezra Synagogue (subject to opening availability).",
+        },
+        {
+          time: "13:00",
+          activity: "Lunch",
+          details: "Break for a relaxing lunch.",
+        },
+        {
+          time: "14:00",
+          activity: "Islamic Cairo (Al-Muizz Street)",
+          details:
+            "Stroll through the world's largest open-air museum of Islamic architecture.",
+        },
+        {
+          time: "16:00",
+          activity: "Return",
+          details: "End of tour and return to hotel.",
+        },
+      ],
+      includes: [
+        "Private R/T transfer",
+        "Lunch at a local restaurant",
+        "Expert Italian-speaking guide",
+        "Bottled water",
+      ],
+      not_included: [
+        "Entry tickets",
+        "Drinks at the restaurant",
+        "Tips (at your discretion)",
+      ],
+      important_notes:
+        "Conservative dress is required out of respect for places of worship. Shoulders and knees must be covered.",
+      seo_tags: [
+        "Coptic Cairo",
+        "Holy Family Egypt",
+        "Hanging Church",
+        "Islamic Cairo",
+        "Cairo Religious Tour",
+      ],
+    },
+    cairo_safari_piramidi_tramonto: {
+      tour_id: "cairo_safari_piramidi_tramonto",
+      title: "Sunset Adventure: Quad Safari & Camels at the Pyramids",
+      short_desc:
+        "Action and breathtaking views! Speed through the Giza desert on a Quad and enjoy a camel ride at sunset.",
+      duration: "3-4 Hours (Afternoon/Sunset)",
+      highlights: [
+        "1 Hour of pure adrenaline on Quad (ATV) in the desert",
+        "Exclusive panoramic viewpoints away from the crowds",
+        "Half-hour traditional camel ride",
+        "Unforgettable view of the Pyramids at sunset",
+      ],
+      full_description:
+        "For those seeking adrenaline with an unparalleled view! Leave the city behind and speed through the Giza desert on a powerful Quad (ATV). We'll ride the sand dunes to reach exclusive panoramic spots, perfect for taking incredible photos. The highlight? A traditional camel ride just as the sun sets behind the imposing Pyramids, painting the sky red and gold. A wild and unforgettable adventure.",
+      program: [
+        {
+          time: "15:00",
+          activity: "Hotel Pickup",
+          details:
+            "Transfer to the Safari center located at the edge of the Giza desert.",
+        },
+        {
+          time: "15:45",
+          activity: "Briefing & Quad",
+          details:
+            "Safety instructions and off for one hour of thrilling dune riding on Quad.",
+        },
+        {
+          time: "17:00",
+          activity: "Camel Ride",
+          details:
+            "From engine to tradition: camel ride enjoying the landscape.",
+        },
+        {
+          time: "17:30",
+          activity: "Panoramic Sunset",
+          details:
+            "Stop at a strategic viewpoint to capture magnificent photos as the sun sets behind the Pyramids.",
+        },
+        {
+          time: "18:30",
+          activity: "Return",
+          details: "Return to base and transfer back to the hotel.",
+        },
+      ],
+      includes: [
+        "R/T transfer from hotel",
+        "Quad (ATV) rental for 1 hour",
+        "Camel ride (approx. 30 minutes)",
+        "Bedouin escort guide",
+        "Water",
+      ],
+      not_included: ["Tips for Bedouin guides"],
+      important_notes:
+        "No driving license required for the Quad. We recommend comfortable clothes that can get dirty, sunglasses for the sand, and a scarf (keffiyeh).",
+      seo_tags: [
+        "Quad Pyramids",
+        "Giza Safari",
+        "Camel Sunset Egypt",
+        "Cairo Adventure",
+        "Fabio Egypt Safari",
+      ],
+    },
+    alessandria_tour_giornata_intera: {
+      tour_id: "alessandria_tour_giornata_intera",
+      title: "Mediterranean Escape: Full-Day Tour of Alexandria",
+      short_desc:
+        "Leave Cairo for a day and discover the Greco-Roman atmosphere of Alexandria, the Pearl of the Mediterranean.",
+      duration: "10-12 Hours (Full Day)",
+      highlights: [
+        "Exploration of the mysterious Catacombs of Kom El Shoqafa",
+        "Panoramic photo at the Qaitbay Citadel (former Lighthouse of Alexandria)",
+        "Visit to the majestic modern Bibliotheca Alexandrina",
+        "Lunch of fresh fish on the seafront",
+      ],
+      full_description:
+        "We leave Cairo for a day and travel north to discover the 'Pearl of the Mediterranean'. Alexandria in Egypt, founded by Alexander the Great, boasts a unique Greco-Roman atmosphere. We explore the mysterious Catacombs of Kom El Shoqafa, admire the majestic Qaitbay Citadel (built on the ruins of the ancient Lighthouse), and visit the modern and spectacular Bibliotheca Alexandrina. We also enjoy a delicious lunch of fresh fish with a sea view.",
+      program: [
+        {
+          time: "07:00",
+          activity: "Early Departure",
+          details:
+            "Hotel pickup in Cairo and scenic journey north (approx. 2.5–3 hours) in an air-conditioned vehicle.",
+        },
+        {
+          time: "10:00",
+          activity: "Catacombs",
+          details:
+            "Exploration of the largest Roman cemetery in Egypt, carved into the rock on three levels.",
+        },
+        {
+          time: "11:30",
+          activity: "Pompey's Pillar",
+          details:
+            "Brief stop to admire the Roman triumphal column and the ruins of the Serapeum.",
+        },
+        {
+          time: "13:00",
+          activity: "Fish Lunch",
+          details:
+            "Lunch break at a restaurant overlooking the Mediterranean Sea, enjoying the fresh catch of the day.",
+        },
+        {
+          time: "14:30",
+          activity: "Qaitbay Citadel",
+          details:
+            "Visit to the imposing citadel built exactly where the famous Lighthouse of Alexandria once stood.",
+        },
+        {
+          time: "15:45",
+          activity: "Bibliotheca Alexandrina",
+          details:
+            "Tour of the modern architectural masterpiece that honors the ancient and celebrated library.",
+        },
+        {
+          time: "17:00",
+          activity: "Return to Cairo",
+          details:
+            "Departure from Alexandria to comfortably return to your Cairo hotel in the evening.",
+        },
+      ],
+      includes: [
+        "Private R/T transfer Cairo–Alexandria",
+        "Fish lunch (or alternatives)",
+        "Expert Italian-speaking guide",
+        "Bottled water during the journey",
+      ],
+      not_included: [
+        "Entry tickets to sites and the Library",
+        "Drinks at the restaurant",
+        "Tips",
+      ],
+      important_notes:
+        "On Tuesdays the Bibliotheca Alexandrina may have reduced hours or be closed; in that case the visit will be from outside or replaced with the Montazah Gardens. Bring your passport.",
+      seo_tags: [
+        "Alexandria Tour from Cairo",
+        "Egypt Catacombs",
+        "Library of Alexandria",
+        "What to see in Alexandria",
+        "Fabio Egypt",
+      ],
+    },
+
+    // --- Luxor and Aswan
+    gran_tour_egitto_cairo_crociera_8g7n: {
+      tour_id: "gran_tour_egitto_cairo_crociera_8g7n",
+      title: "The Grand Pharaonic Tour: Cairo & Nile Magic (8 Days)",
+      short_desc:
+        "The ultimate experience. A complete 8-day journey combining the Pyramids of Cairo, the new Grand Egyptian Museum, and a luxury Nile Cruise.",
+      duration: "8 Days / 7 Nights",
+      highlights: [
+        "Explore the Pyramids of Giza and the Grand Egyptian Museum (GEM) in Cairo",
+        "5-Star Nile Cruise (Aswan–Luxor) with full board",
+        "Encounter local culture at the colorful Nubian Village",
+        "Visit the masterpieces of the Valley of the Kings and Karnak Temple",
+        "Tour the heart of Ancient and Islamic Cairo",
+      ],
+      full_description:
+        "Why choose when you can have it all? The 'Grand Pharaonic Tour' is the ultimate VIP package by Fabio Egypt. In 8 days you'll discover the essence of Egypt: we start in Cairo, admiring the imposing Pyramids and the treasures of the Grand Egyptian Museum. Then a short flight takes you to Aswan to board a luxurious 5-star cruise ship. We sail the Nile visiting the most fascinating temples (Philae, Edfu, Kom Ombo) all the way to Luxor, the Pharaohs' capital. We then return to Cairo to get lost in the mystical streets of the Citadel and Coptic Cairo. A worry-free journey, curated down to the smallest detail.",
+      program: [
+        {
+          time: "Day 1 & 2",
+          activity: "Arrival & The Wonders of Cairo",
+          details:
+            "Day 1: Arrival in Cairo, VIP airport welcome, and hotel transfer. Day 2: Full day on the Giza Plateau (Pyramids & Sphinx) and visit to the incredible Grand Egyptian Museum (GEM). Overnight in Cairo.",
+        },
+        {
+          time: "Day 3",
+          activity: "Flight to Aswan & Nubian Village",
+          details:
+            "Morning flight to Aswan. Visit to the romantic Philae Temple and embarkation on the Nile Cruise. In the afternoon, a river excursion to visit the vibrant Nubian Village. Overnight on board.",
+        },
+        {
+          time: "Day 4",
+          activity: "Navigation & Kom Ombo",
+          details:
+            "Free morning (Optional: Dawn excursion to the majestic Abu Simbel Temples). Navigation north and visit to the Temple of Sobek at Kom Ombo. Dinner and overnight on board.",
+        },
+        {
+          time: "Day 5",
+          activity: "Edfu Temple & Arrival in Luxor",
+          details:
+            "Visit to the Temple of Horus at Edfu. Enjoy relaxing on the sun deck while the ship crosses the Esna lock to reach Luxor. Overnight on board.",
+        },
+        {
+          time: "Day 6",
+          activity: "Luxor: Capital of the Pharaohs",
+          details:
+            "(Optional: Hot Air Balloon at dawn). Disembarkation and visit to the West Bank (Valley of the Kings, Hatshepsut Temple, Colossi of Memnon). In the afternoon, exploration of Karnak and Luxor Temple. Evening flight back to Cairo.",
+        },
+        {
+          time: "Day 7 & 8",
+          activity: "Ancient Cairo & Departure",
+          details:
+            "Day 7: Tour of Historic Cairo (Saladin's Citadel, Coptic Cairo and its ancient churches). Day 8: Hotel breakfast and transfer to the airport for the return flight. End of our VIP services.",
+        },
+      ],
+      includes: [
+        "3 Nights in Cairo Hotel (Bed & Breakfast)",
+        "4 Nights on 5-Star Nile Cruise (Full Board)",
+        "Internal flights (Cairo–Aswan / Luxor–Cairo)",
+        "All private transfers in air-conditioned vehicles",
+        "Private Italian-speaking Egyptologist guide",
+        "Nubian Village excursion",
+      ],
+      not_included: [
+        "International flights and tourist visa",
+        "Entry tickets to sites (payable on-site for flexibility)",
+        "Optional excursions (Abu Simbel, Hot Air Balloon)",
+        "Drinks on the cruise and tips",
+      ],
+      important_notes:
+        "This is a private and customizable tour. We can add a Red Sea extension (Hurghada or Sharm) if you wish to relax on the beach at the end of the cultural tour.",
+      seo_tags: [
+        "Egypt 8-Day Package",
+        "Cairo and Nile Cruise",
+        "Grand Tour Egypt",
+        "Complete Egypt Trip",
+        "Fabio Egypt Packages",
+      ],
+    },
+
+    nile_cruise_luxor_aswan_5d4n: {
+      tour_id: "nile_cruise_luxor_aswan_5d4n",
+      title: "Royal Nile Cruise: From Luxor to Aswan",
+      short_desc:
+        "A 5-star, 5-day/4-night journey. Explore the Valley of the Kings, majestic temples, and experience the magic of colors in the Nubian Village.",
+      duration: "5 Days / 4 Nights",
+      highlights: [
+        "5-star navigation with full board on board",
+        "Visit to the Temples of Karnak and Luxor (East Bank)",
+        "Exploration of the Valley of the Kings and Hatshepsut Temple",
+        "Exclusive excursion to the colorful Nubian Village in Aswan",
+      ],
+      full_description:
+        "Embark on an unforgettable adventure along the world's longest river. This 5-day/4-night cruise from Luxor to Aswan is designed to give you the maximum comfort and discovery. You'll walk among the giant columns of Karnak, descend into the pharaohs' tombs in the Valley of the Kings, and sail gently south visiting the temples of Edfu and Kom Ombo. The grand finale? A magical felucca ride to the heart of southern culture: the hospitality and vibrant colors of the Nubian Village in Aswan.",
+      program: [
+        {
+          time: "Day 1",
+          activity: "Embarkation & Luxor Temples",
+          details:
+            "Arrival in Luxor, check-in on the 5-star cruise ship. Lunch on board. In the afternoon, visit the immense Karnak Temple and the evocative Luxor Temple lit at night. Dinner and overnight.",
+        },
+        {
+          time: "Day 2",
+          activity: "West Bank & Navigation",
+          details:
+            "Morning: (Optional: Hot Air Balloon at dawn). Visit to the Valley of the Kings, Hatshepsut Temple, and Colossi of Memnon. Start of scenic navigation towards Edfu. Overnight on board.",
+        },
+        {
+          time: "Day 3",
+          activity: "Edfu, Kom Ombo & Relaxation",
+          details:
+            "Horse-drawn carriage (Hantour) to visit the Temple of Horus at Edfu. Navigation to Kom Ombo and visit to the double temple of Sobek and Haroeris. Dinner and navigation to Aswan.",
+        },
+        {
+          time: "Day 4",
+          activity: "Aswan, Philae & Nubian Village",
+          details:
+            "Visit to the High Dam, the Unfinished Obelisk, and the romantic Philae Temple. In the afternoon, felucca ride and visit to the picturesque Nubian Village for a taste of local culture.",
+        },
+        {
+          time: "Day 5",
+          activity: "Disembarkation (Abu Simbel Option)",
+          details:
+            "Breakfast and disembarkation. (Optional morning excursion to the majestic Abu Simbel Temples). Transfer to the airport or train station for the return.",
+        },
+      ],
+      includes: [
+        "4-night accommodation in double cabin (5-Star Cruise)",
+        "Full board (Breakfast, Lunch, Dinner)",
+        "All private transfers in air-conditioned vehicles",
+        "Expert Italian-speaking Egyptologist guide",
+        "All entry tickets to mentioned sites",
+        "Nubian Village excursion by motorboat/felucca",
+      ],
+      not_included: [
+        "Internal flights or trains",
+        "Alcoholic and non-alcoholic drinks on board",
+        "Abu Simbel excursion (Optional)",
+        "Hot Air Balloon in Luxor (Optional)",
+        "Tips (at your discretion)",
+      ],
+      important_notes:
+        "The program may undergo slight timing variations due to navigation or the Esna locks, but all visits are guaranteed. Comfortable clothing and sunscreen are essential.",
+      seo_tags: [
+        "Nile Cruise",
+        "Luxor Aswan",
+        "Nubian Village",
+        "Valley of the Kings",
+        "VIP Egypt Trip",
+      ],
+    },
+    nile_cruise_aswan_luxor_4d3n: {
+      tour_id: "nile_cruise_aswan_luxor_4d3n",
+      title: "Southern Magic: Cruise from Aswan to Luxor",
+      short_desc:
+        "Discover the treasures of Upper Egypt in just 4 days and 3 nights. From Philae Temple in Aswan to the secrets of the Valley of the Kings in Luxor.",
+      duration: "4 Days / 3 Nights",
+      highlights: [
+        "5-Star Cruise with full board",
+        "Exploration of Philae Temple on the island of Agilkia",
+        "Magical Nile navigation with sunset view",
+        "Visit to the monumental treasures of Luxor (Karnak & Valley of the Kings)",
+      ],
+      full_description:
+        "Begin your adventure from the picturesque Aswan, the gateway to Africa. In this 4-day/3-night journey, you'll admire the beauty of the Philae Temple dedicated to the goddess Isis. We then sail up the Nile, stopping to discover the unique temples of Kom Ombo and Edfu, until we reach the pharaonic capital par excellence: Luxor. Here you'll get lost in the secret corridors of the Valley of the Kings and the grandeur of the Karnak complex. A concentrated dose of history and luxury.",
+      program: [
+        {
+          time: "Day 1",
+          activity: "Aswan & Philae Temple",
+          details:
+            "Arrival in Aswan, check-in on the ship. Visit to the majestic High Dam and the beautiful Philae Temple. Lunch on board and free time. (Optional: Nubian Village visit in the afternoon).",
+        },
+        {
+          time: "Day 2",
+          activity: "Kom Ombo & Edfu",
+          details:
+            "Dawn (Optional: Excursion to Abu Simbel Temples). Navigation to Kom Ombo and temple visit. Continue to Edfu. Dinner on board with a traditional party.",
+        },
+        {
+          time: "Day 3",
+          activity: "Edfu & Arrival in Luxor",
+          details:
+            "Morning visit to the Temple of Horus at Edfu. Relax on the sun deck as we sail to Luxor, crossing the Esna lock. In the late afternoon, visit to the Karnak Complex and Luxor Temple.",
+        },
+        {
+          time: "Day 4",
+          activity: "West Bank & Disembarkation",
+          details:
+            "Early morning: (Optional: Hot Air Balloon). Disembarkation after breakfast. Visit to the West Bank: Valley of the Kings, Hatshepsut Temple, and Colossi of Memnon. Transfer to airport/station.",
+        },
+      ],
+      includes: [
+        "3-night accommodation in double cabin (5-Star Cruise)",
+        "Full board (Breakfast, Lunch, Dinner)",
+        "All private transfers",
+        "Expert Italian-speaking Egyptologist guide",
+        "All entry tickets to mentioned sites",
+      ],
+      not_included: [
+        "Internal flights or trains",
+        "Drinks",
+        "Abu Simbel or Nubian Village excursion (Optional)",
+        "Tips",
+      ],
+      important_notes:
+        "A perfect option for those with less time but not wanting to miss the authentic Nile sailing experience. We recommend booking internal flights according to the program's timings.",
+      seo_tags: [
+        "Aswan Luxor Cruise",
+        "Upper Egypt Tour",
+        "Philae Temple",
+        "Karnak",
+        "Fabio Egypt Cruises",
+      ],
+    },
   },
   trips: {
     // --- SHARM SEA
     ras_mohammed_white_island_vip: {
-      "tour_id": "ras_mohammed_white_island_vip",
-      "title": "Ras Mohammed & White Island: The VIP Experience",
-      "short_desc": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
-      "duration": "8-9 Hours (Full Day)",
+      tour_id: "ras_mohammed_white_island_vip",
+      title: "Ras Mohammed & White Island: The VIP Experience",
+      short_desc:
+        "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+      duration: "8-9 Hours (Full Day)",
 
-      "highlights": [
+      highlights: [
         "Exclusive stop at the White Island (The Neverland Island)",
         "2 snorkeling stops on the world's most beautiful coral reef",
         "Fresh lunch on board with unlimited drinks",
-        "Relaxed atmosphere: No crowds, just fun"
+        "Relaxed atmosphere: No crowds, just fun",
       ],
-      "full_description": "It’s not just another boat trip, it’s an unforgettable day signed by Amico Fabio. We will set sail to Ras Mohammed National Park, where the desert meets the bluest sea you’ve ever seen. \n\nThe main stop? White Island: a tongue of white sand that appears and disappears with the tide, creating a natural pool worthy of the Maldives. \n\nBetween dives, our onboard chef will prepare a fresh and tasty buffet lunch. Whether you want to explore the seabed with our expert guides or just sunbathe on the sun deck, this is the perfect excursion to combine adventure and total relaxation.",
-      "program": [
+      full_description:
+        "It’s not just another boat trip, it’s an unforgettable day signed by Amico Fabio. We will set sail to Ras Mohammed National Park, where the desert meets the bluest sea you’ve ever seen. \n\nThe main stop? White Island: a tongue of white sand that appears and disappears with the tide, creating a natural pool worthy of the Maldives. \n\nBetween dives, our onboard chef will prepare a fresh and tasty buffet lunch. Whether you want to explore the seabed with our expert guides or just sunbathe on the sun deck, this is the perfect excursion to combine adventure and total relaxation.",
+      program: [
         {
-          "time": "08:00",
-          "activity": "VIP Pickup",
-          "details": "Our private transfer will pick you up directly at the hotel. No stress."
+          time: "08:00",
+          activity: "VIP Pickup",
+          details:
+            "Our private transfer will pick you up directly at the hotel. No stress.",
         },
         {
-          "time": "09:00",
-          "activity": "Boarding and Welcome",
-          "details": "Arrival at the port, quick check-in, and welcome on board with a safety briefing."
+          time: "09:00",
+          activity: "Boarding and Welcome",
+          details:
+            "Arrival at the port, quick check-in, and welcome on board with a safety briefing.",
         },
         {
-          "time": "10:30",
-          "activity": "Snorkeling at Ras Mohammed",
-          "details": "First guided stop to admire millenary corals and colorful fish."
+          time: "10:30",
+          activity: "Snorkeling at Ras Mohammed",
+          details:
+            "First guided stop to admire millenary corals and colorful fish.",
         },
         {
-          "time": "12:30",
-          "activity": "Magic White Island",
-          "details": "Landing on the famous white sand spit. Free time for Instagrammable photos and relaxation in the water."
+          time: "12:30",
+          activity: "Magic White Island",
+          details:
+            "Landing on the famous white sand spit. Free time for Instagrammable photos and relaxation in the water.",
         },
         {
-          "time": "13:30",
-          "activity": "Lunch with a View",
-          "details": "Rich buffet on board (fish, meat, rice, salads) freshly prepared by the chef."
+          time: "13:30",
+          activity: "Lunch with a View",
+          details:
+            "Rich buffet on board (fish, meat, rice, salads) freshly prepared by the chef.",
         },
         {
-          "time": "14:30",
-          "activity": "Last Dive or Relaxation",
-          "details": "Second snorkeling stop or time to enjoy the sun while we sail."
+          time: "14:30",
+          activity: "Last Dive or Relaxation",
+          details:
+            "Second snorkeling stop or time to enjoy the sun while we sail.",
         },
         {
-          "time": "16:30",
-          "activity": "Return",
-          "details": "Return to the port and comfortable transfer back to your hotel."
-        }
+          time: "16:30",
+          activity: "Return",
+          details:
+            "Return to the port and comfortable transfer back to your hotel.",
+        },
       ],
-      "includes": [
+      includes: [
         "R/T Hotel transfer (A/C Bus)",
         "Ras Mohammed National Park entry ticket",
         "Buffet lunch prepared on board",
         "Unlimited soft drinks all day",
-        "Italian-speaking Snorkeling guide"
+        "Italian-speaking Snorkeling guide",
       ],
-      "not_included": [
+      not_included: [
         "Snorkeling equipment rental (mask/fins - optional)",
         "Professional photo/video service",
-        "Tips (at your discretion)"
+        "Tips (at your discretion)",
       ],
-      "important_notes": "Bring with you: Passport (mandatory), beach towel, sunscreen, sunglasses, and lots of energy. In winter, bring a light sweatshirt for the return.",
-      "seo_tags": [
+      important_notes:
+        "Bring with you: Passport (mandatory), beach towel, sunscreen, sunglasses, and lots of energy. In winter, bring a light sweatshirt for the return.",
+      seo_tags: [
         "Ras Mohammed",
         "White Island Sharm",
         "Boat Excursion Sharm",
         "Red Sea Snorkeling",
-        "Amico Fabio Tours"
-      ]
+        "Amico Fabio Tours",
+      ],
     },
     ras_mohammed_bus_half_day: {
-      "tour_id": "ras_mohammed_bus_half_day",
-      "title": "Ras Mohammed Nature Explorer: The Park by Land",
-      "short_desc": "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
-      "duration": "5-6 Hours (Half Day)",
+      tour_id: "ras_mohammed_bus_half_day",
+      title: "Ras Mohammed Nature Explorer: The Park by Land",
+      short_desc:
+        "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
+      duration: "5-6 Hours (Half Day)",
 
-      "highlights": [
+      highlights: [
         "Iconic photo at the 'Gate of Allah'",
         "Make a wish at the Magic Lake",
         "Guided snorkeling from the beach (living coral reef)",
-        "Back at the hotel by lunchtime"
+        "Back at the hotel by lunchtime",
       ],
-      "full_description": "Discover the exact point where Asia meets Africa. This land excursion is perfect for those who want to see the true nature of Sinai without spending all day on a boat.\n\nWe will cross the monumental 'Gate of Allah' to enter a lunar landscape. We will walk among the aerial roots of the Mangroves, see the earthquake crack, and arrive at the famous 'Magic Lake': a natural pool where, according to Bedouin legend, you just need to throw a pebble and make a wish for it to come true.\n\nSport won't be missing: we'll go snorkeling starting directly from the beach in one of the richest coral spots in the Red Sea.",
-      "program": [
+      full_description:
+        "Discover the exact point where Asia meets Africa. This land excursion is perfect for those who want to see the true nature of Sinai without spending all day on a boat.\n\nWe will cross the monumental 'Gate of Allah' to enter a lunar landscape. We will walk among the aerial roots of the Mangroves, see the earthquake crack, and arrive at the famous 'Magic Lake': a natural pool where, according to Bedouin legend, you just need to throw a pebble and make a wish for it to come true.\n\nSport won't be missing: we'll go snorkeling starting directly from the beach in one of the richest coral spots in the Red Sea.",
+      program: [
         {
-          "time": "08:00",
-          "activity": "Departure",
-          "details": "Comfortable pickup from your hotel with an air-conditioned minibus."
+          time: "08:00",
+          activity: "Departure",
+          details:
+            "Comfortable pickup from your hotel with an air-conditioned minibus.",
         },
         {
-          "time": "09:00",
-          "activity": "The Gate of Allah",
-          "details": "Arrival at the Park and photo stop at the monumental entrance."
+          time: "09:00",
+          activity: "The Gate of Allah",
+          details:
+            "Arrival at the Park and photo stop at the monumental entrance.",
         },
         {
-          "time": "09:45",
-          "activity": "Mangroves & Earthquake",
-          "details": "Nature walk among the trees that grow in salt water and the seismic fault."
+          time: "09:45",
+          activity: "Mangroves & Earthquake",
+          details:
+            "Nature walk among the trees that grow in salt water and the seismic fault.",
         },
         {
-          "time": "10:30",
-          "activity": "Magic Lake",
-          "details": "Time to admire the lagoon colors and... make your wish."
+          time: "10:30",
+          activity: "Magic Lake",
+          details: "Time to admire the lagoon colors and... make your wish.",
         },
         {
-          "time": "11:30",
-          "activity": "Beach Snorkeling",
-          "details": "Guided dive to explore the coral reef (suitable also for beginners)."
+          time: "11:30",
+          activity: "Beach Snorkeling",
+          details:
+            "Guided dive to explore the coral reef (suitable also for beginners).",
         },
         {
-          "time": "13:30",
-          "activity": "Return",
-          "details": "Back to the hotel just in time for lunch."
-        }
+          time: "13:30",
+          activity: "Return",
+          details: "Back to the hotel just in time for lunch.",
+        },
       ],
-      "includes": [
+      includes: [
         "R/T Hotel transfer (A/C Minibus)",
         "Ras Mohammed National Park entry ticket",
         "Expert Italian-speaking guide",
-        "Mineral water during the trip"
+        "Mineral water during the trip",
       ],
-      "not_included": [
+      not_included: [
         "Snorkeling gear rental (mask/fins - available at the initial stop)",
         "Professional photo/video service",
-        "Lunch (the tour ends before lunch)"
+        "Lunch (the tour ends before lunch)",
       ],
-      "important_notes": "Bring with you: Passport (mandatory for tourist police), swimsuit, towel, comfortable walking shoes, and coins to make a wish!",
-      "seo_tags": [
+      important_notes:
+        "Bring with you: Passport (mandatory for tourist police), swimsuit, towel, comfortable walking shoes, and coins to make a wish!",
+      seo_tags: [
         "Ras Mohammed Bus",
         "Magic Lake Sharm",
         "Gate of Allah",
         "Beach Snorkeling",
-        "Half Day Excursion"
-      ]
+        "Half Day Excursion",
+      ],
     },
     tiran_island_boat_vip: {
-      "tour_id": "tiran_island_boat_vip",
-      "title": "Tiran Island VIP: Wrecks and Coral Reefs",
-      "short_desc": "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
-      "duration": "8 Hours (Full Day)",
+      tour_id: "tiran_island_boat_vip",
+      title: "Tiran Island VIP: Wrecks and Coral Reefs",
+      short_desc:
+        "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
+      duration: "8 Hours (Full Day)",
 
-      "highlights": [
+      highlights: [
         "Panoramic view of the 'Louilla' merchant wreck",
         "Snorkeling on famous reefs: Gordon, Jackson, or Thomas",
         "High chance of spotting dolphins during the sail",
-        "Buffet lunch with island view (no landing)"
+        "Buffet lunch with island view (no landing)",
       ],
-      "full_description": "This is not just a boat trip, it’s an adventure to the borders of the Red Sea. Tiran Island, located at the mouth of the Gulf of Aqaba, is famous for its deep waters and currents that feed the most colorful corals in Sharm.\n\nWe will sail towards the 4 legendary reefs (Jackson, Woodhouse, Thomas, Gordon). We won’t land on the island (military zone), but we will stop right in front to admire the mysterious wreck of the merchant ship 'Louilla', stranded since the 80s.\n\nIt’s the perfect excursion for those looking for a 'wilder' sea compared to Ras Mohammed and want to try their luck at meeting the dolphins that often accompany our wake.",
-      "program": [
+      full_description:
+        "This is not just a boat trip, it’s an adventure to the borders of the Red Sea. Tiran Island, located at the mouth of the Gulf of Aqaba, is famous for its deep waters and currents that feed the most colorful corals in Sharm.\n\nWe will sail towards the 4 legendary reefs (Jackson, Woodhouse, Thomas, Gordon). We won’t land on the island (military zone), but we will stop right in front to admire the mysterious wreck of the merchant ship 'Louilla', stranded since the 80s.\n\nIt’s the perfect excursion for those looking for a 'wilder' sea compared to Ras Mohammed and want to try their luck at meeting the dolphins that often accompany our wake.",
+      program: [
         {
-          "time": "08:00",
-          "activity": "Hotel Pickup",
-          "details": "Punctual transfer with A/C bus to the port."
+          time: "08:00",
+          activity: "Hotel Pickup",
+          details: "Punctual transfer with A/C bus to the port.",
         },
         {
-          "time": "09:30",
-          "activity": "Navigation & Dolphins",
-          "details": "Setting sail! Keep your camera ready, dolphins often play around the boat on this route."
+          time: "09:30",
+          activity: "Navigation & Dolphins",
+          details:
+            "Setting sail! Keep your camera ready, dolphins often play around the boat on this route.",
         },
         {
-          "time": "11:00",
-          "activity": "Blue Lagoon & Snorkeling",
-          "details": "First guided snorkeling stop in crystal clear waters protected from the wind."
+          time: "11:00",
+          activity: "Blue Lagoon & Snorkeling",
+          details:
+            "First guided snorkeling stop in crystal clear waters protected from the wind.",
         },
         {
-          "time": "13:00",
-          "activity": "Lunch with Wreck View",
-          "details": "Hot buffet served on board while admiring the impressive Louilla ship wreck."
+          time: "13:00",
+          activity: "Lunch with Wreck View",
+          details:
+            "Hot buffet served on board while admiring the impressive Louilla ship wreck.",
         },
         {
-          "time": "14:30",
-          "activity": "Second Dive or Relax",
-          "details": "Snorkeling on the outer reef (richer in fish) or time to sunbathe on the sun deck."
+          time: "14:30",
+          activity: "Second Dive or Relax",
+          details:
+            "Snorkeling on the outer reef (richer in fish) or time to sunbathe on the sun deck.",
         },
         {
-          "time": "16:30",
-          "activity": "Return to Port",
-          "details": "Sailing back with music and relax, then hotel transfer."
-        }
+          time: "16:30",
+          activity: "Return to Port",
+          details: "Sailing back with music and relax, then hotel transfer.",
+        },
       ],
-      "includes": [
+      includes: [
         "R/T Hotel transfer",
         "Marine Park entry ticket",
         "Freshly prepared buffet lunch on board",
         "Unlimited soft drinks (Water, Coke, Sprite, Tea, Coffee)",
-        "Expert Snorkeling guide"
+        "Expert Snorkeling guide",
       ],
-      "not_included": [
+      not_included: [
         "Snorkeling gear rental (mask/fins - available at the port)",
         "Professional photo/video service",
-        "Crew tips"
+        "Crew tips",
       ],
-      "important_notes": "Mandatory: Bring PASSPORT or ID Card (Sinai Only Visa is enough, but document is needed for port controls). Don't forget beach towel and sunscreen.",
-      "seo_tags": [
+      important_notes:
+        "Mandatory: Bring PASSPORT or ID Card (Sinai Only Visa is enough, but document is needed for port controls). Don't forget beach towel and sunscreen.",
+      seo_tags: [
         "Tiran Island Sharm",
         "Louilla Wreck",
         "Gordon Reef Snorkeling",
         "Red Sea Dolphins",
-        "Tiran Boat Excursion"
-      ]
+        "Tiran Boat Excursion",
+      ],
     },
     dahab_blue_hole_super_safari: {
-      "tour_id": "dahab_blue_hole_super_safari",
-      "title": "Dahab Adventure: Blue Hole, Camels & Canyon",
-      "short_desc": "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
-      "duration": "10-11 Hours (Full Day)",
-      "highlights": [
+      tour_id: "dahab_blue_hole_super_safari",
+      title: "Dahab Adventure: Blue Hole, Camels & Canyon",
+      short_desc:
+        "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
+      duration: "10-11 Hours (Full Day)",
+      highlights: [
         "Snorkeling in the world-famous 'Blue Hole' (UNESCO site)",
         "Guided trekking in the Canyon (Salama or Colored Canyon)",
         "Traditional camel ride along the shoreline",
         "Authentic Bedouin lunch by the sea",
-        "Free time for shopping in Dahab's bohemian hippie village"
+        "Free time for shopping in Dahab's bohemian hippie village",
       ],
-      "full_description": "Ready for an off-the-beaten-path adventure? Leave the luxury resorts behind and dive into the real Sinai life. \n\nWe’ll cross the desert by Jeep to reach the famous 'Blue Hole', a stunning 100-meter deep submarine sinkhole that attracts divers from all over the globe. Here, you'll snorkel over the area's richest and most pristine coral reefs.\n\nBut the fun doesn't stop there: ride camels along the coast (a truly unique experience!), walk between the wind-sculpted vibrant rocks of the Canyon, and end your day relaxing or shopping in the bohemian center of Dahab.",
-      "program": [
-        { "time": "07:30", "activity": "Adventurous Departure", "details": "Jeep/Minibus pick-up for a scenic journey through the Sinai desert." },
-        { "time": "09:30", "activity": "Canyon Trekking", "details": "A guided walk through the unique rock formations of the Canyon (approx. 45 min)." },
-        { "time": "11:00", "activity": "Camel Ride by the Sea", "details": "Arrival at the reserve followed by a relaxing camel trek along the coastline." },
-        { "time": "12:00", "activity": "Blue Hole & Snorkeling", "details": "The highlight: dive into the famous Blue Hole with a guided snorkeling session." },
-        { "time": "13:30", "activity": "Bedouin Lunch", "details": "Traditional lunch served in a seaside Bedouin tent (chicken, rice, salads)." },
-        { "time": "15:30", "activity": "Dahab Discovery", "details": "Free time at Dahab promenade for coffee, gelato, or craft shopping." },
-        { "time": "17:30", "activity": "Return", "details": "Heading back to Sharm El Sheikh with a heart full of memories." }
+      full_description:
+        "Ready for an off-the-beaten-path adventure? Leave the luxury resorts behind and dive into the real Sinai life. \n\nWe’ll cross the desert by Jeep to reach the famous 'Blue Hole', a stunning 100-meter deep submarine sinkhole that attracts divers from all over the globe. Here, you'll snorkel over the area's richest and most pristine coral reefs.\n\nBut the fun doesn't stop there: ride camels along the coast (a truly unique experience!), walk between the wind-sculpted vibrant rocks of the Canyon, and end your day relaxing or shopping in the bohemian center of Dahab.",
+      program: [
+        {
+          time: "07:30",
+          activity: "Adventurous Departure",
+          details:
+            "Jeep/Minibus pick-up for a scenic journey through the Sinai desert.",
+        },
+        {
+          time: "09:30",
+          activity: "Canyon Trekking",
+          details:
+            "A guided walk through the unique rock formations of the Canyon (approx. 45 min).",
+        },
+        {
+          time: "11:00",
+          activity: "Camel Ride by the Sea",
+          details:
+            "Arrival at the reserve followed by a relaxing camel trek along the coastline.",
+        },
+        {
+          time: "12:00",
+          activity: "Blue Hole & Snorkeling",
+          details:
+            "The highlight: dive into the famous Blue Hole with a guided snorkeling session.",
+        },
+        {
+          time: "13:30",
+          activity: "Bedouin Lunch",
+          details:
+            "Traditional lunch served in a seaside Bedouin tent (chicken, rice, salads).",
+        },
+        {
+          time: "15:30",
+          activity: "Dahab Discovery",
+          details:
+            "Free time at Dahab promenade for coffee, gelato, or craft shopping.",
+        },
+        {
+          time: "17:30",
+          activity: "Return",
+          details:
+            "Heading back to Sharm El Sheikh with a heart full of memories.",
+        },
       ],
-      "includes": [
+      includes: [
         "Round-trip transfers by Jeep/Minibus",
         "Professional specialized desert guide",
         "Lunch in a Bedouin tent",
-        "Camel ride (included in price)"
+        "Camel ride (included in price)",
       ],
-      "not_included": [
+      not_included: [
         "National Park Fee (approx. 10-20€ payable on-site - mandatory)",
         "Snorkeling gear rental (mask/fins/wetsuit)",
         "Drinks during lunch",
-        "Tips"
+        "Tips",
       ],
-      "important_notes": "Good to know: The Blue Hole is deep, but snorkeling is done on the surface in total safety. Bring your passport, comfortable walking shoes for the Canyon (no flip-flops!), and swimwear.",
-      "seo_tags": ["Blue Hole Sharm", "Dahab Excursion", "Colored Canyon", "Sinai Safari", "Camel Ride Dahab"]
+      important_notes:
+        "Good to know: The Blue Hole is deep, but snorkeling is done on the surface in total safety. Bring your passport, comfortable walking shoes for the Canyon (no flip-flops!), and swimwear.",
+      seo_tags: [
+        "Blue Hole Sharm",
+        "Dahab Excursion",
+        "Colored Canyon",
+        "Sinai Safari",
+        "Camel Ride Dahab",
+      ],
     },
     private_boat_vip_king: {
-      "tour_id": "private_boat_vip_king",
-      "title": "Private Boat VIP: The King of Red Sea",
-      "short_desc": "The ultimate experience. An entire yacht just for you. You decide the time, the route, and the menu. Absolute privacy and luxury.",
-      "duration": "Flexible (You decide the duration)",
-      "highlights": [
+      tour_id: "private_boat_vip_king",
+      title: "Private Boat VIP: The King of Red Sea",
+      short_desc:
+        "The ultimate experience. An entire yacht just for you. You decide the time, the route, and the menu. Absolute privacy and luxury.",
+      duration: "Flexible (You decide the duration)",
+      highlights: [
         "Exclusive yacht charter (No strangers on board)",
         "Total freedom: Choose between Tiran Island or Ras Mohammed",
         "Flexible timing: Start and finish whenever you prefer",
         "Personalized VIP lunch (Seafood or Meat menu upon request)",
-        "Ideal for private parties, birthdays, or family relaxation"
+        "Ideal for private parties, birthdays, or family relaxation",
       ],
-      "full_description": "Welcome aboard the 'King of Red Sea'. Forget group tours, lunch queues, and fixed schedules. Today, you are the captain.\n\nThis solution is designed for those seeking the best: renting a private yacht means having the crew at your complete disposal. Want to stay two hours at the White Island? Done. Want to go dolphin spotting at Tiran? Let's go. Want to party with your own music or enjoy the silence of the open sea? The boat is yours.\n\nIt's the perfect choice for families seeking safety for children, honeymooners looking for romance, or groups of friends wanting to have fun away from prying eyes.",
-      "program": [
-        { "time": "Flexible", "activity": "Tailor-made Departure", "details": "Private transfer picks you up at your preferred time (09:00 recommended)." },
-        { "time": "Flexible", "activity": "Custom Navigation", "details": "Choose your route: Ras Mohammed Marine Park OR Tiran Island. The captain will advise the best spots based on wind conditions." },
-        { "time": "Flexible", "activity": "Snorkeling & Relax", "details": "We stop where the water is bluest. Private guided snorkeling or diving off the deck." },
-        { "time": "Flexible", "activity": "Exclusive Lunch", "details": "No buffet lines. Lunch is served at your table. Luxury menus (Lobster, Shrimp) available upon request." },
-        { "time": "Flexible", "activity": "Sunset & Return", "details": "Enjoy the sunset on the open sea before returning to the port like a true VIP." }
+      full_description:
+        "Welcome aboard the 'King of Red Sea'. Forget group tours, lunch queues, and fixed schedules. Today, you are the captain.\n\nThis solution is designed for those seeking the best: renting a private yacht means having the crew at your complete disposal. Want to stay two hours at the White Island? Done. Want to go dolphin spotting at Tiran? Let's go. Want to party with your own music or enjoy the silence of the open sea? The boat is yours.\n\nIt's the perfect choice for families seeking safety for children, honeymooners looking for romance, or groups of friends wanting to have fun away from prying eyes.",
+      program: [
+        {
+          time: "Flexible",
+          activity: "Tailor-made Departure",
+          details:
+            "Private transfer picks you up at your preferred time (09:00 recommended).",
+        },
+        {
+          time: "Flexible",
+          activity: "Custom Navigation",
+          details:
+            "Choose your route: Ras Mohammed Marine Park OR Tiran Island. The captain will advise the best spots based on wind conditions.",
+        },
+        {
+          time: "Flexible",
+          activity: "Snorkeling & Relax",
+          details:
+            "We stop where the water is bluest. Private guided snorkeling or diving off the deck.",
+        },
+        {
+          time: "Flexible",
+          activity: "Exclusive Lunch",
+          details:
+            "No buffet lines. Lunch is served at your table. Luxury menus (Lobster, Shrimp) available upon request.",
+        },
+        {
+          time: "Flexible",
+          activity: "Sunset & Return",
+          details:
+            "Enjoy the sunset on the open sea before returning to the port like a true VIP.",
+        },
       ],
-      "includes": [
+      includes: [
         "Exclusive yacht rental (crew and fuel included)",
         "Private round-trip transfer (Luxury Car/Minivan)",
         "Lunch on board (Standard menu included, Extras on request)",
         "Unlimited soft drinks",
-        "Dedicated private guide"
+        "Dedicated private guide",
       ],
-      "not_included": [
+      not_included: [
         "Extra Luxury Menu (Lobster/Champagne - upon pre-order)",
         "National Park fees (if applicable)",
         "Tips for the crew",
-        "Private photographer (on request)"
+        "Private photographer (on request)",
       ],
-      "important_notes": "Price varies based on boat size and number of guests. Contact us for a bespoke quote. We can arrange birthday cakes or romantic decorations.",
-      "seo_tags": ["Yacht Rental Sharm", "Private Boat Red Sea", "Private Boat Ras Mohammed", "VIP Sharm el Sheikh", "Boat Party Sharm"]
+      important_notes:
+        "Price varies based on boat size and number of guests. Contact us for a bespoke quote. We can arrange birthday cakes or romantic decorations.",
+      seo_tags: [
+        "Yacht Rental Sharm",
+        "Private Boat Red Sea",
+        "Private Boat Ras Mohammed",
+        "VIP Sharm el Sheikh",
+        "Boat Party Sharm",
+      ],
     },
     dolphin_show_family: {
-      "tour_id": "dolphin_show_family",
-      "title": "Dolphin Show: Thrills for the Whole Family",
-      "short_desc": "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
-      "duration": "2.5 Hours (including transfers)",
-      "highlights": [
+      tour_id: "dolphin_show_family",
+      title: "Dolphin Show: Thrills for the Whole Family",
+      short_desc:
+        "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
+      duration: "2.5 Hours (including transfers)",
+      highlights: [
         "60-minute acrobatic performance",
         "Suitable for all ages (perfect for kids)",
         "Comfortable AC round-trip transfer",
-        "Photo opportunities with dolphins (from the platform)"
+        "Photo opportunities with dolphins (from the platform)",
       ],
-      "full_description": "It’s not just a show; it’s an explosion of joy. \n\nTake your seat in the grand amphitheater and get ready to smile as you watch dolphins dance, jump through hoops, and play with their trainers in perfect harmony. It’s the perfect afternoon excursion to relax and give your children a memory that lasts a lifetime, without getting tired or wet.",
-      "program": [
-        { "time": "14:30", "activity": "Hotel Pick-up", "details": "Our bus will be waiting to take you to the Dolphinarium." },
-        { "time": "15:00", "activity": "Arrival & Seating", "details": "Quick entry and settling into the best seats in the amphitheater." },
-        { "time": "15:30", "activity": "The Show", "details": "Showtime! 1 hour of music, jumps, and applause." },
-        { "time": "16:30", "activity": "Return", "details": "End of show and comfortable return to your hotel." }
+      full_description:
+        "It’s not just a show; it’s an explosion of joy. \n\nTake your seat in the grand amphitheater and get ready to smile as you watch dolphins dance, jump through hoops, and play with their trainers in perfect harmony. It’s the perfect afternoon excursion to relax and give your children a memory that lasts a lifetime, without getting tired or wet.",
+      program: [
+        {
+          time: "14:30",
+          activity: "Hotel Pick-up",
+          details: "Our bus will be waiting to take you to the Dolphinarium.",
+        },
+        {
+          time: "15:00",
+          activity: "Arrival & Seating",
+          details:
+            "Quick entry and settling into the best seats in the amphitheater.",
+        },
+        {
+          time: "15:30",
+          activity: "The Show",
+          details: "Showtime! 1 hour of music, jumps, and applause.",
+        },
+        {
+          time: "16:30",
+          activity: "Return",
+          details: "End of show and comfortable return to your hotel.",
+        },
       ],
-      "includes": [
+      includes: [
         "Round-trip hotel transfer",
         "Show entry ticket",
         "Amphitheater seating",
-        "English/Italian-speaking assistance"
+        "English/Italian-speaking assistance",
       ],
-      "not_included": [
+      not_included: [
         "Professional photos with dolphins (available for purchase after the show)",
         "Drinks and Snacks",
-        "Swimming with dolphins (can be booked separately)"
+        "Swimming with dolphins (can be booked separately)",
       ],
-      "important_notes": "Pro tip: If you sit in the very front rows, you might get a friendly splash from the dolphins! Children under 4 years old enter for free.",
-      "seo_tags": ["Dolphin Show Sharm", "Dolphin Show Egypt", "Kids Activities Sharm", "Dolphinarium Sharm"]
+      important_notes:
+        "Pro tip: If you sit in the very front rows, you might get a friendly splash from the dolphins! Children under 4 years old enter for free.",
+      seo_tags: [
+        "Dolphin Show Sharm",
+        "Dolphin Show Egypt",
+        "Kids Activities Sharm",
+        "Dolphinarium Sharm",
+      ],
     },
     swim_with_dolphins_vip: {
-      "tour_id": "swim_with_dolphins_vip",
-      "title": "Swim with Dolphins: Love at First Sight",
-      "short_desc": "A once-in-a-lifetime experience. Enter the water to dance and play with the world's most intelligent animals. A privilege for the few.",
-      "duration": "2 Hours (Water activity: 15 or 30 min)",
-      "highlights": [
+      tour_id: "swim_with_dolphins_vip",
+      title: "Swim with Dolphins: Love at First Sight",
+      short_desc:
+        "A once-in-a-lifetime experience. Enter the water to dance and play with the world's most intelligent animals. A privilege for the few.",
+      duration: "2 Hours (Water activity: 15 or 30 min)",
+      highlights: [
         "Direct contact: touch, kiss, and dance with the dolphin",
         "Small groups for maximum interaction",
         "VIP experience with qualified instructors",
-        "Private transfer (available on request)"
+        "Private transfer (available on request)",
       ],
-      "full_description": "Meeting the world's most intelligent animal isn't just an excursion; it’s a memory you’ll carry forever. \n\nImagine entering the pool and feeling the smooth skin of the dolphin, being pulled by its fin, and receiving a kiss on the cheek. You don’t need to be an Olympic swimmer; the activity is safe and guided step-by-step by experts. It’s time to fulfill that childhood dream.",
-      "program": [
-        { "time": "Morning/Afternoon", "activity": "VIP Pick-up", "details": "Hotel pick-up (Slots usually at 10:00 or 13:30)." },
-        { "time": "At Dolphinarium", "activity": "Briefing", "details": "Preparation, changing (wetsuit provided if needed), and safety instructions." },
-        { "time": "In the Water", "activity": "The Magical Encounter", "details": "15 or 30 minutes (based on booking) of pure emotion in the water with the dolphin." },
-        { "time": "Post-Activity", "activity": "Photos & Return", "details": "Dry off, view professional photos (optional), and return to hotel." }
+      full_description:
+        "Meeting the world's most intelligent animal isn't just an excursion; it’s a memory you’ll carry forever. \n\nImagine entering the pool and feeling the smooth skin of the dolphin, being pulled by its fin, and receiving a kiss on the cheek. You don’t need to be an Olympic swimmer; the activity is safe and guided step-by-step by experts. It’s time to fulfill that childhood dream.",
+      program: [
+        {
+          time: "Morning/Afternoon",
+          activity: "VIP Pick-up",
+          details: "Hotel pick-up (Slots usually at 10:00 or 13:30).",
+        },
+        {
+          time: "At Dolphinarium",
+          activity: "Briefing",
+          details:
+            "Preparation, changing (wetsuit provided if needed), and safety instructions.",
+        },
+        {
+          time: "In the Water",
+          activity: "The Magical Encounter",
+          details:
+            "15 or 30 minutes (based on booking) of pure emotion in the water with the dolphin.",
+        },
+        {
+          time: "Post-Activity",
+          activity: "Photos & Return",
+          details:
+            "Dry off, view professional photos (optional), and return to hotel.",
+        },
       ],
-      "includes": [
+      includes: [
         "Round-trip hotel transfer",
         "VIP entry ticket for swimmers",
         "15 or 30 minutes in the water with dolphins",
-        "Dedicated instructor"
+        "Dedicated instructor",
       ],
-      "not_included": [
+      not_included: [
         "Photo/Video service (only center photographers are authorized - extra cost)",
         "Tips",
-        "Towels (please bring your own)"
+        "Towels (please bring your own)",
       ],
-      "important_notes": "Important Rules: No rings, bracelets, or watches allowed in the water to avoid hurting the dolphins. Not suitable for pregnant women. Children must be able to swim or be accompanied.",
-      "seo_tags": ["Swim with Dolphins Sharm", "Dolphin Encounter Egypt", "Dolphin Swim Sharm", "VIP Experience Sharm"]
+      important_notes:
+        "Important Rules: No rings, bracelets, or watches allowed in the water to avoid hurting the dolphins. Not suitable for pregnant women. Children must be able to swim or be accompanied.",
+      seo_tags: [
+        "Swim with Dolphins Sharm",
+        "Dolphin Encounter Egypt",
+        "Dolphin Swim Sharm",
+        "VIP Experience Sharm",
+      ],
     },
     sina_dream_vip_day: {
-      "tour_id": "sina_dream_vip_day",
-      "title": "Sina Dream VIP: The Luxury Sailing Yacht",
-      "short_desc": "Experience the Red Sea aboard an authentic sailing ship. 5-star comfort, over-water hammocks, and the best seafood lunch in Sharm.",
-      "duration": "9 Hours (Full Day)",
-      "highlights": [
+      tour_id: "sina_dream_vip_day",
+      title: "Sina Dream VIP: The Luxury Sailing Yacht",
+      short_desc:
+        "Experience the Red Sea aboard an authentic sailing ship. 5-star comfort, over-water hammocks, and the best seafood lunch in Sharm.",
+      duration: "9 Hours (Full Day)",
+      highlights: [
         "Sailing experience (motor + sail) on a unique yacht",
         "VIP Lunch: Shrimp, Calamari, Kofta, and Fresh Fish",
         "Relax on hammocks suspended directly over the water",
-        "Stop at the White Island or Tiran (weather dependent)"
+        "Stop at the White Island or Tiran (weather dependent)",
       ],
-      "full_description": "Forget the usual crowded white boats. The Sina Dream is a classic sailing ship equipped with every modern luxury. \n\nImagine lying on the nets suspended above the crystal-clear water as you sail toward Ras Mohammed, hearing only the sound of the wind and waves. This is the only excursion that guarantees a superior dining experience: a freshly prepared seafood and meat grill that will delight your palate.\n\nIt’s the ultimate choice for those who want that extra touch of class.",
-      "program": [
-        { "time": "08:00", "activity": "VIP Pick-up", "details": "Punctual transfer from your hotel to the port." },
-        { "time": "09:30", "activity": "Setting Sail!", "details": "Welcome on board, lounge music, and navigation toward the Marine Park." },
-        { "time": "11:00", "activity": "Snorkeling & Hammocks", "details": "Guided snorkeling stop. Non-swimmers can relax on the famous over-water hammocks." },
-        { "time": "13:00", "activity": "The Grand Lunch", "details": "Buffet featuring Shrimp, Calamari, Grilled Meat, and fresh salads." },
-        { "time": "14:30", "activity": "White Island", "details": "Stop to enjoy the pristine waters of the 'Island that isn't there' (or Tiran depending on the day)." },
-        { "time": "16:30", "activity": "Return", "details": "Sunset sailing back to port and hotel transfer." }
+      full_description:
+        "Forget the usual crowded white boats. The Sina Dream is a classic sailing ship equipped with every modern luxury. \n\nImagine lying on the nets suspended above the crystal-clear water as you sail toward Ras Mohammed, hearing only the sound of the wind and waves. This is the only excursion that guarantees a superior dining experience: a freshly prepared seafood and meat grill that will delight your palate.\n\nIt’s the ultimate choice for those who want that extra touch of class.",
+      program: [
+        {
+          time: "08:00",
+          activity: "VIP Pick-up",
+          details: "Punctual transfer from your hotel to the port.",
+        },
+        {
+          time: "09:30",
+          activity: "Setting Sail!",
+          details:
+            "Welcome on board, lounge music, and navigation toward the Marine Park.",
+        },
+        {
+          time: "11:00",
+          activity: "Snorkeling & Hammocks",
+          details:
+            "Guided snorkeling stop. Non-swimmers can relax on the famous over-water hammocks.",
+        },
+        {
+          time: "13:00",
+          activity: "The Grand Lunch",
+          details:
+            "Buffet featuring Shrimp, Calamari, Grilled Meat, and fresh salads.",
+        },
+        {
+          time: "14:30",
+          activity: "White Island",
+          details:
+            "Stop to enjoy the pristine waters of the 'Island that isn't there' (or Tiran depending on the day).",
+        },
+        {
+          time: "16:30",
+          activity: "Return",
+          details: "Sunset sailing back to port and hotel transfer.",
+        },
       ],
-      "includes": [
+      includes: [
         "Round-trip transfer",
         "National Park entry ticket",
         "Superior Lunch (Shrimp included)",
         "Unlimited drinks all day",
-        "Snorkeling guide"
+        "Snorkeling guide",
       ],
-      "not_included": [
+      not_included: [
         "Snorkeling equipment rental",
         "Photo/Video service",
-        "Tips"
+        "Tips",
       ],
-      "important_notes": "This is the most requested excursion in Sharm. Booking days in advance is essential. Please bring your passport.",
-      "seo_tags": ["Sina Dream Sharm", "Sailing Egypt", "Seafood Lunch Sharm", "VIP Excursion Sharm"]
+      important_notes:
+        "This is the most requested excursion in Sharm. Booking days in advance is essential. Please bring your passport.",
+      seo_tags: [
+        "Sina Dream Sharm",
+        "Sailing Egypt",
+        "Seafood Lunch Sharm",
+        "VIP Excursion Sharm",
+      ],
     },
     dinner_cruise_night_show: {
-      "tour_id": "dinner_cruise_night_show",
-      "title": "Magic Night: Seafood Dinner & Oriental Show",
-      "short_desc": "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
-      "duration": "5 Hours (Evening)",
-      "highlights": [
+      tour_id: "dinner_cruise_night_show",
+      title: "Magic Night: Seafood Dinner & Oriental Show",
+      short_desc:
+        "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
+      duration: "5 Hours (Evening)",
+      highlights: [
         "Romantic buffet dinner featuring Shrimp and Fish",
         "Full show: Belly Dancing, Tanoura, and Magic acts",
         "Night navigation with views of illuminated Sharm",
-        "Festive atmosphere perfect for couples and families"
+        "Festive atmosphere perfect for couples and families",
       ],
-      "full_description": "When the sun sets, Sharm lights up with magic. Step aboard our yacht for a night cruise that combines fine dining with spectacular entertainment.\n\nThis isn't just a dinner; it's a journey into Egyptian culture. While you enjoy a rich seafood and mixed grill buffet, you'll be entertained by the best local artists. The spinning dervish (Tanoura) will mesmerize you, and the belly dancer will bring the party to life. \n\nIt’s the perfect night to celebrate a birthday, an anniversary, or simply enjoy life.",
-      "program": [
-        { "time": "17:30", "activity": "Pick-up", "details": "Hotel pick-up around sunset time." },
-        { "time": "18:30", "activity": "Welcome", "details": "Boarding and welcome cocktail (non-alcoholic) as the boat leaves the port." },
-        { "time": "19:30", "activity": "Buffet Dinner", "details": "Buffet opens: Seafood soup, Shrimp, Fish, Chicken, Rice, and much more." },
-        { "time": "20:30", "activity": "The Show", "details": "Show starts: Live music, Belly Dancing, and Tanoura Show." },
-        { "time": "22:00", "activity": "Return", "details": "Return to port and hotel transfer (or drop-off in the city center if requested)." }
+      full_description:
+        "When the sun sets, Sharm lights up with magic. Step aboard our yacht for a night cruise that combines fine dining with spectacular entertainment.\n\nThis isn't just a dinner; it's a journey into Egyptian culture. While you enjoy a rich seafood and mixed grill buffet, you'll be entertained by the best local artists. The spinning dervish (Tanoura) will mesmerize you, and the belly dancer will bring the party to life. \n\nIt’s the perfect night to celebrate a birthday, an anniversary, or simply enjoy life.",
+      program: [
+        {
+          time: "17:30",
+          activity: "Pick-up",
+          details: "Hotel pick-up around sunset time.",
+        },
+        {
+          time: "18:30",
+          activity: "Welcome",
+          details:
+            "Boarding and welcome cocktail (non-alcoholic) as the boat leaves the port.",
+        },
+        {
+          time: "19:30",
+          activity: "Buffet Dinner",
+          details:
+            "Buffet opens: Seafood soup, Shrimp, Fish, Chicken, Rice, and much more.",
+        },
+        {
+          time: "20:30",
+          activity: "The Show",
+          details: "Show starts: Live music, Belly Dancing, and Tanoura Show.",
+        },
+        {
+          time: "22:00",
+          activity: "Return",
+          details:
+            "Return to port and hotel transfer (or drop-off in the city center if requested).",
+        },
       ],
-      "includes": [
+      includes: [
         "Round-trip transfer",
         "Full buffet dinner (Seafood/Meat)",
         "Unlimited soft drinks",
-        "Folklore show"
+        "Folklore show",
       ],
-      "not_included": [
+      not_included: [
         "Fresh juices / Espresso (extra)",
         "Professional photos",
-        "Birthday cake (available on extra order)"
+        "Birthday cake (available on extra order)",
       ],
-      "important_notes": "Dress Code: Smart Casual (bringing a light jacket in winter months is recommended for the sea breeze).",
-      "seo_tags": ["Romantic Dinner Sharm", "Oriental Show Boat", "Nightlife Sharm", "Dinner Cruise Egypt"]
+      important_notes:
+        "Dress Code: Smart Casual (bringing a light jacket in winter months is recommended for the sea breeze).",
+      seo_tags: [
+        "Romantic Dinner Sharm",
+        "Oriental Show Boat",
+        "Nightlife Sharm",
+        "Dinner Cruise Egypt",
+      ],
     },
     water_sports_adrenaline_combo: {
-      "tour_id": "water_sports_adrenaline_combo",
-      "title": "Adrenaline Sky & Sea: Parasailing & Water Toys",
-      "short_desc": "Fly over the Red Sea with a parachute and challenge the waves on a Banana Boat and Tube. Pure fun and adrenaline in total safety.",
-      "duration": "2-3 Hours (Morning or Afternoon)",
-      "highlights": [
+      tour_id: "water_sports_adrenaline_combo",
+      title: "Adrenaline Sky & Sea: Parasailing & Water Toys",
+      short_desc:
+        "Fly over the Red Sea with a parachute and challenge the waves on a Banana Boat and Tube. Pure fun and adrenaline in total safety.",
+      duration: "2-3 Hours (Morning or Afternoon)",
+      highlights: [
         "Breathtaking bird's-eye view of Sharm (Parasailing)",
         "Thrilling fun with Banana Boat and Tube",
         "Guaranteed safety with modern equipment",
-        "No surprises: Transfer included in the package"
+        "No surprises: Transfer included in the package",
       ],
-      "full_description": "See Sharm from above or jump over the waves? Why choose when you can do both? \n\nWith our 'Adrenaline' package, you'll experience the sea from every angle. Start with Parasailing: take off directly from the boat's platform (without even getting wet!) to enjoy 10 minutes of silent, spectacular flight over the Red Sea.\n\nThen, head down to the water for the wild part: hold on tight to the Banana Boat or the Tube (towed sofa) and challenge your friends to see who can stay on the longest amidst the laughter.",
-      "program": [
-        { "time": "Various Slots", "activity": "Pick-up", "details": "Hotel pick-up available from 10:00 to 16:00." },
-        { "time": "30 min", "activity": "Briefing & Prep", "details": "Arrival at the nautical base, life jackets, and instructions." },
-        { "time": "Activity 1", "activity": "Sky: Parasailing", "details": "Single or double flight. A panorama you will never forget." },
-        { "time": "Activity 2", "activity": "Sea: The Toys", "details": "Time to scream and laugh on the inflatables (Banana/Tube)." },
-        { "time": "End", "activity": "Return", "details": "Dry off and comfortable return to the hotel via our bus." }
+      full_description:
+        "See Sharm from above or jump over the waves? Why choose when you can do both? \n\nWith our 'Adrenaline' package, you'll experience the sea from every angle. Start with Parasailing: take off directly from the boat's platform (without even getting wet!) to enjoy 10 minutes of silent, spectacular flight over the Red Sea.\n\nThen, head down to the water for the wild part: hold on tight to the Banana Boat or the Tube (towed sofa) and challenge your friends to see who can stay on the longest amidst the laughter.",
+      program: [
+        {
+          time: "Various Slots",
+          activity: "Pick-up",
+          details: "Hotel pick-up available from 10:00 to 16:00.",
+        },
+        {
+          time: "30 min",
+          activity: "Briefing & Prep",
+          details:
+            "Arrival at the nautical base, life jackets, and instructions.",
+        },
+        {
+          time: "Activity 1",
+          activity: "Sky: Parasailing",
+          details: "Single or double flight. A panorama you will never forget.",
+        },
+        {
+          time: "Activity 2",
+          activity: "Sea: The Toys",
+          details: "Time to scream and laugh on the inflatables (Banana/Tube).",
+        },
+        {
+          time: "End",
+          activity: "Return",
+          details: "Dry off and comfortable return to the hotel via our bus.",
+        },
       ],
-      "includes": [
+      includes: [
         "Round-trip transfer (AC Bus)",
         "Parachute ride (Single or Double)",
         "Banana Boat / Tube ride",
         "Life jacket",
-        "Professional instructor"
+        "Professional instructor",
       ],
-      "not_included": [
+      not_included: [
         "Photo and Video (extra service managed by the center)",
         "Drinks",
-        "Glass Boat (can be booked separately for companions)"
+        "Glass Boat (can be booked separately for companions)",
       ],
-      "important_notes": "Safety: For double parasailing, the combined weight of two people must NOT exceed 150 kg (otherwise flights will be single). Activity not recommended for pregnant women or those with back problems.",
-      "seo_tags": ["Parasailing Sharm", "Banana Boat Egypt", "Water Sports Sharm", "Parachute Red Sea"]
+      important_notes:
+        "Safety: For double parasailing, the combined weight of two people must NOT exceed 150 kg (otherwise flights will be single). Activity not recommended for pregnant women or those with back problems.",
+      seo_tags: [
+        "Parasailing Sharm",
+        "Banana Boat Egypt",
+        "Water Sports Sharm",
+        "Parachute Red Sea",
+      ],
     },
     albatros_aqua_park_full_day: {
-      "tour_id": "albatros_aqua_park_full_day",
-      "title": "Albatros Aqua Park: The Water Kingdom",
-      "short_desc": "A full day of pure fun at the largest water park in the Middle East. Over 60 slides, wave pools, and relaxation for the whole family.",
-      "duration": "7 Hours (Full Day)",
-      "highlights": [
+      tour_id: "albatros_aqua_park_full_day",
+      title: "Albatros Aqua Park: The Water Kingdom",
+      short_desc:
+        "A full day of pure fun at the largest water park in the Middle East. Over 60 slides, wave pools, and relaxation for the whole family.",
+      duration: "7 Hours (Full Day)",
+      highlights: [
         "Unlimited access to 60+ slides and attractions",
         "All-Inclusive Formula: Lunch and drinks included",
         "Safe kids' area monitored by lifeguards",
-        "Pure adrenaline: Kamikaze, King Kong, and Black Hole slides"
+        "Pure adrenaline: Kamikaze, King Kong, and Black Hole slides",
       ],
-      "full_description": "If you’re looking for a beach alternative where kids can run wild and adults can feel like kids again, Albatros is the number one choice.\n\nIt’s not just a park; it’s a water city located within a 5-star resort. Here you’ll find world-record attractions: from adrenaline towers for the brave to the 'lazy river' for those who just want to relax on a tube. \n\nAnd the best part? You don’t have to worry about a thing: lunch and soft drinks are included in your ticket all day long.",
-      "program": [
-        { "time": "09:30", "activity": "Departure", "details": "Climate-controlled bus from your hotel to the park entrance." },
-        { "time": "10:00", "activity": "VIP Entry", "details": "Ticket collection and the fun begins. No ticket counter lines." },
-        { "time": "13:00", "activity": "Lunch", "details": "Lunch break at the park's restaurants (included) with cold drinks." },
-        { "time": "14:00", "activity": "Round 2", "details": "Afternoon dedicated to pool relaxation or the final slides." },
-        { "time": "17:00", "activity": "Return", "details": "Exit the park and return transfer to the hotel." }
+      full_description:
+        "If you’re looking for a beach alternative where kids can run wild and adults can feel like kids again, Albatros is the number one choice.\n\nIt’s not just a park; it’s a water city located within a 5-star resort. Here you’ll find world-record attractions: from adrenaline towers for the brave to the 'lazy river' for those who just want to relax on a tube. \n\nAnd the best part? You don’t have to worry about a thing: lunch and soft drinks are included in your ticket all day long.",
+      program: [
+        {
+          time: "09:30",
+          activity: "Departure",
+          details:
+            "Climate-controlled bus from your hotel to the park entrance.",
+        },
+        {
+          time: "10:00",
+          activity: "VIP Entry",
+          details:
+            "Ticket collection and the fun begins. No ticket counter lines.",
+        },
+        {
+          time: "13:00",
+          activity: "Lunch",
+          details:
+            "Lunch break at the park's restaurants (included) with cold drinks.",
+        },
+        {
+          time: "14:00",
+          activity: "Round 2",
+          details:
+            "Afternoon dedicated to pool relaxation or the final slides.",
+        },
+        {
+          time: "17:00",
+          activity: "Return",
+          details: "Exit the park and return transfer to the hotel.",
+        },
       ],
-      "includes": [
+      includes: [
         "Round-trip hotel transfer",
         "Entrance ticket (Access to all rides)",
         "Buffet Lunch / Snacks",
-        "Unlimited soft drinks all day"
+        "Unlimited soft drinks all day",
       ],
-      "not_included": [
+      not_included: [
         "Locker for personal items (payable on-site)",
         "Beach towel (recommended to bring your own from the hotel)",
-        "Wi-Fi (extra charge)"
+        "Wi-Fi (extra charge)",
       ],
-      "important_notes": "Pro tip: Bring your hotel beach towel (towels there carry a fee). Don't forget sunscreen, the sun is strong while you play!",
-      "seo_tags": ["Albatros Aqua Park", "Water Parks Sharm", "Sharm el Sheikh Slides", "Family Fun Egypt"]
+      important_notes:
+        "Pro tip: Bring your hotel beach towel (towels there carry a fee). Don't forget sunscreen, the sun is strong while you play!",
+      seo_tags: [
+        "Albatros Aqua Park",
+        "Water Parks Sharm",
+        "Sharm el Sheikh Slides",
+        "Family Fun Egypt",
+      ],
     },
     seascope_semi_submarine: {
-      "tour_id": "seascope_semi_submarine",
-      "title": "Sea Scope: The Underwater Cinema",
-      "short_desc": "Discover the coral reef while staying dry. A semi-submarine experience with AC. Ideal for families and non-swimmers.",
-      "duration": "3 Hours (including transfers)",
-      "highlights": [
+      tour_id: "seascope_semi_submarine",
+      title: "Sea Scope: The Underwater Cinema",
+      short_desc:
+        "Discover the coral reef while staying dry. A semi-submarine experience with AC. Ideal for families and non-swimmers.",
+      duration: "3 Hours (including transfers)",
+      highlights: [
         "Admire the seabed through large panoramic windows",
         "Comfortable air-conditioned environment (Zero stress)",
         "Perfect for kids, seniors, and non-swimmers",
-        "Take incredible photos as if you were a diver"
+        "Take incredible photos as if you were a diver",
       ],
-      "full_description": "Want to see the colors of the Red Sea without getting wet? The Sea Scope is the perfect solution. \n\nThis special vessel (Semi-Submarine) has a submerged hull equipped with large glass windows and swivel seats. It feels like being in a cinema, but the show is real: corals, clownfish, and the incredible marine life of Sharm will parade before your eyes.\n\nIt’s the ideal excursion for families with young children (who will go crazy for 'Nemo'), for those who can’t swim, or simply for those who want to enjoy the sea in total relaxation and cool AC comfort.",
-      "program": [
-        { "time": "Various Slots", "activity": "Hotel Pick-up", "details": "Choose your preferred time (Morning or Afternoon). The bus will take you to the port." },
-        { "time": "30 min", "activity": "Boarding & Sailing", "details": "Departure! Enjoy the panoramic view from the top deck as we approach the reef." },
-        { "time": "1 hour", "activity": "'Dry' Dive", "details": "Descending to the observatory salon (below sea level). 45-60 minutes of pure show among the corals." },
-        { "time": "30 min", "activity": "Return", "details": "Returning to port and comfortable transfer back to the hotel." }
+      full_description:
+        "Want to see the colors of the Red Sea without getting wet? The Sea Scope is the perfect solution. \n\nThis special vessel (Semi-Submarine) has a submerged hull equipped with large glass windows and swivel seats. It feels like being in a cinema, but the show is real: corals, clownfish, and the incredible marine life of Sharm will parade before your eyes.\n\nIt’s the ideal excursion for families with young children (who will go crazy for 'Nemo'), for those who can’t swim, or simply for those who want to enjoy the sea in total relaxation and cool AC comfort.",
+      program: [
+        {
+          time: "Various Slots",
+          activity: "Hotel Pick-up",
+          details:
+            "Choose your preferred time (Morning or Afternoon). The bus will take you to the port.",
+        },
+        {
+          time: "30 min",
+          activity: "Boarding & Sailing",
+          details:
+            "Departure! Enjoy the panoramic view from the top deck as we approach the reef.",
+        },
+        {
+          time: "1 hour",
+          activity: "'Dry' Dive",
+          details:
+            "Descending to the observatory salon (below sea level). 45-60 minutes of pure show among the corals.",
+        },
+        {
+          time: "30 min",
+          activity: "Return",
+          details:
+            "Returning to port and comfortable transfer back to the hotel.",
+        },
       ],
-      "includes": [
+      includes: [
         "Round-trip hotel transfer (AC Bus)",
         "Sea Scope entry ticket",
         "Welcome soft drink (usually included)",
-        "Assistant guide"
+        "Assistant guide",
       ],
-      "not_included": [
+      not_included: [
         "Professional photo/video service",
         "Tips",
-        "Personal expenses"
+        "Personal expenses",
       ],
-      "important_notes": "Slots usually start at 09:00, 11:00, or 13:00. Perfect for filling half a day without getting too tired.",
-      "seo_tags": ["Submarine Sharm", "Sea Scope Egypt", "Family Excursion Sharm", "Dry Coral Reef View", "See fish without swimming"]
+      important_notes:
+        "Slots usually start at 09:00, 11:00, or 13:00. Perfect for filling half a day without getting too tired.",
+      seo_tags: [
+        "Submarine Sharm",
+        "Sea Scope Egypt",
+        "Family Excursion Sharm",
+        "Dry Coral Reef View",
+        "See fish without swimming",
+      ],
     },
     // --- SHARM DESERT
     super_safari_5_senses: {
-      "tour_id": "super_safari_5_senses",
-      "title": "Super Safari: 5 Senses of Sinai",
-      "short_desc": "The ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.",
-      "duration": "5-6 Hours (Afternoon/Evening)",
-      "highlights": [
+      tour_id: "super_safari_5_senses",
+      title: "Super Safari: 5 Senses of Sinai",
+      short_desc:
+        "The ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.",
+      duration: "5-6 Hours (Afternoon/Evening)",
+      highlights: [
         "Pure Adrenaline on Quads (ATV)",
         "Magical Sunset in the Heart of the Desert",
         "Traditional Camel Ride (Short & Fun)",
         "Unlimited BBQ Dinner under Starry Skies",
-        "Stargazing with Professional Telescopes"
+        "Stargazing with Professional Telescopes",
       ],
-      "full_description": "Why choose when you can have it all? The Super Safari is our best-seller because it captures the essence of Egypt in a single evening.\n\nWe start with Quad biking adrenaline, speeding through the rocky Sinai mountains as the sun sets. We arrive at a Bedouin camp where time seems to stand still.\n\nHere, you'll live local traditions: ride a camel, taste freshly baked bread, and enjoy a BBQ dinner with an oriental show. The grand finale? We turn off all lights to gaze at the constellations through professional telescopes, guided by an expert.",
-      "program": [
-        { "time": "15:30", "activity": "Adventure Begins", "details": "Pickup from hotel and transfer to the Moto center in the desert." },
-        { "time": "16:30", "activity": "Engines On", "details": "Safety briefing, test drive, and go! 45-60 minutes of thrilling driving through the dunes." },
-        { "time": "17:30", "activity": "The Camp", "details": "Arrival at the Bedouin tent. Welcome with mint tea and fresh bread." },
-        { "time": "18:00", "activity": "Sunset & Camels", "details": "Camel ride as the desert turns red at sunset." },
-        { "time": "19:00", "activity": "Dinner & Show", "details": "Grand buffet dinner (BBQ, rice, salads) accompanied by Belly Dance and Tanoura." },
-        { "time": "20:30", "activity": "The Stars", "details": "Magical moment: observing constellations through the telescope." },
-        { "time": "21:30", "activity": "Return", "details": "Return to hotel with eyes full of wonder." }
+      full_description:
+        "Why choose when you can have it all? The Super Safari is our best-seller because it captures the essence of Egypt in a single evening.\n\nWe start with Quad biking adrenaline, speeding through the rocky Sinai mountains as the sun sets. We arrive at a Bedouin camp where time seems to stand still.\n\nHere, you'll live local traditions: ride a camel, taste freshly baked bread, and enjoy a BBQ dinner with an oriental show. The grand finale? We turn off all lights to gaze at the constellations through professional telescopes, guided by an expert.",
+      program: [
+        {
+          time: "15:30",
+          activity: "Adventure Begins",
+          details:
+            "Pickup from hotel and transfer to the Moto center in the desert.",
+        },
+        {
+          time: "16:30",
+          activity: "Engines On",
+          details:
+            "Safety briefing, test drive, and go! 45-60 minutes of thrilling driving through the dunes.",
+        },
+        {
+          time: "17:30",
+          activity: "The Camp",
+          details:
+            "Arrival at the Bedouin tent. Welcome with mint tea and fresh bread.",
+        },
+        {
+          time: "18:00",
+          activity: "Sunset & Camels",
+          details: "Camel ride as the desert turns red at sunset.",
+        },
+        {
+          time: "19:00",
+          activity: "Dinner & Show",
+          details:
+            "Grand buffet dinner (BBQ, rice, salads) accompanied by Belly Dance and Tanoura.",
+        },
+        {
+          time: "20:30",
+          activity: "The Stars",
+          details:
+            "Magical moment: observing constellations through the telescope.",
+        },
+        {
+          time: "21:30",
+          activity: "Return",
+          details: "Return to hotel with eyes full of wonder.",
+        },
       ],
-      "includes": [
+      includes: [
         "Round-trip Transfers (A/C Bus)",
         "Quad Rental (Single or Double)",
         "Bedouin Dinner with Drinks (Water/Soft Drinks)",
         "Camel Ride",
-        "Astronomy Guide and Telescope"
+        "Astronomy Guide and Telescope",
       ],
-      "not_included": [
+      not_included: [
         "State Desert Tax (1€/$ per person - mandatory)",
         "Scarf (Arafat) for dust (available to buy)",
         "Sand Goggles (rentable)",
         "Tips",
-        "Professional Photo/Video Service"
+        "Professional Photo/Video Service",
       ],
-      "important_notes": "Tax Note: A small government tax of 1€/$ per person is required upon arrival in the desert. Please bring coins. Recommended clothing: Long pants and closed shoes.",
-      "seo_tags": [
+      important_notes:
+        "Tax Note: A small government tax of 1€/$ per person is required upon arrival in the desert. Please bring coins. Recommended clothing: Long pants and closed shoes.",
+      seo_tags: [
         "Super Safari Sharm",
         "Quad and Camel Ride",
         "Bedouin Dinner Egypt",
         "Stargazing Sinai",
-        "Best Sharm Excursions"
-      ]
+        "Best Sharm Excursions",
+      ],
     },
-    moto_safari_quad_echo:{
-  "tour_id": "moto_safari_quad_echo",
-  "title": "Moto Safari: Quad, Sunset & Echo Valley",
-  "short_desc": "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
-  "duration": "3 Hours (Afternoon Departure)",
-  "highlights": [
-    "Adventurous Quad Biking (4-wheeled motorbike)",
-    "Stop at the famous 'Echo Valley' (Try screaming!)",
-    "Bedouin tea in a traditional tent",
-    "Spectacular sunset photos in the desert",
-    "Suitable for beginners and experts"
-  ],
-  "full_description": "The desert isn't meant to be watched from a window; it's meant to be lived!\n\nGet ready to get dusty and feel the wind on your face. I'll take you Quad biking through the sandy tracks and rocks of Sinai. You don't need a license, just a desire to have fun.\n\nWe will cross landscapes that look like Mars, until we reach the magical 'Echo Valley'. Here the mountains 'answer back': scream your name and hear nature speak to you.\n\nThen, we will stop in a real Bedouin tent to drink traditional mint tea (Habbak) and watch the sun go down behind the mountains, coloring everything red and gold. It's the perfect moment for photos.",
-  "program": [
-    {
-      "time": "15:30",
-      "activity": "Pick-up",
-      "details": "Pick-up at the hotel and transfer to the Quad center."
+    moto_safari_quad_echo: {
+      tour_id: "moto_safari_quad_echo",
+      title: "Moto Safari: Quad, Sunset & Echo Valley",
+      short_desc:
+        "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
+      duration: "3 Hours (Afternoon Departure)",
+      highlights: [
+        "Adventurous Quad Biking (4-wheeled motorbike)",
+        "Stop at the famous 'Echo Valley' (Try screaming!)",
+        "Bedouin tea in a traditional tent",
+        "Spectacular sunset photos in the desert",
+        "Suitable for beginners and experts",
+      ],
+      full_description:
+        "The desert isn't meant to be watched from a window; it's meant to be lived!\n\nGet ready to get dusty and feel the wind on your face. I'll take you Quad biking through the sandy tracks and rocks of Sinai. You don't need a license, just a desire to have fun.\n\nWe will cross landscapes that look like Mars, until we reach the magical 'Echo Valley'. Here the mountains 'answer back': scream your name and hear nature speak to you.\n\nThen, we will stop in a real Bedouin tent to drink traditional mint tea (Habbak) and watch the sun go down behind the mountains, coloring everything red and gold. It's the perfect moment for photos.",
+      program: [
+        {
+          time: "15:30",
+          activity: "Pick-up",
+          details: "Pick-up at the hotel and transfer to the Quad center.",
+        },
+        {
+          time: "16:00",
+          activity: "Briefing",
+          details: "Driving instructions and Quad test run (100% safety).",
+        },
+        {
+          time: "16:30",
+          activity: "The Adventure",
+          details:
+            "The safari begins! Drive into the desert between dunes and rocks.",
+        },
+        {
+          time: "17:15",
+          activity: "Echo Valley",
+          details: "Special stop to try the echo effect and take photos.",
+        },
+        {
+          time: "17:45",
+          activity: "Bedouin Tea",
+          details: "Relax in the tent with hot tea at sunset.",
+        },
+        {
+          time: "18:30",
+          activity: "Return",
+          details: "Return to the center and transfer back to the hotel.",
+        },
+      ],
+      includes: [
+        "Round-trip Transfer (Bus/Minivan)",
+        "Quad Rental (Single or Double)",
+        "Specialized Desert Guide",
+        "Bedouin Tea",
+      ],
+      not_included: [
+        "Kefiah (Scarf for sand - Mandatory)",
+        "Sunglasses/Goggles (Mandatory)",
+        "Extra drinks (water/soda)",
+        "Professional photos (optional)",
+        "Tips",
+      ],
+      important_notes:
+        "Dress Code: Bring sunglasses and a scarf (Kefiah) to protect yourself from the sand. Wear comfortable clothes that you don't mind getting dirty. Children under 16 do not drive (they ride as passengers with an adult).",
+      seo_tags: [
+        "Moto Safari Sharm",
+        "Quad Tour Sinai",
+        "Echo Valley",
+        "Desert Sunset",
+        "Adventure Excursion",
+      ],
     },
-    {
-      "time": "16:00",
-      "activity": "Briefing",
-      "details": "Driving instructions and Quad test run (100% safety)."
-    },
-    {
-      "time": "16:30",
-      "activity": "The Adventure",
-      "details": "The safari begins! Drive into the desert between dunes and rocks."
-    },
-    {
-      "time": "17:15",
-      "activity": "Echo Valley",
-      "details": "Special stop to try the echo effect and take photos."
-    },
-    {
-      "time": "17:45",
-      "activity": "Bedouin Tea",
-      "details": "Relax in the tent with hot tea at sunset."
-    },
-    {
-      "time": "18:30",
-      "activity": "Return",
-      "details": "Return to the center and transfer back to the hotel."
-    }
-  ],
-  "includes": [
-    "Round-trip Transfer (Bus/Minivan)",
-    "Quad Rental (Single or Double)",
-    "Specialized Desert Guide",
-    "Bedouin Tea"
-  ],
-  "not_included": [
-    "Kefiah (Scarf for sand - Mandatory)",
-    "Sunglasses/Goggles (Mandatory)",
-    "Extra drinks (water/soda)",
-    "Professional photos (optional)",
-    "Tips"
-  ],
-  "important_notes": "Dress Code: Bring sunglasses and a scarf (Kefiah) to protect yourself from the sand. Wear comfortable clothes that you don't mind getting dirty. Children under 16 do not drive (they ride as passengers with an adult).",
-  "seo_tags": [
-    "Moto Safari Sharm",
-    "Quad Tour Sinai",
-    "Echo Valley",
-    "Desert Sunset",
-    "Adventure Excursion"
-  ]
-},
     vip_cena_romantica: {
-      "tour_id": "vip_cena_romantica",
-      "title": "VIP Romantic Dinner: 1001 Nights",
-      "short_desc": "Sharm's most exclusive experience. A private dinner in the heart of the desert, under a canopy of stars. Strictly for couples and special occasions.",
-      "duration": "4-5 Hours (Private Evening)",
-      "highlights": [
+      tour_id: "vip_cena_romantica",
+      title: "VIP Romantic Dinner: 1001 Nights",
+      short_desc:
+        "Sharm's most exclusive experience. A private dinner in the heart of the desert, under a canopy of stars. Strictly for couples and special occasions.",
+      duration: "4-5 Hours (Private Evening)",
+      highlights: [
         "Absolute Privacy: No groups, no chaos, just the two of you",
         "Private Transfer in a luxury car",
         "Reserved Tent/Table by candlelight",
         "A la Carte Menu with mixed grill served at your table",
-        "Ideal for: Marriage proposals, Birthdays, Anniversaries"
+        "Ideal for: Marriage proposals, Birthdays, Anniversaries",
       ],
-      "full_description": "Want to impress the one you love? Forget crowded tourist excursions. We take you where the desert becomes magic.\n\nThis evening is designed for those seeking intimacy and 'Mazaag Aaly' (High Mood/High Level). You will be picked up by a private car that will take you to a reserved area, far from the noise of engines.\n\nThere, you will find your own corner of paradise: an elegantly set table on the sand, surrounded by candles and lanterns. The silence of the desert, the starry sky, and a delicious dinner served just for you will make this night unforgettable. It is the perfect gift that she (or he) is not expecting.",
-      "program": [
+      full_description:
+        "Want to impress the one you love? Forget crowded tourist excursions. We take you where the desert becomes magic.\n\nThis evening is designed for those seeking intimacy and 'Mazaag Aaly' (High Mood/High Level). You will be picked up by a private car that will take you to a reserved area, far from the noise of engines.\n\nThere, you will find your own corner of paradise: an elegantly set table on the sand, surrounded by candles and lanterns. The silence of the desert, the starry sky, and a delicious dinner served just for you will make this night unforgettable. It is the perfect gift that she (or he) is not expecting.",
+      program: [
         {
-          "time": "17:00",
-          "activity": "VIP Pickup",
-          "details": "Private driver picks you up at your hotel (sunset time)."
+          time: "17:00",
+          activity: "VIP Pickup",
+          details: "Private driver picks you up at your hotel (sunset time).",
         },
         {
-          "time": "17:45",
-          "activity": "Arrival in Silence",
-          "details": "Exclusive welcome in the reserved area. Soft atmosphere and relaxation."
+          time: "17:45",
+          activity: "Arrival in Silence",
+          details:
+            "Exclusive welcome in the reserved area. Soft atmosphere and relaxation.",
         },
         {
-          "time": "18:15",
-          "activity": "Sunset & Photos",
-          "details": "The golden hour for taking romantic photos as the desert turns red."
+          time: "18:15",
+          activity: "Sunset & Photos",
+          details:
+            "The golden hour for taking romantic photos as the desert turns red.",
         },
         {
-          "time": "19:00",
-          "activity": "Candlelight Dinner",
-          "details": "Dinner served at the table (not buffet): Appetizers, Mixed Meat Grill, side dishes, and oriental sweets."
+          time: "19:00",
+          activity: "Candlelight Dinner",
+          details:
+            "Dinner served at the table (not buffet): Appetizers, Mixed Meat Grill, side dishes, and oriental sweets.",
         },
         {
-          "time": "20:30",
-          "activity": "The Stars",
-          "details": "Time to lie on the carpets, gaze at the stars, and enjoy absolute peace."
+          time: "20:30",
+          activity: "The Stars",
+          details:
+            "Time to lie on the carpets, gaze at the stars, and enjoy absolute peace.",
         },
         {
-          "time": "21:30",
-          "activity": "Return",
-          "details": "Return to the hotel by private car."
-        }
+          time: "21:30",
+          activity: "Return",
+          details: "Return to the hotel by private car.",
+        },
       ],
-      "includes": [
+      includes: [
         "Private Car Round Trip (No Bus)",
         "VIP Dinner served at the table (Meat menu)",
         "Unlimited soft drinks",
         "Romantic setup (Candles/Lanterns)",
-        "Dedicated waiter service"
+        "Dedicated waiter service",
       ],
-      "not_included": [
+      not_included: [
         "Birthday cake (can be ordered as extra)",
         "Flowers or special gifts (can be arranged upon request)",
         "Gratuities (Tips)",
-        "Alcoholic beverages"
+        "Alcoholic beverages",
       ],
-      "important_notes": "This excursion requires advance booking to prepare the exclusive setup. A short horse or camel ride at sunset can be added upon request.",
-      "seo_tags": [
+      important_notes:
+        "This excursion requires advance booking to prepare the exclusive setup. A short horse or camel ride at sunset can be added upon request.",
+      seo_tags: [
         "Romantic Dinner Sharm",
         "VIP Desert Dinner",
         "Egypt Marriage Proposal",
         "Private Night Sharm",
-        "Luxury Experience Sinai"
-      ]
+        "Luxury Experience Sinai",
+      ],
     },
-    // --- SHARM Culture 
+    // --- SHARM Culture
     sharm_old_market_ultimate_shopping: {
-      "tour_id": "sharm_old_market_ultimate_shopping",
-      "title": "Old Sharm: Mosque, Fashion & The India of Egypt",
-      "short_desc": "The ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!",
-      "duration": "3-4 Hours (Evening)",
-      "highlights": [
+      tour_id: "sharm_old_market_ultimate_shopping",
+      title: "Old Sharm: Mosque, Fashion & The India of Egypt",
+      short_desc:
+        "The ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!",
+      duration: "3-4 Hours (Evening)",
+      highlights: [
         "Visit the spectacular Al Sahaba Mosque",
         "Exclusive access to Leather & Handbag shops (Shocking prices)",
         "The Kingdom of Spices: 'Egyptian India' at your fingertips",
         "Pure Essences and Perfumes (No tourist traps)",
-        "Fabio Guarantee: Top quality and zero scams"
+        "Fabio Guarantee: Top quality and zero scams",
       ],
-      "full_description": "Prepare your senses (and your wallet)! I'm taking you to the real heart of Sharm.\n\nWe start with the magic of Al Sahaba Mosque for the most beautiful photos of your vacation. Then, we get down to serious business.\n\nI will open the doors to my secret leather shops (luxury bags and shoes at factory prices). But it doesn't end there! Did you know you don't need to go to India to find the best spices? Fabio brings 'Egyptian India' right here!\n\nWe will enter the oldest herbalists where you'll find saffron, curry, and oily perfumes that last for days on the skin. It's the purest, cleanest quality in the world, stuff you can only dream of in supermarkets back home.",
-      "program": [
-        { "time": "20:00", "activity": "Departure", "details": "Pickup from hotel and transfer to Old Sharm." },
-        { "time": "20:30", "activity": "Culture & Photos", "details": "Admiring the illuminated Al Sahaba Mosque." },
-        { "time": "21:00", "activity": "Fashion Stop", "details": "Shopping for Real Leather Bags and Shoes (Incredible prices)." },
-        { "time": "21:45", "activity": "The India of Egypt", "details": "Immersion in the world of spices and perfumes. An explosion of smells and colors." },
-        { "time": "23:00", "activity": "Return", "details": "Return to hotel happy and smelling great." }
+      full_description:
+        "Prepare your senses (and your wallet)! I'm taking you to the real heart of Sharm.\n\nWe start with the magic of Al Sahaba Mosque for the most beautiful photos of your vacation. Then, we get down to serious business.\n\nI will open the doors to my secret leather shops (luxury bags and shoes at factory prices). But it doesn't end there! Did you know you don't need to go to India to find the best spices? Fabio brings 'Egyptian India' right here!\n\nWe will enter the oldest herbalists where you'll find saffron, curry, and oily perfumes that last for days on the skin. It's the purest, cleanest quality in the world, stuff you can only dream of in supermarkets back home.",
+      program: [
+        {
+          time: "20:00",
+          activity: "Departure",
+          details: "Pickup from hotel and transfer to Old Sharm.",
+        },
+        {
+          time: "20:30",
+          activity: "Culture & Photos",
+          details: "Admiring the illuminated Al Sahaba Mosque.",
+        },
+        {
+          time: "21:00",
+          activity: "Fashion Stop",
+          details:
+            "Shopping for Real Leather Bags and Shoes (Incredible prices).",
+        },
+        {
+          time: "21:45",
+          activity: "The India of Egypt",
+          details:
+            "Immersion in the world of spices and perfumes. An explosion of smells and colors.",
+        },
+        {
+          time: "23:00",
+          activity: "Return",
+          details: "Return to hotel happy and smelling great.",
+        },
       ],
-      "includes": [
+      includes: [
         "Transfer A/R (A/C Minibus)",
         "Italian/English speaking local guide",
         "Mosque Entry",
-        "Guided Shopping Tour (Leather + Spices)"
+        "Guided Shopping Tour (Leather + Spices)",
       ],
-      "not_included": [
-        "Dinner",
-        "Personal expenses",
-        "Tips"
-      ],
-      "important_notes": "Tip: Don't buy random spices on the street! I take you where the stuff is 100% fresh and clean.",
-      "seo_tags": [
+      not_included: ["Dinner", "Personal expenses", "Tips"],
+      important_notes:
+        "Tip: Don't buy random spices on the street! I take you where the stuff is 100% fresh and clean.",
+      seo_tags: [
         "Old Sharm Shopping",
         "Egypt Spices",
         "Sharm Perfumes",
         "Leather Bags Sharm",
-        "Al Sahaba Mosque"
-      ]
+        "Al Sahaba Mosque",
+      ],
     },
     cairo_plane_flexible_museum: {
-      "tour_id": "cairo_plane_flexible_museum",
-      "title": "Cairo by Plane: Pyramids & You Choose the Museum",
-      "short_desc": "Fly to Cairo and decide your history. Giza Pyramids + Your choice between the 'Classic Museum' (Tahrir) or the 'New GEM' (The Future).",
-      "duration": "Full Day (16 Hours)",
-      "highlights": [
+      tour_id: "cairo_plane_flexible_museum",
+      title: "Cairo by Plane: Pyramids & You Choose the Museum",
+      short_desc:
+        "Fly to Cairo and decide your history. Giza Pyramids + Your choice between the 'Classic Museum' (Tahrir) or the 'New GEM' (The Future).",
+      duration: "Full Day (16 Hours)",
+      highlights: [
         "Comfortable and fast flight from Sharm (only 50 mins)",
         "Pyramids of Giza and Sphinx (Fixed Stop)",
         "FREE CHOICE OF MUSEUM (See options below)",
         "Lunch included in restaurant",
-        "No stress, everything organized"
+        "No stress, everything organized",
       ],
-      "full_description": "Cairo is magical, but everyone has their own taste (and budget). That's why, with us, YOU decide what experience to live.\n\nThe morning is dedicated to the giants: The Pyramids and the Sphinx. But for the afternoon, I offer you two paths:\n\n🅰️ Option A (The Classic - Economy): The old Egyptian Museum in Tahrir Square. It's the historic museum, full of ancient charm, dust, and history (Indiana Jones style). Perfect for those who want to save money and see traditional Cairo.\n\n🅱️ Option B (The Future - VIP): The New GEM (Grand Egyptian Museum). It is the largest museum in the world, modern, shiny, and home to Tutankhamun's entire treasure. It costs more, but it's a world-class experience.\n\nNote: You will find the price difference in the price list. Choose what makes your heart beat!",
-      "program": [
-        { "time": "04:30", "activity": "Flight", "details": "Departure from Sharm airport." },
-        { "time": "Morning", "activity": "Giza", "details": "Visit to Pyramids and Sphinx with guide." },
-        { "time": "Lunch", "activity": "Relax", "details": "Buffet lunch." },
-        { "time": "Afternoon", "activity": "YOUR MUSEUM", "details": "The group splits: who goes to the Old Museum (Tahrir) and who goes to the New (GEM) based on booking." },
-        { "time": "Evening", "activity": "Return", "details": "Return flight to Sharm." }
+      full_description:
+        "Cairo is magical, but everyone has their own taste (and budget). That's why, with us, YOU decide what experience to live.\n\nThe morning is dedicated to the giants: The Pyramids and the Sphinx. But for the afternoon, I offer you two paths:\n\n🅰️ Option A (The Classic - Economy): The old Egyptian Museum in Tahrir Square. It's the historic museum, full of ancient charm, dust, and history (Indiana Jones style). Perfect for those who want to save money and see traditional Cairo.\n\n🅱️ Option B (The Future - VIP): The New GEM (Grand Egyptian Museum). It is the largest museum in the world, modern, shiny, and home to Tutankhamun's entire treasure. It costs more, but it's a world-class experience.\n\nNote: You will find the price difference in the price list. Choose what makes your heart beat!",
+      program: [
+        {
+          time: "04:30",
+          activity: "Flight",
+          details: "Departure from Sharm airport.",
+        },
+        {
+          time: "Morning",
+          activity: "Giza",
+          details: "Visit to Pyramids and Sphinx with guide.",
+        },
+        { time: "Lunch", activity: "Relax", details: "Buffet lunch." },
+        {
+          time: "Afternoon",
+          activity: "YOUR MUSEUM",
+          details:
+            "The group splits: who goes to the Old Museum (Tahrir) and who goes to the New (GEM) based on booking.",
+        },
+        {
+          time: "Evening",
+          activity: "Return",
+          details: "Return flight to Sharm.",
+        },
       ],
-      "includes": [
+      includes: [
         "Round-trip Flight",
         "Egyptologist Guide",
         "Transfers",
         "Pyramids Entrance",
         "Lunch",
-        "Museum Entrance (A or B based on choice)"
+        "Museum Entrance (A or B based on choice)",
       ],
-      "not_included": [
+      not_included: [
         "Egypt Visa (Mandatory)",
         "Drinks",
         "Supplement for GEM (if chosen)",
         "Felucca Ride (Optional)",
-        "Tips"
+        "Tips",
       ],
-      "important_notes": "Choose the Museum option at the time of booking to organize tickets. Entry Visa is mandatory.",
-      "seo_tags": [
+      important_notes:
+        "Choose the Museum option at the time of booking to organize tickets. Entry Visa is mandatory.",
+      seo_tags: [
         "Cairo from Sharm Plane",
         "Egyptian Museum Tahrir",
         "Grand Egyptian Museum GEM",
-        "Giza Pyramids"
-      ]
+        "Giza Pyramids",
+      ],
     },
     cairo_bus_adventure_choice: {
-      "tour_id": "cairo_bus_adventure_choice",
-      "title": "Cairo by Bus: Smart Adventure & Your Choice",
-      "short_desc": "History at a small price. An 'On the Road' trip to the Pyramids. You choose: the charm of the Old Museum or the future of the New GEM.",
-      "duration": "24 Hours (Daily Marathon)",
-      "highlights": [
+      tour_id: "cairo_bus_adventure_choice",
+      title: "Cairo by Bus: Smart Adventure & Your Choice",
+      short_desc:
+        "History at a small price. An 'On the Road' trip to the Pyramids. You choose: the charm of the Old Museum or the future of the New GEM.",
+      duration: "24 Hours (Daily Marathon)",
+      highlights: [
         "Lowest price to see the Pyramids",
         "Overnight travel in GT Bus (A/C and Toilet)",
         "Pyramids of Giza and Sphinx (Fixed Stop)",
         "MUSEUM CHOICE (Classic or New GEM)",
-        "Lunch included in Cairo"
+        "Lunch included in Cairo",
       ],
-      "full_description": "Want to see the Pyramids without spending a fortune? This is the right option for you.\n\nLet's be honest: it's a long trip (departure after midnight), a real 'marathon' for those with an adventurous spirit. But the reward is huge: you see the same history as those flying, but saving money.\n\nHere too, Fabio gives you the power to choose your experience:\n\n🅰️ Option A (Tahrir - The Classic): Visit the historic Tahrir Square Museum. It's the standard option, perfect for seeing ancient art in the atmosphere of downtown Cairo.\n\n🅱️ Option B (GEM - The New): Want to see the museum the whole world is talking about? With a small supplement, you can enter the Grand Egyptian Museum (GEM) and admire treasures in a futuristic structure.\n\nThe Bus is cheap, but the history you'll see is priceless.",
-      "program": [
-        { "time": "00:30", "activity": "Night Departure", "details": "Pickup at hotel. Travel by night to arrive in Cairo at dawn (bring travel pillow!)." },
-        { "time": "08:30", "activity": "Arrival in Cairo", "details": "Meeting with Egyptologist guide and start of tour." },
-        { "time": "Morning", "activity": "YOUR MUSEUM", "details": "Group splits: Visit to Tahrir Museum or New GEM (based on choice)." },
-        { "time": "Lunch", "activity": "Food Stop", "details": "Buffet lunch to recharge energy." },
-        { "time": "Afternoon", "activity": "Giza", "details": "The Pyramids and Sphinx. The moment you waited for." },
-        { "time": "17:00", "activity": "Shopping & Return", "details": "Short shopping stop and departure back to Sharm." },
-        { "time": "Night", "activity": "Arrival", "details": "Arrival at hotel in Sharm (around midnight)." }
+      full_description:
+        "Want to see the Pyramids without spending a fortune? This is the right option for you.\n\nLet's be honest: it's a long trip (departure after midnight), a real 'marathon' for those with an adventurous spirit. But the reward is huge: you see the same history as those flying, but saving money.\n\nHere too, Fabio gives you the power to choose your experience:\n\n🅰️ Option A (Tahrir - The Classic): Visit the historic Tahrir Square Museum. It's the standard option, perfect for seeing ancient art in the atmosphere of downtown Cairo.\n\n🅱️ Option B (GEM - The New): Want to see the museum the whole world is talking about? With a small supplement, you can enter the Grand Egyptian Museum (GEM) and admire treasures in a futuristic structure.\n\nThe Bus is cheap, but the history you'll see is priceless.",
+      program: [
+        {
+          time: "00:30",
+          activity: "Night Departure",
+          details:
+            "Pickup at hotel. Travel by night to arrive in Cairo at dawn (bring travel pillow!).",
+        },
+        {
+          time: "08:30",
+          activity: "Arrival in Cairo",
+          details: "Meeting with Egyptologist guide and start of tour.",
+        },
+        {
+          time: "Morning",
+          activity: "YOUR MUSEUM",
+          details:
+            "Group splits: Visit to Tahrir Museum or New GEM (based on choice).",
+        },
+        {
+          time: "Lunch",
+          activity: "Food Stop",
+          details: "Buffet lunch to recharge energy.",
+        },
+        {
+          time: "Afternoon",
+          activity: "Giza",
+          details: "The Pyramids and Sphinx. The moment you waited for.",
+        },
+        {
+          time: "17:00",
+          activity: "Shopping & Return",
+          details: "Short shopping stop and departure back to Sharm.",
+        },
+        {
+          time: "Night",
+          activity: "Arrival",
+          details: "Arrival at hotel in Sharm (around midnight).",
+        },
       ],
-      "includes": [
+      includes: [
         "Round-trip Bus Travel (Toilet on board)",
         "Italian/English speaking Egyptologist Guide",
         "Pyramids & Sphinx Entrance",
         "Museum Entrance (A or B choice)",
-        "Lunch"
+        "Lunch",
       ],
-      "not_included": [
+      not_included: [
         "Egypt Visa (Mandatory)",
         "Drinks at lunch",
         "Felucca Ride (Optional)",
         "Supplement for GEM (if chosen)",
-        "Tips"
+        "Tips",
       ],
-      "important_notes": "The bus trip takes about 7-8 hours each way. We recommend ordering a Breakfast Box at your hotel the night before. Bring comfortable clothes and a hoodie for the bus A/C.",
-      "seo_tags": [
+      important_notes:
+        "The bus trip takes about 7-8 hours each way. We recommend ordering a Breakfast Box at your hotel the night before. Bring comfortable clothes and a hoodie for the bus A/C.",
+      seo_tags: [
         "Cairo Bus from Sharm",
         "Budget Pyramids Excursion",
         "New Museum GEM Bus",
-        "Giza Pyramids Low Cost"
-      ]
+        "Giza Pyramids Low Cost",
+      ],
     },
     santa_caterina_monastery_morning: {
-      "tour_id": "santa_caterina_monastery_morning",
-      "title": "St. Catherine: The Sacred Monastery (Classic & VIP)",
-      "short_desc": "A spiritual journey in the Holy Land. Visit the world's oldest monastery and the Burning Bush. Available by Bus (Group) or Private Car (VIP).",
-      "duration": "Full Day (Morning Departure 06:00)",
-      "highlights": [
+      tour_id: "santa_caterina_monastery_morning",
+      title: "St. Catherine: The Sacred Monastery (Classic & VIP)",
+      short_desc:
+        "A spiritual journey in the Holy Land. Visit the world's oldest monastery and the Burning Bush. Available by Bus (Group) or Private Car (VIP).",
+      duration: "Full Day (Morning Departure 06:00)",
+      highlights: [
         "Journey through the Sinai Desert",
         "Guided visit to St. Catherine's Monastery (UNESCO)",
         "The 'Burning Bush': The sacred tree that never dies",
         "Moses' Well and the Basilica",
         "Lunch included in restaurant",
-        "Possibility of VIP UPGRADE (Private Car & Chic Restaurant in Dahab)"
+        "Possibility of VIP UPGRADE (Private Car & Chic Restaurant in Dahab)",
       ],
-      "full_description": "This is not just an excursion, it's a pilgrimage into history and peace.\n\nI take you to the 'Holy Land', where the sky touched the earth. We will cross the colored valleys of Sinai to reach the Monastery of St. Catherine, a sacred place for three religions, remaining intact for 15 centuries.\n\nHere you will breathe a different air. You will see the 'Burning Bush' and admire ancient icons that look into your soul. It is an experience of pure culture and spirituality.\n\n🍽️ Lunch: A regenerating lunch in a local restaurant is included during the return trip.\n\n💎 WANT THE DREAM? CHOOSE THE 'FABIO VIP' VERSION:\nLet's be honest: how many times will you come to the Holy Land in your life? Once? Then make it count!\nI can organize this tour in a Private Luxury Car just for you (or your family).\nYou will have a personal guide all to yourself (no waiting, ask whatever you want), leave at the time you prefer, and above all, I will take you to lunch at a Chic Restaurant by the sea in Dahab. It's a 'Top Class' spiritual experience you won't even see in dreams. Don't save on memories that last forever. You deserve it.",
-      "program": [
-        { "time": "06:00", "activity": "Departure", "details": "Pickup at hotel (Flexible time if choosing VIP)." },
-        { "time": "09:00", "activity": "Arrival at Sacred", "details": "Arrival at St. Catherine. Entry into fortified walls." },
-        { "time": "Visit", "activity": "The Monastery", "details": "Guided tour: The Basilica, Transfiguration Mosaic, Moses' Well, and Burning Bush." },
-        { "time": "13:30", "activity": "Lunch", "details": "Lunch stop in restaurant (Standard for Bus / Chic in Dahab for VIP)." },
-        { "time": "17:00", "activity": "Return", "details": "Return to Sharm el Sheikh." }
+      full_description:
+        "This is not just an excursion, it's a pilgrimage into history and peace.\n\nI take you to the 'Holy Land', where the sky touched the earth. We will cross the colored valleys of Sinai to reach the Monastery of St. Catherine, a sacred place for three religions, remaining intact for 15 centuries.\n\nHere you will breathe a different air. You will see the 'Burning Bush' and admire ancient icons that look into your soul. It is an experience of pure culture and spirituality.\n\n🍽️ Lunch: A regenerating lunch in a local restaurant is included during the return trip.\n\n💎 WANT THE DREAM? CHOOSE THE 'FABIO VIP' VERSION:\nLet's be honest: how many times will you come to the Holy Land in your life? Once? Then make it count!\nI can organize this tour in a Private Luxury Car just for you (or your family).\nYou will have a personal guide all to yourself (no waiting, ask whatever you want), leave at the time you prefer, and above all, I will take you to lunch at a Chic Restaurant by the sea in Dahab. It's a 'Top Class' spiritual experience you won't even see in dreams. Don't save on memories that last forever. You deserve it.",
+      program: [
+        {
+          time: "06:00",
+          activity: "Departure",
+          details: "Pickup at hotel (Flexible time if choosing VIP).",
+        },
+        {
+          time: "09:00",
+          activity: "Arrival at Sacred",
+          details: "Arrival at St. Catherine. Entry into fortified walls.",
+        },
+        {
+          time: "Visit",
+          activity: "The Monastery",
+          details:
+            "Guided tour: The Basilica, Transfiguration Mosaic, Moses' Well, and Burning Bush.",
+        },
+        {
+          time: "13:30",
+          activity: "Lunch",
+          details:
+            "Lunch stop in restaurant (Standard for Bus / Chic in Dahab for VIP).",
+        },
+        {
+          time: "17:00",
+          activity: "Return",
+          details: "Return to Sharm el Sheikh.",
+        },
       ],
-      "includes": [
+      includes: [
         "Round-trip Transfer (Bus for Group / Private Car for VIP)",
         "Guide specialized in history and religion",
         "National Park and Monastery Entrance Tickets",
-        "Lunch"
+        "Lunch",
       ],
-      "not_included": [
+      not_included: [
         "Drinks at lunch",
         "Icons Museum Entrance (optional)",
-        "Tips"
+        "Tips",
       ],
-      "important_notes": "Sacred Place: Strict Dress Code (shoulders and knees covered). VIP Note: If you want royal treatment, select the 'Private Tour' option in the booking form.",
-      "seo_tags": [
+      important_notes:
+        "Sacred Place: Strict Dress Code (shoulders and knees covered). VIP Note: If you want royal treatment, select the 'Private Tour' option in the booking form.",
+      seo_tags: [
         "St Catherine Monastery Tour",
         "Private Sinai Excursion",
         "St Catherine VIP",
-        "Holy Land Egypt"
-      ]
+        "Holy Land Egypt",
+      ],
     },
     mount_sinai_sunrise_adventure: {
-      "tour_id": "mount_sinai_sunrise_adventure",
-      "title": "Mt. Sinai Adventure: Sacred Sunrise & Monastery",
-      "short_desc": "The challenge of a lifetime. Climb Moses Mountain under the stars, watch the most beautiful sunrise in the world, and visit the Monastery. Available in Bus or VIP Version (Back-Saver).",
-      "duration": "16-18 Hours (Full Night + Morning)",
-      "highlights": [
+      tour_id: "mount_sinai_sunrise_adventure",
+      title: "Mt. Sinai Adventure: Sacred Sunrise & Monastery",
+      short_desc:
+        "The challenge of a lifetime. Climb Moses Mountain under the stars, watch the most beautiful sunrise in the world, and visit the Monastery. Available in Bus or VIP Version (Back-Saver).",
+      duration: "16-18 Hours (Full Night + Morning)",
+      highlights: [
         "Night trekking under an incredible starry sky",
         "Watching sunrise from the summit of Mt. Horeb (2285m)",
         "Guided visit to St. Catherine's Monastery (UNESCO)",
         "Expert Bedouin Guide for the climb",
-        "Lunch included after descent"
+        "Lunch included after descent",
       ],
-      "full_description": "Ready for the most epic adventure in Sinai? This is not a trip for lazy tourists, it's a challenge for the soul and body.\n\nWe depart at night to climb the Mountain of Moses. You will walk under a carpet of stars, feel the desert cold and the adrenaline of the ascent. But when you reach the top and see the sun rise between the mountains, you'll understand every step was worth it. It's a moment that changes you inside.\n\nAfter sunrise, we descend to visit the sacred Monastery of St. Catherine and the Burning Bush.\n\n🚑 FABIO'S GOLDEN TIP (VIP UPGRADE):\nBe honest with yourself: after 7 km of walking and a sleepless night, you will be destroyed. In the group bus, you'll have to wait for others sitting uncomfortably.\nGet smart: Choose the VIP Option (Private Car).\nWhy? Because your private car becomes your 'Mobile Bed'. As soon as you descend the mountain, get in the car, recline the seat, and sleep like a king until Dahab, where I'll take you to a chic seaside restaurant for a regenerating lunch.\nIt's the difference between returning to the hotel 'dead' or returning 'happy'. Your back will thank you!",
-      "program": [
-        { "time": "20:30", "activity": "Departure", "details": "Pickup at hotel. Night travel to St. Catherine." },
-        { "time": "02:00", "activity": "The Climb", "details": "Start trekking with Bedouin guide (walking or optional camel)." },
-        { "time": "05:30", "activity": "The Sunrise", "details": "Arrival at summit. The magical moment of sun rising." },
-        { "time": "07:30", "activity": "Descent & Monastery", "details": "Descent and visit to Monastery, Burning Bush, and Moses' Well." },
-        { "time": "13:00", "activity": "Relax & Lunch", "details": "Well-deserved lunch (Standard for Bus / Chic in Dahab for VIP)." },
-        { "time": "14:30", "activity": "Return", "details": "Trip back to Sharm (sleeping time!)." }
+      full_description:
+        "Ready for the most epic adventure in Sinai? This is not a trip for lazy tourists, it's a challenge for the soul and body.\n\nWe depart at night to climb the Mountain of Moses. You will walk under a carpet of stars, feel the desert cold and the adrenaline of the ascent. But when you reach the top and see the sun rise between the mountains, you'll understand every step was worth it. It's a moment that changes you inside.\n\nAfter sunrise, we descend to visit the sacred Monastery of St. Catherine and the Burning Bush.\n\n🚑 FABIO'S GOLDEN TIP (VIP UPGRADE):\nBe honest with yourself: after 7 km of walking and a sleepless night, you will be destroyed. In the group bus, you'll have to wait for others sitting uncomfortably.\nGet smart: Choose the VIP Option (Private Car).\nWhy? Because your private car becomes your 'Mobile Bed'. As soon as you descend the mountain, get in the car, recline the seat, and sleep like a king until Dahab, where I'll take you to a chic seaside restaurant for a regenerating lunch.\nIt's the difference between returning to the hotel 'dead' or returning 'happy'. Your back will thank you!",
+      program: [
+        {
+          time: "20:30",
+          activity: "Departure",
+          details: "Pickup at hotel. Night travel to St. Catherine.",
+        },
+        {
+          time: "02:00",
+          activity: "The Climb",
+          details:
+            "Start trekking with Bedouin guide (walking or optional camel).",
+        },
+        {
+          time: "05:30",
+          activity: "The Sunrise",
+          details: "Arrival at summit. The magical moment of sun rising.",
+        },
+        {
+          time: "07:30",
+          activity: "Descent & Monastery",
+          details:
+            "Descent and visit to Monastery, Burning Bush, and Moses' Well.",
+        },
+        {
+          time: "13:00",
+          activity: "Relax & Lunch",
+          details:
+            "Well-deserved lunch (Standard for Bus / Chic in Dahab for VIP).",
+        },
+        {
+          time: "14:30",
+          activity: "Return",
+          details: "Trip back to Sharm (sleeping time!).",
+        },
       ],
-      "includes": [
+      includes: [
         "Round-trip Transfer (Bus or Private VIP Car)",
         "Italian/English Tour Guide",
         "Bedouin Guide for the mountain",
         "Park Entrance Tickets",
         "Lunch",
-        "Flashlight (bring or rent)"
+        "Flashlight (bring or rent)",
       ],
-      "not_included": [
+      not_included: [
         "Drinks",
         "Camel Ride up (Optional - pay to Bedouins)",
         "Tips",
-        "Breakfast (order hotel box)"
+        "Breakfast (order hotel box)",
       ],
-      "important_notes": "⚠️ Fatigue Warning: This excursion requires good physical condition. It gets VERY cold at the top (bring heavy jacket, scarf, and gloves). Wear robust trekking or running shoes. Passport mandatory.",
-      "seo_tags": [
+      important_notes:
+        "⚠️ Fatigue Warning: This excursion requires good physical condition. It gets VERY cold at the top (bring heavy jacket, scarf, and gloves). Wear robust trekking or running shoes. Passport mandatory.",
+      seo_tags: [
         "Mt Sinai Climb",
         "Moses Mountain Sunrise",
         "St Catherine Tour",
         "Egypt Trekking",
-        "Adventure Excursion Sharm"
-      ]
+        "Adventure Excursion Sharm",
+      ],
     },
     luxor_plane_classic: {
-      "tour_id": "luxor_plane_classic",
-      "title": "Luxor by Plane: Valley of Kings & Golden Temples",
-      "short_desc": "The world's largest open-air museum. Fly from Sharm to discover Karnak, Valley of the Kings, and Queen Hatshepsut Temple in one unforgettable day.",
-      "duration": "Full Day (16 Hours)",
-      "highlights": [
+      tour_id: "luxor_plane_classic",
+      title: "Luxor by Plane: Valley of Kings & Golden Temples",
+      short_desc:
+        "The world's largest open-air museum. Fly from Sharm to discover Karnak, Valley of the Kings, and Queen Hatshepsut Temple in one unforgettable day.",
+      duration: "Full Day (16 Hours)",
+      highlights: [
         "Comfortable and fast flight (45 min) from Sharm El Sheikh",
         "Karnak Temple: The largest forest of columns in the world",
         "Valley of the Kings: Enter the colorful tombs of Pharaohs (3 Tombs)",
         "Queen Hatshepsut Temple & Colossi of Memnon",
         "Buffet lunch in restaurant with Nile view",
-        "Visit to Alabaster Factory (Art of Ancient Egypt)"
+        "Visit to Alabaster Factory (Art of Ancient Egypt)",
       ],
-      "full_description": "Prepare to be jaw-dropped. Luxor is not just a city, it's another planet where time stopped 4000 years ago.\n\nThanks to the fast flight from Sharm, we arrive fresh and ready to literally walk inside history. On the East Bank, we visit the majestic Karnak Temple, a labyrinth of giant columns that makes you feel small before the greatness of Pharaohs.\n\nThen we cross the Nile to the West Bank, the 'City of the Dead'. Here you enter the tombs of the Valley of the Kings, where painting colors are still so vivid they look made yesterday. You'll also see the unique temple of Queen Hatshepsut carved into the mountain.\n\nIt's a day full of emotions, culture, and beauty that happens once in a lifetime.",
-      "program": [
-        { "time": "04:30", "activity": "Flight", "details": "Departure from Sharm airport. In less than an hour, we are in history." },
-        { "time": "Morning", "activity": "Karnak", "details": "Visit to Karnak temple complex and Avenue of Sphinxes." },
-        { "time": "Lunch", "activity": "On the Nile", "details": "Lunch stop at a local restaurant to taste Egyptian cuisine." },
-        { "time": "Afternoon", "activity": "West Bank", "details": "Valley of the Kings (visit 3 tombs), Hatshepsut Temple, and stop at Colossi of Memnon." },
-        { "time": "Shopping", "activity": "Alabaster", "details": "Visit to Alabaster institute to see artisans at work (unique souvenirs)." },
-        { "time": "Return", "activity": "Flight", "details": "Return flight to Sharm and transfer to hotel." }
+      full_description:
+        "Prepare to be jaw-dropped. Luxor is not just a city, it's another planet where time stopped 4000 years ago.\n\nThanks to the fast flight from Sharm, we arrive fresh and ready to literally walk inside history. On the East Bank, we visit the majestic Karnak Temple, a labyrinth of giant columns that makes you feel small before the greatness of Pharaohs.\n\nThen we cross the Nile to the West Bank, the 'City of the Dead'. Here you enter the tombs of the Valley of the Kings, where painting colors are still so vivid they look made yesterday. You'll also see the unique temple of Queen Hatshepsut carved into the mountain.\n\nIt's a day full of emotions, culture, and beauty that happens once in a lifetime.",
+      program: [
+        {
+          time: "04:30",
+          activity: "Flight",
+          details:
+            "Departure from Sharm airport. In less than an hour, we are in history.",
+        },
+        {
+          time: "Morning",
+          activity: "Karnak",
+          details: "Visit to Karnak temple complex and Avenue of Sphinxes.",
+        },
+        {
+          time: "Lunch",
+          activity: "On the Nile",
+          details:
+            "Lunch stop at a local restaurant to taste Egyptian cuisine.",
+        },
+        {
+          time: "Afternoon",
+          activity: "West Bank",
+          details:
+            "Valley of the Kings (visit 3 tombs), Hatshepsut Temple, and stop at Colossi of Memnon.",
+        },
+        {
+          time: "Shopping",
+          activity: "Alabaster",
+          details:
+            "Visit to Alabaster institute to see artisans at work (unique souvenirs).",
+        },
+        {
+          time: "Return",
+          activity: "Flight",
+          details: "Return flight to Sharm and transfer to hotel.",
+        },
       ],
-      "includes": [
+      includes: [
         "Round-trip Flight",
         "All transfers in A/C Bus",
         "Italian/English speaking Egyptologist Guide",
         "Entrance Tickets (Karnak, Valley of Kings, Hatshepsut)",
-        "Lunch"
+        "Lunch",
       ],
-      "not_included": [
+      not_included: [
         "Egypt Visa (MANDATORY)",
         "Drinks at lunch",
         "Tutankhamun Tomb (Optional Extra)",
         "Boat ride on Nile / Banana Island (Optional on spot)",
-        "Tips"
+        "Tips",
       ],
-      "important_notes": "⚠️ VISA: The Entry Visa is essential to fly to Luxor. Check that you have it on your passport! Comfortable clothing and sneakers recommended.",
-      "seo_tags": [
+      important_notes:
+        "⚠️ VISA: The Entry Visa is essential to fly to Luxor. Check that you have it on your passport! Comfortable clothing and sneakers recommended.",
+      seo_tags: [
         "Luxor Excursion from Sharm",
         "Valley of Kings Tour",
         "Karnak Temple",
         "Flight Sharm Luxor",
-        "Egypt Alabaster"
-      ]
+        "Egypt Alabaster",
+      ],
     },
     petra_jordan_expedition: {
-      "tour_id": "petra_jordan_expedition",
-      "title": "Petra: The Rose City (One of the 7 Wonders of the World)",
-      "short_desc": "An epic trip to Jordan. Sail the Red Sea, cross 'The Siq' canyon, and discover the Treasury of Petra. A bucket-list experience.",
-      "duration": "Full Day (20-22 Hours)",
-      "highlights": [
+      tour_id: "petra_jordan_expedition",
+      title: "Petra: The Rose City (One of the 7 Wonders of the World)",
+      short_desc:
+        "An epic trip to Jordan. Sail the Red Sea, cross 'The Siq' canyon, and discover the Treasury of Petra. A bucket-list experience.",
+      duration: "Full Day (20-22 Hours)",
+      highlights: [
         "Crossing 3 borders and mini-cruise in Gulf of Aqaba",
         "Walking in 'The Siq': The breathtaking natural canyon",
         "The 'WOW' moment: The sudden view of The Treasury (Al Khazneh)",
         "The Roman Theatre and Royal Tombs",
         "5-Star Restaurant Lunch included",
-        "Visas and Port Taxes ALL INCLUDED"
+        "Visas and Port Taxes ALL INCLUDED",
       ],
-      "full_description": "You are so close to one of the '7 Wonders of the Modern World', don't miss the chance!\n\nThis isn't just a tour, it's an international adventure. We depart from Sharm to cross the Gulf of Aqaba by boat, arriving in Jordan.\n\nThere the magic begins. We walk through 'The Siq', a narrow, towering canyon of pink and red rocks. Excitement grows step by step until, suddenly, 'The Treasury' (famous from Indiana Jones movie) appears before your eyes. It's a moment that takes your breath away.\n\nWe explore royal tombs carved in rock and the Roman theatre, all accompanied by an expert guide revealing secrets of the Nabataean people. It's a long, intense day, but you'll return with photos and memories worth gold.",
-      "program": [
-        { "time": "01:00", "activity": "Departure", "details": "Night pickup at hotel and bus trip to Taba port." },
-        { "time": "Sunrise", "activity": "Sailing", "details": "Boarding ferry to Aqaba (Jordan). Enjoy sunrise over the sea between 4 countries." },
-        { "time": "Morning", "activity": "Arrival at Petra", "details": "Bus trip to Petra and start of walk in the Siq." },
-        { "time": "Highlight", "activity": "The Treasury", "details": "Arrival in front of Al Khazneh (The Treasury) and time for epic photos." },
-        { "time": "14:00", "activity": "Lunch", "details": "Buffet lunch at a Luxury Hotel/Restaurant." },
-        { "time": "Afternoon", "activity": "Return", "details": "Trip to Aqaba, ferry to Taba, and return to Sharm." },
-        { "time": "Night", "activity": "Arrival", "details": "Arrival at hotel in Sharm (around 23:00)." }
+      full_description:
+        "You are so close to one of the '7 Wonders of the Modern World', don't miss the chance!\n\nThis isn't just a tour, it's an international adventure. We depart from Sharm to cross the Gulf of Aqaba by boat, arriving in Jordan.\n\nThere the magic begins. We walk through 'The Siq', a narrow, towering canyon of pink and red rocks. Excitement grows step by step until, suddenly, 'The Treasury' (famous from Indiana Jones movie) appears before your eyes. It's a moment that takes your breath away.\n\nWe explore royal tombs carved in rock and the Roman theatre, all accompanied by an expert guide revealing secrets of the Nabataean people. It's a long, intense day, but you'll return with photos and memories worth gold.",
+      program: [
+        {
+          time: "01:00",
+          activity: "Departure",
+          details: "Night pickup at hotel and bus trip to Taba port.",
+        },
+        {
+          time: "Sunrise",
+          activity: "Sailing",
+          details:
+            "Boarding ferry to Aqaba (Jordan). Enjoy sunrise over the sea between 4 countries.",
+        },
+        {
+          time: "Morning",
+          activity: "Arrival at Petra",
+          details: "Bus trip to Petra and start of walk in the Siq.",
+        },
+        {
+          time: "Highlight",
+          activity: "The Treasury",
+          details:
+            "Arrival in front of Al Khazneh (The Treasury) and time for epic photos.",
+        },
+        {
+          time: "14:00",
+          activity: "Lunch",
+          details: "Buffet lunch at a Luxury Hotel/Restaurant.",
+        },
+        {
+          time: "Afternoon",
+          activity: "Return",
+          details: "Trip to Aqaba, ferry to Taba, and return to Sharm.",
+        },
+        {
+          time: "Night",
+          activity: "Arrival",
+          details: "Arrival at hotel in Sharm (around 23:00).",
+        },
       ],
-      "includes": [
+      includes: [
         "All transfers (Bus + Ferry)",
         "Jordan Entry Visa and Taxes",
         "Entrance ticket to Petra archaeological site",
         "Italian/English speaking guide",
-        "Buffet Lunch"
+        "Buffet Lunch",
       ],
-      "not_included": [
+      not_included: [
         "Drinks at lunch",
         "Tips",
-        "Horses or carriages inside Petra (Optional)"
+        "Horses or carriages inside Petra (Optional)",
       ],
-      "important_notes": "⚠️ PASSPORT MANDATORY: To enter Jordan you need a passport with at least 6 months validity. ID card is NOT accepted. Very comfortable walking shoes highly recommended.",
-      "seo_tags": [
+      important_notes:
+        "⚠️ PASSPORT MANDATORY: To enter Jordan you need a passport with at least 6 months validity. ID card is NOT accepted. Very comfortable walking shoes highly recommended.",
+      seo_tags: [
         "Petra Excursion from Sharm",
         "Ferry Taba Aqaba",
         "Petra Jordan Tour",
         "Siq and Treasury Petra",
-        "Wonders of the World"
-      ]
+        "Wonders of the World",
+      ],
     },
     // Cairo Dummy
     cairo_pyramids_classic_dummy: {
-      "tour_id": "cairo_pyramids_classic_dummy",
-      "title": "Giza Pyramids & Sphinx: The Ancient Icons",
-      "short_desc": "Stand before the Great Pyramids of Giza and the Sphinx. A journey back 4,500 years to the heart of ancient Egypt.",
-      "duration": "Half Day (4-5 Hours)",
-      "highlights": [
+      tour_id: "cairo_pyramids_classic_dummy",
+      title: "Giza Pyramids & Sphinx: The Ancient Icons",
+      short_desc:
+        "Stand before the Great Pyramids of Giza and the Sphinx. A journey back 4,500 years to the heart of ancient Egypt.",
+      duration: "Half Day (4-5 Hours)",
+      highlights: [
         "Visit the 3 Great Pyramids (Cheops, Chephren, Mykerinos)",
         "Selfie with the Great Sphinx",
         "Valley Temple visit",
         "Panoramic view point for best photos",
-        "Private Egyptologist Guide"
+        "Private Egyptologist Guide",
       ],
-      "full_description": "No trip to Egypt is complete without this. We take you straight to the Giza Plateau.\n\nYou will stand at the foot of the Great Pyramid, the only surviving wonder of the ancient world. Your guide will explain how these massive structures were built without modern technology.\n\nThen, we move to the Sphinx, the legendary guardian with the body of a lion and the head of a king. It's strictly history, culture, and 'Bucket List' moments.",
-      "program": [
-        { "time": "08:00", "activity": "Pickup", "details": "Pickup from your hotel in Cairo/Giza." },
-        { "time": "09:00", "activity": "The Pyramids", "details": "Tour of the Giza Plateau and the three pyramids." },
-        { "time": "11:00", "activity": "The Sphinx", "details": "Visit the Sphinx and the Valley Temple." },
-        { "time": "12:30", "activity": "Papyrus Stop", "details": "Quick visit to learn how ancient paper was made." },
-        { "time": "13:30", "activity": "Return", "details": "Back to your hotel." }
+      full_description:
+        "No trip to Egypt is complete without this. We take you straight to the Giza Plateau.\n\nYou will stand at the foot of the Great Pyramid, the only surviving wonder of the ancient world. Your guide will explain how these massive structures were built without modern technology.\n\nThen, we move to the Sphinx, the legendary guardian with the body of a lion and the head of a king. It's strictly history, culture, and 'Bucket List' moments.",
+      program: [
+        {
+          time: "08:00",
+          activity: "Pickup",
+          details: "Pickup from your hotel in Cairo/Giza.",
+        },
+        {
+          time: "09:00",
+          activity: "The Pyramids",
+          details: "Tour of the Giza Plateau and the three pyramids.",
+        },
+        {
+          time: "11:00",
+          activity: "The Sphinx",
+          details: "Visit the Sphinx and the Valley Temple.",
+        },
+        {
+          time: "12:30",
+          activity: "Papyrus Stop",
+          details: "Quick visit to learn how ancient paper was made.",
+        },
+        { time: "13:30", activity: "Return", details: "Back to your hotel." },
       ],
-      "includes": [
+      includes: [
         "Private A/C Transport",
         "Entrance Fees to Giza Plateau",
         "Expert Guide",
-        "Water bottle"
+        "Water bottle",
       ],
-      "not_included": [
+      not_included: [
         "Entrance inside the Pyramids (Extra ticket)",
         "Lunch",
-        "Tips"
+        "Tips",
       ],
-      "important_notes": "Wear comfortable shoes. The sun can be strong, bring a hat.",
-      "seo_tags": ["Cairo Pyramids", "Sphinx Tour", "Giza Plateau", "Egypt History"]
+      important_notes:
+        "Wear comfortable shoes. The sun can be strong, bring a hat.",
+      seo_tags: [
+        "Cairo Pyramids",
+        "Sphinx Tour",
+        "Giza Plateau",
+        "Egypt History",
+      ],
     },
     cairo_nile_dinner_dummy: {
-      "tour_id": "cairo_nile_dinner_dummy",
-      "title": "Nile Maxim: 5-Star Dinner Cruise & Show",
-      "short_desc": "An elegant evening on the Nile. Open buffet dinner, Belly Dancer, Tanoura show, and sailing through the glittering lights of Cairo.",
-      "duration": "3 Hours (Evening)",
-      "highlights": [
+      tour_id: "cairo_nile_dinner_dummy",
+      title: "Nile Maxim: 5-Star Dinner Cruise & Show",
+      short_desc:
+        "An elegant evening on the Nile. Open buffet dinner, Belly Dancer, Tanoura show, and sailing through the glittering lights of Cairo.",
+      duration: "3 Hours (Evening)",
+      highlights: [
         "2 Hours sailing on the River Nile",
         "Open Buffet International Dinner",
         "Live Entertainment (Belly Dance & Folklore)",
         "Stunning views of Cairo at night",
-        "Romantic atmosphere"
+        "Romantic atmosphere",
       ],
-      "full_description": "Experience Cairo from the water. Board one of the most luxurious floating restaurants on the Nile.\n\nEnjoy a delicious open buffet dinner while gliding past the illuminated skyline of the city. The entertainment includes an authentic Belly Dancer and a Tanoura (spinning skirt) show.\n\nIt's the perfect way to relax after a dusty day at the pyramids.",
-      "program": [
-        { "time": "19:00", "activity": "Pickup", "details": "Transfer to the dock." },
-        { "time": "20:00", "activity": "Sailing", "details": "Boat starts sailing. Dinner buffet opens." },
-        { "time": "21:00", "activity": "Show Time", "details": "Oriental show begins." },
-        { "time": "22:00", "activity": "Docking", "details": "End of cruise and transfer back." }
+      full_description:
+        "Experience Cairo from the water. Board one of the most luxurious floating restaurants on the Nile.\n\nEnjoy a delicious open buffet dinner while gliding past the illuminated skyline of the city. The entertainment includes an authentic Belly Dancer and a Tanoura (spinning skirt) show.\n\nIt's the perfect way to relax after a dusty day at the pyramids.",
+      program: [
+        { time: "19:00", activity: "Pickup", details: "Transfer to the dock." },
+        {
+          time: "20:00",
+          activity: "Sailing",
+          details: "Boat starts sailing. Dinner buffet opens.",
+        },
+        {
+          time: "21:00",
+          activity: "Show Time",
+          details: "Oriental show begins.",
+        },
+        {
+          time: "22:00",
+          activity: "Docking",
+          details: "End of cruise and transfer back.",
+        },
       ],
-      "includes": ["Dinner Buffet", "Entertainment", "Transfers"],
-      "not_included": ["Drinks", "Tips"],
-      "important_notes": "Smart casual dress code recommended.",
-      "seo_tags": ["Nile Cruise Cairo", "Dinner on Nile", "Cairo Nightlife"]
+      includes: ["Dinner Buffet", "Entertainment", "Transfers"],
+      not_included: ["Drinks", "Tips"],
+      important_notes: "Smart casual dress code recommended.",
+      seo_tags: ["Nile Cruise Cairo", "Dinner on Nile", "Cairo Nightlife"],
     },
     cairo_quad_pyramids_dummy: {
-      "tour_id": "cairo_quad_pyramids_dummy",
-      "title": "Pyramids Quad Bike: Adrenaline & History",
-      "short_desc": "Race through the desert sands with the Pyramids of Giza as your backdrop. An adventurous way to see the ancient wonder.",
-      "duration": "2 Hours",
-      "highlights": [
+      tour_id: "cairo_quad_pyramids_dummy",
+      title: "Pyramids Quad Bike: Adrenaline & History",
+      short_desc:
+        "Race through the desert sands with the Pyramids of Giza as your backdrop. An adventurous way to see the ancient wonder.",
+      duration: "2 Hours",
+      highlights: [
         "1 Hour Quad Biking (ATV)",
         "Panoramic views of the Pyramids from the desert",
         "Sunrise or Sunset slots available",
-        "Bedouin Tea stop"
+        "Bedouin Tea stop",
       ],
-      "full_description": "Combine adventure with history! Ride a powerful Quad bike in the desert plain outside the Giza Pyramids area.\n\nYou'll get angles and photos of the Pyramids that normal tourists don't see. It's fast, it's fun, and the view is iconic.",
-      "program": [
-        { "time": "Flexible", "activity": "Start", "details": "Pickup and safety briefing." },
-        { "time": "+30 min", "activity": "Ride", "details": "Start your engines! Ride through the dunes." },
-        { "time": "+90 min", "activity": "Photo Stop", "details": "Best spot for panoramic photos." },
-        { "time": "+2 hrs", "activity": "Finish", "details": "Transfer back." }
+      full_description:
+        "Combine adventure with history! Ride a powerful Quad bike in the desert plain outside the Giza Pyramids area.\n\nYou'll get angles and photos of the Pyramids that normal tourists don't see. It's fast, it's fun, and the view is iconic.",
+      program: [
+        {
+          time: "Flexible",
+          activity: "Start",
+          details: "Pickup and safety briefing.",
+        },
+        {
+          time: "+30 min",
+          activity: "Ride",
+          details: "Start your engines! Ride through the dunes.",
+        },
+        {
+          time: "+90 min",
+          activity: "Photo Stop",
+          details: "Best spot for panoramic photos.",
+        },
+        { time: "+2 hrs", activity: "Finish", details: "Transfer back." },
       ],
-      "includes": ["Quad Bike Rental", "Guide", "Transfers"],
-      "not_included": ["Scarves/Goggles", "Tips"],
-      "important_notes": "Minimum age for driving is 16.",
-      "seo_tags": ["Cairo Quad", "Pyramids ATV", "Desert Adventure Cairo"]
+      includes: ["Quad Bike Rental", "Guide", "Transfers"],
+      not_included: ["Scarves/Goggles", "Tips"],
+      important_notes: "Minimum age for driving is 16.",
+      seo_tags: ["Cairo Quad", "Pyramids ATV", "Desert Adventure Cairo"],
     },
 
     //Luxor & aswan  Dummy
     luxor_kings_valley_dummy: {
-      "tour_id": "luxor_kings_valley_dummy",
-      "title": "West Bank: Valley of the Kings & Hatshepsut",
-      "short_desc": "Enter the afterlife. Visit the colorful tombs of the Pharaohs and the magnificent temple of Queen Hatshepsut.",
-      "duration": "Half Day (Morning)",
-      "highlights": [
+      tour_id: "luxor_kings_valley_dummy",
+      title: "West Bank: Valley of the Kings & Hatshepsut",
+      short_desc:
+        "Enter the afterlife. Visit the colorful tombs of the Pharaohs and the magnificent temple of Queen Hatshepsut.",
+      duration: "Half Day (Morning)",
+      highlights: [
         "Entry to 3 Tombs in Valley of the Kings",
         "Temple of Queen Hatshepsut",
         "Colossi of Memnon",
-        "Alabaster factory visit"
+        "Alabaster factory visit",
       ],
-      "full_description": "Luxor is the world's greatest open-air museum. We cross the Nile to the 'City of the Dead'.\n\nExplore the underground tombs where colors remain vivid after 3000 years. Stand in awe before the terraced temple of the powerful Queen Hatshepsut carved into the mountain.",
-      "program": [
-        { "time": "07:00", "activity": "Pickup", "details": "From your Luxor Hotel/Cruise." },
-        { "time": "08:00", "activity": "Valley of Kings", "details": "Visit 3 Royal Tombs." },
-        { "time": "10:00", "activity": "Hatshepsut", "details": "Explore the mortuary temple." },
-        { "time": "11:30", "activity": "Memnon", "details": "Photo stop at the Colossi." },
-        { "time": "12:30", "activity": "Return", "details": "Back to East Bank." }
+      full_description:
+        "Luxor is the world's greatest open-air museum. We cross the Nile to the 'City of the Dead'.\n\nExplore the underground tombs where colors remain vivid after 3000 years. Stand in awe before the terraced temple of the powerful Queen Hatshepsut carved into the mountain.",
+      program: [
+        {
+          time: "07:00",
+          activity: "Pickup",
+          details: "From your Luxor Hotel/Cruise.",
+        },
+        {
+          time: "08:00",
+          activity: "Valley of Kings",
+          details: "Visit 3 Royal Tombs.",
+        },
+        {
+          time: "10:00",
+          activity: "Hatshepsut",
+          details: "Explore the mortuary temple.",
+        },
+        {
+          time: "11:30",
+          activity: "Memnon",
+          details: "Photo stop at the Colossi.",
+        },
+        { time: "12:30", activity: "Return", details: "Back to East Bank." },
       ],
-      "includes": ["Transfers", "Guide", "Entrance Tickets"],
-      "not_included": ["Tutankhamun Tomb Ticket", "Tips"],
-      "important_notes": "Photography inside tombs requires an extra ticket.",
-      "seo_tags": ["Valley of Kings", "Luxor Tour", "Hatshepsut Temple"]
+      includes: ["Transfers", "Guide", "Entrance Tickets"],
+      not_included: ["Tutankhamun Tomb Ticket", "Tips"],
+      important_notes: "Photography inside tombs requires an extra ticket.",
+      seo_tags: ["Valley of Kings", "Luxor Tour", "Hatshepsut Temple"],
     },
     aswan_felucca_dummy: {
-      "tour_id": "aswan_felucca_dummy",
-      "title": "Aswan Felucca: Sunset Sailing & Botanicals",
-      "short_desc": "Relax on a traditional Egyptian sailboat (Felucca). Sail around Elephantine Island and see the Botanical Gardens.",
-      "duration": "2 Hours",
-      "highlights": [
+      tour_id: "aswan_felucca_dummy",
+      title: "Aswan Felucca: Sunset Sailing & Botanicals",
+      short_desc:
+        "Relax on a traditional Egyptian sailboat (Felucca). Sail around Elephantine Island and see the Botanical Gardens.",
+      duration: "2 Hours",
+      highlights: [
         "Traditional wind-powered sailing",
         "View of Aga Khan Mausoleum",
         "Relaxing Nubian atmosphere",
-        "Sunset views over the Nile"
+        "Sunset views over the Nile",
       ],
-      "full_description": "Life moves slower in Aswan. Experience the peace of the Nile on a Felucca, a boat design used since the Pharaohs.\n\nLet the wind take you around Elephantine Island. Watch the golden sunset reflect on the water and enjoy the true Nubian vibe.",
-      "program": [
-        { "time": "16:00", "activity": "Boarding", "details": "Step onto the Felucca." },
-        { "time": "16:30", "activity": "Sailing", "details": "Sail around the islands." },
-        { "time": "17:30", "activity": "Sunset", "details": "Magical sunset photos." },
-        { "time": "18:00", "activity": "End", "details": "Return to dock." }
+      full_description:
+        "Life moves slower in Aswan. Experience the peace of the Nile on a Felucca, a boat design used since the Pharaohs.\n\nLet the wind take you around Elephantine Island. Watch the golden sunset reflect on the water and enjoy the true Nubian vibe.",
+      program: [
+        {
+          time: "16:00",
+          activity: "Boarding",
+          details: "Step onto the Felucca.",
+        },
+        {
+          time: "16:30",
+          activity: "Sailing",
+          details: "Sail around the islands.",
+        },
+        {
+          time: "17:30",
+          activity: "Sunset",
+          details: "Magical sunset photos.",
+        },
+        { time: "18:00", activity: "End", details: "Return to dock." },
       ],
-      "includes": ["Felucca Ride", "Captain"],
-      "not_included": ["Drinks", "Tips"],
-      "important_notes": "Depends on wind conditions.",
-      "seo_tags": ["Aswan Felucca", "Nile Sailing", "Nubian Aswan"]
+      includes: ["Felucca Ride", "Captain"],
+      not_included: ["Drinks", "Tips"],
+      important_notes: "Depends on wind conditions.",
+      seo_tags: ["Aswan Felucca", "Nile Sailing", "Nubian Aswan"],
     },
-  }
+  },
 };
