@@ -1,0 +1,940 @@
+/* =========================================
+   Offerta Sharm — Standalone Stylesheet
+   Fully isolated from the main site CSS.
+   ========================================= */
+
+/* =========================================
+   0. CSS Custom Properties (Project Palette)
+   ========================================= */
+:root {
+  --gold: #D4AF37;
+  --gold-light: #F1D78A;
+  --gold-dark: #AA8C2C;
+  --black-rich: #0a0a0a;
+  --gray-dark: #1a1a1a;
+  --cream: #F5F5DC;
+  --white-soft: rgba(245, 245, 245, 0.92);
+  --white-muted: rgba(245, 245, 245, 0.6);
+  --border-gold: rgba(212, 175, 55, 0.18);
+  --border-gold-strong: rgba(212, 175, 55, 0.45);
+  --glass-bg: rgba(17, 17, 17, 0.9);
+  --shadow-heavy: 0 30px 70px rgba(0, 0, 0, 0.7);
+}
+
+/* =========================================
+   1. Self-Hosted Fonts (@font-face)
+   ========================================= */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../../assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../../assets/fonts/montserrat-v31-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../../assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../../assets/fonts/montserrat-v31-latin-900.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../../assets/fonts/playfair-display-v40-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../../assets/fonts/playfair-display-v40-latin-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../../assets/fonts/cinzel-v26-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../../assets/fonts/cinzel-v26-latin-700.woff2') format('woff2');
+}
+
+/* =========================================
+   2. Base Reset & Global Styles
+   ========================================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--black-rich);
+  color: var(--white-soft);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================
+   3. Landing Header Widget
+   ========================================= */
+.lsh-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-gold);
+  transition: background 300ms ease;
+}
+
+.lsh-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.6rem 1rem;
+}
+
+.lsh-header-logo {
+  width: 50px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.lsh-header-brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.lsh-header-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gold);
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+
+.lsh-header-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  text-transform: capitalize;
+  color: #ffffff;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+/* =========================================
+   4. Hero Section Widget
+   ========================================= */
+.lsh-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  background: #050505;
+}
+
+.lsh-hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.lsh-hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lsh-hero-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.lsh-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.55) 35%,
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  z-index: 2;
+}
+
+.lsh-hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1.5rem 4rem;
+  max-width: 700px;
+}
+
+.lsh-hero-badge {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  border: 1px solid var(--border-gold-strong);
+  background: rgba(212, 175, 55, 0.08);
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  margin-bottom: 1.2rem;
+}
+
+.lsh-hero-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);
+}
+
+.lsh-hero-title span {
+  color: var(--gold);
+}
+
+.lsh-hero-desc {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--cream);
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  line-height: 1.7;
+  opacity: 0.88;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.85);
+}
+
+.lsh-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2.4rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--gold);
+  color: #111;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.35);
+  transition: transform 300ms ease, background 300ms ease, box-shadow 300ms ease;
+}
+
+.lsh-hero-cta:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+}
+
+.lsh-hero-cta svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Desktop hero adjustments */
+@media (min-width: 768px) {
+  .lsh-hero {
+    min-height: 90vh;
+  }
+
+  .lsh-hero-content {
+    padding-bottom: 5rem;
+  }
+}
+
+/* =========================================
+   5. Shared Section Utilities
+   ========================================= */
+.lsh-section {
+  padding: 4rem 1.25rem;
+}
+
+.lsh-section-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.lsh-section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.lsh-section-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-shadow: 0 0 24px rgba(212, 175, 55, 0.16);
+}
+
+.lsh-section-subtitle {
+  margin-top: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--white-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: clamp(0.78rem, 2vw, 0.92rem);
+}
+
+.lsh-gold-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 1rem auto 0;
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .lsh-section {
+    padding: 5rem 2rem;
+  }
+}
+
+/* =========================================
+   6. Itinerary Section Widget
+   ========================================= */
+.lsh-itinerary-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.lsh-itinerary-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: 1.5rem;
+  border-radius: 18px;
+  border: 1px solid var(--border-gold);
+  background: linear-gradient(160deg, rgba(18, 18, 18, 0.92), rgba(0, 0, 0, 0.92));
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  transition: transform 250ms ease, border-color 250ms ease;
+}
+
+.lsh-itinerary-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-gold-strong);
+}
+
+.lsh-itinerary-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: rgba(212, 175, 55, 0.08);
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--gold);
+}
+
+.lsh-itinerary-body {
+  flex: 1;
+}
+
+.lsh-itinerary-day {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 0.25rem;
+}
+
+.lsh-itinerary-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.lsh-itinerary-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: var(--white-muted);
+  line-height: 1.65;
+}
+
+@media (min-width: 768px) {
+  .lsh-itinerary-grid {
+    gap: 1.25rem;
+  }
+
+  .lsh-itinerary-card {
+    padding: 1.8rem 2rem;
+  }
+}
+
+/* =========================================
+   7. Reviews Container Widget
+   ========================================= */
+.lsh-reviews-section {
+  background: linear-gradient(180deg, var(--black-rich) 0%, #050505 100%);
+}
+
+.lsh-reviews-slider {
+  position: relative;
+  border-radius: 26px;
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  background: radial-gradient(circle at top, rgba(212, 175, 55, 0.06), rgba(0, 0, 0, 0.85));
+  box-shadow: var(--shadow-heavy);
+  overflow: hidden;
+}
+
+.lsh-reviews-slider::before,
+.lsh-reviews-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.lsh-reviews-slider::before {
+  left: 0;
+  background: linear-gradient(90deg, #050505 0%, rgba(5, 5, 5, 0) 100%);
+}
+
+.lsh-reviews-slider::after {
+  right: 0;
+  background: linear-gradient(270deg, #050505 0%, rgba(5, 5, 5, 0) 100%);
+}
+
+/* reviewsTrack is the element targeted by the existing reviews-renderer.js */
+#reviewsTrack {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 1.2rem;
+  width: max-content;
+  will-change: transform;
+  animation: lsh-scroll 38s linear infinite;
+}
+
+.lsh-reviews-slider:hover #reviewsTrack {
+  animation-play-state: paused;
+}
+
+/* Review card styles (matching the main project's design) */
+.review-card {
+  width: clamp(260px, 76vw, 360px);
+  flex: 0 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border-gold-strong);
+  background: linear-gradient(160deg, rgba(18, 18, 18, 0.92), rgba(0, 0, 0, 0.92));
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+  padding: 1.05rem 1.05rem 1.15rem;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.9);
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.35), 0 18px 60px rgba(212, 175, 55, 0.12);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.review-author {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.review-name {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--white-soft);
+  font-size: 0.95rem;
+}
+
+.review-meta {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  color: var(--white-muted);
+}
+
+.review-facebook {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  border: 1px solid rgba(24, 119, 242, 0.45);
+  background: rgba(24, 119, 242, 0.08);
+  color: #1877F2;
+  flex-shrink: 0;
+}
+
+.review-facebook svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.review-text {
+  font-family: 'Montserrat', sans-serif;
+  color: rgba(245, 245, 245, 0.82);
+  line-height: 1.65;
+  font-size: 0.92rem;
+}
+
+.review-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.18rem;
+  margin: 0.15rem 0 0.65rem;
+}
+
+.review-star {
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-star svg {
+  width: 14px;
+  height: 14px;
+  fill: rgba(212, 175, 55, 0.22);
+}
+
+.review-star.is-filled svg {
+  fill: rgba(212, 175, 55, 0.95);
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.18));
+}
+
+@keyframes lsh-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 520px) {
+  #reviewsTrack {
+    padding: 1rem;
+    gap: 0.85rem;
+  }
+
+  .review-card {
+    padding: 0.95rem 0.95rem 1rem;
+    border-radius: 16px;
+  }
+
+  .lsh-reviews-slider::before,
+  .lsh-reviews-slider::after {
+    width: 46px;
+  }
+}
+
+.reviews-facebook-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 175, 55, 0.65);
+  background: rgba(0, 0, 0, 0.65);
+  color: rgba(245, 245, 245, 0.92);
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.reviews-facebook-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.95);
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.25), 0 22px 50px rgba(0, 0, 0, 0.65);
+}
+
+.reviews-facebook-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: #1877F2 !important;
+}
+
+/* =========================================
+   8. Pricing Widget
+   ========================================= */
+.lsh-pricing {
+  background: linear-gradient(180deg, #050505 0%, var(--black-rich) 100%);
+}
+
+.lsh-pricing-card {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
+  border: 1px solid var(--border-gold-strong);
+  background: linear-gradient(160deg, rgba(18, 18, 18, 0.95), rgba(10, 10, 10, 0.95));
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.06), var(--shadow-heavy);
+}
+
+.lsh-pricing-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--white-muted);
+  margin-bottom: 0.6rem;
+}
+
+.lsh-pricing-amount {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: clamp(2.8rem, 8vw, 4rem);
+  color: var(--gold);
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+.lsh-pricing-suffix {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white-muted);
+  margin-top: 0.4rem;
+  letter-spacing: 0.06em;
+}
+
+.lsh-pricing-note {
+  margin-top: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  color: var(--white-muted);
+  line-height: 1.6;
+}
+
+.lsh-pricing-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 999px;
+  border: 2px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 300ms ease, color 300ms ease, transform 300ms ease;
+}
+
+.lsh-pricing-cta:hover {
+  background: var(--gold);
+  color: #111;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   9. Booking Form Widget
+   ========================================= */
+.lsh-booking {
+  background: linear-gradient(180deg, var(--black-rich) 0%, #060606 100%);
+}
+
+.lsh-booking-card {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  border-radius: 24px;
+  border: 1px solid var(--border-gold);
+  background: linear-gradient(160deg, rgba(18, 18, 18, 0.95), rgba(6, 6, 6, 0.95));
+  box-shadow: var(--shadow-heavy);
+}
+
+.lsh-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.lsh-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.lsh-form-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+.lsh-form-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.lsh-form-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.lsh-form-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+/* Fix native date input styling */
+.lsh-form-input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.7);
+  cursor: pointer;
+}
+
+.lsh-form-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  margin-top: 0.5rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--gold);
+  color: #111;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.35);
+  transition: transform 300ms ease, background 300ms ease, box-shadow 300ms ease;
+}
+
+.lsh-form-submit:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+}
+
+.lsh-form-submit svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.lsh-form-error {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  color: #ef4444;
+  margin-top: -0.5rem;
+  display: none;
+}
+
+.lsh-form-error.visible {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .lsh-booking-card {
+    padding: 3rem 2.5rem;
+  }
+}
+
+/* =========================================
+   10. Landing Footer Widget
+   ========================================= */
+.lsh-footer {
+  border-top: 1px solid var(--border-gold);
+  background: #050505;
+  padding: 2.5rem 1.25rem;
+}
+
+.lsh-footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  text-align: center;
+}
+
+.lsh-footer-brand {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+}
+
+.lsh-footer-copy {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  color: var(--white-muted);
+  letter-spacing: 0.04em;
+}
+
+.lsh-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.lsh-footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+  background: rgba(212, 175, 55, 0.05);
+  color: var(--gold);
+  transition: background 250ms ease, border-color 250ms ease, transform 250ms ease;
+}
+
+.lsh-footer-social-link:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--border-gold-strong);
+  transform: translateY(-2px);
+}
+
+.lsh-footer-social-link svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* =========================================
+   11. Scroll-Reveal Animation (optional)
+   ========================================= */
+.lsh-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.lsh-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
