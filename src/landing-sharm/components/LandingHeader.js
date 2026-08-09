@@ -12,7 +12,7 @@ const LandingHeader = {
             <img class="osh-header-logo"
                  src="../assets/images/logo/logo-fabio-square.webp"
                  alt="Fabio Egypt Logo"
-                 width="42" height="40" loading="eager" />
+                 width="42" height="40" loading="eager" decoding="async" />
             <div class="osh-header-brand">
               <span class="osh-header-brand-name">Fabio <span>Egypt</span></span>
             </div>

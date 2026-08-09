@@ -10,7 +10,6 @@ import WhyChooseUs from './components/WhyChooseUs.js';
 import ProgramsCards from './components/ProgramsCards.js';
 import TimelineSteps from './components/TimelineSteps.js';
 import VideoTestimonials from './components/VideoTestimonials.js';
-import ReviewsContainer from './components/ReviewsContainer.js';
 import BookingFormWidget from './components/BookingFormWidget.js';
 import TrustBadges from './components/TrustBadges.js';
 import LandingFooter from './components/LandingFooter.js';
@@ -24,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
   ProgramsCards.init();
   TimelineSteps.init();
   VideoTestimonials.init();
-  ReviewsContainer.init();
   BookingFormWidget.init();
   TrustBadges.init();
   LandingFooter.init();

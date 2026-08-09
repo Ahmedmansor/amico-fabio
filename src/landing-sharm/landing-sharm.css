@@ -144,9 +144,29 @@ button {
   cursor: pointer;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
 /* =========================================
-   3. Shared Section Utilities
+   3. Shared Section Utilities & Performance
    ========================================= */
+section[id],
+div[id],
+.osh-section {
+  scroll-margin-top: 70px;
+}
+
+.osh-section:not(#osh-hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
 .osh-section {
   padding: 3.5rem 1.25rem;
 }
@@ -168,10 +188,11 @@ button {
 .osh-section-title {
   font-family: 'Playfair Display', serif;
   font-weight: 800;
-  font-size: clamp(1.75rem, 4.5vw, 2.4rem);
+  font-size: clamp(1.4rem, 4.5vw, 2.4rem);
   color: var(--navy);
   margin-bottom: 0.5rem;
   letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
 .osh-section-subtitle {
@@ -376,11 +397,12 @@ button {
 .osh-hero-title {
   font-family: 'Playfair Display', serif;
   font-weight: 800;
-  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
   color: var(--white);
   line-height: 1.15;
   margin-bottom: 0.75rem;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  text-wrap: balance;
 }
 
 .osh-hero-subtitle {
@@ -427,6 +449,18 @@ button {
   color: var(--white);
   border: none;
   box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+.osh-btn--hero {
+  padding: 0.55rem 1.2rem;
+  font-size: 0.82rem;
+  gap: 0.45rem;
+  box-shadow: 0 3px 12px rgba(37, 211, 102, 0.3);
+}
+
+.osh-btn--hero svg {
+  width: 15px;
+  height: 15px;
 }
 
 .osh-btn--wa:hover {
@@ -607,8 +641,8 @@ button {
    ========================================= */
 .osh-programs-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
 .osh-program-card {
@@ -617,6 +651,8 @@ button {
   overflow: hidden;
   box-shadow: var(--shadow-card);
   transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
 }
 
 .osh-program-card:hover {
@@ -624,67 +660,42 @@ button {
   box-shadow: var(--shadow-hover);
 }
 
+.osh-program-card:hover .osh-program-img {
+  transform: scale(1.04);
+}
+
 .osh-program-img {
   width: 100%;
-  height: 150px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
 .osh-program-body {
-  padding: 1rem;
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .osh-program-name {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   color: var(--text-dark);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
 }
 
 .osh-program-desc {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
-}
-
-.osh-program-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-weight: 800;
-  font-size: 0.82rem;
-  color: var(--gold);
-  transition: color var(--transition);
-}
-
-.osh-program-link:hover {
-  color: var(--navy);
-}
-
-.osh-program-link svg {
-  width: 14px;
-  height: 14px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2.5;
+  line-height: 1.55;
 }
 
 .osh-programs-cta {
   text-align: center;
-  margin-top: 2rem;
-}
-
-@media (min-width: 768px) {
-  .osh-programs-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-  }
-
-  .osh-program-img {
-    height: 180px;
-  }
+  margin-top: 2.25rem;
 }
 
 /* =========================================
@@ -1054,6 +1065,34 @@ button {
   display: block;
 }
 
+.osh-form-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin-top: 0.9rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.osh-form-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.osh-form-trust-item svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--wa-green-dark);
+  flex-shrink: 0;
+}
+
 @media (min-width: 768px) {
   .osh-booking-section {
     padding: 4.5rem 2rem;
@@ -1355,7 +1394,7 @@ button {
 .osh-footer-phone-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 0.95rem;
@@ -1366,6 +1405,13 @@ button {
 
 .osh-footer-phone-link:hover {
   color: var(--white);
+}
+
+.osh-footer-phone-link svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+  flex-shrink: 0;
 }
 
 .osh-footer-socials {
@@ -1492,11 +1538,163 @@ button {
   border: 0;
 }
 
+/* =========================================
+   16. Mobile Optimizations (max-width: 480px)
+   Targeting iPhone 12 Pro (390px) & small screens
+   ========================================= */
 @media (max-width: 480px) {
+  /* Section Spacing & Margins */
+  .osh-section {
+    padding: 2.25rem 1rem;
+  }
+
+  .osh-section-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .osh-section-title {
+    font-size: clamp(1.35rem, 5.2vw, 1.65rem);
+    line-height: 1.25;
+  }
+
+  .osh-section-subtitle {
+    font-size: 0.88rem;
+    padding: 0 0.25rem;
+  }
+
+  /* Hero Section */
+  .osh-hero {
+    min-height: 380px;
+  }
+
+  .osh-hero-content {
+    padding: 2.25rem 1rem;
+  }
+
+  .osh-hero-title {
+    font-size: clamp(1.85rem, 7.5vw, 2.4rem);
+    line-height: 1.2;
+  }
+
+  .osh-hero-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .osh-btn--hero {
+    padding: 0.5rem 1.05rem;
+    font-size: 0.78rem;
+  }
+
+  /* Why Choose Us (2x2 Grid) */
+  .osh-why-grid {
+    gap: 1.25rem 0.85rem;
+  }
+
+  .osh-why-item {
+    padding: 0.85rem 0.5rem;
+  }
+
+  .osh-why-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.6rem;
+  }
+
+  .osh-why-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .osh-why-title {
+    font-size: 0.88rem;
+    line-height: 1.3;
+  }
+
+  .osh-why-desc {
+    font-size: 0.76rem;
+    line-height: 1.45;
+  }
+
+  /* Programs Cards */
+  .osh-programs-grid {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+
+  .osh-program-img {
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
+
+  .osh-program-body {
+    padding: 1rem 1.1rem;
+  }
+
+  .osh-program-name {
+    font-size: 1rem;
+  }
+
+  .osh-program-desc {
+    font-size: 0.82rem;
+  }
+
+  .osh-programs-cta {
+    margin-top: 1.25rem;
+  }
+
+  /* How To Book Timeline */
+  .osh-timeline {
+    gap: 1.5rem 0.75rem;
+  }
+
+  .osh-timeline-icon-wrap {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 0.65rem;
+  }
+
+  .osh-timeline-icon-wrap svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .osh-timeline-title {
+    font-size: 0.88rem;
+  }
+
+  .osh-timeline-desc {
+    font-size: 0.76rem;
+  }
+
+  /* Booking Form Section */
+  .osh-booking-section {
+    padding: 2.25rem 1rem;
+  }
+
+  .osh-booking-card {
+    padding: 1.5rem 1.1rem;
+  }
+
+  /* Reviews Section */
+  .osh-reviews-section {
+    padding: 2.25rem 1rem;
+  }
+
+  /* Trust Badges */
+  .osh-trust {
+    padding: 2rem 1rem;
+  }
+
+  .osh-trust-grid {
+    gap: 1.25rem 0.75rem;
+  }
+
+  /* Video Modal */
   .osh-video-modal {
     padding: 0.75rem;
   }
-  
+
   .osh-video-modal-container {
     max-width: 100%;
   }

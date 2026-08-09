@@ -62,7 +62,7 @@ const VideoTestimonials = {
               ${reviewsData.map((item, index) => `
                 <div class="osh-video-card" data-video-id="${item.id}" data-index="${index}">
                   <div class="osh-video-media">
-                    <img class="osh-video-thumb" src="${item.thumbnail}" alt="${item.title}" loading="lazy" />
+                    <img class="osh-video-thumb" src="${item.thumbnail}" alt="${item.title}" loading="lazy" decoding="async" />
                     <div class="osh-video-play">
                       <div class="osh-video-play-icon">${playSvg}</div>
                     </div>

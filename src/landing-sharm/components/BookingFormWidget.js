@@ -50,6 +50,21 @@ const BookingFormWidget = {
                 </svg>
                 Prenota su WhatsApp
               </button>
+
+              <div class="osh-form-trust">
+                <span class="osh-form-trust-item">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  Risposta in 15 min
+                </span>
+                <span class="osh-form-trust-item">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                  Nessun anticipo
+                </span>
+                <span class="osh-form-trust-item">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  Assistenza in Italiano
+                </span>
+              </div>
             </form>
           </div>
         </div>
