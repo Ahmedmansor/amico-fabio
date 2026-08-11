@@ -131,8 +131,8 @@ const BookingFormWidget = {
       `📅 *Data di Arrivo:* ${formattedDate}`,
       `👥 *Numero di Persone:* ${people}`,
       ``,
-      `Ciao Fabio! Sono interessato/a all'offerta Sharm El Sheikh. Vorrei maggiori informazioni e confermare la prenotazione. Grazie! 🙏`
-    ].join('\n');
+      `Ciao Fabio! Vorrei organizzare il mio viaggio in Egitto con voi e ricevere un preventivo personalizzato. 🇪🇬`,
+    ].join("\n");
 
     const encoded = encodeURIComponent(message);
     const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;

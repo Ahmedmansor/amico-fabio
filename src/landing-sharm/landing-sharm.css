@@ -224,6 +224,19 @@ div[id],
   transition: box-shadow var(--transition);
 }
 
+.osh-scroll-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #C59B27, #E5C158, #D4A33C);
+  box-shadow: 0 0 8px rgba(212, 163, 60, 0.6);
+  transition: width 0.1s linear;
+  pointer-events: none;
+  z-index: 210;
+}
+
 .osh-header-inner {
   display: flex;
   align-items: center;

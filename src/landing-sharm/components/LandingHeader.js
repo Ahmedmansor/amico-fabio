@@ -7,6 +7,7 @@ const LandingHeader = {
 
     host.innerHTML = `
       <header class="osh-header" id="osh-main-header">
+        <div class="osh-scroll-progress" id="osh-scroll-progress"></div>
         <div class="osh-header-inner">
           <a href="/offerta-sharm/" class="osh-header-logo-wrap" aria-label="Fabio Egypt Home">
             <img class="osh-header-logo"
@@ -42,6 +43,25 @@ const LandingHeader = {
     `;
 
     LandingHeader._bindMenu();
+    LandingHeader._bindScrollProgress();
+  },
+
+  _bindScrollProgress: () => {
+    const progressBar = document.getElementById('osh-scroll-progress');
+    if (!progressBar) return;
+
+    const updateProgress = () => {
+      const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+      const clientHeight = document.documentElement.clientHeight || window.innerHeight;
+      const maxScroll = scrollHeight - clientHeight;
+      const currentScroll = window.scrollY || document.documentElement.scrollTop || 0;
+      const pct = maxScroll > 0 ? Math.min(100, Math.max(0, (currentScroll / maxScroll) * 100)) : 0;
+      progressBar.style.width = `${pct}%`;
+    };
+
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress, { passive: true });
   },
 
   _bindMenu: () => {

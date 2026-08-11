@@ -35,6 +35,8 @@ const GlobalFooter = {
     const crossRootsLogo = getPath('ui.crossRootsLogo') || (`${__BASE}assets/images/logo/cross-roots-logo.webp`);
     const facebookIcon = getPath('icons.social.facebook') || (`${__BASE}assets/images/icons/social/facebook.svg`);
     const instagramIcon = getPath('icons.social.instagram') || (`${__BASE}assets/images/icons/social/instagram.svg`);
+    const tiktokIcon = getPath('icons.social.tiktok') || (`${__BASE}assets/images/icons/social/tiktok.svg`);
+    const youtubeIcon = getPath('icons.social.youtube') || (`${__BASE}assets/images/icons/social/youtube.svg`);
 
     const markup = `
       <footer class="af-footer">
@@ -69,11 +71,17 @@ const GlobalFooter = {
                 </a>
               </div>
               <div class="af-social">
-                <a href="https://www.facebook.com/share/1GTtjC4JsK/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" class="af-social-btn">
+                <a href="https://www.facebook.com/fabioEgyptVip/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="af-social-btn">
                   <img src="${facebookIcon}" class="af-social-icon" width="24" height="24" alt="Facebook">
                 </a>
-                <a href="https://www.instagram.com/fabio_egypt?igsh=ZDd1Y2dhbG83aXE0&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" class="af-social-btn">
+                <a href="https://www.instagram.com/fabio_egypt_vip" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="af-social-btn">
                   <img src="${instagramIcon}" class="af-social-icon" width="24" height="24" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="af-social-btn">
+                  <img src="${tiktokIcon}" class="af-social-icon" width="24" height="24" alt="TikTok">
+                </a>
+                <a href="https://www.youtube.com/@FabioEgyptItaly" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="af-social-btn">
+                  <img src="${youtubeIcon}" class="af-social-icon" width="24" height="24" alt="YouTube">
                 </a>
               </div>
             </div>
