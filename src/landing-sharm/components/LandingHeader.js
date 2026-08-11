@@ -35,7 +35,8 @@ const LandingHeader = {
           <a href="#programs-section">Destinazioni</a>
           <a href="#timeline-section">Come prenotare</a>
           <a href="#videos-section">Testimonianze</a>
-          <a href="#booking-section">Prenota ora</a>
+          <a href="#faq-section">Domande frequenti</a>
+          <a href="#booking-section">Richiedi un Preventivo</a>
         </div>
       </nav>
     `;

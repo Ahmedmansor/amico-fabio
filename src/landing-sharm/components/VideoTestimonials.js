@@ -3,12 +3,12 @@
 const reviewsData = [
   {
     id: "1214756632",
-    title: "Il parco marino di ras Mohamed",
+    title: "Il Parco Marino di Ras Mohamed",
     thumbnail: "/assets/images/offerta-sharm-land-page/reviews/thumbnail_project_13.webp"
   },
   {
     id: "1214757531",
-    title: "Il parco marino di ras Mohamed",
+    title: "Il Parco Marino di Ras Mohamed",
     thumbnail: "/assets/images/offerta-sharm-land-page/reviews/thumbnail_project_7.webp"
   },
   {

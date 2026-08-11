@@ -8,12 +8,12 @@
 const programsData = [
   {
     title: "Il Cairo",
-    description: "Piramidi di Giza, Museo Egizio, Cairo Antico e bazar tradizionali.",
+    description: "Scopri i segreti dei Faraoni con la tua guida privata parlante italiano. Un viaggio esclusivo tra le Piramidi, storia millenaria e comfort assoluto, curato in ogni dettaglio.",
     image: "/assets/images/offerta-sharm-land-page/distinations/cairo.webp"
   },
   {
     title: "Sharm El Sheikh",
-    description: "Mare cristallino, coralli spettacolari, relax e divertimento.",
+    description: "Lusso senza compromessi e vere esperienze VIP sul Mar Rosso. Escursioni private in barca, snorkeling esclusivo e relax totale lontano dal turismo di massa.",
     image: "/assets/images/offerta-sharm-land-page/distinations/sharm.webp"
   },
   {
@@ -23,13 +23,28 @@ const programsData = [
   },
   {
     title: "Monte Sinai e Santa Caterina",
-    description: "Un'alba mozzafiato dalla vetta del Monte Sinai e il monastero più antico del mondo.",
+    description: "Un'avventura mistica nel cuore del deserto vissuta in totale privacy. Ammira un'alba mozzafiato con un'organizzazione impeccabile e servizi su misura.",
     image: "/assets/images/offerta-sharm-land-page/distinations/saint_catherine.webp"
   },
   {
     title: "Luxor e Aswan",
-    description: "Templi maestosi, Valle dei Re, crociere sul Nilo e storia senza tempo.",
+    description: "Naviga nella storia e visita i templi più maestosi d'Egitto. Un'esperienza culturale Premium con un servizio personalizzato, pensato esclusivamente per te.",
     image: "/assets/images/offerta-sharm-land-page/distinations/luxor_aswan.webp"
+  },
+  {
+    title: "Siwa",
+    description: "Un'oasi di pura magia nel cuore del deserto. Immergiti nelle surreali piscine di sale, esplora antiche rovine e concediti un ritiro eco-chic all'insegna del relax assoluto.",
+    image: "/assets/images/offerta-sharm-land-page/distinations/siwa.webp"
+  },
+  {
+    title: "Marsa Alam",
+    description: "Il paradiso incontaminato del Mar Rosso. Nuota tra tartarughe e delfini in barriere coralline intatte, vivendo un'avventura marina esclusiva e lontana dal turismo di massa.",
+    image: "/assets/images/offerta-sharm-land-page/distinations/marsa_alam.webp"
+  },
+  {
+    title: "Marsa Matrouh",
+    description: "Scopri le \"Maldive del Mediterraneo\". Spiagge di sabbia bianca finissima, acque turchesi cristalline e un'atmosfera di puro relax per una fuga esclusiva e indimenticabile.",
+    image: "/assets/images/offerta-sharm-land-page/distinations/marsa_matrouh.webp"
   }
 ];
 
