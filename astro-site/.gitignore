@@ -5,3 +5,10 @@ dist/
 .env.*
 !.env.example
 *.log
+
+# Visual migration evidence stays local; keep QA JSON and Markdown tracked.
+/qa/**/*.png
+/qa/**/*.jpg
+/qa/**/*.jpeg
+/qa/**/*.webp
+/qa/**/*.avif

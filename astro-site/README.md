@@ -116,3 +116,11 @@ The six-section guide is available at `/it/sharm-secrets/` and
 `/en/sharm-secrets/`, preserving legacy content, style, index and photo gallery.
 See [qa/sharm-secrets/README.md](./qa/sharm-secrets/README.md) for matching
 screenshots, source limitations and reproducible verification.
+
+## QA screenshot storage
+
+Capture legacy and Astro screenshots for visual comparisons, but keep raster
+images under `qa/` local and ignored by Git. Commit the comparison JSON, README
+reports and verification scripts. A fresh clone will not include screenshots;
+regenerate them or keep a separate backup of the baseline before a redesign.
+Previously committed screenshot history will be cleaned up after migration.
