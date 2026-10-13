@@ -1,8 +1,9 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import { siteConfig } from './src/shared/config/site.ts';
 
 export default defineConfig({
-  site: 'https://fabioegypt.com',
+  site: siteConfig.url,
   output: 'static',
   vite: {
     plugins: [tailwindcss()],

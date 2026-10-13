@@ -47,3 +47,30 @@ complete migration discipline in the repository's `AGENTS.md`.
 See [ARCHITECTURE.md](./ARCHITECTURE.md) for feature ownership, dependency
 direction, import aliases, and domain test locations. Empty layer directories
 reserve the structure for later tasks; they do not contain migrated content yet.
+
+## Shared configuration and translations
+
+`src/shared/config/languages.ts` is the single supported-language and direction
+configuration. Italian is the default. `resolveLocale()` accepts preference
+values supplied by the caller and selects the first enabled language, without
+accessing browser storage itself.
+
+`src/shared/config/site.ts` contains the public domain, WhatsApp number, and
+social URLs copied from the legacy site. Consumers must use this configuration
+as they are migrated. It does not contain secrets or initialize analytics.
+
+The setup dictionary is checked against the configured languages and matching
+keys during static generation; TypeScript also checks its language coverage and
+message shape. Missing dictionaries, missing/extra keys, mismatched value types,
+and mismatched array lengths throw descriptive errors. The full legacy content
+has not been imported yet. Arabic will need its actual dictionary and direction
+entry before its pages can be generated.
+
+Run the focused shared-configuration checks with the built-in Node test runner:
+
+```sh
+node --test src/shared/i18n/__tests__/configuration.test.mjs
+```
+
+These checks use Node 24's TypeScript support and install no additional package.
+They do not replace the planned Vitest tests for feature domain behavior.

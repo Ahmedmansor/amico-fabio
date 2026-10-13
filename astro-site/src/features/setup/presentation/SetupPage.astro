@@ -1,12 +1,18 @@
 ---
 import '@shared/styles/global.css';
-import { setupMessages } from '@shared/i18n/setup';
+import { defaultLocale, languages, type Locale } from '@shared/config/languages';
+import { getSetupMessages } from '@shared/i18n/setup';
 
-const messages = setupMessages.it;
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const messages = getSetupMessages(locale);
 ---
 
 <!doctype html>
-<html lang="it">
+<html lang={locale} dir={languages[locale].direction}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
