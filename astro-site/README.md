@@ -43,3 +43,7 @@ presentation layers. Domain functions and their tests remain part of the design.
 Preserve the legacy appearance and content, and compare migrated pages against
 the legacy pages in both languages at mobile and desktop widths. Follow the
 complete migration discipline in the repository's `AGENTS.md`.
+
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for feature ownership, dependency
+direction, import aliases, and domain test locations. Empty layer directories
+reserve the structure for later tasks; they do not contain migrated content yet.
