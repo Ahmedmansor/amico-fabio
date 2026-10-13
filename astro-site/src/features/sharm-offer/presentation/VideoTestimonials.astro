@@ -1,0 +1,114 @@
+---
+import type {OfferCampaign} from '../domain/campaign';
+interface Props {campaign:OfferCampaign}
+const {campaign}=Astro.props;
+const copy=campaign.copy;
+import {Image} from 'astro:assets';
+import {offerImage} from './images';
+const images=campaign.images;
+---
+<div id="videos-section">
+      <section class="osh-section" id="videos-block">
+        <div class="osh-container">
+          <div class="osh-section-header">
+            <h2 class="osh-section-title">{copy["VideoTestimonials.text.0"]}</h2>
+          </div>
+
+          <div class="osh-videos-scroll-wrapper">
+            <div class="osh-videos-track" id="osh-videos-track">
+
+                <div class="osh-video-card" role="button" tabindex="0" data-video-id="1214756632" data-index="0">
+                  <div class="osh-video-media">
+                    <Image class="osh-video-thumb" src={offerImage(images["VideoTestimonials.image.10"])} alt={copy["VideoTestimonials.alt.1"]} loading="lazy" decoding="async" widths={[400,800,1200]} sizes="(min-width:1024px) 600px, 100vw" />
+                    <div class="osh-video-play">
+                      <div class="osh-video-play-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                    </div>
+                  </div>
+                  <div class="osh-video-caption">
+                    <h3 class="osh-video-caption-title">{copy["VideoTestimonials.text.2"]}</h3>
+                    <span class="osh-video-caption-sub">{copy["VideoTestimonials.text.3"]}</span>
+                  </div>
+                </div>
+
+                <div class="osh-video-card" role="button" tabindex="0" data-video-id="1214757531" data-index="1">
+                  <div class="osh-video-media">
+                    <Image class="osh-video-thumb" src={offerImage(images["VideoTestimonials.image.11"])} alt={copy["VideoTestimonials.alt.4"]} loading="lazy" decoding="async" widths={[400,800,1200]} sizes="(min-width:1024px) 600px, 100vw" />
+                    <div class="osh-video-play">
+                      <div class="osh-video-play-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                    </div>
+                  </div>
+                  <div class="osh-video-caption">
+                    <h3 class="osh-video-caption-title">{copy["VideoTestimonials.text.5"]}</h3>
+                    <span class="osh-video-caption-sub">{copy["VideoTestimonials.text.6"]}</span>
+                  </div>
+                </div>
+
+                <div class="osh-video-card" role="button" tabindex="0" data-video-id="1214758552" data-index="2">
+                  <div class="osh-video-media">
+                    <Image class="osh-video-thumb" src={offerImage(images["VideoTestimonials.image.12"])} alt={copy["VideoTestimonials.alt.7"]} loading="lazy" decoding="async" widths={[400,800,1200]} sizes="(min-width:1024px) 600px, 100vw" />
+                    <div class="osh-video-play">
+                      <div class="osh-video-play-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                    </div>
+                  </div>
+                  <div class="osh-video-caption">
+                    <h3 class="osh-video-caption-title">{copy["VideoTestimonials.text.8"]}</h3>
+                    <span class="osh-video-caption-sub">{copy["VideoTestimonials.text.9"]}</span>
+                  </div>
+                </div>
+
+                <div class="osh-video-card" role="button" tabindex="0" data-video-id="1214760129" data-index="3">
+                  <div class="osh-video-media">
+                    <Image class="osh-video-thumb" src={offerImage(images["VideoTestimonials.image.13"])} alt={copy["VideoTestimonials.alt.10"]} loading="lazy" decoding="async" widths={[400,800,1200]} sizes="(min-width:1024px) 600px, 100vw" />
+                    <div class="osh-video-play">
+                      <div class="osh-video-play-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                    </div>
+                  </div>
+                  <div class="osh-video-caption">
+                    <h3 class="osh-video-caption-title">{copy["VideoTestimonials.text.11"]}</h3>
+                    <span class="osh-video-caption-sub">{copy["VideoTestimonials.text.12"]}</span>
+                  </div>
+                </div>
+
+                <div class="osh-video-card" role="button" tabindex="0" data-video-id="1214757761" data-index="4">
+                  <div class="osh-video-media">
+                    <Image class="osh-video-thumb" src={offerImage(images["VideoTestimonials.image.14"])} alt={copy["VideoTestimonials.alt.13"]} loading="lazy" decoding="async" widths={[400,800,1200]} sizes="(min-width:1024px) 600px, 100vw" />
+                    <div class="osh-video-play">
+                      <div class="osh-video-play-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                    </div>
+                  </div>
+                  <div class="osh-video-caption">
+                    <h3 class="osh-video-caption-title">{copy["VideoTestimonials.text.14"]}</h3>
+                    <span class="osh-video-caption-sub">{copy["VideoTestimonials.text.15"]}</span>
+                  </div>
+                </div>
+
+                <div class="osh-video-card" role="button" tabindex="0" data-video-id="1214758307" data-index="5">
+                  <div class="osh-video-media">
+                    <Image class="osh-video-thumb" src={offerImage(images["VideoTestimonials.image.15"])} alt={copy["VideoTestimonials.alt.16"]} loading="lazy" decoding="async" widths={[400,800,1200]} sizes="(min-width:1024px) 600px, 100vw" />
+                    <div class="osh-video-play">
+                      <div class="osh-video-play-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                    </div>
+                  </div>
+                  <div class="osh-video-caption">
+                    <h3 class="osh-video-caption-title">{copy["VideoTestimonials.text.17"]}</h3>
+                    <span class="osh-video-caption-sub">{copy["VideoTestimonials.text.18"]}</span>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <div class="osh-video-modal" id="osh-video-modal" aria-hidden="true" role="dialog" aria-label={copy["VideoTestimonials.aria-label.19"]}>
+        <div class="osh-video-modal-backdrop" id="osh-video-modal-backdrop"></div>
+        <div class="osh-video-modal-container">
+          <button class="osh-video-modal-close" id="osh-video-modal-close" aria-label={copy["VideoTestimonials.aria-label.20"]}>
+            <svg viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+          <div class="osh-video-modal-body" id="osh-video-modal-body"></div>
+        </div>
+      </div>
+
+</div>

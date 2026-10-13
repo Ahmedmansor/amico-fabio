@@ -1,7 +1,7 @@
 # Fabio Egypt — Astro migration workspace
 
 This application is independent of the legacy Vite site at the repository root.
-Run its commands from this directory. No production pages have been migrated yet.
+Run its commands from this directory. Migrated routes are listed below.
 
 ## Runtime and dependencies
 
@@ -124,3 +124,13 @@ images under `qa/` local and ignored by Git. Commit the comparison JSON, README
 reports and verification scripts. A fresh clone will not include screenshots;
 regenerate them or keep a separate backup of the baseline before a redesign.
 Previously committed screenshot history will be cleaned up after migration.
+
+## Italian landing campaign
+
+`/offerta-sharm/` retains its original Italian campaign content and separate
+design. The neutral `DocumentShell.astro` shares metadata/analytics with the
+main site without forcing its header/footer or stylesheet on campaigns.
+See [qa/sharm-offer/README.md](./qa/sharm-offer/README.md) and the root
+`صفحات الهبوط.md` for comparison evidence and the approved campaign approach.
+`npm test` now runs the existing Node tests plus the approved Vitest domain
+tests. `npm run test:domain` runs Vitest by itself.

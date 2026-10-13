@@ -11,7 +11,8 @@
     "check": "astro check",
     "test": "node scripts/run-tests.mjs",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "test:domain": "vitest run"
   },
   "dependencies": {
     "astro": "7.3.8"
@@ -20,6 +21,7 @@
     "@astrojs/check": "0.9.10",
     "@tailwindcss/vite": "4.3.3",
     "tailwindcss": "4.3.3",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "vitest": "5.0.4"
   }
 }

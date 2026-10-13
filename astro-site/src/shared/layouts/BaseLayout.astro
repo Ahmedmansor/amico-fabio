@@ -5,13 +5,12 @@ import PageHead from '../seo/PageHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
-import Analytics from '../components/Analytics.astro';
-import { languages, type Locale } from '../config/languages';
+import DocumentShell from './DocumentShell.astro';
+import type { Locale } from '../config/languages';
 interface Props { locale: Locale; route: string; title: string; description: string; bodyClass?: string }
 const { locale, route, title, description, bodyClass } = Astro.props;
 ---
-<!doctype html>
-<html lang={locale} dir={languages[locale].direction}>
-  <head><PageHead locale={locale} route={route} title={title} description={description}/><Analytics/></head>
-  <body class={bodyClass}><Header locale={locale} route={route}/><slot/><Footer locale={locale}/><WhatsAppFloat locale={locale}/></body>
-</html>
+<DocumentShell locale={locale} bodyClass={bodyClass}>
+  <PageHead slot="head" locale={locale} route={route} title={title} description={description}/>
+  <Header locale={locale} route={route}/><slot/><Footer locale={locale}/><WhatsAppFloat locale={locale}/>
+</DocumentShell>

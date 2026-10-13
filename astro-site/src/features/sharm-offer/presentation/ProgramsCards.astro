@@ -1,0 +1,90 @@
+---
+import type {OfferCampaign} from '../domain/campaign';
+interface Props {campaign:OfferCampaign}
+const {campaign}=Astro.props;
+const copy=campaign.copy;
+import {Image} from 'astro:assets';
+import {offerImage} from './images';
+const images=campaign.images;
+---
+<div id="programs-section">
+    <section class="osh-section" id="programs-cards">
+      <div class="osh-container">
+        <div class="osh-section-header">
+          <h2 class="osh-section-title">{copy["ProgramsCards.text.0"]}</h2>
+          <p class="osh-section-subtitle">{copy["ProgramsCards.text.1"]}</p>
+        </div>
+        <div class="osh-programs-grid">
+
+            <article class="osh-program-card">
+              <Image class="osh-program-img" src={offerImage(images["ProgramsCards.image.2"])} alt={copy["ProgramsCards.alt.2"]} loading="lazy" decoding="async" widths={[400,800,1200]} sizes="(min-width:1024px) 600px, 100vw" />
+              <div class="osh-program-body">
+                <h3 class="osh-program-name">{copy["ProgramsCards.text.3"]}</h3>
+                <p class="osh-program-desc">{copy["ProgramsCards.text.4"]}</p>
+              </div>
+            </article>
+
+            <article class="osh-program-card">
+              <Image class="osh-program-img" src={offerImage(images["ProgramsCards.image.3"])} alt={copy["ProgramsCards.alt.5"]} loading="lazy" decoding="async" widths={[400,800,1200]} sizes="(min-width:1024px) 600px, 100vw" />
+              <div class="osh-program-body">
+                <h3 class="osh-program-name">{copy["ProgramsCards.text.6"]}</h3>
+                <p class="osh-program-desc">{copy["ProgramsCards.text.7"]}</p>
+              </div>
+            </article>
+
+            <article class="osh-program-card">
+              <Image class="osh-program-img" src={offerImage(images["ProgramsCards.image.4"])} alt={copy["ProgramsCards.alt.8"]} loading="lazy" decoding="async" widths={[400,800,1200]} sizes="(min-width:1024px) 600px, 100vw" />
+              <div class="osh-program-body">
+                <h3 class="osh-program-name">{copy["ProgramsCards.text.9"]}</h3>
+                <p class="osh-program-desc">{copy["ProgramsCards.text.10"]}</p>
+              </div>
+            </article>
+
+            <article class="osh-program-card">
+              <Image class="osh-program-img" src={offerImage(images["ProgramsCards.image.5"])} alt={copy["ProgramsCards.alt.11"]} loading="lazy" decoding="async" widths={[400,800,1200]} sizes="(min-width:1024px) 600px, 100vw" />
+              <div class="osh-program-body">
+                <h3 class="osh-program-name">{copy["ProgramsCards.text.12"]}</h3>
+                <p class="osh-program-desc">{copy["ProgramsCards.text.13"]}</p>
+              </div>
+            </article>
+
+            <article class="osh-program-card">
+              <Image class="osh-program-img" src={offerImage(images["ProgramsCards.image.6"])} alt={copy["ProgramsCards.alt.14"]} loading="lazy" decoding="async" widths={[400,800,1200]} sizes="(min-width:1024px) 600px, 100vw" />
+              <div class="osh-program-body">
+                <h3 class="osh-program-name">{copy["ProgramsCards.text.15"]}</h3>
+                <p class="osh-program-desc">{copy["ProgramsCards.text.16"]}</p>
+              </div>
+            </article>
+
+            <article class="osh-program-card">
+              <Image class="osh-program-img" src={offerImage(images["ProgramsCards.image.7"])} alt={copy["ProgramsCards.alt.17"]} loading="lazy" decoding="async" widths={[400,800,1200]} sizes="(min-width:1024px) 600px, 100vw" />
+              <div class="osh-program-body">
+                <h3 class="osh-program-name">{copy["ProgramsCards.text.18"]}</h3>
+                <p class="osh-program-desc">{copy["ProgramsCards.text.19"]}</p>
+              </div>
+            </article>
+
+            <article class="osh-program-card">
+              <Image class="osh-program-img" src={offerImage(images["ProgramsCards.image.8"])} alt={copy["ProgramsCards.alt.20"]} loading="lazy" decoding="async" widths={[400,800,1200]} sizes="(min-width:1024px) 600px, 100vw" />
+              <div class="osh-program-body">
+                <h3 class="osh-program-name">{copy["ProgramsCards.text.21"]}</h3>
+                <p class="osh-program-desc">{copy["ProgramsCards.text.22"]}</p>
+              </div>
+            </article>
+
+            <article class="osh-program-card">
+              <Image class="osh-program-img" src={offerImage(images["ProgramsCards.image.9"])} alt={copy["ProgramsCards.alt.23"]} loading="lazy" decoding="async" widths={[400,800,1200]} sizes="(min-width:1024px) 600px, 100vw" />
+              <div class="osh-program-body">
+                <h3 class="osh-program-name">{copy["ProgramsCards.text.24"]}</h3>
+                <p class="osh-program-desc">{copy["ProgramsCards.text.25"]}</p>
+              </div>
+            </article>
+
+        </div>
+        <div class="osh-programs-cta">
+          <a href="#booking-section" class="osh-btn osh-btn--gold-outline" id="programs-cta-btn">{copy["ProgramsCards.text.26"]}</a>
+        </div>
+      </div>
+    </section>
+
+</div>

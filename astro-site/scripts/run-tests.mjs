@@ -12,4 +12,9 @@ function find(directory) {
 find('src');
 const result = spawnSync(process.execPath, ['--test', ...tests.sort()], { stdio: 'inherit' });
 if (result.error) throw result.error;
-process.exitCode = result.status ?? 1;
+if(result.status!==0)process.exitCode=result.status??1;
+else {
+  const domain=spawnSync(process.execPath,['node_modules/vitest/vitest.mjs','run'],{stdio:'inherit'});
+  if(domain.error)throw domain.error;
+  process.exitCode=domain.status??1;
+}

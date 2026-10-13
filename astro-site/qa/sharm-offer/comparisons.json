@@ -1,0 +1,1004 @@
+[
+  {
+    "size": "desktop",
+    "astro": {
+      "blocks": [
+        {
+          "id": "landing-header",
+          "images": [
+            {
+              "alt": "Fabio Egypt Logo",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "/offerta-sharm/",
+              "text": "Fabio Egypt"
+            },
+            {
+              "href": "#why-section",
+              "text": "Perché noi"
+            },
+            {
+              "href": "#programs-section",
+              "text": "Destinazioni"
+            },
+            {
+              "href": "#timeline-section",
+              "text": "Come prenotare"
+            },
+            {
+              "href": "#videos-section",
+              "text": "Testimonianze"
+            },
+            {
+              "href": "#faq-section",
+              "text": "Domande frequenti"
+            },
+            {
+              "href": "#booking-section",
+              "text": "Richiedi un Preventivo"
+            }
+          ],
+          "text": "Fabio Egypt×Perché noiDestinazioniCome prenotareTestimonianzeDomande frequentiRichiedi un Preventivo"
+        },
+        {
+          "id": "hero-section",
+          "images": [
+            {
+              "alt": "Offerta Sharm El Sheikh — Fabio Egypt",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "#booking-section",
+              "text": "Richiedi un Preventivo"
+            }
+          ],
+          "text": "L'Egitto ti aspetta Tour personalizzati, assistenza in italiano e accoglienza al tuo arrivo. Richiedi un Preventivo Hai domande?Siamo qui per te!"
+        },
+        {
+          "id": "wa-float",
+          "images": [],
+          "links": [
+            {
+              "href": "https://wa.me/201063239261?text=Ciao%20Fabio!%20Ho%20domande%20riguardo%20i%20vostri%20tour.",
+              "text": ""
+            }
+          ],
+          "text": ""
+        },
+        {
+          "id": "why-section",
+          "images": [],
+          "links": [],
+          "text": "Perché scegliere Fabio Egypt?Supporto in Italiano 24/7Assistenza dedicata nella tua lingua, prima, durante e dopo il viaggio.Assistenza diretta in EgittoOperativi sul territorio per offrirti il meglio e garantirti sicurezza.Tour su misura e prezzi trasparentiEsperienze personalizzate con cura per ogni dettaglio, senza costi nascosti.Accoglienza personale al tuo arrivoSaremo lì per accoglierti e accompagnarti nel tuo viaggio."
+        },
+        {
+          "id": "programs-section",
+          "images": [
+            {
+              "alt": "Il Cairo",
+              "loaded": true
+            },
+            {
+              "alt": "Sharm El Sheikh",
+              "loaded": true
+            },
+            {
+              "alt": "Dahab",
+              "loaded": true
+            },
+            {
+              "alt": "Monte Sinai e Santa Caterina",
+              "loaded": true
+            },
+            {
+              "alt": "Luxor e Aswan",
+              "loaded": true
+            },
+            {
+              "alt": "Siwa",
+              "loaded": true
+            },
+            {
+              "alt": "Marsa Alam",
+              "loaded": true
+            },
+            {
+              "alt": "Marsa Matrouh",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "#booking-section",
+              "text": "Scopri tutti i nostri viaggi"
+            }
+          ],
+          "text": "I nostri programmi di viaggioScopri le destinazioni più affascinanti dell'Egitto con le nostre guide esperteIl CairoScopri i segreti dei Faraoni con la tua guida privata parlante italiano. Un viaggio esclusivo tra le Piramidi, storia millenaria e comfort assoluto, curato in ogni dettaglio.Sharm El SheikhLusso senza compromessi e vere esperienze VIP sul Mar Rosso. Escursioni private in barca, snorkeling esclusivo e relax totale lontano dal turismo di massa.DahabLa città magica, atmosfera bohémien, snorkeling e barriere coralline uniche.Monte Sinai e Santa CaterinaUn'avventura mistica nel cuore del deserto vissuta in totale privacy. Ammira un'alba mozzafiato con un'organizzazione impeccabile e servizi su misura.Luxor e AswanNaviga nella storia e visita i templi più maestosi d'Egitto. Un'esperienza culturale Premium con un servizio personalizzato, pensato esclusivamente per te.SiwaUn'oasi di pura magia nel cuore del deserto. Immergiti nelle surreali piscine di sale, esplora antiche rovine e concediti un ritiro eco-chic all'insegna del relax assoluto.Marsa AlamIl paradiso incontaminato del Mar Rosso. Nuota tra tartarughe e delfini in barriere coralline intatte, vivendo un'avventura marina esclusiva e lontana dal turismo di massa.Marsa MatrouhScopri le \"Maldive del Mediterraneo\". Spiagge di sabbia bianca finissima, acque turchesi cristalline e un'atmosfera di puro relax per una fuga esclusiva e indimenticabile. Scopri tutti i nostri viaggi"
+        },
+        {
+          "id": "timeline-section",
+          "images": [],
+          "links": [],
+          "text": "Come prenotare il tuo viaggio1Contattaci su WhatsAppScrivici in qualsiasi momento, siamo qui per te!2Scegli la destinazioneRaccontaci dove vuoi andare e cosa desideri vivere.3Conferma la data di arrivoOrganizziamo tutto in base ai tuoi voli e ai tuoi orari.4Ti aspettiamo al tuo arrivoSaremo lì per accoglierti e accompagnarti nel tuo viaggio."
+        },
+        {
+          "id": "videos-section",
+          "images": [
+            {
+              "alt": "Il Parco Marino di Ras Mohamed",
+              "loaded": true
+            },
+            {
+              "alt": "Il Parco Marino di Ras Mohamed",
+              "loaded": true
+            },
+            {
+              "alt": "Soho square",
+              "loaded": true
+            },
+            {
+              "alt": "l’escursione del safari",
+              "loaded": true
+            },
+            {
+              "alt": "la nostra macchina privata VIP",
+              "loaded": true
+            },
+            {
+              "alt": "la città magica di Dahab",
+              "loaded": false
+            }
+          ],
+          "links": [],
+          "text": "I nostri clienti in viaggioIl Parco Marino di Ras MohamedGuarda il videoIl Parco Marino di Ras MohamedGuarda il videoSoho squareGuarda il videol’escursione del safariGuarda il videola nostra macchina privata VIPGuarda il videola città magica di DahabGuarda il video"
+        },
+        {
+          "id": "faq-section",
+          "images": [],
+          "links": [],
+          "text": "Domande FrequentiTutto quello che devi sapere prima di partire per la tua vacanza in EgittoServe il visto per Sharm El Sheikh?Se il tuo viaggio si svolge esclusivamente a Sharm El Sheikh, non hai bisogno di acquistare il visto turistico (è sufficiente il timbro gratuito \"Sinai Only\" valido per 15 giorni). Tuttavia, se il tuo programma include escursioni affascinanti come Il Cairo o Luxor, il visto è obbligatorio. In ogni caso, il team di Fabio Egypt ti assisterà per rendere ogni procedura semplice e veloce.Le guide parlano italiano fluente?Assolutamente sì! Tutti i nostri collaboratori sono guide turistiche ufficiali e certificate dal Ministero del Turismo Egiziano. Oltre ad avere una profonda conoscenza storica e culturale, parlano un italiano eccellente. Vogliamo garantirti un'esperienza coinvolgente, chiara e senza alcuna barriera linguistica.Come funziona il pagamento?Offriamo la massima flessibilità per farti viaggiare senza stress. L'opzione più semplice e da noi consigliata è il saldo in contanti (in Euro) comodamente al tuo arrivo in Egitto. Tuttavia, se preferisci non viaggiare con contanti, puoi pagare in totale sicurezza con la tua carta di credito (Visa/Mastercard). Il nostro obiettivo è il tuo comfort, fin dal primo momento.Cosa succede se il volo è in ritardo?Non devi preoccuparti di nulla. Il nostro team monitora costantemente lo stato del tuo volo in tempo reale tramite sistemi di tracciamento (Flight Radar). In caso di ritardo, il tuo autista privato adatterà automaticamente l'orario e saranno lì in aeroporto ad aspettarti al tuo arrivo, senza alcun costo aggiuntivo."
+        },
+        {
+          "id": "booking-section",
+          "images": [],
+          "links": [],
+          "text": "Richiedi un Preventivo Compila il modulo e ti rispondiamo subito su WhatsAppNome CompletoPer favore inserisci il tuo nome.Data di ArrivoPer favore seleziona una data.Numero di PersoneInserisci un numero valido (1-30). Prenota su WhatsApp Risposta in 15 min Prenotazione Flessibile Assistenza in Italiano"
+        },
+        {
+          "id": "trust-section",
+          "images": [],
+          "links": [],
+          "text": "Sede in EgittoOperativi sul territorio per offrirti i migliori servizi in Egitto.Supporto in ItalianoAssistenza dedicata durante il tuo viaggio in Egitto.Sicurezza e AffidabilitàServizi con licenza turistica del Ministero del Turismo Egiziano.Prenotazioni SicureI tuoi dati sono protetti e le transazioni sono sempre sicure.WhatsApp Sempre AttivoScrivici quando vuoi, saremo sempre qui!"
+        },
+        {
+          "id": "landing-footer",
+          "images": [
+            {
+              "alt": "Fabio Egypt",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "https://wa.me/201063239261",
+              "text": "+20 106 323 9261"
+            },
+            {
+              "href": "https://www.facebook.com/fabioEgyptVip/",
+              "text": ""
+            },
+            {
+              "href": "https://www.instagram.com/fabio_egypt_vip",
+              "text": ""
+            },
+            {
+              "href": "https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn",
+              "text": ""
+            },
+            {
+              "href": "https://www.youtube.com/@FabioEgyptItaly",
+              "text": ""
+            },
+            {
+              "href": "https://wa.me/201063239261",
+              "text": ""
+            }
+          ],
+          "text": "FABIO EGYPT © 2025 - 2026 Fabio Egypt — Tutti i diritti riservati. +20 106 323 9261"
+        }
+      ],
+      "height": 900,
+      "inputs": [
+        {
+          "id": "lsh-name",
+          "max": "",
+          "min": "",
+          "placeholder": "Il tuo nome...",
+          "type": "text",
+          "value": ""
+        },
+        {
+          "id": "lsh-date",
+          "max": "",
+          "min": "",
+          "placeholder": "",
+          "type": "date",
+          "value": ""
+        },
+        {
+          "id": "lsh-people",
+          "max": "30",
+          "min": "1",
+          "placeholder": "2",
+          "type": "number",
+          "value": "2"
+        }
+      ],
+      "overflow": false,
+      "videos": [
+        "1214756632",
+        "1214757531",
+        "1214758552",
+        "1214760129",
+        "1214757761",
+        "1214758307"
+      ],
+      "width": 1440
+    },
+    "legacy": {
+      "blocks": [
+        {
+          "id": "landing-header",
+          "images": [
+            {
+              "alt": "Fabio Egypt Logo",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "/offerta-sharm/",
+              "text": "Fabio Egypt"
+            },
+            {
+              "href": "#why-section",
+              "text": "Perché noi"
+            },
+            {
+              "href": "#programs-section",
+              "text": "Destinazioni"
+            },
+            {
+              "href": "#timeline-section",
+              "text": "Come prenotare"
+            },
+            {
+              "href": "#videos-section",
+              "text": "Testimonianze"
+            },
+            {
+              "href": "#faq-section",
+              "text": "Domande frequenti"
+            },
+            {
+              "href": "#booking-section",
+              "text": "Richiedi un Preventivo"
+            }
+          ],
+          "text": "Fabio Egypt × Perché noi Destinazioni Come prenotare Testimonianze Domande frequenti Richiedi un Preventivo"
+        },
+        {
+          "id": "hero-section",
+          "images": [
+            {
+              "alt": "Offerta Sharm El Sheikh — Fabio Egypt",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "#booking-section",
+              "text": "Richiedi un Preventivo"
+            }
+          ],
+          "text": "L'Egitto ti aspetta Tour personalizzati, assistenza in italiano e accoglienza al tuo arrivo. Richiedi un Preventivo Hai domande?Siamo qui per te!"
+        },
+        {
+          "id": "wa-float",
+          "images": [],
+          "links": [
+            {
+              "href": "https://wa.me/201063239261?text=Ciao%20Fabio!%20Ho%20domande%20riguardo%20i%20vostri%20tour.",
+              "text": ""
+            }
+          ],
+          "text": ""
+        },
+        {
+          "id": "why-section",
+          "images": [],
+          "links": [],
+          "text": "Perché scegliere Fabio Egypt? Supporto in Italiano 24/7 Assistenza dedicata nella tua lingua, prima, durante e dopo il viaggio. Assistenza diretta in Egitto Operativi sul territorio per offrirti il meglio e garantirti sicurezza. Tour su misura e prezzi trasparenti Esperienze personalizzate con cura per ogni dettaglio, senza costi nascosti. Accoglienza personale al tuo arrivo Saremo lì per accoglierti e accompagnarti nel tuo viaggio."
+        },
+        {
+          "id": "programs-section",
+          "images": [
+            {
+              "alt": "Il Cairo",
+              "loaded": true
+            },
+            {
+              "alt": "Sharm El Sheikh",
+              "loaded": true
+            },
+            {
+              "alt": "Dahab",
+              "loaded": true
+            },
+            {
+              "alt": "Monte Sinai e Santa Caterina",
+              "loaded": true
+            },
+            {
+              "alt": "Luxor e Aswan",
+              "loaded": true
+            },
+            {
+              "alt": "Siwa",
+              "loaded": true
+            },
+            {
+              "alt": "Marsa Alam",
+              "loaded": true
+            },
+            {
+              "alt": "Marsa Matrouh",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "#booking-section",
+              "text": "Scopri tutti i nostri viaggi"
+            }
+          ],
+          "text": "I nostri programmi di viaggio Scopri le destinazioni più affascinanti dell'Egitto con le nostre guide esperte Il Cairo Scopri i segreti dei Faraoni con la tua guida privata parlante italiano. Un viaggio esclusivo tra le Piramidi, storia millenaria e comfort assoluto, curato in ogni dettaglio. Sharm El Sheikh Lusso senza compromessi e vere esperienze VIP sul Mar Rosso. Escursioni private in barca, snorkeling esclusivo e relax totale lontano dal turismo di massa. Dahab La città magica, atmosfera bohémien, snorkeling e barriere coralline uniche. Monte Sinai e Santa Caterina Un'avventura mistica nel cuore del deserto vissuta in totale privacy. Ammira un'alba mozzafiato con un'organizzazione impeccabile e servizi su misura. Luxor e Aswan Naviga nella storia e visita i templi più maestosi d'Egitto. Un'esperienza culturale Premium con un servizio personalizzato, pensato esclusivamente per te. Siwa Un'oasi di pura magia nel cuore del deserto. Immergiti nelle surreali piscine di sale, esplora antiche rovine e concediti un ritiro eco-chic all'insegna del relax assoluto. Marsa Alam Il paradiso incontaminato del Mar Rosso. Nuota tra tartarughe e delfini in barriere coralline intatte, vivendo un'avventura marina esclusiva e lontana dal turismo di massa. Marsa Matrouh Scopri le \"Maldive del Mediterraneo\". Spiagge di sabbia bianca finissima, acque turchesi cristalline e un'atmosfera di puro relax per una fuga esclusiva e indimenticabile. Scopri tutti i nostri viaggi"
+        },
+        {
+          "id": "timeline-section",
+          "images": [],
+          "links": [],
+          "text": "Come prenotare il tuo viaggio 1 Contattaci su WhatsApp Scrivici in qualsiasi momento, siamo qui per te! 2 Scegli la destinazione Raccontaci dove vuoi andare e cosa desideri vivere. 3 Conferma la data di arrivo Organizziamo tutto in base ai tuoi voli e ai tuoi orari. 4 Ti aspettiamo al tuo arrivo Saremo lì per accoglierti e accompagnarti nel tuo viaggio."
+        },
+        {
+          "id": "videos-section",
+          "images": [
+            {
+              "alt": "Il Parco Marino di Ras Mohamed",
+              "loaded": true
+            },
+            {
+              "alt": "Il Parco Marino di Ras Mohamed",
+              "loaded": true
+            },
+            {
+              "alt": "Soho square",
+              "loaded": true
+            },
+            {
+              "alt": "l’escursione del safari",
+              "loaded": true
+            },
+            {
+              "alt": "la nostra macchina privata VIP",
+              "loaded": true
+            },
+            {
+              "alt": "la città magica di Dahab",
+              "loaded": true
+            }
+          ],
+          "links": [],
+          "text": "I nostri clienti in viaggio Il Parco Marino di Ras Mohamed Guarda il video Il Parco Marino di Ras Mohamed Guarda il video Soho square Guarda il video l’escursione del safari Guarda il video la nostra macchina privata VIP Guarda il video la città magica di Dahab Guarda il video"
+        },
+        {
+          "id": "faq-section",
+          "images": [],
+          "links": [],
+          "text": "Domande Frequenti Tutto quello che devi sapere prima di partire per la tua vacanza in Egitto Serve il visto per Sharm El Sheikh? Se il tuo viaggio si svolge esclusivamente a Sharm El Sheikh, non hai bisogno di acquistare il visto turistico (è sufficiente il timbro gratuito \"Sinai Only\" valido per 15 giorni). Tuttavia, se il tuo programma include escursioni affascinanti come Il Cairo o Luxor, il visto è obbligatorio. In ogni caso, il team di Fabio Egypt ti assisterà per rendere ogni procedura semplice e veloce. Le guide parlano italiano fluente? Assolutamente sì! Tutti i nostri collaboratori sono guide turistiche ufficiali e certificate dal Ministero del Turismo Egiziano. Oltre ad avere una profonda conoscenza storica e culturale, parlano un italiano eccellente. Vogliamo garantirti un'esperienza coinvolgente, chiara e senza alcuna barriera linguistica. Come funziona il pagamento? Offriamo la massima flessibilità per farti viaggiare senza stress. L'opzione più semplice e da noi consigliata è il saldo in contanti (in Euro) comodamente al tuo arrivo in Egitto. Tuttavia, se preferisci non viaggiare con contanti, puoi pagare in totale sicurezza con la tua carta di credito (Visa/Mastercard). Il nostro obiettivo è il tuo comfort, fin dal primo momento. Cosa succede se il volo è in ritardo? Non devi preoccuparti di nulla. Il nostro team monitora costantemente lo stato del tuo volo in tempo reale tramite sistemi di tracciamento (Flight Radar). In caso di ritardo, il tuo autista privato adatterà automaticamente l'orario e saranno lì in aeroporto ad aspettarti al tuo arrivo, senza alcun costo aggiuntivo."
+        },
+        {
+          "id": "booking-section",
+          "images": [],
+          "links": [],
+          "text": "Richiedi un Preventivo Compila il modulo e ti rispondiamo subito su WhatsApp Nome Completo Per favore inserisci il tuo nome. Data di Arrivo Per favore seleziona una data. Numero di Persone Inserisci un numero valido (1-30). Prenota su WhatsApp Risposta in 15 min Prenotazione Flessibile Assistenza in Italiano"
+        },
+        {
+          "id": "trust-section",
+          "images": [],
+          "links": [],
+          "text": "Sede in Egitto Operativi sul territorio per offrirti i migliori servizi in Egitto. Supporto in Italiano Assistenza dedicata durante il tuo viaggio in Egitto. Sicurezza e Affidabilità Servizi con licenza turistica del Ministero del Turismo Egiziano. Prenotazioni Sicure I tuoi dati sono protetti e le transazioni sono sempre sicure. WhatsApp Sempre Attivo Scrivici quando vuoi, saremo sempre qui!"
+        },
+        {
+          "id": "landing-footer",
+          "images": [
+            {
+              "alt": "Fabio Egypt",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "https://wa.me/201063239261",
+              "text": "+20 106 323 9261"
+            },
+            {
+              "href": "https://www.facebook.com/fabioEgyptVip/",
+              "text": ""
+            },
+            {
+              "href": "https://www.instagram.com/fabio_egypt_vip",
+              "text": ""
+            },
+            {
+              "href": "https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn",
+              "text": ""
+            },
+            {
+              "href": "https://www.youtube.com/@FabioEgyptItaly",
+              "text": ""
+            },
+            {
+              "href": "https://wa.me/201063239261",
+              "text": ""
+            }
+          ],
+          "text": "FABIO EGYPT © 2025 - 2026 Fabio Egypt — Tutti i diritti riservati. +20 106 323 9261"
+        }
+      ],
+      "height": 900,
+      "inputs": [
+        {
+          "id": "lsh-name",
+          "max": "",
+          "min": "",
+          "placeholder": "Il tuo nome...",
+          "type": "text",
+          "value": ""
+        },
+        {
+          "id": "lsh-date",
+          "max": "",
+          "min": "",
+          "placeholder": "",
+          "type": "date",
+          "value": ""
+        },
+        {
+          "id": "lsh-people",
+          "max": "30",
+          "min": "1",
+          "placeholder": "2",
+          "type": "number",
+          "value": "2"
+        }
+      ],
+      "overflow": false,
+      "videos": [
+        "1214756632",
+        "1214757531",
+        "1214758552",
+        "1214760129",
+        "1214757761",
+        "1214758307"
+      ],
+      "width": 1440
+    }
+  },
+  {
+    "size": "mobile",
+    "astro": {
+      "blocks": [
+        {
+          "id": "landing-header",
+          "images": [
+            {
+              "alt": "Fabio Egypt Logo",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "/offerta-sharm/",
+              "text": "Fabio Egypt"
+            },
+            {
+              "href": "#why-section",
+              "text": "Perché noi"
+            },
+            {
+              "href": "#programs-section",
+              "text": "Destinazioni"
+            },
+            {
+              "href": "#timeline-section",
+              "text": "Come prenotare"
+            },
+            {
+              "href": "#videos-section",
+              "text": "Testimonianze"
+            },
+            {
+              "href": "#faq-section",
+              "text": "Domande frequenti"
+            },
+            {
+              "href": "#booking-section",
+              "text": "Richiedi un Preventivo"
+            }
+          ],
+          "text": "Fabio Egypt×Perché noiDestinazioniCome prenotareTestimonianzeDomande frequentiRichiedi un Preventivo"
+        },
+        {
+          "id": "hero-section",
+          "images": [
+            {
+              "alt": "Offerta Sharm El Sheikh — Fabio Egypt",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "#booking-section",
+              "text": "Richiedi un Preventivo"
+            }
+          ],
+          "text": "L'Egitto ti aspetta Tour personalizzati, assistenza in italiano e accoglienza al tuo arrivo. Richiedi un Preventivo Hai domande?Siamo qui per te!"
+        },
+        {
+          "id": "wa-float",
+          "images": [],
+          "links": [
+            {
+              "href": "https://wa.me/201063239261?text=Ciao%20Fabio!%20Ho%20domande%20riguardo%20i%20vostri%20tour.",
+              "text": ""
+            }
+          ],
+          "text": ""
+        },
+        {
+          "id": "why-section",
+          "images": [],
+          "links": [],
+          "text": "Perché scegliere Fabio Egypt?Supporto in Italiano 24/7Assistenza dedicata nella tua lingua, prima, durante e dopo il viaggio.Assistenza diretta in EgittoOperativi sul territorio per offrirti il meglio e garantirti sicurezza.Tour su misura e prezzi trasparentiEsperienze personalizzate con cura per ogni dettaglio, senza costi nascosti.Accoglienza personale al tuo arrivoSaremo lì per accoglierti e accompagnarti nel tuo viaggio."
+        },
+        {
+          "id": "programs-section",
+          "images": [
+            {
+              "alt": "Il Cairo",
+              "loaded": true
+            },
+            {
+              "alt": "Sharm El Sheikh",
+              "loaded": true
+            },
+            {
+              "alt": "Dahab",
+              "loaded": true
+            },
+            {
+              "alt": "Monte Sinai e Santa Caterina",
+              "loaded": true
+            },
+            {
+              "alt": "Luxor e Aswan",
+              "loaded": true
+            },
+            {
+              "alt": "Siwa",
+              "loaded": true
+            },
+            {
+              "alt": "Marsa Alam",
+              "loaded": true
+            },
+            {
+              "alt": "Marsa Matrouh",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "#booking-section",
+              "text": "Scopri tutti i nostri viaggi"
+            }
+          ],
+          "text": "I nostri programmi di viaggioScopri le destinazioni più affascinanti dell'Egitto con le nostre guide esperteIl CairoScopri i segreti dei Faraoni con la tua guida privata parlante italiano. Un viaggio esclusivo tra le Piramidi, storia millenaria e comfort assoluto, curato in ogni dettaglio.Sharm El SheikhLusso senza compromessi e vere esperienze VIP sul Mar Rosso. Escursioni private in barca, snorkeling esclusivo e relax totale lontano dal turismo di massa.DahabLa città magica, atmosfera bohémien, snorkeling e barriere coralline uniche.Monte Sinai e Santa CaterinaUn'avventura mistica nel cuore del deserto vissuta in totale privacy. Ammira un'alba mozzafiato con un'organizzazione impeccabile e servizi su misura.Luxor e AswanNaviga nella storia e visita i templi più maestosi d'Egitto. Un'esperienza culturale Premium con un servizio personalizzato, pensato esclusivamente per te.SiwaUn'oasi di pura magia nel cuore del deserto. Immergiti nelle surreali piscine di sale, esplora antiche rovine e concediti un ritiro eco-chic all'insegna del relax assoluto.Marsa AlamIl paradiso incontaminato del Mar Rosso. Nuota tra tartarughe e delfini in barriere coralline intatte, vivendo un'avventura marina esclusiva e lontana dal turismo di massa.Marsa MatrouhScopri le \"Maldive del Mediterraneo\". Spiagge di sabbia bianca finissima, acque turchesi cristalline e un'atmosfera di puro relax per una fuga esclusiva e indimenticabile. Scopri tutti i nostri viaggi"
+        },
+        {
+          "id": "timeline-section",
+          "images": [],
+          "links": [],
+          "text": "Come prenotare il tuo viaggio1Contattaci su WhatsAppScrivici in qualsiasi momento, siamo qui per te!2Scegli la destinazioneRaccontaci dove vuoi andare e cosa desideri vivere.3Conferma la data di arrivoOrganizziamo tutto in base ai tuoi voli e ai tuoi orari.4Ti aspettiamo al tuo arrivoSaremo lì per accoglierti e accompagnarti nel tuo viaggio."
+        },
+        {
+          "id": "videos-section",
+          "images": [
+            {
+              "alt": "Il Parco Marino di Ras Mohamed",
+              "loaded": true
+            },
+            {
+              "alt": "Il Parco Marino di Ras Mohamed",
+              "loaded": true
+            },
+            {
+              "alt": "Soho square",
+              "loaded": true
+            },
+            {
+              "alt": "l’escursione del safari",
+              "loaded": true
+            },
+            {
+              "alt": "la nostra macchina privata VIP",
+              "loaded": true
+            },
+            {
+              "alt": "la città magica di Dahab",
+              "loaded": true
+            }
+          ],
+          "links": [],
+          "text": "I nostri clienti in viaggioIl Parco Marino di Ras MohamedGuarda il videoIl Parco Marino di Ras MohamedGuarda il videoSoho squareGuarda il videol’escursione del safariGuarda il videola nostra macchina privata VIPGuarda il videola città magica di DahabGuarda il video"
+        },
+        {
+          "id": "faq-section",
+          "images": [],
+          "links": [],
+          "text": "Domande FrequentiTutto quello che devi sapere prima di partire per la tua vacanza in EgittoServe il visto per Sharm El Sheikh?Se il tuo viaggio si svolge esclusivamente a Sharm El Sheikh, non hai bisogno di acquistare il visto turistico (è sufficiente il timbro gratuito \"Sinai Only\" valido per 15 giorni). Tuttavia, se il tuo programma include escursioni affascinanti come Il Cairo o Luxor, il visto è obbligatorio. In ogni caso, il team di Fabio Egypt ti assisterà per rendere ogni procedura semplice e veloce.Le guide parlano italiano fluente?Assolutamente sì! Tutti i nostri collaboratori sono guide turistiche ufficiali e certificate dal Ministero del Turismo Egiziano. Oltre ad avere una profonda conoscenza storica e culturale, parlano un italiano eccellente. Vogliamo garantirti un'esperienza coinvolgente, chiara e senza alcuna barriera linguistica.Come funziona il pagamento?Offriamo la massima flessibilità per farti viaggiare senza stress. L'opzione più semplice e da noi consigliata è il saldo in contanti (in Euro) comodamente al tuo arrivo in Egitto. Tuttavia, se preferisci non viaggiare con contanti, puoi pagare in totale sicurezza con la tua carta di credito (Visa/Mastercard). Il nostro obiettivo è il tuo comfort, fin dal primo momento.Cosa succede se il volo è in ritardo?Non devi preoccuparti di nulla. Il nostro team monitora costantemente lo stato del tuo volo in tempo reale tramite sistemi di tracciamento (Flight Radar). In caso di ritardo, il tuo autista privato adatterà automaticamente l'orario e saranno lì in aeroporto ad aspettarti al tuo arrivo, senza alcun costo aggiuntivo."
+        },
+        {
+          "id": "booking-section",
+          "images": [],
+          "links": [],
+          "text": "Richiedi un Preventivo Compila il modulo e ti rispondiamo subito su WhatsAppNome CompletoPer favore inserisci il tuo nome.Data di ArrivoPer favore seleziona una data.Numero di PersoneInserisci un numero valido (1-30). Prenota su WhatsApp Risposta in 15 min Prenotazione Flessibile Assistenza in Italiano"
+        },
+        {
+          "id": "trust-section",
+          "images": [],
+          "links": [],
+          "text": "Sede in EgittoOperativi sul territorio per offrirti i migliori servizi in Egitto.Supporto in ItalianoAssistenza dedicata durante il tuo viaggio in Egitto.Sicurezza e AffidabilitàServizi con licenza turistica del Ministero del Turismo Egiziano.Prenotazioni SicureI tuoi dati sono protetti e le transazioni sono sempre sicure.WhatsApp Sempre AttivoScrivici quando vuoi, saremo sempre qui!"
+        },
+        {
+          "id": "landing-footer",
+          "images": [
+            {
+              "alt": "Fabio Egypt",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "https://wa.me/201063239261",
+              "text": "+20 106 323 9261"
+            },
+            {
+              "href": "https://www.facebook.com/fabioEgyptVip/",
+              "text": ""
+            },
+            {
+              "href": "https://www.instagram.com/fabio_egypt_vip",
+              "text": ""
+            },
+            {
+              "href": "https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn",
+              "text": ""
+            },
+            {
+              "href": "https://www.youtube.com/@FabioEgyptItaly",
+              "text": ""
+            },
+            {
+              "href": "https://wa.me/201063239261",
+              "text": ""
+            }
+          ],
+          "text": "FABIO EGYPT © 2025 - 2026 Fabio Egypt — Tutti i diritti riservati. +20 106 323 9261"
+        }
+      ],
+      "height": 844,
+      "inputs": [
+        {
+          "id": "lsh-name",
+          "max": "",
+          "min": "",
+          "placeholder": "Il tuo nome...",
+          "type": "text",
+          "value": ""
+        },
+        {
+          "id": "lsh-date",
+          "max": "",
+          "min": "",
+          "placeholder": "",
+          "type": "date",
+          "value": ""
+        },
+        {
+          "id": "lsh-people",
+          "max": "30",
+          "min": "1",
+          "placeholder": "2",
+          "type": "number",
+          "value": "2"
+        }
+      ],
+      "overflow": false,
+      "videos": [
+        "1214756632",
+        "1214757531",
+        "1214758552",
+        "1214760129",
+        "1214757761",
+        "1214758307"
+      ],
+      "width": 390
+    },
+    "legacy": {
+      "blocks": [
+        {
+          "id": "landing-header",
+          "images": [
+            {
+              "alt": "Fabio Egypt Logo",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "/offerta-sharm/",
+              "text": "Fabio Egypt"
+            },
+            {
+              "href": "#why-section",
+              "text": "Perché noi"
+            },
+            {
+              "href": "#programs-section",
+              "text": "Destinazioni"
+            },
+            {
+              "href": "#timeline-section",
+              "text": "Come prenotare"
+            },
+            {
+              "href": "#videos-section",
+              "text": "Testimonianze"
+            },
+            {
+              "href": "#faq-section",
+              "text": "Domande frequenti"
+            },
+            {
+              "href": "#booking-section",
+              "text": "Richiedi un Preventivo"
+            }
+          ],
+          "text": "Fabio Egypt × Perché noi Destinazioni Come prenotare Testimonianze Domande frequenti Richiedi un Preventivo"
+        },
+        {
+          "id": "hero-section",
+          "images": [
+            {
+              "alt": "Offerta Sharm El Sheikh — Fabio Egypt",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "#booking-section",
+              "text": "Richiedi un Preventivo"
+            }
+          ],
+          "text": "L'Egitto ti aspetta Tour personalizzati, assistenza in italiano e accoglienza al tuo arrivo. Richiedi un Preventivo Hai domande?Siamo qui per te!"
+        },
+        {
+          "id": "wa-float",
+          "images": [],
+          "links": [
+            {
+              "href": "https://wa.me/201063239261?text=Ciao%20Fabio!%20Ho%20domande%20riguardo%20i%20vostri%20tour.",
+              "text": ""
+            }
+          ],
+          "text": ""
+        },
+        {
+          "id": "why-section",
+          "images": [],
+          "links": [],
+          "text": "Perché scegliere Fabio Egypt? Supporto in Italiano 24/7 Assistenza dedicata nella tua lingua, prima, durante e dopo il viaggio. Assistenza diretta in Egitto Operativi sul territorio per offrirti il meglio e garantirti sicurezza. Tour su misura e prezzi trasparenti Esperienze personalizzate con cura per ogni dettaglio, senza costi nascosti. Accoglienza personale al tuo arrivo Saremo lì per accoglierti e accompagnarti nel tuo viaggio."
+        },
+        {
+          "id": "programs-section",
+          "images": [
+            {
+              "alt": "Il Cairo",
+              "loaded": true
+            },
+            {
+              "alt": "Sharm El Sheikh",
+              "loaded": true
+            },
+            {
+              "alt": "Dahab",
+              "loaded": true
+            },
+            {
+              "alt": "Monte Sinai e Santa Caterina",
+              "loaded": true
+            },
+            {
+              "alt": "Luxor e Aswan",
+              "loaded": true
+            },
+            {
+              "alt": "Siwa",
+              "loaded": true
+            },
+            {
+              "alt": "Marsa Alam",
+              "loaded": true
+            },
+            {
+              "alt": "Marsa Matrouh",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "#booking-section",
+              "text": "Scopri tutti i nostri viaggi"
+            }
+          ],
+          "text": "I nostri programmi di viaggio Scopri le destinazioni più affascinanti dell'Egitto con le nostre guide esperte Il Cairo Scopri i segreti dei Faraoni con la tua guida privata parlante italiano. Un viaggio esclusivo tra le Piramidi, storia millenaria e comfort assoluto, curato in ogni dettaglio. Sharm El Sheikh Lusso senza compromessi e vere esperienze VIP sul Mar Rosso. Escursioni private in barca, snorkeling esclusivo e relax totale lontano dal turismo di massa. Dahab La città magica, atmosfera bohémien, snorkeling e barriere coralline uniche. Monte Sinai e Santa Caterina Un'avventura mistica nel cuore del deserto vissuta in totale privacy. Ammira un'alba mozzafiato con un'organizzazione impeccabile e servizi su misura. Luxor e Aswan Naviga nella storia e visita i templi più maestosi d'Egitto. Un'esperienza culturale Premium con un servizio personalizzato, pensato esclusivamente per te. Siwa Un'oasi di pura magia nel cuore del deserto. Immergiti nelle surreali piscine di sale, esplora antiche rovine e concediti un ritiro eco-chic all'insegna del relax assoluto. Marsa Alam Il paradiso incontaminato del Mar Rosso. Nuota tra tartarughe e delfini in barriere coralline intatte, vivendo un'avventura marina esclusiva e lontana dal turismo di massa. Marsa Matrouh Scopri le \"Maldive del Mediterraneo\". Spiagge di sabbia bianca finissima, acque turchesi cristalline e un'atmosfera di puro relax per una fuga esclusiva e indimenticabile. Scopri tutti i nostri viaggi"
+        },
+        {
+          "id": "timeline-section",
+          "images": [],
+          "links": [],
+          "text": "Come prenotare il tuo viaggio 1 Contattaci su WhatsApp Scrivici in qualsiasi momento, siamo qui per te! 2 Scegli la destinazione Raccontaci dove vuoi andare e cosa desideri vivere. 3 Conferma la data di arrivo Organizziamo tutto in base ai tuoi voli e ai tuoi orari. 4 Ti aspettiamo al tuo arrivo Saremo lì per accoglierti e accompagnarti nel tuo viaggio."
+        },
+        {
+          "id": "videos-section",
+          "images": [
+            {
+              "alt": "Il Parco Marino di Ras Mohamed",
+              "loaded": false
+            },
+            {
+              "alt": "Il Parco Marino di Ras Mohamed",
+              "loaded": false
+            },
+            {
+              "alt": "Soho square",
+              "loaded": false
+            },
+            {
+              "alt": "l’escursione del safari",
+              "loaded": true
+            },
+            {
+              "alt": "la nostra macchina privata VIP",
+              "loaded": true
+            },
+            {
+              "alt": "la città magica di Dahab",
+              "loaded": true
+            }
+          ],
+          "links": [],
+          "text": "I nostri clienti in viaggio Il Parco Marino di Ras Mohamed Guarda il video Il Parco Marino di Ras Mohamed Guarda il video Soho square Guarda il video l’escursione del safari Guarda il video la nostra macchina privata VIP Guarda il video la città magica di Dahab Guarda il video"
+        },
+        {
+          "id": "faq-section",
+          "images": [],
+          "links": [],
+          "text": "Domande Frequenti Tutto quello che devi sapere prima di partire per la tua vacanza in Egitto Serve il visto per Sharm El Sheikh? Se il tuo viaggio si svolge esclusivamente a Sharm El Sheikh, non hai bisogno di acquistare il visto turistico (è sufficiente il timbro gratuito \"Sinai Only\" valido per 15 giorni). Tuttavia, se il tuo programma include escursioni affascinanti come Il Cairo o Luxor, il visto è obbligatorio. In ogni caso, il team di Fabio Egypt ti assisterà per rendere ogni procedura semplice e veloce. Le guide parlano italiano fluente? Assolutamente sì! Tutti i nostri collaboratori sono guide turistiche ufficiali e certificate dal Ministero del Turismo Egiziano. Oltre ad avere una profonda conoscenza storica e culturale, parlano un italiano eccellente. Vogliamo garantirti un'esperienza coinvolgente, chiara e senza alcuna barriera linguistica. Come funziona il pagamento? Offriamo la massima flessibilità per farti viaggiare senza stress. L'opzione più semplice e da noi consigliata è il saldo in contanti (in Euro) comodamente al tuo arrivo in Egitto. Tuttavia, se preferisci non viaggiare con contanti, puoi pagare in totale sicurezza con la tua carta di credito (Visa/Mastercard). Il nostro obiettivo è il tuo comfort, fin dal primo momento. Cosa succede se il volo è in ritardo? Non devi preoccuparti di nulla. Il nostro team monitora costantemente lo stato del tuo volo in tempo reale tramite sistemi di tracciamento (Flight Radar). In caso di ritardo, il tuo autista privato adatterà automaticamente l'orario e saranno lì in aeroporto ad aspettarti al tuo arrivo, senza alcun costo aggiuntivo."
+        },
+        {
+          "id": "booking-section",
+          "images": [],
+          "links": [],
+          "text": "Richiedi un Preventivo Compila il modulo e ti rispondiamo subito su WhatsApp Nome Completo Per favore inserisci il tuo nome. Data di Arrivo Per favore seleziona una data. Numero di Persone Inserisci un numero valido (1-30). Prenota su WhatsApp Risposta in 15 min Prenotazione Flessibile Assistenza in Italiano"
+        },
+        {
+          "id": "trust-section",
+          "images": [],
+          "links": [],
+          "text": "Sede in Egitto Operativi sul territorio per offrirti i migliori servizi in Egitto. Supporto in Italiano Assistenza dedicata durante il tuo viaggio in Egitto. Sicurezza e Affidabilità Servizi con licenza turistica del Ministero del Turismo Egiziano. Prenotazioni Sicure I tuoi dati sono protetti e le transazioni sono sempre sicure. WhatsApp Sempre Attivo Scrivici quando vuoi, saremo sempre qui!"
+        },
+        {
+          "id": "landing-footer",
+          "images": [
+            {
+              "alt": "Fabio Egypt",
+              "loaded": true
+            }
+          ],
+          "links": [
+            {
+              "href": "https://wa.me/201063239261",
+              "text": "+20 106 323 9261"
+            },
+            {
+              "href": "https://www.facebook.com/fabioEgyptVip/",
+              "text": ""
+            },
+            {
+              "href": "https://www.instagram.com/fabio_egypt_vip",
+              "text": ""
+            },
+            {
+              "href": "https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn",
+              "text": ""
+            },
+            {
+              "href": "https://www.youtube.com/@FabioEgyptItaly",
+              "text": ""
+            },
+            {
+              "href": "https://wa.me/201063239261",
+              "text": ""
+            }
+          ],
+          "text": "FABIO EGYPT © 2025 - 2026 Fabio Egypt — Tutti i diritti riservati. +20 106 323 9261"
+        }
+      ],
+      "height": 844,
+      "inputs": [
+        {
+          "id": "lsh-name",
+          "max": "",
+          "min": "",
+          "placeholder": "Il tuo nome...",
+          "type": "text",
+          "value": ""
+        },
+        {
+          "id": "lsh-date",
+          "max": "",
+          "min": "",
+          "placeholder": "",
+          "type": "date",
+          "value": ""
+        },
+        {
+          "id": "lsh-people",
+          "max": "30",
+          "min": "1",
+          "placeholder": "2",
+          "type": "number",
+          "value": "2"
+        }
+      ],
+      "overflow": false,
+      "videos": [
+        "1214756632",
+        "1214757531",
+        "1214758552",
+        "1214760129",
+        "1214757761",
+        "1214758307"
+      ],
+      "width": 390
+    }
+  }
+]
