@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../shared/layouts/BaseLayout.astro';
+import HomePage from '../../features/home/presentation/HomePage.astro';
+import { supportedLocales, type Locale } from '../../shared/config/languages';
+import { getHomeContent } from '../../features/home/data/home';
+import { getGlobalSettings } from '../../features/home/data/settings.mjs';
+export async function getStaticPaths() {
+  const settings = await getGlobalSettings();
+  return supportedLocales.map(locale => ({ params: { locale }, props: { promo: settings.find(setting => setting.key === 'promo_banner') } }));
+}
+const locale = Astro.params.locale as Locale;
+const content = getHomeContent(locale);
+const { promo } = Astro.props;
+---
+<BaseLayout locale={locale} route="" title={content.seo.title} description={content.seo.description} bodyClass="bg-black font-sans text-gray-200">
+  <HomePage locale={locale} content={content} promo={promo}/>
+</BaseLayout>

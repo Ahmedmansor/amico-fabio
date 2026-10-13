@@ -4,13 +4,14 @@ import { siteConfig } from '../config/site';
 import { languages, supportedLocales, type Locale } from '../config/languages';
 interface Props { locale: Locale; route: string; title: string; description: string }
 const { locale, route, title, description } = Astro.props;
-const canonical = new URL(`/${locale}/${route}/`, siteConfig.url).href;
+const routePath = route ? `${route}/` : '';
+const canonical = new URL(`/${locale}/${routePath}`, siteConfig.url).href;
 const image = new URL(squareLogo.src, siteConfig.url).href;
 ---
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>{title}</title><meta name="description" content={description}/>
 <link rel="canonical" href={canonical}/>
-{supportedLocales.map(language => <link rel="alternate" hreflang={language} href={new URL(`/${language}/${route}/`, siteConfig.url).href}/>)}
+{supportedLocales.map(language => <link rel="alternate" hreflang={language} href={new URL(`/${language}/${routePath}`, siteConfig.url).href}/>)}
 <meta name="robots" content="index, follow"/><meta name="author" content="Fabio Egypt"/>
 <meta property="og:type" content="website"/><meta property="og:locale" content={languages[locale].ogLocale}/>
 <meta property="og:url" content={canonical}/><meta property="og:site_name" content="Fabio Egypt Tours"/>

@@ -96,3 +96,9 @@ legacy business defaults, source inspection, and test commands.
 
 `npm test` runs all current tests with Node's built-in test runner. No extra
 test dependency is needed for this stage; Vitest remains planned for booking.
+
+## Home page
+
+Home is now available at `/it/` and `/en/`, preserving legacy content and styles.
+See [qa/home/README.md](./qa/home/README.md) for both-language desktop/mobile
+comparisons, existing SEO translation limits, and remaining legacy links.

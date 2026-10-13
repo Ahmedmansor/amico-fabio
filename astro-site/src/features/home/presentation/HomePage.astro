@@ -1,0 +1,87 @@
+---
+import { Image } from 'astro:assets';
+import type { Locale } from '../../../shared/config/languages';
+import type { HomeContent } from '../domain/home';
+import { reviewRating } from '../domain/home';
+import { siteConfig } from '../../../shared/config/site';
+import './home.css';
+import slide1 from './assets/comandamenti-images/1.webp';
+import slide2 from './assets/comandamenti-images/2.webp';
+import slide3 from './assets/comandamenti-images/3.webp';
+import background from './assets/home-who-fabio/home-who-fabio-bg.webp';
+import person from './assets/home-who-fabio/home-who-fabio-preson.webp';
+import sharm from './assets/home-fabio-tours-sections/sharm.webp';
+import cairo from './assets/home-fabio-tours-sections/cairo.webp';
+import luxor from './assets/home-fabio-tours-sections/Luxor-and-aswan.webp';
+interface Props { locale: Locale; content: HomeContent; promo?: { active: boolean; values: Record<string, string> } }
+const { locale, content: m, promo } = Astro.props;
+const locations = [
+  { image: sharm, alt: 'Sharm El Sheikh', name: m.global.locations.sharm, id: 'sharm' },
+  { image: cairo, alt: 'Cairo', name: m.global.locations.cairo, id: 'cairo' },
+  { image: luxor, alt: 'Luxor & Aswan', name: m.global.locations.luxor_aswan, id: 'luxor_and_aswan' },
+];
+const facebookPath = 'M22 12a10 10 0 1 0-11.563 9.874v-6.987H7.898V12h2.539V9.797c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.63.771-1.63 1.562V12h2.773l-.443 2.887h-2.33v6.987A10.003 10.003 0 0 0 22 12Z';
+---
+<section id="hero-slider-section" class="w-full relative overflow-hidden">
+  <div class="hero-slider-box mx-auto"><div class="hero-slider-bg">
+    {[slide1, slide2, slide3].map((image, index) => <Image src={image} alt={`Comandamenti ${index + 1}`} class:list={['hero-slide', { 'active-slide': index === 0 }]} widths={[400,720]} sizes="(min-width: 768px) 400px, 100vw" loading={index === 0 ? 'eager' : 'lazy'} fetchpriority={index === 0 ? 'high' : 'auto'}/>)}
+  </div><div class="hero-overlay"></div><div class="hero-content">
+    <h2 class="hero-title" data-i18n="hero.vip_title">{m.hero.vip_title}</h2>
+    <p class="hero-desc" data-i18n="hero.vip_desc">{m.hero.vip_desc}</p>
+    <a href={`${siteConfig.url}/sharm-secrets/index.html`} class="hero-btn" data-i18n="hero.vip_btn">{m.hero.vip_btn}</a>
+  </div></div>
+</section>
+<section id="who-fabio" class="who-fabio-section" aria-label="Who is Fabio"><div class="wf-container">
+  <Image src={background} class="wf-bg" alt="Background" loading="lazy" decoding="async" widths={[480,900,1400]} sizes="(min-width: 768px) 900px, 100vw"/>
+  <div class="wf-foreground"><div class="wf-glow" aria-hidden="true"></div><Image src={person} class="wf-figure" alt="Fabio" loading="lazy" decoding="async" widths={[480,900]} sizes="(min-width: 768px) 900px, 100vw"/></div>
+  <button type="button" class="wf-bio-btn" data-i18n="global.who_is_fabio_btn">{m.global.who_is_fabio_btn}</button>
+</div></section>
+<div class="wf-overlay-bio"><div class="wf-overlay-content">
+  <button type="button" class="wf-overlay-close" aria-label="Close">×</button>
+  <div class="wf-overlay-text" data-i18n="global.who_is_fabio_content" set:html={m.global.who_is_fabio_content}></div>
+</div></div>
+<div id="promo-banner-container">{promo?.active && <div style="position:fixed;top:115px;left:50%;transform:translateX(-50%);z-index:9999;width:90%;max-width:500px">
+  <div class="bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 text-black border border-white/30 shadow-2xl rounded-2xl px-4 py-3 flex items-center justify-between">
+    <div class="flex-1 text-center font-bold text-sm md:text-base tracking-wide" style="font-family:'Montserrat',sans-serif">{promo.values[locale]}</div>
+    <button type="button" data-dismiss-promo style="background:transparent;border:none;margin-left:12px;cursor:pointer;display:flex;align-items:center" aria-label="Close"><img src="/assets/images/icons/close-icon.svg" alt="Close" style="width:24px;height:24px;display:block"/></button>
+  </div>
+</div>}</div>
+<div id="trips-grid" class="text-center mt-12 mb-8 scroll-mt-32"><h1 class="main-brand-title" data-i18n="global.brand_title">{m.global.brand_title}</h1><p class="text-gray-400 uppercase tracking-widest text-sm md:text-base" data-i18n="global.vip_experiences">{m.global.vip_experiences}</p></div>
+<div class="grid gap-4 md:gap-8 grid-cols-1 w-full max-w-4xl px-2 md:px-4 mx-auto mb-24">
+  {locations.map(location => <a class="lux-entry-card group relative block overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500" href={`${siteConfig.url}/explore.html?loc=${location.id}`}>
+    <div class="lux-entry-image h-full w-full overflow-hidden"><Image src={location.image} alt={location.alt} loading="lazy" widths={[480,800,1200]} sizes="(min-width: 768px) 800px, 100vw" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"/><div class="lux-entry-overlay absolute inset-0 bg-transparent group-hover:bg-black/10 transition-colors duration-500"></div></div>
+    <div class="lux-entry-content absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/60 to-transparent"><h3 class="lux-entry-title text-2xl font-bold text-white mb-2 font-cinzel">{location.name}</h3><span class="lux-entry-cta text-gold-500 text-sm uppercase tracking-widest border-b border-gold-500 pb-1">{m.global.discover}</span></div>
+  </a>)}
+</div>
+<section id="reviews-section" class="scroll-mt-32" aria-label="Reviews"><div class="reviews-container">
+  <div class="reviews-header"><h2 class="reviews-title" data-i18n="reviews.title">{m.reviews.title}</h2><p class="reviews-subtitle" data-i18n="reviews.subtitle">{m.reviews.subtitle}</p></div>
+  <div class="reviews-slider"><div id="reviewsTrack" class="reviews-track" role="list" aria-label="Testimonials">
+    {m.reviews.items.concat(m.reviews.items).map(review => <article class="review-card" role="listitem">
+      <div class="review-header"><div class="review-author"><div class="review-name">{review.name}</div><div class="review-meta">{review.date}</div></div><div class="review-facebook" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d={facebookPath}/></svg></div></div>
+      <div class="review-rating" aria-label="Rating">{Array.from({length:5},(_, index) => <span class:list={['review-star',{'is-filled':index < reviewRating(review.rating)}]} aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>)}</div>
+      <div class="review-text">{review.text}</div>
+    </article>)}
+  </div></div>
+  <div class="reviews-footer"><a class="reviews-facebook-btn" target="_blank" rel="noopener noreferrer" href={siteConfig.reviewsUrl}><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d={facebookPath}/></svg><span data-i18n="reviews.facebook_btn">{m.reviews.facebook_btn}</span></a></div>
+</div></section>
+<script>
+  import './who-fabio.js';
+  const promoContainer = document.getElementById('promo-banner-container');
+  const header = document.getElementById('global-header');
+  if (header && promoContainer) {
+    const positionPromo = () => { promoContainer.style.marginTop = `${header.offsetHeight}px`; };
+    positionPromo();
+    new ResizeObserver(positionPromo).observe(header);
+  }
+  const footer = document.getElementById('global-footer');
+  if (footer) new IntersectionObserver(entries => {
+    document.body.classList.toggle('hide-floating-widgets', entries[0].isIntersecting);
+  }, { threshold: 0.1 }).observe(footer);
+  const slides = document.querySelectorAll('#hero-slider-section .hero-slide');
+  let index = 0;
+  if (slides.length > 1) window.setInterval(() => { slides[index].classList.remove('active-slide'); index = (index + 1) % slides.length; slides[index].classList.add('active-slide'); }, 3000);
+  document.querySelector('[data-dismiss-promo]')?.addEventListener('click', () => {
+    const promo = document.getElementById('promo-banner-container');
+    if (promo) { promo.style.transition = 'opacity 0.5s ease-out'; promo.style.opacity = '0'; window.setTimeout(() => { promo.replaceChildren(); promo.style.opacity = '1'; }, 500); }
+  });
+</script>

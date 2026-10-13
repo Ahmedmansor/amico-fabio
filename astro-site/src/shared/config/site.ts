@@ -2,6 +2,7 @@
 export const siteConfig = {
   url: 'https://fabioegypt.com',
   email: 'info@fabioegypt.com',
+  reviewsUrl: 'https://www.facebook.com/CROSSROOTSTRAVEL/reviews/?id=100063543025466&sk=reviews',
   analytics: { measurementId: 'G-C73NVS8KFS' },
   whatsapp: {
     number: '201063239261',
