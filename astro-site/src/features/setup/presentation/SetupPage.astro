@@ -1,0 +1,24 @@
+---
+import '../../../shared/styles/global.css';
+import { setupMessages } from '../../../shared/i18n/setup';
+
+const messages = setupMessages.it;
+---
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{messages.title}</title>
+  </head>
+  <body class="min-h-screen bg-slate-950 text-white">
+    <main class="mx-auto flex min-h-screen max-w-3xl items-center px-6">
+      <div>
+        <h1 class="text-3xl font-bold">{messages.title}</h1>
+        <p class="mt-4 text-slate-300">{messages.status}</p>
+      </div>
+    </main>
+  </body>
+</html>
