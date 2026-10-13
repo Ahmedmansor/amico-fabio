@@ -42,6 +42,7 @@
 - Generate language-specific canonical URLs, reciprocal hreflang links, and a sitemap when the SEO task is authorized.
 
 ## Migration behavior
+- Preserve existing business behavior during migration. The user explicitly confirmed blank child prices resolve to zero, blank `min_pax` resolves to one, and the promo banner continues to use `is_active` without date gating. These are documented legacy defaults, not newly invented values. Keep original source fields alongside mapped values. Do not change prices, booking policies, or banner business rules as part of a technology migration.
 - Keep Google Sheets as the initial data provider. Isolate it so a later Supabase migration changes the data layer instead of domain or presentation code.
 - Validate required data and IDs; do not silently publish missing required content or invalid prices.
 - Fix the known issues in `PROJECT_MAP.md` while migrating the affected feature instead of copying them.

@@ -1,0 +1,10 @@
+import { getCatalog } from '../src/shared/data/catalog.mjs';
+import { googleSheetsProvider } from '../src/shared/data/google-sheets.mjs';
+googleSheetsProvider.reset();
+const catalog = await getCatalog();
+console.log(`Validated live Google Sheets: ${catalog.trips.length} trips, ${catalog.packages.length} packages, ${catalog.addons.length} addons, ${catalog.settings.length} settings.`);
+const zeroChildren = [...catalog.trips, ...catalog.packages].filter(offer => !offer.source.p_child && !offer.source.d_child);
+const defaultMinimum = [...catalog.trips, ...catalog.packages].filter(offer => !offer.source.min_pax);
+console.log(`Preserved legacy defaults: ${zeroChildren.length} blank child prices map to 0; ${defaultMinimum.length} blank min_pax values map to 1.`);
+console.log('Active IDs, slugs, prices, translations, poster files, package references and addon references validated.');
+console.log('Promo dates are retained as source metadata; active status is not changed by date gating.');

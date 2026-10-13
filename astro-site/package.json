@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "astro dev",
     "check": "astro check",
+    "test": "node scripts/run-tests.mjs",
     "build": "astro build",
     "preview": "astro preview"
   },

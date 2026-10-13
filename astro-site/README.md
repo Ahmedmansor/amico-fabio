@@ -86,3 +86,13 @@ See [qa/legal/README.md](./qa/legal/README.md) for comparisons with the legacy
 page and commands to reproduce the content and asset checks. Domain tests for
 the legal page use the built-in Node test runner; booking's Vitest tests remain
 a later task.
+
+## Catalog data
+
+Feature data functions now read the existing public Google Sheets sources.
+Each build validates the live catalog before generating pages. See
+[qa/data/README.md](./qa/data/README.md) for the provider boundary, preserved
+legacy business defaults, source inspection, and test commands.
+
+`npm test` runs all current tests with Node's built-in test runner. No extra
+test dependency is needed for this stage; Vitest remains planned for booking.
