@@ -2,6 +2,29 @@
 
 Inspection date: October 13, 2026. This file documents the local version before any changes to the site's functionality or design.
 
+## Approved migration decision: landing campaigns
+
+Recorded October 14, 2026 after the user's clarification. This decision adds to
+the inspection below; it does not change its description of the legacy source.
+
+Landing campaigns run within the same Astro application, with their own
+intentional layouts, headers, footers, section structure and color palettes.
+Neutral metadata/analytics/contact configuration and genuinely shared business
+logic are reused; campaign presentation and CSS remain isolated. Each campaign
+uses feature-first `data/`, pure `domain/` with tests, and `presentation/` layers.
+
+Campaigns publish only languages with approved campaign content, selected from
+the single shared language configuration. The current `offerta-sharm` campaign
+targets Italian travelers and stays Italian-only at `/offerta-sharm/`. Its
+different header/footer and styling are intentional, not migration defects.
+Do not create an English translation or redesign it as part of this migration.
+Future translated equivalents may be linked through language switching and
+hreflang; campaigns with different audience-specific offers remain independent.
+
+See `AGENTS.md` for enforceable rules and `astro-site/ARCHITECTURE.md` for the
+target composition and remaining migration sequence. QA screenshots stay local;
+JSON/reports remain in Git, with history cleanup deferred until migration ends.
+
 ## 1. What is the site?
 
 A tourism website that presents Fabio Egypt's trips and packages in Egypt, with program details, prices and add-ons, a Sharm Secrets guide, and a standalone marketing page showcasing Sharm. Booking prepares a message and opens WhatsApp. In the inspected source there is no payment system, no server that records bookings, and no user accounts.

@@ -32,7 +32,7 @@
 ## Languages and URLs
 - Begin with Italian (`it`) and English (`en`), with Italian as the default.
 - Define supported languages and their direction in a single shared configuration, ready for later Arabic support.
-- Every new user-facing string must exist in both dictionaries under the same key, including form messages, placeholders, and accessibility labels.
+- For the main site, every new user-facing string must exist in both Italian and English dictionaries under the same key, including form messages, placeholders, and accessibility labels. Landing campaigns follow the campaign-language rules below.
 - Generate a separate static page per language for every published tour and package.
 - Use the same slug in both languages initially. Keep stable IDs separate from slugs.
 - Use `/it/tours/<slug>/`, `/en/tours/<slug>/`, `/it/packages/<slug>/`, and `/en/packages/<slug>/`.
@@ -55,14 +55,29 @@
 
 ## Migration discipline
 - Preserve the current look and content during migration. Do not redesign, restyle, or "improve" the UI; any redesign is a separate, explicitly authorized task.
-- For each migrated page, compare against the legacy page in Italian and English on mobile and desktop widths. Report every missing section, text, image, price, or link. Minor spacing or color differences are acceptable; missing or wrong content is not.
+- For each migrated main-site page, compare against the legacy page in Italian and English on mobile and desktop widths. For a landing campaign, compare every language actually published by that campaign. Report every missing section, text, image, price, or link. Minor spacing or color differences are acceptable; missing or wrong content is not.
 - Capture screenshots of the legacy and migrated pages at matching mobile and desktop widths to support the comparison.
+- Keep QA screenshots local and ignored by Git; commit comparison JSON, reports and verification scripts. Clean previously committed screenshot history only in the separately authorized cleanup task after migration.
 - Never invent prices, copy, translations, images, or IDs. If something is missing, report it and stop the affected task instead of filling the gap.
 - Data validation must fail the build with a clear message on: missing required fields, duplicate IDs or slugs, unmatched price/translation/image links, or packages referencing unknown trips. Identify the affected record and field in the message. Validate slug uniqueness within each route namespace; the same slug across language equivalents is intentional.
 - Carry `public/CNAME` (`fabioegypt.com`) into `astro-site/public/` before any deployment task.
 - Pin Node via `.nvmrc` and the `engines` field in `astro-site/package.json`. Do not install Node inside the project folder.
 - The `domain/` layer and its tests are required by design; do not remove or flatten them to reduce code.
 - Never report a check as passing without showing its real output. If a command cannot be run, say so plainly instead of assuming success.
+
+## Landing campaigns
+- Use the same Astro application and build for the main site and landing campaigns. Vanilla JS owns only the interactions that need browser code.
+- Different campaign headers, footers, layouts, section order and color palettes are intentional. Preserve the legacy campaign design during migration; do not replace it with the main-site shell or redesign it.
+- Give each campaign its own feature with `data/`, pure `domain/` with tests, and `presentation/`. Keep routes in `src/pages/` limited to assembly.
+- Share neutral document metadata, language direction, analytics, public contact configuration and genuinely reusable business logic. Campaign-specific header/footer/sections belong to its presentation layer; reusable visual templates may live in shared presentation components.
+- Isolate campaign CSS and theme variables from the main site and other campaigns. The neutral document shell must not automatically import main-site global styles or main-site header/footer. Reuse an existing visual template when appropriate; do not force materially different designs into one component with many conditional flags.
+- The shared language configuration remains the only definition of supported language codes and directions. Each campaign selects a subset with actual approved content. Validate matching keys only across that campaign's published language dictionaries; do not fabricate or require unapproved language versions.
+- `offerta-sharm` is an Italian-only campaign aimed at Italian travelers. Preserve `/offerta-sharm/`, its Italian text, its distinct header/footer/palette, its form behavior and existing marketing claims. Do not create an English version unless separately authorized.
+- Treat language equivalents of the same campaign as translations. Link only existing equivalent routes in a language switcher and hreflang; separate offers or audience-specific messages are separate campaigns, not automatic translations.
+- Keep stable campaign IDs separate from routes, language and design templates. Validate published route uniqueness and required campaign text/image associations. Preserve existing ad URLs unless their change is explicitly authorized.
+- Reuse pure form validation and WhatsApp message functions only where business behavior is actually shared. Pass campaign-specific messages/settings as arguments; keep DOM, analytics and external access outside domain.
+- Record `generate_lead` through shared analytics without personal form values. Never add names or phone numbers to analytics events.
+- Before a future redesign, keep a separate backup of the approved visual baseline; ignored local screenshots are not included in a fresh Git clone.
 
 ## Required verification and commits
 - Run `npx astro check` and `npm run build` from `astro-site/` after every implementation task.
