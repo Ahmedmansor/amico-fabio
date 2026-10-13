@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import logo from '../assets/logos/fabio-header-logo.webp';
 import { languages, supportedLocales, type Locale } from '../config/languages';
-import { siteConfig } from '../config/site';
 import { getSharedMessages } from '../i18n/shared';
 interface Props { locale: Locale; route: string }
 const { locale, route } = Astro.props;
@@ -11,7 +10,7 @@ const nav = [
   { key: 'home', label: messages.menu.home, href: `/${locale}/` },
   { key: 'trips', label: messages.menu.trips, href: `/${locale}/#trips-grid` },
   { key: 'reviews', label: messages.menu.reviews, href: `/${locale}/#reviews-section` },
-  { key: 'secrets', label: messages.menu.commandments, href: `${siteConfig.url}/sharm-secrets/index.html` },
+  { key: 'secrets', label: messages.menu.commandments, href: `/${locale}/sharm-secrets/` },
   { key: 'blog', label: messages.menu.blog, href: '#' },
 ];
 ---
@@ -31,7 +30,7 @@ const nav = [
         <Image src={logo} class="gh-logo" alt={messages.labels.headerLogo} width={84} height={81} style="max-width:84px; max-height:81px;" />
         <div class="gh-brand"><div class="gh-brand-title">FABIO</div><div class="gh-brand-subtitle">{messages.global.brand_subtitle}</div></div>
       </div>
-      <nav class="gh-nav-inline" id="gh-nav-inline">{nav.map(item => <a href={item.href} data-nav={item.key} class:list={{ active: route === '' && item.key === 'home' }}>{item.label}</a>)}</nav>
+      <nav class="gh-nav-inline" id="gh-nav-inline">{nav.map(item => <a href={item.href} data-nav={item.key} class:list={{ active: (route === '' && item.key === 'home') || (route === 'sharm-secrets' && item.key === 'secrets') }}>{item.label}</a>)}</nav>
     </div>
     <div class="gh-right">
       <button class="gh-lang-btn" id="gh-lang-btn" type="button" aria-label={languages[locale].label} aria-expanded="false">

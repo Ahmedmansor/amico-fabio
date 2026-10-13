@@ -1,0 +1,7 @@
+01:39:37 [types] Generated 633ms
+01:39:37 [check] Getting diagnostics for Astro files in D:\Fabio\fabio-landing\astro-site...
+Result (81 files): 
+- 0 errors
+- 0 warnings
+- 0 hints
+

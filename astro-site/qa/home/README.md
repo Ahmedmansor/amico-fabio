@@ -31,7 +31,8 @@ home dictionaries against the actual legacy JavaScript dictionaries.
   The legacy English screenshot still shows its Italian promo; intentional fix.
 - Header home/trips/reviews and legal links now use their migrated language
   routes. Destination links now reach `/<locale>/explore/<location>/` following
-  the explore migration. Guide links still reach the production legacy page.
+  the explore migration. Guide links now reach the corresponding Astro guide
+  following its migration.
   Blog keeps its existing
   `#` placeholder. No tour or package routes were added in this task.
 - Legacy home SEO title/description are only provided in Italian, even after

@@ -109,3 +109,10 @@ Explore is now available at `/it/explore/` and `/en/explore/`, with static Sharm
 Cairo and Luxor/Aswan routes. Home destination links use the migrated routes.
 See [qa/explore/README.md](./qa/explore/README.md) for original prices/content,
 location-query compatibility, filter/sort/pagination checks and comparisons.
+
+## Sharm Secrets guide
+
+The six-section guide is available at `/it/sharm-secrets/` and
+`/en/sharm-secrets/`, preserving legacy content, style, index and photo gallery.
+See [qa/sharm-secrets/README.md](./qa/sharm-secrets/README.md) for matching
+screenshots, source limitations and reproducible verification.
