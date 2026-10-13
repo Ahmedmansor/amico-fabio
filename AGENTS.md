@@ -5,7 +5,7 @@
 - Keep the legacy site's source, package manifest, lockfile, and build configuration unchanged during migration.
 - Develop the new Astro application in `astro-site/`, with its own package manifest, lockfile, configuration, and build output.
 - Read `PROJECT_MAP.md` as the migration reference; it is the document referred to as `PRD.md` in the conversation.
-- Implement only the single task explicitly authorized by the user. Report its changes and verification, then stop before the next task.
+- The user authorized continuing the remaining agreed migration tasks automatically. Implement one focused task at a time, run its checks, review its diff, create its focused commit and report progress, then continue with the next agreed task without asking for permission again. New dependency approvals, deployment/domain changes and business changes retain their separate approval requirements.
 - Before installing any new direct dependency or changing a dependency version, show the user the package list and its purpose. Wait for approval of the list.
 - Before the first migration commit, show the full contents of this file and wait for the user's review approval.
 - After each completed task, create a focused commit containing only that task's changes. Do not include unrelated or pre-existing user changes without authorization.
@@ -66,6 +66,7 @@
 - Never report a check as passing without showing its real output. If a command cannot be run, say so plainly instead of assuming success.
 
 ## Landing campaigns
+- Read `صفحات الهبوط.md` for the detailed approved campaign approach and migration sequence; keep it consistent with these rules.
 - Use the same Astro application and build for the main site and landing campaigns. Vanilla JS owns only the interactions that need browser code.
 - Different campaign headers, footers, layouts, section order and color palettes are intentional. Preserve the legacy campaign design during migration; do not replace it with the main-site shell or redesign it.
 - Give each campaign its own feature with `data/`, pure `domain/` with tests, and `presentation/`. Keep routes in `src/pages/` limited to assembly.
@@ -85,4 +86,4 @@
 - Do not mark a task complete or commit it if a required check fails. Fix the failure or clearly report the blocker.
 - Dependency installation and checks require the approved dependencies and supported Node runtime; draft files before installation are not a completed task.
 - Before committing, inspect the diff and stage explicit task files only. Preserve unrelated user changes.
-- Report what changed, what checks ran and their results, how to verify it, and the commit hash when committed. Then stop.
+- Report what changed, what checks ran and their real results, how to verify it, and the commit hash when committed. Continue with the next agreed migration task under the user's standing authorization; pause dependent work only for an actual blocker or a separately required approval.

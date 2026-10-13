@@ -143,7 +143,8 @@ local; comparison JSON and reports stay tracked.
 1. Record this campaign architecture and publication exception (this task).
 2. Migrate `offerta-sharm` with its original Italian campaign presentation;
    introduce Vitest only after dependency approval for WhatsApp domain tests.
-3. Continue with the separately scoped `welcome.html` migration and remaining
-   tour/package detail, booking, compatibility and SEO tasks from the agreed plan.
+3. Prioritize independent bilingual tour pages, then package pages and booking
+   logic, followed by `welcome.html`, compatibility and SEO tasks. The detailed
+   sequence and campaign policy are recorded in `../صفحات الهبوط.md`.
 4. After the Astro migration is finished, perform the separately approved Git
    screenshot-history cleanup. Deployment and redesign remain separate tasks.
