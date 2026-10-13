@@ -5,6 +5,8 @@ import { siteConfig } from './src/shared/config/site.ts';
 export default defineConfig({
   site: siteConfig.url,
   output: 'static',
+  trailingSlash: 'always',
+  devToolbar: { enabled: false },
   vite: {
     plugins: [tailwindcss()],
   },

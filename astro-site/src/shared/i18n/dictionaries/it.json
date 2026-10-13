@@ -1,0 +1,33 @@
+{
+  "menu": {
+    "home": "Home",
+    "trips": "Escursioni",
+    "reviews": "Recensioni",
+    "commandments": "10 Comandamenti",
+    "blog": "Blog"
+  },
+  "footer": {
+    "brand_name": "AMICO FABIO",
+    "about_bio": "Esperienze VIP a Sharm El Sheikh guidate dal tuo amico di fiducia. Viaggia con eleganza, sicurezza e vera conoscenza da insider.",
+    "links_legal": "Legale & Privacy",
+    "links_why": "Perché Fabio?",
+    "join_community": "Unisciti alla community",
+    "heritage": "La nostra eredità: Cross Roots – Stessa esperienza, nuova identità."
+  },
+  "fab": {
+    "contact": "Contatti",
+    "indice": "Indice"
+  },
+  "global": {
+    "brand_subtitle": "Guida Turistica Ufficiale",
+    "why_fabio": "Perché Fabio?"
+  },
+  "labels": {
+    "links": "Links",
+    "closeIndex": "Close index",
+    "menu": "Menu",
+    "headerLogo": "Fabio Tours Logo",
+    "footerLogo": "FABIO",
+    "crossRootsLogo": "Cross Roots Logo"
+  }
+}

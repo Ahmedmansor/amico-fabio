@@ -74,3 +74,15 @@ node --test src/shared/i18n/__tests__/configuration.test.mjs
 
 These checks use Node 24's TypeScript support and install no additional package.
 They do not replace the planned Vitest tests for feature domain behavior.
+
+## Migrated legal page
+
+Preview `/it/legal/` and `/en/legal/` using `npm run dev` or, after building,
+`npm run preview`. Legal content, the header/footer, local fonts, and icons are
+rendered at build time. Interactive browser code is limited to navigation,
+language preference persistence, the index, and scroll indicators.
+
+See [qa/legal/README.md](./qa/legal/README.md) for comparisons with the legacy
+page and commands to reproduce the content and asset checks. Domain tests for
+the legal page use the built-in Node test runner; booking's Vitest tests remain
+a later task.

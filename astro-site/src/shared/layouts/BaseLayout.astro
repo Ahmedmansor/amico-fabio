@@ -1,0 +1,17 @@
+---
+import '../styles/global.css';
+import '../styles/legacy-shell.css';
+import PageHead from '../seo/PageHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import Analytics from '../components/Analytics.astro';
+import { languages, type Locale } from '../config/languages';
+interface Props { locale: Locale; route: string; title: string; description: string }
+const { locale, route, title, description } = Astro.props;
+---
+<!doctype html>
+<html lang={locale} dir={languages[locale].direction}>
+  <head><PageHead locale={locale} route={route} title={title} description={description}/><Analytics/></head>
+  <body><Header locale={locale} route={route}/><slot/><Footer locale={locale}/><WhatsAppFloat locale={locale}/></body>
+</html>

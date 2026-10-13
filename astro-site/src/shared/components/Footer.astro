@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logos/fabio-header-logo.webp';
+import crossRoots from '../assets/logos/cross-roots-logo.webp';
+import { siteConfig } from '../config/site';
+import type { Locale } from '../config/languages';
+import { getSharedMessages } from '../i18n/shared';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const m = getSharedMessages(locale);
+const names = { facebook: 'Facebook', instagram: 'Instagram', tiktok: 'TikTok', youtube: 'YouTube' } as const;
+---
+<footer id="global-footer">
+  <div class="af-footer"><div class="af-footer-inner">
+    <div class="af-grid">
+      <div class="af-col af-about">
+        <div class="af-logo-wrap"><Image src={logo} alt={m.labels.footerLogo} class="af-logo" width={84} height={81} loading="lazy"/><div class="af-brand"><div class="af-brand-title">FABIO</div><div class="af-brand-subtitle">{m.global.brand_subtitle}</div></div></div>
+        <p class="af-bio">{m.footer.about_bio}</p><p class="af-copy">&copy; 2025 - {new Date().getFullYear()}</p>
+      </div>
+      <div class="af-col af-links"><h4 class="af-heading">{m.labels.links}</h4><nav class="af-links-nav">
+        <a href={`/${locale}/legal/`} class="af-link">{m.footer.links_legal}</a>
+        <a href={`${siteConfig.url}/sharm-secrets/index.html#page6`} class="af-link">{m.global.why_fabio}</a>
+      </nav></div>
+      <div class="af-col af-community"><h4 class="af-heading">{m.footer.join_community}</h4>
+        <div class="af-email"><a href={`mailto:${siteConfig.email}`} class="af-email-btn"><svg viewBox="0 0 24 24" width="20" height="20" fill="#fff" class="af-email-icon" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>{siteConfig.email}</a></div>
+        <div class="af-social">{Object.entries(siteConfig.social).map(([key, url]) => <a href={url} target="_blank" rel="noopener noreferrer" aria-label={names[key as keyof typeof names]} class="af-social-btn"><img src={`/assets/images/icons/social/${key}.svg`} class="af-social-icon" width="24" height="24" alt={names[key as keyof typeof names]}/></a>)}</div>
+      </div>
+    </div>
+    <div class="af-legacy"><Image src={crossRoots} alt={m.labels.crossRootsLogo} class="af-legacy-logo" width={75} height={50} loading="lazy"/><span class="af-legacy-text">{m.footer.heritage}</span></div>
+  </div></div>
+</footer>

@@ -1,7 +1,7 @@
 export const languages = {
-  it: { label: 'Italiano', direction: 'ltr' },
-  en: { label: 'English', direction: 'ltr' },
-} as const satisfies Record<string, { label: string; direction: 'ltr' | 'rtl' }>;
+  it: { label: 'Italiano', direction: 'ltr', ogLocale: 'it_IT' },
+  en: { label: 'English', direction: 'ltr', ogLocale: 'en_US' },
+} as const satisfies Record<string, { label: string; direction: 'ltr' | 'rtl'; ogLocale: string }>;
 
 export type Locale = keyof typeof languages;
 export const defaultLocale: Locale = 'it';

@@ -1,0 +1,11 @@
+---
+import { supportedLocales } from '@shared/config/languages';
+import { getLegalPage, legalIcons } from '@features/legal/data/legal';
+import LegalPage from '@features/legal/presentation/LegalPage.astro';
+
+export function getStaticPaths() {
+  return supportedLocales.map(locale => ({ params: { locale }, props: { locale, page: getLegalPage(locale), icons: legalIcons } }));
+}
+const { locale, page, icons } = Astro.props;
+---
+<LegalPage locale={locale} page={page} icons={icons}/>

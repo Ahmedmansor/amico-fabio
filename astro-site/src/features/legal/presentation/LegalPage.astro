@@ -1,0 +1,35 @@
+---
+import './legal.css';
+import BaseLayout from '@shared/layouts/BaseLayout.astro';
+import { getSharedMessages } from '@shared/i18n/shared';
+import type { Locale } from '@shared/config/languages';
+import { groupParagraphs, getDataChips, type LegalPage } from '../domain/legal';
+interface Props { locale: Locale; page: LegalPage; icons: Record<string, string> }
+const { locale, page, icons } = Astro.props;
+const shared = getSharedMessages(locale);
+---
+<BaseLayout locale={locale} route="legal" title={`Fabio Egypt | ${page.title}`} description={page.sections[0].paragraphs[0]}>
+  <main class="legal-container">
+    <h1 class="legal-title text-3xl mb-8">{page.title}</h1>
+    <nav id="legal-toc-top" class="legal-toc-top">{page.summary_items.map(item => <a class="legal-link" href={`#${item.id}`}>{item.label}</a>)}</nav>
+    <div class="legal-grid">
+      <aside class="legal-sidebar"><div class="legal-card"><h2 class="legal-subtitle text-xl mb-3">{page.toc_title}</h2><nav id="legal-toc">{page.toc.map(item => <a class="legal-link" href={`#${item.id}`}>{item.label}</a>)}</nav></div></aside>
+      <section id="legal-content">{page.sections.map(section =>
+        <div class="legal-section" id={section.id}>
+          <div class="heading-row"><img src={icons[section.id]} class="heading-icon" alt={section.heading} width="30" height="30"/><h3 class="legal-subtitle text-xl">{section.heading}</h3></div>
+          {section.id === 'data_types' && <div class="chip-list">{getDataChips(section.paragraphs).map(chip => <span class="chip">{chip}</span>)}</div>}
+          {groupParagraphs(section.paragraphs).map(block => block.type === 'list'
+            ? <ul class="gold-list">{block.items.map(text => <li>{text}</li>)}</ul>
+            : <p class="text-sm leading-relaxed text-gray-300 mb-3">{block.text}</p>)}
+        </div>
+      )}</section>
+    </div>
+  </main>
+  <div class="gh-fab-label">{shared.fab.indice}</div>
+  <button class="fab-base gh-fab" id="legal-fab" type="button" aria-label={shared.fab.indice} aria-expanded="false" aria-controls="indexMenu"><svg viewBox="0 0 24 24" width="26" height="26" fill="#111" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm3.5 6.5l-2 5-5 2 2-5 5-2z"/></svg></button>
+  <div id="indexMenu" class="index-menu" inert><div class="index-menu-inner"><button type="button" class="index-menu-close" aria-label={shared.labels.closeIndex}>×</button><nav class="index-menu-nav">{page.toc.map(item => <a class="index-link" href={`#${item.id}`}>{item.label}</a>)}</nav></div></div>
+  <noscript><style>.legal-toc-top { display: block; } #legal-fab, .gh-fab-label { display: none; }</style></noscript>
+</BaseLayout>
+<script>
+  import './legal-interactions';
+</script>

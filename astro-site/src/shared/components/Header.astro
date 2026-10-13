@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logos/fabio-header-logo.webp';
+import { languages, supportedLocales, type Locale } from '../config/languages';
+import { siteConfig } from '../config/site';
+import { getSharedMessages } from '../i18n/shared';
+interface Props { locale: Locale; route: string }
+const { locale, route } = Astro.props;
+const messages = getSharedMessages(locale);
+const nav = [
+  { key: 'home', label: messages.menu.home, href: `${siteConfig.url}/index.html` },
+  { key: 'trips', label: messages.menu.trips, href: `${siteConfig.url}/index.html#trips-grid` },
+  { key: 'reviews', label: messages.menu.reviews, href: `${siteConfig.url}/index.html#reviews-section` },
+  { key: 'secrets', label: messages.menu.commandments, href: `${siteConfig.url}/sharm-secrets/index.html` },
+  { key: 'blog', label: messages.menu.blog, href: '#' },
+];
+---
+<header id="global-header" class="fixed w-full top-0 z-50">
+  <div id="scroll-progress"></div>
+  <div class="gh-container">
+    <div class="gh-left">
+      <button class="gh-menu-btn" id="gh-menu-btn" type="button" aria-label={messages.labels.menu} aria-expanded="false">
+        <img src="/assets/images/icons/menu-icon.webp" alt={messages.labels.menu} />
+        <svg class="gh-menu-fallback" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="5" width="18" height="2" fill="#fff"/><rect x="3" y="11" width="18" height="2" fill="#fff"/><rect x="3" y="17" width="18" height="2" fill="#fff"/></svg>
+      </button>
+      <div class="gh-dynamic-hook" id="gh-dynamic-hook"></div>
+      <div class="gh-menu-dropdown" id="gh-menu-dropdown">{nav.map(item => <a href={item.href} data-nav={item.key}>{item.label}</a>)}</div>
+    </div>
+    <div class="gh-center" id="gh-center">
+      <div class="gh-brand-wrap-center">
+        <Image src={logo} class="gh-logo" alt={messages.labels.headerLogo} width={84} height={81} style="max-width:84px; max-height:81px;" />
+        <div class="gh-brand"><div class="gh-brand-title">FABIO</div><div class="gh-brand-subtitle">{messages.global.brand_subtitle}</div></div>
+      </div>
+      <nav class="gh-nav-inline" id="gh-nav-inline">{nav.map(item => <a href={item.href} data-nav={item.key}>{item.label}</a>)}</nav>
+    </div>
+    <div class="gh-right">
+      <button class="gh-lang-btn" id="gh-lang-btn" type="button" aria-label={languages[locale].label} aria-expanded="false">
+        <img src={`/assets/images/icons/languages/${locale}.svg`} class="gh-flag-svg" alt=""/><span class="gh-chevron">▼</span>
+      </button>
+      <div class="gh-lang-dropdown" id="gh-lang-dropdown">{supportedLocales.map(language =>
+        <a class:list={['gh-lang-item', { active: language === locale }]} data-lang={language} href={`/${language}/${route}/`} hreflang={language}>
+          <img src={`/assets/images/icons/languages/${language}.svg`} class="gh-flag-svg" alt=""/><span>{languages[language].label}</span>
+        </a>
+      )}</div>
+    </div>
+  </div>
+</header>
+<script>
+  import './header-interactions';
+</script>
