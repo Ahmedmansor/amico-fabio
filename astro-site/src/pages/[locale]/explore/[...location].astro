@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../../shared/layouts/BaseLayout.astro';
+import ExplorePage from '../../../features/explore/presentation/ExplorePage.astro';
+import { supportedLocales } from '../../../shared/config/languages';
+import { getExploreCards, getExploreMessages } from '../../../features/explore/data/explore.mjs';
+import { exploreLocations } from '../../../features/explore/domain/explore';
+export async function getStaticPaths() {
+  const cards = await getExploreCards();
+  return supportedLocales.flatMap(locale => exploreLocations.map(location => ({ params: { locale, location: location === 'all' ? undefined : location }, props: { locale, location, cards, messages: getExploreMessages(locale) } })));
+}
+const { locale, location, cards, messages } = Astro.props;
+const route = `explore${location === 'all' ? '' : `/${location}`}`;
+---
+<BaseLayout locale={locale} route={route} title={messages.seo.title} description={messages.seo.description} bodyClass="bg-black font-sans text-gray-200">
+  <ExplorePage locale={locale} location={location} cards={cards} messages={messages}/>
+</BaseLayout>

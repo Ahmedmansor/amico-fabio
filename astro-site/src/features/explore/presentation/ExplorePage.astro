@@ -1,0 +1,40 @@
+---
+import type { Locale } from '../../../shared/config/languages';
+import type { ExploreCard as Card, ExploreLocation, ExploreMessages } from '../domain/explore';
+import { selectExploreItems, exploreCategories, paginateExplore, categoryLabel } from '../domain/explore';
+import { filterClass } from './filter-styles';
+import ExploreCard from './ExploreCard.astro';
+import './explore.css';
+interface Props { locale: Locale; location: ExploreLocation; cards: Card[]; messages: ExploreMessages }
+const { locale, location, cards, messages: m } = Astro.props;
+const ordered = selectExploreItems(cards, location);
+const initial = paginateExplore(ordered, 1);
+const categories = exploreCategories(cards, location);
+---
+<main class="pt-24 min-h-screen" data-explore data-location={location} data-locale={locale}>
+  <section class="max-w-7xl mx-auto px-4">
+    <h1 class="sr-only">{m.title}</h1>
+    <div class="mb-8 flex flex-col md:flex-row items-center justify-between gap-4 animate-fade-up delay-100">
+      <div id="filter-chips" class="flex flex-nowrap gap-3 min-h-[40px] items-center overflow-x-auto overflow-y-hidden whitespace-nowrap w-full md:w-auto pb-2 md:pb-0 hide-scrollbar">
+        {categories.map(category => <button type="button" data-filter={category} aria-pressed={category === 'all'} class={filterClass(category, category === 'all')}>{categoryLabel(category,m)}</button>)}
+      </div>
+      <div class="w-auto self-start md:self-auto"><label for="price-sort" class="sr-only">{m.sort.sort_label}</label>
+        <select id="price-sort" class="bg-gray-900 text-white border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:border-gold cursor-pointer w-full md:w-auto">
+          <option value="default" selected>{m.sort.sort_recommended}</option><option value="price_asc">{m.sort.sort_low_high}</option><option value="price_desc">{m.sort.sort_high_low}</option>
+        </select>
+      </div>
+    </div>
+    <div id="explore-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-up delay-200">
+      {ordered.map((card,index) => <ExploreCard card={card} locale={locale} messages={m} hidden={index >= 9}/>)}
+      <div data-empty class="col-span-full text-center py-20" hidden={ordered.length > 0}><p class="text-gray-400 text-xl font-playfair italic">{m.labels.no_exclusive_experiences}</p></div>
+    </div>
+    <div id="pagination-controls" class:list={['mt-16 flex justify-center items-center gap-4 animate-fade-up delay-200',{'hidden':initial.totalPages <= 1}]}>
+      <button type="button" data-previous disabled class="w-10 h-10 rounded-full border border-gold text-gold flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gold hover:text-black transition-colors">{m.pagination.previous}</button>
+      <span class="text-white font-playfair text-lg">{m.pagination.page} <span class="text-gold" data-page>1</span> {m.pagination.of} <span data-pages>{initial.totalPages}</span></span>
+      <button type="button" data-next class="w-10 h-10 rounded-full border border-gold text-gold flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gold hover:text-black transition-colors">{m.pagination.next}</button>
+    </div>
+  </section>
+</main>
+<noscript><style is:inline>[data-explore-card][hidden]{display:flex!important}#pagination-controls{display:none!important}</style></noscript>
+<script>import './explore-interactions';</script>
+<style is:global>[data-explore-card][hidden], [data-empty][hidden], [data-filter][hidden] { display:none !important; }</style>

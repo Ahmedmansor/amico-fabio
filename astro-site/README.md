@@ -102,3 +102,10 @@ test dependency is needed for this stage; Vitest remains planned for booking.
 Home is now available at `/it/` and `/en/`, preserving legacy content and styles.
 See [qa/home/README.md](./qa/home/README.md) for both-language desktop/mobile
 comparisons, existing SEO translation limits, and remaining legacy links.
+
+## Explore page
+
+Explore is now available at `/it/explore/` and `/en/explore/`, with static Sharm,
+Cairo and Luxor/Aswan routes. Home destination links use the migrated routes.
+See [qa/explore/README.md](./qa/explore/README.md) for original prices/content,
+location-query compatibility, filter/sort/pagination checks and comparisons.

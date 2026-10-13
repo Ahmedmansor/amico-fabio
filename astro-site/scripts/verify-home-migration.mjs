@@ -17,7 +17,7 @@ for (const locale of ['it', 'en']) {
   assert.equal((html.match(/class="review-card"/g) || []).length, content.reviews.items.length * 2);
   assert.equal((html.match(/class="lux-entry-card /g) || []).length, 3);
   for (const id of ['hero-slider-section','who-fabio','trips-grid','reviews-section','promo-banner-container']) assert.ok(html.includes(`id="${id}"`), `Missing section ${id}`);
-  for (const location of ['sharm','cairo','luxor_and_aswan']) assert.ok(html.includes(`href="${siteConfig.url}/explore.html?loc=${location}"`));
+  for (const location of ['sharm','cairo','luxor_and_aswan']) assert.ok(html.includes(`href="/${locale}/explore/${location}/"`));
   assert.ok(html.includes(`${siteConfig.url}/sharm-secrets/index.html`));
   assert.ok(html.includes(decode(siteConfig.reviewsUrl).replaceAll('&', '&amp;')) || html.includes(siteConfig.reviewsUrl));
   assert.ok(html.includes(`rel="canonical" href="${siteConfig.url}/${locale}/"`));

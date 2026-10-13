@@ -48,7 +48,7 @@ const facebookPath = 'M22 12a10 10 0 1 0-11.563 9.874v-6.987H7.898V12h2.539V9.79
 </div>}</div>
 <div id="trips-grid" class="text-center mt-12 mb-8 scroll-mt-32"><h1 class="main-brand-title" data-i18n="global.brand_title">{m.global.brand_title}</h1><p class="text-gray-400 uppercase tracking-widest text-sm md:text-base" data-i18n="global.vip_experiences">{m.global.vip_experiences}</p></div>
 <div class="grid gap-4 md:gap-8 grid-cols-1 w-full max-w-4xl px-2 md:px-4 mx-auto mb-24">
-  {locations.map(location => <a class="lux-entry-card group relative block overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500" href={`${siteConfig.url}/explore.html?loc=${location.id}`}>
+  {locations.map(location => <a class="lux-entry-card group relative block overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500" href={`/${locale}/explore/${location.id}/`}>
     <div class="lux-entry-image h-full w-full overflow-hidden"><Image src={location.image} alt={location.alt} loading="lazy" widths={[480,800,1200]} sizes="(min-width: 768px) 800px, 100vw" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"/><div class="lux-entry-overlay absolute inset-0 bg-transparent group-hover:bg-black/10 transition-colors duration-500"></div></div>
     <div class="lux-entry-content absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/60 to-transparent"><h3 class="lux-entry-title text-2xl font-bold text-white mb-2 font-cinzel">{location.name}</h3><span class="lux-entry-cta text-gold-500 text-sm uppercase tracking-widest border-b border-gold-500 pb-1">{m.global.discover}</span></div>
   </a>)}

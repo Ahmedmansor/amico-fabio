@@ -30,8 +30,9 @@ home dictionaries against the actual legacy JavaScript dictionaries.
   `fabio_lang` storage-key mismatch. The existing English sheet value is used.
   The legacy English screenshot still shows its Italian promo; intentional fix.
 - Header home/trips/reviews and legal links now use their migrated language
-  routes. Guide and destination links reach the existing production legacy
-  pages, because those migrations are separate tasks. Blog keeps its existing
+  routes. Destination links now reach `/<locale>/explore/<location>/` following
+  the explore migration. Guide links still reach the production legacy page.
+  Blog keeps its existing
   `#` placeholder. No tour or package routes were added in this task.
 - Legacy home SEO title/description are only provided in Italian, even after
   switching the legacy page to English. They are retained in both dictionaries;

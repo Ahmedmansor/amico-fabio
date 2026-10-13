@@ -1,0 +1,5154 @@
+[
+  {
+    "locale": "it",
+    "size": "desktop",
+    "location": "all",
+    "astro": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Un viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_bus_half_day",
+          "title": "Ras Mohammed Nature Explorer: Il Parco via Terra"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: L'Esperienza VIP",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_white_island_vip",
+          "title": "Ras Mohammed & White Island: L'Esperienza VIP"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "L'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: I 5 Sensi del Sinai",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=super_safari_5_senses",
+          "title": "Super Safari: I 5 Sensi del Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Scopri",
+          "description": "Un'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Emozioni per tutta la Famiglia",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dolphin_show_family",
+          "title": "Dolphin Show: Emozioni per tutta la Famiglia"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Scopri",
+          "description": "Il tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=sharm_old_market_ultimate_shopping",
+          "title": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Scopri",
+          "description": "Adrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Tramonto & Valle dell'Eco",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=moto_safari_quad_echo",
+          "title": "Moto Safari: Quad, Tramonto & Valle dell'Eco"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Scopri",
+          "description": "Una serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Notte Magica: Cena di Pesce & Show Orientale",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dinner_cruise_night_show",
+          "title": "Notte Magica: Cena di Pesce & Show Orientale"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Scopri",
+          "description": "Naviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Isola di Tiran VIP: Relitti e Barriere Coralline",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=tiran_island_boat_vip",
+          "title": "Isola di Tiran VIP: Relitti e Barriere Coralline"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Scopri",
+          "description": "La vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Cammelli & Canyon",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dahab_blue_hole_super_safari",
+          "title": "Dahab Adventure: Blue Hole, Cammelli & Canyon"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti",
+        "Cultura",
+        "Deserto",
+        "Mare"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "←Page 1 of 4→",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 1440
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Un viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_bus_half_day'",
+          "title": "Ras Mohammed Nature Explorer: Il Parco via Terra"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: L'Esperienza VIP",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_white_island_vip'",
+          "title": "Ras Mohammed & White Island: L'Esperienza VIP"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "L'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: I 5 Sensi del Sinai",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=super_safari_5_senses'",
+          "title": "Super Safari: I 5 Sensi del Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Scopri",
+          "description": "Un'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Emozioni per tutta la Famiglia",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dolphin_show_family'",
+          "title": "Dolphin Show: Emozioni per tutta la Famiglia"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Scopri",
+          "description": "Il tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=sharm_old_market_ultimate_shopping'",
+          "title": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Scopri",
+          "description": "Adrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Tramonto & Valle dell'Eco",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=moto_safari_quad_echo'",
+          "title": "Moto Safari: Quad, Tramonto & Valle dell'Eco"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Scopri",
+          "description": "Una serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Notte Magica: Cena di Pesce & Show Orientale",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dinner_cruise_night_show'",
+          "title": "Notte Magica: Cena di Pesce & Show Orientale"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Scopri",
+          "description": "Naviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Isola di Tiran VIP: Relitti e Barriere Coralline",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=tiran_island_boat_vip'",
+          "title": "Isola di Tiran VIP: Relitti e Barriere Coralline"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Scopri",
+          "description": "La vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Cammelli & Canyon",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dahab_blue_hole_super_safari'",
+          "title": "Dahab Adventure: Blue Hole, Cammelli & Canyon"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti",
+        "Cultura",
+        "Deserto",
+        "Mare"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "← Page 1 of 4 →",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 1440
+    }
+  },
+  {
+    "locale": "it",
+    "size": "desktop",
+    "location": "sharm",
+    "astro": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Un viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_bus_half_day",
+          "title": "Ras Mohammed Nature Explorer: Il Parco via Terra"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: L'Esperienza VIP",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_white_island_vip",
+          "title": "Ras Mohammed & White Island: L'Esperienza VIP"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "L'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: I 5 Sensi del Sinai",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=super_safari_5_senses",
+          "title": "Super Safari: I 5 Sensi del Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Scopri",
+          "description": "Un'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Emozioni per tutta la Famiglia",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dolphin_show_family",
+          "title": "Dolphin Show: Emozioni per tutta la Famiglia"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Scopri",
+          "description": "Il tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=sharm_old_market_ultimate_shopping",
+          "title": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Scopri",
+          "description": "Adrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Tramonto & Valle dell'Eco",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=moto_safari_quad_echo",
+          "title": "Moto Safari: Quad, Tramonto & Valle dell'Eco"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Scopri",
+          "description": "Una serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Notte Magica: Cena di Pesce & Show Orientale",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dinner_cruise_night_show",
+          "title": "Notte Magica: Cena di Pesce & Show Orientale"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Scopri",
+          "description": "Naviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Isola di Tiran VIP: Relitti e Barriere Coralline",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=tiran_island_boat_vip",
+          "title": "Isola di Tiran VIP: Relitti e Barriere Coralline"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Scopri",
+          "description": "La vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Cammelli & Canyon",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dahab_blue_hole_super_safari",
+          "title": "Dahab Adventure: Blue Hole, Cammelli & Canyon"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti",
+        "Cultura",
+        "Deserto",
+        "Mare"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "←Page 1 of 3→",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 1440
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Un viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_bus_half_day'",
+          "title": "Ras Mohammed Nature Explorer: Il Parco via Terra"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: L'Esperienza VIP",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_white_island_vip'",
+          "title": "Ras Mohammed & White Island: L'Esperienza VIP"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "L'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: I 5 Sensi del Sinai",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=super_safari_5_senses'",
+          "title": "Super Safari: I 5 Sensi del Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Scopri",
+          "description": "Un'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Emozioni per tutta la Famiglia",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dolphin_show_family'",
+          "title": "Dolphin Show: Emozioni per tutta la Famiglia"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Scopri",
+          "description": "Il tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=sharm_old_market_ultimate_shopping'",
+          "title": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Scopri",
+          "description": "Adrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Tramonto & Valle dell'Eco",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=moto_safari_quad_echo'",
+          "title": "Moto Safari: Quad, Tramonto & Valle dell'Eco"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Scopri",
+          "description": "Una serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Notte Magica: Cena di Pesce & Show Orientale",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dinner_cruise_night_show'",
+          "title": "Notte Magica: Cena di Pesce & Show Orientale"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Scopri",
+          "description": "Naviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Isola di Tiran VIP: Relitti e Barriere Coralline",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=tiran_island_boat_vip'",
+          "title": "Isola di Tiran VIP: Relitti e Barriere Coralline"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Scopri",
+          "description": "La vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Cammelli & Canyon",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dahab_blue_hole_super_safari'",
+          "title": "Dahab Adventure: Blue Hole, Cammelli & Canyon"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti",
+        "Cultura",
+        "Deserto",
+        "Mare"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "← Page 1 of 3 →",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 1440
+    }
+  },
+  {
+    "locale": "it",
+    "size": "desktop",
+    "location": "cairo",
+    "astro": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Un viaggio spirituale nei quartieri più antichi: cammina sulle orme della Sacra Famiglia e scopri moschee storiche.",
+          "id": "cairo_mistico_copto_islamico",
+          "image": {
+            "alt": "Il Cairo Mistico: Tra Cristianesimo Copto e Fascino Islamico",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€50"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_mistico_copto_islamico",
+          "title": "Il Cairo Mistico: Tra Cristianesimo Copto e Fascino Islamico"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Scopri l'anima del Cairo: i tesori di Tutankhamon, viste mozzafiato dalla Cittadella e lo shopping magico nel bazar.",
+          "id": "cairo_cuore_pulsante_museo_cittadella",
+          "image": {
+            "alt": "Il Cuore Pulsante del Cairo: Museo Egizio, Cittadella e Khan El Khalili",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€55"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_cuore_pulsante_museo_cittadella",
+          "title": "Il Cuore Pulsante del Cairo: Museo Egizio, Cittadella e Khan El Khalili"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Vivi la magia del Nilo di notte. Cena a buffet di prima classe, danza del ventre e spettacolo Tanoura.",
+          "id": "cairo_crociera_nilo_cena",
+          "image": {
+            "alt": "Magia Notturna sul Nilo: Crociera VIP con Cena e Spettacolo",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€60"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_crociera_nilo_cena",
+          "title": "Magia Notturna sul Nilo: Crociera VIP con Cena e Spettacolo"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Azione e panorami mozzafiato! Sfreccia in Quad nel deserto di Giza e goditi un giro in cammello al tramonto.",
+          "id": "cairo_safari_piramidi_tramonto",
+          "image": {
+            "alt": "Avventura al Tramonto: Quad Safari e Cammelli alle Piramidi",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€60"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_safari_piramidi_tramonto",
+          "title": "Avventura al Tramonto: Quad Safari e Cammelli alle Piramidi"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Un viaggio VIP nel tempo tra le iconiche Piramidi di Giza, l'enigmatica Sfinge e la più antica piramide del mondo a Saqqara.",
+          "id": "cairo_piramidi_saqqara_vip",
+          "image": {
+            "alt": "L'Eterna Grandezza: Piramidi di Giza, Sfinge e Saqqara",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€65"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_piramidi_saqqara_vip",
+          "title": "L'Eterna Grandezza: Piramidi di Giza, Sfinge e Saqqara"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Lascia il Cairo per un giorno e scopri l'atmosfera greco-romana di Alessandria, la Perla del Mediterraneo.",
+          "id": "alessandria_tour_giornata_intera",
+          "image": {
+            "alt": "Fuga sul Mediterraneo: Tour di un Giorno ad Alessandria",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€85"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=alessandria_tour_giornata_intera",
+          "title": "Fuga sul Mediterraneo: Tour di un Giorno ad Alessandria"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "←Page 1 of 1→",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 1440
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Un viaggio spirituale nei quartieri più antichi: cammina sulle orme della Sacra Famiglia e scopri moschee storiche.",
+          "id": "cairo_mistico_copto_islamico",
+          "image": {
+            "alt": "Il Cairo Mistico: Tra Cristianesimo Copto e Fascino Islamico",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€50"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_mistico_copto_islamico'",
+          "title": "Il Cairo Mistico: Tra Cristianesimo Copto e Fascino Islamico"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Scopri l'anima del Cairo: i tesori di Tutankhamon, viste mozzafiato dalla Cittadella e lo shopping magico nel bazar.",
+          "id": "cairo_cuore_pulsante_museo_cittadella",
+          "image": {
+            "alt": "Il Cuore Pulsante del Cairo: Museo Egizio, Cittadella e Khan El Khalili",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€55"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_cuore_pulsante_museo_cittadella'",
+          "title": "Il Cuore Pulsante del Cairo: Museo Egizio, Cittadella e Khan El Khalili"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Vivi la magia del Nilo di notte. Cena a buffet di prima classe, danza del ventre e spettacolo Tanoura.",
+          "id": "cairo_crociera_nilo_cena",
+          "image": {
+            "alt": "Magia Notturna sul Nilo: Crociera VIP con Cena e Spettacolo",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€60"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_crociera_nilo_cena'",
+          "title": "Magia Notturna sul Nilo: Crociera VIP con Cena e Spettacolo"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Azione e panorami mozzafiato! Sfreccia in Quad nel deserto di Giza e goditi un giro in cammello al tramonto.",
+          "id": "cairo_safari_piramidi_tramonto",
+          "image": {
+            "alt": "Avventura al Tramonto: Quad Safari e Cammelli alle Piramidi",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€60"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_safari_piramidi_tramonto'",
+          "title": "Avventura al Tramonto: Quad Safari e Cammelli alle Piramidi"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Un viaggio VIP nel tempo tra le iconiche Piramidi di Giza, l'enigmatica Sfinge e la più antica piramide del mondo a Saqqara.",
+          "id": "cairo_piramidi_saqqara_vip",
+          "image": {
+            "alt": "L'Eterna Grandezza: Piramidi di Giza, Sfinge e Saqqara",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€65"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_piramidi_saqqara_vip'",
+          "title": "L'Eterna Grandezza: Piramidi di Giza, Sfinge e Saqqara"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Lascia il Cairo per un giorno e scopri l'atmosfera greco-romana di Alessandria, la Perla del Mediterraneo.",
+          "id": "alessandria_tour_giornata_intera",
+          "image": {
+            "alt": "Fuga sul Mediterraneo: Tour di un Giorno ad Alessandria",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€85"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=alessandria_tour_giornata_intera'",
+          "title": "Fuga sul Mediterraneo: Tour di un Giorno ad Alessandria"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 1440
+    }
+  },
+  {
+    "locale": "it",
+    "size": "desktop",
+    "location": "luxor_and_aswan",
+    "astro": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Scopri i tesori dell'Alto Egitto in soli 4 giorni e 3 notti. Dal Tempio di Philae ad Aswan fino ai segreti della Valle dei Re a Luxor.",
+          "id": "nile_cruise_aswan_luxor_4d3n",
+          "image": {
+            "alt": "Magia del Sud: Crociera da Aswan a Luxor",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€650"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=nile_cruise_aswan_luxor_4d3n",
+          "title": "Magia del Sud: Crociera da Aswan a Luxor"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Un viaggio a 5 stelle di 5 giorni e 4 notti. Esplora la Valle dei Re, i templi maestosi e vivi la magia dei colori nel Villaggio Nubiano.",
+          "id": "nile_cruise_luxor_aswan_5d4n",
+          "image": {
+            "alt": "Crociera sul Nilo Reale: Da Luxor ad Aswan",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€750"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=nile_cruise_luxor_aswan_5d4n",
+          "title": "Crociera sul Nilo Reale: Da Luxor ad Aswan"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "L'esperienza definitiva. Un viaggio completo di 8 giorni che unisce le Piramidi del Cairo, il nuovo Museo Egizio e una lussuosa Crociera sul Nilo.",
+          "id": "gran_tour_egitto_cairo_crociera_8g7n",
+          "image": {
+            "alt": "Il Gran Tour Faraonico: Il Cairo e Magia del Nilo (8 Giorni)",
+            "complete": true,
+            "width": 400
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€1450"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=gran_tour_egitto_cairo_crociera_8g7n",
+          "title": "Il Gran Tour Faraonico: Il Cairo e Magia del Nilo (8 Giorni)"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "←Page 1 of 1→",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 1440
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Scopri i tesori dell'Alto Egitto in soli 4 giorni e 3 notti. Dal Tempio di Philae ad Aswan fino ai segreti della Valle dei Re a Luxor.",
+          "id": "nile_cruise_aswan_luxor_4d3n",
+          "image": {
+            "alt": "Magia del Sud: Crociera da Aswan a Luxor",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€650"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=nile_cruise_aswan_luxor_4d3n'",
+          "title": "Magia del Sud: Crociera da Aswan a Luxor"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Un viaggio a 5 stelle di 5 giorni e 4 notti. Esplora la Valle dei Re, i templi maestosi e vivi la magia dei colori nel Villaggio Nubiano.",
+          "id": "nile_cruise_luxor_aswan_5d4n",
+          "image": {
+            "alt": "Crociera sul Nilo Reale: Da Luxor ad Aswan",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€750"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=nile_cruise_luxor_aswan_5d4n'",
+          "title": "Crociera sul Nilo Reale: Da Luxor ad Aswan"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "L'esperienza definitiva. Un viaggio completo di 8 giorni che unisce le Piramidi del Cairo, il nuovo Museo Egizio e una lussuosa Crociera sul Nilo.",
+          "id": "gran_tour_egitto_cairo_crociera_8g7n",
+          "image": {
+            "alt": "Il Gran Tour Faraonico: Il Cairo e Magia del Nilo (8 Giorni)",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€1450"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=gran_tour_egitto_cairo_crociera_8g7n'",
+          "title": "Il Gran Tour Faraonico: Il Cairo e Magia del Nilo (8 Giorni)"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 1440
+    }
+  },
+  {
+    "locale": "en",
+    "size": "desktop",
+    "location": "all",
+    "astro": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: The Park by Land",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_bus_half_day",
+          "title": "Ras Mohammed Nature Explorer: The Park by Land"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: The VIP Experience",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_white_island_vip",
+          "title": "Ras Mohammed & White Island: The VIP Experience"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "The ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: 5 Senses of Sinai",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=super_safari_5_senses",
+          "title": "Super Safari: 5 Senses of Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Discover",
+          "description": "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Thrills for the Whole Family",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dolphin_show_family",
+          "title": "Dolphin Show: Thrills for the Whole Family"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Old Sharm: Mosque, Fashion & The India of Egypt",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=sharm_old_market_ultimate_shopping",
+          "title": "Old Sharm: Mosque, Fashion & The India of Egypt"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Discover",
+          "description": "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Sunset & Echo Valley",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=moto_safari_quad_echo",
+          "title": "Moto Safari: Quad, Sunset & Echo Valley"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Discover",
+          "description": "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Magic Night: Seafood Dinner & Oriental Show",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dinner_cruise_night_show",
+          "title": "Magic Night: Seafood Dinner & Oriental Show"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Discover",
+          "description": "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Tiran Island VIP: Wrecks and Coral Reefs",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=tiran_island_boat_vip",
+          "title": "Tiran Island VIP: Wrecks and Coral Reefs"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Camels & Canyon",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dahab_blue_hole_super_safari",
+          "title": "Dahab Adventure: Blue Hole, Camels & Canyon"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages",
+        "Culture",
+        "Desert",
+        "Sea"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "←Page 1 of 4→",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 1440
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: The Park by Land",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_bus_half_day'",
+          "title": "Ras Mohammed Nature Explorer: The Park by Land"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: The VIP Experience",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_white_island_vip'",
+          "title": "Ras Mohammed & White Island: The VIP Experience"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "The ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: 5 Senses of Sinai",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=super_safari_5_senses'",
+          "title": "Super Safari: 5 Senses of Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Discover",
+          "description": "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Thrills for the Whole Family",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dolphin_show_family'",
+          "title": "Dolphin Show: Thrills for the Whole Family"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Old Sharm: Mosque, Fashion & The India of Egypt",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=sharm_old_market_ultimate_shopping'",
+          "title": "Old Sharm: Mosque, Fashion & The India of Egypt"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Discover",
+          "description": "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Sunset & Echo Valley",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=moto_safari_quad_echo'",
+          "title": "Moto Safari: Quad, Sunset & Echo Valley"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Discover",
+          "description": "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Magic Night: Seafood Dinner & Oriental Show",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dinner_cruise_night_show'",
+          "title": "Magic Night: Seafood Dinner & Oriental Show"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Discover",
+          "description": "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Tiran Island VIP: Wrecks and Coral Reefs",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=tiran_island_boat_vip'",
+          "title": "Tiran Island VIP: Wrecks and Coral Reefs"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Camels & Canyon",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dahab_blue_hole_super_safari'",
+          "title": "Dahab Adventure: Blue Hole, Camels & Canyon"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages",
+        "Culture",
+        "Desert",
+        "Sea"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "← Page 1 of 4 →",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 1440
+    }
+  },
+  {
+    "locale": "en",
+    "size": "desktop",
+    "location": "sharm",
+    "astro": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: The Park by Land",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_bus_half_day",
+          "title": "Ras Mohammed Nature Explorer: The Park by Land"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: The VIP Experience",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_white_island_vip",
+          "title": "Ras Mohammed & White Island: The VIP Experience"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "The ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: 5 Senses of Sinai",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=super_safari_5_senses",
+          "title": "Super Safari: 5 Senses of Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Discover",
+          "description": "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Thrills for the Whole Family",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dolphin_show_family",
+          "title": "Dolphin Show: Thrills for the Whole Family"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Old Sharm: Mosque, Fashion & The India of Egypt",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=sharm_old_market_ultimate_shopping",
+          "title": "Old Sharm: Mosque, Fashion & The India of Egypt"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Discover",
+          "description": "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Sunset & Echo Valley",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=moto_safari_quad_echo",
+          "title": "Moto Safari: Quad, Sunset & Echo Valley"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Discover",
+          "description": "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Magic Night: Seafood Dinner & Oriental Show",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dinner_cruise_night_show",
+          "title": "Magic Night: Seafood Dinner & Oriental Show"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Discover",
+          "description": "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Tiran Island VIP: Wrecks and Coral Reefs",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=tiran_island_boat_vip",
+          "title": "Tiran Island VIP: Wrecks and Coral Reefs"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Camels & Canyon",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dahab_blue_hole_super_safari",
+          "title": "Dahab Adventure: Blue Hole, Camels & Canyon"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages",
+        "Culture",
+        "Desert",
+        "Sea"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "←Page 1 of 3→",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 1440
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: The Park by Land",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_bus_half_day'",
+          "title": "Ras Mohammed Nature Explorer: The Park by Land"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: The VIP Experience",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_white_island_vip'",
+          "title": "Ras Mohammed & White Island: The VIP Experience"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "The ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: 5 Senses of Sinai",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=super_safari_5_senses'",
+          "title": "Super Safari: 5 Senses of Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Discover",
+          "description": "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Thrills for the Whole Family",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dolphin_show_family'",
+          "title": "Dolphin Show: Thrills for the Whole Family"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Old Sharm: Mosque, Fashion & The India of Egypt",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=sharm_old_market_ultimate_shopping'",
+          "title": "Old Sharm: Mosque, Fashion & The India of Egypt"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Discover",
+          "description": "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Sunset & Echo Valley",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=moto_safari_quad_echo'",
+          "title": "Moto Safari: Quad, Sunset & Echo Valley"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Discover",
+          "description": "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Magic Night: Seafood Dinner & Oriental Show",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dinner_cruise_night_show'",
+          "title": "Magic Night: Seafood Dinner & Oriental Show"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Discover",
+          "description": "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Tiran Island VIP: Wrecks and Coral Reefs",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=tiran_island_boat_vip'",
+          "title": "Tiran Island VIP: Wrecks and Coral Reefs"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Camels & Canyon",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dahab_blue_hole_super_safari'",
+          "title": "Dahab Adventure: Blue Hole, Camels & Canyon"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages",
+        "Culture",
+        "Desert",
+        "Sea"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "← Page 1 of 3 →",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 1440
+    }
+  },
+  {
+    "locale": "en",
+    "size": "desktop",
+    "location": "cairo",
+    "astro": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "A spiritual journey through the oldest districts: walk in the footsteps of the Holy Family and discover historic mosques.",
+          "id": "cairo_mistico_copto_islamico",
+          "image": {
+            "alt": "Mystic Cairo: Between Coptic Christianity & Islamic Heritage",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€50"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_mistico_copto_islamico",
+          "title": "Mystic Cairo: Between Coptic Christianity & Islamic Heritage"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Discover the soul of Cairo: Tutankhamun's golden treasures, breathtaking views from the Citadel, and magical shopping in the bazaar.",
+          "id": "cairo_cuore_pulsante_museo_cittadella",
+          "image": {
+            "alt": "The Beating Heart of Cairo: Egyptian Museum, Citadel & Khan El Khalili",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€55"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_cuore_pulsante_museo_cittadella",
+          "title": "The Beating Heart of Cairo: Egyptian Museum, Citadel & Khan El Khalili"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Experience the magic of the Nile at night. First-class buffet dinner, belly dancing, and a Tanoura show.",
+          "id": "cairo_crociera_nilo_cena",
+          "image": {
+            "alt": "Night Magic on the Nile: VIP Dinner Cruise & Show",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€60"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_crociera_nilo_cena",
+          "title": "Night Magic on the Nile: VIP Dinner Cruise & Show"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Action and breathtaking views! Speed through the Giza desert on a Quad and enjoy a camel ride at sunset.",
+          "id": "cairo_safari_piramidi_tramonto",
+          "image": {
+            "alt": "Sunset Adventure: Quad Safari & Camels at the Pyramids",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€60"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_safari_piramidi_tramonto",
+          "title": "Sunset Adventure: Quad Safari & Camels at the Pyramids"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "A VIP journey through time: the iconic Pyramids of Giza, the enigmatic Sphinx, and the world's oldest pyramid at Saqqara.",
+          "id": "cairo_piramidi_saqqara_vip",
+          "image": {
+            "alt": "Eternal Grandeur: Pyramids of Giza, Sphinx & Saqqara",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€65"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_piramidi_saqqara_vip",
+          "title": "Eternal Grandeur: Pyramids of Giza, Sphinx & Saqqara"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Leave Cairo for a day and discover the Greco-Roman atmosphere of Alexandria, the Pearl of the Mediterranean.",
+          "id": "alessandria_tour_giornata_intera",
+          "image": {
+            "alt": "Mediterranean Escape: Full-Day Tour of Alexandria",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€85"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=alessandria_tour_giornata_intera",
+          "title": "Mediterranean Escape: Full-Day Tour of Alexandria"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "←Page 1 of 1→",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 1440
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "A spiritual journey through the oldest districts: walk in the footsteps of the Holy Family and discover historic mosques.",
+          "id": "cairo_mistico_copto_islamico",
+          "image": {
+            "alt": "Mystic Cairo: Between Coptic Christianity & Islamic Heritage",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€50"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_mistico_copto_islamico'",
+          "title": "Mystic Cairo: Between Coptic Christianity & Islamic Heritage"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Discover the soul of Cairo: Tutankhamun's golden treasures, breathtaking views from the Citadel, and magical shopping in the bazaar.",
+          "id": "cairo_cuore_pulsante_museo_cittadella",
+          "image": {
+            "alt": "The Beating Heart of Cairo: Egyptian Museum, Citadel & Khan El Khalili",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€55"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_cuore_pulsante_museo_cittadella'",
+          "title": "The Beating Heart of Cairo: Egyptian Museum, Citadel & Khan El Khalili"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Experience the magic of the Nile at night. First-class buffet dinner, belly dancing, and a Tanoura show.",
+          "id": "cairo_crociera_nilo_cena",
+          "image": {
+            "alt": "Night Magic on the Nile: VIP Dinner Cruise & Show",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€60"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_crociera_nilo_cena'",
+          "title": "Night Magic on the Nile: VIP Dinner Cruise & Show"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Action and breathtaking views! Speed through the Giza desert on a Quad and enjoy a camel ride at sunset.",
+          "id": "cairo_safari_piramidi_tramonto",
+          "image": {
+            "alt": "Sunset Adventure: Quad Safari & Camels at the Pyramids",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€60"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_safari_piramidi_tramonto'",
+          "title": "Sunset Adventure: Quad Safari & Camels at the Pyramids"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "A VIP journey through time: the iconic Pyramids of Giza, the enigmatic Sphinx, and the world's oldest pyramid at Saqqara.",
+          "id": "cairo_piramidi_saqqara_vip",
+          "image": {
+            "alt": "Eternal Grandeur: Pyramids of Giza, Sphinx & Saqqara",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€65"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_piramidi_saqqara_vip'",
+          "title": "Eternal Grandeur: Pyramids of Giza, Sphinx & Saqqara"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Leave Cairo for a day and discover the Greco-Roman atmosphere of Alexandria, the Pearl of the Mediterranean.",
+          "id": "alessandria_tour_giornata_intera",
+          "image": {
+            "alt": "Mediterranean Escape: Full-Day Tour of Alexandria",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€85"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=alessandria_tour_giornata_intera'",
+          "title": "Mediterranean Escape: Full-Day Tour of Alexandria"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 1440
+    }
+  },
+  {
+    "locale": "en",
+    "size": "desktop",
+    "location": "luxor_and_aswan",
+    "astro": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Discover the treasures of Upper Egypt in just 4 days and 3 nights. From Philae Temple in Aswan to the secrets of the Valley of the Kings in Luxor.",
+          "id": "nile_cruise_aswan_luxor_4d3n",
+          "image": {
+            "alt": "Southern Magic: Cruise from Aswan to Luxor",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€650"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=nile_cruise_aswan_luxor_4d3n",
+          "title": "Southern Magic: Cruise from Aswan to Luxor"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "A 5-star, 5-day/4-night journey. Explore the Valley of the Kings, majestic temples, and experience the magic of colors in the Nubian Village.",
+          "id": "nile_cruise_luxor_aswan_5d4n",
+          "image": {
+            "alt": "Royal Nile Cruise: From Luxor to Aswan",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€750"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=nile_cruise_luxor_aswan_5d4n",
+          "title": "Royal Nile Cruise: From Luxor to Aswan"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "The ultimate experience. A complete 8-day journey combining the Pyramids of Cairo, the new Grand Egyptian Museum, and a luxury Nile Cruise.",
+          "id": "gran_tour_egitto_cairo_crociera_8g7n",
+          "image": {
+            "alt": "The Grand Pharaonic Tour: Cairo & Nile Magic (8 Days)",
+            "complete": true,
+            "width": 400
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€1450"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=gran_tour_egitto_cairo_crociera_8g7n",
+          "title": "The Grand Pharaonic Tour: Cairo & Nile Magic (8 Days)"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "←Page 1 of 1→",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 1440
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Discover the treasures of Upper Egypt in just 4 days and 3 nights. From Philae Temple in Aswan to the secrets of the Valley of the Kings in Luxor.",
+          "id": "nile_cruise_aswan_luxor_4d3n",
+          "image": {
+            "alt": "Southern Magic: Cruise from Aswan to Luxor",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€650"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=nile_cruise_aswan_luxor_4d3n'",
+          "title": "Southern Magic: Cruise from Aswan to Luxor"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "A 5-star, 5-day/4-night journey. Explore the Valley of the Kings, majestic temples, and experience the magic of colors in the Nubian Village.",
+          "id": "nile_cruise_luxor_aswan_5d4n",
+          "image": {
+            "alt": "Royal Nile Cruise: From Luxor to Aswan",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€750"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=nile_cruise_luxor_aswan_5d4n'",
+          "title": "Royal Nile Cruise: From Luxor to Aswan"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "The ultimate experience. A complete 8-day journey combining the Pyramids of Cairo, the new Grand Egyptian Museum, and a luxury Nile Cruise.",
+          "id": "gran_tour_egitto_cairo_crociera_8g7n",
+          "image": {
+            "alt": "The Grand Pharaonic Tour: Cairo & Nile Magic (8 Days)",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€1450"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=gran_tour_egitto_cairo_crociera_8g7n'",
+          "title": "The Grand Pharaonic Tour: Cairo & Nile Magic (8 Days)"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages"
+      ],
+      "height": 900,
+      "overflow": false,
+      "pagination": "",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 1440
+    }
+  },
+  {
+    "locale": "it",
+    "size": "mobile",
+    "location": "all",
+    "astro": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Un viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_bus_half_day",
+          "title": "Ras Mohammed Nature Explorer: Il Parco via Terra"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: L'Esperienza VIP",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_white_island_vip",
+          "title": "Ras Mohammed & White Island: L'Esperienza VIP"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "L'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: I 5 Sensi del Sinai",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=super_safari_5_senses",
+          "title": "Super Safari: I 5 Sensi del Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Scopri",
+          "description": "Un'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Emozioni per tutta la Famiglia",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dolphin_show_family",
+          "title": "Dolphin Show: Emozioni per tutta la Famiglia"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Scopri",
+          "description": "Il tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=sharm_old_market_ultimate_shopping",
+          "title": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Scopri",
+          "description": "Adrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Tramonto & Valle dell'Eco",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=moto_safari_quad_echo",
+          "title": "Moto Safari: Quad, Tramonto & Valle dell'Eco"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Scopri",
+          "description": "Una serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Notte Magica: Cena di Pesce & Show Orientale",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dinner_cruise_night_show",
+          "title": "Notte Magica: Cena di Pesce & Show Orientale"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Scopri",
+          "description": "Naviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Isola di Tiran VIP: Relitti e Barriere Coralline",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=tiran_island_boat_vip",
+          "title": "Isola di Tiran VIP: Relitti e Barriere Coralline"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Scopri",
+          "description": "La vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Cammelli & Canyon",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dahab_blue_hole_super_safari",
+          "title": "Dahab Adventure: Blue Hole, Cammelli & Canyon"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti",
+        "Cultura",
+        "Deserto",
+        "Mare"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "←Page 1 of 4→",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 390
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Un viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_bus_half_day'",
+          "title": "Ras Mohammed Nature Explorer: Il Parco via Terra"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: L'Esperienza VIP",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_white_island_vip'",
+          "title": "Ras Mohammed & White Island: L'Esperienza VIP"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "L'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: I 5 Sensi del Sinai",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=super_safari_5_senses'",
+          "title": "Super Safari: I 5 Sensi del Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Scopri",
+          "description": "Un'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Emozioni per tutta la Famiglia",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dolphin_show_family'",
+          "title": "Dolphin Show: Emozioni per tutta la Famiglia"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Scopri",
+          "description": "Il tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=sharm_old_market_ultimate_shopping'",
+          "title": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Scopri",
+          "description": "Adrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Tramonto & Valle dell'Eco",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=moto_safari_quad_echo'",
+          "title": "Moto Safari: Quad, Tramonto & Valle dell'Eco"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Scopri",
+          "description": "Una serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Notte Magica: Cena di Pesce & Show Orientale",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dinner_cruise_night_show'",
+          "title": "Notte Magica: Cena di Pesce & Show Orientale"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Scopri",
+          "description": "Naviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Isola di Tiran VIP: Relitti e Barriere Coralline",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=tiran_island_boat_vip'",
+          "title": "Isola di Tiran VIP: Relitti e Barriere Coralline"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Scopri",
+          "description": "La vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Cammelli & Canyon",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dahab_blue_hole_super_safari'",
+          "title": "Dahab Adventure: Blue Hole, Cammelli & Canyon"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti",
+        "Cultura",
+        "Deserto",
+        "Mare"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "← Page 1 of 4 →",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 390
+    }
+  },
+  {
+    "locale": "it",
+    "size": "mobile",
+    "location": "sharm",
+    "astro": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Un viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_bus_half_day",
+          "title": "Ras Mohammed Nature Explorer: Il Parco via Terra"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: L'Esperienza VIP",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_white_island_vip",
+          "title": "Ras Mohammed & White Island: L'Esperienza VIP"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "L'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: I 5 Sensi del Sinai",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=super_safari_5_senses",
+          "title": "Super Safari: I 5 Sensi del Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Scopri",
+          "description": "Un'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Emozioni per tutta la Famiglia",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dolphin_show_family",
+          "title": "Dolphin Show: Emozioni per tutta la Famiglia"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Scopri",
+          "description": "Il tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=sharm_old_market_ultimate_shopping",
+          "title": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Scopri",
+          "description": "Adrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Tramonto & Valle dell'Eco",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=moto_safari_quad_echo",
+          "title": "Moto Safari: Quad, Tramonto & Valle dell'Eco"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Scopri",
+          "description": "Una serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Notte Magica: Cena di Pesce & Show Orientale",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dinner_cruise_night_show",
+          "title": "Notte Magica: Cena di Pesce & Show Orientale"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Scopri",
+          "description": "Naviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Isola di Tiran VIP: Relitti e Barriere Coralline",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=tiran_island_boat_vip",
+          "title": "Isola di Tiran VIP: Relitti e Barriere Coralline"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Scopri",
+          "description": "La vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Cammelli & Canyon",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dahab_blue_hole_super_safari",
+          "title": "Dahab Adventure: Blue Hole, Cammelli & Canyon"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti",
+        "Cultura",
+        "Deserto",
+        "Mare"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "←Page 1 of 3→",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 390
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Un viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_bus_half_day'",
+          "title": "Ras Mohammed Nature Explorer: Il Parco via Terra"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: L'Esperienza VIP",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_white_island_vip'",
+          "title": "Ras Mohammed & White Island: L'Esperienza VIP"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Scopri",
+          "description": "L'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: I 5 Sensi del Sinai",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=super_safari_5_senses'",
+          "title": "Super Safari: I 5 Sensi del Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Scopri",
+          "description": "Un'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Emozioni per tutta la Famiglia",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dolphin_show_family'",
+          "title": "Dolphin Show: Emozioni per tutta la Famiglia"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Scopri",
+          "description": "Il tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=sharm_old_market_ultimate_shopping'",
+          "title": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Scopri",
+          "description": "Adrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Tramonto & Valle dell'Eco",
+            "complete": true,
+            "width": 600
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=moto_safari_quad_echo'",
+          "title": "Moto Safari: Quad, Tramonto & Valle dell'Eco"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Scopri",
+          "description": "Una serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Notte Magica: Cena di Pesce & Show Orientale",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dinner_cruise_night_show'",
+          "title": "Notte Magica: Cena di Pesce & Show Orientale"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Scopri",
+          "description": "Naviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Isola di Tiran VIP: Relitti e Barriere Coralline",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=tiran_island_boat_vip'",
+          "title": "Isola di Tiran VIP: Relitti e Barriere Coralline"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Scopri",
+          "description": "La vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Cammelli & Canyon",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Offerta a tempo limitato"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dahab_blue_hole_super_safari'",
+          "title": "Dahab Adventure: Blue Hole, Cammelli & Canyon"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti",
+        "Cultura",
+        "Deserto",
+        "Mare"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "← Page 1 of 3 →",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 390
+    }
+  },
+  {
+    "locale": "it",
+    "size": "mobile",
+    "location": "cairo",
+    "astro": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Un viaggio spirituale nei quartieri più antichi: cammina sulle orme della Sacra Famiglia e scopri moschee storiche.",
+          "id": "cairo_mistico_copto_islamico",
+          "image": {
+            "alt": "Il Cairo Mistico: Tra Cristianesimo Copto e Fascino Islamico",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€50"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_mistico_copto_islamico",
+          "title": "Il Cairo Mistico: Tra Cristianesimo Copto e Fascino Islamico"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Scopri l'anima del Cairo: i tesori di Tutankhamon, viste mozzafiato dalla Cittadella e lo shopping magico nel bazar.",
+          "id": "cairo_cuore_pulsante_museo_cittadella",
+          "image": {
+            "alt": "Il Cuore Pulsante del Cairo: Museo Egizio, Cittadella e Khan El Khalili",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€55"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_cuore_pulsante_museo_cittadella",
+          "title": "Il Cuore Pulsante del Cairo: Museo Egizio, Cittadella e Khan El Khalili"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Vivi la magia del Nilo di notte. Cena a buffet di prima classe, danza del ventre e spettacolo Tanoura.",
+          "id": "cairo_crociera_nilo_cena",
+          "image": {
+            "alt": "Magia Notturna sul Nilo: Crociera VIP con Cena e Spettacolo",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€60"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_crociera_nilo_cena",
+          "title": "Magia Notturna sul Nilo: Crociera VIP con Cena e Spettacolo"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Azione e panorami mozzafiato! Sfreccia in Quad nel deserto di Giza e goditi un giro in cammello al tramonto.",
+          "id": "cairo_safari_piramidi_tramonto",
+          "image": {
+            "alt": "Avventura al Tramonto: Quad Safari e Cammelli alle Piramidi",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€60"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_safari_piramidi_tramonto",
+          "title": "Avventura al Tramonto: Quad Safari e Cammelli alle Piramidi"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Un viaggio VIP nel tempo tra le iconiche Piramidi di Giza, l'enigmatica Sfinge e la più antica piramide del mondo a Saqqara.",
+          "id": "cairo_piramidi_saqqara_vip",
+          "image": {
+            "alt": "L'Eterna Grandezza: Piramidi di Giza, Sfinge e Saqqara",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€65"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_piramidi_saqqara_vip",
+          "title": "L'Eterna Grandezza: Piramidi di Giza, Sfinge e Saqqara"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Lascia il Cairo per un giorno e scopri l'atmosfera greco-romana di Alessandria, la Perla del Mediterraneo.",
+          "id": "alessandria_tour_giornata_intera",
+          "image": {
+            "alt": "Fuga sul Mediterraneo: Tour di un Giorno ad Alessandria",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€85"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=alessandria_tour_giornata_intera",
+          "title": "Fuga sul Mediterraneo: Tour di un Giorno ad Alessandria"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "←Page 1 of 1→",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 390
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Un viaggio spirituale nei quartieri più antichi: cammina sulle orme della Sacra Famiglia e scopri moschee storiche.",
+          "id": "cairo_mistico_copto_islamico",
+          "image": {
+            "alt": "Il Cairo Mistico: Tra Cristianesimo Copto e Fascino Islamico",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€50"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_mistico_copto_islamico'",
+          "title": "Il Cairo Mistico: Tra Cristianesimo Copto e Fascino Islamico"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Scopri l'anima del Cairo: i tesori di Tutankhamon, viste mozzafiato dalla Cittadella e lo shopping magico nel bazar.",
+          "id": "cairo_cuore_pulsante_museo_cittadella",
+          "image": {
+            "alt": "Il Cuore Pulsante del Cairo: Museo Egizio, Cittadella e Khan El Khalili",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€55"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_cuore_pulsante_museo_cittadella'",
+          "title": "Il Cuore Pulsante del Cairo: Museo Egizio, Cittadella e Khan El Khalili"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Vivi la magia del Nilo di notte. Cena a buffet di prima classe, danza del ventre e spettacolo Tanoura.",
+          "id": "cairo_crociera_nilo_cena",
+          "image": {
+            "alt": "Magia Notturna sul Nilo: Crociera VIP con Cena e Spettacolo",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€60"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_crociera_nilo_cena'",
+          "title": "Magia Notturna sul Nilo: Crociera VIP con Cena e Spettacolo"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Azione e panorami mozzafiato! Sfreccia in Quad nel deserto di Giza e goditi un giro in cammello al tramonto.",
+          "id": "cairo_safari_piramidi_tramonto",
+          "image": {
+            "alt": "Avventura al Tramonto: Quad Safari e Cammelli alle Piramidi",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€60"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_safari_piramidi_tramonto'",
+          "title": "Avventura al Tramonto: Quad Safari e Cammelli alle Piramidi"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Un viaggio VIP nel tempo tra le iconiche Piramidi di Giza, l'enigmatica Sfinge e la più antica piramide del mondo a Saqqara.",
+          "id": "cairo_piramidi_saqqara_vip",
+          "image": {
+            "alt": "L'Eterna Grandezza: Piramidi di Giza, Sfinge e Saqqara",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€65"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_piramidi_saqqara_vip'",
+          "title": "L'Eterna Grandezza: Piramidi di Giza, Sfinge e Saqqara"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Lascia il Cairo per un giorno e scopri l'atmosfera greco-romana di Alessandria, la Perla del Mediterraneo.",
+          "id": "alessandria_tour_giornata_intera",
+          "image": {
+            "alt": "Fuga sul Mediterraneo: Tour di un Giorno ad Alessandria",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€85"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=alessandria_tour_giornata_intera'",
+          "title": "Fuga sul Mediterraneo: Tour di un Giorno ad Alessandria"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 390
+    }
+  },
+  {
+    "locale": "it",
+    "size": "mobile",
+    "location": "luxor_and_aswan",
+    "astro": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Scopri i tesori dell'Alto Egitto in soli 4 giorni e 3 notti. Dal Tempio di Philae ad Aswan fino ai segreti della Valle dei Re a Luxor.",
+          "id": "nile_cruise_aswan_luxor_4d3n",
+          "image": {
+            "alt": "Magia del Sud: Crociera da Aswan a Luxor",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€650"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=nile_cruise_aswan_luxor_4d3n",
+          "title": "Magia del Sud: Crociera da Aswan a Luxor"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Un viaggio a 5 stelle di 5 giorni e 4 notti. Esplora la Valle dei Re, i templi maestosi e vivi la magia dei colori nel Villaggio Nubiano.",
+          "id": "nile_cruise_luxor_aswan_5d4n",
+          "image": {
+            "alt": "Crociera sul Nilo Reale: Da Luxor ad Aswan",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€750"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=nile_cruise_luxor_aswan_5d4n",
+          "title": "Crociera sul Nilo Reale: Da Luxor ad Aswan"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "L'esperienza definitiva. Un viaggio completo di 8 giorni che unisce le Piramidi del Cairo, il nuovo Museo Egizio e una lussuosa Crociera sul Nilo.",
+          "id": "gran_tour_egitto_cairo_crociera_8g7n",
+          "image": {
+            "alt": "Il Gran Tour Faraonico: Il Cairo e Magia del Nilo (8 Giorni)",
+            "complete": true,
+            "width": 390
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€1450"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=gran_tour_egitto_cairo_crociera_8g7n",
+          "title": "Il Gran Tour Faraonico: Il Cairo e Magia del Nilo (8 Giorni)"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "←Page 1 of 1→",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 390
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Scopri i tesori dell'Alto Egitto in soli 4 giorni e 3 notti. Dal Tempio di Philae ad Aswan fino ai segreti della Valle dei Re a Luxor.",
+          "id": "nile_cruise_aswan_luxor_4d3n",
+          "image": {
+            "alt": "Magia del Sud: Crociera da Aswan a Luxor",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€650"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=nile_cruise_aswan_luxor_4d3n'",
+          "title": "Magia del Sud: Crociera da Aswan a Luxor"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "Un viaggio a 5 stelle di 5 giorni e 4 notti. Esplora la Valle dei Re, i templi maestosi e vivi la magia dei colori nel Villaggio Nubiano.",
+          "id": "nile_cruise_luxor_aswan_5d4n",
+          "image": {
+            "alt": "Crociera sul Nilo Reale: Da Luxor ad Aswan",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€750"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=nile_cruise_luxor_aswan_5d4n'",
+          "title": "Crociera sul Nilo Reale: Da Luxor ad Aswan"
+        },
+        {
+          "badges": [],
+          "button": "Scopri il pacchetto",
+          "description": "L'esperienza definitiva. Un viaggio completo di 8 giorni che unisce le Piramidi del Cairo, il nuovo Museo Egizio e una lussuosa Crociera sul Nilo.",
+          "id": "gran_tour_egitto_cairo_crociera_8g7n",
+          "image": {
+            "alt": "Il Gran Tour Faraonico: Il Cairo e Magia del Nilo (8 Giorni)",
+            "complete": true,
+            "width": 800
+          },
+          "label": "A partire da",
+          "premium": "Pacchetto Premium",
+          "prices": [
+            "€1450"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=gran_tour_egitto_cairo_crociera_8g7n'",
+          "title": "Il Gran Tour Faraonico: Il Cairo e Magia del Nilo (8 Giorni)"
+        }
+      ],
+      "filters": [
+        "Tutte",
+        "Pacchetti"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "",
+      "sort": "default",
+      "sortOptions": [
+        "Consigliati (VIP)",
+        "Prezzo: Basso → Alto",
+        "Prezzo: Alto → Basso"
+      ],
+      "width": 390
+    }
+  },
+  {
+    "locale": "en",
+    "size": "mobile",
+    "location": "all",
+    "astro": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: The Park by Land",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_bus_half_day",
+          "title": "Ras Mohammed Nature Explorer: The Park by Land"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: The VIP Experience",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_white_island_vip",
+          "title": "Ras Mohammed & White Island: The VIP Experience"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "The ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: 5 Senses of Sinai",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=super_safari_5_senses",
+          "title": "Super Safari: 5 Senses of Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Discover",
+          "description": "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Thrills for the Whole Family",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dolphin_show_family",
+          "title": "Dolphin Show: Thrills for the Whole Family"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Old Sharm: Mosque, Fashion & The India of Egypt",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=sharm_old_market_ultimate_shopping",
+          "title": "Old Sharm: Mosque, Fashion & The India of Egypt"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Discover",
+          "description": "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Sunset & Echo Valley",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=moto_safari_quad_echo",
+          "title": "Moto Safari: Quad, Sunset & Echo Valley"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Discover",
+          "description": "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Magic Night: Seafood Dinner & Oriental Show",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dinner_cruise_night_show",
+          "title": "Magic Night: Seafood Dinner & Oriental Show"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Discover",
+          "description": "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Tiran Island VIP: Wrecks and Coral Reefs",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=tiran_island_boat_vip",
+          "title": "Tiran Island VIP: Wrecks and Coral Reefs"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Camels & Canyon",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dahab_blue_hole_super_safari",
+          "title": "Dahab Adventure: Blue Hole, Camels & Canyon"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages",
+        "Culture",
+        "Desert",
+        "Sea"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "←Page 1 of 4→",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 390
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: The Park by Land",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_bus_half_day'",
+          "title": "Ras Mohammed Nature Explorer: The Park by Land"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: The VIP Experience",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_white_island_vip'",
+          "title": "Ras Mohammed & White Island: The VIP Experience"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "The ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: 5 Senses of Sinai",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=super_safari_5_senses'",
+          "title": "Super Safari: 5 Senses of Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Discover",
+          "description": "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Thrills for the Whole Family",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dolphin_show_family'",
+          "title": "Dolphin Show: Thrills for the Whole Family"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Old Sharm: Mosque, Fashion & The India of Egypt",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=sharm_old_market_ultimate_shopping'",
+          "title": "Old Sharm: Mosque, Fashion & The India of Egypt"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Discover",
+          "description": "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Sunset & Echo Valley",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=moto_safari_quad_echo'",
+          "title": "Moto Safari: Quad, Sunset & Echo Valley"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Discover",
+          "description": "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Magic Night: Seafood Dinner & Oriental Show",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dinner_cruise_night_show'",
+          "title": "Magic Night: Seafood Dinner & Oriental Show"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Discover",
+          "description": "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Tiran Island VIP: Wrecks and Coral Reefs",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=tiran_island_boat_vip'",
+          "title": "Tiran Island VIP: Wrecks and Coral Reefs"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Camels & Canyon",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dahab_blue_hole_super_safari'",
+          "title": "Dahab Adventure: Blue Hole, Camels & Canyon"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages",
+        "Culture",
+        "Desert",
+        "Sea"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "← Page 1 of 4 →",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 390
+    }
+  },
+  {
+    "locale": "en",
+    "size": "mobile",
+    "location": "sharm",
+    "astro": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: The Park by Land",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_bus_half_day",
+          "title": "Ras Mohammed Nature Explorer: The Park by Land"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: The VIP Experience",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=ras_mohammed_white_island_vip",
+          "title": "Ras Mohammed & White Island: The VIP Experience"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "The ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: 5 Senses of Sinai",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=super_safari_5_senses",
+          "title": "Super Safari: 5 Senses of Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Discover",
+          "description": "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Thrills for the Whole Family",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dolphin_show_family",
+          "title": "Dolphin Show: Thrills for the Whole Family"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Old Sharm: Mosque, Fashion & The India of Egypt",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=sharm_old_market_ultimate_shopping",
+          "title": "Old Sharm: Mosque, Fashion & The India of Egypt"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Discover",
+          "description": "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Sunset & Echo Valley",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=moto_safari_quad_echo",
+          "title": "Moto Safari: Quad, Sunset & Echo Valley"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Discover",
+          "description": "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Magic Night: Seafood Dinner & Oriental Show",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dinner_cruise_night_show",
+          "title": "Magic Night: Seafood Dinner & Oriental Show"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Discover",
+          "description": "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Tiran Island VIP: Wrecks and Coral Reefs",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=tiran_island_boat_vip",
+          "title": "Tiran Island VIP: Wrecks and Coral Reefs"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Camels & Canyon",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "https://fabioegypt.com/details.html?id=dahab_blue_hole_super_safari",
+          "title": "Dahab Adventure: Blue Hole, Camels & Canyon"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages",
+        "Culture",
+        "Desert",
+        "Sea"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "←Page 1 of 3→",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 390
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [
+            "-14%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
+          "id": "ras_mohammed_bus_half_day",
+          "image": {
+            "alt": "Ras Mohammed Nature Explorer: The Park by Land",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€35",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_bus_half_day'",
+          "title": "Ras Mohammed Nature Explorer: The Park by Land"
+        },
+        {
+          "badges": [
+            "-11%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+          "id": "ras_mohammed_white_island_vip",
+          "image": {
+            "alt": "Ras Mohammed & White Island: The VIP Experience",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=ras_mohammed_white_island_vip'",
+          "title": "Ras Mohammed & White Island: The VIP Experience"
+        },
+        {
+          "badges": [
+            "-15%",
+            "Top 🔥"
+          ],
+          "button": "Discover",
+          "description": "The ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.",
+          "id": "super_safari_5_senses",
+          "image": {
+            "alt": "Super Safari: 5 Senses of Sinai",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€65",
+            "€55",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=super_safari_5_senses'",
+          "title": "Super Safari: 5 Senses of Sinai"
+        },
+        {
+          "badges": [],
+          "button": "Discover",
+          "description": "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
+          "id": "dolphin_show_family",
+          "image": {
+            "alt": "Dolphin Show: Thrills for the Whole Family",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€25"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dolphin_show_family'",
+          "title": "Dolphin Show: Thrills for the Whole Family"
+        },
+        {
+          "badges": [
+            "-17%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!",
+          "id": "sharm_old_market_ultimate_shopping",
+          "image": {
+            "alt": "Old Sharm: Mosque, Fashion & The India of Egypt",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€30",
+            "€25",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=sharm_old_market_ultimate_shopping'",
+          "title": "Old Sharm: Mosque, Fashion & The India of Egypt"
+        },
+        {
+          "badges": [
+            "-25%"
+          ],
+          "button": "Discover",
+          "description": "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
+          "id": "moto_safari_quad_echo",
+          "image": {
+            "alt": "Moto Safari: Quad, Sunset & Echo Valley",
+            "complete": true,
+            "width": 600
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€40",
+            "€30",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=moto_safari_quad_echo'",
+          "title": "Moto Safari: Quad, Sunset & Echo Valley"
+        },
+        {
+          "badges": [
+            "-22%"
+          ],
+          "button": "Discover",
+          "description": "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
+          "id": "dinner_cruise_night_show",
+          "image": {
+            "alt": "Magic Night: Seafood Dinner & Oriental Show",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€35",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dinner_cruise_night_show'",
+          "title": "Magic Night: Seafood Dinner & Oriental Show"
+        },
+        {
+          "badges": [
+            "-11%"
+          ],
+          "button": "Discover",
+          "description": "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
+          "id": "tiran_island_boat_vip",
+          "image": {
+            "alt": "Tiran Island VIP: Wrecks and Coral Reefs",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€45",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=tiran_island_boat_vip'",
+          "title": "Tiran Island VIP: Wrecks and Coral Reefs"
+        },
+        {
+          "badges": [
+            "-20%"
+          ],
+          "button": "Discover",
+          "description": "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
+          "id": "dahab_blue_hole_super_safari",
+          "image": {
+            "alt": "Dahab Adventure: Blue Hole, Camels & Canyon",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "",
+          "prices": [
+            "€50",
+            "€40",
+            "Limited time deal"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'details.html?id=dahab_blue_hole_super_safari'",
+          "title": "Dahab Adventure: Blue Hole, Camels & Canyon"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages",
+        "Culture",
+        "Desert",
+        "Sea"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "← Page 1 of 3 →",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 390
+    }
+  },
+  {
+    "locale": "en",
+    "size": "mobile",
+    "location": "cairo",
+    "astro": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "A spiritual journey through the oldest districts: walk in the footsteps of the Holy Family and discover historic mosques.",
+          "id": "cairo_mistico_copto_islamico",
+          "image": {
+            "alt": "Mystic Cairo: Between Coptic Christianity & Islamic Heritage",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€50"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_mistico_copto_islamico",
+          "title": "Mystic Cairo: Between Coptic Christianity & Islamic Heritage"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Discover the soul of Cairo: Tutankhamun's golden treasures, breathtaking views from the Citadel, and magical shopping in the bazaar.",
+          "id": "cairo_cuore_pulsante_museo_cittadella",
+          "image": {
+            "alt": "The Beating Heart of Cairo: Egyptian Museum, Citadel & Khan El Khalili",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€55"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_cuore_pulsante_museo_cittadella",
+          "title": "The Beating Heart of Cairo: Egyptian Museum, Citadel & Khan El Khalili"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Experience the magic of the Nile at night. First-class buffet dinner, belly dancing, and a Tanoura show.",
+          "id": "cairo_crociera_nilo_cena",
+          "image": {
+            "alt": "Night Magic on the Nile: VIP Dinner Cruise & Show",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€60"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_crociera_nilo_cena",
+          "title": "Night Magic on the Nile: VIP Dinner Cruise & Show"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Action and breathtaking views! Speed through the Giza desert on a Quad and enjoy a camel ride at sunset.",
+          "id": "cairo_safari_piramidi_tramonto",
+          "image": {
+            "alt": "Sunset Adventure: Quad Safari & Camels at the Pyramids",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€60"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_safari_piramidi_tramonto",
+          "title": "Sunset Adventure: Quad Safari & Camels at the Pyramids"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "A VIP journey through time: the iconic Pyramids of Giza, the enigmatic Sphinx, and the world's oldest pyramid at Saqqara.",
+          "id": "cairo_piramidi_saqqara_vip",
+          "image": {
+            "alt": "Eternal Grandeur: Pyramids of Giza, Sphinx & Saqqara",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€65"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=cairo_piramidi_saqqara_vip",
+          "title": "Eternal Grandeur: Pyramids of Giza, Sphinx & Saqqara"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Leave Cairo for a day and discover the Greco-Roman atmosphere of Alexandria, the Pearl of the Mediterranean.",
+          "id": "alessandria_tour_giornata_intera",
+          "image": {
+            "alt": "Mediterranean Escape: Full-Day Tour of Alexandria",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€85"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=alessandria_tour_giornata_intera",
+          "title": "Mediterranean Escape: Full-Day Tour of Alexandria"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "←Page 1 of 1→",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 390
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "A spiritual journey through the oldest districts: walk in the footsteps of the Holy Family and discover historic mosques.",
+          "id": "cairo_mistico_copto_islamico",
+          "image": {
+            "alt": "Mystic Cairo: Between Coptic Christianity & Islamic Heritage",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€50"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_mistico_copto_islamico'",
+          "title": "Mystic Cairo: Between Coptic Christianity & Islamic Heritage"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Discover the soul of Cairo: Tutankhamun's golden treasures, breathtaking views from the Citadel, and magical shopping in the bazaar.",
+          "id": "cairo_cuore_pulsante_museo_cittadella",
+          "image": {
+            "alt": "The Beating Heart of Cairo: Egyptian Museum, Citadel & Khan El Khalili",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€55"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_cuore_pulsante_museo_cittadella'",
+          "title": "The Beating Heart of Cairo: Egyptian Museum, Citadel & Khan El Khalili"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Experience the magic of the Nile at night. First-class buffet dinner, belly dancing, and a Tanoura show.",
+          "id": "cairo_crociera_nilo_cena",
+          "image": {
+            "alt": "Night Magic on the Nile: VIP Dinner Cruise & Show",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€60"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_crociera_nilo_cena'",
+          "title": "Night Magic on the Nile: VIP Dinner Cruise & Show"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Action and breathtaking views! Speed through the Giza desert on a Quad and enjoy a camel ride at sunset.",
+          "id": "cairo_safari_piramidi_tramonto",
+          "image": {
+            "alt": "Sunset Adventure: Quad Safari & Camels at the Pyramids",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€60"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_safari_piramidi_tramonto'",
+          "title": "Sunset Adventure: Quad Safari & Camels at the Pyramids"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "A VIP journey through time: the iconic Pyramids of Giza, the enigmatic Sphinx, and the world's oldest pyramid at Saqqara.",
+          "id": "cairo_piramidi_saqqara_vip",
+          "image": {
+            "alt": "Eternal Grandeur: Pyramids of Giza, Sphinx & Saqqara",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€65"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=cairo_piramidi_saqqara_vip'",
+          "title": "Eternal Grandeur: Pyramids of Giza, Sphinx & Saqqara"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Leave Cairo for a day and discover the Greco-Roman atmosphere of Alexandria, the Pearl of the Mediterranean.",
+          "id": "alessandria_tour_giornata_intera",
+          "image": {
+            "alt": "Mediterranean Escape: Full-Day Tour of Alexandria",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€85"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=alessandria_tour_giornata_intera'",
+          "title": "Mediterranean Escape: Full-Day Tour of Alexandria"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 390
+    }
+  },
+  {
+    "locale": "en",
+    "size": "mobile",
+    "location": "luxor_and_aswan",
+    "astro": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Discover the treasures of Upper Egypt in just 4 days and 3 nights. From Philae Temple in Aswan to the secrets of the Valley of the Kings in Luxor.",
+          "id": "nile_cruise_aswan_luxor_4d3n",
+          "image": {
+            "alt": "Southern Magic: Cruise from Aswan to Luxor",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€650"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=nile_cruise_aswan_luxor_4d3n",
+          "title": "Southern Magic: Cruise from Aswan to Luxor"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "A 5-star, 5-day/4-night journey. Explore the Valley of the Kings, majestic temples, and experience the magic of colors in the Nubian Village.",
+          "id": "nile_cruise_luxor_aswan_5d4n",
+          "image": {
+            "alt": "Royal Nile Cruise: From Luxor to Aswan",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€750"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=nile_cruise_luxor_aswan_5d4n",
+          "title": "Royal Nile Cruise: From Luxor to Aswan"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "The ultimate experience. A complete 8-day journey combining the Pyramids of Cairo, the new Grand Egyptian Museum, and a luxury Nile Cruise.",
+          "id": "gran_tour_egitto_cairo_crociera_8g7n",
+          "image": {
+            "alt": "The Grand Pharaonic Tour: Cairo & Nile Magic (8 Days)",
+            "complete": true,
+            "width": 390
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€1450"
+          ],
+          "target": "https://fabioegypt.com/package-details.html?id=gran_tour_egitto_cairo_crociera_8g7n",
+          "title": "The Grand Pharaonic Tour: Cairo & Nile Magic (8 Days)"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "←Page 1 of 1→",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 390
+    },
+    "legacy": {
+      "cards": [
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "Discover the treasures of Upper Egypt in just 4 days and 3 nights. From Philae Temple in Aswan to the secrets of the Valley of the Kings in Luxor.",
+          "id": "nile_cruise_aswan_luxor_4d3n",
+          "image": {
+            "alt": "Southern Magic: Cruise from Aswan to Luxor",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€650"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=nile_cruise_aswan_luxor_4d3n'",
+          "title": "Southern Magic: Cruise from Aswan to Luxor"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "A 5-star, 5-day/4-night journey. Explore the Valley of the Kings, majestic temples, and experience the magic of colors in the Nubian Village.",
+          "id": "nile_cruise_luxor_aswan_5d4n",
+          "image": {
+            "alt": "Royal Nile Cruise: From Luxor to Aswan",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€750"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=nile_cruise_luxor_aswan_5d4n'",
+          "title": "Royal Nile Cruise: From Luxor to Aswan"
+        },
+        {
+          "badges": [],
+          "button": "Discover package",
+          "description": "The ultimate experience. A complete 8-day journey combining the Pyramids of Cairo, the new Grand Egyptian Museum, and a luxury Nile Cruise.",
+          "id": "gran_tour_egitto_cairo_crociera_8g7n",
+          "image": {
+            "alt": "The Grand Pharaonic Tour: Cairo & Nile Magic (8 Days)",
+            "complete": true,
+            "width": 800
+          },
+          "label": "Price from",
+          "premium": "Premium Package",
+          "prices": [
+            "€1450"
+          ],
+          "target": "sessionStorage.setItem('fabio_nav_source','details'); window.location.href = 'package-details.html?id=gran_tour_egitto_cairo_crociera_8g7n'",
+          "title": "The Grand Pharaonic Tour: Cairo & Nile Magic (8 Days)"
+        }
+      ],
+      "filters": [
+        "All",
+        "Packages"
+      ],
+      "height": 844,
+      "overflow": false,
+      "pagination": "",
+      "sort": "default",
+      "sortOptions": [
+        "Recommended (VIP)",
+        "Price: Low → High",
+        "Price: High → Low"
+      ],
+      "width": 390
+    }
+  }
+]

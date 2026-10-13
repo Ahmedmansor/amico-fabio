@@ -1,0 +1,46 @@
+{
+  "seo": {
+    "title": "Esplora i Viaggi | Fabio Egypt Tours",
+    "description": "Scegli la tua prossima avventura in Egitto. Tour privati a Sharm, Cairo, Luxor e Aswan. I migliori prezzi e servizio VIP."
+  },
+  "title": "Esplora i Viaggi",
+  "sort": {
+    "sort_label": "Sort by price",
+    "sort_recommended": "Recommended (VIP)",
+    "sort_low_high": "Price: Low → High",
+    "sort_high_low": "Price: High → Low"
+  },
+  "filters": {
+    "all": "All",
+    "sea": "Sea",
+    "culture": "Culture",
+    "desert": "Desert",
+    "packages": "Packages"
+  },
+  "badges": {
+    "BEST_SELLER": "Best seller",
+    "LIMITED_TIME": "Limited time only",
+    "HOT_DEAL": "Hot deal",
+    "NEW": "New",
+    "TOP_RATED": "Top rated",
+    "FAMILY_FRIENDLY": "Family friendly",
+    "VIP_EXCLUSIVE": "VIP exclusive",
+    "CHEAPEST_PRICE": "Cheapest price",
+    "RECOMMENDED": "Recommended",
+    "POPULAR": "Popular choice"
+  },
+  "labels": {
+    "price_from": "Price from",
+    "discover": "Discover",
+    "discover_package": "Discover package",
+    "premium_package": "Premium Package",
+    "limited_time_deal": "Limited time deal",
+    "no_exclusive_experiences": "No exclusive experiences available at the moment."
+  },
+  "pagination": {
+    "page": "Page",
+    "of": "of",
+    "previous": "←",
+    "next": "→"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "cairo": {
+    "url": "http://127.0.0.1:4321/it/explore/cairo/",
+    "cards": [
+      "cairo_mistico_copto_islamico",
+      "cairo_cuore_pulsante_museo_cittadella",
+      "cairo_crociera_nilo_cena",
+      "cairo_safari_piramidi_tramonto",
+      "cairo_piramidi_saqqara_vip",
+      "alessandria_tour_giornata_intera"
+    ]
+  },
+  "unknown": {
+    "cards": 0,
+    "message": "No exclusive experiences available at the moment."
+  }
+}
