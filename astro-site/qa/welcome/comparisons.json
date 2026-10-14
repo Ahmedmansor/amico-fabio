@@ -1,0 +1,236 @@
+[
+  {
+    "size": "desktop",
+    "astro": {
+      "body": {
+        "font": "Montserrat, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "padding": "16px"
+      },
+      "card": {
+        "top": 511,
+        "width": 448
+      },
+      "height": 900,
+      "images": [
+        {
+          "alt": "Fabio",
+          "loaded": true
+        },
+        {
+          "alt": "Review 1",
+          "loaded": true
+        },
+        {
+          "alt": "Review 2",
+          "loaded": true
+        },
+        {
+          "alt": "Review 3",
+          "loaded": true
+        }
+      ],
+      "inputs": [
+        {
+          "name": "Name",
+          "placeholder": "Il tuo nome",
+          "required": true,
+          "type": "text"
+        },
+        {
+          "name": "WhatsApp",
+          "placeholder": "+39 ...",
+          "required": true,
+          "type": "tel"
+        }
+      ],
+      "overflow": false,
+      "text": [
+        "SCORRI GIÙ",
+        "FABIO TOURS",
+        "Sharm El Sheikh Expert",
+        "Non fare il turista,sii un viaggiatore.",
+        "Scarica la guida esclusiva per scoprire la vera Sharm.",
+        "NOME",
+        "WHATSAPP",
+        "INVIA CATALOGO ORA",
+        "100% Gratuito. Nessun Spam.",
+        "Cosa dicono i nostri viaggiatori"
+      ],
+      "width": 1440
+    },
+    "legacy": {
+      "body": {
+        "font": "Montserrat, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "padding": "16px"
+      },
+      "card": {
+        "top": 511,
+        "width": 448
+      },
+      "height": 900,
+      "images": [
+        {
+          "alt": "Fabio",
+          "loaded": true
+        },
+        {
+          "alt": "Review 1",
+          "loaded": true
+        },
+        {
+          "alt": "Review 2",
+          "loaded": true
+        },
+        {
+          "alt": "Review 3",
+          "loaded": true
+        }
+      ],
+      "inputs": [
+        {
+          "name": "Name",
+          "placeholder": "Il tuo nome",
+          "required": true,
+          "type": "text"
+        },
+        {
+          "name": "WhatsApp",
+          "placeholder": "+39 ...",
+          "required": true,
+          "type": "tel"
+        }
+      ],
+      "overflow": false,
+      "text": [
+        "SCORRI GIÙ",
+        "FABIO TOURS",
+        "Sharm El Sheikh Expert",
+        "Non fare il turista,sii un viaggiatore.",
+        "Scarica la guida esclusiva per scoprire la vera Sharm.",
+        "NOME",
+        "WHATSAPP",
+        "INVIA CATALOGO ORA",
+        "100% Gratuito. Nessun Spam.",
+        "Cosa dicono i nostri viaggiatori"
+      ],
+      "width": 1440
+    }
+  },
+  {
+    "size": "mobile",
+    "astro": {
+      "body": {
+        "font": "Montserrat, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "padding": "16px"
+      },
+      "card": {
+        "top": 480.1979370117187,
+        "width": 342.66668701171875
+      },
+      "height": 844,
+      "images": [
+        {
+          "alt": "Fabio",
+          "loaded": true
+        },
+        {
+          "alt": "Review 1",
+          "loaded": true
+        },
+        {
+          "alt": "Review 2",
+          "loaded": true
+        },
+        {
+          "alt": "Review 3",
+          "loaded": true
+        }
+      ],
+      "inputs": [
+        {
+          "name": "Name",
+          "placeholder": "Il tuo nome",
+          "required": true,
+          "type": "text"
+        },
+        {
+          "name": "WhatsApp",
+          "placeholder": "+39 ...",
+          "required": true,
+          "type": "tel"
+        }
+      ],
+      "overflow": false,
+      "text": [
+        "SCORRI GIÙ",
+        "FABIO TOURS",
+        "Sharm El Sheikh Expert",
+        "Non fare il turista,sii un viaggiatore.",
+        "Scarica la guida esclusiva per scoprire la vera Sharm.",
+        "NOME",
+        "WHATSAPP",
+        "INVIA CATALOGO ORA",
+        "100% Gratuito. Nessun Spam.",
+        "Cosa dicono i nostri viaggiatori"
+      ],
+      "width": 390
+    },
+    "legacy": {
+      "body": {
+        "font": "Montserrat, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "padding": "16px"
+      },
+      "card": {
+        "top": 480.1979370117187,
+        "width": 358
+      },
+      "height": 844,
+      "images": [
+        {
+          "alt": "Fabio",
+          "loaded": true
+        },
+        {
+          "alt": "Review 1",
+          "loaded": true
+        },
+        {
+          "alt": "Review 2",
+          "loaded": true
+        },
+        {
+          "alt": "Review 3",
+          "loaded": true
+        }
+      ],
+      "inputs": [
+        {
+          "name": "Name",
+          "placeholder": "Il tuo nome",
+          "required": true,
+          "type": "text"
+        },
+        {
+          "name": "WhatsApp",
+          "placeholder": "+39 ...",
+          "required": true,
+          "type": "tel"
+        }
+      ],
+      "overflow": false,
+      "text": [
+        "SCORRI GIÙ",
+        "FABIO TOURS",
+        "Sharm El Sheikh Expert",
+        "Non fare il turista,sii un viaggiatore.",
+        "Scarica la guida esclusiva per scoprire la vera Sharm.",
+        "NOME",
+        "WHATSAPP",
+        "INVIA CATALOGO ORA",
+        "100% Gratuito. Nessun Spam.",
+        "Cosa dicono i nostri viaggiatori"
+      ],
+      "width": 390
+    }
+  }
+]

@@ -45,7 +45,7 @@
 - Keep Google Sheets as the initial data provider. Isolate it so a later Supabase migration changes the data layer instead of domain or presentation code.
 - Validate required data and IDs; do not silently publish missing required content or invalid prices.
 - Fix the known issues in `PROJECT_MAP.md` while migrating the affected feature instead of copying them.
-- The user requested only an unchanged source copy of `welcome.html` in `astro-site/landing-pages/`. Keep it outside Astro routes/public/build, preserve the legacy original, and do not spend further migration effort on it now or treat it as a release blocker. Any future active migration follows the landing-campaign architecture.
+- The user clarified that `welcome.html` must work in Astro as a landing campaign, preserving its original design and lead flow. Its active route is `/welcome/`, Italian-only with existing source content; the unchanged `astro-site/landing-pages/welcome.html` is only an archive. Use the neutral campaign shell, local fonts/Tailwind and feature data/domain/presentation. Preserve the legacy original; do not claim live lead delivery verified without an authorized external test submission.
 - Replace Tailwind CDN and external Google font loading with the local setup.
 - Use Astro image optimization for suitable local images, with responsive sizes and explicit dimensions.
 - Centralize the WhatsApp number and social links in one shared public configuration file.

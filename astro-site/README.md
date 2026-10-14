@@ -157,3 +157,10 @@ published canonical and reciprocal hreflang link. The root opens the default
 Italian home; unknown routes show a bilingual 404 with recovery links.
 See [qa/seo/README.md](./qa/seo/README.md) for commands and hosting limitations.
 Legacy URL redirects are excluded from scope by the user's decision.
+
+## Welcome landing page
+
+The Italian catalog lead page is active at `/welcome/`, preserving its original
+campaign design and Google Apps Script/WhatsApp flow. See
+[qa/welcome/README.md](./qa/welcome/README.md) for comparisons and the external
+submission test still required. `landing-pages/welcome.html` remains an archive.

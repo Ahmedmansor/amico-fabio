@@ -1,0 +1,11 @@
+{
+  "id": "welcome",
+  "locale": "it",
+  "path": "/welcome/",
+  "title": "Sharm El Sheikh VIP | Fabio Tours",
+  "description": "Scarica la guida esclusiva per scoprire la vera Sharm.",
+  "pending": "Invio in corso...",
+  "error": "Errore di connessione! Riprova.",
+  "message": "Ciao Fabio! Sono {name}. Ho visto il tuo sito e voglio il catalogo VIP.",
+  "scriptUrl": "https://script.google.com/macros/s/AKfycbzQJ1swKwvbnIB9TF4qGATwlHxPMEa6eRknFAPBgGdJFIC1MpX6XR6WMZoqmHUX0ots/exec"
+}
