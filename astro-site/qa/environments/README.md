@@ -23,9 +23,10 @@ All 72 tour/package poster associations were also checked in the test build.
 The approved English home title is now:
 `Fabio Egypt | Private Italian Guide - Sharm, Cairo & Luxor`.
 It translates the original claim (an Italian guide); it does not change the
-service to an English-speaking guide. The existing meta description remains the
-legacy Italian source pending a separately reviewed English description. No
-visible page copy, price, image content or layout was rewritten.
+service to an English-speaking guide. The user also approved the English home
+description and explore title/description translations, now stored in their
+English dictionaries under the same keys as Italian. No visible page copy,
+price, image content or layout was rewritten.
 
 ```sh
 # After building with the corresponding environment:
