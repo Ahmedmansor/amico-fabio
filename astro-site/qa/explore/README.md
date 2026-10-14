@@ -62,9 +62,9 @@ card text, prices, badges, target IDs, loaded images and filter/sort labels.
 ## Scope limits
 
 Home destination links now point to their migrated language-specific explorer.
-Trip links now reach independent `/{locale}/tours/{slug}/` pages. Package links
-still reach production `package-details.html` with the same ID until the package
-task. Old-URL redirect maps remain pending. No booking message was sent.
+Trip and package links now reach independent `/{locale}/tours/{slug}/` and
+`/{locale}/packages/{slug}/` pages. Old-URL redirect maps remain pending.
+No booking message was sent.
 
 The legacy hidden heading (`explore.title` is missing from both dictionaries),
 SEO title/description and literal `Page ... of ...` pagination text are retained

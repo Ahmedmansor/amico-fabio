@@ -1,0 +1,8 @@
+---
+import {Image,getImage} from 'astro:assets';
+import {imageAssets} from './images';
+interface Props {gallery:string[];small?:boolean}
+const {gallery,small=false}=Astro.props;
+const slides=await Promise.all(gallery.map(async src=>({src,optimized:await getImage({src:imageAssets[src],width:Math.min(1200,imageAssets[src].width),format:'webp'})})));
+---
+{slides.map(slide=><button type="button" data-gallery-src={slide.optimized.src} class:list={[small?'w-24 h-24 md:w-28 md:h-28':'w-32 h-32 md:w-40 md:h-40','relative rounded-xl overflow-hidden bg-gray-900 flex-shrink-0 border border-gray-100 shadow-md snap-center group transition']}><Image src={imageAssets[slide.src]} alt="" widths={[160,320]} sizes="160px" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110" loading="lazy"/><div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><svg class="w-8 h-8 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div></button>)}

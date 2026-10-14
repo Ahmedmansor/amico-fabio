@@ -140,5 +140,12 @@ All 22 published tours now have separate static Italian and English pages at
 `/{locale}/tours/{slug}/`. Explore trip cards link to the corresponding language.
 The original content, gallery, prices and booking behavior are preserved.
 See [qa/tours/README.md](./qa/tours/README.md) for the 88 desktop/mobile
-comparisons and booking checks. Package pages and legacy URL redirects remain
-separate pending tasks. Nothing has been deployed.
+comparisons and booking checks. Legacy URL redirects remain a separate pending
+task. Nothing has been deployed.
+
+## Independent package pages
+
+All 14 published packages now generate 28 static bilingual pages under
+`/{locale}/packages/{slug}/`. Explore cards use those URLs. Original included
+trip cards/modals and package booking behavior are retained. See
+[qa/packages/README.md](./qa/packages/README.md) for comparisons and verification.

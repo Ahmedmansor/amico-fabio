@@ -179,5 +179,9 @@
     "children": "Kids",
     "extras": "Extras:",
     "total": "Total Estimate:"
+  },
+  "packageLabels": {
+    "heroAlt": "Package Image",
+    "includedSubtitle": "Ogni esperienza inclusa in questo pacchetto può essere esplorata in dettaglio qui sotto."
   }
 }

@@ -4,8 +4,8 @@ All 22 published Google Sheets trips generate their own static Italian and
 English page, 44 routes under `/it/tours/<slug>/` and `/en/tours/<slug>/`.
 Existing stable IDs and initial slugs are separate model fields; initially the
 same existing ID text is used for both languages' slug. Explore trip cards now
-link directly to these routes. Package cards retain their legacy links until
-the separate package-page task is completed. No production deployment occurred.
+link directly to these routes. Package cards also use their independent routes
+following the subsequent package-page migration. No deployment occurred.
 
 ## Preserved content and business behavior
 

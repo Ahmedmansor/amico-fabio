@@ -28,7 +28,7 @@ for (const locale of ['it','en']) for (const location of exploreLocations) {
     if (card.discounted) { assert.ok(text.includes(`€${card.offer.prices.adultBase}`)); assert.ok(text.includes(`-${card.discountPercent}%`)); }
     const badge = cardBadge(card,locale,messages);
     if (badge) assert.ok(text.includes(badge),`${card.id}: missing badge`);
-    assert.ok(article.includes(card.kind === 'package' ? `${siteConfig.url}/package-details.html?id=${encodeURIComponent(card.id)}` : `/${locale}/tours/${card.offer.slug}/`));
+    assert.ok(article.includes(`/${locale}/${card.kind === 'package' ? 'packages' : 'tours'}/${card.offer.slug}/`));
     assert.equal(/\shidden(?:\s|>)/.test(article.split('>')[0] + '>'),index >= 9,`${card.id}: incorrect initial pagination`);
     assert.ok(/<img\b[^>]*width="\d+"[^>]*height="\d+"/.test(article),`${card.id}: missing image dimensions`);
   });

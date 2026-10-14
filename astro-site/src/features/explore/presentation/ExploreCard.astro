@@ -4,7 +4,6 @@ import type { ImageMetadata } from 'astro';
 import type { ExploreCard, ExploreMessages } from '../domain/explore';
 import { cardBadge } from '../domain/explore';
 import type { Locale } from '../../../shared/config/languages';
-import { siteConfig } from '../../../shared/config/site';
 interface Props { card: ExploreCard; messages: ExploreMessages; locale: Locale; hidden: boolean }
 const { card, messages: m, locale, hidden } = Astro.props;
 const posters = import.meta.glob<ImageMetadata>('/src/shared/assets/catalog/**/poster.webp', { eager: true, import: 'default' });
@@ -13,7 +12,7 @@ if (!image) throw new Error(`[explore:${card.id}] Missing linked image ${card.of
 const isPackage = card.kind === 'package';
 const text = card.offer.text[locale];
 const badge = cardBadge(card, locale, m);
-const href = isPackage ? `${siteConfig.url}/package-details.html?id=${encodeURIComponent(card.id)}` : `/${locale}/tours/${card.offer.slug}/`;
+const href = `/${locale}/${isPackage?'packages':'tours'}/${card.offer.slug}/`;
 ---
 <article class:list={['catalog-card','trip-card',{'premium-package-card':isPackage}]} data-explore-card data-card-key={`${card.kind}:${card.id}`} data-trip-id={card.id} data-location={card.location} data-category={card.category} data-price={card.displayPrice} data-score={card.score} data-source-index={card.sourceIndex} hidden={hidden}>
   <div class="catalog-card-image">
