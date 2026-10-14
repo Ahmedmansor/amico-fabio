@@ -3,6 +3,8 @@
 Every published tour/package language route now provides its own poster in
 Open Graph and Twitter metadata. The shared head accepts an optional image;
 other pages retain the existing logo fallback and their favicon is unchanged.
+Social page/image URLs now use the environment's own origin; only canonical and
+hreflang stay on production. See `../environments/README.md` for test isolation.
 Astro converts each original poster to a JPEG at up to 1200px wide, preserving
 its aspect ratio and content. No crops, overlays, invented assets or visible UI
 changes are introduced. Absolute HTTPS URLs, dimensions, type and localized alt

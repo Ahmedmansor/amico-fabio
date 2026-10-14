@@ -180,3 +180,5 @@ link audit and remaining external-service/hosting checks before release.
 
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for the separate Vercel test project,
 `PUBLIC_NOINDEX=1`, production safeguards and exact branch/root settings.
+Test deployments serve social images from their own origin automatically; see
+[qa/environments/README.md](./qa/environments/README.md) for both build audits.

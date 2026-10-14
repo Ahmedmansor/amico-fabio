@@ -36,9 +36,10 @@ home dictionaries against the actual legacy JavaScript dictionaries.
   Blog keeps its existing
   `#` placeholder. No tour or package routes were added in this task.
 - Legacy home SEO title/description are only provided in Italian, even after
-  switching the legacy page to English. They are retained in both dictionaries;
-  no English SEO copy was invented. An approved English translation can replace
-  them later. Existing legacy accessibility literals are also retained.
+  switching the legacy page to English. After user approval, the English title
+  was translated to `Fabio Egypt | Private Italian Guide - Sharm, Cairo & Luxor`.
+  The description still retains its Italian source pending reviewed translation.
+  Existing legacy accessibility literals are also retained.
 - The original banner can cover the open language dropdown; dismiss it before
   switching languages. This interaction remains visually identical to legacy.
 

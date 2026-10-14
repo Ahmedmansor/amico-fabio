@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import {siteConfig} from '../config/site.ts';
 import {supportedLocales} from '../config/languages.ts';
 const xml=value=>value.replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c]));
-export function seoFiles({noindex=false}={}){return {name:'fabio-seo',hooks:{'astro:build:done':async({dir,logger})=>{
+export function seoFiles({noindex=false,assetOrigin=siteConfig.url}={}){return {name:'fabio-seo',hooks:{'astro:build:done':async({dir,logger})=>{
  const entries=[];
  async function visit(folder){for(const item of await fs.readdir(folder,{withFileTypes:true})){const url=new URL(item.name+(item.isDirectory()?'/':''),folder);if(item.isDirectory())await visit(url);else if(item.name.endsWith('.html')){
   const html=await fs.readFile(url,'utf8');
@@ -29,7 +29,7 @@ export function seoFiles({noindex=false}={}){return {name:'fabio-seo',hooks:{'as
  entries.sort((a,b)=>a.canonical.localeCompare(b.canonical));
  const sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'+(noindex?[]:entries).map(entry=>`  <url><loc>${xml(entry.canonical)}</loc>${entry.alternates.map(a=>`<xhtml:link rel="alternate" hreflang="${xml(a.locale)}" href="${xml(a.href)}"/>`).join('')}</url>`).join('\n')+'\n</urlset>\n';
  await fs.writeFile(new URL('sitemap.xml',dir),sitemap);
- await fs.writeFile(new URL('robots.txt',dir),`User-agent: *\nAllow: /\n\nSitemap: ${siteConfig.url}/sitemap.xml\n`);
+ await fs.writeFile(new URL('robots.txt',dir),`User-agent: *\nAllow: /\n\nSitemap: ${assetOrigin}/sitemap.xml\n`);
  logger.info(`Verified canonical and reciprocal hreflang for ${entries.length} indexable pages; generated sitemap.xml and robots.txt.`);
  if(noindex)logger.info('Test flavor: all content is noindex; sitemap has no indexable URLs.');
 }}};}

@@ -5,7 +5,7 @@ Existing production remains legacy Vite on GitHub Pages, branch `main`, domain
 `fabioegypt.com`. The Astro migration branch is `try-to-refactoring-to-astro`.
 Do not alter the existing Vercel project `amico-fabio`.
 
-## New Vercel test project (account setup still required)
+## Vercel test project settings
 
 | Setting | Value |
 | --- | --- |
@@ -28,9 +28,12 @@ branch, root directory and variable before the first build. Do not attach
 `fabioegypt.com` or transfer any existing custom domain to the test project.
 Do not create files linking the local checkout to `amico-fabio` through Vercel CLI.
 
-No Vercel project creation, environment update, Git push or deployment has been
-performed as part of local preparation. The browser session requires login.
-This file is the concrete setup specification, not evidence that Vercel is set up.
+The user subsequently supplied and opened a deployment of `amico-fabio-test`
+for browser review. It is distinct from the protected existing `amico-fabio`
+project; do not rename or alter either project as part of source preparation.
+The original intended project name above records the initial plan. This source
+task performs no Vercel environment update, Git push or deployment. The supplied
+deployment must be rebuilt from the new commit to use independent social assets.
 
 ## Indexing behavior
 
@@ -44,9 +47,14 @@ This file is the concrete setup specification, not evidence that Vercel is set u
   publication of test indexing settings through a future GitHub Pages workflow.
 - `robots.txt` permits crawling so a crawler can read the noindex directive.
   Do not replace this with Disallow: / and assume crawlers can read noindex.
-- Canonical, hreflang and absolute share-image origins remain `fabioegypt.com`.
-  Test pages use relative UI assets and work locally/on Vercel, but this does
-  not validate public social cards before the production assets are published.
+- Canonical and hreflang remain `fabioegypt.com`. Test social page/image URLs
+  use `VERCEL_URL` automatically, so each deployment serves its own assets.
+  Optional `PUBLIC_SITE_URL=https://stable-test-host` overrides that origin when
+  intentionally testing a stable alias. Never use the original domain for test
+  assets. Production always uses `fabioegypt.com`, ignoring test-origin overrides.
+- Outside Vercel, a noindex build requires PUBLIC_SITE_URL (a test HTTPS origin,
+  or localhost HTTP). Missing test origin or a test origin equal to production
+  fails before build. This prevents accidental fallback to legacy files.
 - This is indexing control, not authentication or a guarantee that every crawler
   obeys. It does not make the test site private.
 
@@ -61,11 +69,15 @@ From `astro-site/` in PowerShell:
 
 ```powershell
 $env:PUBLIC_NOINDEX='1'
+$env:PUBLIC_SITE_URL='http://127.0.0.1:4322'
 npm run build
 node scripts/verify-flavor.mjs --test
+node scripts/verify-environment.mjs http://127.0.0.1:4322
 Remove-Item Env:PUBLIC_NOINDEX
+Remove-Item Env:PUBLIC_SITE_URL
 npm run build
 node scripts/verify-flavor.mjs
+node scripts/verify-environment.mjs
 npx astro check
 npm test
 ```
