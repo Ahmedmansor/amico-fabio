@@ -170,3 +170,8 @@ submission test still required. `landing-pages/welcome.html` remains an archive.
 All 72 tour/package language pages use their original poster for Open Graph and
 Twitter previews, with localized text and absolute generated JPEG URLs. See
 [qa/sharing/README.md](./qa/sharing/README.md) and its per-page metadata report.
+
+## Final migration review
+
+See [qa/final/README.md](./qa/final/README.md) for verified coverage, the generated
+link audit and remaining external-service/hosting checks before release.
