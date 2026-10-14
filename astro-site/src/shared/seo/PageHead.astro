@@ -4,6 +4,7 @@ import { siteConfig } from '../config/site';
 import { languages, supportedLocales, type Locale } from '../config/languages';
 import type {ShareImage} from './share-image';
 import {getImage} from 'astro:assets';
+import {preventIndexing} from './indexing';
 interface Props { locale: Locale; route: string; title: string; description: string; canonicalPath?:string; alternatePaths?:Partial<Record<Locale,string>>; keywords?:string; ogTitle?:string; ogDescription?:string; twitterDescription?:string;shareImage?:ShareImage }
 const { locale, route, title, description,canonicalPath,alternatePaths,keywords,ogTitle=title,ogDescription=description,twitterDescription=description,shareImage } = Astro.props;
 const routePath = route ? `${route}/` : '';
@@ -11,13 +12,14 @@ const canonical = new URL(canonicalPath||`/${locale}/${routePath}`, siteConfig.u
 const alternates=alternatePaths||Object.fromEntries(supportedLocales.map(language=>[language,`/${language}/${routePath}`]));
 const logo=await getImage({src:squareLogo,width:squareLogo.width,format:'webp'});
 const image = new URL(shareImage?.src||logo.src, siteConfig.url).href;
+const noindex=preventIndexing(import.meta.env.PUBLIC_NOINDEX);
 ---
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>{title}</title><meta name="description" content={description}/>
 <link rel="canonical" href={canonical}/>
 {Object.entries(alternates).map(([language,path]) => path&&<link rel="alternate" hreflang={language} href={new URL(path, siteConfig.url).href}/>)}
 {keywords&&<meta name="keywords" content={keywords}/>}
-<meta name="robots" content="index, follow"/><meta name="author" content="Fabio Egypt"/>
+<meta name="robots" content={noindex?'noindex, follow':'index, follow'}/><meta name="author" content="Fabio Egypt"/>
 <meta property="og:type" content="website"/><meta property="og:locale" content={languages[locale].ogLocale}/>
 <meta property="og:url" content={canonical}/><meta property="og:site_name" content="Fabio Egypt Tours"/>
 <meta property="og:title" content={ogTitle}/><meta property="og:description" content={ogDescription}/><meta property="og:image" content={image}/>

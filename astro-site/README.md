@@ -175,3 +175,8 @@ Twitter previews, with localized text and absolute generated JPEG URLs. See
 
 See [qa/final/README.md](./qa/final/README.md) for verified coverage, the generated
 link audit and remaining external-service/hosting checks before release.
+
+## Deployment flavors
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for the separate Vercel test project,
+`PUBLIC_NOINDEX=1`, production safeguards and exact branch/root settings.

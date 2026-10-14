@@ -10,6 +10,7 @@
 - Before the first migration commit, show the full contents of this file and wait for the user's review approval.
 - After each completed task, create a focused commit containing only that task's changes. Do not include unrelated or pre-existing user changes without authorization.
 - Do not publish, deploy, or change the domain without explicit authorization.
+- Deployment separation requested by the user: legacy `main` stays on GitHub Pages (`fabioegypt.com`); the Astro migration branch targets a separate Vercel project `fabio-astro-test` with root `astro-site/` and PUBLIC_NOINDEX=1 in both Vercel Production and Preview. Never modify the existing Vercel project `amico-fabio`. Follow `astro-site/DEPLOYMENT.md`; local setup does not prove a remote deployment exists.
 
 ## Stack and browser code
 - Use Astro, Tailwind CSS, and Vanilla JavaScript for the site. TypeScript is allowed for types, configuration, and pure logic.

@@ -10,3 +10,4 @@ test('sitemap includes actual canonical equivalents and excludes redirects and n
 }));
 test('build rejects missing canonical rather than silently publishing it',()=>scenario(async(folder,dir)=>{await page(folder,'it/index.html','<title>Fabio</title>');await assert.rejects(build(dir),/incorrect canonical/);}));
 test('build rejects absent language equivalents',()=>scenario(async(folder,dir)=>{await page(folder,'it/index.html',html('it',false));await assert.rejects(build(dir),/Missing equivalent en/);}));
+test('test flavor validates canonical equivalents but emits no indexable sitemap URLs',()=>scenario(async(folder,dir)=>{for(const locale of ['it','en'])await page(folder,`${locale}/index.html`,'<meta name="robots" content="noindex, follow">'+html(locale));await seoFiles({noindex:true}).hooks['astro:build:done']({dir,logger:{info(){}}});assert.ok(!(await fs.readFile(new URL('sitemap.xml',dir),'utf8')).includes('<loc>'));}));
