@@ -87,3 +87,14 @@
 - Dependency installation and checks require the approved dependencies and supported Node runtime; draft files before installation are not a completed task.
 - Before committing, inspect the diff and stage explicit task files only. Preserve unrelated user changes.
 - Report what changed, what checks ran and their real results, how to verify it, and the commit hash when committed. Continue with the next agreed migration task under the user's standing authorization; pause dependent work only for an actual blocker or a separately required approval.
+
+## Approved next phase: single prices and Supabase
+- Follow `astro-site/SUPABASE_PLAN.md`. This records planned work, not completed implementation.
+- The user superseded the legacy discount policy: use Sheets `d_adult` as the only adult price and `d_child` as the only child price for tours and packages. Blank child price means zero (free); a missing/invalid adult price fails validation without falling back to `p_adult`. Preserve explicit zero values.
+- Remove crossed-out prices, discount percentages, discount badges and deal messages. Show one starting adult price with Italian/English labels. Keep unrelated editorial badges and recommendation ordering unchanged. Display, sorting, booking and totals must use the same price.
+- Supabase stores `adult_price` and `child_price`, with no base/discount columns. Original Sheets snapshots are migration evidence, not public API fields. Legacy source and the source Sheets remain unchanged.
+- Prepare and review SQL locally; the user runs schema SQL in Supabase SQL Editor and imports reviewed CSV files. Existing MCP read access does not authorize remote writes. Do not create tables, execute migrations, import data, or change grants/policies remotely without separate explicit authorization.
+- Prefer a publishable Supabase key (`sb_publishable_...`) for public catalog SELECT, protected by explicit grants and RLS. Legacy `anon` keys are not the default for this new integration. Build-time access needs no browser Supabase client or privileged key.
+- Never request, read, print or commit service_role/secret keys, database passwords or access tokens. If a privileged one-off import is needed, the user runs it themselves with an ignored local environment file; do not read that file or log its values.
+- Expose only published catalog data through SELECT policies, including child records whose parent is published. No anonymous INSERT/UPDATE/DELETE permissions or private lead/settings fields. Keep campaign leads, Auth, favorites, emails and automatic rebuild hooks outside this phase.
+- Keep provider selection in data-layer configuration; reuse feature access functions and identical validation for both providers. Never silently fall back to Sheets when Supabase fails. Static prices update only after a successful rebuild.
