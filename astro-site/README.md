@@ -149,3 +149,11 @@ All 14 published packages now generate 28 static bilingual pages under
 `/{locale}/packages/{slug}/`. Explore cards use those URLs. Original included
 trip cards/modals and package booking behavior are retained. See
 [qa/packages/README.md](./qa/packages/README.md) for comparisons and verification.
+
+## Technical SEO and recovery
+
+Production builds generate `sitemap.xml` and `robots.txt`, after checking each
+published canonical and reciprocal hreflang link. The root opens the default
+Italian home; unknown routes show a bilingual 404 with recovery links.
+See [qa/seo/README.md](./qa/seo/README.md) for commands and hosting limitations.
+Legacy URL redirects are excluded from scope by the user's decision.

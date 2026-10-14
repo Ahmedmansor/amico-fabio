@@ -1,5 +1,4 @@
 ---
-import SetupPage from '@features/setup/presentation/SetupPage.astro';
+import {defaultLocale} from '../shared/config/languages';
+return Astro.redirect(`/${defaultLocale}/`,301);
 ---
-
-<SetupPage />

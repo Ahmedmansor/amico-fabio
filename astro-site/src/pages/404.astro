@@ -1,0 +1,6 @@
+---
+import {getNotFoundMessages} from '../features/not-found/data/messages';
+import NotFoundPage from '../features/not-found/presentation/NotFoundPage.astro';
+const messages=getNotFoundMessages();
+---
+<NotFoundPage messages={messages}/>

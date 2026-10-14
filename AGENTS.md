@@ -37,16 +37,15 @@
 - Use the same slug in both languages initially. Keep stable IDs separate from slugs.
 - Use `/it/tours/<slug>/`, `/en/tours/<slug>/`, `/it/packages/<slug>/`, and `/en/packages/<slug>/`.
 - Language switching must link to the corresponding content in the other language.
-- Keep `details.html` and `package-details.html` as small compatibility pages when that task is authorized. Their scripts read `id`, look it up in a build-generated map, choose a supported stored language or default `it`, and redirect with `location.replace()`.
-- Provide a no-JavaScript link to the tours list and a useful fallback for unknown IDs.
-- Generate language-specific canonical URLs, reciprocal hreflang links, and a sitemap when the SEO task is authorized.
+- Old `details.html` and `package-details.html` URL compatibility and redirects are excluded from migration by the user's decision. Do not implement them unless separately requested.
+- Maintain language-specific canonical URLs, reciprocal hreflang, a build-generated sitemap.xml, robots.txt referencing it, and a bilingual 404 page. Exclude error pages and redirects from the sitemap; do not claim these guarantee indexing or GEO visibility.
 
 ## Migration behavior
 - Preserve existing business behavior during migration. The user explicitly confirmed blank child prices resolve to zero, blank `min_pax` resolves to one, and the promo banner continues to use `is_active` without date gating. These are documented legacy defaults, not newly invented values. Keep original source fields alongside mapped values. Do not change prices, booking policies, or banner business rules as part of a technology migration.
 - Keep Google Sheets as the initial data provider. Isolate it so a later Supabase migration changes the data layer instead of domain or presentation code.
 - Validate required data and IDs; do not silently publish missing required content or invalid prices.
 - Fix the known issues in `PROJECT_MAP.md` while migrating the affected feature instead of copying them.
-- `welcome.html` is a landing campaign and its migration is deferred at the user's request. Do not spend implementation effort on it now. When separately resumed, follow the landing-campaign architecture and preserve its Google Apps Script and WhatsApp flow while checking submission success and handling failure.
+- `welcome.html` is a landing campaign, following the same campaign architecture as other landing pages. Do not treat it as a separate main-site feature or expand its scope. Preserve its Google Apps Script and WhatsApp flow when migrating it; verify submission success and failure. The earlier "deferred" wording was an agent misunderstanding, corrected by the user.
 - Replace Tailwind CDN and external Google font loading with the local setup.
 - Use Astro image optimization for suitable local images, with responsive sizes and explicit dimensions.
 - Centralize the WhatsApp number and social links in one shared public configuration file.

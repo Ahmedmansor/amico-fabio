@@ -144,9 +144,10 @@ local; comparison JSON and reports stay tracked.
 2. Migrate `offerta-sharm` with its original Italian campaign presentation;
    introduce Vitest only after dependency approval for WhatsApp domain tests.
 3. Prioritize independent bilingual tour pages, then package pages and booking
-   logic, followed by compatibility and SEO tasks. `welcome.html` is a landing
-   campaign; its migration is deferred by the user and is not the next task.
-   When resumed, it follows the campaign architecture above. The detailed
+   logic, followed by SEO (sitemap.xml, robots.txt, 404, canonical/hreflang).
+   Legacy URL compatibility is excluded by the user. `welcome.html` is a landing
+   campaign following the campaign architecture above; it is not a separate
+   main-site feature. The earlier deferral wording was corrected. The detailed
    sequence and campaign policy are recorded in `../صفحات الهبوط.md`.
 4. After the Astro migration is finished, perform the separately approved Git
    screenshot-history cleanup. Deployment and redesign remain separate tasks.
