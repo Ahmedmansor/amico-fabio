@@ -46,7 +46,7 @@
 - Keep Google Sheets as the initial data provider. Isolate it so a later Supabase migration changes the data layer instead of domain or presentation code.
 - Validate required data and IDs; do not silently publish missing required content or invalid prices.
 - Fix the known issues in `PROJECT_MAP.md` while migrating the affected feature instead of copying them.
-- Migrate `welcome.html` as a catalog lead form, preserving its intended Google Apps Script and WhatsApp flow while checking submission success and handling failure.
+- `welcome.html` is a landing campaign and its migration is deferred at the user's request. Do not spend implementation effort on it now. When separately resumed, follow the landing-campaign architecture and preserve its Google Apps Script and WhatsApp flow while checking submission success and handling failure.
 - Replace Tailwind CDN and external Google font loading with the local setup.
 - Use Astro image optimization for suitable local images, with responsive sizes and explicit dimensions.
 - Centralize the WhatsApp number and social links in one shared public configuration file.

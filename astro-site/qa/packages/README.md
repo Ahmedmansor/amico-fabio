@@ -42,11 +42,12 @@ the actual legacy BookingManager. No price, policy or business wording changed.
 - Matching screenshots remain local and Git-ignored. Auto-rotating photos can
   differ between captures; original image files and their associations are
   checked separately. Minor generated HTML whitespace differs.
-- The legacy `global.included_trips` heading key is absent in both languages;
-  its original empty heading stays empty. No replacement text was invented.
+- The legacy `global.included_trips` heading key is absent in both languages.
+  After migration, the user approved adding `Escursioni incluse` / `Included
+  tours` to that key. Historical comparison JSON records the original empty
+  heading; this approved addition is the only intended content difference.
   The existing bilingual subtitle is copied from PackagesView into shared
-  dictionaries under the same key. This source omission needs approved copy
-  if it is to be filled later.
+  dictionaries under the same key.
 - The invoice retains the legacy English labels (including `Trip:`), while
   the booking message uses the original package-specific language template.
 - Shared header/footer routes point to migrated equivalents. Compatibility

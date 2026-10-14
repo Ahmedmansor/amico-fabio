@@ -11,6 +11,7 @@ for(const page of pages){
  assert.ok(html.includes(`rel="canonical" href="https://fabioegypt.com${route}"`));
  for(const locale of ['it','en'])assert.ok(html.includes(`hreflang="${locale}" href="https://fabioegypt.com/${locale}/packages/${record.slug}/"`));
  assert.ok(html.includes('"kind":"package"'));
+ assert.match(html,new RegExp(`id="label-included-trips"[^>]*>\\s*${page.locale==='it'?'Escursioni incluse':'Included tours'}\\s*</h3>`),`${record.id}: missing approved included-trips heading`);
  const total=calculateTotal({adults:record.minPax,children:0,selectedAddons:[]},{...record.prices,minPax:record.minPax},[]);
  assert.ok(html.includes(`id="live-total-price" class="text-2xl font-bold text-white">€${total}</span>`));
  const ids=Array.from(html.matchAll(/\sid="([^"]+)"/g),m=>m[1]);assert.equal(ids.length,new Set(ids).size,`${record.id}: duplicate DOM IDs`);
