@@ -4,7 +4,10 @@ import PackagePage from '../../../features/packages/presentation/PackagePage.ast
 import {getPackagePages} from '../../../features/packages/data/details.mjs';
 import {getAddons} from '../../../features/booking/data/addons.mjs';
 import type {Locale} from '../../../shared/config/languages';
+import {getShareImage} from '../../../shared/seo/share-image';
+import {imageAssets} from '../../../features/packages/presentation/images';
 export async function getStaticPaths(){const [pages,addons]=await Promise.all([getPackagePages(),getAddons()]);return pages.map(page=>({params:{locale:page.locale,slug:page.package.slug},props:{page,addons:addons.filter(addon=>addon.tripId===page.package.id)}}));}
 const {page,addons}=Astro.props,locale=page.locale as Locale;
+const shareImage=await getShareImage(imageAssets[page.package.poster],page.text.title);
 ---
-<BaseLayout locale={locale} route={`packages/${page.package.slug}`} title={`Fabio Tours | ${page.text.title}`} description={page.text.short_desc.replace(/\s+/g,' ').trim().slice(0,200)} bodyClass="font-sans antialiased text-gray-200 package-details-page"><PackagePage page={page} addons={addons}/></BaseLayout>
+<BaseLayout locale={locale} route={`packages/${page.package.slug}`} title={`Fabio Tours | ${page.text.title}`} description={page.text.short_desc.replace(/\s+/g,' ').trim()} shareImage={shareImage} keywords={page.text.seo_tags.join(', ')} bodyClass="font-sans antialiased text-gray-200 package-details-page"><PackagePage page={page} addons={addons}/></BaseLayout>

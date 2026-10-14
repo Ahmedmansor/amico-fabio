@@ -164,3 +164,9 @@ The Italian catalog lead page is active at `/welcome/`, preserving its original
 campaign design and Google Apps Script/WhatsApp flow. See
 [qa/welcome/README.md](./qa/welcome/README.md) for comparisons and the external
 submission test still required. `landing-pages/welcome.html` remains an archive.
+
+## Tour and package sharing
+
+All 72 tour/package language pages use their original poster for Open Graph and
+Twitter previews, with localized text and absolute generated JPEG URLs. See
+[qa/sharing/README.md](./qa/sharing/README.md) and its per-page metadata report.

@@ -1,0 +1,650 @@
+[
+  {
+    "route": "/it/tours/ras_mohammed_white_island_vip/",
+    "title": "Fabio Tours | Ras Mohammed & White Island: L'Esperienza VIP",
+    "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+    "image": "https://fabioegypt.com/_astro/poster.KPOiOTjZ_ZhtnkX.jpeg",
+    "width": 600,
+    "height": 800,
+    "alt": "Ras Mohammed & White Island: L'Esperienza VIP"
+  },
+  {
+    "route": "/en/tours/ras_mohammed_white_island_vip/",
+    "title": "Fabio Tours | Ras Mohammed & White Island: The VIP Experience",
+    "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+    "image": "https://fabioegypt.com/_astro/poster.KPOiOTjZ_ZhtnkX.jpeg",
+    "width": 600,
+    "height": 800,
+    "alt": "Ras Mohammed & White Island: The VIP Experience"
+  },
+  {
+    "route": "/it/tours/ras_mohammed_bus_half_day/",
+    "title": "Fabio Tours | Ras Mohammed Nature Explorer: Il Parco via Terra",
+    "description": "Un viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.",
+    "image": "https://fabioegypt.com/_astro/poster.sT63-6og_Z1SDguV.jpeg",
+    "width": 600,
+    "height": 803,
+    "alt": "Ras Mohammed Nature Explorer: Il Parco via Terra"
+  },
+  {
+    "route": "/en/tours/ras_mohammed_bus_half_day/",
+    "title": "Fabio Tours | Ras Mohammed Nature Explorer: The Park by Land",
+    "description": "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
+    "image": "https://fabioegypt.com/_astro/poster.sT63-6og_Z1SDguV.jpeg",
+    "width": 600,
+    "height": 803,
+    "alt": "Ras Mohammed Nature Explorer: The Park by Land"
+  },
+  {
+    "route": "/it/tours/tiran_island_boat_vip/",
+    "title": "Fabio Tours | Isola di Tiran VIP: Relitti e Barriere Coralline",
+    "description": "Naviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.",
+    "image": "https://fabioegypt.com/_astro/poster.CY9Xil-d_ZPrf2S.jpeg",
+    "width": 800,
+    "height": 533,
+    "alt": "Isola di Tiran VIP: Relitti e Barriere Coralline"
+  },
+  {
+    "route": "/en/tours/tiran_island_boat_vip/",
+    "title": "Fabio Tours | Tiran Island VIP: Wrecks and Coral Reefs",
+    "description": "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
+    "image": "https://fabioegypt.com/_astro/poster.CY9Xil-d_ZPrf2S.jpeg",
+    "width": 800,
+    "height": 533,
+    "alt": "Tiran Island VIP: Wrecks and Coral Reefs"
+  },
+  {
+    "route": "/it/tours/dahab_blue_hole_super_safari/",
+    "title": "Fabio Tours | Dahab Adventure: Blue Hole, Cammelli & Canyon",
+    "description": "La vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.",
+    "image": "https://fabioegypt.com/_astro/dahab.DlTq6rEq_Z295Hzi.jpeg",
+    "width": 800,
+    "height": 597,
+    "alt": "Dahab Adventure: Blue Hole, Cammelli & Canyon"
+  },
+  {
+    "route": "/en/tours/dahab_blue_hole_super_safari/",
+    "title": "Fabio Tours | Dahab Adventure: Blue Hole, Camels & Canyon",
+    "description": "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
+    "image": "https://fabioegypt.com/_astro/dahab.DlTq6rEq_Z295Hzi.jpeg",
+    "width": 800,
+    "height": 597,
+    "alt": "Dahab Adventure: Blue Hole, Camels & Canyon"
+  },
+  {
+    "route": "/it/tours/private_boat_vip_king/",
+    "title": "Fabio Tours | Private Boat VIP: The King of Red Sea",
+    "description": "L'esperienza definitiva. Uno yacht intero solo per te. Tu decidi l'orario, la rotta e il menu. Privacy assoluta e lusso.",
+    "image": "https://fabioegypt.com/_astro/poster.BglhWbwI_Z5GeCv.jpeg",
+    "width": 800,
+    "height": 529,
+    "alt": "Private Boat VIP: The King of Red Sea"
+  },
+  {
+    "route": "/en/tours/private_boat_vip_king/",
+    "title": "Fabio Tours | Private Boat VIP: The King of Red Sea",
+    "description": "The ultimate experience. An entire yacht just for you. You decide the time, the route, and the menu. Absolute privacy and luxury.",
+    "image": "https://fabioegypt.com/_astro/poster.BglhWbwI_Z5GeCv.jpeg",
+    "width": 800,
+    "height": 529,
+    "alt": "Private Boat VIP: The King of Red Sea"
+  },
+  {
+    "route": "/it/tours/dolphin_show_family/",
+    "title": "Fabio Tours | Dolphin Show: Emozioni per tutta la Famiglia",
+    "description": "Un'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.",
+    "image": "https://fabioegypt.com/_astro/poster.CeG6Bnj2_ZJIaA4.jpeg",
+    "width": 800,
+    "height": 523,
+    "alt": "Dolphin Show: Emozioni per tutta la Famiglia"
+  },
+  {
+    "route": "/en/tours/dolphin_show_family/",
+    "title": "Fabio Tours | Dolphin Show: Thrills for the Whole Family",
+    "description": "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
+    "image": "https://fabioegypt.com/_astro/poster.CeG6Bnj2_ZJIaA4.jpeg",
+    "width": 800,
+    "height": 523,
+    "alt": "Dolphin Show: Thrills for the Whole Family"
+  },
+  {
+    "route": "/it/tours/swim_with_dolphins_vip/",
+    "title": "Fabio Tours | Nuotare con i Delfini: Amore a Prima Vista",
+    "description": "L'esperienza della vita. Entra in acqua, danza e gioca con l'animale più intelligente del mondo. Un privilegio per pochi.",
+    "image": "https://fabioegypt.com/_astro/poster.CY9KVET1_Cb3Vn.jpeg",
+    "width": 800,
+    "height": 534,
+    "alt": "Nuotare con i Delfini: Amore a Prima Vista"
+  },
+  {
+    "route": "/en/tours/swim_with_dolphins_vip/",
+    "title": "Fabio Tours | Swim with Dolphins: Love at First Sight",
+    "description": "A once-in-a-lifetime experience. Enter the water to dance and play with the world's most intelligent animals. A privilege for the few.",
+    "image": "https://fabioegypt.com/_astro/poster.CY9KVET1_Cb3Vn.jpeg",
+    "width": 800,
+    "height": 534,
+    "alt": "Swim with Dolphins: Love at First Sight"
+  },
+  {
+    "route": "/it/tours/sina_dream_vip_day/",
+    "title": "Fabio Tours | Sina Dream VIP: Il Veliero di Lusso",
+    "description": "Vivi il Mar Rosso a bordo di un vero veliero. Comfort a 5 stelle, amache sul mare e il miglior pranzo di pesce di Sharm.",
+    "image": "https://fabioegypt.com/_astro/poster.VsvKW0ES_Z1PmM4R.jpeg",
+    "width": 800,
+    "height": 530,
+    "alt": "Sina Dream VIP: Il Veliero di Lusso"
+  },
+  {
+    "route": "/en/tours/sina_dream_vip_day/",
+    "title": "Fabio Tours | Sina Dream VIP: The Luxury Sailing Yacht",
+    "description": "Experience the Red Sea aboard an authentic sailing ship. 5-star comfort, over-water hammocks, and the best seafood lunch in Sharm.",
+    "image": "https://fabioegypt.com/_astro/poster.VsvKW0ES_Z1PmM4R.jpeg",
+    "width": 800,
+    "height": 530,
+    "alt": "Sina Dream VIP: The Luxury Sailing Yacht"
+  },
+  {
+    "route": "/it/tours/dinner_cruise_night_show/",
+    "title": "Fabio Tours | Notte Magica: Cena di Pesce & Show Orientale",
+    "description": "Una serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.",
+    "image": "https://fabioegypt.com/_astro/poster.Cl3PIOlB_ZwMpmv.jpeg",
+    "width": 800,
+    "height": 600,
+    "alt": "Notte Magica: Cena di Pesce & Show Orientale"
+  },
+  {
+    "route": "/en/tours/dinner_cruise_night_show/",
+    "title": "Fabio Tours | Magic Night: Seafood Dinner & Oriental Show",
+    "description": "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
+    "image": "https://fabioegypt.com/_astro/poster.Cl3PIOlB_ZwMpmv.jpeg",
+    "width": 800,
+    "height": 600,
+    "alt": "Magic Night: Seafood Dinner & Oriental Show"
+  },
+  {
+    "route": "/it/tours/water_sports_adrenaline_combo/",
+    "title": "Fabio Tours | Adrenalina Sky & Sea: Parasailing & Water Toys",
+    "description": "Vola sul Mar Rosso con il paracadute e sfida le onde con Banana Boat e Tubo. Divertimento puro e adrenalina in totale sicurezza.",
+    "image": "https://fabioegypt.com/_astro/poster.T61yOdGa_aVtOL.jpeg",
+    "width": 600,
+    "height": 898,
+    "alt": "Adrenalina Sky & Sea: Parasailing & Water Toys"
+  },
+  {
+    "route": "/en/tours/water_sports_adrenaline_combo/",
+    "title": "Fabio Tours | Adrenaline Sky & Sea: Parasailing & Water Toys",
+    "description": "Fly over the Red Sea with a parachute and challenge the waves on a Banana Boat and Tube. Pure fun and adrenaline in total safety.",
+    "image": "https://fabioegypt.com/_astro/poster.T61yOdGa_aVtOL.jpeg",
+    "width": 600,
+    "height": 898,
+    "alt": "Adrenaline Sky & Sea: Parasailing & Water Toys"
+  },
+  {
+    "route": "/it/tours/albatros_aqua_park_full_day/",
+    "title": "Fabio Tours | Albatros Aqua Park: Il Regno dell'Acqua",
+    "description": "Una giornata di puro divertimento nel parco acquatico più grande del Medio Oriente. Oltre 60 scivoli, piscine a onde e relax per tutta la famiglia.",
+    "image": "https://fabioegypt.com/_astro/poster.CU6KYgo-_Z1cC7Aj.jpeg",
+    "width": 800,
+    "height": 529,
+    "alt": "Albatros Aqua Park: Il Regno dell'Acqua"
+  },
+  {
+    "route": "/en/tours/albatros_aqua_park_full_day/",
+    "title": "Fabio Tours | Albatros Aqua Park: The Water Kingdom",
+    "description": "A full day of pure fun at the largest water park in the Middle East. Over 60 slides, wave pools, and relaxation for the whole family.",
+    "image": "https://fabioegypt.com/_astro/poster.CU6KYgo-_Z1cC7Aj.jpeg",
+    "width": 800,
+    "height": 529,
+    "alt": "Albatros Aqua Park: The Water Kingdom"
+  },
+  {
+    "route": "/it/tours/seascope_semi_submarine/",
+    "title": "Fabio Tours | Sea Scope: Il Cinema Sottomarino",
+    "description": "Scopri la barriera corallina restando all'asciutto. Un'esperienza in sottomarino panoramico con aria condizionata. Ideale per famiglie.",
+    "image": "https://fabioegypt.com/_astro/poster.B1PuWz1j_1O69Ks.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Sea Scope: Il Cinema Sottomarino"
+  },
+  {
+    "route": "/en/tours/seascope_semi_submarine/",
+    "title": "Fabio Tours | Sea Scope: The Underwater Cinema",
+    "description": "Discover the coral reef while staying dry. A semi-submarine experience with AC. Ideal for families and non-swimmers.",
+    "image": "https://fabioegypt.com/_astro/poster.B1PuWz1j_1O69Ks.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Sea Scope: The Underwater Cinema"
+  },
+  {
+    "route": "/it/tours/super_safari_5_senses/",
+    "title": "Fabio Tours | Super Safari: I 5 Sensi del Sinai",
+    "description": "L'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.",
+    "image": "https://fabioegypt.com/_astro/poster.COOzZY8x_Z1HJO0L.jpeg",
+    "width": 800,
+    "height": 600,
+    "alt": "Super Safari: I 5 Sensi del Sinai"
+  },
+  {
+    "route": "/en/tours/super_safari_5_senses/",
+    "title": "Fabio Tours | Super Safari: 5 Senses of Sinai",
+    "description": "The ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.",
+    "image": "https://fabioegypt.com/_astro/poster.COOzZY8x_Z1HJO0L.jpeg",
+    "width": 800,
+    "height": 600,
+    "alt": "Super Safari: 5 Senses of Sinai"
+  },
+  {
+    "route": "/it/tours/moto_safari_quad_echo/",
+    "title": "Fabio Tours | Moto Safari: Quad, Tramonto & Valle dell'Eco",
+    "description": "Adrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.",
+    "image": "https://fabioegypt.com/_astro/poster.NBdbZD52_Z1Fr2mu.jpeg",
+    "width": 600,
+    "height": 804,
+    "alt": "Moto Safari: Quad, Tramonto & Valle dell'Eco"
+  },
+  {
+    "route": "/en/tours/moto_safari_quad_echo/",
+    "title": "Fabio Tours | Moto Safari: Quad, Sunset & Echo Valley",
+    "description": "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
+    "image": "https://fabioegypt.com/_astro/poster.NBdbZD52_Z1Fr2mu.jpeg",
+    "width": 600,
+    "height": 804,
+    "alt": "Moto Safari: Quad, Sunset & Echo Valley"
+  },
+  {
+    "route": "/it/tours/vip_cena_romantica/",
+    "title": "Fabio Tours | Cena Romantica VIP: Mille e Una Notte",
+    "description": "L'esperienza più esclusiva di Sharm. Una cena privata nel cuore del deserto, sotto un tappeto di stelle. Solo per coppie e occasioni speciali.",
+    "image": "https://fabioegypt.com/_astro/poster.Flj6t9Bd_Z2vydOB.jpeg",
+    "width": 800,
+    "height": 584,
+    "alt": "Cena Romantica VIP: Mille e Una Notte"
+  },
+  {
+    "route": "/en/tours/vip_cena_romantica/",
+    "title": "Fabio Tours | VIP Romantic Dinner: 1001 Nights",
+    "description": "Sharm's most exclusive experience. A private dinner in the heart of the desert, under a canopy of stars. Strictly for couples and special occasions.",
+    "image": "https://fabioegypt.com/_astro/poster.Flj6t9Bd_Z2vydOB.jpeg",
+    "width": 800,
+    "height": 584,
+    "alt": "VIP Romantic Dinner: 1001 Nights"
+  },
+  {
+    "route": "/it/tours/cairo_plane_flexible_museum/",
+    "title": "Fabio Tours | Il Cairo in Aereo: Piramidi & Tu Scegli il Museo",
+    "description": "Vola al Cairo e decidi tu la storia. Piramidi di Giza + La tua scelta tra il 'Museo Classico' (Tahrir) o il 'Nuovo GEM' (Il Futuro).",
+    "image": "https://fabioegypt.com/_astro/poster.C-QK0325_Z839MO.jpeg",
+    "width": 600,
+    "height": 800,
+    "alt": "Il Cairo in Aereo: Piramidi & Tu Scegli il Museo"
+  },
+  {
+    "route": "/en/tours/cairo_plane_flexible_museum/",
+    "title": "Fabio Tours | Cairo by Plane: Pyramids & You Choose the Museum",
+    "description": "Fly to Cairo and decide your history. Giza Pyramids + Your choice between the 'Classic Museum' (Tahrir) or the 'New GEM' (The Future).",
+    "image": "https://fabioegypt.com/_astro/poster.C-QK0325_Z839MO.jpeg",
+    "width": 600,
+    "height": 800,
+    "alt": "Cairo by Plane: Pyramids & You Choose the Museum"
+  },
+  {
+    "route": "/it/tours/cairo_bus_adventure_choice/",
+    "title": "Fabio Tours | Il Cairo in Bus: L'Avventura Smart & La Tua Scelta",
+    "description": "La storia a piccolo prezzo. Un viaggio 'On the Road' verso le Piramidi. Scegli tu: il fascino del Vecchio Museo o il futuro del Nuovo GEM.",
+    "image": "https://fabioegypt.com/_astro/poster.C_zItmTe_1ypEPa.jpeg",
+    "width": 800,
+    "height": 565,
+    "alt": "Il Cairo in Bus: L'Avventura Smart & La Tua Scelta"
+  },
+  {
+    "route": "/en/tours/cairo_bus_adventure_choice/",
+    "title": "Fabio Tours | Cairo by Bus: Smart Adventure & Your Choice",
+    "description": "History at a small price. An 'On the Road' trip to the Pyramids. You choose: the charm of the Old Museum or the future of the New GEM.",
+    "image": "https://fabioegypt.com/_astro/poster.C_zItmTe_1ypEPa.jpeg",
+    "width": 800,
+    "height": 565,
+    "alt": "Cairo by Bus: Smart Adventure & Your Choice"
+  },
+  {
+    "route": "/it/tours/santa_caterina_monastery_morning/",
+    "title": "Fabio Tours | Santa Caterina: Il Monastero Sacro (Classic & VIP)",
+    "description": "Un viaggio spirituale nella Terra Santa. Visita il Monastero più antico del mondo e il Roveto Ardente. Disponibile in Bus (Gruppo) o Auto Privata (VIP).",
+    "image": "https://fabioegypt.com/_astro/poster.DNYRQd7E_IIK60.jpeg",
+    "width": 800,
+    "height": 450,
+    "alt": "Santa Caterina: Il Monastero Sacro (Classic & VIP)"
+  },
+  {
+    "route": "/en/tours/santa_caterina_monastery_morning/",
+    "title": "Fabio Tours | St. Catherine: The Sacred Monastery (Classic & VIP)",
+    "description": "A spiritual journey in the Holy Land. Visit the world's oldest monastery and the Burning Bush. Available by Bus (Group) or Private Car (VIP).",
+    "image": "https://fabioegypt.com/_astro/poster.DNYRQd7E_IIK60.jpeg",
+    "width": 800,
+    "height": 450,
+    "alt": "St. Catherine: The Sacred Monastery (Classic & VIP)"
+  },
+  {
+    "route": "/it/tours/mount_sinai_sunrise_adventure/",
+    "title": "Fabio Tours | Monte Sinai Adventure: L'Alba Sacra & Monastero",
+    "description": "La sfida della vita. Scala il Monte di Mosè sotto le stelle, guarda l'alba più bella del mondo e visita il Monastero. Disponibile in Bus o Versione VIP (Salva-Schiena).",
+    "image": "https://fabioegypt.com/_astro/poster.B1a361x9_Hjlys.jpeg",
+    "width": 800,
+    "height": 457,
+    "alt": "Monte Sinai Adventure: L'Alba Sacra & Monastero"
+  },
+  {
+    "route": "/en/tours/mount_sinai_sunrise_adventure/",
+    "title": "Fabio Tours | Mt. Sinai Adventure: Sacred Sunrise & Monastery",
+    "description": "The challenge of a lifetime. Climb Moses Mountain under the stars, watch the most beautiful sunrise in the world, and visit the Monastery. Available in Bus or VIP Version (Back-Saver).",
+    "image": "https://fabioegypt.com/_astro/poster.B1a361x9_Hjlys.jpeg",
+    "width": 800,
+    "height": 457,
+    "alt": "Mt. Sinai Adventure: Sacred Sunrise & Monastery"
+  },
+  {
+    "route": "/it/tours/luxor_plane_classic/",
+    "title": "Fabio Tours | Luxor in Aereo: La Valle dei Re & I Templi d'Oro",
+    "description": "Il museo a cielo aperto più grande del mondo. Vola da Sharm per scoprire Karnak, la Valle dei Re e il Tempio della Regina Hatshepsut in un giorno indimenticabile.",
+    "image": "https://fabioegypt.com/_astro/poster.CW3KrRiJ_anjaP.jpeg",
+    "width": 800,
+    "height": 600,
+    "alt": "Luxor in Aereo: La Valle dei Re & I Templi d'Oro"
+  },
+  {
+    "route": "/en/tours/luxor_plane_classic/",
+    "title": "Fabio Tours | Luxor by Plane: Valley of Kings & Golden Temples",
+    "description": "The world's largest open-air museum. Fly from Sharm to discover Karnak, Valley of the Kings, and Queen Hatshepsut Temple in one unforgettable day.",
+    "image": "https://fabioegypt.com/_astro/poster.CW3KrRiJ_anjaP.jpeg",
+    "width": 800,
+    "height": 600,
+    "alt": "Luxor by Plane: Valley of Kings & Golden Temples"
+  },
+  {
+    "route": "/it/tours/petra_jordan_expedition/",
+    "title": "Fabio Tours | Petra: La Città Rosa (Una delle 7 Meraviglie del Mondo)",
+    "description": "Un viaggio epico in Giordania. Naviga il Mar Rosso, attraversa il Canyon 'Il Siq' e scopri il Tesoro di Petra. Un'esperienza da lista dei desideri.",
+    "image": "https://fabioegypt.com/_astro/poster.D-SjlHDZ_Z1vwc9l.jpeg",
+    "width": 600,
+    "height": 724,
+    "alt": "Petra: La Città Rosa (Una delle 7 Meraviglie del Mondo)"
+  },
+  {
+    "route": "/en/tours/petra_jordan_expedition/",
+    "title": "Fabio Tours | Petra: The Rose City (One of the 7 Wonders of the World)",
+    "description": "An epic trip to Jordan. Sail the Red Sea, cross 'The Siq' canyon, and discover the Treasury of Petra. A bucket-list experience.",
+    "image": "https://fabioegypt.com/_astro/poster.D-SjlHDZ_Z1vwc9l.jpeg",
+    "width": 600,
+    "height": 724,
+    "alt": "Petra: The Rose City (One of the 7 Wonders of the World)"
+  },
+  {
+    "route": "/it/tours/sharm_old_market_ultimate_shopping/",
+    "title": "Fabio Tours | Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+    "description": "Il tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!",
+    "image": "https://fabioegypt.com/_astro/poster.bNq13Svn_Z1HTsV4.jpeg",
+    "width": 600,
+    "height": 799,
+    "alt": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto"
+  },
+  {
+    "route": "/en/tours/sharm_old_market_ultimate_shopping/",
+    "title": "Fabio Tours | Old Sharm: Mosque, Fashion & The India of Egypt",
+    "description": "The ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!",
+    "image": "https://fabioegypt.com/_astro/poster.bNq13Svn_Z1HTsV4.jpeg",
+    "width": 600,
+    "height": 799,
+    "alt": "Old Sharm: Mosque, Fashion & The India of Egypt"
+  },
+  {
+    "route": "/it/packages/sharm_confidential/",
+    "title": "Fabio Tours | Sharm Confidential: L'Esperienza Totale",
+    "description": "Il pacchetto definitivo di 6 giorni. Include TUTTO: Yacht VIP, Ras Mohammed via terra, Super Safari, Dahab e City Tour. Non dovrai pensare a nulla.",
+    "image": "https://fabioegypt.com/_astro/poster.CASbIhxD_Z2sDkGC.jpeg",
+    "width": 1200,
+    "height": 1219,
+    "alt": "Sharm Confidential: L'Esperienza Totale"
+  },
+  {
+    "route": "/en/packages/sharm_confidential/",
+    "title": "Fabio Tours | Sharm Confidential: The Total Experience",
+    "description": "The ultimate 6-day package. Includes EVERYTHING: VIP Yacht, Ras Mohammed by land, Super Safari, Dahab, and City Tour. You won't have to worry about a thing.",
+    "image": "https://fabioegypt.com/_astro/poster.CASbIhxD_Z2sDkGC.jpeg",
+    "width": 1200,
+    "height": 1219,
+    "alt": "Sharm Confidential: The Total Experience"
+  },
+  {
+    "route": "/it/packages/dolce_vita_family/",
+    "title": "Fabio Tours | Dolce Vita: Family & Relax",
+    "description": "La vacanza perfetta per famiglie. Bambini felici (Delfini e Sottomarino) e genitori rilassati (Yacht VIP e Cena Romantica). Zero stress.",
+    "image": "https://fabioegypt.com/_astro/3.UWb8fwrG_Z1PzKtI.jpeg",
+    "width": 600,
+    "height": 894,
+    "alt": "Dolce Vita: Family & Relax"
+  },
+  {
+    "route": "/en/packages/dolce_vita_family/",
+    "title": "Fabio Tours | Dolce Vita: Family & Relax",
+    "description": "The perfect holiday for families. Happy kids (Dolphins & Submarine) and relaxed parents (VIP Yacht & Romantic Dinner). Zero stress.",
+    "image": "https://fabioegypt.com/_astro/3.UWb8fwrG_Z1PzKtI.jpeg",
+    "width": 600,
+    "height": 894,
+    "alt": "Dolce Vita: Family & Relax"
+  },
+  {
+    "route": "/it/packages/mille_e_una_notte/",
+    "title": "Fabio Tours | Mille e Una Notte: Fuga Romantica",
+    "description": "Il pacchetto più esclusivo per le coppie. Deserti al tramonto, cene a lume di candela e navigazione di lusso. Solo per voi due.",
+    "image": "https://fabioegypt.com/_astro/poster.Df2sWgnN_1pwQCS.jpeg",
+    "width": 500,
+    "height": 625,
+    "alt": "Mille e Una Notte: Fuga Romantica"
+  },
+  {
+    "route": "/en/packages/mille_e_una_notte/",
+    "title": "Fabio Tours | One Thousand and One Nights: Romantic Escape",
+    "description": "The most exclusive package for couples. Desert sunsets, candlelight dinners, and luxury sailing. Just for the two of you.",
+    "image": "https://fabioegypt.com/_astro/poster.Df2sWgnN_1pwQCS.jpeg",
+    "width": 500,
+    "height": 625,
+    "alt": "One Thousand and One Nights: Romantic Escape"
+  },
+  {
+    "route": "/it/packages/indiana_jones_adventure/",
+    "title": "Fabio Tours | Indiana Jones: Adrenalina Pura",
+    "description": "Vietato ai pigri. Un mix esplosivo di avventura: Jeep Safari, Trekking nel Canyon, Moto nel deserto, Paracadute e la tua prima Immersione.",
+    "image": "https://fabioegypt.com/_astro/poster.QHF5lk3n_ZlPa9m.jpeg",
+    "width": 600,
+    "height": 400,
+    "alt": "Indiana Jones: Adrenalina Pura"
+  },
+  {
+    "route": "/en/packages/indiana_jones_adventure/",
+    "title": "Fabio Tours | Indiana Jones: Pure Adrenaline",
+    "description": "Not for the lazy. An explosive mix of adventure: Jeep Safari, Canyon Trekking, Desert Bikes, Parasailing, and your first Scuba Dive.",
+    "image": "https://fabioegypt.com/_astro/poster.QHF5lk3n_ZlPa9m.jpeg",
+    "width": 600,
+    "height": 400,
+    "alt": "Indiana Jones: Pure Adrenaline"
+  },
+  {
+    "route": "/it/packages/il_grande_blu/",
+    "title": "Fabio Tours | Il Grande Blu: I Tesori del Mar Rosso",
+    "description": "Il paradiso per chi vive con le pinne ai piedi. 4 Escursioni marine complete: Ras Mohammed (Mare e Terra), Tiran e il leggendario Blue Hole.",
+    "image": "https://fabioegypt.com/_astro/poster.H0xBBxjp_Z19smtW.jpeg",
+    "width": 600,
+    "height": 804,
+    "alt": "Il Grande Blu: I Tesori del Mar Rosso"
+  },
+  {
+    "route": "/en/packages/il_grande_blu/",
+    "title": "Fabio Tours | The Big Blue: Treasures of the Red Sea",
+    "description": "Paradise for those who live with fins on. 4 Complete marine excursions: Ras Mohammed (Sea & Land), Tiran, and the legendary Blue Hole.",
+    "image": "https://fabioegypt.com/_astro/poster.H0xBBxjp_Z19smtW.jpeg",
+    "width": 600,
+    "height": 804,
+    "alt": "The Big Blue: Treasures of the Red Sea"
+  },
+  {
+    "route": "/it/packages/cairo_piramidi_saqqara_vip/",
+    "title": "Fabio Tours | L'Eterna Grandezza: Piramidi di Giza, Sfinge e Saqqara",
+    "description": "Un viaggio VIP nel tempo tra le iconiche Piramidi di Giza, l'enigmatica Sfinge e la più antica piramide del mondo a Saqqara.",
+    "image": "https://fabioegypt.com/_astro/poster.D9OSzAUQ_1MTwpD.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "L'Eterna Grandezza: Piramidi di Giza, Sfinge e Saqqara"
+  },
+  {
+    "route": "/en/packages/cairo_piramidi_saqqara_vip/",
+    "title": "Fabio Tours | Eternal Grandeur: Pyramids of Giza, Sphinx & Saqqara",
+    "description": "A VIP journey through time: the iconic Pyramids of Giza, the enigmatic Sphinx, and the world's oldest pyramid at Saqqara.",
+    "image": "https://fabioegypt.com/_astro/poster.D9OSzAUQ_1MTwpD.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Eternal Grandeur: Pyramids of Giza, Sphinx & Saqqara"
+  },
+  {
+    "route": "/it/packages/cairo_cuore_pulsante_museo_cittadella/",
+    "title": "Fabio Tours | Il Cuore Pulsante del Cairo: Museo Egizio, Cittadella e Khan El Khalili",
+    "description": "Scopri l'anima del Cairo: i tesori di Tutankhamon, viste mozzafiato dalla Cittadella e lo shopping magico nel bazar.",
+    "image": "https://fabioegypt.com/_astro/poster.BP-ltIM9_C7kAJ.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Il Cuore Pulsante del Cairo: Museo Egizio, Cittadella e Khan El Khalili"
+  },
+  {
+    "route": "/en/packages/cairo_cuore_pulsante_museo_cittadella/",
+    "title": "Fabio Tours | The Beating Heart of Cairo: Egyptian Museum, Citadel & Khan El Khalili",
+    "description": "Discover the soul of Cairo: Tutankhamun's golden treasures, breathtaking views from the Citadel, and magical shopping in the bazaar.",
+    "image": "https://fabioegypt.com/_astro/poster.BP-ltIM9_C7kAJ.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "The Beating Heart of Cairo: Egyptian Museum, Citadel & Khan El Khalili"
+  },
+  {
+    "route": "/it/packages/cairo_crociera_nilo_cena/",
+    "title": "Fabio Tours | Magia Notturna sul Nilo: Crociera VIP con Cena e Spettacolo",
+    "description": "Vivi la magia del Nilo di notte. Cena a buffet di prima classe, danza del ventre e spettacolo Tanoura.",
+    "image": "https://fabioegypt.com/_astro/poster.CMgV7Z6E_1Us32l.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Magia Notturna sul Nilo: Crociera VIP con Cena e Spettacolo"
+  },
+  {
+    "route": "/en/packages/cairo_crociera_nilo_cena/",
+    "title": "Fabio Tours | Night Magic on the Nile: VIP Dinner Cruise & Show",
+    "description": "Experience the magic of the Nile at night. First-class buffet dinner, belly dancing, and a Tanoura show.",
+    "image": "https://fabioegypt.com/_astro/poster.CMgV7Z6E_1Us32l.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Night Magic on the Nile: VIP Dinner Cruise & Show"
+  },
+  {
+    "route": "/it/packages/cairo_mistico_copto_islamico/",
+    "title": "Fabio Tours | Il Cairo Mistico: Tra Cristianesimo Copto e Fascino Islamico",
+    "description": "Un viaggio spirituale nei quartieri più antichi: cammina sulle orme della Sacra Famiglia e scopri moschee storiche.",
+    "image": "https://fabioegypt.com/_astro/poster.sxPVnL_l_Ze50Ur.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Il Cairo Mistico: Tra Cristianesimo Copto e Fascino Islamico"
+  },
+  {
+    "route": "/en/packages/cairo_mistico_copto_islamico/",
+    "title": "Fabio Tours | Mystic Cairo: Between Coptic Christianity & Islamic Heritage",
+    "description": "A spiritual journey through the oldest districts: walk in the footsteps of the Holy Family and discover historic mosques.",
+    "image": "https://fabioegypt.com/_astro/poster.sxPVnL_l_Ze50Ur.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Mystic Cairo: Between Coptic Christianity & Islamic Heritage"
+  },
+  {
+    "route": "/it/packages/cairo_safari_piramidi_tramonto/",
+    "title": "Fabio Tours | Avventura al Tramonto: Quad Safari e Cammelli alle Piramidi",
+    "description": "Azione e panorami mozzafiato! Sfreccia in Quad nel deserto di Giza e goditi un giro in cammello al tramonto.",
+    "image": "https://fabioegypt.com/_astro/poster.5G9Fo0IV_1ItRnr.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Avventura al Tramonto: Quad Safari e Cammelli alle Piramidi"
+  },
+  {
+    "route": "/en/packages/cairo_safari_piramidi_tramonto/",
+    "title": "Fabio Tours | Sunset Adventure: Quad Safari & Camels at the Pyramids",
+    "description": "Action and breathtaking views! Speed through the Giza desert on a Quad and enjoy a camel ride at sunset.",
+    "image": "https://fabioegypt.com/_astro/poster.5G9Fo0IV_1ItRnr.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Sunset Adventure: Quad Safari & Camels at the Pyramids"
+  },
+  {
+    "route": "/it/packages/alessandria_tour_giornata_intera/",
+    "title": "Fabio Tours | Fuga sul Mediterraneo: Tour di un Giorno ad Alessandria",
+    "description": "Lascia il Cairo per un giorno e scopri l'atmosfera greco-romana di Alessandria, la Perla del Mediterraneo.",
+    "image": "https://fabioegypt.com/_astro/poster.u2CjhAzo_2mzEON.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Fuga sul Mediterraneo: Tour di un Giorno ad Alessandria"
+  },
+  {
+    "route": "/en/packages/alessandria_tour_giornata_intera/",
+    "title": "Fabio Tours | Mediterranean Escape: Full-Day Tour of Alexandria",
+    "description": "Leave Cairo for a day and discover the Greco-Roman atmosphere of Alexandria, the Pearl of the Mediterranean.",
+    "image": "https://fabioegypt.com/_astro/poster.u2CjhAzo_2mzEON.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Mediterranean Escape: Full-Day Tour of Alexandria"
+  },
+  {
+    "route": "/it/packages/gran_tour_egitto_cairo_crociera_8g7n/",
+    "title": "Fabio Tours | Il Gran Tour Faraonico: Il Cairo e Magia del Nilo (8 Giorni)",
+    "description": "L'esperienza definitiva. Un viaggio completo di 8 giorni che unisce le Piramidi del Cairo, il nuovo Museo Egizio e una lussuosa Crociera sul Nilo.",
+    "image": "https://fabioegypt.com/_astro/poster.bxX8Sktl_uK3xW.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Il Gran Tour Faraonico: Il Cairo e Magia del Nilo (8 Giorni)"
+  },
+  {
+    "route": "/en/packages/gran_tour_egitto_cairo_crociera_8g7n/",
+    "title": "Fabio Tours | The Grand Pharaonic Tour: Cairo & Nile Magic (8 Days)",
+    "description": "The ultimate experience. A complete 8-day journey combining the Pyramids of Cairo, the new Grand Egyptian Museum, and a luxury Nile Cruise.",
+    "image": "https://fabioegypt.com/_astro/poster.bxX8Sktl_uK3xW.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "The Grand Pharaonic Tour: Cairo & Nile Magic (8 Days)"
+  },
+  {
+    "route": "/it/packages/nile_cruise_luxor_aswan_5d4n/",
+    "title": "Fabio Tours | Crociera sul Nilo Reale: Da Luxor ad Aswan",
+    "description": "Un viaggio a 5 stelle di 5 giorni e 4 notti. Esplora la Valle dei Re, i templi maestosi e vivi la magia dei colori nel Villaggio Nubiano.",
+    "image": "https://fabioegypt.com/_astro/poster.BEzPoPXv_1rnJjx.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Crociera sul Nilo Reale: Da Luxor ad Aswan"
+  },
+  {
+    "route": "/en/packages/nile_cruise_luxor_aswan_5d4n/",
+    "title": "Fabio Tours | Royal Nile Cruise: From Luxor to Aswan",
+    "description": "A 5-star, 5-day/4-night journey. Explore the Valley of the Kings, majestic temples, and experience the magic of colors in the Nubian Village.",
+    "image": "https://fabioegypt.com/_astro/poster.BEzPoPXv_1rnJjx.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Royal Nile Cruise: From Luxor to Aswan"
+  },
+  {
+    "route": "/it/packages/nile_cruise_aswan_luxor_4d3n/",
+    "title": "Fabio Tours | Magia del Sud: Crociera da Aswan a Luxor",
+    "description": "Scopri i tesori dell'Alto Egitto in soli 4 giorni e 3 notti. Dal Tempio di Philae ad Aswan fino ai segreti della Valle dei Re a Luxor.",
+    "image": "https://fabioegypt.com/_astro/poster.DBpXpn0M_1kIlVy.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Magia del Sud: Crociera da Aswan a Luxor"
+  },
+  {
+    "route": "/en/packages/nile_cruise_aswan_luxor_4d3n/",
+    "title": "Fabio Tours | Southern Magic: Cruise from Aswan to Luxor",
+    "description": "Discover the treasures of Upper Egypt in just 4 days and 3 nights. From Philae Temple in Aswan to the secrets of the Valley of the Kings in Luxor.",
+    "image": "https://fabioegypt.com/_astro/poster.DBpXpn0M_1kIlVy.jpeg",
+    "width": 800,
+    "height": 800,
+    "alt": "Southern Magic: Cruise from Aswan to Luxor"
+  }
+]
