@@ -19,8 +19,106 @@
     "indice": "Indice"
   },
   "global": {
+    "brand_title": "FABIO TOURS",
     "brand_subtitle": "Guida Turistica Ufficiale",
-    "why_fabio": "Perché Fabio?"
+    "vip_experiences": "Esperienze VIP a Sharm El Sheikh",
+    "who_is_fabio_btn": "Chi è Fabio",
+    "who_is_fabio_content": "\n        <p>Cari ospiti,</p>\n\n        <p>A Sharm El Sheikh troverete centinaia di venditori che vi offriranno \"il prezzo più basso\". Io ho fatto una scelta diversa: <strong>offrirvi la qualità più alta</strong>.</p>\n\n        <p>Il mio catalogo non contiene tutto, ma solo il meglio. Ho selezionato personalmente ogni barca, ogni guida e ogni angolo di deserto per garantirvi tre cose che non hanno prezzo: <strong>Sicurezza, Privacy e Magia</strong>.</p>\n\n       \n\n        <p style=\"margin-top: 20px; font-style: italic; color: #fff;\">Chi è Fabio? Più di un amico, un’istituzione.</p>\n\n        <p>Affidare la propria vacanza a qualcuno è una questione di fiducia. Ecco perché sono diverso:</p>\n\n\n\n        <span class=\"wf-text-highlight\">Eccellenza & Legalità</span>\n\n        <p>Laureato in Lingue (Al-Alsun) e Guida Ufficiale autorizzata dal Ministero. A Sharm, dove l'abusivismo è diffuso, scegliere me significa scegliere la competenza certificata.</p>\n\n\n\n        <span class=\"wf-text-highlight\">Servizio VIP (Assistente di Volo)</span>\n\n        <p>Il mio altro ufficio è \"il cielo\". Come Assistente di Volo, unisco il calore dell'ospitalità egiziana alla precisione degli standard internazionali.</p>\n\n\n\n        <span class=\"wf-text-highlight\">Ospiti, Non Numeri</span>\n\n        <p>Mentre altri vi stipano in bus affollati, io scelgo la concretezza: Auto privata, flessibilità totale e zero sorprese.</p>\n\n\n\n        <span class=\"wf-text-highlight\">Il Valore dei Ricordi</span>\n\n        <p>Ricordate: un'escursione rovinata per risparmiare pochi euro... alla fine costa molto cara.</p>\n\n\n\n        <span class=\"wf-quote\">\"La qualità ha un prezzo, ma i vostri ricordi più belli non hanno prezzo.\"</span>\n\n      ",
+    "book_now": "Prenota ora",
+    "book_package_now": "Prenota il pacchetto",
+    "discover": "Scopri",
+    "discover_package": "Scopri il pacchetto",
+    "price_from": "A partire da",
+    "per_person": "a persona",
+    "description": "Descrizione",
+    "itinerary_details": "Itinerario e Dettagli",
+    "duration": "Durata",
+    "highlights": "In Breve",
+    "included": "Include",
+    "not_included": "Non Include",
+    "important": "Importante",
+    "program": "Programma",
+    "sale": "OFFERTA",
+    "read_secrets": "Leggi i 10 Comandamenti",
+    "secrets_title": "Non partire senza conoscere i 10 comandamenti di Fabio",
+    "contact_us": "Contattaci",
+    "follow_us": "Seguici",
+    "why_fabio": "Perché Fabio?",
+    "limited_time_deal": "Offerta a tempo limitato",
+    "no_exclusive_experiences": "Nessuna esperienza esclusiva disponibile al momento.",
+    "experience_not_found": "Esperienza non trovata.",
+    "daily": "Giornaliero",
+    "total_estimate": "Totale stimato",
+    "full_name": "Nome Completo",
+    "nationality": "Nazionalità",
+    "trip_date": "Data del Viaggio",
+    "adults_12_plus": "Adulti (+12)",
+    "children_2_11": "Bambini (2-11)",
+    "addons_extras": "Extra & Supplementi",
+    "select_country": "Seleziona paese...",
+    "errors": {
+      "required_name": "Per favore inserisci il Nome completo",
+      "required_date": "Per favore seleziona la Data del Viaggio",
+      "required_nation": "Per favore seleziona la Nazionalità",
+      "required_field": "Questo campo è obbligatorio"
+    },
+    "placeholders": {
+      "full_name": "Fabio Mansour"
+    },
+    "pricing": {
+      "adult": "Adulto",
+      "child": "Bambino",
+      "min_pax": "Min Pax"
+    },
+    "loading_failed": "Caricamento non riuscito. Riprova più tardi.",
+    "vip_access": "ACCESSO VIP:",
+    "ultimate_guide": "La Guida Definitiva per Sharm",
+    "all_rights": "Tutti i diritti riservati.",
+    "filters": {
+      "all": "Tutte",
+      "sea": "Mare",
+      "culture": "Cultura",
+      "desert": "Deserto",
+      "packages": "Pacchetti"
+    },
+    "premium_package": "Pacchetto Premium",
+    "locations": {
+      "sharm": "Sharm El Sheikh",
+      "cairo": "Cairo",
+      "luxor_aswan": "Luxor e Aswan"
+    },
+    "explore_experiences": "Esplora",
+    "whatsapp": {
+      "greeting": "Ciao Fabio, mi chiamo *{name}*.",
+      "check_availability": "Vorrei verificare la disponibilità per questa escursione:",
+      "details_heading": "*DETTAGLI:*",
+      "trip_label": "*Escursione:*",
+      "date_label": "*Data:*",
+      "nation_label": "*Nazionalità:*",
+      "guests_label": "*Ospiti:*",
+      "adults_word": "Adulti",
+      "children_word": "Bambini",
+      "extras_label": "*Extra:*",
+      "total_label": "*Totale Stimato:*",
+      "waiting_confirmation": "In attesa della tua conferma.",
+      "full_message": "{greeting}\n{check_availability}\n\n{details_heading}\n{trip_label} {trip}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}",
+      "package_check_availability": "Vorrei verificare la disponibilità per questo pacchetto:",
+      "package_details_heading": "*DETTAGLI PACCHETTO:*",
+      "package_label": "*Pacchetto:*",
+      "package_message": "{greeting}\n{check_availability}\n\n{details_heading}\n{package_label} {package}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}"
+    },
+    "badges": {
+      "BEST_SELLER": "Best seller",
+      "LIMITED_TIME": "Offerta a tempo limitato",
+      "HOT_DEAL": "Offerta speciale",
+      "NEW": "Novità",
+      "TOP_RATED": "Più votato",
+      "FAMILY_FRIENDLY": "Adatta alle famiglie",
+      "VIP_EXCLUSIVE": "VIP esclusivo",
+      "CHEAPEST_PRICE": "Prezzo più basso",
+      "RECOMMENDED": "Consigliato",
+      "POPULAR": "Molto richiesto"
+    }
   },
   "labels": {
     "links": "Links",
@@ -29,5 +127,57 @@
     "headerLogo": "Fabio Tours Logo",
     "footerLogo": "FABIO",
     "crossRootsLogo": "Cross Roots Logo"
+  },
+  "faq": {
+    "headline": "Domande Frequenti & Consigli",
+    "items": [
+      {
+        "q": "Devo pagare tutto in anticipo online?",
+        "a": "Assolutamente no. Con Fabio Egypt la fiducia è tutto. Solitamente chiediamo un piccolo acconto per bloccare i posti (specialmente per le barche VIP), e il saldo si fa comodamente al tuo arrivo a Sharm, in contanti o valuta locale. Nessun rischio, zero stress."
+      },
+      {
+        "q": "Come so l'orario esatto del prelievo?",
+        "a": "Dimentica l'ansia da attesa! La sera prima di ogni escursione, riceverai un messaggio WhatsApp personale da Fabio con l'orario preciso, il punto d'incontro e i dettagli del transfer. Organizzazione svizzera, cuore egiziano."
+      },
+      {
+        "q": "Cosa succede se cambio piani o mi ammalo?",
+        "a": "Siamo umani, non robot! Se hai un imprevisto, scrivici subito su WhatsApp. Faremo del nostro meglio per spostare la tua escursione senza costi extra. ⚠️ Unica eccezione: Per i voli (Cairo/Luxor) dipendiamo dalle compagnie aeree, quindi non possiamo rimborsare i biglietti aerei."
+      },
+      {
+        "q": "Serve il Visto per le escursioni?",
+        "a": "Attenzione: Se resti a Sharm (es. Safari, Motorata), il timbro gratuito 'Only Sinai' è sufficiente. Ma se scegli 'Il Grande Blu' (Ras Mohammed via terra) o vai al Cairo/Luxor, devi fare il Visto Egitto (25$) in arrivo. Chiedici se hai dubbi!"
+      },
+      {
+        "q": "Cosa devo mettere in valigia?",
+        "a": "Parola d'ordine: Comodità. Deserto: scarpe chiuse, occhiali e sciarpa. Mare: costume e crema solare. Insider Tip: Porta sempre una felpa leggera, anche d'estate, per l'aria condizionata nei bus o il fresco del deserto la sera."
+      },
+      {
+        "q": "Meglio Euro o Valuta Locale?",
+        "a": "Insider Tip: Porta gli Euro per pagare hotel ed escursioni (accettati ovunque). Cambia una piccola somma in Lire Egiziane per le piccole spese: taxi, mance e market. Pagare in valuta locale le piccole cose ti fa risparmiare molto!"
+      },
+      {
+        "q": "Internet e Wi-Fi?",
+        "a": "Il Wi-Fi degli hotel spesso è lento. Consiglio d'oro: Compra una SIM dati (Vodafone o Etisalat) direttamente in aeroporto all'arrivo. Costa poco e avrai internet veloce ovunque."
+      },
+      {
+        "q": "È sicuro mangiare e bere?",
+        "a": "Bevi SOLO acqua in bottiglia sigillata (anche per lavarti i denti). Per il cibo, durante le nostre escursioni selezioniamo solo ristoranti certificati con standard igienici europei."
+      }
+    ]
+  },
+  "detailLabels": {
+    "heroAlt": "Trip Image",
+    "invoice": "Invoice Summary",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "trip": "Trip:",
+    "name": "Name:",
+    "nation": "Nationality:",
+    "date": "Date:",
+    "pax": "Pax:",
+    "adults": "Adults",
+    "children": "Kids",
+    "extras": "Extras:",
+    "total": "Total Estimate:"
   }
 }

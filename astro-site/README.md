@@ -94,8 +94,7 @@ Each build validates the live catalog before generating pages. See
 [qa/data/README.md](./qa/data/README.md) for the provider boundary, preserved
 legacy business defaults, source inspection, and test commands.
 
-`npm test` runs all current tests with Node's built-in test runner. No extra
-test dependency is needed for this stage; Vitest remains planned for booking.
+`npm test` runs the Node test suite and the approved Vitest domain tests.
 
 ## Home page
 
@@ -134,3 +133,12 @@ See [qa/sharm-offer/README.md](./qa/sharm-offer/README.md) and the root
 `صفحات الهبوط.md` for comparison evidence and the approved campaign approach.
 `npm test` now runs the existing Node tests plus the approved Vitest domain
 tests. `npm run test:domain` runs Vitest by itself.
+
+## Independent tour pages
+
+All 22 published tours now have separate static Italian and English pages at
+`/{locale}/tours/{slug}/`. Explore trip cards link to the corresponding language.
+The original content, gallery, prices and booking behavior are preserved.
+See [qa/tours/README.md](./qa/tours/README.md) for the 88 desktop/mobile
+comparisons and booking checks. Package pages and legacy URL redirects remain
+separate pending tasks. Nothing has been deployed.

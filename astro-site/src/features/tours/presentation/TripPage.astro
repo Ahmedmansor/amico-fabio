@@ -1,0 +1,166 @@
+---
+import {Image} from 'astro:assets';
+import type {TourPage} from '../domain/details';
+import type {Locale} from '../../../shared/config/languages';
+import {getSharedMessages} from '../../../shared/i18n/shared';
+import type {BookingAddon} from '../../booking/domain/booking';
+import {calculateTotal} from '../../booking/domain/booking';
+import BookingForm from '../../booking/presentation/BookingForm.astro';
+import InvoiceModal from '../../booking/presentation/InvoiceModal.astro';
+import TripGallery from './TripGallery.astro';
+import Faq from '../../../shared/components/Faq.astro';
+import {imageAssets} from './images';
+import {headlinePrice,pricesHtml,breakdownHtml,listHtml,programHtml} from './markup';
+import './details.css';
+interface Props {page:TourPage;addons:BookingAddon[]}
+const {page,addons}=Astro.props;const {trip,text,gallery}=page;const locale=page.locale as Locale;
+const m=getSharedMessages(locale);
+const copy=(key:string)=>key.split('.').reduce((value:any,part)=>value[part],m);
+const initialTotal=calculateTotal({adults:trip.minPax,children:0,selectedAddons:[]},{adult:trip.prices.adult,child:trip.prices.child,minPax:trip.minPax},addons);
+---
+<main class="min-h-screen pt-20">
+
+        <section id="detail-hero" class="relative w-full lg:container lg:mx-auto lg:mt-28 lg:px-4 lg:mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-12 items-start">
+
+                <div class="flex flex-col gap-4">
+                    <div
+                        class="relative w-full h-[45vh] lg:h-[500px] bg-gray-900 overflow-hidden lg:rounded-2xl shadow-2xl group">
+                        <Image id="hero-bg-img" src={imageAssets[gallery[0]]} alt={m.detailLabels.heroAlt} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager" fetchpriority="high" widths={[600,1200]} sizes="(min-width:1024px) 50vw, 100vw"/>
+
+                        <button type="button" id="hero-back-btn"
+                            class="absolute top-4 left-4 z-20 w-10 h-10 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center text-white lg:hidden border border-white/10">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+
+                        <span id="detail-badge"
+                            class="absolute top-4 right-4 z-20 inline-block bg-gold text-black font-bold text-[10px] px-2 py-1 rounded-sm uppercase tracking-widest shadow-lg" style={!trip.source[`badge_${locale}`]?.trim()?'display:none':undefined}>{trip.source[`badge_${locale}`]}</span>
+                    </div>
+
+                    <div class="w-full px-4 lg:px-0">
+                        <div id="gallery-grid" class="flex gap-3 overflow-x-auto pb-2 hide-scrollbar snap-x"><TripGallery gallery={gallery}/></div>
+                    </div>
+                </div>
+
+                <div class="px-5 pt-4 lg:pt-0 pb-8 flex flex-col justify-center animate-fade-up">
+                    <div class="flex items-center gap-4 text-xs text-gold mb-3 uppercase tracking-wider font-bold">
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span id="detail-duration" set:html={text.duration}></span>
+                        </div>
+                        <div class="w-1 h-1 bg-gray-600 rounded-full"></div>
+                    </div>
+
+                    <h1 id="detail-title"
+                        class="text-2xl lg:text-3xl font-playfair font-bold text-white leading-tight mb-4" set:html={text.title}></h1>
+
+                    <div class="flex items-baseline gap-2 mb-6 border-b border-gray-800 pb-6">
+                        <span class="text-gray-400 text-sm" data-i18n="global.price_from">{copy("global.price_from")}</span>
+                        <span id="detail-price" class="text-xl font-bold text-gold" set:html={pricesHtml(trip,true)}></span>
+                        <span class="text-gray-500 text-sm" data-i18n="global.per_person">{copy("global.per_person")}</span>
+                    </div>
+
+                    <p id="detail-desc" class="text-gray-300 leading-relaxed text-lg mb-8" set:html={text.short_desc}></p>
+
+                    <button
+                        class="hidden lg:inline-flex items-center justify-center px-8 py-4 bg-gold text-black font-bold uppercase tracking-widest rounded-lg hover:bg-white transition-colors w-fit">
+                        <span data-i18n="global.book_now">{copy("global.book_now")}</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+                <div class="lg:col-span-2 space-y-12 animate-fade-up delay-100">
+
+                    <div class="prose prose-lg prose-invert max-w-none">
+                        <h2 class="text-3xl font-playfair text-gold mb-6 border-b border-gray-800 pb-2" id="label-desc"
+                            data-i18n="global.description">{copy("global.description")}</h2>
+                        <p id="detail-secondary-desc" class="text-gray-300 leading-loose"></p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-playfair text-white mb-6 border-b border-gray-800 pb-2"
+                            id="label-highlights" data-i18n="global.highlights">{copy("global.highlights")}</h3>
+                        <ul id="detail-highlights" class="space-y-3 text-gray-300 bullet-gold pl-4 text-lg" set:html={listHtml(text.highlights,false,false)}></ul>
+                    </div>
+
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 shadow-inner">
+                        <h3 class="text-2xl font-playfair text-white mb-6 border-b border-gray-700 pb-2"
+                            id="label-itinerary" data-i18n="global.itinerary_details">{copy("global.itinerary_details")}</h3>
+                        <div id="detail-full-desc" class="text-gray-400 leading-relaxed space-y-4" set:html={text.full_description}></div>
+                        <div id="detail-program" class="mt-8 pt-8 border-t border-gray-800" set:html={programHtml(text.program)}></div>
+                    </div>
+
+                    <div class="bg-red-900/10 border border-red-900/30 p-6 rounded-lg mt-8">
+                        <h4 class="text-red-400 font-bold mb-2 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+                                </path>
+                            </svg>
+                            <span id="label-important" data-i18n="global.important">{copy("global.important")}</span>
+                        </h4>
+                        <p id="detail-important" class="text-sm text-gray-400" set:html={text.important_notes}></p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1 space-y-8 animate-fade-up delay-200">
+                    <div id="detail-info-card"
+                        class="sticky top-24 bg-gray-900 border border-gold/30 rounded-xl p-6 shadow-2xl transition-all duration-300">
+                        <div class="text-center mb-6 border-b border-gray-800 pb-4">
+                            <span class="text-gray-400 text-sm block mb-1" data-i18n="global.price_from">{copy("global.price_from")}</span>
+                            <span id="card-price" class="text-4xl font-playfair font-bold text-gold">€{headlinePrice(trip)}</span>
+                            <span class="text-gray-500 text-sm block mt-1" data-i18n="global.per_person">{copy("global.per_person")}</span>
+                        </div>
+                        <div id="card-price-breakdown" class="mt-2 space-y-2 text-sm text-gray-200"><Fragment set:html={breakdownHtml(trip,m.global.pricing.min_pax)}/></div>
+                        <div class="space-y-4 pt-6 border-t border-gray-800">
+                            <div>
+                                <h5 class="text-white font-bold text-sm mb-2" id="label-includes"
+                                    data-i18n="global.included">{copy("global.included")}</h5>
+                                <ul id="detail-includes" class="text-sm text-gray-400 space-y-1" set:html={listHtml(text.includes,true,false)}></ul>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-sm mb-2" id="label-excludes"
+                                    data-i18n="global.not_included">{copy("global.not_included")}</h5>
+                                <ul id="detail-excludes" class="text-sm text-gray-500 space-y-1" set:html={listHtml(text.not_included,true,true)}></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="booking-card-container"
+                        class="bg-gray-900 border border-gold/30 rounded-xl p-6 shadow-2xl transition-all duration-300">
+                        <BookingForm trip={trip} locale={locale} addons={addons} messages={m}/>
+                        <div class="mt-6 pt-4 border-t border-gold/20 flex justify-between items-end">
+                            <span class="text-gray-400 text-sm" data-i18n="global.total_estimate">{copy("global.total_estimate")}</span>
+                            <span id="live-total-price" class="text-2xl font-bold text-white">€{initialTotal}</span>
+                        </div>
+                        <button id="btn-submit-booking" type="button"
+                            class="w-full mt-4 py-4 bg-gradient-to-r from-gold to-yellow-600 text-black font-bold uppercase tracking-widest rounded-lg shadow-lg">
+                            <span data-i18n="global.book_now">{copy("global.book_now")}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="sticky-mobile-book"
+            class="fixed bottom-4 left-4 right-4 z-50 transform translate-y-32 transition-transform duration-500 lg:hidden transition-opacity duration-500 opacity-100">
+            <button
+                class="w-full py-3 bg-gold text-black font-bold rounded-lg shadow-2xl flex items-center justify-center gap-2 border-2 border-white/20">
+                <span>📅</span>
+                <span data-i18n="global.book_now">{copy("global.book_now")}</span>
+            </button>
+        </div>
+
+    </main>
+<Faq locale={locale}/><InvoiceModal locale={locale}/>
+<script>import './interactions';</script>

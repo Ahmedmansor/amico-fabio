@@ -1,0 +1,10 @@
+---
+import {getSharedMessages} from '../../../shared/i18n/shared';
+import type {Locale} from '../../../shared/config/languages';
+interface Props {locale:Locale}
+const labels=getSharedMessages(Astro.props.locale).detailLabels;
+---
+<div id="invoice-modal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4"><div class="bg-gray-900 border border-gold rounded-2xl w-full max-w-md p-6 relative shadow-[0_0_50px_rgba(212,175,55,0.2)]">
+<h3 class="text-2xl font-playfair text-gold mb-4 text-center">{labels.invoice}</h3><div id="invoice-content" class="space-y-4 text-gray-300 text-sm mb-6"></div>
+<div class="flex gap-4"><button id="cancel-invoice" type="button" class="flex-1 py-3 border border-gray-600 rounded-lg text-gray-400 hover:bg-gray-800 transition">{labels.cancel}</button><button id="confirm-invoice" type="button" class="flex-1 py-3 bg-gold text-black font-bold rounded-lg hover:bg-white transition flex items-center justify-center gap-2"><span>🚀</span> {labels.confirm}</button></div>
+</div></div>

@@ -19,8 +19,106 @@
     "indice": "Index"
   },
   "global": {
+    "brand_title": "FABIO TOURS",
     "brand_subtitle": "Official Tour Guide",
-    "why_fabio": "Why Fabio?"
+    "vip_experiences": "Sharm El Sheikh VIP Experiences",
+    "who_is_fabio_btn": "Who is Fabio",
+    "who_is_fabio_content": "\n    <p>Dear Guests,</p>\n    <p>In Sharm El Sheikh, you will find hundreds of vendors offering you \"the lowest price.\" I have made a different choice: <strong>to offer you the highest quality</strong>.</p>\n    <p>My catalog does not contain everything, only the best. I have personally selected every boat, every guide, and every corner of the desert to guarantee you three things that are priceless: <strong>Safety, Privacy, and Magic</strong>.</p>\n    \n    <p style=\"margin-top: 20px; font-style: italic; color: #fff;\">Who is Fabio? More than a friend, an institution.</p>\n    <p>Entrusting your vacation to someone is a matter of trust. This is why I am different:</p>\n\n    <span class=\"wf-text-highlight\">Excellence & Legality</span>\n    <p>A graduate in Languages (Al-Alsun) and an Official Guide authorized by the Ministry. In Sharm, where unlicensed operators are common, choosing me means choosing certified competence.</p>\n\n    <span class=\"wf-text-highlight\">VIP Service (Flight Attendant)</span>\n    <p>My other office is \"the sky.\" As a Flight Attendant, I combine the warmth of Egyptian hospitality with the precision of international standards.</p>\n\n    <span class=\"wf-text-highlight\">Guests, Not Numbers</span>\n    <p>While others cram you into crowded buses, I choose substance: Private cars, total flexibility, and zero surprises.</p>\n\n    <span class=\"wf-text-highlight\">The Value of Memories</span>\n    <p>Remember: an excursion ruined to save a few euros... ends up costing you very dearly.</p>\n\n    <span class=\"wf-quote\">\"Quality has a price, but your most beautiful memories are priceless.\"</span>\n  ",
+    "book_now": "Book Now",
+    "book_package_now": "Book Package Now",
+    "discover": "Discover",
+    "discover_package": "Discover package",
+    "price_from": "Price from",
+    "per_person": "per person",
+    "description": "Description",
+    "itinerary_details": "Itinerary & Details",
+    "duration": "Duration",
+    "highlights": "Highlights",
+    "included": "Included",
+    "not_included": "Not Included",
+    "important": "Important",
+    "program": "Program",
+    "sale": "SALE",
+    "read_secrets": "Read the 10 Commandments",
+    "secrets_title": "Don't leave without knowing Fabio's 10 Commandments",
+    "contact_us": "Contact Us",
+    "follow_us": "Follow Us",
+    "why_fabio": "Why Fabio?",
+    "limited_time_deal": "Limited time deal",
+    "no_exclusive_experiences": "No exclusive experiences available at the moment.",
+    "experience_not_found": "Experience not found.",
+    "daily": "Daily",
+    "loading_failed": "Loading failed. Please try again later.",
+    "vip_access": "VIP ACCESS:",
+    "ultimate_guide": "The Ultimate Guide for Sharm",
+    "all_rights": "All Rights Reserved.",
+    "total_estimate": "Total Estimate",
+    "full_name": "Full Name",
+    "nationality": "Nationality",
+    "trip_date": "Trip Date",
+    "adults_12_plus": "Adults (12+)",
+    "children_2_11": "Children (2-11)",
+    "addons_extras": "Add-ons & Extras",
+    "select_country": "Select country...",
+    "errors": {
+      "required_name": "Please enter your full name",
+      "required_date": "Please select the trip date",
+      "required_nation": "Please select your nationality",
+      "required_field": "This field is required"
+    },
+    "placeholders": {
+      "full_name": "Fabio Mansour"
+    },
+    "filters": {
+      "all": "All",
+      "sea": "Sea",
+      "culture": "Culture",
+      "desert": "Desert",
+      "packages": "Packages"
+    },
+    "premium_package": "Premium Package",
+    "locations": {
+      "sharm": "Sharm El Sheikh",
+      "cairo": "Cairo",
+      "luxor_aswan": "Luxor & Aswan"
+    },
+    "explore_experiences": "Explore",
+    "pricing": {
+      "adult": "Adult",
+      "child": "Child",
+      "min_pax": "Min Pax"
+    },
+    "whatsapp": {
+      "greeting": "Ciao Fabio, my name is *{name}*.",
+      "check_availability": "I would like to check availability for this trip:",
+      "details_heading": "*TRIP DETAILS:*",
+      "trip_label": "*Trip:*",
+      "date_label": "*Date:*",
+      "nation_label": "*Nationality:*",
+      "guests_label": "*Guests:*",
+      "adults_word": "Adults",
+      "children_word": "Children",
+      "extras_label": "*Extras:*",
+      "total_label": "*Total Estimated:*",
+      "waiting_confirmation": "Waiting for your confirmation.",
+      "full_message": "{greeting}\n{check_availability}\n\n{details_heading}\n{trip_label} {trip}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}",
+      "package_check_availability": "I would like to check availability for this package:",
+      "package_details_heading": "*PACKAGE DETAILS:*",
+      "package_label": "*Package:*",
+      "package_message": "{greeting}\n{check_availability}\n\n{details_heading}\n{package_label} {package}\n{date_label} {date}\n{nation_label} {nation}\n{guests_label} {guests}\n{extras_label} {extras}\n{total_label} {total}\n\n{waiting_confirmation}"
+    },
+    "badges": {
+      "BEST_SELLER": "Best seller",
+      "LIMITED_TIME": "Limited time only",
+      "HOT_DEAL": "Hot deal",
+      "NEW": "New",
+      "TOP_RATED": "Top rated",
+      "FAMILY_FRIENDLY": "Family friendly",
+      "VIP_EXCLUSIVE": "VIP exclusive",
+      "CHEAPEST_PRICE": "Cheapest price",
+      "RECOMMENDED": "Recommended",
+      "POPULAR": "Popular choice"
+    }
   },
   "labels": {
     "links": "Links",
@@ -29,5 +127,57 @@
     "headerLogo": "Fabio Tours Logo",
     "footerLogo": "FABIO",
     "crossRootsLogo": "Cross Roots Logo"
+  },
+  "faq": {
+    "headline": "FAQ & Insider Tips",
+    "items": [
+      {
+        "q": "Do I have to pay everything online?",
+        "a": "Absolutely not. Trust is everything. We usually ask for a small deposit to secure spots (especially for VIP boats), and the balance is paid comfortably upon arrival in Sharm, in cash or local currency. No risk, zero stress."
+      },
+      {
+        "q": "How do I know the exact pickup time?",
+        "a": "Forget the anxiety! The night before every excursion, you will receive a personal WhatsApp message from Fabio with the exact time, meeting point, and transfer details. Swiss organization, Egyptian heart."
+      },
+      {
+        "q": "What happens if plans change or I get sick?",
+        "a": "We are humans, not robots! If something comes up, message us on WhatsApp immediately. We'll do our best to reschedule without extra costs. ⚠️ Exception: For flights (Cairo/Luxor), we depend on airline rules, so flight tickets are non-refundable."
+      },
+      {
+        "q": "Do I need a Visa for excursions?",
+        "a": "Crucial detail: If you stay in Sharm (e.g., Safari), the free 'Only Sinai' stamp is enough. But if you choose Ras Mohammed (by land) or go to Cairo/Luxor, you MUST buy the Egypt Visa ($25) upon arrival. Ask us if unsure!"
+      },
+      {
+        "q": "What should I pack?",
+        "a": "Keyword: Comfort. Desert: closed shoes, sunglasses, scarf. Sea: swimwear, sunscreen. Insider Tip: Always bring a light hoodie, even in summer, for the strong A/C in buses or the desert breeze at night."
+      },
+      {
+        "q": "Euro or Local Currency?",
+        "a": "Insider Tip: Bring Euros/Dollars for hotels and tours (accepted everywhere). Exchange a small amount into Egyptian Pounds for small expenses: taxis, tips, and markets. Paying small things in local currency saves you money!"
+      },
+      {
+        "q": "Internet and Wi-Fi?",
+        "a": "Hotel Wi-Fi is often slow. Golden advice: Buy a Data SIM (Vodafone or Etisalat) directly at the airport upon arrival. It's cheap and gives you fast internet everywhere."
+      },
+      {
+        "q": "Is food and water safe?",
+        "a": "Drink ONLY sealed bottled water (even for brushing teeth). For food, during our excursions, we select only certified restaurants with high hygiene standards."
+      }
+    ]
+  },
+  "detailLabels": {
+    "heroAlt": "Trip Image",
+    "invoice": "Invoice Summary",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "trip": "Trip:",
+    "name": "Name:",
+    "nation": "Nationality:",
+    "date": "Date:",
+    "pax": "Pax:",
+    "adults": "Adults",
+    "children": "Kids",
+    "extras": "Extras:",
+    "total": "Total Estimate:"
   }
 }

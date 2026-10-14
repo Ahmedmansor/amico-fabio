@@ -13,7 +13,7 @@ if (!image) throw new Error(`[explore:${card.id}] Missing linked image ${card.of
 const isPackage = card.kind === 'package';
 const text = card.offer.text[locale];
 const badge = cardBadge(card, locale, m);
-const href = `${siteConfig.url}/${isPackage ? 'package-details' : 'details'}.html?id=${encodeURIComponent(card.id)}`;
+const href = isPackage ? `${siteConfig.url}/package-details.html?id=${encodeURIComponent(card.id)}` : `/${locale}/tours/${card.offer.slug}/`;
 ---
 <article class:list={['catalog-card','trip-card',{'premium-package-card':isPackage}]} data-explore-card data-card-key={`${card.kind}:${card.id}`} data-trip-id={card.id} data-location={card.location} data-category={card.category} data-price={card.displayPrice} data-score={card.score} data-source-index={card.sourceIndex} hidden={hidden}>
   <div class="catalog-card-image">

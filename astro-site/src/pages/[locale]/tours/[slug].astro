@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../../shared/layouts/BaseLayout.astro';
+import TripPage from '../../../features/tours/presentation/TripPage.astro';
+import {getTourPages} from '../../../features/tours/data/details.mjs';
+import {getAddons} from '../../../features/booking/data/addons.mjs';
+import type {Locale} from '../../../shared/config/languages';
+export async function getStaticPaths(){const [pages,addons]=await Promise.all([getTourPages(),getAddons()]);return pages.map(page=>({params:{locale:page.locale,slug:page.trip.slug},props:{page,addons:addons.filter(addon=>addon.tripId===page.trip.id)}}));}
+const {page,addons}=Astro.props;const locale=page.locale as Locale;
+---
+<BaseLayout locale={locale} route={`tours/${page.trip.slug}`} title={`Fabio Tours | ${page.text.title}`} description={page.text.short_desc.replace(/\s+/g,' ').trim().slice(0,200)} bodyClass="font-sans antialiased text-gray-200 details-page"><TripPage page={page} addons={addons}/></BaseLayout>

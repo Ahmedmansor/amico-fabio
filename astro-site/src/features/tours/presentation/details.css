@@ -1,0 +1,348 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+body.details-page .floating-whatsapp,
+body.details-page #whatsapp-widget,
+body.details-page .fab-base,
+body.details-page .gh-fab,
+body.details-page .gh-fab-label,
+body.details-page .wa-fab-label,
+body.package-details-page .floating-whatsapp,
+body.package-details-page #whatsapp-widget,
+body.package-details-page .fab-base,
+body.package-details-page .gh-fab,
+body.package-details-page .gh-fab-label,
+body.package-details-page .wa-fab-label {
+  display: none !important;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translateX(0) rotate(0);
+  }
+
+  15% {
+    transform: translateX(-1px) rotate(-0.5deg);
+  }
+
+  30% {
+    transform: translateX(1px) rotate(0.5deg);
+  }
+
+  45% {
+    transform: translateX(-1px) rotate(-0.5deg);
+  }
+
+  60% {
+    transform: translateX(1px) rotate(0.5deg);
+  }
+
+  75% {
+    transform: translateX(-0.5px) rotate(-0.3deg);
+  }
+
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+}
+
+.animate-wiggle {
+  animation: wiggle 1.2s ease-in-out;
+}
+
+.details-page #hero-bg-img,
+.package-details-page #hero-bg-img,
+.package-details-page #included-trip-modal-hero-img {
+  transition: opacity 350ms ease, transform 600ms ease;
+}
+
+.details-page #detail-title,
+.package-details-page #detail-title,
+.package-details-page #included-trip-title {
+  letter-spacing: 0.01em;
+}
+
+.details-page .price-icon {
+  font-size: 0.85em;
+  line-height: 1;
+}
+
+.details-page .price-icon-img,
+.package-details-page .price-icon-img {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  filter: brightness(0) invert(1);
+}
+
+.details-page #hero-bg-img.hero-img-animate,
+.package-details-page #hero-bg-img.hero-img-animate,
+.package-details-page #included-trip-modal-hero-img.hero-img-animate {
+  animation: heroImageFade 600ms ease;
+}
+
+.details-page .gallery-thumb.is-active {
+  border-color: #d4af37;
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.6), 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.details-page .gallery-thumb.is-active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(212, 175, 55, 0.9);
+  border-radius: 0.75rem;
+  pointer-events: none;
+}
+
+@keyframes heroImageFade {
+  0% {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+body.details-page {
+  background-color: #050505;
+  color: #f3f4f6;
+  overflow-x: hidden;
+}
+.details-page .hero-overlay {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(5, 5, 5, 1) 100%);
+}
+
+.details-page #faq-accordion .faq-toggle,
+.package-details-page #faq-accordion .faq-toggle {
+  text-align: left;
+}
+
+.details-page #faq-accordion .faq-q,
+.package-details-page #faq-accordion .faq-q {
+  line-height: 1.5;
+}
+
+.details-page #faq-accordion .faq-answer,
+.package-details-page #faq-accordion .faq-answer {
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+  transition: max-height 300ms ease, opacity 200ms ease;
+}
+
+.details-page #faq-accordion .faq-item.is-open .faq-answer,
+.package-details-page #faq-accordion .faq-item.is-open .faq-answer {
+  padding-bottom: 1.25rem;
+  opacity: 1;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.details-page .bullet-gold li {
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.details-page .bullet-gold li::before {
+  content: "•";
+  color: #D4AF37;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.2em;
+  line-height: 1;
+}
+.details-page .prose strong {
+  color: #D4AF37;
+  font-weight: 700;
+}
+
+.text-gold {
+  color: #D4AF37 !important;
+}
+
+.text-gold-light {
+  color: #F1D78A !important;
+}
+
+.bg-gold {
+  background-color: #D4AF37 !important;
+}
+
+.border-gold {
+  border-color: #D4AF37 !important;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif !important;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif !important;
+}
+svg.text-gold {
+  fill: currentColor;
+}
+#btn-submit-booking {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+#btn-submit-booking::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent);
+  transition: all 0.6s ease;
+  z-index: -1;
+}
+#btn-submit-booking:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+}
+#btn-submit-booking:hover::before {
+  left: 100%;
+}
+#btn-submit-booking:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(212, 175, 55, 0.3);
+}
+#sticky-mobile-book button {
+  animation: goldPulse 2s infinite;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+@keyframes goldPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+    transform: scale(1);
+  }
+
+  70% {
+    box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+    transform: scale(1.02);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+    transform: scale(1);
+  }
+}
+#sticky-mobile-book button span:first-child {
+  display: inline-block;
+  animation: wiggleIcon 3s ease-in-out infinite;
+}
+
+@keyframes wiggleIcon {
+
+  0%,
+  90% {
+    transform: rotate(0deg);
+  }
+
+  92% {
+    transform: rotate(-10deg);
+  }
+
+  94% {
+    transform: rotate(10deg);
+  }
+
+  96% {
+    transform: rotate(-10deg);
+  }
+
+  98% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
