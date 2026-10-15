@@ -20,6 +20,32 @@
   },
   "conclusion": "Published test artifact predates the single-price and Supabase integration commits; it cannot verify those changes.",
   "next_action": "Configure public catalog build variables on the approved test project, retain noindex in Production and Preview, then deploy the migration branch and verify the new artifact.",
-  "deployment_or_hosting_changes_performed": false,
-  "blog_implementation_started": false
+  "initial_review": "The recorded read-only review preceded the user's deployment authorization; see the verification below for current status.",
+  "latest_approved_test_deployment": {
+    "authorization": "User explicitly approved adding the catalog build variables to amico-fabio-test, pushing the Astro branch, and deploying/verifying the test build.",
+    "deployed_commit": "32dbf516a77a7f2ec85dfef14694c71bdc3073d2",
+    "deployment_id": "7e56JFnf8mm9X6eR32izMB6pNueB",
+    "status": "Ready",
+    "duration_seconds": 10,
+    "deployment_url": "https://amico-fabio-test-4wxrf2lpz-fabio-landing-pages.vercel.app",
+    "stable_alias": "https://amico-fabio-iyzo.vercel.app",
+    "environment_variables": {
+      "names": ["CATALOG_PROVIDER", "CATALOG_SUPABASE_URL", "CATALOG_SUPABASE_PUBLISHABLE_KEY"],
+      "environments": ["Production", "Preview"],
+      "values_disclosed": false,
+      "public_noindex_preserved": true
+    },
+    "published_checks": {
+      "english_route": "/en/tours/ras_mohammed_white_island_vip/",
+      "italian_route": "/it/tours/ras_mohammed_white_island_vip/",
+      "both_robots": "noindex, follow",
+      "both_canonical_hosts": "https://fabioegypt.com",
+      "both_headline_prices": "€40",
+      "both_crossed_out_price_elements": 0,
+      "both_initial_booking_totals": "€40",
+      "publishable_key_in_rendered_page": false
+    },
+    "production_domain_or_legacy_main_changed": false,
+    "blog_implementation_started": false
+  }
 }

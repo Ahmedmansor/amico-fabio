@@ -67,16 +67,23 @@ No new dependency was added; existing Astro/Vite facilities load the setting.
 
 ### Remote review — 2026-10-15
 
-Read-only dashboard review confirmed the existing Astro test project is
+The initial read-only dashboard review confirmed the existing Astro test project is
 `amico-fabio-test`, stable alias `https://amico-fabio-iyzo.vercel.app`.
 Its Ready deployment is still commit `c622318`, before the single-price and
 Supabase changes. Project variables show PUBLIC_SITE_URL and PUBLIC_NOINDEX,
 but none of the three catalog build variables. No variable values were revealed.
 The published sample tour has noindex and the production canonical, but still
 displays both old and final prices. See qa/supabase/deployment-review.json.
-This review made no hosting changes or deployment. Updating the public catalog
-build configuration and deploying the current branch require explicit approval;
-the existing artifact does not prove the new provider is deployed.
+That was the state before the user authorized the test update. After explicit
+approval, the three catalog variables were added to `amico-fabio-test` for
+Production and Preview, with existing `PUBLIC_NOINDEX=1` preserved for both.
+Pushing commit `32dbf51` triggered a successful 10-second Production deployment;
+its unique URL is `https://amico-fabio-test-4wxrf2lpz-fabio-landing-pages.vercel.app/`
+and the stable test alias remains `https://amico-fabio-iyzo.vercel.app`.
+English and Italian tour pages now show one €40 starting price, no crossed-out
+price markup, and `noindex, follow`. The publishable key is absent from the
+rendered page. The live legacy GitHub Pages site and Vercel project `amico-fabio`
+were not changed. Details are in qa/supabase/deployment-review.json.
 
 ### Catalog build environment (prepared locally; hosting not changed)
 
