@@ -1,8 +1,11 @@
-# Existing Sheets catalog import — ready for user review
+# Existing Sheets catalog — import completed
 
-Prepared for **fabioEgypt** (`iiivnvwspoikfrlclhyr`). No SQL or data has been
-applied remotely. Read-only MCP inspection on 2026-10-15 still returned
-`{"tables":[]}` for `public`. The live site remains on its existing provider.
+Applied to **fabioEgypt** (`iiivnvwspoikfrlclhyr`) on 2026-10-15 after explicit
+user authorization. Migration `20261015025613_create_existing_sheets_catalog`
+created the five tables; the reviewed catalog was imported atomically with an
+empty-table guard. All fields of all imported rows match the reviewed CSVs.
+See `../qa/supabase/remote-import.json` for actual grants, public counts and
+security advisor results. The website provider is a separate subsequent task.
 
 This is the existing catalog only. It adds no Auth, leads, CMS, price history,
 destination/category management, application server, runtime API or deployment.
@@ -35,7 +38,11 @@ snapshots. The source `whatsapp_number` setting is excluded from the promo-only
 table; public contact configuration remains under `src/shared/config/site.ts`.
 Original promo date strings are preserved as optional text, without date gating.
 
-## Apply in Supabase (user-run, once)
+## Historical manual import procedure — do not repeat on this database
+
+The authorized agent execution is complete. The steps below document the
+original empty-database procedure; do not rerun schema SQL or CSV imports on
+the current populated database.
 
 1. Review `schema.sql`, all five CSVs and `import/manifest.json`. Confirm the
    project above and that these five public catalog tables do not already exist.
@@ -73,10 +80,13 @@ No functions, views, extensions or global default-privilege changes are created.
 
 SQL was reviewed locally against the official [API grants/RLS guidance](https://supabase.com/docs/guides/api/securing-your-api)
 and [RLS documentation](https://supabase.com/docs/guides/database/postgres/row-level-security).
-SQL execution, live RLS enforcement, Data API access and import success have
-**not** been verified; they require the user-run schema/import above. The supplied
-verification script is read-only. Actual denied-write probes on disposable rows
-would require separate authorization and are not included in these results.
+Schema execution, every imported field, anon-visible row counts and table
+grants have been verified through MCP. The supplied verification script remains
+read-only. Data API/provider checks follow in the integration task. Actual
+denied-write probes on disposable rows require separate authorization and are
+not included. Advisors reported EXECUTE warnings for the existing
+`public.rls_auto_enable()` event-trigger function, outside the five-table changes;
+no function was created or modified by this migration.
 
 ## Reproduce preparation
 

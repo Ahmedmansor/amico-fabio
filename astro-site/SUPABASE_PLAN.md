@@ -1,9 +1,10 @@
 # Single-price catalog and Supabase migration plan
 
 Status as of 2026-10-15: single-price UI implemented in `bf300d0` using the
-clarified d-when-present, otherwise-p rule. Schema, CSVs and verification SQL are
-prepared locally in `supabase/` for user review/import. No remote schema/data
-changes or provider switch have been applied. Follow `supabase/README.md`.
+clarified d-when-present, otherwise-p rule. The user explicitly authorized remote execution. The five tables, reviewed
+grants/RLS and complete catalog import are now applied and verified on
+`fabioEgypt`; migration `20261015025613`. Provider integration is next.
+Follow `supabase/README.md` and `qa/supabase/remote-import.json`.
 Target verified read-only: `fabioEgypt` (`iiivnvwspoikfrlclhyr`), Ireland;
 `public` tables and migration history were empty at the connection check.
 
@@ -19,9 +20,11 @@ Keep legacy main/GitHub Pages and Google Sheets untouched. Work in astro-site
 on the migration branch. Test on the existing separate Vercel test project.
 Do not create a second project or paid database branch.
 
-The user will run reviewed schema SQL in SQL Editor and import reviewed CSVs.
-The agent prepares artifacts and may inspect the database read-only through the
-existing connection. No remote write authorization is implied by MCP access.
+The initial plan was user-run SQL and CSV import. On 2026-10-15 the user
+explicitly authorized the agent to apply the reviewed five-table catalog,
+grants/RLS and data import via MCP, verify it and implement the build-time
+provider. This supersedes the user-run step only for this catalog migration.
+No unrelated remote writes or hosting environment/deployment changes are implied.
 Each implementation task requires checks, reviewed diff and a focused commit;
 dependencies and deployment retain their separate approval rules.
 

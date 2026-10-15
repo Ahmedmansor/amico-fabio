@@ -1,4 +1,8 @@
-# Existing Sheets catalog preflight — 2026-10-15
+# Existing Sheets catalog verification — 2026-10-15
+
+The user authorized remote execution after reviewing preparation. Schema and
+import are now applied: see remote-import.json for verified counts, grants and
+advisor results. The preflight notes below describe the exact input snapshot.
 
 The user's clarified rule resolves the earlier 12 blank-d_adult blockers:
 nonblank d is final, blank d selects p. Both child inputs blank means zero;
@@ -13,9 +17,10 @@ the 12 selected adult base amounts, default conversions and excluded placeholder
 
 Original snapshots stay in ignored supabase/local/. Prepared normalized CSVs,
 schema, reviewed counts and user-run import steps are in supabase/README.md.
-MCP public-table inspection still returned {"tables":[]}; no remote writes
-or provider switch have occurred. Auth and suggested additional features remain
-deferred. SQL and live policies have not been executed or verified.
+The initial empty-database inspection was followed by authorized schema and
+import execution. All imported fields match the CSVs. Anonymous table writes
+are denied and unpublished records are hidden. Provider integration follows;
+Auth and suggested additional features remain deferred.
 
 Actual local results:
 
@@ -27,6 +32,5 @@ Actual local results:
 - Astro build: 90 page(s) built in 14.46s; Complete! (exit 0).
 
 The build retains its existing Browserslist age warning. No dependencies changed.
-This completes local migration preparation, not the database import or live
-integration. Do not report the site as using Supabase until subsequent live
+Schema/import execution is also complete, as recorded in remote-import.json. Do not report the site as using Supabase until subsequent live
 provider checks and the separately approved environment/deployment switch pass.

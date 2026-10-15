@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-15T02:48:15.503Z",
+  "generatedAt": "2026-10-15T02:55:31.439Z",
   "status": "ready-for-user-review",
-  "remoteApplied": false,
+  "remoteApplied": true,
   "project": "iiivnvwspoikfrlclhyr",
   "sources": {
     "Trips_Prices": {
@@ -60,5 +60,10 @@
       "rows": 1,
       "sha256": "486368eb027431d3d1bdf703c0da14a9c2279bde6c4a22c1f7d57c062ba889cc"
     }
+  },
+  "appliedAt": "2026-10-15T03:00:21.246Z",
+  "migration": {
+    "version": "20261015025613",
+    "name": "create_existing_sheets_catalog"
   }
 }
