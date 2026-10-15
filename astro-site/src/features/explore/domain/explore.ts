@@ -1,14 +1,15 @@
 import type { Offer } from '../../../shared/domain/offers.ts';
+import { editorialBadgeKey } from '../../../shared/domain/offers.ts';
 export const exploreLocations = ['all','sharm','cairo','luxor_and_aswan'] as const;
 export type ExploreLocation = typeof exploreLocations[number];
 export type SortOrder = 'default' | 'price_asc' | 'price_desc';
 export interface ExploreSummary { id: string; location: string; category: string; displayPrice: number; score: number; sourceIndex: number }
-export interface ExploreCard extends ExploreSummary { kind: 'trip' | 'package'; offer: Offer; discounted: boolean; discountPercent: number }
+export interface ExploreCard extends ExploreSummary { kind: 'trip' | 'package'; offer: Offer }
 export interface ExploreMessages {
   seo: { title: string; description: string }; title: string;
   sort: { sort_label: string; sort_recommended: string; sort_low_high: string; sort_high_low: string };
   filters: Record<string,string>; badges: Record<string,string>;
-  labels: { price_from: string; discover: string; discover_package: string; premium_package: string; limited_time_deal: string; no_exclusive_experiences: string };
+  labels: { price_from: string; discover: string; discover_package: string; premium_package: string; no_exclusive_experiences: string };
   pagination: { page: string; of: string; previous: string; next: string };
 }
 export function validateExploreMessages(messages: ExploreMessages, locale: string): ExploreMessages {
@@ -21,11 +22,10 @@ export function validateExploreMessages(messages: ExploreMessages, locale: strin
   return messages;
 }
 export function toExploreCard(offer: Offer, kind: 'trip' | 'package', sourceIndex = 0): ExploreCard {
-  const discounted = (offer.prices.adultDiscount ?? 0) > 0;
   return { id: offer.id, location: offer.location, category: offer.category === 'packages' ? 'bundles' : offer.category,
-    displayPrice: discounted ? offer.prices.adultDiscount! : offer.prices.adultBase,
+    displayPrice: offer.prices.adult,
     score: (offer.source.badge_it?.trim() ? 2 : 0) + (offer.source.badge_en?.trim() ? 1 : 0),
-    kind, offer, discounted, sourceIndex, discountPercent: discounted && offer.prices.adultBase > 0 ? Math.round(((offer.prices.adultBase - offer.prices.adultDiscount!) / offer.prices.adultBase) * 100) : 0 };
+    kind, offer, sourceIndex };
 }
 export function locationMatches(location: string, selected: string): boolean {
   return selected === 'all' || (selected === 'luxor_and_aswan' ? location.includes('luxor') || location.includes('aswan') : location.includes(selected));
@@ -56,7 +56,7 @@ export function categoryLabel(category: string, messages: ExploreMessages): stri
   return label;
 }
 export function cardBadge(card: ExploreCard, locale: string, messages: ExploreMessages): string {
-  const key = card.offer.source.badge_key?.trim();
+  const key = editorialBadgeKey(card.offer.source.badge_key);
   if (!key) return card.offer.source[`badge_${locale}`] || '';
   const badge = messages.badges[key] || messages.badges[key.toLowerCase()];
   if (!badge) throw new Error(`[explore:${card.id}] Missing ${locale} badge translation ${key}.`);

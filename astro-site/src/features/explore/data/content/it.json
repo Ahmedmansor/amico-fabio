@@ -20,7 +20,6 @@
   "badges": {
     "BEST_SELLER": "Best seller",
     "LIMITED_TIME": "Offerta a tempo limitato",
-    "HOT_DEAL": "Offerta speciale",
     "NEW": "Novità",
     "TOP_RATED": "Più votato",
     "FAMILY_FRIENDLY": "Adatta alle famiglie",
@@ -34,7 +33,6 @@
     "discover": "Scopri",
     "discover_package": "Scopri il pacchetto",
     "premium_package": "Pacchetto Premium",
-    "limited_time_deal": "Offerta a tempo limitato",
     "no_exclusive_experiences": "Nessuna esperienza esclusiva disponibile al momento."
   },
   "pagination": {

@@ -20,7 +20,6 @@
   "badges": {
     "BEST_SELLER": "Best seller",
     "LIMITED_TIME": "Limited time only",
-    "HOT_DEAL": "Hot deal",
     "NEW": "New",
     "TOP_RATED": "Top rated",
     "FAMILY_FRIENDLY": "Family friendly",
@@ -30,11 +29,10 @@
     "POPULAR": "Popular choice"
   },
   "labels": {
-    "price_from": "Price from",
+    "price_from": "Starts from",
     "discover": "Discover",
     "discover_package": "Discover package",
     "premium_package": "Premium Package",
-    "limited_time_deal": "Limited time deal",
     "no_exclusive_experiences": "No exclusive experiences available at the moment."
   },
   "pagination": {

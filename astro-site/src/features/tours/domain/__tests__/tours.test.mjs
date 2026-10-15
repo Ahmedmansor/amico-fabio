@@ -20,18 +20,18 @@ test('blank child prices and minimum travelers keep the legacy defaults', () => 
   assert.equal(trip.source.p_child, ''); assert.equal(trip.source.min_pax, '');
 });
 test('existing zero discount values remain zero for booking, not a new policy', () => {
-  const data = rows(); data[0].d_adult = '0'; data[0].d_child = '0';
+  const data = rows(); data[0].adult_price = '0'; data[0].child_price = '0';
   const trip = mapTrips(data, dictionaries, locales)[0];
   assert.equal(trip.prices.adult, 0); assert.equal(trip.prices.child, 0);
 });
 test('missing adult price fails instead of creating a price', () => {
-  const data = rows(); data[0].p_adult = '';
-  assert.throws(() => mapTrips(data, dictionaries, locales), /ras_mohammed_white_island_vip.*p_adult/);
+  const data = rows(); data[0].adult_price = '';
+  assert.throws(() => mapTrips(data, dictionaries, locales), /ras_mohammed_white_island_vip.*adult_price/);
 });
 test('invalid numeric price and minimum travelers fail', () => {
-  const data = rows(); data[0].p_adult = '45EUR';
-  assert.throws(() => mapTrips(data, dictionaries, locales), /Invalid p_adult/);
-  data[0].p_adult = '45'; data[0].min_pax = '1.5';
+  const data = rows(); data[0].adult_price = '45EUR';
+  assert.throws(() => mapTrips(data, dictionaries, locales), /Invalid adult_price/);
+  data[0].adult_price = '45'; data[0].min_pax = '1.5';
   assert.throws(() => mapTrips(data, dictionaries, locales), /non-negative integer/);
 });
 test('an explicitly supplied zero minimum is retained as in legacy booking', () => {

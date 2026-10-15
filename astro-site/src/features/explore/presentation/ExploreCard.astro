@@ -18,7 +18,6 @@ const href = `/${locale}/${isPackage?'packages':'tours'}/${card.offer.slug}/`;
   <div class="catalog-card-image">
     <Image src={image} alt={text.title} class="catalog-card-img" loading="lazy" widths={[400,800]} sizes="(min-width:1024px) 400px, (min-width:768px) 50vw, 100vw"/>
     <div class="card-badges">
-      {card.discounted && (isPackage ? <div class="discount-ribbon"><span>-{card.discountPercent}%</span></div> : <div class="deal-banner"><span class="deal-percent">-{card.discountPercent}%</span></div>)}
       {badge && <span class:list={['standard-badge',{'standard-badge-premium':isPackage}]}>{badge}</span>}
     </div>
   </div>
@@ -27,11 +26,9 @@ const href = `/${locale}/${isPackage?'packages':'tours'}/${card.offer.slug}/`;
     <h3 class="catalog-card-title">{text.title}</h3><div class="card-divider"></div>
     <p class="catalog-card-desc">{text.short_desc}</p>
     <div class="card-footer"><div class="price-block"><span class="label-start">{m.labels.price_from}</span>
-      {card.displayPrice > 0 ? <div class="price-row">
-        {card.discounted && <span class="price-old">€{card.offer.prices.adultBase}</span>}
+      <div class="price-row">
         <span class="price-new">€{card.displayPrice}</span>
-        {card.discounted && <span class="deal-inline">{m.labels.limited_time_deal}</span>}
-      </div> : <div class="price-skeleton"></div>}
+      </div>
     </div><a class="card-btn" data-detail-link href={href}>{isPackage ? m.labels.discover_package : m.labels.discover}</a></div>
   </div>
 </article>

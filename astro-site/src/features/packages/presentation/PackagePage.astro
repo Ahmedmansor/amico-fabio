@@ -2,6 +2,7 @@
 import {Image} from 'astro:assets';
 import type {PackagePage} from '../domain/details';
 import type {Locale} from '../../../shared/config/languages';
+import {editorialBadgeKey} from '../../../shared/domain/offers';
 import {getSharedMessages} from '../../../shared/i18n/shared';
 import type {BookingAddon} from '../../booking/domain/booking';
 import {calculateTotal} from '../../booking/domain/booking';
@@ -18,7 +19,7 @@ interface Props {page:PackagePage;addons:BookingAddon[]}
 const {page,addons}=Astro.props;const trip=page.package,text=page.text,locale=page.locale as Locale;
 const m=getSharedMessages(locale);
 const copy=(key:string)=>key.split('.').reduce((value:any,part)=>value[part],m);
-const badge=m.global.badges[trip.source.badge_key as keyof typeof m.global.badges]||'';
+const badge=m.global.badges[editorialBadgeKey(trip.source.badge_key) as keyof typeof m.global.badges]||'';
 const initialTotal=calculateTotal({adults:trip.minPax,children:0,selectedAddons:[]},{...trip.prices,minPax:trip.minPax},addons);
 ---
 <main class="min-h-screen pt-20">

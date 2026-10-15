@@ -1,0 +1,1926 @@
+[
+  {
+    "locale": "it",
+    "kind": "explore",
+    "size": "desktop",
+    "version": "legacy",
+    "cards": [
+      {
+        "badge": "Top 🔥",
+        "description": "Un viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.",
+        "id": "ras_mohammed_bus_half_day",
+        "image": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+        "price": "€30",
+        "title": "Ras Mohammed Nature Explorer: Il Parco via Terra"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+        "id": "ras_mohammed_white_island_vip",
+        "image": "Ras Mohammed & White Island: L'Esperienza VIP",
+        "price": "€40",
+        "title": "Ras Mohammed & White Island: L'Esperienza VIP"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "L'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.",
+        "id": "super_safari_5_senses",
+        "image": "Super Safari: I 5 Sensi del Sinai",
+        "price": "€55",
+        "title": "Super Safari: I 5 Sensi del Sinai"
+      },
+      {
+        "badge": "",
+        "description": "Un'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.",
+        "id": "dolphin_show_family",
+        "image": "Dolphin Show: Emozioni per tutta la Famiglia",
+        "price": "€25",
+        "title": "Dolphin Show: Emozioni per tutta la Famiglia"
+      },
+      {
+        "badge": "",
+        "description": "Il tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!",
+        "id": "sharm_old_market_ultimate_shopping",
+        "image": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+        "price": "€25",
+        "title": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto"
+      },
+      {
+        "badge": "",
+        "description": "Adrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.",
+        "id": "moto_safari_quad_echo",
+        "image": "Moto Safari: Quad, Tramonto & Valle dell'Eco",
+        "price": "€30",
+        "title": "Moto Safari: Quad, Tramonto & Valle dell'Eco"
+      },
+      {
+        "badge": "",
+        "description": "Una serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.",
+        "id": "dinner_cruise_night_show",
+        "image": "Notte Magica: Cena di Pesce & Show Orientale",
+        "price": "€35",
+        "title": "Notte Magica: Cena di Pesce & Show Orientale"
+      },
+      {
+        "badge": "",
+        "description": "Naviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.",
+        "id": "tiran_island_boat_vip",
+        "image": "Isola di Tiran VIP: Relitti e Barriere Coralline",
+        "price": "€40",
+        "title": "Isola di Tiran VIP: Relitti e Barriere Coralline"
+      },
+      {
+        "badge": "",
+        "description": "La vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.",
+        "id": "dahab_blue_hole_super_safari",
+        "image": "Dahab Adventure: Blue Hole, Cammelli & Canyon",
+        "price": "€40",
+        "title": "Dahab Adventure: Blue Hole, Cammelli & Canyon"
+      }
+    ],
+    "details": {
+      "detail-desc": "",
+      "detail-duration": "",
+      "detail-excludes": "",
+      "detail-full-desc": "",
+      "detail-highlights": "",
+      "detail-important": "",
+      "detail-includes": "",
+      "detail-program": "",
+      "detail-title": "",
+      "live-total-price": ""
+    },
+    "height": 900,
+    "images": [
+      {
+        "alt": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "Ras Mohammed & White Island: L'Esperienza VIP",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "Super Safari: I 5 Sensi del Sinai",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "Dolphin Show: Emozioni per tutta la Famiglia",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "Moto Safari: Quad, Tramonto & Valle dell'Eco",
+        "complete": false,
+        "width": 0
+      }
+    ],
+    "lang": "it",
+    "overflow": false,
+    "priceMarkers": 24,
+    "width": 1440
+  },
+  {
+    "locale": "it",
+    "kind": "explore",
+    "size": "desktop",
+    "version": "astro",
+    "cards": [
+      {
+        "badge": "Top 🔥",
+        "description": "Un viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.",
+        "id": "ras_mohammed_bus_half_day",
+        "image": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+        "price": "€30",
+        "title": "Ras Mohammed Nature Explorer: Il Parco via Terra"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+        "id": "ras_mohammed_white_island_vip",
+        "image": "Ras Mohammed & White Island: L'Esperienza VIP",
+        "price": "€40",
+        "title": "Ras Mohammed & White Island: L'Esperienza VIP"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "L'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.",
+        "id": "super_safari_5_senses",
+        "image": "Super Safari: I 5 Sensi del Sinai",
+        "price": "€55",
+        "title": "Super Safari: I 5 Sensi del Sinai"
+      },
+      {
+        "badge": "",
+        "description": "Un'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.",
+        "id": "dolphin_show_family",
+        "image": "Dolphin Show: Emozioni per tutta la Famiglia",
+        "price": "€25",
+        "title": "Dolphin Show: Emozioni per tutta la Famiglia"
+      },
+      {
+        "badge": "",
+        "description": "Il tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!",
+        "id": "sharm_old_market_ultimate_shopping",
+        "image": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+        "price": "€25",
+        "title": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto"
+      },
+      {
+        "badge": "",
+        "description": "Adrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.",
+        "id": "moto_safari_quad_echo",
+        "image": "Moto Safari: Quad, Tramonto & Valle dell'Eco",
+        "price": "€30",
+        "title": "Moto Safari: Quad, Tramonto & Valle dell'Eco"
+      },
+      {
+        "badge": "",
+        "description": "Una serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.",
+        "id": "dinner_cruise_night_show",
+        "image": "Notte Magica: Cena di Pesce & Show Orientale",
+        "price": "€35",
+        "title": "Notte Magica: Cena di Pesce & Show Orientale"
+      },
+      {
+        "badge": "",
+        "description": "Naviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.",
+        "id": "tiran_island_boat_vip",
+        "image": "Isola di Tiran VIP: Relitti e Barriere Coralline",
+        "price": "€40",
+        "title": "Isola di Tiran VIP: Relitti e Barriere Coralline"
+      },
+      {
+        "badge": "",
+        "description": "La vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.",
+        "id": "dahab_blue_hole_super_safari",
+        "image": "Dahab Adventure: Blue Hole, Cammelli & Canyon",
+        "price": "€40",
+        "title": "Dahab Adventure: Blue Hole, Cammelli & Canyon"
+      }
+    ],
+    "details": {
+      "detail-desc": "",
+      "detail-duration": "",
+      "detail-excludes": "",
+      "detail-full-desc": "",
+      "detail-highlights": "",
+      "detail-important": "",
+      "detail-includes": "",
+      "detail-program": "",
+      "detail-title": "",
+      "live-total-price": ""
+    },
+    "height": 900,
+    "images": [
+      {
+        "alt": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+        "complete": true,
+        "width": 400
+      },
+      {
+        "alt": "Ras Mohammed & White Island: L'Esperienza VIP",
+        "complete": true,
+        "width": 400
+      },
+      {
+        "alt": "Super Safari: I 5 Sensi del Sinai",
+        "complete": true,
+        "width": 400
+      },
+      {
+        "alt": "Dolphin Show: Emozioni per tutta la Famiglia",
+        "complete": true,
+        "width": 400
+      },
+      {
+        "alt": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+        "complete": true,
+        "width": 400
+      },
+      {
+        "alt": "Moto Safari: Quad, Tramonto & Valle dell'Eco",
+        "complete": true,
+        "width": 400
+      }
+    ],
+    "lang": "it",
+    "overflow": false,
+    "priceMarkers": 0,
+    "width": 1440
+  },
+  {
+    "locale": "it",
+    "kind": "tour",
+    "size": "desktop",
+    "version": "legacy",
+    "cards": [],
+    "details": {
+      "detail-desc": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+      "detail-duration": "8-9 Ore (Giornata Intera)",
+      "detail-excludes": "× Noleggio attrezzatura snorkeling (maschera/pinne - opzionale) × Servizio foto/video professionale × Mance (a discrezione)",
+      "detail-full-desc": "Non è la solita gita in barca, è una giornata indimenticabile firmata Amico Fabio. Salperemo verso il Parco Nazionale di Ras Mohammed, dove il deserto incontra il mare più blu che abbiate mai visto. La tappa principale? L'Isola Bianca (Isola che non c'è): una lingua di sabbia bianca che appare e scompare con la marea, creando una piscina naturale degna delle Maldive. Tra un tuffo e l'altro, il nostro chef di bordo preparerà un pranzo a buffet fresco e gustoso. Che tu voglia esplorare i fondali con le nostre guide esperte o semplicemente abbronzarti sul ponte sole, questa è l'escursione perfetta per combinare avventura e totale relax.",
+      "detail-highlights": "• Sosta esclusiva all'Isola Bianca (L'Isola che non c'è) • 2 tappe snorkeling sulla barriera corallina più bella del mondo • Pranzo fresco a bordo con bevande illimitate • Atmosfera rilassata: Niente folla, solo divertimento",
+      "detail-important": "Porta con te: Passaporto (obbligatorio), telo mare, crema solare, occhiali da sole e tanta voglia di divertirti. In inverno porta una felpa leggera per il rientro.",
+      "detail-includes": "✓ Transfer A/R da hotel (Bus Aria Condizionata) ✓ Biglietto ingresso Parco Ras Mohammed ✓ Pranzo a buffet preparato a bordo ✓ Bevande analcoliche illimitate tutto il giorno ✓ Guida Snorkeling parlante italiano",
+      "detail-program": "1 08:00 Prelievo VIP Il nostro transfer privato ti verrà a prendere direttamente in hotel. Niente stress. 2 09:00 Imbarco e Benvenuto Arrivo al porto, check-in rapido e benvenuto a bordo con briefing sulla sicurezza. 3 10:30 Snorkeling a Ras Mohammed Prima sosta guidata per ammirare i coralli millenari e pesci coloratissimi. 4 12:30 Magic White Island Sbarco sulla famosa lingua di sabbia bianca. Tempo libero per foto instagrammabili e relax in acqua. 5 13:30 Pranzo con Vista Ricco buffet a bordo (pesce, carne, riso, insalate) preparato fresco dallo chef. 6 14:30 Ultimo Tuffo o Relax Seconda sosta snorkeling o tempo per godersi il sole mentre navighiamo. 7 16:30 Rientro Ritorno al porto e trasferimento comodo verso il tuo hotel.",
+      "detail-title": "Ras Mohammed & White Island: L'Esperienza VIP",
+      "live-total-price": "€40"
+    },
+    "height": 900,
+    "images": [
+      {
+        "alt": "Trip Image",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      }
+    ],
+    "lang": "it",
+    "overflow": false,
+    "priceMarkers": 2,
+    "priceText": "€45€40",
+    "width": 1440
+  },
+  {
+    "locale": "it",
+    "kind": "tour",
+    "size": "desktop",
+    "version": "astro",
+    "cards": [],
+    "details": {
+      "detail-desc": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+      "detail-duration": "8-9 Ore (Giornata Intera)",
+      "detail-excludes": "×Noleggio attrezzatura snorkeling (maschera/pinne - opzionale)×Servizio foto/video professionale×Mance (a discrezione)",
+      "detail-full-desc": "Non è la solita gita in barca, è una giornata indimenticabile firmata Amico Fabio. Salperemo verso il Parco Nazionale di Ras Mohammed, dove il deserto incontra il mare più blu che abbiate mai visto. La tappa principale? L'Isola Bianca (Isola che non c'è): una lingua di sabbia bianca che appare e scompare con la marea, creando una piscina naturale degna delle Maldive. Tra un tuffo e l'altro, il nostro chef di bordo preparerà un pranzo a buffet fresco e gustoso. Che tu voglia esplorare i fondali con le nostre guide esperte o semplicemente abbronzarti sul ponte sole, questa è l'escursione perfetta per combinare avventura e totale relax.",
+      "detail-highlights": "•Sosta esclusiva all'Isola Bianca (L'Isola che non c'è)•2 tappe snorkeling sulla barriera corallina più bella del mondo•Pranzo fresco a bordo con bevande illimitate•Atmosfera rilassata: Niente folla, solo divertimento",
+      "detail-important": "Porta con te: Passaporto (obbligatorio), telo mare, crema solare, occhiali da sole e tanta voglia di divertirti. In inverno porta una felpa leggera per il rientro.",
+      "detail-includes": "✓Transfer A/R da hotel (Bus Aria Condizionata)✓Biglietto ingresso Parco Ras Mohammed✓Pranzo a buffet preparato a bordo✓Bevande analcoliche illimitate tutto il giorno✓Guida Snorkeling parlante italiano",
+      "detail-program": "108:00Prelievo VIPIl nostro transfer privato ti verrà a prendere direttamente in hotel. Niente stress.209:00Imbarco e BenvenutoArrivo al porto, check-in rapido e benvenuto a bordo con briefing sulla sicurezza.310:30Snorkeling a Ras MohammedPrima sosta guidata per ammirare i coralli millenari e pesci coloratissimi.412:30Magic White IslandSbarco sulla famosa lingua di sabbia bianca. Tempo libero per foto instagrammabili e relax in acqua.513:30Pranzo con VistaRicco buffet a bordo (pesce, carne, riso, insalate) preparato fresco dallo chef.614:30Ultimo Tuffo o RelaxSeconda sosta snorkeling o tempo per godersi il sole mentre navighiamo.716:30RientroRitorno al porto e trasferimento comodo verso il tuo hotel.",
+      "detail-title": "Ras Mohammed & White Island: L'Esperienza VIP",
+      "live-total-price": "€40"
+    },
+    "height": 900,
+    "images": [
+      {
+        "alt": "Trip Image",
+        "complete": true,
+        "width": 720
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      }
+    ],
+    "lang": "it",
+    "overflow": false,
+    "priceMarkers": 0,
+    "priceText": "€40",
+    "width": 1440
+  },
+  {
+    "locale": "it",
+    "kind": "package",
+    "size": "desktop",
+    "version": "legacy",
+    "cards": [],
+    "details": {
+      "detail-desc": "Il paradiso per chi vive con le pinne ai piedi. 4 Escursioni marine complete: Ras Mohammed (Mare e Terra), Tiran e il leggendario Blue Hole.",
+      "detail-duration": "6 Giorni (Full Immersion Mare)",
+      "detail-excludes": "Voli internazionali e HotelNoleggio attrezzatura snorkeling (maschera, pinne, muta)Mance per l'equipaggioFoto subacquee professionali",
+      "detail-full-desc": "Hai scelto Sharm per la sua barriera corallina unica al mondo? Questo è il tuo pacchetto. Abbiamo eliminato tutto il resto per concentrarci solo sul mare. Ogni giorno ti porteremo in uno spot diverso: dalle acque cristalline dell'Isola Bianca ai misteriosi relitti di Tiran, passando per la profondità del Blue Hole e la natura selvaggia di Ras Mohammed via terra. Un'immersione totale nel blu, con il massimo comfort.",
+      "detail-highlights": "4 Giornate di Mare incluse (Massimizza la vacanza)Mix perfetto tra Barche di lusso e Snorkeling da spiaggiaVisita completa a Ras Mohammed (via Mare e via Terra)Tutti i pranzi e le bevande durante le escursioni inclusi",
+      "detail-important": "Obbligatorio il passaporto (visto 'Sinai Only' o visto completo a seconda della durata). Portare asciugamani e crema solare ogni giorno. È possibile noleggiare l'attrezzatura il primo giorno.",
+      "detail-includes": "Tutti i trasferimenti (Barca, Bus, Jeep, Auto privata)Biglietti d'ingresso ai Parchi Nazionali (Ras Mohammed/Blue Hole)Pranzo a buffet o beduino + bevande in tutte le escursioniGuida snorkeling professionale in acquaTasse marine e permessi",
+      "detail-program": "GIORNO 1Arrivo & RelaxAtterraggio a Sharm, trasferimento privato in hotel. Tempo libero per ambientarsi e preparare l'attrezzatura per la settimana di mare.GIORNO 2Le Maldive d'Egitto (Isola Bianca)Si inizia alla grande. Giornata in Yacht VIP verso Ras Mohammed con sosta speciale sulla lingua di sabbia bianca che appare in mezzo al mare. Snorkeling guidato e pranzo a bordo.GIORNO 3Ras Mohammed via Terra (Natura)Oggi scopriamo il Parco Nazionale da una prospettiva diversa. Bus trip verso la Porta di Allah, bagno nel Lago Magico e snorkeling dalla spiaggia di Yolanda Reef. Un contatto diretto con la natura incontaminata.GIORNO 4La Leggenda: Blue Hole & DahabViaggio in Jeep verso la mecca dei subacquei: il Blue Hole. Snorkeling in questo abisso blu profondo, pranzo beduino sul mare e visita alla cittadina rilassata di Dahab.GIORNO 5Lagune & Relitti: Isola di TiranGiornata di relax totale in barca verso l'Isola di Tiran. Vedremo i famosi relitti incagliati e faremo snorkeling nelle lagune turchesi più tranquille di Sharm.GIORNO 6Ultimo Tuffo & SalutiMattinata libera, check-out e trasferimento privato verso l'aeroporto. Si torna a casa con l'abbronzatura perfetta.",
+      "detail-title": "Il Grande Blu: I Tesori del Mar Rosso",
+      "live-total-price": "€180"
+    },
+    "height": 900,
+    "images": [
+      {
+        "alt": "Package Image",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      }
+    ],
+    "lang": "it",
+    "overflow": false,
+    "priceMarkers": 3,
+    "priceText": "€200€180",
+    "width": 1440
+  },
+  {
+    "locale": "it",
+    "kind": "package",
+    "size": "desktop",
+    "version": "astro",
+    "cards": [],
+    "details": {
+      "detail-desc": "Il paradiso per chi vive con le pinne ai piedi. 4 Escursioni marine complete: Ras Mohammed (Mare e Terra), Tiran e il leggendario Blue Hole.",
+      "detail-duration": "6 Giorni (Full Immersion Mare)",
+      "detail-excludes": "Voli internazionali e HotelNoleggio attrezzatura snorkeling (maschera, pinne, muta)Mance per l'equipaggioFoto subacquee professionali",
+      "detail-full-desc": "Hai scelto Sharm per la sua barriera corallina unica al mondo? Questo è il tuo pacchetto. Abbiamo eliminato tutto il resto per concentrarci solo sul mare. Ogni giorno ti porteremo in uno spot diverso: dalle acque cristalline dell'Isola Bianca ai misteriosi relitti di Tiran, passando per la profondità del Blue Hole e la natura selvaggia di Ras Mohammed via terra. Un'immersione totale nel blu, con il massimo comfort.",
+      "detail-highlights": "4 Giornate di Mare incluse (Massimizza la vacanza)Mix perfetto tra Barche di lusso e Snorkeling da spiaggiaVisita completa a Ras Mohammed (via Mare e via Terra)Tutti i pranzi e le bevande durante le escursioni inclusi",
+      "detail-important": "Obbligatorio il passaporto (visto 'Sinai Only' o visto completo a seconda della durata). Portare asciugamani e crema solare ogni giorno. È possibile noleggiare l'attrezzatura il primo giorno.",
+      "detail-includes": "Tutti i trasferimenti (Barca, Bus, Jeep, Auto privata)Biglietti d'ingresso ai Parchi Nazionali (Ras Mohammed/Blue Hole)Pranzo a buffet o beduino + bevande in tutte le escursioniGuida snorkeling professionale in acquaTasse marine e permessi",
+      "detail-program": "GIORNO 1Arrivo & RelaxAtterraggio a Sharm, trasferimento privato in hotel. Tempo libero per ambientarsi e preparare l'attrezzatura per la settimana di mare.GIORNO 2Le Maldive d'Egitto (Isola Bianca)Si inizia alla grande. Giornata in Yacht VIP verso Ras Mohammed con sosta speciale sulla lingua di sabbia bianca che appare in mezzo al mare. Snorkeling guidato e pranzo a bordo.GIORNO 3Ras Mohammed via Terra (Natura)Oggi scopriamo il Parco Nazionale da una prospettiva diversa. Bus trip verso la Porta di Allah, bagno nel Lago Magico e snorkeling dalla spiaggia di Yolanda Reef. Un contatto diretto con la natura incontaminata.GIORNO 4La Leggenda: Blue Hole & DahabViaggio in Jeep verso la mecca dei subacquei: il Blue Hole. Snorkeling in questo abisso blu profondo, pranzo beduino sul mare e visita alla cittadina rilassata di Dahab.GIORNO 5Lagune & Relitti: Isola di TiranGiornata di relax totale in barca verso l'Isola di Tiran. Vedremo i famosi relitti incagliati e faremo snorkeling nelle lagune turchesi più tranquille di Sharm.GIORNO 6Ultimo Tuffo & SalutiMattinata libera, check-out e trasferimento privato verso l'aeroporto. Si torna a casa con l'abbronzatura perfetta.",
+      "detail-title": "Il Grande Blu: I Tesori del Mar Rosso",
+      "live-total-price": "€180"
+    },
+    "height": 900,
+    "images": [
+      {
+        "alt": "Package Image",
+        "complete": true,
+        "width": 720
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      }
+    ],
+    "lang": "it",
+    "overflow": false,
+    "priceMarkers": 0,
+    "priceText": "€180",
+    "width": 1440
+  },
+  {
+    "locale": "it",
+    "kind": "explore",
+    "size": "mobile",
+    "version": "legacy",
+    "cards": [
+      {
+        "badge": "Top 🔥",
+        "description": "Un viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.",
+        "id": "ras_mohammed_bus_half_day",
+        "image": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+        "price": "€30",
+        "title": "Ras Mohammed Nature Explorer: Il Parco via Terra"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+        "id": "ras_mohammed_white_island_vip",
+        "image": "Ras Mohammed & White Island: L'Esperienza VIP",
+        "price": "€40",
+        "title": "Ras Mohammed & White Island: L'Esperienza VIP"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "L'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.",
+        "id": "super_safari_5_senses",
+        "image": "Super Safari: I 5 Sensi del Sinai",
+        "price": "€55",
+        "title": "Super Safari: I 5 Sensi del Sinai"
+      },
+      {
+        "badge": "",
+        "description": "Un'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.",
+        "id": "dolphin_show_family",
+        "image": "Dolphin Show: Emozioni per tutta la Famiglia",
+        "price": "€25",
+        "title": "Dolphin Show: Emozioni per tutta la Famiglia"
+      },
+      {
+        "badge": "",
+        "description": "Il tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!",
+        "id": "sharm_old_market_ultimate_shopping",
+        "image": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+        "price": "€25",
+        "title": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto"
+      },
+      {
+        "badge": "",
+        "description": "Adrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.",
+        "id": "moto_safari_quad_echo",
+        "image": "Moto Safari: Quad, Tramonto & Valle dell'Eco",
+        "price": "€30",
+        "title": "Moto Safari: Quad, Tramonto & Valle dell'Eco"
+      },
+      {
+        "badge": "",
+        "description": "Una serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.",
+        "id": "dinner_cruise_night_show",
+        "image": "Notte Magica: Cena di Pesce & Show Orientale",
+        "price": "€35",
+        "title": "Notte Magica: Cena di Pesce & Show Orientale"
+      },
+      {
+        "badge": "",
+        "description": "Naviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.",
+        "id": "tiran_island_boat_vip",
+        "image": "Isola di Tiran VIP: Relitti e Barriere Coralline",
+        "price": "€40",
+        "title": "Isola di Tiran VIP: Relitti e Barriere Coralline"
+      },
+      {
+        "badge": "",
+        "description": "La vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.",
+        "id": "dahab_blue_hole_super_safari",
+        "image": "Dahab Adventure: Blue Hole, Cammelli & Canyon",
+        "price": "€40",
+        "title": "Dahab Adventure: Blue Hole, Cammelli & Canyon"
+      }
+    ],
+    "details": {
+      "detail-desc": "",
+      "detail-duration": "",
+      "detail-excludes": "",
+      "detail-full-desc": "",
+      "detail-highlights": "",
+      "detail-important": "",
+      "detail-includes": "",
+      "detail-program": "",
+      "detail-title": "",
+      "live-total-price": ""
+    },
+    "height": 844,
+    "images": [
+      {
+        "alt": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+        "complete": true,
+        "width": 600
+      }
+    ],
+    "lang": "it",
+    "overflow": false,
+    "priceMarkers": 24,
+    "width": 390
+  },
+  {
+    "locale": "it",
+    "kind": "explore",
+    "size": "mobile",
+    "version": "astro",
+    "cards": [
+      {
+        "badge": "Top 🔥",
+        "description": "Un viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.",
+        "id": "ras_mohammed_bus_half_day",
+        "image": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+        "price": "€30",
+        "title": "Ras Mohammed Nature Explorer: Il Parco via Terra"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+        "id": "ras_mohammed_white_island_vip",
+        "image": "Ras Mohammed & White Island: L'Esperienza VIP",
+        "price": "€40",
+        "title": "Ras Mohammed & White Island: L'Esperienza VIP"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "L'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.",
+        "id": "super_safari_5_senses",
+        "image": "Super Safari: I 5 Sensi del Sinai",
+        "price": "€55",
+        "title": "Super Safari: I 5 Sensi del Sinai"
+      },
+      {
+        "badge": "",
+        "description": "Un'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.",
+        "id": "dolphin_show_family",
+        "image": "Dolphin Show: Emozioni per tutta la Famiglia",
+        "price": "€25",
+        "title": "Dolphin Show: Emozioni per tutta la Famiglia"
+      },
+      {
+        "badge": "",
+        "description": "Il tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!",
+        "id": "sharm_old_market_ultimate_shopping",
+        "image": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto",
+        "price": "€25",
+        "title": "Sharm Vecchia: Moschea, Fashion & L'India d'Egitto"
+      },
+      {
+        "badge": "",
+        "description": "Adrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.",
+        "id": "moto_safari_quad_echo",
+        "image": "Moto Safari: Quad, Tramonto & Valle dell'Eco",
+        "price": "€30",
+        "title": "Moto Safari: Quad, Tramonto & Valle dell'Eco"
+      },
+      {
+        "badge": "",
+        "description": "Una serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.",
+        "id": "dinner_cruise_night_show",
+        "image": "Notte Magica: Cena di Pesce & Show Orientale",
+        "price": "€35",
+        "title": "Notte Magica: Cena di Pesce & Show Orientale"
+      },
+      {
+        "badge": "",
+        "description": "Naviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.",
+        "id": "tiran_island_boat_vip",
+        "image": "Isola di Tiran VIP: Relitti e Barriere Coralline",
+        "price": "€40",
+        "title": "Isola di Tiran VIP: Relitti e Barriere Coralline"
+      },
+      {
+        "badge": "",
+        "description": "La vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.",
+        "id": "dahab_blue_hole_super_safari",
+        "image": "Dahab Adventure: Blue Hole, Cammelli & Canyon",
+        "price": "€40",
+        "title": "Dahab Adventure: Blue Hole, Cammelli & Canyon"
+      }
+    ],
+    "details": {
+      "detail-desc": "",
+      "detail-duration": "",
+      "detail-excludes": "",
+      "detail-full-desc": "",
+      "detail-highlights": "",
+      "detail-important": "",
+      "detail-includes": "",
+      "detail-program": "",
+      "detail-title": "",
+      "live-total-price": ""
+    },
+    "height": 844,
+    "images": [
+      {
+        "alt": "Ras Mohammed Nature Explorer: Il Parco via Terra",
+        "complete": true,
+        "width": 390
+      }
+    ],
+    "lang": "it",
+    "overflow": false,
+    "priceMarkers": 0,
+    "width": 390
+  },
+  {
+    "locale": "it",
+    "kind": "tour",
+    "size": "mobile",
+    "version": "legacy",
+    "cards": [],
+    "details": {
+      "detail-desc": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+      "detail-duration": "8-9 Ore (Giornata Intera)",
+      "detail-excludes": "× Noleggio attrezzatura snorkeling (maschera/pinne - opzionale) × Servizio foto/video professionale × Mance (a discrezione)",
+      "detail-full-desc": "Non è la solita gita in barca, è una giornata indimenticabile firmata Amico Fabio. Salperemo verso il Parco Nazionale di Ras Mohammed, dove il deserto incontra il mare più blu che abbiate mai visto. La tappa principale? L'Isola Bianca (Isola che non c'è): una lingua di sabbia bianca che appare e scompare con la marea, creando una piscina naturale degna delle Maldive. Tra un tuffo e l'altro, il nostro chef di bordo preparerà un pranzo a buffet fresco e gustoso. Che tu voglia esplorare i fondali con le nostre guide esperte o semplicemente abbronzarti sul ponte sole, questa è l'escursione perfetta per combinare avventura e totale relax.",
+      "detail-highlights": "• Sosta esclusiva all'Isola Bianca (L'Isola che non c'è) • 2 tappe snorkeling sulla barriera corallina più bella del mondo • Pranzo fresco a bordo con bevande illimitate • Atmosfera rilassata: Niente folla, solo divertimento",
+      "detail-important": "Porta con te: Passaporto (obbligatorio), telo mare, crema solare, occhiali da sole e tanta voglia di divertirti. In inverno porta una felpa leggera per il rientro.",
+      "detail-includes": "✓ Transfer A/R da hotel (Bus Aria Condizionata) ✓ Biglietto ingresso Parco Ras Mohammed ✓ Pranzo a buffet preparato a bordo ✓ Bevande analcoliche illimitate tutto il giorno ✓ Guida Snorkeling parlante italiano",
+      "detail-program": "1 08:00 Prelievo VIP Il nostro transfer privato ti verrà a prendere direttamente in hotel. Niente stress. 2 09:00 Imbarco e Benvenuto Arrivo al porto, check-in rapido e benvenuto a bordo con briefing sulla sicurezza. 3 10:30 Snorkeling a Ras Mohammed Prima sosta guidata per ammirare i coralli millenari e pesci coloratissimi. 4 12:30 Magic White Island Sbarco sulla famosa lingua di sabbia bianca. Tempo libero per foto instagrammabili e relax in acqua. 5 13:30 Pranzo con Vista Ricco buffet a bordo (pesce, carne, riso, insalate) preparato fresco dallo chef. 6 14:30 Ultimo Tuffo o Relax Seconda sosta snorkeling o tempo per godersi il sole mentre navighiamo. 7 16:30 Rientro Ritorno al porto e trasferimento comodo verso il tuo hotel.",
+      "detail-title": "Ras Mohammed & White Island: L'Esperienza VIP",
+      "live-total-price": "€40"
+    },
+    "height": 844,
+    "images": [
+      {
+        "alt": "Trip Image",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": false,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": false,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "",
+        "complete": false,
+        "width": 0
+      }
+    ],
+    "lang": "it",
+    "overflow": false,
+    "priceMarkers": 2,
+    "priceText": "€45€40",
+    "width": 390
+  },
+  {
+    "locale": "it",
+    "kind": "tour",
+    "size": "mobile",
+    "version": "astro",
+    "cards": [],
+    "details": {
+      "detail-desc": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+      "detail-duration": "8-9 Ore (Giornata Intera)",
+      "detail-excludes": "×Noleggio attrezzatura snorkeling (maschera/pinne - opzionale)×Servizio foto/video professionale×Mance (a discrezione)",
+      "detail-full-desc": "Non è la solita gita in barca, è una giornata indimenticabile firmata Amico Fabio. Salperemo verso il Parco Nazionale di Ras Mohammed, dove il deserto incontra il mare più blu che abbiate mai visto. La tappa principale? L'Isola Bianca (Isola che non c'è): una lingua di sabbia bianca che appare e scompare con la marea, creando una piscina naturale degna delle Maldive. Tra un tuffo e l'altro, il nostro chef di bordo preparerà un pranzo a buffet fresco e gustoso. Che tu voglia esplorare i fondali con le nostre guide esperte o semplicemente abbronzarti sul ponte sole, questa è l'escursione perfetta per combinare avventura e totale relax.",
+      "detail-highlights": "•Sosta esclusiva all'Isola Bianca (L'Isola che non c'è)•2 tappe snorkeling sulla barriera corallina più bella del mondo•Pranzo fresco a bordo con bevande illimitate•Atmosfera rilassata: Niente folla, solo divertimento",
+      "detail-important": "Porta con te: Passaporto (obbligatorio), telo mare, crema solare, occhiali da sole e tanta voglia di divertirti. In inverno porta una felpa leggera per il rientro.",
+      "detail-includes": "✓Transfer A/R da hotel (Bus Aria Condizionata)✓Biglietto ingresso Parco Ras Mohammed✓Pranzo a buffet preparato a bordo✓Bevande analcoliche illimitate tutto il giorno✓Guida Snorkeling parlante italiano",
+      "detail-program": "108:00Prelievo VIPIl nostro transfer privato ti verrà a prendere direttamente in hotel. Niente stress.209:00Imbarco e BenvenutoArrivo al porto, check-in rapido e benvenuto a bordo con briefing sulla sicurezza.310:30Snorkeling a Ras MohammedPrima sosta guidata per ammirare i coralli millenari e pesci coloratissimi.412:30Magic White IslandSbarco sulla famosa lingua di sabbia bianca. Tempo libero per foto instagrammabili e relax in acqua.513:30Pranzo con VistaRicco buffet a bordo (pesce, carne, riso, insalate) preparato fresco dallo chef.614:30Ultimo Tuffo o RelaxSeconda sosta snorkeling o tempo per godersi il sole mentre navighiamo.716:30RientroRitorno al porto e trasferimento comodo verso il tuo hotel.",
+      "detail-title": "Ras Mohammed & White Island: L'Esperienza VIP",
+      "live-total-price": "€40"
+    },
+    "height": 844,
+    "images": [
+      {
+        "alt": "Trip Image",
+        "complete": true,
+        "width": 390
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      }
+    ],
+    "lang": "it",
+    "overflow": false,
+    "priceMarkers": 0,
+    "priceText": "€40",
+    "width": 390
+  },
+  {
+    "locale": "it",
+    "kind": "package",
+    "size": "mobile",
+    "version": "legacy",
+    "cards": [],
+    "details": {
+      "detail-desc": "Il paradiso per chi vive con le pinne ai piedi. 4 Escursioni marine complete: Ras Mohammed (Mare e Terra), Tiran e il leggendario Blue Hole.",
+      "detail-duration": "6 Giorni (Full Immersion Mare)",
+      "detail-excludes": "Voli internazionali e HotelNoleggio attrezzatura snorkeling (maschera, pinne, muta)Mance per l'equipaggioFoto subacquee professionali",
+      "detail-full-desc": "Hai scelto Sharm per la sua barriera corallina unica al mondo? Questo è il tuo pacchetto. Abbiamo eliminato tutto il resto per concentrarci solo sul mare. Ogni giorno ti porteremo in uno spot diverso: dalle acque cristalline dell'Isola Bianca ai misteriosi relitti di Tiran, passando per la profondità del Blue Hole e la natura selvaggia di Ras Mohammed via terra. Un'immersione totale nel blu, con il massimo comfort.",
+      "detail-highlights": "4 Giornate di Mare incluse (Massimizza la vacanza)Mix perfetto tra Barche di lusso e Snorkeling da spiaggiaVisita completa a Ras Mohammed (via Mare e via Terra)Tutti i pranzi e le bevande durante le escursioni inclusi",
+      "detail-important": "Obbligatorio il passaporto (visto 'Sinai Only' o visto completo a seconda della durata). Portare asciugamani e crema solare ogni giorno. È possibile noleggiare l'attrezzatura il primo giorno.",
+      "detail-includes": "Tutti i trasferimenti (Barca, Bus, Jeep, Auto privata)Biglietti d'ingresso ai Parchi Nazionali (Ras Mohammed/Blue Hole)Pranzo a buffet o beduino + bevande in tutte le escursioniGuida snorkeling professionale in acquaTasse marine e permessi",
+      "detail-program": "GIORNO 1Arrivo & RelaxAtterraggio a Sharm, trasferimento privato in hotel. Tempo libero per ambientarsi e preparare l'attrezzatura per la settimana di mare.GIORNO 2Le Maldive d'Egitto (Isola Bianca)Si inizia alla grande. Giornata in Yacht VIP verso Ras Mohammed con sosta speciale sulla lingua di sabbia bianca che appare in mezzo al mare. Snorkeling guidato e pranzo a bordo.GIORNO 3Ras Mohammed via Terra (Natura)Oggi scopriamo il Parco Nazionale da una prospettiva diversa. Bus trip verso la Porta di Allah, bagno nel Lago Magico e snorkeling dalla spiaggia di Yolanda Reef. Un contatto diretto con la natura incontaminata.GIORNO 4La Leggenda: Blue Hole & DahabViaggio in Jeep verso la mecca dei subacquei: il Blue Hole. Snorkeling in questo abisso blu profondo, pranzo beduino sul mare e visita alla cittadina rilassata di Dahab.GIORNO 5Lagune & Relitti: Isola di TiranGiornata di relax totale in barca verso l'Isola di Tiran. Vedremo i famosi relitti incagliati e faremo snorkeling nelle lagune turchesi più tranquille di Sharm.GIORNO 6Ultimo Tuffo & SalutiMattinata libera, check-out e trasferimento privato verso l'aeroporto. Si torna a casa con l'abbronzatura perfetta.",
+      "detail-title": "Il Grande Blu: I Tesori del Mar Rosso",
+      "live-total-price": "€180"
+    },
+    "height": 844,
+    "images": [
+      {
+        "alt": "Package Image",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      }
+    ],
+    "lang": "it",
+    "overflow": false,
+    "priceMarkers": 3,
+    "priceText": "€200€180",
+    "width": 390
+  },
+  {
+    "locale": "it",
+    "kind": "package",
+    "size": "mobile",
+    "version": "astro",
+    "cards": [],
+    "details": {
+      "detail-desc": "Il paradiso per chi vive con le pinne ai piedi. 4 Escursioni marine complete: Ras Mohammed (Mare e Terra), Tiran e il leggendario Blue Hole.",
+      "detail-duration": "6 Giorni (Full Immersion Mare)",
+      "detail-excludes": "Voli internazionali e HotelNoleggio attrezzatura snorkeling (maschera, pinne, muta)Mance per l'equipaggioFoto subacquee professionali",
+      "detail-full-desc": "Hai scelto Sharm per la sua barriera corallina unica al mondo? Questo è il tuo pacchetto. Abbiamo eliminato tutto il resto per concentrarci solo sul mare. Ogni giorno ti porteremo in uno spot diverso: dalle acque cristalline dell'Isola Bianca ai misteriosi relitti di Tiran, passando per la profondità del Blue Hole e la natura selvaggia di Ras Mohammed via terra. Un'immersione totale nel blu, con il massimo comfort.",
+      "detail-highlights": "4 Giornate di Mare incluse (Massimizza la vacanza)Mix perfetto tra Barche di lusso e Snorkeling da spiaggiaVisita completa a Ras Mohammed (via Mare e via Terra)Tutti i pranzi e le bevande durante le escursioni inclusi",
+      "detail-important": "Obbligatorio il passaporto (visto 'Sinai Only' o visto completo a seconda della durata). Portare asciugamani e crema solare ogni giorno. È possibile noleggiare l'attrezzatura il primo giorno.",
+      "detail-includes": "Tutti i trasferimenti (Barca, Bus, Jeep, Auto privata)Biglietti d'ingresso ai Parchi Nazionali (Ras Mohammed/Blue Hole)Pranzo a buffet o beduino + bevande in tutte le escursioniGuida snorkeling professionale in acquaTasse marine e permessi",
+      "detail-program": "GIORNO 1Arrivo & RelaxAtterraggio a Sharm, trasferimento privato in hotel. Tempo libero per ambientarsi e preparare l'attrezzatura per la settimana di mare.GIORNO 2Le Maldive d'Egitto (Isola Bianca)Si inizia alla grande. Giornata in Yacht VIP verso Ras Mohammed con sosta speciale sulla lingua di sabbia bianca che appare in mezzo al mare. Snorkeling guidato e pranzo a bordo.GIORNO 3Ras Mohammed via Terra (Natura)Oggi scopriamo il Parco Nazionale da una prospettiva diversa. Bus trip verso la Porta di Allah, bagno nel Lago Magico e snorkeling dalla spiaggia di Yolanda Reef. Un contatto diretto con la natura incontaminata.GIORNO 4La Leggenda: Blue Hole & DahabViaggio in Jeep verso la mecca dei subacquei: il Blue Hole. Snorkeling in questo abisso blu profondo, pranzo beduino sul mare e visita alla cittadina rilassata di Dahab.GIORNO 5Lagune & Relitti: Isola di TiranGiornata di relax totale in barca verso l'Isola di Tiran. Vedremo i famosi relitti incagliati e faremo snorkeling nelle lagune turchesi più tranquille di Sharm.GIORNO 6Ultimo Tuffo & SalutiMattinata libera, check-out e trasferimento privato verso l'aeroporto. Si torna a casa con l'abbronzatura perfetta.",
+      "detail-title": "Il Grande Blu: I Tesori del Mar Rosso",
+      "live-total-price": "€180"
+    },
+    "height": 844,
+    "images": [
+      {
+        "alt": "Package Image",
+        "complete": true,
+        "width": 390
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      }
+    ],
+    "lang": "it",
+    "overflow": false,
+    "priceMarkers": 0,
+    "priceText": "€180",
+    "width": 390
+  },
+  {
+    "locale": "en",
+    "kind": "explore",
+    "size": "desktop",
+    "version": "legacy",
+    "cards": [
+      {
+        "badge": "Top 🔥",
+        "description": "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
+        "id": "ras_mohammed_bus_half_day",
+        "image": "Ras Mohammed Nature Explorer: The Park by Land",
+        "price": "€30",
+        "title": "Ras Mohammed Nature Explorer: The Park by Land"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+        "id": "ras_mohammed_white_island_vip",
+        "image": "Ras Mohammed & White Island: The VIP Experience",
+        "price": "€40",
+        "title": "Ras Mohammed & White Island: The VIP Experience"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "The ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.",
+        "id": "super_safari_5_senses",
+        "image": "Super Safari: 5 Senses of Sinai",
+        "price": "€55",
+        "title": "Super Safari: 5 Senses of Sinai"
+      },
+      {
+        "badge": "",
+        "description": "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
+        "id": "dolphin_show_family",
+        "image": "Dolphin Show: Thrills for the Whole Family",
+        "price": "€25",
+        "title": "Dolphin Show: Thrills for the Whole Family"
+      },
+      {
+        "badge": "",
+        "description": "The ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!",
+        "id": "sharm_old_market_ultimate_shopping",
+        "image": "Old Sharm: Mosque, Fashion & The India of Egypt",
+        "price": "€25",
+        "title": "Old Sharm: Mosque, Fashion & The India of Egypt"
+      },
+      {
+        "badge": "",
+        "description": "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
+        "id": "moto_safari_quad_echo",
+        "image": "Moto Safari: Quad, Sunset & Echo Valley",
+        "price": "€30",
+        "title": "Moto Safari: Quad, Sunset & Echo Valley"
+      },
+      {
+        "badge": "",
+        "description": "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
+        "id": "dinner_cruise_night_show",
+        "image": "Magic Night: Seafood Dinner & Oriental Show",
+        "price": "€35",
+        "title": "Magic Night: Seafood Dinner & Oriental Show"
+      },
+      {
+        "badge": "",
+        "description": "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
+        "id": "tiran_island_boat_vip",
+        "image": "Tiran Island VIP: Wrecks and Coral Reefs",
+        "price": "€40",
+        "title": "Tiran Island VIP: Wrecks and Coral Reefs"
+      },
+      {
+        "badge": "",
+        "description": "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
+        "id": "dahab_blue_hole_super_safari",
+        "image": "Dahab Adventure: Blue Hole, Camels & Canyon",
+        "price": "€40",
+        "title": "Dahab Adventure: Blue Hole, Camels & Canyon"
+      }
+    ],
+    "details": {
+      "detail-desc": "",
+      "detail-duration": "",
+      "detail-excludes": "",
+      "detail-full-desc": "",
+      "detail-highlights": "",
+      "detail-important": "",
+      "detail-includes": "",
+      "detail-program": "",
+      "detail-title": "",
+      "live-total-price": ""
+    },
+    "height": 900,
+    "images": [
+      {
+        "alt": "Ras Mohammed Nature Explorer: The Park by Land",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "Ras Mohammed & White Island: The VIP Experience",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "Super Safari: 5 Senses of Sinai",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "Dolphin Show: Thrills for the Whole Family",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "Old Sharm: Mosque, Fashion & The India of Egypt",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "Moto Safari: Quad, Sunset & Echo Valley",
+        "complete": true,
+        "width": 600
+      }
+    ],
+    "lang": "en",
+    "overflow": false,
+    "priceMarkers": 24,
+    "width": 1440
+  },
+  {
+    "locale": "en",
+    "kind": "explore",
+    "size": "desktop",
+    "version": "astro",
+    "cards": [
+      {
+        "badge": "Top 🔥",
+        "description": "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
+        "id": "ras_mohammed_bus_half_day",
+        "image": "Ras Mohammed Nature Explorer: The Park by Land",
+        "price": "€30",
+        "title": "Ras Mohammed Nature Explorer: The Park by Land"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+        "id": "ras_mohammed_white_island_vip",
+        "image": "Ras Mohammed & White Island: The VIP Experience",
+        "price": "€40",
+        "title": "Ras Mohammed & White Island: The VIP Experience"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "The ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.",
+        "id": "super_safari_5_senses",
+        "image": "Super Safari: 5 Senses of Sinai",
+        "price": "€55",
+        "title": "Super Safari: 5 Senses of Sinai"
+      },
+      {
+        "badge": "",
+        "description": "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
+        "id": "dolphin_show_family",
+        "image": "Dolphin Show: Thrills for the Whole Family",
+        "price": "€25",
+        "title": "Dolphin Show: Thrills for the Whole Family"
+      },
+      {
+        "badge": "",
+        "description": "The ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!",
+        "id": "sharm_old_market_ultimate_shopping",
+        "image": "Old Sharm: Mosque, Fashion & The India of Egypt",
+        "price": "€25",
+        "title": "Old Sharm: Mosque, Fashion & The India of Egypt"
+      },
+      {
+        "badge": "",
+        "description": "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
+        "id": "moto_safari_quad_echo",
+        "image": "Moto Safari: Quad, Sunset & Echo Valley",
+        "price": "€30",
+        "title": "Moto Safari: Quad, Sunset & Echo Valley"
+      },
+      {
+        "badge": "",
+        "description": "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
+        "id": "dinner_cruise_night_show",
+        "image": "Magic Night: Seafood Dinner & Oriental Show",
+        "price": "€35",
+        "title": "Magic Night: Seafood Dinner & Oriental Show"
+      },
+      {
+        "badge": "",
+        "description": "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
+        "id": "tiran_island_boat_vip",
+        "image": "Tiran Island VIP: Wrecks and Coral Reefs",
+        "price": "€40",
+        "title": "Tiran Island VIP: Wrecks and Coral Reefs"
+      },
+      {
+        "badge": "",
+        "description": "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
+        "id": "dahab_blue_hole_super_safari",
+        "image": "Dahab Adventure: Blue Hole, Camels & Canyon",
+        "price": "€40",
+        "title": "Dahab Adventure: Blue Hole, Camels & Canyon"
+      }
+    ],
+    "details": {
+      "detail-desc": "",
+      "detail-duration": "",
+      "detail-excludes": "",
+      "detail-full-desc": "",
+      "detail-highlights": "",
+      "detail-important": "",
+      "detail-includes": "",
+      "detail-program": "",
+      "detail-title": "",
+      "live-total-price": ""
+    },
+    "height": 900,
+    "images": [
+      {
+        "alt": "Ras Mohammed Nature Explorer: The Park by Land",
+        "complete": true,
+        "width": 400
+      },
+      {
+        "alt": "Ras Mohammed & White Island: The VIP Experience",
+        "complete": true,
+        "width": 400
+      },
+      {
+        "alt": "Super Safari: 5 Senses of Sinai",
+        "complete": true,
+        "width": 400
+      },
+      {
+        "alt": "Dolphin Show: Thrills for the Whole Family",
+        "complete": true,
+        "width": 400
+      },
+      {
+        "alt": "Old Sharm: Mosque, Fashion & The India of Egypt",
+        "complete": true,
+        "width": 400
+      },
+      {
+        "alt": "Moto Safari: Quad, Sunset & Echo Valley",
+        "complete": true,
+        "width": 400
+      }
+    ],
+    "lang": "en",
+    "overflow": false,
+    "priceMarkers": 0,
+    "width": 1440
+  },
+  {
+    "locale": "en",
+    "kind": "tour",
+    "size": "desktop",
+    "version": "legacy",
+    "cards": [],
+    "details": {
+      "detail-desc": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+      "detail-duration": "8-9 Hours (Full Day)",
+      "detail-excludes": "× Snorkeling equipment rental (mask/fins - optional) × Professional photo/video service × Tips (at your discretion)",
+      "detail-full-desc": "It’s not just another boat trip, it’s an unforgettable day signed by Amico Fabio. We will set sail to Ras Mohammed National Park, where the desert meets the bluest sea you’ve ever seen. The main stop? White Island: a tongue of white sand that appears and disappears with the tide, creating a natural pool worthy of the Maldives. Between dives, our onboard chef will prepare a fresh and tasty buffet lunch. Whether you want to explore the seabed with our expert guides or just sunbathe on the sun deck, this is the perfect excursion to combine adventure and total relaxation.",
+      "detail-highlights": "• Exclusive stop at the White Island (The Neverland Island) • 2 snorkeling stops on the world's most beautiful coral reef • Fresh lunch on board with unlimited drinks • Relaxed atmosphere: No crowds, just fun",
+      "detail-important": "Bring with you: Passport (mandatory), beach towel, sunscreen, sunglasses, and lots of energy. In winter, bring a light sweatshirt for the return.",
+      "detail-includes": "✓ R/T Hotel transfer (A/C Bus) ✓ Ras Mohammed National Park entry ticket ✓ Buffet lunch prepared on board ✓ Unlimited soft drinks all day ✓ Italian-speaking Snorkeling guide",
+      "detail-program": "1 08:00 VIP Pickup Our private transfer will pick you up directly at the hotel. No stress. 2 09:00 Boarding and Welcome Arrival at the port, quick check-in, and welcome on board with a safety briefing. 3 10:30 Snorkeling at Ras Mohammed First guided stop to admire millenary corals and colorful fish. 4 12:30 Magic White Island Landing on the famous white sand spit. Free time for Instagrammable photos and relaxation in the water. 5 13:30 Lunch with a View Rich buffet on board (fish, meat, rice, salads) freshly prepared by the chef. 6 14:30 Last Dive or Relaxation Second snorkeling stop or time to enjoy the sun while we sail. 7 16:30 Return Return to the port and comfortable transfer back to your hotel.",
+      "detail-title": "Ras Mohammed & White Island: The VIP Experience",
+      "live-total-price": "€40"
+    },
+    "height": 900,
+    "images": [
+      {
+        "alt": "Trip Image",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      }
+    ],
+    "lang": "en",
+    "overflow": false,
+    "priceMarkers": 2,
+    "priceText": "€45€40",
+    "width": 1440
+  },
+  {
+    "locale": "en",
+    "kind": "tour",
+    "size": "desktop",
+    "version": "astro",
+    "cards": [],
+    "details": {
+      "detail-desc": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+      "detail-duration": "8-9 Hours (Full Day)",
+      "detail-excludes": "×Snorkeling equipment rental (mask/fins - optional)×Professional photo/video service×Tips (at your discretion)",
+      "detail-full-desc": "It’s not just another boat trip, it’s an unforgettable day signed by Amico Fabio. We will set sail to Ras Mohammed National Park, where the desert meets the bluest sea you’ve ever seen. The main stop? White Island: a tongue of white sand that appears and disappears with the tide, creating a natural pool worthy of the Maldives. Between dives, our onboard chef will prepare a fresh and tasty buffet lunch. Whether you want to explore the seabed with our expert guides or just sunbathe on the sun deck, this is the perfect excursion to combine adventure and total relaxation.",
+      "detail-highlights": "•Exclusive stop at the White Island (The Neverland Island)•2 snorkeling stops on the world's most beautiful coral reef•Fresh lunch on board with unlimited drinks•Relaxed atmosphere: No crowds, just fun",
+      "detail-important": "Bring with you: Passport (mandatory), beach towel, sunscreen, sunglasses, and lots of energy. In winter, bring a light sweatshirt for the return.",
+      "detail-includes": "✓R/T Hotel transfer (A/C Bus)✓Ras Mohammed National Park entry ticket✓Buffet lunch prepared on board✓Unlimited soft drinks all day✓Italian-speaking Snorkeling guide",
+      "detail-program": "108:00VIP PickupOur private transfer will pick you up directly at the hotel. No stress.209:00Boarding and WelcomeArrival at the port, quick check-in, and welcome on board with a safety briefing.310:30Snorkeling at Ras MohammedFirst guided stop to admire millenary corals and colorful fish.412:30Magic White IslandLanding on the famous white sand spit. Free time for Instagrammable photos and relaxation in the water.513:30Lunch with a ViewRich buffet on board (fish, meat, rice, salads) freshly prepared by the chef.614:30Last Dive or RelaxationSecond snorkeling stop or time to enjoy the sun while we sail.716:30ReturnReturn to the port and comfortable transfer back to your hotel.",
+      "detail-title": "Ras Mohammed & White Island: The VIP Experience",
+      "live-total-price": "€40"
+    },
+    "height": 900,
+    "images": [
+      {
+        "alt": "Trip Image",
+        "complete": true,
+        "width": 960
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      }
+    ],
+    "lang": "en",
+    "overflow": false,
+    "priceMarkers": 0,
+    "priceText": "€40",
+    "width": 1440
+  },
+  {
+    "locale": "en",
+    "kind": "package",
+    "size": "desktop",
+    "version": "legacy",
+    "cards": [],
+    "details": {
+      "detail-desc": "Paradise for those who live with fins on. 4 Complete marine excursions: Ras Mohammed (Sea & Land), Tiran, and the legendary Blue Hole.",
+      "detail-duration": "6 Days (Full Sea Immersion)",
+      "detail-excludes": "International flights and HotelSnorkeling equipment rental (mask, fins, wetsuit)Tips for the crewProfessional underwater photos",
+      "detail-full-desc": "Did you choose Sharm for its world-unique coral reef? This is your package. We stripped away everything else to focus solely on the sea. Every day we'll take you to a different spot: from the crystal-clear waters of White Island to the mysterious shipwrecks of Tiran, passing through the depths of the Blue Hole and the wild nature of Ras Mohammed by land. A total immersion in the blue, with maximum comfort.",
+      "detail-highlights": "4 Sea Days included (Maximize your holiday)Perfect mix of Luxury Boats and Beach SnorkelingComplete visit to Ras Mohammed (by Sea and Land)All lunches and drinks during excursions included",
+      "detail-important": "Passport is mandatory ('Sinai Only' visa or full visa depending on duration). Bring towels and sunscreen every day. Equipment can be rented on the first day.",
+      "detail-includes": "All transfers (Boat, Bus, Jeep, Private Car)Entrance fees to National Parks (Ras Mohammed/Blue Hole)Buffet or Bedouin lunch + drinks on all excursionsProfessional snorkeling guide in the waterMarine taxes and permits",
+      "detail-program": "DAY 1Arrival & RelaxLanding in Sharm, private transfer to hotel. Free time to settle in and prepare equipment for the week of sea activities.DAY 2The Maldives of Egypt (White Island)Starting strong. VIP Yacht day towards Ras Mohammed with a special stop on the white sand strip appearing in the middle of the sea. Guided snorkeling and lunch on board.DAY 3Ras Mohammed by Land (Nature)Today we discover the National Park from a different perspective. Bus trip to the Gate of Allah, swimming in the Magic Lake, and snorkeling from Yolanda Reef beach. Direct contact with untouched nature.DAY 4The Legend: Blue Hole & DahabJeep trip to the divers' mecca: the Blue Hole. Snorkeling in this deep blue abyss, Bedouin lunch by the sea, and a visit to the relaxed town of Dahab.DAY 5Lagoons & Wrecks: Tiran IslandTotal relaxation day on the boat towards Tiran Island. We will see the famous stranded shipwrecks and snorkel in the quietest turquoise lagoons of Sharm.DAY 6Last Dip & FarewellFree morning, check-out, and private transfer to the airport. Heading home with the perfect tan.",
+      "detail-title": "The Big Blue: Treasures of the Red Sea",
+      "live-total-price": "€180"
+    },
+    "height": 900,
+    "images": [
+      {
+        "alt": "Package Image",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      }
+    ],
+    "lang": "en",
+    "overflow": false,
+    "priceMarkers": 3,
+    "priceText": "€200€180",
+    "width": 1440
+  },
+  {
+    "locale": "en",
+    "kind": "package",
+    "size": "desktop",
+    "version": "astro",
+    "cards": [],
+    "details": {
+      "detail-desc": "Paradise for those who live with fins on. 4 Complete marine excursions: Ras Mohammed (Sea & Land), Tiran, and the legendary Blue Hole.",
+      "detail-duration": "6 Days (Full Sea Immersion)",
+      "detail-excludes": "International flights and HotelSnorkeling equipment rental (mask, fins, wetsuit)Tips for the crewProfessional underwater photos",
+      "detail-full-desc": "Did you choose Sharm for its world-unique coral reef? This is your package. We stripped away everything else to focus solely on the sea. Every day we'll take you to a different spot: from the crystal-clear waters of White Island to the mysterious shipwrecks of Tiran, passing through the depths of the Blue Hole and the wild nature of Ras Mohammed by land. A total immersion in the blue, with maximum comfort.",
+      "detail-highlights": "4 Sea Days included (Maximize your holiday)Perfect mix of Luxury Boats and Beach SnorkelingComplete visit to Ras Mohammed (by Sea and Land)All lunches and drinks during excursions included",
+      "detail-important": "Passport is mandatory ('Sinai Only' visa or full visa depending on duration). Bring towels and sunscreen every day. Equipment can be rented on the first day.",
+      "detail-includes": "All transfers (Boat, Bus, Jeep, Private Car)Entrance fees to National Parks (Ras Mohammed/Blue Hole)Buffet or Bedouin lunch + drinks on all excursionsProfessional snorkeling guide in the waterMarine taxes and permits",
+      "detail-program": "DAY 1Arrival & RelaxLanding in Sharm, private transfer to hotel. Free time to settle in and prepare equipment for the week of sea activities.DAY 2The Maldives of Egypt (White Island)Starting strong. VIP Yacht day towards Ras Mohammed with a special stop on the white sand strip appearing in the middle of the sea. Guided snorkeling and lunch on board.DAY 3Ras Mohammed by Land (Nature)Today we discover the National Park from a different perspective. Bus trip to the Gate of Allah, swimming in the Magic Lake, and snorkeling from Yolanda Reef beach. Direct contact with untouched nature.DAY 4The Legend: Blue Hole & DahabJeep trip to the divers' mecca: the Blue Hole. Snorkeling in this deep blue abyss, Bedouin lunch by the sea, and a visit to the relaxed town of Dahab.DAY 5Lagoons & Wrecks: Tiran IslandTotal relaxation day on the boat towards Tiran Island. We will see the famous stranded shipwrecks and snorkel in the quietest turquoise lagoons of Sharm.DAY 6Last Dip & FarewellFree morning, check-out, and private transfer to the airport. Heading home with the perfect tan.",
+      "detail-title": "The Big Blue: Treasures of the Red Sea",
+      "live-total-price": "€180"
+    },
+    "height": 900,
+    "images": [
+      {
+        "alt": "Package Image",
+        "complete": true,
+        "width": 720
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      }
+    ],
+    "lang": "en",
+    "overflow": false,
+    "priceMarkers": 0,
+    "priceText": "€180",
+    "width": 1440
+  },
+  {
+    "locale": "en",
+    "kind": "explore",
+    "size": "mobile",
+    "version": "legacy",
+    "cards": [
+      {
+        "badge": "Top 🔥",
+        "description": "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
+        "id": "ras_mohammed_bus_half_day",
+        "image": "Ras Mohammed Nature Explorer: The Park by Land",
+        "price": "€30",
+        "title": "Ras Mohammed Nature Explorer: The Park by Land"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+        "id": "ras_mohammed_white_island_vip",
+        "image": "Ras Mohammed & White Island: The VIP Experience",
+        "price": "€40",
+        "title": "Ras Mohammed & White Island: The VIP Experience"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "The ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.",
+        "id": "super_safari_5_senses",
+        "image": "Super Safari: 5 Senses of Sinai",
+        "price": "€55",
+        "title": "Super Safari: 5 Senses of Sinai"
+      },
+      {
+        "badge": "",
+        "description": "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
+        "id": "dolphin_show_family",
+        "image": "Dolphin Show: Thrills for the Whole Family",
+        "price": "€25",
+        "title": "Dolphin Show: Thrills for the Whole Family"
+      },
+      {
+        "badge": "",
+        "description": "The ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!",
+        "id": "sharm_old_market_ultimate_shopping",
+        "image": "Old Sharm: Mosque, Fashion & The India of Egypt",
+        "price": "€25",
+        "title": "Old Sharm: Mosque, Fashion & The India of Egypt"
+      },
+      {
+        "badge": "",
+        "description": "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
+        "id": "moto_safari_quad_echo",
+        "image": "Moto Safari: Quad, Sunset & Echo Valley",
+        "price": "€30",
+        "title": "Moto Safari: Quad, Sunset & Echo Valley"
+      },
+      {
+        "badge": "",
+        "description": "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
+        "id": "dinner_cruise_night_show",
+        "image": "Magic Night: Seafood Dinner & Oriental Show",
+        "price": "€35",
+        "title": "Magic Night: Seafood Dinner & Oriental Show"
+      },
+      {
+        "badge": "",
+        "description": "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
+        "id": "tiran_island_boat_vip",
+        "image": "Tiran Island VIP: Wrecks and Coral Reefs",
+        "price": "€40",
+        "title": "Tiran Island VIP: Wrecks and Coral Reefs"
+      },
+      {
+        "badge": "",
+        "description": "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
+        "id": "dahab_blue_hole_super_safari",
+        "image": "Dahab Adventure: Blue Hole, Camels & Canyon",
+        "price": "€40",
+        "title": "Dahab Adventure: Blue Hole, Camels & Canyon"
+      }
+    ],
+    "details": {
+      "detail-desc": "",
+      "detail-duration": "",
+      "detail-excludes": "",
+      "detail-full-desc": "",
+      "detail-highlights": "",
+      "detail-important": "",
+      "detail-includes": "",
+      "detail-program": "",
+      "detail-title": "",
+      "live-total-price": ""
+    },
+    "height": 844,
+    "images": [
+      {
+        "alt": "Ras Mohammed Nature Explorer: The Park by Land",
+        "complete": true,
+        "width": 600
+      }
+    ],
+    "lang": "en",
+    "overflow": false,
+    "priceMarkers": 24,
+    "width": 390
+  },
+  {
+    "locale": "en",
+    "kind": "explore",
+    "size": "mobile",
+    "version": "astro",
+    "cards": [
+      {
+        "badge": "Top 🔥",
+        "description": "A journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.",
+        "id": "ras_mohammed_bus_half_day",
+        "image": "Ras Mohammed Nature Explorer: The Park by Land",
+        "price": "€30",
+        "title": "Ras Mohammed Nature Explorer: The Park by Land"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+        "id": "ras_mohammed_white_island_vip",
+        "image": "Ras Mohammed & White Island: The VIP Experience",
+        "price": "€40",
+        "title": "Ras Mohammed & White Island: The VIP Experience"
+      },
+      {
+        "badge": "Top 🔥",
+        "description": "The ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.",
+        "id": "super_safari_5_senses",
+        "image": "Super Safari: 5 Senses of Sinai",
+        "price": "€55",
+        "title": "Super Safari: 5 Senses of Sinai"
+      },
+      {
+        "badge": "",
+        "description": "An hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.",
+        "id": "dolphin_show_family",
+        "image": "Dolphin Show: Thrills for the Whole Family",
+        "price": "€25",
+        "title": "Dolphin Show: Thrills for the Whole Family"
+      },
+      {
+        "badge": "",
+        "description": "The ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!",
+        "id": "sharm_old_market_ultimate_shopping",
+        "image": "Old Sharm: Mosque, Fashion & The India of Egypt",
+        "price": "€25",
+        "title": "Old Sharm: Mosque, Fashion & The India of Egypt"
+      },
+      {
+        "badge": "",
+        "description": "Pure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.",
+        "id": "moto_safari_quad_echo",
+        "image": "Moto Safari: Quad, Sunset & Echo Valley",
+        "price": "€30",
+        "title": "Moto Safari: Quad, Sunset & Echo Valley"
+      },
+      {
+        "badge": "",
+        "description": "An unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.",
+        "id": "dinner_cruise_night_show",
+        "image": "Magic Night: Seafood Dinner & Oriental Show",
+        "price": "€35",
+        "title": "Magic Night: Seafood Dinner & Oriental Show"
+      },
+      {
+        "badge": "",
+        "description": "Sail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.",
+        "id": "tiran_island_boat_vip",
+        "image": "Tiran Island VIP: Wrecks and Coral Reefs",
+        "price": "€40",
+        "title": "Tiran Island VIP: Wrecks and Coral Reefs"
+      },
+      {
+        "badge": "",
+        "description": "The ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.",
+        "id": "dahab_blue_hole_super_safari",
+        "image": "Dahab Adventure: Blue Hole, Camels & Canyon",
+        "price": "€40",
+        "title": "Dahab Adventure: Blue Hole, Camels & Canyon"
+      }
+    ],
+    "details": {
+      "detail-desc": "",
+      "detail-duration": "",
+      "detail-excludes": "",
+      "detail-full-desc": "",
+      "detail-highlights": "",
+      "detail-important": "",
+      "detail-includes": "",
+      "detail-program": "",
+      "detail-title": "",
+      "live-total-price": ""
+    },
+    "height": 844,
+    "images": [
+      {
+        "alt": "Ras Mohammed Nature Explorer: The Park by Land",
+        "complete": true,
+        "width": 390
+      }
+    ],
+    "lang": "en",
+    "overflow": false,
+    "priceMarkers": 0,
+    "width": 390
+  },
+  {
+    "locale": "en",
+    "kind": "tour",
+    "size": "mobile",
+    "version": "legacy",
+    "cards": [],
+    "details": {
+      "detail-desc": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+      "detail-duration": "8-9 Hours (Full Day)",
+      "detail-excludes": "× Snorkeling equipment rental (mask/fins - optional) × Professional photo/video service × Tips (at your discretion)",
+      "detail-full-desc": "It’s not just another boat trip, it’s an unforgettable day signed by Amico Fabio. We will set sail to Ras Mohammed National Park, where the desert meets the bluest sea you’ve ever seen. The main stop? White Island: a tongue of white sand that appears and disappears with the tide, creating a natural pool worthy of the Maldives. Between dives, our onboard chef will prepare a fresh and tasty buffet lunch. Whether you want to explore the seabed with our expert guides or just sunbathe on the sun deck, this is the perfect excursion to combine adventure and total relaxation.",
+      "detail-highlights": "• Exclusive stop at the White Island (The Neverland Island) • 2 snorkeling stops on the world's most beautiful coral reef • Fresh lunch on board with unlimited drinks • Relaxed atmosphere: No crowds, just fun",
+      "detail-important": "Bring with you: Passport (mandatory), beach towel, sunscreen, sunglasses, and lots of energy. In winter, bring a light sweatshirt for the return.",
+      "detail-includes": "✓ R/T Hotel transfer (A/C Bus) ✓ Ras Mohammed National Park entry ticket ✓ Buffet lunch prepared on board ✓ Unlimited soft drinks all day ✓ Italian-speaking Snorkeling guide",
+      "detail-program": "1 08:00 VIP Pickup Our private transfer will pick you up directly at the hotel. No stress. 2 09:00 Boarding and Welcome Arrival at the port, quick check-in, and welcome on board with a safety briefing. 3 10:30 Snorkeling at Ras Mohammed First guided stop to admire millenary corals and colorful fish. 4 12:30 Magic White Island Landing on the famous white sand spit. Free time for Instagrammable photos and relaxation in the water. 5 13:30 Lunch with a View Rich buffet on board (fish, meat, rice, salads) freshly prepared by the chef. 6 14:30 Last Dive or Relaxation Second snorkeling stop or time to enjoy the sun while we sail. 7 16:30 Return Return to the port and comfortable transfer back to your hotel.",
+      "detail-title": "Ras Mohammed & White Island: The VIP Experience",
+      "live-total-price": "€40"
+    },
+    "height": 844,
+    "images": [
+      {
+        "alt": "Trip Image",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      }
+    ],
+    "lang": "en",
+    "overflow": false,
+    "priceMarkers": 2,
+    "priceText": "€45€40",
+    "width": 390
+  },
+  {
+    "locale": "en",
+    "kind": "tour",
+    "size": "mobile",
+    "version": "astro",
+    "cards": [],
+    "details": {
+      "detail-desc": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+      "detail-duration": "8-9 Hours (Full Day)",
+      "detail-excludes": "×Snorkeling equipment rental (mask/fins - optional)×Professional photo/video service×Tips (at your discretion)",
+      "detail-full-desc": "It’s not just another boat trip, it’s an unforgettable day signed by Amico Fabio. We will set sail to Ras Mohammed National Park, where the desert meets the bluest sea you’ve ever seen. The main stop? White Island: a tongue of white sand that appears and disappears with the tide, creating a natural pool worthy of the Maldives. Between dives, our onboard chef will prepare a fresh and tasty buffet lunch. Whether you want to explore the seabed with our expert guides or just sunbathe on the sun deck, this is the perfect excursion to combine adventure and total relaxation.",
+      "detail-highlights": "•Exclusive stop at the White Island (The Neverland Island)•2 snorkeling stops on the world's most beautiful coral reef•Fresh lunch on board with unlimited drinks•Relaxed atmosphere: No crowds, just fun",
+      "detail-important": "Bring with you: Passport (mandatory), beach towel, sunscreen, sunglasses, and lots of energy. In winter, bring a light sweatshirt for the return.",
+      "detail-includes": "✓R/T Hotel transfer (A/C Bus)✓Ras Mohammed National Park entry ticket✓Buffet lunch prepared on board✓Unlimited soft drinks all day✓Italian-speaking Snorkeling guide",
+      "detail-program": "108:00VIP PickupOur private transfer will pick you up directly at the hotel. No stress.209:00Boarding and WelcomeArrival at the port, quick check-in, and welcome on board with a safety briefing.310:30Snorkeling at Ras MohammedFirst guided stop to admire millenary corals and colorful fish.412:30Magic White IslandLanding on the famous white sand spit. Free time for Instagrammable photos and relaxation in the water.513:30Lunch with a ViewRich buffet on board (fish, meat, rice, salads) freshly prepared by the chef.614:30Last Dive or RelaxationSecond snorkeling stop or time to enjoy the sun while we sail.716:30ReturnReturn to the port and comfortable transfer back to your hotel.",
+      "detail-title": "Ras Mohammed & White Island: The VIP Experience",
+      "live-total-price": "€40"
+    },
+    "height": 844,
+    "images": [
+      {
+        "alt": "Trip Image",
+        "complete": true,
+        "width": 390
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": false,
+        "width": 0
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      }
+    ],
+    "lang": "en",
+    "overflow": false,
+    "priceMarkers": 0,
+    "priceText": "€40",
+    "width": 390
+  },
+  {
+    "locale": "en",
+    "kind": "package",
+    "size": "mobile",
+    "version": "legacy",
+    "cards": [],
+    "details": {
+      "detail-desc": "Paradise for those who live with fins on. 4 Complete marine excursions: Ras Mohammed (Sea & Land), Tiran, and the legendary Blue Hole.",
+      "detail-duration": "6 Days (Full Sea Immersion)",
+      "detail-excludes": "International flights and HotelSnorkeling equipment rental (mask, fins, wetsuit)Tips for the crewProfessional underwater photos",
+      "detail-full-desc": "Did you choose Sharm for its world-unique coral reef? This is your package. We stripped away everything else to focus solely on the sea. Every day we'll take you to a different spot: from the crystal-clear waters of White Island to the mysterious shipwrecks of Tiran, passing through the depths of the Blue Hole and the wild nature of Ras Mohammed by land. A total immersion in the blue, with maximum comfort.",
+      "detail-highlights": "4 Sea Days included (Maximize your holiday)Perfect mix of Luxury Boats and Beach SnorkelingComplete visit to Ras Mohammed (by Sea and Land)All lunches and drinks during excursions included",
+      "detail-important": "Passport is mandatory ('Sinai Only' visa or full visa depending on duration). Bring towels and sunscreen every day. Equipment can be rented on the first day.",
+      "detail-includes": "All transfers (Boat, Bus, Jeep, Private Car)Entrance fees to National Parks (Ras Mohammed/Blue Hole)Buffet or Bedouin lunch + drinks on all excursionsProfessional snorkeling guide in the waterMarine taxes and permits",
+      "detail-program": "DAY 1Arrival & RelaxLanding in Sharm, private transfer to hotel. Free time to settle in and prepare equipment for the week of sea activities.DAY 2The Maldives of Egypt (White Island)Starting strong. VIP Yacht day towards Ras Mohammed with a special stop on the white sand strip appearing in the middle of the sea. Guided snorkeling and lunch on board.DAY 3Ras Mohammed by Land (Nature)Today we discover the National Park from a different perspective. Bus trip to the Gate of Allah, swimming in the Magic Lake, and snorkeling from Yolanda Reef beach. Direct contact with untouched nature.DAY 4The Legend: Blue Hole & DahabJeep trip to the divers' mecca: the Blue Hole. Snorkeling in this deep blue abyss, Bedouin lunch by the sea, and a visit to the relaxed town of Dahab.DAY 5Lagoons & Wrecks: Tiran IslandTotal relaxation day on the boat towards Tiran Island. We will see the famous stranded shipwrecks and snorkel in the quietest turquoise lagoons of Sharm.DAY 6Last Dip & FarewellFree morning, check-out, and private transfer to the airport. Heading home with the perfect tan.",
+      "detail-title": "The Big Blue: Treasures of the Red Sea",
+      "live-total-price": "€180"
+    },
+    "height": 844,
+    "images": [
+      {
+        "alt": "Package Image",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 600
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      }
+    ],
+    "lang": "en",
+    "overflow": false,
+    "priceMarkers": 3,
+    "priceText": "€200€180",
+    "width": 390
+  },
+  {
+    "locale": "en",
+    "kind": "package",
+    "size": "mobile",
+    "version": "astro",
+    "cards": [],
+    "details": {
+      "detail-desc": "Paradise for those who live with fins on. 4 Complete marine excursions: Ras Mohammed (Sea & Land), Tiran, and the legendary Blue Hole.",
+      "detail-duration": "6 Days (Full Sea Immersion)",
+      "detail-excludes": "International flights and HotelSnorkeling equipment rental (mask, fins, wetsuit)Tips for the crewProfessional underwater photos",
+      "detail-full-desc": "Did you choose Sharm for its world-unique coral reef? This is your package. We stripped away everything else to focus solely on the sea. Every day we'll take you to a different spot: from the crystal-clear waters of White Island to the mysterious shipwrecks of Tiran, passing through the depths of the Blue Hole and the wild nature of Ras Mohammed by land. A total immersion in the blue, with maximum comfort.",
+      "detail-highlights": "4 Sea Days included (Maximize your holiday)Perfect mix of Luxury Boats and Beach SnorkelingComplete visit to Ras Mohammed (by Sea and Land)All lunches and drinks during excursions included",
+      "detail-important": "Passport is mandatory ('Sinai Only' visa or full visa depending on duration). Bring towels and sunscreen every day. Equipment can be rented on the first day.",
+      "detail-includes": "All transfers (Boat, Bus, Jeep, Private Car)Entrance fees to National Parks (Ras Mohammed/Blue Hole)Buffet or Bedouin lunch + drinks on all excursionsProfessional snorkeling guide in the waterMarine taxes and permits",
+      "detail-program": "DAY 1Arrival & RelaxLanding in Sharm, private transfer to hotel. Free time to settle in and prepare equipment for the week of sea activities.DAY 2The Maldives of Egypt (White Island)Starting strong. VIP Yacht day towards Ras Mohammed with a special stop on the white sand strip appearing in the middle of the sea. Guided snorkeling and lunch on board.DAY 3Ras Mohammed by Land (Nature)Today we discover the National Park from a different perspective. Bus trip to the Gate of Allah, swimming in the Magic Lake, and snorkeling from Yolanda Reef beach. Direct contact with untouched nature.DAY 4The Legend: Blue Hole & DahabJeep trip to the divers' mecca: the Blue Hole. Snorkeling in this deep blue abyss, Bedouin lunch by the sea, and a visit to the relaxed town of Dahab.DAY 5Lagoons & Wrecks: Tiran IslandTotal relaxation day on the boat towards Tiran Island. We will see the famous stranded shipwrecks and snorkel in the quietest turquoise lagoons of Sharm.DAY 6Last Dip & FarewellFree morning, check-out, and private transfer to the airport. Heading home with the perfect tan.",
+      "detail-title": "The Big Blue: Treasures of the Red Sea",
+      "live-total-price": "€180"
+    },
+    "height": 844,
+    "images": [
+      {
+        "alt": "Package Image",
+        "complete": true,
+        "width": 390
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 160
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "width": 800
+      }
+    ],
+    "lang": "en",
+    "overflow": false,
+    "priceMarkers": 0,
+    "priceText": "€180",
+    "width": 390
+  }
+]

@@ -23,9 +23,8 @@ for (const locale of ['it','en']) for (const location of exploreLocations) {
     const text = textOf(article);
     assert.ok(text.includes(normalize(card.offer.text[locale].title)),`${card.id}: missing title`);
     assert.ok(text.includes(normalize(card.offer.text[locale].short_desc)),`${card.id}: missing description`);
-    if (card.displayPrice > 0) assert.ok(text.includes(`€${card.displayPrice}`),`${card.id}: wrong displayed price`);
-    else assert.ok(article.includes('class="price-skeleton"'),`${card.id}: zero-base legacy display changed`);
-    if (card.discounted) { assert.ok(text.includes(`€${card.offer.prices.adultBase}`)); assert.ok(text.includes(`-${card.discountPercent}%`)); }
+    assert.ok(text.includes(`€${card.displayPrice}`),`${card.id}: wrong final price`);
+    assert.ok(!/class="[^"]*(?:price-old|deal-banner|discount-ribbon|deal-inline)/.test(article),`${card.id}: discount markup remains`);
     const badge = cardBadge(card,locale,messages);
     if (badge) assert.ok(text.includes(badge),`${card.id}: missing badge`);
     assert.ok(article.includes(`/${locale}/${card.kind === 'package' ? 'packages' : 'tours'}/${card.offer.slug}/`));
@@ -60,7 +59,7 @@ const interactions = JSON.parse(fs.readFileSync(path.join(workspace,'qa/explore/
 assert.equal(interactions.length,30); assert.ok(interactions.every(check=>check.equal));
 const pagination = JSON.parse(fs.readFileSync(path.join(workspace,'qa/explore/pagination.json'),'utf8'));
 assert.equal(pagination.length,6); assert.ok(pagination.every(check=>check.equal));
-console.log('16 bilingual desktop/mobile page comparisons, 30 filter/sort checks and 6 pagination checks match legacy.');
+console.log('Stored migration baseline: 16 page comparisons, 30 filter/sort checks and 6 pagination checks matched legacy before the approved single-price change. Run verify-single-price.mjs for current browser evidence.');
 for (const file of fs.readdirSync(path.join(workspace,'dist/_astro')).filter(file=>file.endsWith('.js'))) {
   assert.ok(!fs.readFileSync(path.join(workspace,'dist/_astro',file),'utf8').includes('docs.google.com/spreadsheets'),`${file}: spreadsheet access leaked into browser JavaScript`);
 }

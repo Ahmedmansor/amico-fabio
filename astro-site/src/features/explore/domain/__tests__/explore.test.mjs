@@ -26,23 +26,21 @@ test('location, category and all sort orders produce exactly the legacy IDs/orde
     }
   }
 });
-test('all card prices, discounts and badges match the real legacy card renderer', () => {
+test('all card prices use the final booking amount and retain existing editorial badges', () => {
   for (const locale of ['it','en']) {
     const m = getExploreMessages(locale);
     const dictionary = { global: { ...m.labels, badges:m.badges } };
     for (const card of cards) {
-      const legacyPrice = renderer._resolvePriceData(card.offer.source,dictionary,card.kind === 'package');
-      assert.ok(legacyPrice.priceRowHTML.includes(`€${card.displayPrice}`),card.id);
-      assert.equal(Boolean(legacyPrice.dealBannerHTML),card.discounted);
-      if (card.discounted) assert.ok(legacyPrice.dealBannerHTML.includes(`-${card.discountPercent}%`));
-      assert.equal(cardBadge(card,locale,m),renderer._resolveBadge(card.offer.source,locale,dictionary));
+      assert.equal(card.displayPrice,card.offer.prices.adult,card.id);
+      assert.deepEqual(Object.keys(card.offer.prices).sort(),['adult','child']);
+      assert.equal(cardBadge(card,locale,m),card.offer.source.badge_key==='HOT_DEAL'?'':renderer._resolveBadge(card.offer.source,locale,dictionary));
     }
   }
 });
-test('explicit zero discounts retain legacy card price while booking model remains zero', () => {
-  const offer = structuredClone(cards[0].offer); offer.prices.adultDiscount = 0; offer.prices.adult = 0;
+test('explicit zero is the same card, sort and booking amount', () => {
+  const offer = structuredClone(cards[0].offer); offer.prices.adult = 0;
   const card = toExploreCard(offer,'trip');
-  assert.equal(card.displayPrice,offer.prices.adultBase); assert.equal(card.discounted,false); assert.equal(card.offer.prices.adult,0);
+  assert.equal(card.displayPrice,0); assert.equal(card.offer.prices.adult,0);
 });
 test('pagination keeps nine per page, clamps invalid requests and supports empty results', () => {
   assert.equal(paginateExplore(cards,1).items.length,9);

@@ -1,5 +1,6 @@
 import { parseCsv } from '../domain/csv.ts';
 import { sheetSources, requiredColumns } from '../config/data-sources.ts';
+import { normalizeSheetRows } from './sheet-rows.mjs';
 
 /**
  * One provider boundary. A future provider implements read(name) and reset().
@@ -21,7 +22,7 @@ export function createGoogleSheetsProvider({ fetchImpl = fetch, timeoutMs = 5000
           const rows = parseCsv(body, name);
           if (!rows.length) throw new Error('No data rows');
           for (const column of requiredColumns[name]) if (!Object.hasOwn(rows[0], column)) throw new Error(`Missing CSV column ${column}`);
-          return rows;
+          return normalizeSheetRows(name, rows);
         } catch (error) {
           requests.delete(name);
           throw new Error(`[Google Sheets:${name}] ${error.message}`, { cause: error });

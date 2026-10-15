@@ -24,9 +24,10 @@ dependencies and deployment retain their separate approval rules.
 
 ## 1. Adopt one price while still using Sheets
 
-- Map `d_adult` -> `adult_price` and `d_child` -> `child_price` for both trips
-  and packages. Blank child -> 0; missing adult -> explicit build failure;
-  zero remains zero. No fallback to p_adult/p_child.
+- Map the nonblank `d_adult`/`d_child` amounts to `adult_price`/`child_price`.
+  When a d cell is blank, use its matching p cell. Both child cells blank -> 0;
+  both adult cells blank or an invalid selected amount -> explicit failure.
+  Explicit zero wins over p. Confirmed 2026-10-15; supersedes the d-only rule.
 - Remove base/discount properties from the active domain model and remove
   crossed-out prices, discount percentages, promotional price cards/messages.
   Do not remove unrelated Top/VIP/editorial badges or change promo-banner rules.
@@ -35,7 +36,7 @@ dependencies and deployment retain their separate approval rules.
   prices, min_pax defaults, package pricing and recommendation behavior.
 - Update legacy-parity tests only where the user explicitly changed policy;
   preserve independent checks of totals, WhatsApp text and package relations.
-- Check all published records for d_adult gaps before proceeding. No invented
+- Check all published records for missing/invalid final prices before proceeding. No invented
   price, translation or ID. Compare representative cards/details in both
   languages/mobile/desktop; run all relevant tests, Astro check and build.
 

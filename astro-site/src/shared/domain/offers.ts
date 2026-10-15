@@ -7,7 +7,7 @@ export interface Offer {
   location: string;
   category: string;
   poster: string;
-  prices: { adultBase: number; adultDiscount: number | null; childBase: number; childDiscount: number | null; adult: number; child: number };
+  prices: { adult: number; child: number };
   minPax: number;
   text: Record<string, OfferText>;
   source: CsvRow;
@@ -23,6 +23,7 @@ const aliases: Record<string, string> = {
 };
 export function normalizeId(value: string): string { const id = value.trim(); return Object.hasOwn(aliases, id) ? aliases[id] : id; }
 export function isActive(value: unknown): boolean { return String(value).toLowerCase() === 'true' || value === '1' || value === true; }
+export function editorialBadgeKey(value: string | undefined): string { return value?.trim().toUpperCase() === 'HOT_DEAL' ? '' : value?.trim() || ''; }
 export function required(row: CsvRow, field: string, context: string): string {
   if (typeof row[field] !== 'string' || !row[field].trim()) throw new Error(`[${context}] Missing required field ${field}.`);
   return row[field].trim();
@@ -54,10 +55,8 @@ export function mapOffer(row: CsvRow, idField: string, kind: 'trips' | 'packages
   const location = required(row, 'location', context).toLowerCase();
   const category = required(row, 'category', context).toLowerCase();
   if (!/^[a-z0-9_-]+$/.test(location) || !/^[a-z0-9_-]+$/.test(category)) throw new Error(`[${context}] Invalid image location/category.`);
-  const adultBase = numeric(required(row, 'p_adult', context), 'p_adult', context);
-  const adultDiscount = row.d_adult ? numeric(row.d_adult, 'd_adult', context) : null;
-  const childBase = row.p_child ? numeric(row.p_child, 'p_child', context) : 0;
-  const childDiscount = row.d_child ? numeric(row.d_child, 'd_child', context) : null;
+  const adult = numeric(required(row, 'adult_price', context), 'adult_price', context);
+  const child = numeric(required(row, 'child_price', context), 'child_price', context);
   const minPax = row.min_pax ? numeric(row.min_pax, 'min_pax', context) : 1;
   if (!Number.isInteger(minPax)) throw new Error(`[${context}] min_pax must be a non-negative integer.`);
   const text: Record<string, OfferText> = {};
@@ -68,7 +67,7 @@ export function mapOffer(row: CsvRow, idField: string, kind: 'trips' | 'packages
   }
   const folder = kind === 'trips' ? `${location}/${category}/${id}` : `${location}/${id}`;
   return { id, slug, location, category, poster: `/src/shared/assets/catalog/${kind}/${folder}/poster.webp`,
-    prices: { adultBase, adultDiscount, childBase, childDiscount, adult: adultDiscount ?? adultBase, child: childDiscount ?? childBase },
+    prices: { adult, child },
     minPax, text, source: { ...row } };
 }
 export function assertUniqueSlugs(records: readonly Offer[], source: string): void {
