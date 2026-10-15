@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-15",
+  "mode": "read-only dashboard and published-page review",
+  "project": "amico-fabio-test",
+  "dashboard": "https://vercel.com/fabio-landing-pages/amico-fabio-test",
+  "stable_origin": "https://amico-fabio-iyzo.vercel.app",
+  "deployment_status": "Ready",
+  "deployed_commit": "c62231888a1405512d7247bd338694176d5d029a",
+  "deployed_branch": "try-to-refactoring-to-astro",
+  "repository_path_shown": "https://github.com/Ahmedmansor/amico-fabio/tree/try-to-refactoring-to-astro/astro-site",
+  "project_variable_names_visible": ["PUBLIC_SITE_URL", "PUBLIC_NOINDEX"],
+  "missing_catalog_variables": ["CATALOG_PROVIDER", "CATALOG_SUPABASE_URL", "CATALOG_SUPABASE_PUBLISHABLE_KEY"],
+  "variable_values_revealed": false,
+  "published_sample": {
+    "route": "/en/tours/ras_mohammed_white_island_vip/",
+    "robots": "noindex, follow",
+    "canonical": "https://fabioegypt.com/en/tours/ras_mohammed_white_island_vip/",
+    "headline_price_text": "€45€40",
+    "crossed_out_price_elements": 2
+  },
+  "conclusion": "Published test artifact predates the single-price and Supabase integration commits; it cannot verify those changes.",
+  "next_action": "Configure public catalog build variables on the approved test project, retain noindex in Production and Preview, then deploy the migration branch and verify the new artifact.",
+  "deployment_or_hosting_changes_performed": false,
+  "blog_implementation_started": false
+}

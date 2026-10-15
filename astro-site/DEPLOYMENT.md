@@ -65,6 +65,19 @@ No new dependency was added; existing Astro/Vite facilities load the setting.
 
 ## Local verification
 
+### Remote review — 2026-10-15
+
+Read-only dashboard review confirmed the existing Astro test project is
+`amico-fabio-test`, stable alias `https://amico-fabio-iyzo.vercel.app`.
+Its Ready deployment is still commit `c622318`, before the single-price and
+Supabase changes. Project variables show PUBLIC_SITE_URL and PUBLIC_NOINDEX,
+but none of the three catalog build variables. No variable values were revealed.
+The published sample tour has noindex and the production canonical, but still
+displays both old and final prices. See qa/supabase/deployment-review.json.
+This review made no hosting changes or deployment. Updating the public catalog
+build configuration and deploying the current branch require explicit approval;
+the existing artifact does not prove the new provider is deployed.
+
 ### Catalog build environment (prepared locally; hosting not changed)
 
 Astro now reads the Supabase catalog during static builds. A future approved
