@@ -49,8 +49,8 @@ export function publishedRows(rows: CsvRow[], idField: string, source: string): 
 export function mapOffer(row: CsvRow, idField: string, kind: 'trips' | 'packages', dictionaries: OfferDictionaries, locales: readonly string[]): Offer {
   const id = normalizeId(required(row, idField, kind));
   const context = `${kind}:${id}`;
-  // URL slug and stable ID are separate fields; initially retain the exact existing ID as the slug.
-  const slug = id;
+  // Stable IDs and route slugs are separate; Sheets initially uses its ID as slug.
+  const slug = Object.hasOwn(row,'slug') ? required(row,'slug',context) : id;
   if (!/^[a-z0-9_-]+$/.test(slug)) throw new Error(`[${context}] Invalid route slug ${slug}.`);
   const location = required(row, 'location', context).toLowerCase();
   const category = required(row, 'category', context).toLowerCase();

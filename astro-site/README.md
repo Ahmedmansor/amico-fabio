@@ -89,10 +89,23 @@ a later task.
 
 ## Catalog data
 
-Feature data functions now read the existing public Google Sheets sources.
-Each build validates the live catalog before generating pages. See
-[qa/data/README.md](./qa/data/README.md) for the provider boundary, preserved
-legacy business defaults, source inspection, and test commands.
+Feature data functions now read the imported Supabase catalog at build time.
+The default provider is Supabase; Google Sheets remains an explicit rollback and
+source-audit option only. No automatic fallback occurs on a database failure.
+The browser receives generated static pages and has no database client.
+
+Local builds read the ignored `.env.catalog` file (URL, modern publishable key
+and provider name only). Copy `.env.example` there for a fresh checkout, fill
+its public catalog settings, and run commands from `astro-site/`. Build-host
+environment variables override this local file. Never supply a privileged key.
+Restart the dev process after provider/configuration changes.
+
+Every build validates the live catalog before generating pages. See
+[supabase/README.md](./supabase/README.md) and
+[qa/supabase/README.md](./qa/supabase/README.md) for verified import/integration
+status, configuration and checks. Original source inspection remains in
+[qa/data/README.md](./qa/data/README.md). Static catalog changes require a new
+build and deployment; no rebuild hook or hosting change was made.
 
 `npm test` runs the Node test suite and the approved Vitest domain tests.
 

@@ -19,7 +19,7 @@ Original snapshots stay in ignored supabase/local/. Prepared normalized CSVs,
 schema, reviewed counts and user-run import steps are in supabase/README.md.
 The initial empty-database inspection was followed by authorized schema and
 import execution. All imported fields match the CSVs. Anonymous table writes
-are denied and unpublished records are hidden. Provider integration follows;
+are denied and unpublished records are hidden. Build-time provider integration is now verified;
 Auth and suggested additional features remain deferred.
 
 Actual local results:
@@ -32,5 +32,75 @@ Actual local results:
 - Astro build: 90 page(s) built in 14.46s; Complete! (exit 0).
 
 The build retains its existing Browserslist age warning. No dependencies changed.
-Schema/import execution is also complete, as recorded in remote-import.json. Do not report the site as using Supabase until subsequent live
-provider checks and the separately approved environment/deployment switch pass.
+Schema/import execution is also complete, as recorded in remote-import.json. The Astro provider checks below pass; the published legacy site requires a
+separately approved Astro environment/deployment switch before it uses Supabase.
+
+## Completed build-time integration
+
+The default Astro provider now reads Supabase with the modern publishable key.
+Feature access functions and domain validation remain shared. All imported
+catalog fields, prices, editorial flags/badges, images, texts and relations match
+the reviewed Sheets snapshot. Public REST probes expose no inactive trips or
+non-allowlisted settings. No Google Sheets request occurs in this verifier.
+
+provider-verification.json records full catalog parity and all 90 generated HTML
+pages. 86 pages are byte-identical to the original Sheets build; the remaining
+4 differ only because raw addon source metadata was removed from browser JSON.
+After normalizing that intentional metadata removal, all 90 match exactly.
+No catalog endpoint or key appears in HTML/browser bundles. The normal static
+artifact remains dist/. The isolated noindex artifact is under ignored
+supabase/local/test-dist/ and contains 88 noindex content pages, an empty sitemap
+and social images on its own localhost origin. Both local previews return real
+HTTP 404 responses with bilingual recovery pages.
+
+browser-checks.json records fresh IT/EN captures at 1440x900 and 390x844. Named
+JPG captures remain local/ignored. The tour shows one €40 headline and €40 initial
+total with no discount markup or horizontal overflow. A browser interaction with
+2 adults, 1 child and the €15 diving addon produced €144.5 as expected. No lead,
+booking or WhatsApp confirmation was submitted. Broader source/visual evidence
+remains in qa/single-price/ and the original migration reports.
+
+Final actual results:
+
+- npm test: Node tests 86 passed, 0 failed; Vitest 96 passed in 6 files.
+- npx astro check: Result (187 files): 0 errors, 0 warnings, 0 hints.
+- Normal Supabase build: 90 pages in 6.01s, exit 0; output static.
+- Isolated noindex Supabase build: 90 pages in 6.93s, exit 0.
+- Live REST parity: 7 Supabase GET requests; zero Sheets requests;
+  every normalized catalog field matches the reviewed snapshot.
+- Static parity: 90 of 90 pages match, apart from removed addon source metadata.
+- Links: 6523 local references, zero broken targets; 172 original placeholders retained.
+- Sharing: 72 language detail pages and 36 poster associations pass.
+- SEO: 88 production sitemap entries; both local 404/root probes pass.
+- Single-price verification: 72 detail pages, 144 rendered cards and 12 stored
+  representative browser pairs pass.
+- Tour/package/explore verifiers pass; their original full-browser comparisons
+  are explicitly historical baselines rather than new captures.
+
+The existing Browserslist age warning remains. No new dependency was installed.
+No hosting variables, domain, Git push or deployment was changed. The live legacy
+GitHub Pages site continues its existing behavior until a separately approved
+Astro deployment. Automatic rebuilds, leads and Auth remain outside this phase.
+
+## Reproduce provider/build comparison
+
+Keep the reviewed source snapshots under supabase/local/ (or run the read-only
+Sheets audit and verify their hashes still match the import manifest). From
+astro-site/, with the approved Node runtime and public catalog configuration:
+
+1. Set CATALOG_PROVIDER=sheets, build, and run
+   node scripts/verify-supabase-catalog.mjs --capture-sheets-baseline.
+2. Select CATALOG_PROVIDER=supabase and build again into normal dist/.
+3. For the isolated test artifact, set PUBLIC_NOINDEX=1 and
+   PUBLIC_SITE_URL=http://127.0.0.1:4322, then run
+   npm run build -- --outDir supabase/local/test-dist. Clear those two test
+   variables afterwards; retain the normal production artifact in dist/.
+4. Run node scripts/verify-supabase-catalog.mjs. To repeat both HTTP probes,
+   serve normal dist/ with Astro preview on 4321 and run
+   node scripts/serve-static-qa.mjs supabase/local/test-dist 4322, then run
+   node scripts/verify-seo.mjs. The QA server binds loopback only.
+
+Do not re-import or reapply the schema when repeating read/build checks. The
+existing rls_auto_enable() advisor findings are recorded in remote-import.json
+and linked from supabase/README.md; they are outside the authorized five-table
+permission changes. No unrelated function grants were changed.

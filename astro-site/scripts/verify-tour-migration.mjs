@@ -28,4 +28,4 @@ for(const report of reports){const {id,locale,size,astro,legacy}=report;
  for(const key of Object.keys(astro.text))assert.equal(normalize(astro.text[key]||''),normalize(legacy.text[key]||''),`${id}/${locale}/${size}: changed ${key}`);
  assert.equal(astro.gallery,legacy.gallery);assert.deepEqual(astro.counts,legacy.counts);assert.deepEqual(astro.inputs,legacy.inputs);assert.deepEqual(astro.formText,legacy.formText);assert.equal(astro.overflow,legacy.overflow);
 }
-console.log(`${reports.length} bilingual desktop/mobile DOM comparisons match the real legacy tour renderer and form.`);
+console.log(`${reports.length} stored migration baseline comparisons matched the real legacy renderer. Current pricing/provider output is checked by verify-single-price.mjs and verify-supabase-catalog.mjs.`);

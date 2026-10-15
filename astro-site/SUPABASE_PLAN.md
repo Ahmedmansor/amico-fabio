@@ -3,10 +3,15 @@
 Status as of 2026-10-15: single-price UI implemented in `bf300d0` using the
 clarified d-when-present, otherwise-p rule. The user explicitly authorized remote execution. The five tables, reviewed
 grants/RLS and complete catalog import are now applied and verified on
-`fabioEgypt`; migration `20261015025613`. Provider integration is next.
+`fabioEgypt`; migration `20261015025613`. Build-time Supabase provider integration
+is implemented and verified: 22 published trips, 14 packages, 3 addons, 20
+relationships and 1 allowlisted setting. All 90 generated pages preserve the
+Sheets build output after removing source-only addon metadata.
+See `qa/supabase/provider-verification.json`. Hosting environments and deployed
+artifacts have not been changed.
 Follow `supabase/README.md` and `qa/supabase/remote-import.json`.
-Target verified read-only: `fabioEgypt` (`iiivnvwspoikfrlclhyr`), Ireland;
-`public` tables and migration history were empty at the connection check.
+Initial read-only connection check: `fabioEgypt` (`iiivnvwspoikfrlclhyr`), Ireland;
+`public` tables and migration history were empty before the authorized migration.
 
 ## Boundaries and decisions
 

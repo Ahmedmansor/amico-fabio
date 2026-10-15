@@ -5,7 +5,9 @@ user authorization. Migration `20261015025613_create_existing_sheets_catalog`
 created the five tables; the reviewed catalog was imported atomically with an
 empty-table guard. All fields of all imported rows match the reviewed CSVs.
 See `../qa/supabase/remote-import.json` for actual grants, public counts and
-security advisor results. The website provider is a separate subsequent task.
+security advisor results. The Astro data layer now defaults to Supabase; the
+live publishable-key integration and static-output checks are recorded in
+`../qa/supabase/provider-verification.json`. Hosting deployment is separate.
 
 This is the existing catalog only. It adds no Auth, leads, CMS, price history,
 destination/category management, application server, runtime API or deployment.
@@ -82,7 +84,8 @@ SQL was reviewed locally against the official [API grants/RLS guidance](https://
 and [RLS documentation](https://supabase.com/docs/guides/database/postgres/row-level-security).
 Schema execution, every imported field, anon-visible row counts and table
 grants have been verified through MCP. The supplied verification script remains
-read-only. Data API/provider checks follow in the integration task. Actual
+read-only. Publishable-key Data API reads and the Supabase provider also pass full catalog
+and build-output comparison. Actual
 denied-write probes on disposable rows require separate authorization and are
 not included. Advisors reported EXECUTE warnings for the existing
 `public.rls_auto_enable()` event-trigger function, outside the five-table changes;
@@ -108,3 +111,37 @@ CSV Git attributes retain LF endings so checksums survive fresh checkouts.
 An export failure removes the accepted manifest; do not import without one.
 Raw snapshots are local migration evidence, never public API columns or build
 output. No credentials are read by these preparation scripts.
+
+## Active build-time provider
+
+The feature entry points getTrips/getPackages/getAddons/getGlobalSettings keep
+serving the same domain models. Provider choice belongs to shared/data/provider.mjs.
+Supabase is the default. The REST adapter uses explicit column selection,
+deterministic ordering, exact-count pagination, timeouts and per-build request
+caching. Invalid/missing data or failed requests stop the build; Sheets is never
+selected automatically. No Supabase SDK, browser database code or server adapter
+was installed. Local content dictionaries and Astro images remain unchanged.
+
+Local public catalog settings are stored only in ignored .env.catalog. Copy
+.env.example for a fresh checkout; run builds from astro-site/. The supported
+variables are CATALOG_PROVIDER, CATALOG_SUPABASE_URL and
+CATALOG_SUPABASE_PUBLISHABLE_KEY. Build-host environment variables take precedence.
+Only an enabled modern sb_publishable_ key is accepted. No key is embedded into
+HTML or browser bundles. Never configure service_role, sb_secret_ or a database
+password. Explicit rollback selects CATALOG_PROVIDER=sheets and requires a fresh
+build; it does not alter imported database records.
+
+The normal production artifact remains dist/. An isolated local test artifact
+was generated under ignored supabase/local/test-dist/ with noindex and its own
+localhost asset origin. The loopback QA server is temporary test tooling, not an
+application server or hosting plan. No remote build variables, deployments,
+custom domains, lead delivery or rebuild hooks were changed.
+
+Advisor follow-up remains separate: the existing event-trigger function
+public.rls_auto_enable() has default EXECUTE grants reported for
+[anon](https://supabase.com/docs/guides/database/database-linter?lint=0028_anon_security_definer_function_executable)
+and [authenticated](https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable).
+Its result type is event_trigger; no exploit or RPC execution was attempted.
+It was not created by this migration. A separately approved change can tighten
+those function grants; table SELECT/RLS and denied table-write privileges have
+already been verified independently.

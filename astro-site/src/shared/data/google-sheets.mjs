@@ -10,6 +10,7 @@ import { normalizeSheetRows } from './sheet-rows.mjs';
 export function createGoogleSheetsProvider({ fetchImpl = fetch, timeoutMs = 5000 } = {}) {
   const requests = new Map();
   return {
+    name: 'Google Sheets',
     reset() { requests.clear(); },
     /** @param {keyof typeof sheetSources} name */
     read(name) {

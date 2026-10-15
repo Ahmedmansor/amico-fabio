@@ -65,6 +65,23 @@ No new dependency was added; existing Astro/Vite facilities load the setting.
 
 ## Local verification
 
+### Catalog build environment (prepared locally; hosting not changed)
+
+Astro now reads the Supabase catalog during static builds. A future approved
+deployment must configure `CATALOG_PROVIDER=supabase`, `CATALOG_SUPABASE_URL` and
+`CATALOG_SUPABASE_PUBLISHABLE_KEY` on its build host. The key must be a modern
+`sb_publishable_` key with the reviewed catalog SELECT/RLS permissions; never use
+a privileged key. Set these separately in both Production and Preview on the
+approved Astro test project while retaining `PUBLIC_NOINDEX=1`. No hosting
+environment variable was changed by the catalog integration task.
+
+Local development uses ignored `.env.catalog`; copy `.env.example` for a fresh
+checkout and populate its public catalog settings. Build-host variables override
+that file. Missing configuration or a failed Supabase request fails the build.
+`CATALOG_PROVIDER=sheets` is an explicit rollback selection, not a fallback.
+Changing a catalog record affects a deployed static page only after rebuild and
+deployment. Existing legacy GitHub Pages/main remains unchanged.
+
 From `astro-site/` in PowerShell:
 
 ```powershell

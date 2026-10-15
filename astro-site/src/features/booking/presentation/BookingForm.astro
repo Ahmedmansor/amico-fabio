@@ -9,7 +9,8 @@ interface Props {trip:Offer;locale:Locale;addons:BookingAddon[];messages:ReturnT
 const {trip,locale,addons,messages,kind='trip'}=Astro.props;
 const state={adults:trip.minPax,children:0,addons:addons.map(addon=>({addon_id:addon.id,price:addon.price,label_it:addon.labels.it,label_en:addon.labels.en}))};
 const prices={adult:trip.prices.adult,child:trip.prices.child,minPax:trip.minPax};
-const config=JSON.stringify({id:trip.id,title:trip.text[locale].title,kind,prices,addons,locale,copy:messages.global.whatsapp,errors:messages.global.errors,labels:messages.detailLabels}).replaceAll('<','\\u003c');
+const browserAddons=addons.map(({id,price,labels})=>({id,price,labels}));
+const config=JSON.stringify({id:trip.id,title:trip.text[locale].title,kind,prices,addons:browserAddons,locale,copy:messages.global.whatsapp,errors:messages.global.errors,labels:messages.detailLabels}).replaceAll('<','\\u003c');
 ---
 <form id="trip-booking-form" class="space-y-5" set:html={formHtml(state,prices,messages.global,locale)}/>
 <template id="country-options">{countries.toSorted((a,b)=>a.t.localeCompare(b.t)).map(country=><button type="button" data-nationality={country.v} class="w-full text-left px-3 py-2 hover:bg-gray-800 flex items-center gap-2 text-sm text-white"><Fragment set:html={flagSvg(country.c,country.p)}/><span>{country.t}</span></button>)}</template>

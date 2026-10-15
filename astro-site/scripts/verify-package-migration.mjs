@@ -25,7 +25,7 @@ const reports=JSON.parse(fs.readFileSync('qa/packages/comparisons.json','utf8'))
 assert.equal(reports.length,pages.length*2);
 const normalized=value=>JSON.stringify(value,(_key,item)=>typeof item==='string'?norm(item):item);
 for(const report of reports){assert.deepEqual(report.mismatch,[]);assert.equal(normalized(report.astro),normalized(report.legacy),`${report.id}/${report.locale}/${report.size}`);}
-console.log(`${reports.length} desktop/mobile comparisons match legacy in both languages.`);
+console.log(`${reports.length} stored desktop/mobile migration baseline comparisons matched legacy in both languages; current pricing/provider output has separate verification.`);
 const modals=JSON.parse(fs.readFileSync('qa/packages/modals.json','utf8'));
 assert.equal(modals.length,4);
 for(const report of modals){assert.equal(report.matches,true);assert.equal(normalized(report.astro),normalized(report.legacy));assert.equal(report.astro.visible,true);assert.equal(report.astro.bodyLocked,true);}
