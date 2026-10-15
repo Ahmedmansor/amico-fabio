@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-10-15T02:48:15.503Z",
+  "status": "ready-for-user-review",
+  "remoteApplied": false,
+  "project": "iiivnvwspoikfrlclhyr",
+  "sources": {
+    "Trips_Prices": {
+      "sha256": "5d0127451ad0bd78950ad3026a6f9bd3ef42c307ba4edad5bb3e7514c331bd40",
+      "rows": 100,
+      "activeRows": 22
+    },
+    "Global_Settings": {
+      "sha256": "746f55607b374eee251e8c80bede350763f038c1bb31d3728a671bfc129c92de",
+      "rows": 2,
+      "activeRows": 2
+    },
+    "Trip_Addons": {
+      "sha256": "71b30ed9a28e2dc364589327230f19f74cefe0b51a3ba860abc6e6e3309787e3",
+      "rows": 3,
+      "activeRows": 3
+    },
+    "Packages": {
+      "sha256": "f01105c452606787a1a79f7c9ace1068a95251c2a156c1ab45218f202a34f7e6",
+      "rows": 99,
+      "activeRows": 14
+    }
+  },
+  "schemaSha256": "9caa1bd54281dec702712e228ec6fd67f54a8805d6c4c43e0543d4e55da99763",
+  "pricePolicy": "Nonblank d wins including zero; blank d uses p. Both child cells blank -> zero. Both adult cells blank -> failure.",
+  "validatedPublishedCatalog": {
+    "trips": 22,
+    "packages": 14,
+    "addons": 3
+  },
+  "excluded": {
+    "inactiveTripPlaceholders": 73,
+    "inactivePackagePlaceholders": 85,
+    "settingsOutsidePromoAllowlist": [
+      "whatsapp_number"
+    ]
+  },
+  "files": {
+    "trips": {
+      "rows": 27,
+      "sha256": "d42e1d7056dd557fcd834ba406b8fcd145d819a648aa51c670bf4e921af4c499"
+    },
+    "packages": {
+      "rows": 14,
+      "sha256": "deef120765b9a9b5bed4d54da6731e3679ce0a42ddb4ba92bc3b968c63f82711"
+    },
+    "package_trips": {
+      "rows": 20,
+      "sha256": "b80bbd257c2f3cf88a1eaf1ef41945f39c3bcf81ad605e31737c0525c3fcb91e"
+    },
+    "trip_addons": {
+      "rows": 3,
+      "sha256": "7e72adcb683921e8d06361730407642582a094ced6aec6394ec7c326d8a84908"
+    },
+    "public_settings": {
+      "rows": 1,
+      "sha256": "486368eb027431d3d1bdf703c0da14a9c2279bde6c4a22c1f7d57c062ba889cc"
+    }
+  }
+}

@@ -1,6 +1,9 @@
 # Single-price catalog and Supabase migration plan
 
-Status: planning only, 2026-10-14. No schema or data changes have been applied.
+Status as of 2026-10-15: single-price UI implemented in `bf300d0` using the
+clarified d-when-present, otherwise-p rule. Schema, CSVs and verification SQL are
+prepared locally in `supabase/` for user review/import. No remote schema/data
+changes or provider switch have been applied. Follow `supabase/README.md`.
 Target verified read-only: `fabioEgypt` (`iiivnvwspoikfrlclhyr`), Ireland;
 `public` tables and migration history were empty at the connection check.
 

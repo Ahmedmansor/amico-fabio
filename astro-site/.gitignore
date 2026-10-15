@@ -5,6 +5,7 @@ dist/
 .env.*
 !.env.example
 *.log
+/supabase/local/
 
 # Visual migration evidence stays local; keep QA JSON and Markdown tracked.
 /qa/**/*.png

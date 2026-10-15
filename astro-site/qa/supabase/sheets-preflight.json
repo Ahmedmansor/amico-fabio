@@ -1,0 +1,288 @@
+{
+  "capturedAt": "2026-10-15T02:36:51.477Z",
+  "status": "price-preflight-passed",
+  "scope": "Existing four Sheets sources only; no new business features or Auth.",
+  "remoteWrites": false,
+  "acceptedImportProduced": false,
+  "catalog": {
+    "publishedTrips": 22,
+    "publishedPackages": 14,
+    "publishedAddons": 3,
+    "sourceSettings": 2,
+    "packageTripRelations": 20
+  },
+  "sources": {
+    "Trips_Prices": {
+      "sha256": "5d0127451ad0bd78950ad3026a6f9bd3ef42c307ba4edad5bb3e7514c331bd40",
+      "rows": 100,
+      "activeRows": 22
+    },
+    "Global_Settings": {
+      "sha256": "746f55607b374eee251e8c80bede350763f038c1bb31d3728a671bfc129c92de",
+      "rows": 2,
+      "activeRows": 2
+    },
+    "Trip_Addons": {
+      "sha256": "71b30ed9a28e2dc364589327230f19f74cefe0b51a3ba860abc6e6e3309787e3",
+      "rows": 3,
+      "activeRows": 3
+    },
+    "Packages": {
+      "sha256": "f01105c452606787a1a79f7c9ace1068a95251c2a156c1ab45218f202a34f7e6",
+      "rows": 99,
+      "activeRows": 14
+    }
+  },
+  "inactiveRowsWithoutIds": {
+    "Trips_Prices": 73,
+    "Packages": 85
+  },
+  "pricePolicy": "Nonblank d wins including zero; blank d uses p. Both child cells blank -> zero. Both adult cells blank -> failure.",
+  "adultBaseSelections": [
+    {
+      "source": "Trips_Prices",
+      "row": 7,
+      "id": "dolphin_show_family",
+      "active": true,
+      "adult_price": "25"
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 12,
+      "id": "albatros_aqua_park_full_day",
+      "active": true,
+      "adult_price": "50"
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 13,
+      "id": "seascope_semi_submarine",
+      "active": true,
+      "adult_price": "45"
+    },
+    {
+      "source": "Packages",
+      "row": 7,
+      "id": "cairo_piramidi_saqqara_vip",
+      "active": true,
+      "adult_price": "65"
+    },
+    {
+      "source": "Packages",
+      "row": 8,
+      "id": "cairo_cuore_pulsante_museo_cittadella",
+      "active": true,
+      "adult_price": "55"
+    },
+    {
+      "source": "Packages",
+      "row": 9,
+      "id": "cairo_crociera_nilo_cena",
+      "active": true,
+      "adult_price": "60"
+    },
+    {
+      "source": "Packages",
+      "row": 10,
+      "id": "cairo_mistico_copto_islamico",
+      "active": true,
+      "adult_price": "50"
+    },
+    {
+      "source": "Packages",
+      "row": 11,
+      "id": "cairo_safari_piramidi_tramonto",
+      "active": true,
+      "adult_price": "60"
+    },
+    {
+      "source": "Packages",
+      "row": 12,
+      "id": "alessandria_tour_giornata_intera",
+      "active": true,
+      "adult_price": "85"
+    },
+    {
+      "source": "Packages",
+      "row": 13,
+      "id": "gran_tour_egitto_cairo_crociera_8g7n",
+      "active": true,
+      "adult_price": "1450"
+    },
+    {
+      "source": "Packages",
+      "row": 14,
+      "id": "nile_cruise_luxor_aswan_5d4n",
+      "active": true,
+      "adult_price": "750"
+    },
+    {
+      "source": "Packages",
+      "row": 15,
+      "id": "nile_cruise_aswan_luxor_4d3n",
+      "active": true,
+      "adult_price": "650"
+    }
+  ],
+  "blankChildDefaults": [
+    {
+      "source": "Trips_Prices",
+      "row": 14,
+      "id": "super_safari_5_senses",
+      "active": true
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 15,
+      "id": "moto_safari_quad_echo",
+      "active": true
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 16,
+      "id": "vip_cena_romantica",
+      "active": true
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 17,
+      "id": "cairo_plane_flexible_museum",
+      "active": true
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 18,
+      "id": "cairo_bus_adventure_choice",
+      "active": true
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 19,
+      "id": "santa_caterina_monastery_morning",
+      "active": true
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 20,
+      "id": "mount_sinai_sunrise_adventure",
+      "active": true
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 21,
+      "id": "luxor_plane_classic",
+      "active": true
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 22,
+      "id": "petra_jordan_expedition",
+      "active": true
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 23,
+      "id": "sharm_old_market_ultimate_shopping",
+      "active": true
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 24,
+      "id": "cairo_pyramids_classic_dummy",
+      "active": false
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 25,
+      "id": "cairo_nile_dinner_dummy",
+      "active": false
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 26,
+      "id": "cairo_quad_pyramids_dummy",
+      "active": false
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 27,
+      "id": "luxor_kings_valley_dummy",
+      "active": false
+    },
+    {
+      "source": "Trips_Prices",
+      "row": 28,
+      "id": "aswan_felucca_dummy",
+      "active": false
+    },
+    {
+      "source": "Packages",
+      "row": 9,
+      "id": "cairo_crociera_nilo_cena",
+      "active": true
+    }
+  ],
+  "blankMinPaxDefaults": [
+    {
+      "source": "Trips_Prices",
+      "row": 23,
+      "id": "sharm_old_market_ultimate_shopping",
+      "active": true
+    },
+    {
+      "source": "Packages",
+      "row": 8,
+      "id": "cairo_cuore_pulsante_museo_cittadella",
+      "active": true
+    },
+    {
+      "source": "Packages",
+      "row": 9,
+      "id": "cairo_crociera_nilo_cena",
+      "active": true
+    },
+    {
+      "source": "Packages",
+      "row": 10,
+      "id": "cairo_mistico_copto_islamico",
+      "active": true
+    },
+    {
+      "source": "Packages",
+      "row": 11,
+      "id": "cairo_safari_piramidi_tramonto",
+      "active": true
+    },
+    {
+      "source": "Packages",
+      "row": 12,
+      "id": "alessandria_tour_giornata_intera",
+      "active": true
+    },
+    {
+      "source": "Packages",
+      "row": 13,
+      "id": "gran_tour_egitto_cairo_crociera_8g7n",
+      "active": true
+    },
+    {
+      "source": "Packages",
+      "row": 14,
+      "id": "nile_cruise_luxor_aswan_5d4n",
+      "active": true
+    },
+    {
+      "source": "Packages",
+      "row": 15,
+      "id": "nile_cruise_aswan_luxor_4d3n",
+      "active": true
+    }
+  ],
+  "publicSettingAllowlist": [
+    "promo_banner"
+  ],
+  "settingsExcludedFromPromoCatalog": [
+    "whatsapp_number"
+  ],
+  "issues": []
+}

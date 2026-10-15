@@ -1,0 +1,15 @@
+id,slug,adult_price,child_price,min_pax,location,category,badge_key,is_active,source_order
+sharm_confidential,sharm_confidential,200,110,1,sharm,bundles,BEST_SELLER,true,0
+dolce_vita_family,dolce_vita_family,160,120,1,sharm,bundles,FAMILY_FRIENDLY,true,1
+mille_e_una_notte,mille_e_una_notte,180,130,1,sharm,bundles,NEW,true,2
+indiana_jones_adventure,indiana_jones_adventure,160,140,1,sharm,bundles,TOP_RATED,true,3
+il_grande_blu,il_grande_blu,180,150,1,sharm,bundles,HOT_DEAL,true,4
+cairo_piramidi_saqqara_vip,cairo_piramidi_saqqara_vip,65,33,1,cairo,bundles,"",true,5
+cairo_cuore_pulsante_museo_cittadella,cairo_cuore_pulsante_museo_cittadella,55,30,1,cairo,bundles,"",true,6
+cairo_crociera_nilo_cena,cairo_crociera_nilo_cena,60,0,1,cairo,bundles,"",true,7
+cairo_mistico_copto_islamico,cairo_mistico_copto_islamico,50,25,1,cairo,bundles,"",true,8
+cairo_safari_piramidi_tramonto,cairo_safari_piramidi_tramonto,60,40,1,cairo,bundles,"",true,9
+alessandria_tour_giornata_intera,alessandria_tour_giornata_intera,85,45,1,cairo,bundles,"",true,10
+gran_tour_egitto_cairo_crociera_8g7n,gran_tour_egitto_cairo_crociera_8g7n,1450,725,1,luxor_and_aswan,bundles,"",true,11
+nile_cruise_luxor_aswan_5d4n,nile_cruise_luxor_aswan_5d4n,750,375,1,luxor_and_aswan,bundles,"",true,12
+nile_cruise_aswan_luxor_4d3n,nile_cruise_aswan_luxor_4d3n,650,325,1,luxor_and_aswan,bundles,"",true,13
