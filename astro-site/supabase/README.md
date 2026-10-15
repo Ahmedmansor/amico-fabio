@@ -137,11 +137,15 @@ localhost asset origin. The loopback QA server is temporary test tooling, not an
 application server or hosting plan. No remote build variables, deployments,
 custom domains, lead delivery or rebuild hooks were changed.
 
-Advisor follow-up remains separate: the existing event-trigger function
-public.rls_auto_enable() has default EXECUTE grants reported for
+Advisor follow-up was separately authorized and applied on 2026-10-15. The
+existing event-trigger function public.rls_auto_enable() had default EXECUTE grants reported for
 [anon](https://supabase.com/docs/guides/database/database-linter?lint=0028_anon_security_definer_function_executable)
 and [authenticated](https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable).
 Its result type is event_trigger; no exploit or RPC execution was attempted.
-It was not created by this migration. A separately approved change can tighten
-those function grants; table SELECT/RLS and denied table-write privileges have
-already been verified independently.
+It was not created by the catalog migration. The reviewed follow-up SQL is
+restrict-rls-auto-enable.sql; migration 20261015033536 revoked EXECUTE from PUBLIC,
+anon and authenticated. Owner execution and the enabled event trigger remain;
+the function definition checksum is unchanged. The security advisor now returns
+zero findings. See ../qa/supabase/function-grants.json for before/after evidence
+and the passing Astro check/build. Table SELECT/RLS and denied table-write
+privileges were rechecked independently and remain unchanged.

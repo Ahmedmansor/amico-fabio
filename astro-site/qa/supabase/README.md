@@ -101,6 +101,21 @@ astro-site/, with the approved Node runtime and public catalog configuration:
    node scripts/verify-seo.mjs. The QA server binds loopback only.
 
 Do not re-import or reapply the schema when repeating read/build checks. The
-existing rls_auto_enable() advisor findings are recorded in remote-import.json
-and linked from supabase/README.md; they are outside the authorized five-table
-permission changes. No unrelated function grants were changed.
+original rls_auto_enable() findings in remote-import.json are historical.
+The separately authorized follow-up is recorded in function-grants.json.
+
+## Function permission follow-up — 2026-10-15
+
+Applied migration 20261015033536_restrict_rls_auto_enable_execute using the
+reviewed supabase/restrict-rls-auto-enable.sql. EXECUTE was revoked from PUBLIC,
+anon and authenticated for this function only. Its postgres owner, definition
+checksum, SECURITY DEFINER setting and enabled ensure_rls event binding are
+unchanged. Owner EXECUTE remains true; both API-role EXECUTE checks are false.
+All five catalog tables retain RLS, anon SELECT and no anon write privileges.
+The security advisor now returns {"lints":[]}.
+
+Actual checks: npx astro check: Result (187 files), 0 errors/warnings/hints;
+npm run build: validated live Supabase 22 trips/14 packages/3 addons/1 settings,
+90 static pages in 9.22s, exit 0. Existing Browserslist age warning remains.
+No test table was created to exercise the event trigger. No dependency changed.
+Blog implementation awaits a separate scope agreement; Auth remains deferred.
