@@ -10,6 +10,7 @@
 - Before the first migration commit, show the full contents of this file and wait for the user's review approval.
 - After each completed task, create a focused commit containing only that task's changes. Do not include unrelated or pre-existing user changes without authorization.
 - Do not publish, deploy, or change the domain without explicit authorization.
+- Hosting decision confirmed 2026-10-15: the live site is hosted on GitHub Pages as a static website. There is no plan for server hosting or an application server. Keep Astro output static; read Supabase catalog data at build time and publish generated files. Do not introduce SSR, runtime API routes, or a server deployment without a separately approved architecture change. The existing separate static Vercel migration preview remains a test environment.
 - Deployment separation requested by the user: legacy `main` stays on GitHub Pages (`fabioegypt.com`); the Astro migration branch targets a separate Vercel project `fabio-astro-test` with root `astro-site/` and PUBLIC_NOINDEX=1 in both Vercel Production and Preview. Never modify the existing Vercel project `amico-fabio`. Follow `astro-site/DEPLOYMENT.md`; local setup does not prove a remote deployment exists.
 
 ## Stack and browser code
@@ -89,6 +90,7 @@
 - Report what changed, what checks ran and their real results, how to verify it, and the commit hash when committed. Continue with the next agreed migration task under the user's standing authorization; pause dependent work only for an actual blocker or a separately required approval.
 
 ## Approved next phase: single prices and Supabase
+- Scope confirmed 2026-10-15: migrate only the existing Google Sheets catalog sources. Defer Auth and all suggested additions, including destination/category tables, price history, CMS/translations/images, campaigns, and inquiry tracking. A relationship table replacing existing package trip-ID lists is catalog normalization, not a new business feature.
 - Follow `astro-site/SUPABASE_PLAN.md`. This records planned work, not completed implementation.
 - The user superseded the legacy discount policy: use Sheets `d_adult` as the only adult price and `d_child` as the only child price for tours and packages. Blank child price means zero (free); a missing/invalid adult price fails validation without falling back to `p_adult`. Preserve explicit zero values.
 - Remove crossed-out prices, discount percentages, discount badges and deal messages. Show one starting adult price with Italian/English labels. Keep unrelated editorial badges and recommendation ordering unchanged. Display, sorting, booking and totals must use the same price.

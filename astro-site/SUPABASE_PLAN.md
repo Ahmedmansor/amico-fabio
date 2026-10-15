@@ -6,6 +6,12 @@ Target verified read-only: `fabioEgypt` (`iiivnvwspoikfrlclhyr`), Ireland;
 
 ## Boundaries and decisions
 
+Confirmed 2026-10-15: migrate the four existing Sheets sources only. Do not add
+Auth, price history, destination/category tables, a CMS, campaigns or inquiries.
+The live site is static on GitHub Pages; no server hosting is planned. Supabase
+catalog reads happen during Astro builds; generated pages need a new build to
+reflect database edits. The separate static Vercel preview remains for testing.
+
 Keep legacy main/GitHub Pages and Google Sheets untouched. Work in astro-site
 on the migration branch. Test on the existing separate Vercel test project.
 Do not create a second project or paid database branch.
