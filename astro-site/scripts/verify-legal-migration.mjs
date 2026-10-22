@@ -18,7 +18,14 @@ for (const locale of ['it', 'en']) {
   vm.runInContext(fs.readFileSync(path.join(legacy, `assets/lang/global-${locale}.js`), 'utf8'), context);
   const source = context.window[locale === 'it' ? 'i18nIt' : 'i18nEn'];
   const page = getLegalPage(locale);
-  assert.deepEqual(page, JSON.parse(JSON.stringify(source.legal_page)), `${locale}: legal content differs from the legacy dictionary`);
+  const legacyPage=JSON.parse(JSON.stringify(source.legal_page));
+  const cookieSection=page.sections.find(section=>section.id==='cookies');
+  assert.equal(cookieSection.paragraphs.length,2);
+  assert.ok(cookieSection.paragraphs.join(' ').includes('fabio_consent'));
+  assert.ok(cookieSection.paragraphs.join(' ').includes('182'));
+  // Approved consent implementation updates only the cookie-policy paragraphs.
+  legacyPage.sections.find(section=>section.id==='cookies').paragraphs=cookieSection.paragraphs;
+  assert.deepEqual(page, legacyPage, `${locale}: unrelated legal content differs from the legacy dictionary`);
   const shared = JSON.parse(fs.readFileSync(path.join(workspace, `src/shared/i18n/dictionaries/${locale}.json`), 'utf8'));
   for (const key of ['menu', 'footer', 'fab']) assert.deepEqual(shared[key], JSON.parse(JSON.stringify(source[key])));
   assert.equal(shared.global.brand_subtitle, source.global.brand_subtitle);
@@ -39,7 +46,7 @@ for (const locale of ['it', 'en']) {
   assert.ok(!html.includes('navigator.serviceWorker'));
   assert.ok(!html.includes('assets/js/main.js'));
   assert.ok(!html.includes('fonts.googleapis.com'));
-  console.log(`${locale}: ${page.sections.length} sections and all paragraphs match legacy; static content, anchors, canonical, hreflang and GA4 verified.`);
+  console.log(`${locale}: ${page.sections.length} sections verified; legacy content preserved except approved cookie-policy paragraphs. Static content, anchors, canonical, hreflang and analytics configuration verified.`);
 }
 
 for (const group of ['legal', 'social']) for (const icon of fs.readdirSync(path.join(legacy, `public/assets/images/icons/${group}`))) {

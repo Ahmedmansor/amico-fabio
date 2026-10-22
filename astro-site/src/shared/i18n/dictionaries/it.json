@@ -181,5 +181,22 @@
   "packageLabels": {
     "heroAlt": "Package Image",
     "includedSubtitle": "Ogni esperienza inclusa in questo pacchetto può essere esplorata in dettaglio qui sotto."
+  },
+  "cookies": {
+    "manage": "Preferenze cookie",
+    "title": "Le tue scelte sulla privacy",
+    "description": "Utilizziamo lo spazio di archiviazione necessario per ricordare le tue scelte. Con il tuo consenso utilizziamo anche Google Analytics per comprendere le visite e Vimeo per mostrare i video. Puoi accettare, rifiutare i servizi facoltativi o scegliere le tue preferenze.",
+    "accept": "Accetta tutti",
+    "reject": "Rifiuta facoltativi",
+    "customize": "Personalizza",
+    "save": "Salva preferenze",
+    "close": "Chiudi",
+    "policy": "Informativa sulla privacy",
+    "necessaryTitle": "Necessari",
+    "necessaryDescription": "Ricorda le scelte sul consenso e le preferenze di lingua. Queste funzionalità supportano il funzionamento del sito.",
+    "analyticsTitle": "Statistiche — Google Analytics",
+    "analyticsDescription": "Ci aiuta a comprendere le visite e le interazioni, inclusi gli eventi di richiesta di prenotazione. Disattivato fino al tuo consenso. Nomi e numeri di telefono non vengono inviati negli eventi di analisi.",
+    "externalTitle": "Video esterni — Vimeo",
+    "externalDescription": "Consente il caricamento dei video Vimeo quando selezioni un video. Vimeo riceve informazioni sulla connessione al caricamento del lettore. Dopo aver accettato, seleziona nuovamente il video per riprodurlo."
   }
 }

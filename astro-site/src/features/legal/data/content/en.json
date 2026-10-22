@@ -148,8 +148,8 @@
       "id": "cookies",
       "heading": "Cookie Policy",
       "paragraphs": [
-        "We use essential cookies to ensure site functionality and preferences (e.g., language).",
-        "Analytics tools may be used to improve user experience. You can manage preferences in your browser settings."
+        "Necessary browser storage remembers your language preferences. The fabio_consent cookie records your consent choices for 182 days.",
+        "Google Analytics loads only after you accept analytics. Vimeo players load only after you accept external videos and select a video. You can reject optional services or change and withdraw consent using Cookie preferences at the bottom of every page. Withdrawing analytics consent reloads the page to unload Analytics."
       ]
     },
     {

@@ -181,5 +181,22 @@
   "packageLabels": {
     "heroAlt": "Package Image",
     "includedSubtitle": "Each experience in this bundle can be explored in detail below."
+  },
+  "cookies": {
+    "manage": "Cookie preferences",
+    "title": "Your privacy choices",
+    "description": "We use necessary storage to remember your choices. With your permission, we also use Google Analytics to understand visits and Vimeo to show videos. You can accept, reject optional services or choose your preferences.",
+    "accept": "Accept all",
+    "reject": "Reject optional",
+    "customize": "Customize",
+    "save": "Save preferences",
+    "close": "Close",
+    "policy": "Privacy policy",
+    "necessaryTitle": "Necessary",
+    "necessaryDescription": "Remembers your consent choices and language preferences. These features support the operation of the website.",
+    "analyticsTitle": "Analytics — Google Analytics",
+    "analyticsDescription": "Helps us understand visits and interactions, including booking inquiry events. Disabled until you agree. Names and phone numbers are not sent in analytics events.",
+    "externalTitle": "External videos — Vimeo",
+    "externalDescription": "Allows Vimeo videos to load when you select a video. Vimeo receives connection information when a player loads. After accepting, select the video again to play it."
   }
 }

@@ -15,7 +15,8 @@
     "test:domain": "vitest run"
   },
   "dependencies": {
-    "astro": "7.3.8"
+    "astro": "7.3.8",
+    "vanilla-cookieconsent": "3.1.0"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",

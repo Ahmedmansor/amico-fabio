@@ -1,11 +1,11 @@
 ---
 import {languages,type Locale} from '../config/languages';
-import Analytics from '../components/Analytics.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 interface Props {locale:Locale;bodyClass?:string;campaign?:string}
 const {locale,bodyClass,campaign}=Astro.props;
 ---
 <!doctype html>
 <html lang={locale} dir={languages[locale].direction} data-campaign={campaign}>
-  <head><slot name="head"/><Analytics/></head>
-  <body class={bodyClass} data-campaign={campaign}><slot/></body>
+  <head><slot name="head"/></head>
+  <body class={bodyClass} data-campaign={campaign}><slot/><CookieConsent locale={locale}/></body>
 </html>
