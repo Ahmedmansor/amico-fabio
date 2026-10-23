@@ -3,6 +3,8 @@
   "accountTitle": "Il tuo account",
   "title": "Accedi a Fabio Egypt",
   "intro": "Continua con Google oppure ricevi un link di accesso via email.",
+  "googleIntro": "Accedi con il tuo account Google.",
+  "emailIntro": "Ricevi un link di accesso via email.",
   "google": "Continua con Google",
   "email": "Email",
   "send": "Inviami il link di accesso",

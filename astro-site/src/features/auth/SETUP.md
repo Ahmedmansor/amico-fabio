@@ -1,10 +1,18 @@
-# Auth activation proposal — not applied remotely
+# Auth activation and remaining setup
 
-Local UI and adapters are implemented. Auth is still disabled in the normal
-build. The separate localhost:4330 design/QA server uses a fake publishable key
-and `https://auth-qa.invalid`; it cannot sign in real users. QA intercepts that
-origin with synthetic responses. Do not copy its test settings to Supabase or
-hosting. The static preview on localhost:4322 keeps Auth disabled.
+Local UI and adapters are implemented. On 2026-10-23 the user reported adding the
+redirect URLs/templates and enabling Google after replacing an exposed OAuth
+credential themselves. A read-only Auth settings request using the configured
+browser publishable key confirmed Google enabled. No OAuth secret was read or
+copied into source/local configuration.
+
+Local browser Auth is now enabled for **Google only on localhost:4322**, via
+ignored `.env.local`. Email UI remains disabled pending its protection/settings
+review. The built site and the actual 4322 browser tab were verified to expose
+Sign in and Continue with Google. Live Google completion is still unverified.
+The former localhost:4330 synthetic design server has been stopped. Use 4322 for
+all subsequent user-facing local tests. Committed source remains opt-in; hosting
+variables and deployed artifacts have not been changed.
 
 ## Proposed callback configuration
 
@@ -26,7 +34,8 @@ allowlisted application destinations are each locale's home, Explore root and
 wishlist. All other destinations fall back to that locale's wishlist.
 
 Do not set the global Supabase Site URL to localhost just to add a local test.
-Inspect its current use first. No Site URL or redirect allowlist was changed.
+Inspect its current use first. The user added the IT/EN localhost callback
+patterns and supplied screenshot evidence; the agent did not change Site URL.
 The existing test alias is `https://amico-fabio-iyzo.vercel.app`; adding its Auth
 callbacks and enabling browser Auth there requires separate hosting approval
 and a rebuild. The current deployed artifact has not been updated by this work.
@@ -44,7 +53,8 @@ Enter the OAuth client ID and secret directly into Supabase's Google provider
 settings. Never put the client secret in chat, website env, source or logs.
 Google's callback above differs from the Astro application callbacks. Review
 consent-screen audience/test users and allowed website origins before enabling.
-Actual Google provider configuration and completion are not yet verified.
+Public Auth settings confirm the Google provider enabled. Actual Google login
+and callback completion still require the user's interactive test.
 
 ## Magic Link template proposal
 

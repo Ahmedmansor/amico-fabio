@@ -3,6 +3,8 @@
   "accountTitle": "Your account",
   "title": "Sign in to Fabio Egypt",
   "intro": "Continue with Google or receive a sign-in link by email.",
+  "googleIntro": "Sign in with your Google account.",
+  "emailIntro": "Receive a sign-in link by email.",
   "google": "Continue with Google",
   "email": "Email",
   "send": "Email me a sign-in link",

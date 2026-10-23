@@ -105,3 +105,37 @@ credentials with this test fixture.
 Real activation changes and outstanding approval/verification gates are listed
 in `src/features/auth/SETUP.md`. There have been no remote configuration/schema
 writes, live authentication submissions, pushes, deployments or domain changes.
+
+## Local Google activation and single-provider copy
+
+The user configured a browser publishable key in ignored `.env.local` and
+reported Google enabled in Supabase. A read-only GET of Auth settings confirmed
+the configured public key works and `external.google=true`; no credential values
+were printed. The user had left the local enable switch off, so it was enabled
+under their standing authorization. Only Google UI is enabled locally; email
+activation/abuse controls remain pending. No live sign-in was submitted.
+
+The 4330 synthetic server was stopped. The built/static user preview remains on
+4322. Browser observation of that actual user tab confirmed SIGN IN in the
+mobile menu opens a dialog with Continue with Google. Introductory copy now
+reflects the enabled provider(s), so Google-only mode does not advertise an
+unavailable email form. Both translations retain matching keys.
+
+Actual verification:
+
+```text
+npx astro check
+Result (220 files): 0 errors; 0 warnings; 0 hints
+npm run build
+94 page(s) built in 6.39s
+Complete!
+node qa/auth/verify-built.mjs --local-auth
+Built Auth checks passed: callbacks noindex/excluded from sitemap,
+no-referrer, credentials scrubbed first; local Google enabled on 4322;
+email UI off; key value not printed.
+```
+
+Use `--local-auth` for this deliberately configured local build. The default
+verification mode still checks an unconfigured build for absent Auth/browser-key
+markup. Neither mode prints a key. The end-user Google account choice/consent
+and successful callback/session remain to be tested interactively by the user.

@@ -6,6 +6,7 @@ import './auth.css';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const m = getAuthMessages(locale);
+const intro = authConfig?.googleEnabled && authConfig.emailEnabled ? m.intro : authConfig?.googleEnabled ? m.googleIntro : m.emailIntro;
 const configuration = JSON.stringify({ config: authConfig, messages: m, locale }).replace(/</g, '\\u003c');
 ---
 {authConfig && <>
@@ -14,7 +15,7 @@ const configuration = JSON.stringify({ config: authConfig, messages: m, locale }
     <div class="auth-content">
       <h2 id="auth-title">{m.title}</h2>
       <div data-auth-guest>
-        <p id="auth-intro">{m.intro}</p>
+        <p id="auth-intro">{intro}</p>
         {authConfig.googleEnabled && <button type="button" class="auth-button auth-secondary" data-auth-google>{m.google}</button>}
         {authConfig.emailEnabled && <form data-auth-form novalidate>
           <label for="auth-email">{m.email}</label>

@@ -6,5 +6,6 @@ import './auth.css';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const m = getAuthMessages(locale);
+const intro = authConfig?.googleEnabled && authConfig.emailEnabled ? m.intro : authConfig?.googleEnabled ? m.googleIntro : m.emailIntro;
 ---
-{authConfig && <section class="auth-entry"><p>{m.intro}</p><button type="button" class="auth-button" data-auth-open aria-haspopup="dialog" hidden>{m.signIn}</button></section>}
+{authConfig && <section class="auth-entry"><p>{intro}</p><button type="button" class="auth-button" data-auth-open aria-haspopup="dialog" hidden>{m.signIn}</button></section>}
