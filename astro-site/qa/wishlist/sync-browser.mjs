@@ -85,7 +85,8 @@ try{
     await count(sameBrowser,2);await sameBrowser.close();
     await page.evaluate(()=>localStorage.setItem('fabio:wishlist:v1:trip:unpublished_fixture','1'));
     await page.goto(`${origin}/${locale}/wishlist/`);await count(page,2);
-    assert.equal(await page.locator('[data-wishlist-sync-retry]').isVisible(),true);
+    assert.equal(await page.locator('[data-wishlist-sync-retry]').isVisible(),false);
+    assert.equal(await page.locator('[data-wishlist-catalog-notice]').isVisible(),true);
     await page.screenshot({path:new URL(`./screenshots/sync-${locale}-${width}.png`,import.meta.url).pathname.slice(1)});
     await page.locator('#global-header [data-auth-open]').click();await page.locator('[data-auth-signout]').click();
     await count(page,1);assert.ok(await page.evaluate(()=>localStorage.getItem('fabio:wishlist:v1:trip:unpublished_fixture')));

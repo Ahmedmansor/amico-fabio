@@ -4,6 +4,8 @@ export function createWishlistView(){
   const page=document.querySelector<HTMLElement>('[data-wishlist-page]');
   const items=[...document.querySelectorAll<HTMLElement>('[data-wishlist-item]')];
   const empty=page?.querySelector<HTMLElement>('[data-wishlist-empty]');
+  const catalogNotice=page?.querySelector<HTMLElement>('[data-wishlist-catalog-notice]');
+  const knownIds=new Set(items.map(item=>item.dataset.tripId!));
   const links=[...document.querySelectorAll<HTMLAnchorElement>('[data-wishlist-link]')];
   return {
     buttons,page,links,
@@ -26,7 +28,9 @@ export function createWishlistView(){
       }
       let visible=0;
       for(const item of items){item.hidden=!ids?.has(item.dataset.tripId!);if(!item.hidden)visible++;}
-      if(empty)empty.hidden=ids===null || busy || visible>0;
+      const hasUnavailable=!!page && !!ids && [...ids].some(id=>!knownIds.has(id));
+      if(catalogNotice)catalogNotice.hidden=!hasUnavailable;
+      if(empty)empty.hidden=ids===null || busy || visible>0 || hasUnavailable;
     },
     focusAfterRemoval(button:HTMLButtonElement){
       if(button.closest<HTMLElement>('[data-wishlist-item]')?.hidden){

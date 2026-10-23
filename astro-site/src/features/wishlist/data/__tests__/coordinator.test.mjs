@@ -39,6 +39,7 @@ test('serialized account edits require read-back confirmation and leave local gu
 test('silent RLS denial is not a successful save; unknown tours stay local',async()=>{
   const f=fixture();f.local=['unpublished'];await f.coordinator.connect('a');
   assert.deepEqual(f.local,['unpublished']);assert.equal(f.coordinator.getState().pendingGuest,1);
+  assert.equal(f.coordinator.getState().unavailableGuest,1);
   f.repository.add=async()=>good();
   assert.equal((await f.coordinator.save('new',true)).reason,'failed');
 });
@@ -46,4 +47,12 @@ test('missing schema/profile or read failure exposes error without account-to-gu
   const f=fixture();f.repository.ensureProfile=async()=>({ok:false,reason:'failed'});
   assert.equal((await f.coordinator.connect('a')).ok,false);
   assert.deepEqual(f.local,['guest']);assert.equal(f.coordinator.getState().ids,null);
+});
+
+test('an unavailable-only stale claim does not offer an impossible transfer retry',async()=>{
+  const f=fixture();f.local=['unpublished'];f.guest.capture=async()=>good({entries:[],blocked:1});
+  assert.equal((await f.coordinator.connect('a')).ok,true);
+  assert.equal(f.coordinator.getState().error,null);
+  assert.equal(f.coordinator.getState().unavailableGuest,1);
+  assert.deepEqual(f.local,['unpublished']);
 });

@@ -33,10 +33,12 @@ export async function initializeAccountWishlist(){
     const ids=state.ids?new Set(state.ids):null;
     view.render(ids,resolvingAuth || state.busy,resolvingAuth || state.busy || (state.status==='error' && !ids));
     if(storageMessage)storageMessage.textContent=state.userId?(state.busy?m.syncing:!ids?'':m.account):m.local;
-    if(error){error.hidden=!state.error || state.error==='confirmation';error.textContent=state.userId?m.syncError:m.unavailable;}
-    if(status)status.textContent=authFailed?m.authUnavailable:state.busy?'':state.error==='confirmation'?m.confirmMerge:state.pendingGuest?m.pendingGuest:'';
-    if(retry){retry.hidden=!state.userId || (!state.error && !state.pendingGuest);retry.disabled=state.busy;}
-    if(unavailable)unavailable.hidden=!state.ids?.some(id=>!config.publishedIds.includes(id));
+    if(error){error.hidden=!state.error || state.error==='confirmation';error.textContent=state.userId?m.syncError:state.ids?m.error:m.unavailable;}
+    const canMerge=state.pendingGuest>state.unavailableGuest;
+    if(status)status.textContent=authFailed?m.authUnavailable:state.busy?'':state.error==='confirmation'?m.confirmMerge:canMerge?m.pendingGuest:'';
+    if(retry){retry.hidden=!state.userId || (!state.error && !canMerge);retry.disabled=state.busy;}
+    if(unavailable)unavailable.hidden=!state.unavailableGuest && !state.ids?.some(id=>!config.publishedIds.includes(id));
+    if(state.unavailableGuest && view.page?.querySelector('[data-wishlist-empty]'))view.page.querySelector<HTMLElement>('[data-wishlist-empty]')!.hidden=true;
   }
   coordinator.subscribe(render);
   for(const button of view.buttons)button.addEventListener('click',async()=>{

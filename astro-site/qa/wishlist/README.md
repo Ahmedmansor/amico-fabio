@@ -277,3 +277,21 @@ merge/failure/signout/device/tab scenarios. No real database writes occurred.
 
 References checked: [Abort signal](https://supabase.com/docs/reference/javascript/using-modifiers-abortsignal),
 [SDK retry/deadline behavior](https://supabase.com/docs/guides/api/automatic-retries-in-supabase-js).
+
+## Unavailable saved records
+
+Both guest-only and enabled-account wishlist pages now distinguish unavailable
+saved IDs from an empty list. They retain those records, keep their honest count,
+and show the existing translated catalog notice without fabricating a card.
+Account state separates unavailable guest entries from entries eligible to merge;
+an unavailable-only pending/stale claim no longer offers an impossible retry.
+A write error with a readable guest list also uses save-error copy rather than
+claiming a read failure. No catalog records or booking behavior changed.
+
+Actual output: npm test 126 node tests passed, 0 failed; 11 Vitest files / 116
+tests passed. Astro check (250 files): 0 errors, 0 warnings, 0 hints. Default
+build 94 pages in 5.28s; enabled synthetic build 94 pages in 5.62s; both Complete!
+Guest count browser suite passed 4 cases plus its new unavailable-ID notice
+case. Static account browser suite passed all 4 cases including unavailable
+retention/notice and no impossible retry. Built gate and local Google/callback
+checks passed; real account sync and email remain off. No SQL/remote writes.

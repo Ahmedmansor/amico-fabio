@@ -7,6 +7,5 @@ const m=getWishlistMessages(Astro.props.locale);
 ---
 {accountSyncEnabled && <div class="wishlist-sync-controls">
   <p data-wishlist-sync-status role="status" aria-live="polite"></p>
-  <p data-wishlist-catalog-notice hidden>{m.catalogUnavailable}</p>
   <button type="button" class="wishlist-sync-button" data-wishlist-sync-retry hidden>{m.mergeSaved}</button>
 </div>}

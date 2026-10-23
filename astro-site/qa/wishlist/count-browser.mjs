@@ -41,6 +41,13 @@ try {
   const page=await denied.newPage(); await page.goto(`${origin}/en/legal/`);
   assert.equal(await page.locator('[data-wishlist-count]').isVisible(),false);
   await denied.close();
-  await writeFile(new URL('./count-results.json',import.meta.url),JSON.stringify({cases:results,unavailableStorage:'no fabricated count'},null,2)+'\n');
+  const stale=await browser.newContext();
+  await stale.addInitScript(()=>localStorage.setItem('fabio:wishlist:v1:trip:unavailable_fixture','1'));
+  const stalePage=await stale.newPage();await stalePage.goto(`${origin}/en/wishlist/`);await count(stalePage,1);
+  assert.equal(await stalePage.locator('[data-wishlist-catalog-notice]').isVisible(),true);
+  assert.equal(await stalePage.locator('[data-wishlist-empty]').isVisible(),false);
+  assert.equal(await stalePage.locator('[data-wishlist-item]:visible').count(),0);
+  await stale.close();
+  await writeFile(new URL('./count-results.json',import.meta.url),JSON.stringify({cases:results,unavailableStorage:'no fabricated count',unavailableTourNotice:true},null,2)+'\n');
   console.log('Wishlist count: 4 language/viewport cases passed; add/remove, reload, header-only page, cross-tab, clear, stable geometry and unavailable storage.');
 }finally{await browser.close();}

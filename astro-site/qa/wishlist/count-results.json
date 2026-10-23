@@ -49,5 +49,6 @@
       "stableLink": true
     }
   ],
-  "unavailableStorage": "no fabricated count"
+  "unavailableStorage": "no fabricated count",
+  "unavailableTourNotice": true
 }

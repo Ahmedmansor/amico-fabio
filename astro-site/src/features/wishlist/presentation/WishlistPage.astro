@@ -18,6 +18,7 @@ const m = getWishlistMessages(locale);
     <a href={`/${locale}/explore/`} class="wishlist-browse">{m.browse}<span aria-hidden="true"> →</span></a>
   </section>
   <AuthEntry locale={locale}/>
+  <p data-wishlist-catalog-notice class="wishlist-notice" hidden>{m.catalogUnavailable}</p>
   <WishlistSyncStatus locale={locale}/>
   <p data-wishlist-error class="wishlist-notice" role="alert" hidden></p>
   <section data-wishlist-empty class="wishlist-empty" hidden>
