@@ -9,7 +9,8 @@ copied into source/local configuration.
 Local browser Auth is now enabled for **Google only on localhost:4322**, via
 ignored `.env.local`. Email UI remains disabled pending its protection/settings
 review. The built site and the actual 4322 browser tab were verified to expose
-Sign in and Continue with Google. Live Google completion is still unverified.
+Sign in and Continue with Google. The user subsequently completed Google login;
+the actual restored session/profile/avatar was verified locally (qa/auth/README.md).
 The former localhost:4330 synthetic design server has been stopped. Use 4322 for
 all subsequent user-facing local tests. Committed source remains opt-in; hosting
 variables and deployed artifacts have not been changed.
@@ -110,6 +111,13 @@ not an automatic change to the Brevo SMTP setup just tested. No hooks/functions,
 counter tables, CAPTCHA services or backend settings have been added.
 
 ## Remaining account work
+
+Account schema is prepared for review in `../../../supabase/account-wishlist/`.
+It has not been executed. This includes two user tables and a narrow additional
+published-tour identity SELECT grant/policy for authenticated users. Approval
+of the older catalog migration does not authorize these changes. Local sync
+implementation may proceed behind a disabled activation gate; remote schema and
+role-isolation verification remain prerequisites to activation.
 
 Profiles, account wishlists/RLS, lossless guest merge, email preference storage,
 automatic invitations/seven-day dismissal and reminder services remain outside

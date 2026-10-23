@@ -149,7 +149,7 @@ Draft subscription wording, to review and translate before implementation:
 This is technical design guidance, not a guarantee of full legal compliance.
 Review message classification and final wording for the actual business and audience.
 
-## 6. Proposed data model — no executable SQL yet
+## 6. Proposed data model — SQL prepared locally, not applied
 
 | Entity | Responsibility |
 | --- | --- |
@@ -160,7 +160,9 @@ Review message classification and final wording for the actual business and audi
 | Suppression records | Unsubscription, bounce, complaint, optional-mail suppression state |
 | Delivery queue/log | Message identity, payload references, status, attempts, Brevo message ID |
 
-Review final names and columns before writing schema. `trip_id` references the
+Review `../../../supabase/account-wishlist/README.md` and its prepared schema
+before remote execution. It covers only minimal profiles and account wishlists;
+mail/consent entities remain proposals. `trip_id` references the
 existing stable ID in `trips`; do not duplicate the catalog. Package favorites
 are a separate scope decision.
 

@@ -104,3 +104,11 @@
 - Never request, read, print or commit service_role/secret keys, database passwords or access tokens. If a privileged one-off import is needed, the user runs it themselves with an ignored local environment file; do not read that file or log its values.
 - Expose only published catalog data through SELECT policies, including child records whose parent is published. No anonymous INSERT/UPDATE/DELETE permissions or private lead/settings fields. Keep campaign leads, Auth, favorites, emails and automatic rebuild hooks outside this phase.
 - Keep provider selection in data-layer configuration; reuse feature access functions and identical validation for both providers. Never silently fall back to Sheets when Supabase fails. Static prices update only after a successful rebuild.
+
+## Auth and wishlist continuation — confirmed 2026-10-23
+- Later user instructions authorized phased local Auth/wishlist implementation, superseding the earlier catalog-phase deferral for this local work. Follow `astro-site/src/features/auth/PLAN.md` for the agreed flow and `SETUP.md` for operational gates.
+- Google login, session/profile display, guest favorites, header count and loading states are implemented locally. Email sign-in remains disabled; account wishlist synchronization must not be claimed until its schema, role isolation and real integration are verified.
+- The user authorized continuing local files, logic and tests while away without asking about routine file additions. New direct dependencies, remote user-data schema/writes, Auth/provider/SMTP settings, external emails and deployment retain their separate approval requirements.
+- Prepare account schema and least-privilege RLS for review in `astro-site/supabase/account-wishlist/`. Earlier catalog remote-write authorization does not authorize these new user tables or catalog grant changes.
+- Keep static Astro/GitHub Pages architecture and the feature dependency rules. Account wishlist persistence belongs to wishlist/data; Auth exposes identity/session only. Reminder services and consent remain separate phases.
+- Preserve unsynchronized guest favorites on failures/signout/account changes. Clear only confirmed items from the same captured guest revision and current account; never wipe browser storage or treat profile metadata as authorization.
