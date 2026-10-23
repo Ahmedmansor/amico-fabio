@@ -2,6 +2,7 @@ import { normalizeWishlist, tripId } from '../domain/wishlist.ts';
 import type { GuestEntry } from '../domain/merge.ts';
 
 export const guestWishlistPrefix = 'fabio:wishlist:v1:trip:';
+const acknowledgementPrefix = 'fabio:wishlist:ack:v1:';
 
 export interface GuestStorage {
   readonly length: number;
@@ -46,6 +47,7 @@ export function readGuestSnapshot(storage: GuestStorage | null): StorageResult<G
       try {
         const id = decodeURIComponent(key.slice(guestWishlistPrefix.length));
         if (itemKey(id) !== key) return { ok: false, reason: 'invalid-data' };
+        if (value !== '1' && storage.getItem(acknowledgementPrefix + value) === '1') continue;
         entries.push({ id, revision: value });
       } catch {
         return { ok: false, reason: 'invalid-data' };
@@ -79,7 +81,8 @@ export function saveGuestFavorite(
   try {
     const existing = storage.getItem(key);
     if (existing !== null && !validRevision(existing)) return { ok: false, reason: 'invalid-data' };
-    const revision = existing ?? `v2:${crypto.randomUUID()}`;
+    const acknowledged = existing !== null && storage.getItem(acknowledgementPrefix + existing) === '1';
+    const revision = existing !== null && !acknowledged ? existing : `v2:${crypto.randomUUID()}`;
     if (saved) storage.setItem(key, revision);
     else storage.removeItem(key);
     const persisted = storage.getItem(key);
@@ -105,14 +108,14 @@ export function promoteGuestSnapshot(storage: GuestStorage | null): StorageResul
   } catch { return { ok: false, reason: 'write-failed' }; }
 }
 
-/** Caller must hold the shared guest lock. Recheck before each conditional delete. */
+/** Logical removal by revision: never deletes a concurrent newer save, even from an old tab. */
 export function removeGuestRevision(storage: GuestStorage | null, entry: GuestEntry): StorageResult<boolean> {
   if (!storage) return { ok: false, reason: 'unavailable' };
   try {
     const key = itemKey(entry.id);
     if (entry.revision === '1' || storage.getItem(key) !== entry.revision) return { ok: true, value: false };
-    storage.removeItem(key);
-    if (storage.getItem(key) !== null) return { ok: false, reason: 'write-failed' };
+    storage.setItem(acknowledgementPrefix + entry.revision, '1');
+    if (storage.getItem(acknowledgementPrefix + entry.revision) !== '1') return { ok: false, reason: 'write-failed' };
     return { ok: true, value: true };
   } catch { return { ok: false, reason: 'write-failed' }; }
 }

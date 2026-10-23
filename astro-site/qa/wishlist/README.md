@@ -137,3 +137,30 @@ Real output: guest storage tests 8 passed, 0 failed; Vitest wishlist domain
 2 files / 8 tests passed; Astro check (226 files) 0 errors, 0 warnings, 0 hints;
 build 94 pages in 5.63s, Complete! Browser count regression suite passed all
 4 language/viewport cases (add/remove, reload, cross-tab and storage failures).
+
+## Account-bound coordinator and guest claims (not activated)
+
+Account loading/editing is serialized and responses are bound to an account and
+session generation. Merge performs inserts only, reads back the result, then
+acknowledges only confirmed guest revisions. A missing schema/network failure
+never becomes synchronization success. Partial batch failures retain unconfirmed
+guests. A late response from account A cannot replace account B's visible list.
+
+Guest operations share a Web Lock. Per-item claims bind in-flight revisions to
+one account for a ten-minute attempt window; expiry or another account requires
+an explicit new merge action. There is no consent or authentication in these
+records. Completed claims are removed. No-lock browsers retain guest data and
+report the inability to merge rather than risk deleting data.
+
+Acknowledgement now uses a revision-specific marker instead of compare/delete:
+a localStorage compare/delete is not atomic against an older uncooperative tab.
+The marker logically removes only that revision from guest reads; a concurrent
+remove/re-add has a different UUID and stays visible. No entire guest list or
+browser storage is wiped. This supersedes the earlier conditional-delete sketch.
+Revision markers contain no profile data; unresolved claim retention and broader
+account deletion/export remain launch gates, not implemented email policies.
+
+Actual checks: guest-storage/claim/coordinator node tests 19 passed, 0 failed,
+including a simulated write between read and acknowledgement; Astro check
+(235 files) 0 errors, 0 warnings, 0 hints; 94 pages built in 5.79s, Complete!
+The next UI task must keep account sync disabled until schema/RLS verification.

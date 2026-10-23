@@ -55,7 +55,7 @@ test('ambiguous legacy revisions and denied cleanup never report successful remo
   storage.setItem(prefix + 'a', '1');
   assert.deepEqual(removeGuestRevision(storage, {id:'a',revision:'1'}), {ok:true,value:false});
   const current = promoteGuestSnapshot(storage).value[0];
-  storage.removeItem = () => {};
+  storage.setItem = () => {};
   assert.deepEqual(removeGuestRevision(storage, current), {ok:false,reason:'write-failed'});
   assert.deepEqual(readGuestWishlist(storage), {ok:true,value:['a']});
 });
