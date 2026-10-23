@@ -186,3 +186,21 @@ Email sign-in remains intentionally disabled; its agreed UX is a Magic Link,
 not an email/password form. No remote schema, Google scopes, email sends,
 hosting changes or deployment were needed for this presentation fix. Account
 wishlist synchronization remains unimplemented and is not claimed by the UI.
+
+## Account repository and shared browser connection
+
+Prepared but not activated: wishlist/data owns profile/wishlist persistence.
+Reads use explicit ownership filters, stable ordering and pagination; additions
+use bounded ignore-duplicate inserts, deletions filter both user and tour.
+Server timestamps and existing locale are never overwritten by those inserts.
+Errors return neutral reasons, with no raw SDK diagnostics or fallback success.
+Auth and wishlist reuse a neutral shared SDK connection with the existing Auth
+storage key; Auth remains the owner of identity/session operations.
+
+Actual verification: Auth/repository node tests 14 passed, 0 failed; shared client
+Vitest 3 passed; Astro check (231 files) 0 errors/warnings/hints; build 94 pages
+in 5.04s, Complete! Full synthetic Auth browser suite also passed all 4 IT/EN
+375/1440 cases and existing email/callback/expired-link/Google URL cases.
+The isolated server used loopback 4330, fake configuration and separate caches;
+the user's 4322 server was left running. No real sign-in/mail or database writes.
+No schema-execution/RLS guarantee is implied by the mock repository tests.
