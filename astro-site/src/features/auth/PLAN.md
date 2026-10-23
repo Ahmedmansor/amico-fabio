@@ -1,351 +1,387 @@
-# خطة التسجيل والمفضلة وتذكيرات البريد — Fabio Egypt
+# Authentication, wishlists, and email reminders — Fabio Egypt
 
-تاريخ الإعداد: 23 أكتوبر 2026.
+Created: 2026-10-23. English execution reference replacing the Arabic text.
 
-**الحالة: خطة قبل التنفيذ، مع قرارات تجربة مستخدم معتمدة أدناه.** اعتماد هذه
-القرارات وتحديث الملف لا يعني اعتماد كل تفاصيل التشغيل، أو السماح بإنشاء جداول
-أو إعداد Auth أو إرسال رسائل أو نشر خدمات.
-هذا المستند يجمع خطة المراحل؛ وجوده داخل `auth` لا يجعل المفضلة والبريد جزءًا
-من مسؤولية Auth في الكود.
+**Status: pre-implementation plan with confirmed UX decisions below.** Agreement
+on those decisions and editing this document do not authorize all operational
+settings, remote schema changes, Auth configuration, email sending, or deployment.
+This document coordinates the phases. Its location in `auth` does not make
+wishlists or reminder delivery responsibilities of the Auth feature.
 
-## 1. الهدف
+## 1. Goal
 
-إتاحة حفظ الرحلات أثناء التصفح، ثم تسجيل الدخول اختياريًا لمزامنة المفضلة بين
-الأجهزة. يمكن للمستخدم طلب ملخص قائمته بالبريد، والاشتراك اختياريًا في تذكير
-عن الرحلات المحفوظة، دون اشتراط الاشتراك لإنشاء الحساب أو حفظ القائمة.
+Let visitors save tours while browsing and optionally sign in to synchronize
+favorites across devices. Users may request a one-off email summary and
+separately opt into reminders about saved tours. Reminder subscription must
+never be required for registration or saving favorites.
 
-الموقع يبقى Astro بخرج static واستضافة ملفات ثابتة. إضافة Supabase Auth
-ووظائف البريد وCron تمثل توسيعًا للخدمات الخلفية، ويجب اعتماد نطاقها قبل التنفيذ.
-لن يحتاج ذلك في حد ذاته إلى SSR أو runtime API داخل Astro.
+Keep Astro output static and publish generated files to static hosting.
+Supabase Auth, email functions, and Cron extend the backend services and require
+agreement on their scope before implementation. They do not inherently require
+SSR or runtime API routes inside Astro.
 
-## 2. الحقائق الحالية التي نبني عليها
+## 2. Existing project facts
 
-- أسعار الرحلات والكتالوج موجودة بالفعل في Supabase، وليست كلها داخل كود Astro.
-- Astro يقرأ الكتالوج من data layer أثناء البناء؛ النصوص والصور الحالية محلية.
-- تعديل Supabase لا يغيّر الصفحات المنشورة إلا بعد بناء ونشر ناجحين.
-- لدينا IDs ثابتة منفصلة عن slugs؛ لا نستخدم slug كهوية للمفضلة.
-- الحجز الحالي يفتح WhatsApp؛ لا يوجد تأكيد حجز آلي يمكن الاعتماد عليه.
-- اللغات المنشورة `it` و`en`، والإيطالية الافتراضية. نستخدم إعداد اللغات المشترك.
-- نظام موافقة الكوكيز موجود في الكود. موافقة Analytics مستقلة عن موافقة البريد.
-- لدى المستخدم حساب Brevo بخطة 300 رسالة يوميًا؛ لم تُفحص إعدادات الحساب أو نطاق الإرسال.
+- Catalog records and prices already exist in Supabase; they are not all in Astro source.
+- Astro reads the catalog through its data layer at build time. Current text and images are local.
+- Editing Supabase does not change published pages until a successful rebuild and deployment.
+- Stable IDs are separate from slugs. Wishlist identity must use stable IDs.
+- Booking currently opens WhatsApp. There is no authoritative automatic booking confirmation.
+- Published languages are `it` and `en`, with Italian as default. Reuse shared language configuration.
+- Cookie consent exists in source. Analytics consent and email subscription are independent.
+- The user has a Brevo account with a 300-email daily allowance. Account and sender-domain settings have not been inspected.
 
-## 3. تنظيم Feature First وحدود المسؤوليات
+## 3. Feature-first organization and ownership
 
-الهيكل المستهدف عند تنفيذ كل مرحلة:
+Create implementation directories as their phases are implemented:
 
 ```text
 src/features/
   auth/
     PLAN.md
-    domain/                أنواع الحساب والتحقق وقواعد العودة الآمنة
+    domain/                Account types, validation, safe return rules
       __tests__/
-    data/                  Supabase Auth، الجلسة، وعمليات البروفايل المسموحة
-    presentation/          نافذة الدخول وحالة الحساب وتفاعلاتها
+    data/                  Supabase Auth, session, permitted profile operations
+    presentation/          Sign-in dialog, account state, scoped interactions
   wishlist/
-    domain/                قواعد الإضافة والدمج والتطبيع
+    domain/                Add/remove, normalization, merge rules
       __tests__/
-    data/                  تخزين الزائر وقراءة/كتابة قائمة المستخدم
-    presentation/          القلب وصفحة المفضلة ورسائل الحالة
+    data/                  Guest storage and account wishlist persistence
+    presentation/          Heart button, favorites page, status messages
   reminders/
-    domain/                الأهلية والتوقيت ومراحل التذكير
+    domain/                Eligibility, scheduling, reminder stages
       __tests__/
-    data/                  طلب الملخص وحالة الاشتراك، دون أسرار بريد
-    presentation/          إعدادات البريد وحالة الطلب
+    data/                  Summary requests and subscription state; no mail secrets
+    presentation/          Email preferences and request status
 ```
 
-- `src/pages/` يجمع الصفحات فقط. لا نضع منطق الجلسات أو المفضلة داخل routes.
-- `presentation -> domain/data` و`data -> domain`. الـdomain لا يعرف DOM أو
-  localStorage أو Supabase أو Astro أو متغيرات البيئة أو الساعة الفعلية.
-- واجهة Auth تعرض جلسة المستخدم من خلال API واضح. المفضلة تعتمد عليه دون أن
-  يعتمد Auth على تفاصيل المفضلة. تنسيق المزامنة عند الدخول لا يخلق imports دائرية.
-- نصوص واجهة كل feature في قاموسيها بمفاتيح متطابقة، وفق آلية i18n المشروع.
-  النصوص المشتركة فعلًا فقط تبقى في القواميس المشتركة.
-- بنية Edge Functions ومهاجرات SQL تكون خارج `src` في مساحة Supabase المناسبة،
-  مع فصل orchestration وBrevo عن قواعد الأهلية النقية. لا نستورد أسرارها إلى الموقع.
-- لا ننشئ مجلدات أو ملفات تنفيذ وهمية لمجرد تمثيل الهيكل في هذه المرحلة.
+- `src/pages/` assembles routes only. Do not implement session or wishlist logic there.
+- Dependencies: `presentation -> domain/data`; `data -> domain`.
+- Domain code has no DOM, localStorage, Supabase, Astro, environment-variable,
+  network, or real-clock access. Pass inputs, including time, explicitly.
+- Auth exposes a clear session API. Wishlist may consume it; Auth must not
+  depend on wishlist internals. Coordinate sign-in synchronization without cycles.
+- Each feature keeps matching IT/EN message keys using the project's i18n
+  conventions. Put only genuinely shared messages in shared dictionaries.
+- Edge Functions and SQL migrations belong outside `src` in the appropriate
+  Supabase workspace. Separate orchestration/Brevo adapters from pure eligibility
+  rules. Backend secrets must never enter the website bundle.
+- Do not create empty implementation files merely to represent the planned structure.
 
-## 4. تجربة المستخدم المقترحة
+## 4. User journey
 
-1. الزائر يضغط القلب: نحفظ ID الرحلة محليًا ونحدّث القلب بعد نجاح التخزين.
-2. نعرض دعوة خفيفة للتسجيل لمزامنة القائمة، مع إمكانية الاستمرار دون حساب.
-3. اختيار «ليس الآن» يؤجل الدعوة التلقائية 7 أيام؛ زر الدخول اليدوي يظل متاحًا.
-4. الدخول المعتمد: زر Google OAuth، ومعه خانة كتابة البريد يدويًا لإرسال Magic Link.
-   لا نطلب كلمة مرور أو إدخال رمز OTP ضمن تجربة الدخول المعتمدة.
-5. نعرض سياسة الخصوصية، وشروط الخدمة إن كانت مطلوبة، بشكل مستقل عن اشتراك البريد.
-6. خيار التذكيرات منفصل، اختياري، وغير معلّم مسبقًا. الحساب يعمل عند رفضه؛ ترك
-   الخيار فارغًا لا يظهر تحذيرًا أو إطارًا أحمر ولا يعطل التسجيل أو حفظ المفضلة.
-7. بعد التحقق من الجلسة ندمج قائمة الزائر دون تكرار، ثم نمسح فقط العناصر التي
-   تأكد نجاح مزامنتها. لا نعرض رسالة نجاح لو فشلت العملية.
-8. المستخدم المسجل يستطيع إضافة/حذف العناصر وتغيير لغة رسائله وإيقاف التذكيرات.
-9. زر «أرسل قائمتي إلى بريدي» يطلب ملخصًا واحدًا، ولا يفعّل التذكيرات تلقائيًا.
+1. A guest clicks a heart. Save the tour ID locally and reflect successful storage.
+2. Offer a lightweight invitation to sign in and synchronize favorites; browsing
+   and guest favorites remain available without an account.
+3. Choosing Not now suppresses automatic invitations for seven days. Manual
+   sign-in remains accessible.
+4. Confirmed sign-in methods: Google OAuth and a manually entered email address
+   receiving a Magic Link. No password or user-entered OTP in the agreed UX.
+5. Show the privacy notice, and terms if required, separately from email subscription.
+6. Reminders are optional and unchecked by default. Leaving that box unchecked
+   is not an error: no red warning, disabled registration, or blocked wishlist.
+7. After establishing the authenticated session, merge guest favorites without
+   duplicates. Clear only guest items whose synchronization succeeded. Never
+   announce successful synchronization after a failed request.
+8. Signed-in users can add/remove favorites, set email language, and stop reminders.
+9. Send my list by email requests one summary; it never implicitly enables reminders.
 
-الحفظ المتفائل يحتاج rollback ورسالة خطأ مترجمة عند فشل الطلب. عند تعطل
-localStorage لا ندّعي أن القائمة حُفظت. ضغطات القلب المتكررة والمزامنة من تبويبين
-يجب ألا تنشئ تكرارًا أو تقلب الحالة بصورة غير مقصودة.
+Optimistic UI needs rollback and translated errors on failure. If localStorage
+is unavailable, do not claim persistence succeeded. Repeated clicks and multiple
+tabs must not create duplicates or unexpectedly reverse the intended state.
 
-### 4.1. البريد اليدوي وتجربة Magic Link على الأجهزة المختلفة
+### 4.1. Manual email and Magic Links across devices
 
-- البريد اليدوي مسار ظاهر بجانب Google، وليس مقصورًا على Gmail. نقبل البريد
-  الصالح من Libero وVirgilio وOutlook وYahoo وبريد الشركات والنطاقات الخاصة.
-- يكتب المستخدم بريده، يطلب رابط الدخول، ثم يضغط عليه داخل رسالة البريد.
-  لا نعد بوصوله خلال ثوانٍ مضمونة؛ نعرض حالة الطلب وخيار إعادة الإرسال بعد المهلة.
-- التدفق المطلوب يسجل المستخدم على المتصفح الذي يفتح الرابط. يجب اختيار طريقة
-  تدعم هذا السلوك والتحقق منها؛ لا نستخدم PKCE مقيدًا بالمتصفح الأصلي ثم نعد
-  بأن الرابط سيعمل على جهاز مختلف. فحص الرمز داخليًا لا يعني مطالبة المستخدم
-  بإدخال OTP؛ واجهة المستخدم تظل رابطًا قابلًا للضغط فقط.
-- نعرض توجيهًا مترجمًا بسيطًا: «افتح رابط الدخول في المتصفح الذي تريد استخدام
-  الموقع عليه». نراعي أيضًا متصفح تطبيق البريد الداخلي مقابل المتصفح المعتاد.
-- إذا طلبه من الكمبيوتر وفتحه بالموبايل، تكون الجلسة على الموبايل؛ الكمبيوتر
-  لا يدخل تلقائيًا. يدخل على الكمبيوتر عبر Google، أو يفتح رابطًا غير مستخدم
-  هناك؛ إذا استُهلك الرابط يطلب رابطًا جديدًا وفق حدود إعادة الإرسال.
-- لا ننفذ حاليًا نقل جلسة أو تأكيد دخول بين جهازين، ولا ننقل tokens بينهما.
-- المفضلة المحلية قبل الدخول تخص المتصفح الأصلي. لا ندّعي ظهورها على الجهاز
-  الآخر قبل دخول المتصفح الأصلي ونجاح مزامنتها. بعد المزامنة تظهر للحساب على أجهزته.
-- يعالج التدفق الروابط المنتهية أو المستخدمة وفحص الروابط بواسطة مزود البريد،
-  دون إظهار نجاح زائف أو إرسال روابط جديدة تلقائيًا في حلقة.
+- Keep manual email entry visible alongside Google. Support valid addresses from
+  Libero, Virgilio, Outlook, Yahoo, businesses, private domains, and other providers;
+  do not restrict registration to Gmail.
+- The user enters an address, requests a link, and clicks it in their email.
+  Do not guarantee delivery within seconds. Show request status and a resend
+  option after the configured cooldown.
+- The required flow signs in the browser that opens the link. Select and verify
+  a flow supporting that behavior. Do not use an original-browser-bound PKCE
+  exchange while promising cross-device link use. Internal token verification
+  does not mean asking the user to enter an OTP.
+- Provide localized guidance: Open the sign-in link in the browser where you
+  want to use the website. Account for email apps opening an embedded browser.
+- Requesting on desktop and opening on mobile signs in mobile, not desktop.
+  To sign in desktop, use Google there or open an unused valid link there.
+  Request a new link if the previous one was consumed, subject to resend limits.
+- Do not implement automatic cross-device session transfer or forward tokens
+  between devices in this phase.
+- Guest favorites belong to the original browser until that browser signs in
+  and synchronizes them. Do not promise they appear on another device before
+  that synchronization. Synced favorites then follow the account across devices.
+- Handle expired/used links and email-provider link scanners without false
+  success messages or automatic resend loops.
 
-## 5. الموافقة والخصوصية
+## 5. Consent and privacy
 
-**لا نعتمد اقتراح checkbox إجباري يدمج الخصوصية والتذكيرات.** إدراج الرسائل في
-شروط الخدمة لا يجعلها تلقائيًا ضرورية لتنفيذ العقد. وعدم وجود خصم لا يحسم أن
-الرسالة خدمية؛ التشجيع على العودة للحجز قد يكون تسويقًا.
+**Do not require a checkbox combining privacy acknowledgement and reminders.**
+Writing reminders into terms does not automatically make them contractually
+necessary. The absence of a discount does not determine whether a message is
+transactional; encouraging users to return and book may be marketing.
 
-صياغة مبدئية للاشتراك، تُراجع وتُترجم قبل التنفيذ:
+Draft subscription wording, to review and translate before implementation:
 
-> أرغب في تلقي تذكيرات عبر البريد عن الرحلات التي حفظتها. يمكنني إيقافها في أي وقت.
+> I would like email reminders about tours I have saved. I can unsubscribe at any time.
 
-- نوثّق القبول والسحب ونسخة النص ولغته والمصدر بوقت موثوق من السيرفر.
-- لا نعتمد وقت localStorage أو قيم العميل كإثبات كامل للموافقة.
-- نحتفظ بسجل تغييرات للموافقة، لا بمجرد boolean يُستبدل كل مرة.
-- تسجيل الدخول أو Analytics أو حفظ المفضلة لا يفعّل موافقة البريد ضمنيًا.
-- حفظ المفضلة والجلسة يقتصر على ما يلزم للخدمة التي طلبها المستخدم؛ لا نصنّف
-  أي تخزين تسويقي بأنه ضروري لمجرد وضعه في نفس الميزة.
-- لا نرسل الأسماء أو البريد أو محتوى القائمة إلى Analytics.
-- نحدد سياسة الاحتفاظ والحذف وتصدير بيانات المستخدم قبل الإطلاق.
-- حذف الحساب يوقف الرسائل المنتظرة، مع تحديد الحد الأدنى اللازم لسجلات المنع
-  والاحتفاظ القانوني بدل افتراض حذف كل سجل أو الاحتفاظ به للأبد.
-- الملخص الذي يطلبه المستخدم يظل مرتبطًا بطلبه، دون إضافة رسائل تسويقية تلقائية.
+- Record acceptance and withdrawal, wording version, language, and source with
+  trusted server timestamps.
+- Client timestamps or localStorage flags are not sufficient proof of consent.
+- Keep consent history instead of only overwriting a boolean.
+- Signing in, analytics consent, and saving favorites never imply email opt-in.
+- Session and wishlist storage must be limited to the user-requested service.
+  Do not label marketing storage necessary because it shares the feature.
+- Do not send names, emails, or wishlist contents to Analytics.
+- Define retention, deletion, and user data export before launch.
+- Account deletion stops queued optional mail. Define any justified minimum
+  suppression/audit retention rather than deleting everything indiscriminately
+  or keeping records forever.
+- A requested one-off summary stays tied to that request; do not append an
+  automatic promotional sequence.
 
-هذا توجيه للتصميم التقني؛ التصنيف القانوني النهائي للرسائل والنصوص يحتاج مراجعة
-تناسب النشاط والجمهور، ولا نقدم ضمان «امتثال 100%» بمجرد تغيير الصياغة.
+This is technical design guidance, not a guarantee of full legal compliance.
+Review message classification and final wording for the actual business and audience.
 
-## 6. نموذج البيانات المقترح — بدون SQL تنفيذي حاليًا
+## 6. Proposed data model — no executable SQL yet
 
-| الكيان | المسؤولية |
+| Entity | Responsibility |
 | --- | --- |
-| `auth.users` | هوية المستخدم والبريد المتحقق منه لدى Supabase Auth |
-| `profiles` | إعدادات الملف واللغة؛ أقل قدر مطلوب من البيانات الشخصية |
-| `wishlists` | `user_id` و`trip_id` وتاريخ الإضافة، مع UNIQUE للمستخدم والرحلة |
-| سجل موافقات البريد | قبول/سحب ونوع الاشتراك ونسخة النص واللغة ووقت السيرفر |
-| قائمة منع الإرسال | إلغاء الاشتراك والارتداد والشكوى وحالة منع الرسائل الاختيارية |
-| طابور/سجل الإرسال | هوية الرسالة ومحتواها المرجعي وحالتها ومحاولاتها ومعرف Brevo |
+| `auth.users` | Supabase identity and verified account email |
+| `profiles` | Minimal account settings and language |
+| `wishlists` | `user_id`, `trip_id`, added timestamp; UNIQUE per user/tour |
+| Email consent history | Grant/withdrawal, subscription type, text version, language, server timestamp |
+| Suppression records | Unsubscription, bounce, complaint, optional-mail suppression state |
+| Delivery queue/log | Message identity, payload references, status, attempts, Brevo message ID |
 
-الأسماء النهائية والأعمدة تُراجع قبل كتابة schema. `trip_id` يشير إلى ID الرحلة
-في جدول `trips` الحالي؛ لا ننشئ جدول كتالوج مكرر. دعم المفضلة للباقات قرار منفصل.
+Review final names and columns before writing schema. `trip_id` references the
+existing stable ID in `trips`; do not duplicate the catalog. Package favorites
+are a separate scope decision.
 
-يفضّل فصل مرحلة التذكير عن صف المفضلة، حتى لا تعيد الإضافة والحذف تشغيل سلسلة
-الرسائل بلا نهاية. نحدد سياسة إعادة الإضافة وفترة التهدئة قبل التنفيذ.
+Prefer keeping reminder lifecycle separate from wishlist rows so removing and
+re-adding a favorite cannot restart an unlimited sequence. Define re-addition
+and cooldown policy before implementation.
 
-اللغة تظل من إعداد الموقع المشترك، مع التحقق من القيم المسموحة؛ لا نحفظ نصوص
-الترجمة داخل كل بروفايل. لا ننسخ البريد إلى حقل يستطيع العميل تغييره ثم نرسل إليه
-بصلاحيات إدارية؛ عنوان الإرسال يؤخذ من هوية متحققة بمسار خلفي موثوق.
+Validate locale against shared supported-language configuration. Do not store
+translated UI text in each profile. Do not send privileged mail to an email
+column that the browser can arbitrarily change; resolve recipients from verified
+account identity through a trusted backend path.
 
-## 7. الأمان وAuth
+## 7. Security and Auth
 
-- RLS على كل جداول المستخدمين، بسياسات موجهة إلى `authenticated` وبشرط الملكية.
-- منح الأعمدة والعمليات المطلوبة صراحة؛ لا نعطي UPDATE عامًا على حقول توقيت
-  الموافقة أو مراحل الإرسال أو البريد أو قوائم المنع.
-- اختيار `insert` أو `upsert` وسياساته يكون متسقًا. لا نستخدم مسار تحديث دون
-  امتلاك سياسة UPDATE المناسبة، ولا نوسّع الصلاحيات لمجرد تجاوز خطأ.
-- العميل لا يحدد لمن يرسل البريد، ولا يحدّث حالة التسليم أو الحجز الموثوق.
-- إنشاء البروفايل بعد التسجيل يحتاج trigger آمنًا ومدروسًا؛ فشله قد يعطل التسجيل.
-  لا نعرض دالة SECURITY DEFINER عامة، ونراجع grants وsearch_path وأقل الصلاحيات.
-- Google OAuth يحتاج إعداد provider وروابط عودة مسموحة ومحددة للاختبار والإنتاج.
-- نختار تدفق Magic Link مناسبًا لصفحات static وسلوك الجهاز المستقبِل الموضح
-  أعلاه؛ تفاصيل التحقق والعودة تُراجع قبل التنفيذ. OTP كواجهة إدخال غير معتمد.
-- نعالج الجلسة الموجودة عند تحميل الصفحة، وليس حدث SIGNED_IN وحده.
-- المزامنة قابلة لإعادة المحاولة دون تكرار. الحالة المعلقة محدودة العمر ومربوطة
-  بمحاولة التسجيل؛ لا نطبّق موافقة قديمة تلقائيًا على حساب آخر.
-- روابط العودة تُفحص بقائمة مسموحة لمنع open redirects.
-- حماية طلبات البريد من الإساءة: rate limits وحدود إعادة الإرسال، ومعالجة
-  أخطاء Auth دون كشف غير ضروري لوجود حساب المستخدم.
-- أي browser client يستخدم publishable key مع RLS. مفاتيح Brevo والأسرار الخلفية
-  تبقى في مخزن أسرار الخدمة؛ لا يطلب الوكيل من المستخدم إرسالها في المحادثة.
+- Enable RLS on user tables; target policies to `authenticated` with ownership predicates.
+- Grant only required operations/columns. Do not expose unrestricted updates to
+  consent timestamps, delivery stages, recipient email, or suppression records.
+- Keep insert/upsert behavior consistent with policy permissions. A conflict
+  update needs appropriate UPDATE policy; do not broadly expand permissions to
+  hide an error.
+- The client cannot choose arbitrary recipients or mark delivery/booking as authoritative.
+- Any automatic profile-creation trigger must be carefully reviewed: a failure
+  can block registration. Do not expose a public SECURITY DEFINER function;
+  review grants, search_path, and least privilege.
+- Google OAuth requires provider configuration and explicit allowed return URLs
+  for test and production.
+- Select a static-compatible Magic Link verification/callback flow satisfying
+  section 4.1. A user-entered OTP interface is not approved.
+- Handle an existing session on page load, not only SIGNED_IN events.
+- Synchronization must be retryable without duplication. Pending state expires
+  and belongs to a particular sign-in attempt; never automatically apply stale
+  consent to a different account.
+- Validate return destinations against an allowlist to prevent open redirects.
+- Protect mail requests with rate limits/cooldowns and avoid unnecessary account enumeration.
+- Browser Supabase access uses a publishable key and RLS. Keep Brevo/backend
+  secrets in service secret storage; never request them in chat or commit them.
 
-### 7.1. التحقق من البريد قبل استهلاك حصة الإرسال
+### 7.1. Email validation before spending sending quota
 
-- فحص محلي سريع للصيغة والطول والحقول الفارغة والمسافات غير الصالحة، ثم إعادة
-  التحقق في مسار خلفي موثوق قبل محاولة الإرسال. لا نعتمد regex ضيقًا يستبعد
-  عناوين صحيحة أو قائمة تسمح بمزودي البريد المشهورين فقط.
-- تنظيف المسافات المحيطة وتطبيع النطاق بصورة متسقة؛ لا نحذف النقاط أو جزء
-  `+tag` ولا نغيّر هوية العنوان وفق قواعد خاصة بـGmail على بقية المزودين.
-- الأخطاء المحتملة مثل `gmail.con` تعرض اقتراح «هل تقصد gmail.com؟» للمستخدم
-  كي يؤكده. لا نصحح البريد سرًا، ولا نرفض كل نطاق غير مألوف أو كل لاحقة مختلفة.
-- فحص DNS/قابلية نطاق البريد لاستقبال البريد من الخلفية، وفق قواعد البريد
-  الصحيحة بما فيها الحالات التي لا تملك MX صريحًا. فشل DNS المؤقت يُميّز عن
-  نطاق غير موجود؛ نعرض إعادة المحاولة بدل حظره نهائيًا.
-- منع نطاقات خدمات البريد المؤقت المعروفة بقائمة مُحدّثة وقابلة للمراجعة، مع
-  معالجة النتائج الخاطئة وإمكانية تصحيح التصنيف. لا نساوي النطاق الخاص أو
-  غير المعروف بالنطاق المؤقت، ولا نحظر مزودي السوق الإيطالي الصحيحين.
-- التحقق لا يضمن وجود صندوق البريد نفسه؛ فتح Magic Link يثبت امتلاك البريد.
-  لا ندّعي ضمان عدم استهلاك أي رسالة على عنوان خاطئ، ولا نرسل رسائل تحقق إضافية
-  لمجرد فحص العنوان، ولا نشارك البريد مع خدمة تحقق خارجية غير معتمدة.
-- استخدام أحداث hard bounce الموثوقة لتقليل إعادة الإرسال إلى عناوين غير قابلة
-  للتسليم، مع مسار لتصحيح البريد؛ إلغاء التسويق وحده لا يمنع رسائل دخول الحساب.
-- أخطاء الإدخال والتصحيح والمهلة تُعرض باللغة الحالية بمفاتيح IT/EN متطابقة،
-  بعناصر وصول واضحة؛ اللون الأحمر وحده ليس رسالة خطأ كافية.
+- Validate syntax, length, empty input, and invalid whitespace locally, then
+  validate again on a trusted backend before sending. Do not use an overly
+  restrictive regex or allow only well-known email providers.
+- Trim surrounding whitespace and normalize domains consistently. Do not remove
+  dots or `+tag` parts or apply Gmail-specific identity rules to other providers.
+- Suggest corrections such as gmail.con to gmail.com for explicit confirmation.
+  Never silently replace the address or reject every unfamiliar domain/suffix.
+- Check domain DNS/mail receivability on the backend using correct email rules,
+  including domains without explicit MX records. Distinguish temporary DNS
+  failure from a nonexistent domain; allow retry instead of permanent blocking.
+- Block known disposable-mail domains using a maintained, reviewable list with
+  correction of false positives. Unknown/private domains are not automatically
+  disposable. Do not block legitimate Italian providers.
+- Validation cannot guarantee that an individual mailbox exists. Clicking the
+  Magic Link proves mailbox control. Do not promise zero wasted emails or send
+  extra verification emails just to validate input. Do not share addresses with
+  an unapproved external verification service.
+- Use authenticated hard-bounce events to reduce repeated delivery to invalid
+  addresses, with a path for users to correct their address. Marketing opt-out
+  alone must not suppress necessary account sign-in messages.
+- Translate input, correction, cooldown, and error messages with matching IT/EN
+  keys and accessible explanations; red styling alone is insufficient.
 
-### 7.2. حماية البوتات وحدود الطلبات وحصة Brevo
+### 7.2. Bot protection, request limits, and Brevo allowance
 
-- مهلة إعادة إرسال لكل بريد، وحدود متداخلة حسب البريد وIP ونافذة زمنية، منها
-  حد طلبات في الدقيقة، إضافة إلى سقف إجمالي لحماية الخدمة والحصة اليومية.
-  الأرقام الدقيقة والحصة المحجوزة للدخول إعدادات تشغيل تُحدد وتُوثق قبل الإطلاق،
-  وليست قيمًا ثابتة مخترعة في واجهة المستخدم.
-- منع الضغط المتكرر أثناء الطلب وعرض countdown في الواجهة لتحسين التجربة فقط؛
-  تغيير المتصفح أو تجاوز JavaScript لا يتجاوز حدود الخدمة الخلفية.
-- تطبيق العدادات والحجز بصورة ذرية ومشتركة بين نسخ الخدمة؛ ذاكرة Edge Function
-  المنفردة لا تكفي. إعادة الطلب نفسه أثناء معالجته لا ترسل رسالتين.
-- CAPTCHA متدرج عند الاشتباه أو تكرار المحاولات، مع تحقق خلفي للرمز قبل إرسال
-  البريد. نختار مزوده ونراجع دمجه وخصوصيته قبل إضافته، مع مراعاة المستخدم الحقيقي
-  الذي يشترك في IP مع آخرين؛ IP وحده لا يثبت أن الزائر بوت.
-- نضبط الحماية على مسار Auth الفعلي، بما فيه CAPTCHA وrate limits الأصلية
-  المدعومة من Supabase. wrapper مخصص وحده لا يكفي إذا أمكن تجاوز فحوصه باستدعاء
-  endpoint تسجيل الدخول العام مباشرة. نتحقق من قابلية فرض فحص النطاقات على
-  مسار الإرسال الحقيقي؛ إن احتاج hook أو إعدادًا إضافيًا، يُراجع قبل التنفيذ.
-- لا نثق في IP يرسله العميل أو headers غير موثقة. نحدد مصادر proxy الموثوقة
-  ونقلل مدة الاحتفاظ بمعرفات الحماية والبيانات الموجودة في السجلات.
-- رسائل محايدة لتجنب كشف وجود حساب، ومعالجة 429 ووقت إعادة المحاولة دون إرسال
-  جديد في الخلفية. لا نستنتج وجود حساب من اختلاف رسالة الاستجابة.
-- حصة Brevo وحدود Supabase Auth منفصلتان ويجب ضبطهما معًا. إذا شاركت رسائل
-  الدخول والتذكيرات نفس حصة Brevo، نحجز أولوية للدخول ونوقف/نؤجل التذكيرات عند
-  الاقتراب من الحصة. لا نضمن الحصة من عداد التذكيرات وحده إن كانت هناك مصادر
-  أخرى للإرسال من نفس الحساب.
-- مراقبة الطلبات المقبولة والمرفوضة والإرسالات والارتداد واستهلاك الحصة، دون
-  طباعة الأسرار أو روابط الدخول أو tokens في السجلات.
+- Combine per-address resend cooldowns, email/IP/time-window limits including
+  requests per minute, and an overall cap protecting the service/daily allowance.
+  Exact thresholds and reserved sign-in capacity are operational settings to
+  define and document before launch, not invented constants in the UI.
+- Disable repeated submissions while pending and show a countdown for UX only.
+  Bypassing JavaScript or switching browser must not bypass backend enforcement.
+- Counters and job reservations must be atomic and shared across service
+  instances; per-instance Edge Function memory is insufficient. Concurrent
+  repetitions of the same request must not produce duplicate mail.
+- Use progressive CAPTCHA for suspicious/repeated activity, verified on the
+  backend before sending. Select and review its provider/integration/privacy
+  before adding it. Shared IPs are legitimate; IP alone does not prove bot behavior.
+- Enforce protection on the actual Auth sending path, including supported
+  Supabase CAPTCHA and native rate limits. A custom wrapper is insufficient if
+  attackers can bypass its validation via the public Auth endpoint. Verify how
+  domain restrictions can be enforced on the real sending path; review any hook
+  or additional configuration required before implementation.
+- Do not trust client-provided IPs or untrusted proxy headers. Define trusted
+  proxy sources and minimize retention of abuse identifiers and logs.
+- Use neutral account responses, handle 429/retry timing without hidden resends,
+  and avoid revealing whether an account exists through response wording.
+- Supabase Auth limits and Brevo's daily allowance are independent. If sign-in
+  and reminders share Brevo quota, reserve sign-in priority and defer reminders
+  near the cap. A reminder-only counter cannot guarantee capacity when other
+  sources send through the same Brevo account.
+- Monitor accepted/rejected requests, sends, bounces, and allowance consumption
+  without logging secrets, sign-in links, or tokens.
 
-## 8. ملف الكتالوج المنشور `tours-manifest.json`
+## 8. Published catalog manifest: `tours-manifest.json`
 
-ملف JSON عام ثابت يولّده Astro أثناء البناء عبر وظائف data الخاصة بالرحلات.
-لا يقرأ provider الرحلات مباشرة من feature أخرى ولا يحتوي بيانات المستخدمين.
+Generate a public static JSON file during Astro build through the tours feature's
+data functions. Do not access another feature's provider directly or include user data.
 
-محتواه المقترح:
+Proposed contents:
 
-- `schema_version` و`generated_at` ومعرف بناء/إصدار إن توفر.
-- عملة السعر `EUR` ومبلغ السعر النهائي، مع الحفاظ على الصفر الصريح.
-- لكل رحلة منشورة: ID ثابت، slug، عنوان ورابط صفحة لكل لغة منشورة، وصورة مناسبة
-  للبريد برابط مطلق صالح من نفس نشر الموقع، بأبعاد معروفة.
-- استخدام نفس السعر والعنوان والروابط المولدة للصفحة، وعدم اختراع ترجمة أو صورة.
+- `schema_version`, `generated_at`, and a build/release identifier if available.
+- Final price and currency `EUR`, preserving explicit zero.
+- For each published tour: stable ID, slug, title/page URL for every published
+  language, and an email-compatible image with an absolute URL from the same
+  deployment and known dimensions.
+- Exactly the page's price/title/links; no invented translation or image.
 
-وظيفة الإرسال تقرأ الملف مرة في الدفعة مع timeout وتحقق من بنيته وحدود حجمه.
-نحدد سياسة الكاش وصلاحية الإصدار. إذا فشل أو كان غير صالح نؤجل الدفعة ونسجل
-خطأ؛ لا نرسل سعرًا قديمًا من fallback غير معلن. نستبعد الرحلات غير المنشورة أو
-المفقودة، ولا نرفع مرحلتها كأنها ظهرت في الرسالة.
+The sender fetches the manifest once per batch with timeout, size limits, and
+schema validation. Define cache/version freshness rules. If unavailable or
+invalid, defer the batch and record the error rather than silently falling back
+to untrusted old prices. Exclude unpublished/missing tours and do not advance
+their reminder state as though they appeared in a message.
 
-الملف يمثل **آخر نشر ناجح**، وليس كل تعديل لحظي في Supabase. هدفه تطابق البريد
-مع الموقع المنشور. إذا تقرر لاحقًا أن السعر المباشر من قاعدة البيانات مطلوب،
-يجب معالجة احتمال اختلافه عن سعر الصفحة قبل تغيير هذا العقد.
+The manifest represents the **last successful deployment**, not every live edit
+in Supabase. Its purpose is email/site consistency. If live database prices are
+later required, resolve possible differences from published page prices before
+changing this contract.
 
-عنوان المصدر والإيميلات في الاختبار لا يستخدمان الموقع الأساسي تلقائيًا؛
-توجد بيئة تجريبية وقائمة مستلمين مسموحين حتى لا نرسل لعملاء حقيقيين بالخطأ.
+Test manifest origins and emails must not silently use production. Use a test
+environment and an explicit allowed-recipient list to avoid messaging real customers.
 
-## 9. استراتيجية الرسائل وBrevo
+## 9. Email strategy and Brevo
 
-البداية المعتمدة: **تذكير اختياري واحد** بعد 24 ساعة من أهلية القائمة. إضافة
-تذكير ثانٍ بعد 48 ساعة من الأول قرار لاحق، بعد مراجعة النتائج وتجربة المستخدم.
+Confirmed starting point: **one optional reminder**, 24 hours after wishlist
+eligibility. A second message 48 hours after the first is a later decision after
+reviewing results and user experience.
 
-- رسالة مجمعة للمستخدم بدل رسالة لكل رحلة، مع حد أقصى لعدد البطاقات ورابط قائمته.
-- لا ندّعي قرب نفاد المقاعد أو وجود حجز مؤكد دون مصدر بيانات يثبت ذلك.
-- نحدد متى تبدأ أهلية الرسالة، وكيف نعامل إضافة رحلة جديدة أو إزالة كل الرحلات.
-- لا نعتبر فتح WhatsApp أو الضغط على زر الحجز دليلًا على إتمام الحجز.
-  يمكن عرض «لم أعد أحتاج تذكيرات»؛ أما حالة الحجز فتحتاج مصدرًا واضحًا.
-- إذا استُخدم Brevo لـMagic Links، تكون رسائل الدخول ذات أولوية
-  وحصة محفوظة. 300 رسالة في اليوم ليست 300 مستخدم ولا سعة حصرية للتذكيرات.
-- إعداد SMTP للإنتاج وتوثيق نطاق المرسل وإعدادات البريد يُراجعان قبل الإرسال.
-- رسائل الحساب الضرورية لا تتوقف تلقائيًا عند إلغاء رسائل المفضلة الاختيارية.
-- نختار مسار Brevo المناسب لطبيعة الرسائل، ولا نعتبر endpoint اسمه transactional
-  دليلًا على أن محتوى الرسالة غير تسويقي.
+- Aggregate tours into one user message, with a card limit and a link to their list.
+- Do not claim seats are running out or a booking is confirmed without reliable data.
+- Define eligibility start and handling of newly added tours or an emptied wishlist.
+- Opening WhatsApp or clicking Book is not proof of a completed booking. Users
+  may choose I no longer need reminders; authoritative booking state needs a source.
+- If Brevo sends Magic Links, prioritize sign-in mail and reserve capacity.
+  A 300-email allowance is neither 300 users nor exclusive reminder capacity.
+- Review production SMTP, sender-domain authentication, and mail settings before sending.
+- Unsubscribing from optional favorites mail must not automatically disable
+  necessary account messages.
+- Select the appropriate Brevo sending path for the message's purpose. An API
+  endpoint named transactional does not make promotional content non-marketing.
 
-## 10. الطابور ومنع التكرار وإلغاء الاشتراك
+## 10. Queue, deduplication, and unsubscription
 
-- هوية ثابتة لكل رسالة مستحقة، وقيد UNIQUE، وحجز ذري لمهام الدفعة مع انتهاء
-  صلاحية الحجز؛ تشغيل Cron مرتين لا ينبغي أن يرسل نفس الرسالة مرتين.
-- حالات واضحة مثل pending/processing/accepted/delivered/failed/suppressed.
-  قبول API للرسالة لا يعني تسليمها لصندوق الوارد.
-- تخزين معرف Brevo ونتائج المحاولات، وعدم تجاهل فشل تحديث قاعدة البيانات.
-- عند نجاح الإرسال وفقدان الاستجابة نحتاج مسار مصالحة واستخدام آلية منع التكرار
-  المدعومة من المزود إن وجدت؛ لا نفترض إمكانية ضمان exactly-once من طلب HTTP وحده.
-- retries محدودة مع backoff واحترام 429 والحد اليومي، وترقيم صفحات نتائج Cron.
-- إعادة فحص الموافقة والمنع ووجود عناصر قبل الإرسال مباشرة، مع توثيق حدود السباق
-  بين سحب الموافقة والرسالة التي قُبلت بالفعل لدى المزود.
-- الهروب الآمن للأسماء والعناوين وروابط الصور عند توليد HTML، مع روابط موثوقة فقط.
-- لا نعتمد على `{{ unsubscribe }}` داخل raw HTML كضمان للربط أو RFC 8058.
-  نفحص الرابط الفعلي والهيدرز في رسالة تجريبية وفق مسار Brevo المعتمد.
-- إلغاء الاشتراك يعمل دون تسجيل دخول، برمز محدود الصلاحية/النطاق المناسب
-  للغرض وغير قابل للتخمين. نميز رابط الصفحة عن one-click POST إن تطلب المسار ذلك.
-- Webhooks موثقة بمصادقة يدعمها المزود، مقاومة لإعادة التشغيل والأحداث المتكررة
-  وغير المرتبة؛ لا نثق ببريد أو user_id مرسل من طلب عام غير موثق.
-- نزامن إلغاء الاشتراك والارتداد والشكوى مع المنع المحلي ونراجع حالة المنع لدى
-  Brevo؛ فقدان webhook لا ينبغي أن يعيد الاشتراك تلقائيًا.
-- Cron والوظائف الخلفية تحتاج مصادقة وأقل صلاحيات، دون أسرار في URLs أو السجلات.
+- Assign stable due-message identities and UNIQUE constraints. Claim batches
+  atomically with expiring leases so overlapping Cron invocations do not duplicate mail.
+- Use explicit states such as pending/processing/accepted/delivered/failed/suppressed.
+  API acceptance does not mean inbox delivery.
+- Persist Brevo message IDs and attempt results. Handle database write failures.
+- For successful sends with lost responses, use reconciliation and provider
+  idempotency where supported. Do not promise exactly-once delivery from HTTP alone.
+- Bound retries with backoff, respect 429/daily caps, and paginate due-job queries.
+- Recheck consent, suppression, and remaining items immediately before sending.
+  Document the race between withdrawal and mail already accepted by the provider.
+- Escape names, titles, and image URLs safely in HTML; allow only trusted links.
+- Do not assume `{{ unsubscribe }}` in raw HTML guarantees a working link or
+  RFC 8058 headers. Inspect actual test-message links and headers for the chosen path.
+- Unsubscribe without sign-in using an unguessable, appropriately scoped/tokenized
+  mechanism. Distinguish the unsubscribe page from a one-click POST where required.
+- Authenticate webhooks using provider-supported mechanisms. Handle replay,
+  duplicate/out-of-order events; do not trust arbitrary email/user_id fields from
+  an unauthenticated public request.
+- Synchronize opt-out, bounce, and complaint suppression locally and respect
+  Brevo suppression too. A missed webhook must not silently resubscribe someone.
+- Protect Cron/functions with authentication and least privilege. Never put
+  secrets in URLs or logs.
 
-## 11. مراحل التنفيذ ومعايير قبولها
+## 11. Implementation phases and acceptance gates
 
-| المرحلة | النتيجة المطلوبة قبل الانتقال |
+| Phase | Required outcome before proceeding |
 | --- | --- |
-| الاتفاق | اعتماد فصل موافقة البريد والنطاق والواجهات وسياسات التذكير والحذف |
-| مفضلة الزائر | إضافة/حذف وحفظ محلي وفشل واضح وواجهة IT/EN واختبارات domain |
-| Auth والمزامنة | Google وMagic Link لأي بريد صالح، عودة آمنة، جلسة مستمرة، RLS ودمج دون فقدان |
-| حماية الدخول | فحص البريد والنطاقات المؤقتة، تصحيح اختياري، حدود خلفية وCAPTCHA وعدم تجاوزها بالطلب المباشر |
-| الكتالوج المنشور | manifest ثابت صالح ومطابق للأسعار والروابط والصور المنشورة |
-| الملخص عند الطلب | رسالة لمستلم اختباري متحقق منه مع منع الإساءة ودون اشتراك ضمني |
-| التذكير الاختياري | موافقة موثقة وطابور ومنع تكرار وحصة يومية وإلغاء اشتراك فعلي |
-| الإطلاق | فحص تسليم/رفض/ارتداد/سحب وحذف حساب، ثم نشر مصرح به |
+| Agreement | Separate email consent, scope, UX, reminder and deletion policies |
+| Guest wishlist | Local add/remove, honest failure handling, IT/EN UI, domain tests |
+| Auth and sync | Google and Magic Link for valid emails, safe callback, persistent session, RLS, lossless merge |
+| Sign-in protection | Validation/disposable-domain policy, optional corrections, backend limits/CAPTCHA, no direct-endpoint bypass |
+| Published catalog | Static manifest matching deployed prices, URLs, and images |
+| Requested summary | Authorized verified test recipient, abuse protection, no implicit subscription |
+| Optional reminder | Auditable consent, queue, deduplication, daily allowance, working unsubscribe |
+| Launch | Delivery/rejection/bounce/withdrawal/account-deletion checks, then authorized deployment |
 
-بعد كل مهمة تنفيذ: اختبارات domain ذات الصلة، `npx astro check` و`npm run build`،
-مراجعة diff وcommit محدد. أي dependency جديدة تحتاج عرضها والموافقة عليها أولًا.
-اختبارات الإرسال الخارجي تحتاج مستلمين تجريبيين مصرحًا بهم؛ لا نستخدم عملاء حقيقيين.
+For each implementation task: relevant domain tests, `npx astro check`,
+`npm run build`, diff review, and a focused commit. New direct dependencies need
+prior approval of the package list. External sending tests require authorized
+test recipients; never use real customers as test data.
 
-اختبارات قبول إضافية معتمدة للنطاق:
+Additional acceptance scenarios:
 
-- تسجيل وحفظ مفضلة مع ترك اشتراك البريد فارغًا، دون تحذير أو منع.
-- بريد صالح من مزود إيطالي ومن نطاق خاص، مقابل بريد غير صالح ونطاق مؤقت معروف.
-- اقتراح تصحيح يوافق عليه المستخدم أو يرفضه، مع عدم تعديل العنوان سرًا.
-- DNS مؤقت التعطل، طلبات متزامنة، إعادة إرسال سريعة، وتجاوز فحوص المتصفح بطلب مباشر.
-- رابط على نفس الجهاز، وعلى جهاز مختلف، وداخل متصفح تطبيق البريد، ورابط مستخدم
-  أو منتهي؛ بقاء جلسات الأجهزة مستقلة وعدم ضياع المفضلة المحلية غير المتزامنة.
-- حد الدقيقة والبريد وIP والحصة اليومية، مع بقاء أولوية رسائل الدخول على التذكير.
-- مطابقة جميع رسائل الإدخال والمهلة والنجاح والفشل والترجمة للغة الصفحة الحالية.
+- Registration and favorites work with reminder opt-in unchecked, without warnings.
+- Valid Italian-provider/private-domain emails, malformed addresses, and known disposable domains.
+- User accepts or declines a typo suggestion; no silent address rewriting.
+- Temporary DNS failure, concurrent requests, rapid resends, and direct requests bypassing browser validation.
+- Same-device/different-device/embedded-email-browser links and used/expired links;
+  independent sessions and preservation of unsynchronized guest favorites.
+- Per-minute/email/IP/daily limits with sign-in priority over reminders.
+- Every input/cooldown/success/error message follows the current page language.
 
-## 12. القرارات المعتمدة وما تبقى تحديده
+## 12. Confirmed decisions and remaining specifics
 
-اعتمد المستخدم في المناقشة بتاريخ 23 أكتوبر 2026:
+The user confirmed on 2026-10-23:
 
-1. Google OAuth ومعه كتابة البريد يدويًا لإرسال Magic Link، دون واجهة OTP.
-2. دعم البريد الصالح عمومًا، وبالأخص مزودي السوق الإيطالي، دون اشتراط Gmail.
-3. المفضلة مع حساب اختياري، واشتراك تذكيرات اختياري مستقل؛ عدم الاشتراك ليس خطأ.
-4. الدخول على المتصفح الذي يفتح الرابط، دون تسجيل تلقائي للمتصفح الأصلي عن بعد؛
-   المفضلة المحلية لا تنتقل بين الأجهزة إلا بعد مزامنتها من المتصفح الذي حفظها.
-5. تذكير واحد كبداية، والتحقق من البريد ومكافحة البريد المؤقت والبوتات وحدود
-   الطلبات من الخلفية لحماية الحصة، مع اقتراح التصحيح بدل التغيير التلقائي.
+1. Google OAuth plus manually entered email receiving a Magic Link; no OTP-entry UI.
+2. Valid email providers generally, especially Italian-market providers; no Gmail requirement.
+3. Optional account for wishlist synchronization and independent optional email
+   subscription; leaving opt-in unchecked is not an error.
+4. Sign-in occurs in the browser opening the link; no automatic remote sign-in
+   of the originating browser. Guest favorites travel only after synchronization
+   from their original browser.
+5. One initial reminder, email validation, disposable-domain/bot protection, and
+   backend request limits to protect allowance; suggested corrections need confirmation.
 
-متبقي قبل التنفيذ/الإطلاق حسب المرحلة:
+Still to define before the relevant implementation/release phase:
 
-1. تحديد حدود كل مهمة تنفيذ، والبدء بالمفضلة المحلية ثم Auth وفق المراحل أعلاه.
-2. اختيار تدفق Magic Link وتفاصيل callback والبريد التي تحقق السلوك المعتمد.
-3. تحديد سياسة أهلية التذكير والتهدئة وإعادة الإضافة وحذف الحساب والاحتفاظ.
-4. اعتماد خدمات Edge Functions وCron ومسار Brevo والميزانية وحدود التشغيل.
-5. تحديد أرقام rate limits وحصة الدخول، ومصدر قائمة النطاقات المؤقتة، ومزود
-   CAPTCHA، وآلية فرض الحماية على مسار Auth الفعلي دون منفذ تجاوز.
-6. اعتماد النصوص النهائية IT/EN وتصميم نافذة التسجيل والمفضلة وإعدادات البريد.
+1. Bound individual tasks; begin with guest favorites, then Auth as phased above.
+2. Choose Magic Link verification/callback/email details satisfying the agreed behavior.
+3. Define reminder eligibility, cooldown/re-addition, account deletion, and retention.
+4. Approve Edge Functions/Cron scope, Brevo sending path, budget, and operational limits.
+5. Choose rate-limit numbers, reserved sign-in allowance, disposable-domain list,
+   CAPTCHA provider, and enforcement on the real Auth path without bypasses.
+6. Approve final IT/EN copy and sign-in/wishlist/email-preferences design.
 
-## مراجع التصميم
+## Design references
 
-- [EDPB: الضرورة التعاقدية وفصل الخدمات](https://www.edpb.europa.eu/system/files/2026-03/edpb-summary-guidelines2-2019-contractual-necessity-online-services_en.pdf)
-- [Brevo: الفرق بين الرسائل الخدمية والترويجية وإلغاء الاشتراك](https://help.brevo.com/hc/en-us/articles/9741388688402-Do-I-need-to-add-an-unsubscribe-link-to-my-emails)
-- [Brevo: الخطط والحصة اليومية](https://help.brevo.com/hc/en-us/articles/208589409-About-Brevo-s-pricing-plans)
-- [Supabase: SMTP المخصص لرسائل Auth](https://supabase.com/docs/guides/auth/auth-smtp)
+- [EDPB: contractual necessity and separation of services](https://www.edpb.europa.eu/system/files/2026-03/edpb-summary-guidelines2-2019-contractual-necessity-online-services_en.pdf)
+- [Brevo: transactional/promotional mail and unsubscription](https://help.brevo.com/hc/en-us/articles/9741388688402-Do-I-need-to-add-an-unsubscribe-link-to-my-emails)
+- [Brevo: plans and daily allowance](https://help.brevo.com/hc/en-us/articles/208589409-About-Brevo-s-pricing-plans)
+- [Supabase: custom SMTP for Auth](https://supabase.com/docs/guides/auth/auth-smtp)
 - [Supabase: upsert](https://supabase.com/docs/reference/javascript/upsert)
-- [Supabase: قيد الجهاز والمتصفح في PKCE](https://supabase.com/docs/guides/auth/sessions/pkce-flow)
+- [Supabase: PKCE browser/device limitation](https://supabase.com/docs/guides/auth/sessions/pkce-flow)
 
-تُراجع الوثائق والإعدادات الحالية مرة أخرى عند التنفيذ، خاصة خصائص الإلغاء
-ومنع التكرار وحدود المزود؛ هذا الملف خطة وليس دليلًا على إعدادها فعليًا.
+Recheck current documentation and settings at implementation time, especially
+unsubscribe/idempotency support and provider limits. This plan is not evidence
+that the services have been configured or the feature implemented.
