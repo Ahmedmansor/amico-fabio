@@ -8,10 +8,12 @@ import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 import DocumentShell from './DocumentShell.astro';
 import type { Locale } from '../config/languages';
 import type {ShareImage} from '../seo/share-image';
-interface Props { locale: Locale; route: string; title: string; description: string; bodyClass?: string; shareImage?:ShareImage;keywords?:string }
-const { locale, route, title, description, bodyClass,shareImage,keywords } = Astro.props;
+import AuthDialog from '../../features/auth/presentation/AuthDialog.astro';
+interface Props { locale: Locale; route: string; title: string; description: string; bodyClass?: string; shareImage?:ShareImage;keywords?:string;noindex?:boolean }
+const { locale, route, title, description, bodyClass,shareImage,keywords,noindex=false } = Astro.props;
 ---
 <DocumentShell locale={locale} bodyClass={bodyClass}>
-  <PageHead slot="head" locale={locale} route={route} title={title} description={description} shareImage={shareImage} keywords={keywords}/>
+  <Fragment slot="head"><slot name="head-start"/><PageHead locale={locale} route={route} title={title} description={description} shareImage={shareImage} keywords={keywords} noindexOverride={noindex}/></Fragment>
   <Header locale={locale} route={route}/><slot/><Footer locale={locale}/><WhatsAppFloat locale={locale}/>
+  <AuthDialog locale={locale}/>
 </DocumentShell>

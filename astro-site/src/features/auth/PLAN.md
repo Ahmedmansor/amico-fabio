@@ -2,7 +2,7 @@
 
 Created: 2026-10-23. English execution reference replacing the Arabic text.
 
-**Status: guest wishlist implemented locally; Auth, sync and mail features remain planned.** Agreement
+**Status: guest wishlist and local Auth UI/adapters implemented; real Auth activation, account sync and mail features remain pending.** Agreement
 on those decisions and editing this document do not authorize all operational
 settings, remote schema changes, Auth configuration, email sending, or deployment.
 This document coordinates the phases. Its location in `auth` does not make
@@ -383,6 +383,21 @@ The user confirmed on 2026-10-23:
   variables or deployment were changed in this phase.
 - The next phase is Auth and account synchronization. Approval of any new
   dependency and the relevant remote schema/Auth configuration remains required.
+- The user approved `@supabase/supabase-js@2.118.0`; SDK/domain/data foundations
+  were committed as `e85f3de`. The dependency is installed only in `astro-site/`.
+- Local Auth UI provides Google and email sign-in, initial session restoration,
+  current-browser signout and static callback pages. Email verification uses a
+  token hash in the fragment and an explicit Continue action, independently of
+  the requesting browser. Google uses PKCE. IT/EN browser checks use the real SDK
+  against synthetic responses, not live Auth or email delivery.
+- Auth stays disabled in the normal build. A separate localhost:4330 server is
+  a design/test fixture with fake credentials; localhost:4322 displays the normal
+  static build. The user was informed of the distinction when asking where the
+  sign-in entry was. Configured UI exposes entry from the header and wishlist.
+- See `SETUP.md` for concrete proposed template/redirect/provider changes and
+  remaining protection decisions. Real provider settings, new browser-key
+  configuration, backend controls, user tables/RLS and deployment are not claimed
+  complete or authorized by the local implementation.
 
 Still to define before the relevant implementation/release phase:
 

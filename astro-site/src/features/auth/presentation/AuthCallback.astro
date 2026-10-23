@@ -1,0 +1,20 @@
+---
+import { authConfig } from '../data/build-config';
+import { getAuthMessages } from '../data/messages';
+import type { Locale } from '../../../shared/config/languages';
+import './auth.css';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const m = getAuthMessages(locale);
+const configuration = JSON.stringify({ config: authConfig, messages: m, locale }).replace(/</g, '\\u003c');
+---
+<script type="application/json" id="auth-callback-config" set:html={configuration}/>
+<main class="auth-callback" data-auth-callback>
+  <h1>{m.callbackTitle}</h1>
+  <p>{m.callbackIntro}</p>
+  <button type="button" class="auth-button" data-auth-continue hidden>{m.continue}</button>
+  <p data-auth-callback-status role="status" aria-live="polite">{authConfig ? '' : m.unavailable}</p>
+  <a href={`/${locale}/wishlist/`} data-auth-back>{m.back}</a>
+  <noscript><p>{m.javascript}</p></noscript>
+</main>
+<script>import './callback-interactions';</script>

@@ -4,6 +4,7 @@ import type { Offer } from '../../../shared/domain/offers';
 import WishlistCard from './WishlistCard.astro';
 import { getWishlistMessages } from '../data/messages';
 import Heart from './Heart.astro';
+import AuthEntry from '../../auth/presentation/AuthEntry.astro';
 import './wishlist.css';
 interface Props { locale: Locale; trips: Offer[] }
 const { locale, trips } = Astro.props;
@@ -15,6 +16,7 @@ const m = getWishlistMessages(locale);
     <p>{m.local}</p>
     <a href={`/${locale}/explore/`} class="wishlist-browse">{m.browse}<span aria-hidden="true"> →</span></a>
   </section>
+  <AuthEntry locale={locale}/>
   <p data-wishlist-error class="wishlist-notice" role="alert" hidden></p>
   <section data-wishlist-empty class="wishlist-empty" hidden>
     <Heart/><p>{m.empty}</p>

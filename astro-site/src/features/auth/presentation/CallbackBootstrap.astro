@@ -1,0 +1,11 @@
+<meta name="referrer" content="no-referrer"/>
+<script is:inline>
+  // Scrub before consent/analytics scripts run. Keep credentials only in memory.
+  try {
+    window.__fabioAuthCallback = { search: window.location.search, hash: window.location.hash };
+    window.history.replaceState(null, '', window.location.pathname);
+  } catch {
+    delete window.__fabioAuthCallback;
+    window.location.replace(window.location.pathname);
+  }
+</script>

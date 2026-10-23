@@ -5,8 +5,8 @@ import { languages, supportedLocales, type Locale } from '../config/languages';
 import type {ShareImage} from './share-image';
 import {getImage} from 'astro:assets';
 import {preventIndexing} from './indexing';
-interface Props { locale: Locale; route: string; title: string; description: string; canonicalPath?:string; alternatePaths?:Partial<Record<Locale,string>>; keywords?:string; ogTitle?:string; ogDescription?:string; twitterDescription?:string;shareImage?:ShareImage }
-const { locale, route, title, description,canonicalPath,alternatePaths,keywords,ogTitle=title,ogDescription=description,twitterDescription=description,shareImage } = Astro.props;
+interface Props { locale: Locale; route: string; title: string; description: string; canonicalPath?:string; alternatePaths?:Partial<Record<Locale,string>>; keywords?:string; ogTitle?:string; ogDescription?:string; twitterDescription?:string;shareImage?:ShareImage;noindexOverride?:boolean }
+const { locale, route, title, description,canonicalPath,alternatePaths,keywords,ogTitle=title,ogDescription=description,twitterDescription=description,shareImage,noindexOverride=false } = Astro.props;
 const routePath = route ? `${route}/` : '';
 const canonical = new URL(canonicalPath||`/${locale}/${routePath}`, siteConfig.url).href;
 const alternates=alternatePaths||Object.fromEntries(supportedLocales.map(language=>[language,`/${language}/${routePath}`]));
@@ -14,7 +14,7 @@ const logo=await getImage({src:squareLogo,width:squareLogo.width,format:'webp'})
 const assetOrigin=import.meta.env.PUBLIC_ASSET_ORIGIN;
 const image = new URL(shareImage?.src||logo.src, assetOrigin).href;
 const shareUrl=new URL(new URL(canonical).pathname,assetOrigin).href;
-const noindex=preventIndexing(import.meta.env.PUBLIC_NOINDEX);
+const noindex=noindexOverride||preventIndexing(import.meta.env.PUBLIC_NOINDEX);
 ---
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>{title}</title><meta name="description" content={description}/>

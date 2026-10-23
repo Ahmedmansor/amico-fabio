@@ -1,0 +1,35 @@
+---
+import { authConfig } from '../data/build-config';
+import { getAuthMessages } from '../data/messages';
+import type { Locale } from '../../../shared/config/languages';
+import './auth.css';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const m = getAuthMessages(locale);
+const configuration = JSON.stringify({ config: authConfig, messages: m, locale }).replace(/</g, '\\u003c');
+---
+{authConfig && <>
+  <script type="application/json" id="auth-config" set:html={configuration}/>
+  <dialog class="auth-dialog" data-auth-dialog aria-labelledby="auth-title" aria-describedby="auth-intro">
+    <div class="auth-content">
+      <h2 id="auth-title">{m.title}</h2>
+      <div data-auth-guest>
+        <p id="auth-intro">{m.intro}</p>
+        {authConfig.googleEnabled && <button type="button" class="auth-button auth-secondary" data-auth-google>{m.google}</button>}
+        {authConfig.emailEnabled && <form data-auth-form novalidate>
+          <label for="auth-email">{m.email}</label>
+          <input id="auth-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" required aria-describedby="auth-input-error auth-guidance"/>
+          <p id="auth-input-error" class="auth-error" data-auth-input-error role="alert" hidden></p>
+          <button type="submit" class="auth-button" data-auth-send>{m.send}</button>
+          <p id="auth-guidance">{m.guidance}</p>
+          <p data-auth-countdown role="timer" aria-live="off" hidden></p>
+        </form>}
+      </div>
+      <div data-auth-account hidden><p>{m.signedIn}</p><button type="button" class="auth-button auth-secondary" data-auth-signout>{m.signOut}</button></div>
+      <p data-auth-status role="status" aria-live="polite" hidden></p>
+      <a class="auth-privacy" href={`/${locale}/legal/`}>{m.privacy}</a>
+      <button type="button" class="auth-close" data-auth-close>{m.notNow}</button>
+    </div>
+  </dialog>
+</>}
+<script>import './auth-interactions';</script>

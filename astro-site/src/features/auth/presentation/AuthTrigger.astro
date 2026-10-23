@@ -1,0 +1,9 @@
+---
+import { authConfig } from '../data/build-config';
+import { getAuthMessages } from '../data/messages';
+import type { Locale } from '../../../shared/config/languages';
+import './auth.css';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+---
+{authConfig && <button type="button" class="auth-trigger" data-auth-open aria-haspopup="dialog" hidden>{getAuthMessages(locale).signIn}</button>}
