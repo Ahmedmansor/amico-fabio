@@ -2,7 +2,7 @@
 
 Created: 2026-10-23. English execution reference replacing the Arabic text.
 
-**Status: guest wishlist and local Google Auth/profile display implemented; account sync and email activation/services remain pending.** Agreement
+**Status: guest wishlist and local Google Auth/profile display implemented. Account-sync code is implemented behind an off-by-default gate and tested with synthetic services; remote schema/RLS verification and activation remain pending. Email activation/services remain pending.** Agreement
 on those decisions and editing this document do not authorize all operational
 settings, remote schema changes, Auth configuration, email sending, or deployment.
 This document coordinates the phases. Its location in `auth` does not make

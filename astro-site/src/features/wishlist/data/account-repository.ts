@@ -7,9 +7,10 @@ const failed = ():WishlistResult<never> => ({ok:false,reason:'failed'});
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 /** Only wishlist/profile tables. Caller gets account identity from the Auth API. */
-export function createAccountRepository(client:Pick<SupabaseClient,'from'>):AccountWishlistRepository {
+export function createAccountRepository(client:Pick<SupabaseClient,'from'>|null):AccountWishlistRepository {
   return {
     async list(userId) {
+      if(!client)return {ok:false,reason:'unavailable'};
       if (!uuid.test(userId)) return {ok:false,reason:'invalid-data'};
       try {
         const ids:string[]=[];
@@ -25,6 +26,7 @@ export function createAccountRepository(client:Pick<SupabaseClient,'from'>):Acco
       } catch { return failed(); }
     },
     async add(userId,ids) {
+      if(!client)return {ok:false,reason:'unavailable'};
       if(!uuid.test(userId)) return {ok:false,reason:'invalid-data'};
       try {
         const normalized=normalizeWishlist(ids);
@@ -37,6 +39,7 @@ export function createAccountRepository(client:Pick<SupabaseClient,'from'>):Acco
       } catch { return failed(); }
     },
     async remove(userId,id) {
+      if(!client)return {ok:false,reason:'unavailable'};
       if(!uuid.test(userId)) return {ok:false,reason:'invalid-data'};
       try {
         const {error}=await client.from('wishlists').delete().eq('user_id',userId).eq('trip_id',tripId(id));
@@ -44,6 +47,7 @@ export function createAccountRepository(client:Pick<SupabaseClient,'from'>):Acco
       } catch { return failed(); }
     },
     async ensureProfile(userId,locale) {
+      if(!client)return {ok:false,reason:'unavailable'};
       if(!uuid.test(userId) || !isLocale(locale)) return {ok:false,reason:'invalid-data'};
       try {
         const {error}=await client.from('profiles').upsert({user_id:userId,locale},{onConflict:'user_id',ignoreDuplicates:true});

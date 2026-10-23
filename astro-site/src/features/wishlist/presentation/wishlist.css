@@ -10,9 +10,17 @@
 .wishlist-link { position:relative; border-color:transparent; flex-shrink:0; }
 .wishlist-count { position:absolute; top:0; right:0; display:flex; align-items:center; justify-content:center; min-width:18px; height:18px; padding:0 4px; border-radius:999px; background:var(--color-gold); color:black; font:700 11px/1 "Montserrat",sans-serif; pointer-events:none; }
 .wishlist-count[hidden] { display:none!important; }
+.favorite-button:disabled { cursor:wait; opacity:.6; }
+.wishlist-sync-controls { margin:0 0 24px; color:var(--color-text-muted); line-height:1.6; }
+.wishlist-sync-controls [hidden] { display:none!important; }
+.wishlist-sync-button { margin-top:12px; padding:10px 16px; min-height:44px; border:1px solid var(--color-gold); border-radius:var(--radius-pill); color:var(--color-gold-soft); background:black; cursor:pointer; font:inherit; }
+.wishlist-sync-button:focus-visible { outline:3px solid var(--color-gold-soft); outline-offset:4px; }
+.wishlist-sync-button:disabled { cursor:wait; opacity:.6; }
 .wishlist-loading { display:none; }
 #global-header[data-session-pending="true"] .wishlist-link > svg,#global-header[data-session-pending="true"] .wishlist-count { visibility:hidden; }
+#global-header .wishlist-link[data-wishlist-loading="true"] > svg,#global-header .wishlist-link[data-wishlist-loading="true"] .wishlist-count { visibility:hidden; }
 #global-header[data-session-pending="true"] .wishlist-loading { display:block; position:absolute; inset:8px; border-radius:50%; overflow:hidden; background:rgba(255,255,255,.1); }
+#global-header .wishlist-link[data-wishlist-loading="true"] .wishlist-loading { display:block; position:absolute; inset:8px; border-radius:50%; overflow:hidden; background:rgba(255,255,255,.1); }
 .wishlist-loading::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(212,175,55,.24),transparent); transform:translateX(-100%); animation:wishlist-shimmer 1.5s ease-in-out infinite; }
 @keyframes wishlist-shimmer { to { transform:translateX(100%); } }
 @media(prefers-reduced-motion:reduce) { .wishlist-loading::after { animation:none; } }

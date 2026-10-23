@@ -1,0 +1,62 @@
+{
+  "mode": "synthetic-only-no-remote-writes",
+  "cases": [
+    {
+      "locale": "it",
+      "width": 375,
+      "merge": true,
+      "deduplicated": true,
+      "remove": true,
+      "secondDevice": true,
+      "crossTab": true,
+      "writeFailure": true,
+      "retry": true,
+      "unpublishedRetained": true,
+      "signout": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "it",
+      "width": 1440,
+      "merge": true,
+      "deduplicated": true,
+      "remove": true,
+      "secondDevice": true,
+      "crossTab": true,
+      "writeFailure": true,
+      "retry": true,
+      "unpublishedRetained": true,
+      "signout": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "merge": true,
+      "deduplicated": true,
+      "remove": true,
+      "secondDevice": true,
+      "crossTab": true,
+      "writeFailure": true,
+      "retry": true,
+      "unpublishedRetained": true,
+      "signout": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "merge": true,
+      "deduplicated": true,
+      "remove": true,
+      "secondDevice": true,
+      "crossTab": true,
+      "writeFailure": true,
+      "retry": true,
+      "unpublishedRetained": true,
+      "signout": true,
+      "noPageErrors": true
+    }
+  ],
+  "missingSchemaRecovery": true
+}

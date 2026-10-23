@@ -164,3 +164,62 @@ Actual checks: guest-storage/claim/coordinator node tests 19 passed, 0 failed,
 including a simulated write between read and acknowledgement; Astro check
 (235 files) 0 errors, 0 warnings, 0 hints; 94 pages built in 5.79s, Complete!
 The next UI task must keep account sync disabled until schema/RLS verification.
+
+## Gated account sync UI — static-browser verification
+
+The complete local sync path is present behind
+PUBLIC_WISHLIST_ACCOUNT_SYNC_ENABLED=1. The flag defaults off, requires explicit
+Auth configuration and has not been set in the user's ignored environment or
+any hosting service. Default pages retain browser-only favorites. No remote user
+schema or Auth/provider setting was modified.
+
+When enabled: shared header bootstrap obtains published stable IDs through the
+tours data API, and account interactions consume Auth's session API plus the
+wishlist coordinator. Header count, save buttons and wishlist cards share one
+renderer. The initial account list stays loading until verified/restored;
+account change clears the prior list immediately. Save failures show translated
+errors, with no false success. Pending guest data has a separate status and an
+explicit sync/retry button. Existing unpublished/removed catalog IDs produce an
+honest notice instead of invented cards. Account edits invalidate other tabs
+through an origin-scoped BroadcastChannel; focus/visibility refresh remains.
+Auth or storage unavailability keeps guest operations honest and usable.
+
+Actual final output:
+
+```text
+npm test
+pass 120; fail 0
+Test Files 10 passed (10); Tests 113 passed (113)
+npx astro check
+Result (244 files): 0 errors; 0 warnings; 0 hints
+npm run build
+94 page(s) built in 5.52s; Complete!
+Built wishlist gate: disabled by default; no account bootstrap/retry UI verified
+for 6 main-site routes. Key values not printed.
+Synthetic enabled build (--outDir .astro/sync-build)
+94 page(s) built in 5.14s; Complete!
+Built wishlist gate: enabled synthetic configuration verified for 6 routes.
+```
+
+`sync-browser.mjs` passes all four IT/EN x 375/1440 cases against both Astro dev
+and a plain loopback server serving the generated static directory. It uses the
+actual SDK and intercepted fake Auth/PostgREST responses only. Verified: guest
+merge/read-back, reload without duplicates, account delete, same-account second
+browser, same-browser tab invalidation, failed write/retry, unsynchronized
+unpublished guest item preservation, signout and missing-schema recovery.
+`sync-results.json` records these results; ignored screenshots use sync-*.png.
+This validates static client behavior, not real database RLS.
+
+An initial QA assertion expected the legacy literal 1 after preservation; it was
+corrected to accept a retained v2 revision. A separate default-dev regression
+found a cached failed import created while a new config module was being added;
+using its explicit .ts import invalidated that failed resolution. The user's
+4322 server was not stopped. The normal guest count suite then passed all four
+cases again, including cross-tab and denied-storage behavior.
+
+Reproduce only with synthetic Auth URL https://auth-qa.invalid and an isolated
+origin matching PUBLIC_AUTH_SITE_URL. Use externally installed PLAYWRIGHT_MODULE
+and QA_BROWSER; set QA_ORIGIN to that loopback test server. Do not run the sync
+suite against live Auth/data. `verify-sync-built.mjs` verifies default dist, or
+QA_DIST=.astro/sync-build with --enabled checks the isolated static fixture.
+The SDK test interval 75 remains a fixture, not a production recommendation.

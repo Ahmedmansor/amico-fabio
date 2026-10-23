@@ -5,6 +5,7 @@ import WishlistCard from './WishlistCard.astro';
 import { getWishlistMessages } from '../data/messages';
 import Heart from './Heart.astro';
 import AuthEntry from '../../auth/presentation/AuthEntry.astro';
+import WishlistSyncStatus from './WishlistSyncStatus.astro';
 import './wishlist.css';
 interface Props { locale: Locale; trips: Offer[] }
 const { locale, trips } = Astro.props;
@@ -13,10 +14,11 @@ const m = getWishlistMessages(locale);
 <main class="wishlist-page" data-wishlist-page data-unavailable={m.unavailable}>
   <section class="wishlist-heading">
     <h1>{m.title}</h1>
-    <p>{m.local}</p>
+    <p data-wishlist-storage-message>{m.local}</p>
     <a href={`/${locale}/explore/`} class="wishlist-browse">{m.browse}<span aria-hidden="true"> →</span></a>
   </section>
   <AuthEntry locale={locale}/>
+  <WishlistSyncStatus locale={locale}/>
   <p data-wishlist-error class="wishlist-notice" role="alert" hidden></p>
   <section data-wishlist-empty class="wishlist-empty" hidden>
     <Heart/><p>{m.empty}</p>

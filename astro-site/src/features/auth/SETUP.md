@@ -119,12 +119,16 @@ of the older catalog migration does not authorize these changes. Local sync
 implementation may proceed behind a disabled activation gate; remote schema and
 role-isolation verification remain prerequisites to activation.
 
-Profiles, account wishlists/RLS, lossless guest merge, email preference storage,
-automatic invitations/seven-day dismissal and reminder services remain outside
-these first local Auth tasks. The UI does not claim synchronization or subscribe
-anyone to marketing. Review the table design and obtain remote-write approval
-before applying user-data schema. Retention/deletion/export policy is still a
-launch gate in PLAN.md.
+Local account-wishlist persistence, lossless guest merge and IT/EN status/retry
+UI are implemented and tested with intercepted synthetic services. They remain
+off by default through PUBLIC_WISHLIST_ACCOUNT_SYNC_ENABLED=0. Do not enable the
+flag on the real project until the reviewed schema is applied under explicit
+authorization and real role-isolation/integration checks succeed. See
+../../../qa/wishlist/README.md for results and reproduction steps.
+
+Remote profile/wishlist tables and RLS, email preference UI, automatic
+invitations/seven-day dismissal and reminder services remain pending. No one is
+subscribed to marketing. Retention/deletion/export remains a launch gate.
 
 ## Primary references checked
 
