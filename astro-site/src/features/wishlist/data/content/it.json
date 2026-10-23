@@ -14,6 +14,8 @@
   "mergeSaved": "Sincronizza i preferiti del browser con questo account",
   "catalogUnavailable": "Alcune escursioni salvate non sono disponibili nel catalogo attuale del sito.",
   "authUnavailable": "Impossibile verificare l’account. I preferiti del browser restano disponibili; la sincronizzazione dell’account non è disponibile.",
+  "invitationTitle": "Ritrova i preferiti su altri dispositivi",
+  "invitationBody": "Accedi per sincronizzare le escursioni salvate. Puoi continuare a salvarle in questo browser senza un account.",
   "browse": "Esplora le escursioni",
   "discover": "Scopri di più",
   "priceFrom": "A partire da",

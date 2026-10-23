@@ -66,6 +66,7 @@ try{
     await page.goto(`${origin}/${locale}/wishlist/`);
     await page.getByRole('button',{name:locale==='it'?'Rifiuta facoltativi':'Reject optional',exact:true}).click();
     await count(page,2);assert.deepEqual(new Set(backend.rows.get(userId)),new Set([first,second]));
+    assert.equal(await page.locator('[data-wishlist-invitation]').isVisible(),false);
     await page.reload();await count(page,2);assert.equal(backend.rows.get(userId).length,2);
     await page.locator(`[data-wishlist-item][data-trip-id="${first}"] [data-favorite]`).click();await count(page,1);
     assert.deepEqual(backend.rows.get(userId),[second]);

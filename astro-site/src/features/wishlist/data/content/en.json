@@ -14,6 +14,8 @@
   "mergeSaved": "Sync browser favorites to this account",
   "catalogUnavailable": "Some saved tours are unavailable in this website’s current catalog.",
   "authUnavailable": "Couldn’t verify your account. Browser favorites remain available; account synchronization is unavailable.",
+  "invitationTitle": "Keep your favorites across devices",
+  "invitationBody": "Sign in to synchronize your saved tours. You can keep saving in this browser without an account.",
   "browse": "Explore tours",
   "discover": "Discover more",
   "priceFrom": "Starting from",

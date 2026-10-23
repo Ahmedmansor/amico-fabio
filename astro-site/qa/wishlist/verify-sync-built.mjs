@@ -6,6 +6,7 @@ for(const locale of ['it','en'])for(const route of ['wishlist','explore','legal'
   const html=await readFile(`${directory}/${locale}/${route}/index.html`,'utf8');
   const match=html.match(/<script[^>]*id="wishlist-config"[^>]*>([\s\S]*?)<\/script>/);
   assert.equal(!!match,enabled,`${locale}/${route}: account sync must be explicitly gated`);
+  assert.equal(html.includes('data-wishlist-invitation'),enabled);
   if(enabled){
     const config=JSON.parse(match[1]);assert.equal(config.locale,locale);
     assert.ok(config.publishedIds.length>0);assert.equal(new Set(config.publishedIds).size,config.publishedIds.length);

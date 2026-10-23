@@ -1,0 +1,46 @@
+[
+  {
+    "locale": "it",
+    "width": 375,
+    "afterSave": true,
+    "noFocusSteal": true,
+    "dismissalPersists": true,
+    "manualSignInDuringDismissal": true,
+    "expiry": true,
+    "opensDialog": true,
+    "noExternalRequests": true
+  },
+  {
+    "locale": "it",
+    "width": 1440,
+    "afterSave": true,
+    "noFocusSteal": true,
+    "dismissalPersists": true,
+    "manualSignInDuringDismissal": true,
+    "expiry": true,
+    "opensDialog": true,
+    "noExternalRequests": true
+  },
+  {
+    "locale": "en",
+    "width": 375,
+    "afterSave": true,
+    "noFocusSteal": true,
+    "dismissalPersists": true,
+    "manualSignInDuringDismissal": true,
+    "expiry": true,
+    "opensDialog": true,
+    "noExternalRequests": true
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "afterSave": true,
+    "noFocusSteal": true,
+    "dismissalPersists": true,
+    "manualSignInDuringDismissal": true,
+    "expiry": true,
+    "opensDialog": true,
+    "noExternalRequests": true
+  }
+]

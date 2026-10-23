@@ -223,3 +223,37 @@ and QA_BROWSER; set QA_ORIGIN to that loopback test server. Do not run the sync
 suite against live Auth/data. `verify-sync-built.mjs` verifies default dist, or
 QA_DIST=.astro/sync-build with --enabled checks the isolated static fixture.
 The SDK test interval 75 remains a fixture, not a production recommendation.
+
+## Optional guest sign-in invitation
+
+Enabled-sync builds now offer a small IT/EN invitation only after a successful
+guest save. It does not open a modal automatically, steal keyboard focus, require
+registration or subscribe to email. Not now stores a separate seven-day dismissal;
+manual header sign-in remains available. Repeated saves/reload respect that
+choice; a new save may offer it again after expiry. Signed-in users do not see it.
+Corrupt/unavailable dismissal storage suppresses automatic prompting; a failed
+write does not report persistence and only closes the current page invitation.
+The mobile placement leaves space above the existing WhatsApp control.
+
+Real verification:
+
+```text
+npm test
+pass 122; fail 0
+Test Files 11 passed (11); Tests 116 passed (116)
+npx astro check
+Result (250 files): 0 errors; 0 warnings; 0 hints
+Default build: 94 pages built in 5.73s; Complete!
+Enabled synthetic static build: 94 pages built in 5.63s; Complete!
+Built gate verification: default invitation/bootstrap absent; synthetic enabled
+invitation/bootstrap present on all 6 checked main-site routes.
+Guest invitation: 4 cases passed; after-save invitation, seven-day suppression/
+reload, manual sign-in, expiry, focus and no external requests.
+```
+
+`invitation-browser.mjs` runs against the isolated enabled static fixture with
+no authenticated session and aborts/counts any unexpected Auth/API request.
+All 4 IT/EN 375/1440 cases made zero such requests. It captures ignored local
+invitation-*.png screenshots and invitation-results.json. The account sync
+browser regression also passed again, including hidden invitation for signed-in
+users. No production activation, emails, external writes or new dependencies.

@@ -7,6 +7,7 @@ import { browserGuestStorage, guestWishlistPrefix } from '../data/guest-storage'
 import { createWishlistCoordinator, type WishlistState } from '../data/coordinator';
 import type { getWishlistMessages } from '../data/messages';
 import { createWishlistView } from './wishlist-view';
+import { canOfferSignIn, dismissSignInInvitation, invitationDismissalKey } from '../data/invitation-storage';
 
 export async function initializeAccountWishlist(){
   const node=document.getElementById('wishlist-config');if(!node)return;
@@ -17,6 +18,8 @@ export async function initializeAccountWishlist(){
   const error=view.page?.querySelector<HTMLElement>('[data-wishlist-error]');
   const storageMessage=view.page?.querySelector<HTMLElement>('[data-wishlist-storage-message]');
   const unavailable=view.page?.querySelector<HTMLElement>('[data-wishlist-catalog-notice]');
+  const invitation=document.querySelector<HTMLElement>('[data-wishlist-invitation]');
+  let invitationClosed=false;
   view.render(null,true);
   const guest=createGuestMergePort(browserGuestStorage(),browserGuestLock());
   const [service,client]=await Promise.all([browserAuth(config.auth),browserSupabase(config.auth)]);
@@ -26,6 +29,7 @@ export async function initializeAccountWishlist(){
   const channel=typeof BroadcastChannel!=='undefined'?new BroadcastChannel('fabio:wishlist:account:v1'):null;
   const announce=()=>channel?.postMessage({userId:coordinator.getState().userId});
   function render(state:WishlistState){
+    if(state.userId && invitation)invitation.hidden=true;
     const ids=state.ids?new Set(state.ids):null;
     view.render(ids,resolvingAuth || state.busy,resolvingAuth || state.busy || (state.status==='error' && !ids));
     if(storageMessage)storageMessage.textContent=state.userId?(state.busy?m.syncing:!ids?'':m.account):m.local;
@@ -38,11 +42,21 @@ export async function initializeAccountWishlist(){
   for(const button of view.buttons)button.addEventListener('click',async()=>{
     const message=button.parentElement!.querySelector<HTMLElement>('[data-favorite-error]')!;
     message.hidden=true;const focused=document.activeElement===button;
-    const result=await coordinator.save(button.dataset.favoriteId!,button.getAttribute('aria-pressed')!=='true');
+    const desired=button.getAttribute('aria-pressed')!=='true';
+    const result=await coordinator.save(button.dataset.favoriteId!,desired);
     if(!result.ok && result.reason!=='stale'){message.textContent=button.dataset.error!;message.hidden=false;}
     else if(focused)view.focusAfterRemoval(button);
     if(result.ok)announce();
+    if(result.ok && desired && !coordinator.getState().userId && service && !authFailed && !invitationClosed && invitation){
+      const allowed=canOfferSignIn(browserGuestStorage(),Date.now());
+      if(allowed.ok && allowed.value)invitation.hidden=false;
+    }
   });
+  document.querySelector('[data-wishlist-invite-dismiss]')?.addEventListener('click',()=>{
+    invitationClosed=true;if(invitation)invitation.hidden=true;
+    dismissSignInInvitation(browserGuestStorage(),Date.now());
+  });
+  document.querySelector('[data-wishlist-invite-signin]')?.addEventListener('click',()=>{invitationClosed=true;if(invitation)invitation.hidden=true;});
   retry?.addEventListener('click',()=>{void coordinator.merge().then(result=>{if(result.ok)announce();});});
   let revision=0,currentUser:string|null|undefined;
   function connect(userId:string|null){
@@ -66,6 +80,7 @@ export async function initializeAccountWishlist(){
   if(channel)channel.onmessage=event=>{if(event.data?.userId===currentUser)refresh();};
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')refresh();});
   window.addEventListener('storage',event=>{
+    if(event.key===invitationDismissalKey){const allowed=canOfferSignIn(browserGuestStorage(),Date.now());if(allowed.ok && !allowed.value && invitation)invitation.hidden=true;}
     if(event.key===null || event.key.startsWith(guestWishlistPrefix) || event.key.startsWith('fabio:wishlist:ack:'))refresh();
   });
 }

@@ -16,6 +16,15 @@
 .wishlist-sync-button { margin-top:12px; padding:10px 16px; min-height:44px; border:1px solid var(--color-gold); border-radius:var(--radius-pill); color:var(--color-gold-soft); background:black; cursor:pointer; font:inherit; }
 .wishlist-sync-button:focus-visible { outline:3px solid var(--color-gold-soft); outline-offset:4px; }
 .wishlist-sync-button:disabled { cursor:wait; opacity:.6; }
+.wishlist-invitation { position:fixed; left:16px; bottom:16px; z-index:60; width:min(340px,calc(100vw - 32px)); padding:20px; border:1px solid var(--color-gold); border-radius:16px; background:black; color:var(--color-text-light); box-shadow:0 8px 32px rgba(0,0,0,.45); }
+.wishlist-invitation[hidden] { display:none!important; }
+.wishlist-invitation h2 { margin:0 0 12px; font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:700; line-height:1.4; color:var(--color-gold-soft); }
+.wishlist-invitation p { margin:0; font-size:.9rem; line-height:1.6; }
+.wishlist-invitation-actions { display:flex; gap:12px; align-items:center; margin-top:16px; }
+.wishlist-invitation .wishlist-sync-button { margin:0; }
+.wishlist-invitation-dismiss { min-height:44px; padding:8px 12px; color:var(--color-text-light); border:0; background:transparent; font:inherit; cursor:pointer; text-decoration:underline; text-underline-offset:4px; }
+.wishlist-invitation-dismiss:focus-visible { outline:3px solid var(--color-gold-soft); outline-offset:4px; }
+@media(max-width:639px) { .wishlist-invitation { bottom:96px; } }
 .wishlist-loading { display:none; }
 #global-header[data-session-pending="true"] .wishlist-link > svg,#global-header[data-session-pending="true"] .wishlist-count { visibility:hidden; }
 #global-header .wishlist-link[data-wishlist-loading="true"] > svg,#global-header .wishlist-link[data-wishlist-loading="true"] .wishlist-count { visibility:hidden; }

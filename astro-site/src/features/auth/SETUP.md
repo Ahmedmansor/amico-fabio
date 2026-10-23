@@ -126,8 +126,12 @@ flag on the real project until the reviewed schema is applied under explicit
 authorization and real role-isolation/integration checks succeed. See
 ../../../qa/wishlist/README.md for results and reproduction steps.
 
-Remote profile/wishlist tables and RLS, email preference UI, automatic
-invitations/seven-day dismissal and reminder services remain pending. No one is
+Optional after-save sign-in invitations and seven-day Not now dismissal are
+implemented behind the same disabled sync gate. Manual sign-in remains available
+while automatic invitations are suppressed. No email subscription is implied.
+
+Remote profile/wishlist tables and RLS, email preference UI and reminder
+services remain pending. No one is
 subscribed to marketing. Retention/deletion/export remains a launch gate.
 
 ## Primary references checked
