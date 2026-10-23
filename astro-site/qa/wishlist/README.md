@@ -257,3 +257,23 @@ All 4 IT/EN 375/1440 cases made zero such requests. It captures ignored local
 invitation-*.png screenshots and invitation-results.json. The account sync
 browser regression also passed again, including hidden invitation for signed-in
 users. No production activation, emails, external writes or new dependencies.
+
+## Bounded requests and cursor pagination
+
+Account reads now page by the last returned trip ID, continuing until an empty
+page. A short page is not assumed to be the end: the API may cap responses below
+our requested limit. A repeated cursor/page-count guard fails explicitly instead
+of reporting a truncated list. All account repository requests use an abortable
+15-second deadline (the 5ms unit fixture is not an operational setting). Timers
+are cleared when each SDK request settles; aborted operations report failure and
+leave unconfirmed guest data available for retry. No Auth/mail settings changed.
+
+Actual output: repository tests 9 passed; complete npm test 125 node tests passed,
+0 failed, plus 11 Vitest files / 116 tests passed. Astro check (250 files):
+0 errors/warnings/hints. Default build 94 pages in 6.02s; enabled synthetic build
+94 pages in 5.34s; both Complete! The full static browser suite passed 4 cases
+again with a deliberately tiny one-row server response cap, plus its existing
+merge/failure/signout/device/tab scenarios. No real database writes occurred.
+
+References checked: [Abort signal](https://supabase.com/docs/reference/javascript/using-modifiers-abortsignal),
+[SDK retry/deadline behavior](https://supabase.com/docs/guides/api/automatic-retries-in-supabase-js).

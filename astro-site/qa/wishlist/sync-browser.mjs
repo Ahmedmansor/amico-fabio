@@ -36,7 +36,9 @@ async function mock(context,backend){
       const key=url.searchParams.get('user_id')?.replace(/^eq\./,'');
       if(request.method()==='GET'){
         assert.equal(key,id,'Account reads filter the authenticated identity');
-        backend.reads++;return route.fulfill({status:200,headers,json:(backend.rows.get(id)||[]).map(trip_id=>({trip_id}))});
+        const cursor=url.searchParams.get('trip_id')?.replace(/^gt\./,'');
+        const rows=(backend.rows.get(id)||[]).filter(value=>!cursor || value>cursor).sort().slice(0,Math.min(Number(url.searchParams.get('limit')||200),backend.pageCap||200));
+        backend.reads++;return route.fulfill({status:200,headers,json:rows.map(trip_id=>({trip_id}))});
       }
       if(request.method()==='POST'){
         if(backend.failNext){backend.failNext=false;return route.fulfill({status:503,headers,json:{message:'synthetic failure'}});}
@@ -60,7 +62,7 @@ async function count(page,value){await page.waitForFunction(value=>document.quer
 await mkdir(new URL('./screenshots/',import.meta.url),{recursive:true});
 try{
   for(const locale of ['it','en'])for(const width of [375,1440]){
-    const backend={rows:new Map([[userId,[first]]]),reads:0,profileWrites:0};
+    const backend={rows:new Map([[userId,[first]]]),reads:0,profileWrites:0,pageCap:1};
     const context=await browser.newContext({viewport:{width,height:900}});await mock(context,backend);await seed(context,userId,[second]);
     const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await page.goto(`${origin}/${locale}/wishlist/`);
@@ -88,7 +90,7 @@ try{
     await page.locator('#global-header [data-auth-open]').click();await page.locator('[data-auth-signout]').click();
     await count(page,1);assert.ok(await page.evaluate(()=>localStorage.getItem('fabio:wishlist:v1:trip:unpublished_fixture')));
     assert.equal(await page.locator('.auth-trigger-avatar img').getAttribute('src'),null);
-    assert.deepEqual(errors,[]);results.push({locale,width,merge:true,deduplicated:true,remove:true,secondDevice:true,crossTab:true,writeFailure:true,retry:true,unpublishedRetained:true,signout:true,noPageErrors:true});
+    assert.deepEqual(errors,[]);results.push({locale,width,merge:true,deduplicated:true,remove:true,secondDevice:true,crossTab:true,serverSmallCap:true,writeFailure:true,retry:true,unpublishedRetained:true,signout:true,noPageErrors:true});
     await context.close();
   }
   const backend={rows:new Map([[userId,[first]]]),reads:0,profileWrites:0,missingSchema:true};
