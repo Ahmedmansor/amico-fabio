@@ -1,0 +1,50 @@
+[
+  {
+    "locale": "it",
+    "width": 375,
+    "id": "ras_mohammed_bus_half_day",
+    "href": "/it/tours/ras_mohammed_bus_half_day/",
+    "snapshot": "Ras Mohammed Nature Explorer: Il Parco via TerraUn viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.A partire da€30Scopri",
+    "existingCardContentPreserved": true,
+    "persistence": true,
+    "crossTab": true,
+    "crossLanguage": true,
+    "errors": []
+  },
+  {
+    "locale": "it",
+    "width": 1440,
+    "id": "ras_mohammed_bus_half_day",
+    "href": "/it/tours/ras_mohammed_bus_half_day/",
+    "snapshot": "Ras Mohammed Nature Explorer: Il Parco via TerraUn viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.A partire da€30Scopri",
+    "existingCardContentPreserved": true,
+    "persistence": true,
+    "crossTab": true,
+    "crossLanguage": true,
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 375,
+    "id": "ras_mohammed_bus_half_day",
+    "href": "/en/tours/ras_mohammed_bus_half_day/",
+    "snapshot": "Ras Mohammed Nature Explorer: The Park by LandA journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.Starts from€30Discover",
+    "existingCardContentPreserved": true,
+    "persistence": true,
+    "crossTab": true,
+    "crossLanguage": true,
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "id": "ras_mohammed_bus_half_day",
+    "href": "/en/tours/ras_mohammed_bus_half_day/",
+    "snapshot": "Ras Mohammed Nature Explorer: The Park by LandA journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.Starts from€30Discover",
+    "existingCardContentPreserved": true,
+    "persistence": true,
+    "crossTab": true,
+    "crossLanguage": true,
+    "errors": []
+  }
+]

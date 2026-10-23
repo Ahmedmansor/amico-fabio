@@ -12,6 +12,7 @@ import Faq from '../../../shared/components/Faq.astro';
 import {imageAssets} from './images';
 import {headlinePrice,pricesHtml,breakdownHtml,listHtml,programHtml} from './markup';
 import './details.css';
+import FavoriteButton from '../../wishlist/presentation/FavoriteButton.astro';
 interface Props {page:TourPage;addons:BookingAddon[]}
 const {page,addons}=Astro.props;const {trip,text,gallery}=page;const locale=page.locale as Locale;
 const m=getSharedMessages(locale);
@@ -67,6 +68,8 @@ const initialTotal=calculateTotal({adults:trip.minPax,children:0,selectedAddons:
                     </div>
 
                     <p id="detail-desc" class="text-gray-300 leading-relaxed text-lg mb-8" set:html={text.short_desc}></p>
+
+                    <div class="mb-6"><FavoriteButton id={trip.id} locale={locale} title={text.title} compact={false}/></div>
 
                     <button
                         class="hidden lg:inline-flex items-center justify-center px-8 py-4 bg-gold text-black font-bold uppercase tracking-widest rounded-lg hover:bg-white transition-colors w-fit">

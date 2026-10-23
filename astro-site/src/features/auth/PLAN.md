@@ -2,7 +2,7 @@
 
 Created: 2026-10-23. English execution reference replacing the Arabic text.
 
-**Status: pre-implementation plan with confirmed UX decisions below.** Agreement
+**Status: guest wishlist implemented locally; Auth, sync and mail features remain planned.** Agreement
 on those decisions and editing this document do not authorize all operational
 settings, remote schema changes, Auth configuration, email sending, or deployment.
 This document coordinates the phases. Its location in `auth` does not make
@@ -29,7 +29,12 @@ SSR or runtime API routes inside Astro.
 - Booking currently opens WhatsApp. There is no authoritative automatic booking confirmation.
 - Published languages are `it` and `en`, with Italian as default. Reuse shared language configuration.
 - Cookie consent exists in source. Analytics consent and email subscription are independent.
-- The user has a Brevo account with a 300-email daily allowance. Account and sender-domain settings have not been inspected.
+- The user has a Brevo account with a reported 300-email daily allowance. On
+  2026-10-23 the user configured Supabase custom SMTP and received an invitation
+  from `Fabio Egypt <info@fabioegypt.com>`. User-provided Gmail headers showed
+  SPF, domain-aligned DKIM and DMARC passing. That test landed in Spam: SMTP
+  delivery is verified for that test, general inbox placement is not. Account
+  limits and full remote Auth/provider configuration have not been inspected.
 
 ## 3. Feature-first organization and ownership
 
@@ -363,9 +368,25 @@ The user confirmed on 2026-10-23:
 5. One initial reminder, email validation, disposable-domain/bot protection, and
    backend request limits to protect allowance; suggested corrections need confirmation.
 
+### Local execution progress (2026-10-23)
+
+- The user authorized starting the phased implementation and using the
+  `nextlevelbuilder/ui-ux-pro-max-skill` design guidance with existing site colors.
+- Guest persistence foundation committed as `bc211e9`: stable IDs, versioned
+  per-tour storage, idempotent save/remove, explicit failures and domain/data tests.
+- Guest UI adds hearts to tour cards and tour details, a shared-header favorites
+  link and static `/it/wishlist/` and `/en/wishlist/` pages. Package favorites
+  remain outside scope. Messages have matching IT/EN keys, and the page explains
+  browser-only storage. No unavailable sign-in invitation is displayed.
+- See `qa/wishlist/README.md` for reproducible checks, browser results and local
+  screenshot paths. No Auth, profile/wishlist SQL, reminder services, hosting
+  variables or deployment were changed in this phase.
+- The next phase is Auth and account synchronization. Approval of any new
+  dependency and the relevant remote schema/Auth configuration remains required.
+
 Still to define before the relevant implementation/release phase:
 
-1. Bound individual tasks; begin with guest favorites, then Auth as phased above.
+1. Continue with bounded Auth/synchronization tasks after the completed guest phase.
 2. Choose Magic Link verification/callback/email details satisfying the agreed behavior.
 3. Define reminder eligibility, cooldown/re-addition, account deletion, and retention.
 4. Approve Edge Functions/Cron scope, Brevo sending path, budget, and operational limits.

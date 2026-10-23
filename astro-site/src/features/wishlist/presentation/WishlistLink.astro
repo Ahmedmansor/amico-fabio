@@ -1,0 +1,9 @@
+---
+import type { Locale } from '../../../shared/config/languages';
+import { getWishlistMessages } from '../data/messages';
+import Heart from './Heart.astro';
+import './wishlist.css';
+interface Props { locale: Locale; active: boolean }
+const { locale, active } = Astro.props;
+---
+<a class="wishlist-link" href={`/${locale}/wishlist/`} aria-label={getWishlistMessages(locale).title} aria-current={active ? 'page' : undefined}><Heart/></a>

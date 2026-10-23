@@ -4,6 +4,7 @@ import type { ImageMetadata } from 'astro';
 import type { ExploreCard, ExploreMessages } from '../domain/explore';
 import { cardBadge } from '../domain/explore';
 import type { Locale } from '../../../shared/config/languages';
+import FavoriteButton from '../../wishlist/presentation/FavoriteButton.astro';
 interface Props { card: ExploreCard; messages: ExploreMessages; locale: Locale; hidden: boolean }
 const { card, messages: m, locale, hidden } = Astro.props;
 const posters = import.meta.glob<ImageMetadata>('/src/shared/assets/catalog/**/poster.webp', { eager: true, import: 'default' });
@@ -22,6 +23,7 @@ const href = `/${locale}/${isPackage?'packages':'tours'}/${card.offer.slug}/`;
     </div>
   </div>
   <div class="card-content">
+    {!isPackage && <div class="card-favorite"><FavoriteButton id={card.id} locale={locale} title={text.title}/></div>}
     {isPackage && <div class="text-[10px] tracking-[0.22em] uppercase text-gold mb-1">{m.labels.premium_package}</div>}
     <h3 class="catalog-card-title">{text.title}</h3><div class="card-divider"></div>
     <p class="catalog-card-desc">{text.short_desc}</p>
@@ -32,4 +34,4 @@ const href = `/${locale}/${isPackage?'packages':'tours'}/${card.offer.slug}/`;
     </div><a class="card-btn" data-detail-link href={href}>{isPackage ? m.labels.discover_package : m.labels.discover}</a></div>
   </div>
 </article>
-<style>.card-btn { display:block; text-align:center; text-decoration:none; }</style>
+<style>.card-btn { display:block; text-align:center; text-decoration:none; }.card-content { position:relative; }.card-favorite { display:flex; justify-content:flex-end; margin-bottom:8px; }</style>

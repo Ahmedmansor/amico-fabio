@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../shared/layouts/BaseLayout.astro';
+import { supportedLocales } from '../../shared/config/languages';
+import { getTrips } from '../../features/tours/data/trips.mjs';
+import { getWishlistMessages } from '../../features/wishlist/data/messages';
+import WishlistPage from '../../features/wishlist/presentation/WishlistPage.astro';
+export async function getStaticPaths() {
+  const trips = await getTrips();
+  return supportedLocales.map(locale => ({ params: { locale }, props: { locale, trips } }));
+}
+const { locale, trips } = Astro.props;
+const m = getWishlistMessages(locale);
+---
+<BaseLayout locale={locale} route="wishlist" title={`${m.title} | Fabio Egypt`} description={m.local} bodyClass="bg-black font-sans text-gray-200">
+  <WishlistPage locale={locale} trips={trips}/>
+</BaseLayout>

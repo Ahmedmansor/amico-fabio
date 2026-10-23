@@ -1,0 +1,16 @@
+---
+import type { Locale } from '../../../shared/config/languages';
+import { getWishlistMessages } from '../data/messages';
+import Heart from './Heart.astro';
+import './wishlist.css';
+interface Props { id: string; locale: Locale; title: string; compact?: boolean }
+const { id, locale, title, compact = true } = Astro.props;
+const m = getWishlistMessages(locale);
+---
+<span class:list={['favorite-control', { 'favorite-compact': compact }]}>
+  <button type="button" class="favorite-button" data-favorite data-favorite-id={id} data-favorite-title={title.replace(/<[^>]*>/g, '')} data-save={m.save} data-remove={m.remove} data-error={m.error} aria-label={`${m.save}: ${title.replace(/<[^>]*>/g, '')}`} aria-pressed="false" hidden>
+    <Heart/><span class:list={{ 'sr-only': compact }} data-favorite-label>{m.save}</span>
+  </button>
+  <span class="favorite-error" data-favorite-error role="alert" hidden></span>
+</span>
+<script>import './wishlist-interactions';</script>

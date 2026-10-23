@@ -1,0 +1,13 @@
+{
+  "title": "Preferiti",
+  "save": "Salva nei preferiti",
+  "remove": "Rimuovi dai preferiti",
+  "empty": "Non hai ancora salvato escursioni.",
+  "error": "Impossibile salvare le modifiche. Riprova.",
+  "local": "Le escursioni sono salvate solo in questo browser.",
+  "browse": "Esplora le escursioni",
+  "discover": "Scopri di più",
+  "priceFrom": "A partire da",
+  "unavailable": "Impossibile leggere i preferiti in questo browser. Riprova.",
+  "javascript": "Attiva JavaScript per visualizzare e salvare i preferiti."
+}

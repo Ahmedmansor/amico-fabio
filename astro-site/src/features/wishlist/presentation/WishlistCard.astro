@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import type { Offer } from '../../../shared/domain/offers';
+import type { Locale } from '../../../shared/config/languages';
+import FavoriteButton from './FavoriteButton.astro';
+import { getWishlistMessages } from '../data/messages';
+interface Props { trip: Offer; locale: Locale }
+const { trip, locale } = Astro.props;
+const m = getWishlistMessages(locale);
+const text = trip.text[locale];
+const posters = import.meta.glob<ImageMetadata>('/src/shared/assets/catalog/**/poster.webp', { eager: true, import: 'default' });
+const image = posters[trip.poster];
+if (!image) throw new Error(`[wishlist:${trip.id}] Missing linked image ${trip.poster}.`);
+---
+<article class="wishlist-card">
+  <Image src={image} alt={text.title} loading="lazy" widths={[400,800]} sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw"/>
+  <div class="wishlist-card-actions"><FavoriteButton id={trip.id} locale={locale} title={text.title}/></div>
+  <h2>{text.title}</h2>
+  <p>{text.short_desc}</p>
+  <div class="wishlist-card-footer">
+    <div><span>{m.priceFrom}</span><strong>€{trip.prices.adult}</strong></div>
+    <a href={`/${locale}/tours/${trip.slug}/`}>{m.discover}</a>
+  </div>
+</article>

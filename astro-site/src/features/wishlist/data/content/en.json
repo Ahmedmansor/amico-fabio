@@ -1,0 +1,13 @@
+{
+  "title": "Favorites",
+  "save": "Save to favorites",
+  "remove": "Remove from favorites",
+  "empty": "You haven’t saved any tours yet.",
+  "error": "Couldn’t save your changes. Please try again.",
+  "local": "Tours are saved only in this browser.",
+  "browse": "Explore tours",
+  "discover": "Discover more",
+  "priceFrom": "Starting from",
+  "unavailable": "Couldn’t read favorites in this browser. Please try again.",
+  "javascript": "Enable JavaScript to view and save favorites."
+}

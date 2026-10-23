@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import logo from '../assets/logos/fabio-header-logo.webp';
 import { languages, supportedLocales, type Locale } from '../config/languages';
 import { getSharedMessages } from '../i18n/shared';
+import WishlistLink from '../../features/wishlist/presentation/WishlistLink.astro';
 interface Props { locale: Locale; route: string }
 const { locale, route } = Astro.props;
 const messages = getSharedMessages(locale);
@@ -33,6 +34,7 @@ const nav = [
       <nav class="gh-nav-inline" id="gh-nav-inline">{nav.map(item => <a href={item.href} data-nav={item.key} class:list={{ active: (route === '' && item.key === 'home') || (route === 'sharm-secrets' && item.key === 'secrets') }}>{item.label}</a>)}</nav>
     </div>
     <div class="gh-right">
+      <WishlistLink locale={locale} active={route === 'wishlist'}/>
       <button class="gh-lang-btn" id="gh-lang-btn" type="button" aria-label={languages[locale].label} aria-expanded="false">
         <img src={`/assets/images/icons/languages/${locale}.svg`} class="gh-flag-svg" alt=""/><span class="gh-chevron">▼</span>
       </button>
