@@ -2,6 +2,17 @@
 
 Inspection date: October 13, 2026. This file documents the local version before any changes to the site's functionality or design.
 
+## Current Auth/wishlist continuation reference — October 23, 2026
+
+The historical inspection below describes the legacy site. The later approved
+Auth/wishlist work lives only in astro-site/; its current flow, implementation
+status and activation boundaries are in astro-site/src/features/auth/PLAN.md
+and SETUP.md. Google Auth/profile display and guest favorites work locally.
+Account-sync code and its optional invitation are tested with synthetic static
+fixtures but remain off pending approval/execution of the prepared user-data SQL
+and real role/integration checks. No SSR, live deployment or email activation is
+implied. AGENTS.md remains the enforceable workflow and authorization reference.
+
 ## Approved migration decision: landing campaigns
 
 Recorded October 14, 2026 after the user's clarification. This decision adds to

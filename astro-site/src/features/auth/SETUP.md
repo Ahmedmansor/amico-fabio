@@ -1,5 +1,31 @@
 # Auth activation and remaining setup
 
+## Current handoff — 2026-10-23
+
+- Local Google Auth/profile/header is available on 4322. The user's server and
+  signed-in browser were not stopped or signed out during isolated QA.
+- Account wishlist persistence, read-back merge, cross-tab refresh, error/retry
+  UI and optional seven-day sign-in invitation are implemented and tested with
+  synthetic services, including a plain static build. They remain disabled in
+  the actual local environment and all hosting configurations.
+- Remote profiles/wishlists tables do not exist in the last read-only preflight.
+  Review ../../../supabase/account-wishlist/README.md and schema.sql. The exact
+  write scope is two user tables/ownership policies plus authenticated SELECT of
+  published trips(id,is_active). Prior catalog approval does not cover it.
+- role-tests.sql is prepared but NOT RUN. Its disposable Auth/catalog fixtures
+  and rollback require explicit test-write approval. No real-user data is used.
+- After approved schema execution, successful real role tests and integration
+  checks, enable PUBLIC_WISHLIST_ACCOUNT_SYNC_ENABLED=1 locally. Production/test
+  hosting changes and deployment retain their separate authorization gates.
+- Email remains off. Rate-limit numbers, quota reservation, CAPTCHA and trusted
+  DNS/disposable-address enforcement, retention/deletion/export and optional mail
+  consent/services remain decisions for the relevant later phase.
+
+See PLAN.md for the current flow and ../../../qa/wishlist/README.md for actual
+test outputs. Local mock success is not proof of remote RLS or email delivery.
+
+## Previous activation notes
+
 Local UI and adapters are implemented. On 2026-10-23 the user reported adding the
 redirect URLs/templates and enabling Google after replacing an exposed OAuth
 credential themselves. A read-only Auth settings request using the configured

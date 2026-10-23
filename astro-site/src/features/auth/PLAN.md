@@ -22,6 +22,38 @@ SSR or runtime API routes inside Astro.
 
 ## 2. Existing project facts
 
+### Current implemented flow and activation boundary (2026-10-23)
+
+```mermaid
+flowchart TD
+  Build[Astro static build] --> Catalog[Published catalog HTML and stable tour IDs]
+  Catalog --> Browser[Browser]
+  Browser --> Guest[Guest favorites in browser storage]
+  Browser --> Auth[Google / configured Magic Link via Supabase Auth]
+  Auth --> Session[Verified/restored account session]
+  Session --> Profile[Header name and Google avatar]
+  Session --> Gate{Account sync explicitly enabled?}
+  Gate -->|No - current default| Guest
+  Gate -->|Yes - isolated QA only so far| Coordinator[Account-bound wishlist coordinator]
+  Guest -->|Revision snapshot and account claim| Coordinator
+  Coordinator -->|Owner-scoped requests| RLS[Supabase profiles and wishlists with RLS]
+  RLS -->|Read-back confirmed IDs| Ack[Acknowledge exact guest revisions]
+  Ack --> View[Header count, cards, errors and retry]
+```
+
+The diagram's account database path is implemented in source and tested with
+synthetic services, not activated on the real project. The remote schema and
+disposable role test artifacts are awaiting review/execution authorization.
+Auth owns identity/session access; wishlist owns persistence/merge; shared code
+provides a single neutral browser SDK connection. There is no Astro SSR/server
+API or email/reminder service in this implementation. The invitation never
+subscribes a user to email. Manual sign-in survives its seven-day dismissal.
+
+Latest local work: b860e83 schema/continuation contract; 770c4e3 guest revisions;
+2452ff4 account repository/shared SDK; e8be6cc account-bound coordinator;
+075390d gated static UI; 8e135a2 optional invitation; dbf058b request deadlines
+and complete cursor paging. See SETUP.md for the exact next activation gates.
+
 - Catalog records and prices already exist in Supabase; they are not all in Astro source.
 - Astro reads the catalog through its data layer at build time. Current text and images are local.
 - Editing Supabase does not change published pages until a successful rebuild and deployment.

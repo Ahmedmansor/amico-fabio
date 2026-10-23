@@ -24,8 +24,8 @@ src/
     styles/                      local shared styles
 ```
 
-The feature directories are `home`, `explore`, `tours`, `packages`, `booking`,
-`sharm-secrets`, `sharm-offer`, `legal`, and `welcome`. `setup` contains the
+The feature directories include `home`, `explore`, `tours`, `packages`, `booking`,
+`sharm-secrets`, `sharm-offer`, `legal`, `welcome`, `auth`, and `wishlist`. `setup` contains the
 temporary installation check page and is not the production home page.
 
 ## Dependency direction
@@ -78,9 +78,18 @@ field. Validate required fields, unique IDs and slugs within a route namespace,
 price/translation/image associations, and included-trip references. Equivalent
 Italian and English pages intentionally share a slug.
 
-Vitest will be added after package approval for the booking/domain test task.
-The reserved test directories are not executable tests. No business logic is
-introduced by the directory setup, so there are no domain tests to run yet.
+Vitest and executable domain tests are installed under the approved Astro-only
+manifest. `npm test` runs node data/domain tests and Vitest; domain tests remain
+mandatory, with no browser/network dependency in domain code.
+
+Auth and wishlist follow the same layer boundaries. Auth's data API owns
+identity/session verification. Wishlist data owns guest revisions, account
+repository access and account-bound merge coordination; presentation binds those
+APIs to hearts, count, cards and optional invitation. Both features share one
+neutral SDK connection through shared/data/browser-client.ts. No feature reads
+another feature's provider directly. See src/features/auth/PLAN.md for the flow.
+Account sync is off by default pending schema/RLS approval and real verification;
+static hosting and catalog build-time access remain unchanged.
 
 For every implementation task, run `npx astro check` and `npm run build` from
 this workspace. For migrated pages, also compare legacy and Astro screenshots

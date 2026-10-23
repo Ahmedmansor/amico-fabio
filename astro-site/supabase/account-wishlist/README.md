@@ -36,7 +36,8 @@ Metadata reads on 2026-10-23 confirmed:
   must stay unchanged. Explicit RLS in this script does not replace that trigger.
 
 No customer/account records or secrets were read. No SQL in schema.sql was run.
-No local PostgreSQL/psql runtime is installed, so syntax, grants and RLS behavior
+No PostgreSQL/psql runtime was available through the configured local toolchain,
+so syntax, grants and RLS behavior
 have not been executed against PostgreSQL. Review and real role-isolation tests
 remain required; Astro build/check do not validate this SQL.
 
@@ -80,9 +81,37 @@ partial/network failures. Do not test denial by mutating real customer records.
 Inspect advisors and verify original catalog anon behavior and ensure_rls intact.
 Activation stays off until SQL execution and role tests have actually succeeded.
 
+## Prepared disposable role test — NOT RUN
+
+`role-tests.sql` is a separate remote test-write scope requiring approval after
+schema execution. It creates two synthetic Auth UUIDs without email addresses,
+one unpublished synthetic trip, and disposable profile/wishlist rows in one
+transaction that ends in ROLLBACK. It never substitutes or edits real users or
+existing tour records. No Auth API or email send is called. It refuses to create
+fixtures if Auth user triggers or required columns have changed.
+
+Read-only metadata inspection on 2026-10-23 found no noninternal auth.users
+triggers and id as its only required column without a default. Recheck those
+conditions immediately before any approved test run. The script exercises own
+CRUD, cross-account denial, anonymous denial, invalid/unknown/unpublished tours,
+timestamp/identity write restrictions, minimal catalog column access, duplicate
+insertion without resetting added_at, and account-data cascades. Its success
+notice occurs before rollback, only after all assertions. If it errors, issue
+ROLLBACK and inspect the failure; never COMMIT the fixtures. This artifact has
+not been parsed/executed by a PostgreSQL engine and is not a passing RLS result.
+
+The browser implementation now exists behind the disabled flag
+PUBLIC_WISHLIST_ACCOUNT_SYNC_ENABLED. Mocked/static-browser tests in
+../../qa/wishlist/README.md do not replace these database role tests. No remote
+tables/policies, Auth settings, environments or deployments were changed.
+
 References: [RLS](https://supabase.com/docs/guides/database/postgres/row-level-security),
 [Upsert](https://supabase.com/docs/reference/javascript/upsert).
 
 Local artifact checks: npx astro check — Result (224 files): 0 errors, 0 warnings,
 0 hints. npm run build — published catalog validated; 94 pages built in 5.05s;
 Complete! These do not replace PostgreSQL syntax/execution/RLS tests.
+
+Review-pack checks: Astro check (250 files) 0 errors/warnings/hints; default
+static build 94 pages in 5.46s, Complete! These validate the application/artifacts,
+not PostgreSQL execution. schema.sql and role-tests.sql remain NOT RUN.
