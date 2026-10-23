@@ -1,0 +1,53 @@
+{
+  "cases": [
+    {
+      "locale": "it",
+      "width": 375,
+      "zero": true,
+      "add": true,
+      "remove": true,
+      "reload": true,
+      "headerOnlyPage": true,
+      "crossTab": true,
+      "clear": true,
+      "stableLink": true
+    },
+    {
+      "locale": "it",
+      "width": 1440,
+      "zero": true,
+      "add": true,
+      "remove": true,
+      "reload": true,
+      "headerOnlyPage": true,
+      "crossTab": true,
+      "clear": true,
+      "stableLink": true
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "zero": true,
+      "add": true,
+      "remove": true,
+      "reload": true,
+      "headerOnlyPage": true,
+      "crossTab": true,
+      "clear": true,
+      "stableLink": true
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "zero": true,
+      "add": true,
+      "remove": true,
+      "reload": true,
+      "headerOnlyPage": true,
+      "crossTab": true,
+      "clear": true,
+      "stableLink": true
+    }
+  ],
+  "unavailableStorage": "no fabricated count"
+}

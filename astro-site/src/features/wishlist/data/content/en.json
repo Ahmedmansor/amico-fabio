@@ -1,5 +1,6 @@
 {
   "title": "Favorites",
+  "countLabel": "Favorites ({count})",
   "save": "Save to favorites",
   "remove": "Remove from favorites",
   "empty": "You haven’t saved any tours yet.",

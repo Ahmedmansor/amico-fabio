@@ -5,10 +5,17 @@ const page = document.querySelector<HTMLElement>('[data-wishlist-page]');
 const items = [...document.querySelectorAll<HTMLElement>('[data-wishlist-item]')];
 const empty = page?.querySelector<HTMLElement>('[data-wishlist-empty]');
 const pageError = page?.querySelector<HTMLElement>('[data-wishlist-error]');
+const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-wishlist-link]')];
 
 function refresh() {
   const result = readGuestWishlist(browserGuestStorage());
   const ids = result.ok ? new Set(result.value) : null;
+  if (ids) for (const link of links) {
+    const count = link.querySelector<HTMLElement>('[data-wishlist-count]')!;
+    count.textContent = String(ids.size);
+    count.hidden = false;
+    link.setAttribute('aria-label', link.dataset.countLabel!.replace('{count}', String(ids.size)));
+  }
   for (const button of buttons) {
     button.hidden = false;
     if (!ids) continue; // Retain the last known state on a read failure.

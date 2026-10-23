@@ -99,3 +99,26 @@ not a fresh exhaustive parity audit of every legacy tour and package.
 
 No schema writes, Auth flow, reminder delivery, hosting changes or deployment
 are part of this task. Account synchronization and email features remain pending.
+
+## Header favorite count
+
+The heart link now has a gold count badge (including zero), populated from the
+same validated browser wishlist as the save/remove controls. Its localized
+accessible label includes the count. The shared feature interaction module is
+also imported by the header link, so pages without save buttons stay in sync.
+The badge is positioned within the existing 44px control without changing its
+size. It updates after successful saves, on storage events, focus and pageshow.
+Unreadable storage retains a previously known count; initial failure leaves it
+hidden rather than inventing a number. This remains the existing browser-local
+wishlist; no account synchronization was added.
+
+Verification: `node qa/wishlist/count-browser.mjs` passed 4 Italian/English x
+375/1440 cases: zero, add/remove, reload, a header-only legal page, cross-tab
+updates, clearing saved items, unchanged link geometry and unavailable storage.
+Screenshots remain local and ignored. Run with external PLAYWRIGHT_MODULE and
+QA_BROWSER; QA_ORIGIN defaults to http://127.0.0.1:4322.
+
+`npm run build`: catalog validated (22 trips, 14 packages, 3 addons, 1 settings);
+94 pages built in 21.46s; Complete! Existing Browserslist age warning remains.
+
+`npx astro check`: Result (224 files): 0 errors; 0 warnings; 0 hints.

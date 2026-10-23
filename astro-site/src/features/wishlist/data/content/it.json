@@ -1,5 +1,6 @@
 {
   "title": "Preferiti",
+  "countLabel": "Preferiti ({count})",
   "save": "Salva nei preferiti",
   "remove": "Rimuovi dai preferiti",
   "empty": "Non hai ancora salvato escursioni.",
