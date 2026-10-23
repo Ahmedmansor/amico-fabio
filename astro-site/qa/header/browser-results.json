@@ -8,7 +8,8 @@
     "stableGeometry": true,
     "leftPosition": true,
     "signoutLabel": true,
-    "focusRestored": true
+    "focusRestored": true,
+    "shimmer": "icon only; shimmer hidden"
   },
   {
     "locale": "it",
@@ -19,7 +20,8 @@
     "stableGeometry": true,
     "leftPosition": true,
     "signoutLabel": true,
-    "focusRestored": true
+    "focusRestored": true,
+    "shimmer": "visible while pending; hidden when ready; reduced motion respected"
   },
   {
     "locale": "en",
@@ -30,7 +32,8 @@
     "stableGeometry": true,
     "leftPosition": true,
     "signoutLabel": true,
-    "focusRestored": true
+    "focusRestored": true,
+    "shimmer": "icon only; shimmer hidden"
   },
   {
     "locale": "en",
@@ -41,6 +44,7 @@
     "stableGeometry": true,
     "leftPosition": true,
     "signoutLabel": true,
-    "focusRestored": true
+    "focusRestored": true,
+    "shimmer": "visible while pending; hidden when ready; reduced motion respected"
   }
 ]

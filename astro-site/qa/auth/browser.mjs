@@ -44,7 +44,7 @@ async function mock(context, expired = false) {
 async function consent(page, locale) {
   await page.getByRole('button', { name: locale === 'it' ? 'Rifiuta facoltativi' : 'Reject optional', exact: true }).click();
 }
-async function openDialog(page, width) {
+async function openDialog(page, _width) {
   await page.locator('#global-header [data-auth-open]:visible').click();
   await page.locator('[data-auth-dialog]').waitFor({ state: 'visible' });
 }

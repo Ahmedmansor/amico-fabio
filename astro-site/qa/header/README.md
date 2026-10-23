@@ -53,3 +53,17 @@ The build retains the existing Browserslist database age warning. It required
 network access for catalog SELECT; no remote configuration or data was changed.
 The existing Auth browser suite's menu/focus assumptions were updated for the
 independent header control; that full email/callback suite was not rerun here.
+
+## Pending name shimmer
+
+The reserved desktop name area now shows a small gold-tinted shimmer while
+aria-busy=true. It is decorative and hidden from assistive technology; the
+button retains its accessible name/busy state. Reduced motion leaves a static
+placeholder. Mobile keeps the existing icon-only presentation.
+
+Actual checks: Astro check (223 files): 0 errors, 0 warnings, 0 hints.
+Build: validated live catalog; 94 pages built in 5.54s; Complete!
+Header browser: 4 cases passed, including pending/ready shimmer, reduced motion,
+unchanged navigation geometry, greeting/signout and asynchronous focus return.
+An initial browser assertion checked focus before the dialog close event; it now
+waits for focus restoration before asserting. No application focus logic changed.

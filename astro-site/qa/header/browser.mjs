@@ -32,6 +32,14 @@ try {
     assert.equal(await page.locator('#gh-nav-inline [data-auth-open], #gh-menu-dropdown [data-auth-open]').count(), 0);
     await trigger.waitFor({ state: 'visible' });
     assert.equal(await trigger.isDisabled(), true);
+    const shimmer = trigger.locator('.auth-trigger-loading');
+    assert.equal(await shimmer.isVisible(), width >= 1024);
+    if (width >= 1024) {
+      assert.equal(await shimmer.evaluate(node => getComputedStyle(node, '::after').animationName), 'auth-name-shimmer');
+      await page.emulateMedia({ reducedMotion: 'reduce' });
+      assert.equal(await shimmer.evaluate(node => getComputedStyle(node, '::after').animationName), 'none');
+      await page.emulateMedia({ reducedMotion: 'no-preference' });
+    }
     const before = await container.boundingBox();
     const navBefore = await page.locator('#gh-nav-inline').boundingBox();
     const buttonBefore = await trigger.boundingBox();
@@ -42,6 +50,7 @@ try {
     await page.waitForFunction(() => [...document.querySelectorAll('#global-header [data-auth-open]')].every(button => !button.disabled));
     const greeting = locale === 'it' ? 'Ciao, Alexandria' : 'Hi, Alexandria';
     assert.equal(await trigger.getAttribute('aria-label'), greeting);
+    assert.equal(await shimmer.isVisible(), false);
     assert.equal((await trigger.locator('.auth-trigger-label').textContent()).trim(), greeting);
     assert.deepEqual(await container.boundingBox(), before);
     assert.deepEqual(await trigger.boundingBox(), buttonBefore);
@@ -55,12 +64,13 @@ try {
     await page.locator('[data-auth-guest]').waitFor({ state: 'visible' });
     assert.equal(await trigger.getAttribute('aria-label'), locale === 'it' ? 'Accedi' : 'Sign in');
     await page.keyboard.press('Escape');
+    await page.waitForFunction(() => document.activeElement?.matches('#global-header [data-auth-open]'));
     assert.equal(await trigger.evaluate(button => button === document.activeElement), true);
     assert.deepEqual(await trigger.boundingBox(), buttonBefore);
     assert.deepEqual(await page.locator('#gh-nav-inline').boundingBox(), navBefore);
-    results.push({ locale, width, pendingVisible: true, pendingDisabled: true, greeting: true, stableGeometry: true, leftPosition: true, signoutLabel: true, focusRestored: true });
+    results.push({ locale, width, pendingVisible: true, pendingDisabled: true, greeting: true, stableGeometry: true, leftPosition: true, signoutLabel: true, focusRestored: true, shimmer: width >= 1024 ? 'visible while pending; hidden when ready; reduced motion respected' : 'icon only; shimmer hidden' });
     await context.close();
   }
 } finally { await browser.close(); }
 await writeFile(new URL('./browser-results.json', import.meta.url), JSON.stringify(results, null, 2) + '\n');
-console.log('Header startup: 4 cases passed; immediate icon, localized greeting, stable navigation, left placement, signout and focus restoration.');
+console.log('Header startup: 4 cases passed; localized greeting, stable layout, pending shimmer, reduced motion, signout and focus restoration.');
