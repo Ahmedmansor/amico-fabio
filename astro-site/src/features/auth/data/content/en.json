@@ -1,6 +1,7 @@
 {
   "signIn": "Sign in",
   "accountTitle": "Your account",
+  "greeting": "Hi, {name}",
   "name": "Name",
   "avatar": "Profile picture",
   "title": "Sign in to Fabio Egypt",

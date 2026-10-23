@@ -45,7 +45,6 @@ async function consent(page, locale) {
   await page.getByRole('button', { name: locale === 'it' ? 'Rifiuta facoltativi' : 'Reject optional', exact: true }).click();
 }
 async function openDialog(page, width) {
-  if (width < 1024) await page.locator('#gh-menu-btn').click();
   await page.locator('#global-header [data-auth-open]:visible').click();
   await page.locator('[data-auth-dialog]').waitFor({ state: 'visible' });
 }
@@ -77,7 +76,7 @@ try {
     await shot(page, `${locale}-${width}-requested.png`);
     await page.keyboard.press('Escape');
     assert.equal(await page.locator('[data-auth-dialog]').isVisible(), false);
-    if (width < 1024) assert.equal(await page.locator('#gh-menu-btn').evaluate(node => node === document.activeElement), true);
+    assert.equal(await page.locator('#global-header [data-auth-open]').evaluate(node => node === document.activeElement), true);
     await shot(page, `${locale}-${width}-entry.png`);
     await page.locator('.auth-entry [data-auth-open]').click();
     await page.locator('[data-auth-dialog]').waitFor({ state: 'visible' });

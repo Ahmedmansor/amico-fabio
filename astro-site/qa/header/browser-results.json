@@ -1,0 +1,46 @@
+[
+  {
+    "locale": "it",
+    "width": 375,
+    "pendingVisible": true,
+    "pendingDisabled": true,
+    "greeting": true,
+    "stableGeometry": true,
+    "leftPosition": true,
+    "signoutLabel": true,
+    "focusRestored": true
+  },
+  {
+    "locale": "it",
+    "width": 1440,
+    "pendingVisible": true,
+    "pendingDisabled": true,
+    "greeting": true,
+    "stableGeometry": true,
+    "leftPosition": true,
+    "signoutLabel": true,
+    "focusRestored": true
+  },
+  {
+    "locale": "en",
+    "width": 375,
+    "pendingVisible": true,
+    "pendingDisabled": true,
+    "greeting": true,
+    "stableGeometry": true,
+    "leftPosition": true,
+    "signoutLabel": true,
+    "focusRestored": true
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "pendingVisible": true,
+    "pendingDisabled": true,
+    "greeting": true,
+    "stableGeometry": true,
+    "leftPosition": true,
+    "signoutLabel": true,
+    "focusRestored": true
+  }
+]

@@ -56,7 +56,19 @@ async function initialize() {
       }
     }
     dialog.querySelector('#auth-title')!.textContent = session ? m.accountTitle : m.title;
-    for (const trigger of triggers) { trigger.textContent = session ? m.accountTitle : m.signIn; trigger.hidden = !ready; }
+    for (const trigger of triggers) {
+      if (trigger.classList.contains('auth-trigger')) {
+        const firstName = session?.profile.displayName?.trim().split(/\s+/u)[0];
+        const label = session ? (firstName ? m.greeting.replace('{name}', firstName) : m.accountTitle) : m.signIn;
+        trigger.querySelector('.auth-trigger-label')!.textContent = label;
+        trigger.setAttribute('aria-label', label);
+        trigger.disabled = !ready;
+        trigger.setAttribute('aria-busy', String(!ready));
+      } else {
+        trigger.textContent = session ? m.accountTitle : m.signIn;
+        trigger.hidden = !ready;
+      }
+    }
     const remaining = service?.remainingCooldown() ?? 0;
     if (send) send.disabled = pending || !service || remaining > 0;
     if (google) google.disabled = pending || !service;
@@ -89,7 +101,7 @@ async function initialize() {
     }
   });
   dialog.addEventListener('close', () => {
-    (opener?.getClientRects().length ? opener : document.getElementById('gh-menu-btn'))?.focus();
+    (opener?.getClientRects().length ? opener : document.querySelector<HTMLButtonElement>('#global-header [data-auth-open]'))?.focus();
   });
   form?.addEventListener('submit', async event => {
     event.preventDefault();
