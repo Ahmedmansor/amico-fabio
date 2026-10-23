@@ -122,3 +122,18 @@ QA_BROWSER; QA_ORIGIN defaults to http://127.0.0.1:4322.
 94 pages built in 21.46s; Complete! Existing Browserslist age warning remains.
 
 `npx astro check`: Result (224 files): 0 errors; 0 warnings; 0 hints.
+
+## Revision-safe merge foundation (not activated)
+
+Guest storage accepts existing `1` values and new per-save v2 UUID revisions.
+Existing IDs/keys remain intact; no migration wipes browser data. Pure merge
+rules union published missing IDs and identify cleanup only for read-back
+confirmed revisions under the same account/generation. Legacy ambiguous values
+are never directly eligible for cleanup. Conditional cleanup/promotion helpers
+will be called only under the future shared guest lock by the sync coordinator.
+No account network calls or automatic cleanup are wired into the site yet.
+
+Real output: guest storage tests 8 passed, 0 failed; Vitest wishlist domain
+2 files / 8 tests passed; Astro check (226 files) 0 errors, 0 warnings, 0 hints;
+build 94 pages in 5.63s, Complete! Browser count regression suite passed all
+4 language/viewport cases (add/remove, reload, cross-tab and storage failures).

@@ -1,4 +1,5 @@
 import { normalizeWishlist, tripId } from '../domain/wishlist.ts';
+import type { GuestEntry } from '../domain/merge.ts';
 
 export const guestWishlistPrefix = 'fabio:wishlist:v1:trip:';
 
@@ -27,9 +28,13 @@ export function browserGuestStorage(): GuestStorage | null {
   }
 }
 
-export function readGuestWishlist(storage: GuestStorage | null): StorageResult<string[]> {
+function validRevision(value: string): boolean {
+  return value === '1' || /^v2:[0-9a-f-]{36}$/.test(value);
+}
+
+export function readGuestSnapshot(storage: GuestStorage | null): StorageResult<GuestEntry[]> {
   if (!storage) return { ok: false, reason: 'unavailable' };
-  const ids: string[] = [];
+  const entries: GuestEntry[] = [];
   try {
     for (let index = 0; index < storage.length; index++) {
       const key = storage.key(index);
@@ -37,19 +42,24 @@ export function readGuestWishlist(storage: GuestStorage | null): StorageResult<s
       const value = storage.getItem(key);
       // A different tab can remove a key while this snapshot is being read.
       if (value === null) continue;
-      if (value !== '1') return { ok: false, reason: 'invalid-data' };
+      if (!validRevision(value)) return { ok: false, reason: 'invalid-data' };
       try {
         const id = decodeURIComponent(key.slice(guestWishlistPrefix.length));
         if (itemKey(id) !== key) return { ok: false, reason: 'invalid-data' };
-        ids.push(id);
+        entries.push({ id, revision: value });
       } catch {
         return { ok: false, reason: 'invalid-data' };
       }
     }
-    return { ok: true, value: normalizeWishlist(ids) };
+    return { ok: true, value: entries.sort((a, b) => a.id.localeCompare(b.id)) };
   } catch {
     return { ok: false, reason: 'read-failed' };
   }
+}
+
+export function readGuestWishlist(storage: GuestStorage | null): StorageResult<string[]> {
+  const result = readGuestSnapshot(storage);
+  return result.ok ? { ok: true, value: normalizeWishlist(result.value.map(entry => entry.id)) } : result;
 }
 
 /** One key per tour avoids overwriting another tab's unrelated saved tours.
@@ -67,12 +77,42 @@ export function saveGuestFavorite(
   }
   if (!storage) return { ok: false, reason: 'unavailable' };
   try {
-    if (saved) storage.setItem(key, '1');
+    const existing = storage.getItem(key);
+    if (existing !== null && !validRevision(existing)) return { ok: false, reason: 'invalid-data' };
+    const revision = existing ?? `v2:${crypto.randomUUID()}`;
+    if (saved) storage.setItem(key, revision);
     else storage.removeItem(key);
     const persisted = storage.getItem(key);
-    if (persisted !== (saved ? '1' : null)) return { ok: false, reason: 'write-failed' };
+    if (persisted !== (saved ? revision : null)) return { ok: false, reason: 'write-failed' };
     return { ok: true, value: saved };
   } catch {
     return { ok: false, reason: 'write-failed' };
   }
+}
+
+/** Call under the shared guest lock before an account merge snapshots legacy rows. */
+export function promoteGuestSnapshot(storage: GuestStorage | null): StorageResult<GuestEntry[]> {
+  const result = readGuestSnapshot(storage);
+  if (!result.ok || !storage) return result;
+  try {
+    for (const entry of result.value) if (entry.revision === '1') {
+      const key = itemKey(entry.id);
+      const revision = `v2:${crypto.randomUUID()}`;
+      storage.setItem(key, revision);
+      if (storage.getItem(key) !== revision) return { ok: false, reason: 'write-failed' };
+    }
+    return readGuestSnapshot(storage);
+  } catch { return { ok: false, reason: 'write-failed' }; }
+}
+
+/** Caller must hold the shared guest lock. Recheck before each conditional delete. */
+export function removeGuestRevision(storage: GuestStorage | null, entry: GuestEntry): StorageResult<boolean> {
+  if (!storage) return { ok: false, reason: 'unavailable' };
+  try {
+    const key = itemKey(entry.id);
+    if (entry.revision === '1' || storage.getItem(key) !== entry.revision) return { ok: true, value: false };
+    storage.removeItem(key);
+    if (storage.getItem(key) !== null) return { ok: false, reason: 'write-failed' };
+    return { ok: true, value: true };
+  } catch { return { ok: false, reason: 'write-failed' }; }
 }

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { browserGuestStorage, guestWishlistPrefix as prefix, readGuestWishlist, saveGuestFavorite } from '../guest-storage.ts';
+import { browserGuestStorage, guestWishlistPrefix as prefix, readGuestWishlist, saveGuestFavorite, readGuestSnapshot, promoteGuestSnapshot, removeGuestRevision } from '../guest-storage.ts';
 
 function memoryStorage() {
   const entries = new Map();
@@ -24,6 +24,40 @@ test('two callers preserve unrelated additions and removals without stale list w
   assert.deepEqual(staleTab, { ok: true, value: ['a'] });
   assert.deepEqual(readGuestWishlist(storage), { ok: true, value: ['b', 'c'] });
   assert.equal(storage.getItem('cookie-preferences'), 'untouched');
+});
+
+test('legacy favorites remain readable and promotion does not drop items or other storage', () => {
+  const storage = memoryStorage();
+  storage.setItem(prefix + 'a', '1');
+  storage.setItem('other', 'untouched');
+  assert.deepEqual(readGuestWishlist(storage), {ok:true,value:['a']});
+  const snapshot = promoteGuestSnapshot(storage);
+  assert.equal(snapshot.ok, true);
+  assert.match(snapshot.value[0].revision, /^v2:/);
+  assert.deepEqual(readGuestWishlist(storage), {ok:true,value:['a']});
+  assert.equal(storage.getItem('other'), 'untouched');
+});
+
+test('remove/re-add creates a new revision and confirmed cleanup preserves it', () => {
+  const storage = memoryStorage();
+  saveGuestFavorite(storage, 'a', true);
+  const old = readGuestSnapshot(storage).value[0];
+  saveGuestFavorite(storage, 'a', false);
+  saveGuestFavorite(storage, 'a', true);
+  assert.notEqual(readGuestSnapshot(storage).value[0].revision, old.revision);
+  assert.deepEqual(removeGuestRevision(storage, old), {ok:true,value:false});
+  const current = readGuestSnapshot(storage).value[0];
+  assert.deepEqual(removeGuestRevision(storage, current), {ok:true,value:true});
+});
+
+test('ambiguous legacy revisions and denied cleanup never report successful removal', () => {
+  const storage = memoryStorage();
+  storage.setItem(prefix + 'a', '1');
+  assert.deepEqual(removeGuestRevision(storage, {id:'a',revision:'1'}), {ok:true,value:false});
+  const current = promoteGuestSnapshot(storage).value[0];
+  storage.removeItem = () => {};
+  assert.deepEqual(removeGuestRevision(storage, current), {ok:false,reason:'write-failed'});
+  assert.deepEqual(readGuestWishlist(storage), {ok:true,value:['a']});
 });
 
 test('same-tour actions are idempotent and latest explicit action wins', () => {
