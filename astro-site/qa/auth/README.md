@@ -139,3 +139,50 @@ Use `--local-auth` for this deliberately configured local build. The default
 verification mode still checks an unconfigured build for absent Auth/browser-key
 markup. Neither mode prints a key. The end-user Google account choice/consent
 and successful callback/session remain to be tested interactively by the user.
+
+## Account presentation fix and real-session verification
+
+The user subsequently completed Google login and reported that the wishlist
+still showed a sign-in sentence above the Your account button. The entry copy
+had remained static; it now follows session state. The user also requested the
+Google account name/email/avatar, which the previous minimal session view did
+not expose to presentation.
+
+The data adapter maps display fields from the authenticated user's record. On
+restoration, it uses the fresh `getUser` result, not an earlier cached user.
+Initial SDK events no longer bypass that restoration. Names are inserted with
+textContent, the email comes from the account email field rather than editable
+metadata, and metadata never supplies ownership IDs or roles. Avatar URLs must
+use HTTPS and a Google image host without embedded credentials. Missing/failed
+images use a neutral icon; no image or identity is fabricated. Signout clears
+profile text and image references as well as hiding the profile views.
+
+Actual verification:
+
+```text
+npm test
+tests 99; pass 99; fail 0
+Test Files 8 passed (8); Tests 105 passed (105)
+npx astro check
+Result (222 files): 0 errors; 0 warnings; 0 hints
+npm run build
+94 page(s) built in 6.84s
+Complete!
+node qa/auth/verify-built.mjs --local-auth
+Built Auth checks passed: callbacks noindex/excluded from sitemap,
+no-referrer, credentials scrubbed first; local Google enabled on 4322;
+email UI off; key value not printed.
+```
+
+Browser observations on the user's actual authenticated 4322 session confirmed
+that the profile is visible, the guest sign-in prompt is hidden, and the real
+Google avatar loaded (`complete && naturalWidth > 0`). The account dialog also
+shows the profile. Italian and English wishlist views restored the same account.
+No personal names/emails, avatar URLs, IDs, session tokens or real profile
+screenshots are included in committed QA evidence. The temporary Italian
+verification tab was closed without signing out or changing guest favorites.
+
+Email sign-in remains intentionally disabled; its agreed UX is a Magic Link,
+not an email/password form. No remote schema, Google scopes, email sends,
+hosting changes or deployment were needed for this presentation fix. Account
+wishlist synchronization remains unimplemented and is not claimed by the UI.

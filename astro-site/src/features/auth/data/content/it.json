@@ -1,6 +1,8 @@
 {
   "signIn": "Accedi",
   "accountTitle": "Il tuo account",
+  "name": "Nome",
+  "avatar": "Immagine del profilo",
   "title": "Accedi a Fabio Egypt",
   "intro": "Continua con Google oppure ricevi un link di accesso via email.",
   "googleIntro": "Accedi con il tuo account Google.",

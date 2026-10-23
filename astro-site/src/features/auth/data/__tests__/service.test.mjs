@@ -2,10 +2,12 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readAuthConfig } from '../config.ts';
 import { createAuthService } from '../service.ts';
+import { accountSession } from '../profile.ts';
 
 const env = { PUBLIC_AUTH_ENABLED: '1', PUBLIC_AUTH_SUPABASE_URL: 'https://example.supabase.co', PUBLIC_AUTH_SUPABASE_PUBLISHABLE_KEY: 'sb_publishable_test', PUBLIC_AUTH_SITE_URL: 'http://127.0.0.1:4322', PUBLIC_AUTH_GOOGLE_ENABLED: '1', PUBLIC_AUTH_EMAIL_ENABLED: '1', PUBLIC_AUTH_RESEND_SECONDS: '75' };
 const config = readAuthConfig(env);
 const session = { user: { id: 'test-user' } };
+const sessionView = { userId: 'test-user', profile: { displayName: null, email: null, avatarUrl: null } };
 function setup(overrides = {}, now = () => 1000) {
   const calls = [];
   const auth = {
@@ -61,7 +63,7 @@ test('Google uses PKCE SDK URL generation with safe return and never automatical
 });
 test('callback verifies hash without a code verifier; used/expired links never become success', async () => {
   const { service, calls } = setup();
-  assert.deepEqual(await service.completeCallback({ kind: 'email', tokenHash: 'fake_hash' }), { ok: true, value: { userId: 'test-user' } });
+  assert.deepEqual(await service.completeCallback({ kind: 'email', tokenHash: 'fake_hash' }), { ok: true, value: sessionView });
   assert.deepEqual(calls[0], { token_hash: 'fake_hash', type: 'email' });
   const failed = setup({ verifyOtp: async () => ({ data: { session: null }, error: { code: 'otp_expired' } }) });
   assert.deepEqual(await failed.service.completeCallback({ kind: 'email', tokenHash: 'used' }), { ok: false, reason: 'invalid-link' });
@@ -69,7 +71,7 @@ test('callback verifies hash without a code verifier; used/expired links never b
 });
 test('restores and verifies an existing identity and signs out this browser only', async () => {
   const { service, calls } = setup();
-  assert.deepEqual(await service.currentSession(), { ok: true, value: { userId: 'test-user' } });
+  assert.deepEqual(await service.currentSession(), { ok: true, value: sessionView });
   await service.signOut();
   assert.deepEqual(calls[0], { scope: 'local' });
   const mismatch = setup({ getUser: async () => ({ data: { user: { id: 'other' } }, error: null }) });
@@ -80,10 +82,24 @@ test('session listener dispatches after SDK callback and can unsubscribe', async
   const { service } = setup({ onAuthStateChange(listener) { callback = listener; return { data: { subscription: { unsubscribe() { unsubscribed = true; } } } }; } });
   const states = [];
   const stop = service.subscribe(value => states.push(value));
+  callback('INITIAL_SESSION', session);
+  await Promise.resolve();
+  assert.deepEqual(states, []); // Restoration must use the verified getUser result.
   callback('SIGNED_IN', session);
   assert.deepEqual(states, []);
   await Promise.resolve();
-  assert.deepEqual(states, [{ userId: 'test-user' }]);
+  assert.deepEqual(states, [sessionView]);
   stop();
   assert.equal(unsubscribed, true);
+});
+
+test('profile uses fresh verified-user fields; metadata is display only and cannot choose identity/email', async () => {
+  const user = { id: 'test-user', email: 'qa@example.test', user_metadata: { full_name: '<b>QA Name</b>', avatar_url: 'https://lh3.googleusercontent.com/a/example', email: 'spoof@example.test', user_id: 'other', role: 'admin' } };
+  const { service } = setup({ getUser: async () => ({ data: { user }, error: null }) });
+  const result = await service.currentSession();
+  assert.deepEqual(result, { ok: true, value: { userId: 'test-user', profile: { displayName: '<b>QA Name</b>', email: 'qa@example.test', avatarUrl: 'https://lh3.googleusercontent.com/a/example' } } });
+  assert.equal('role' in result.value, false);
+  for (const url of ['javascript:alert(1)', 'data:image/svg+xml,test', 'http://lh3.googleusercontent.com/a', 'https://evil.test/a', 'https://lh3.googleusercontent.com.evil.test/a', 'https://user:pass@lh3.googleusercontent.com/a']) {
+    assert.equal(accountSession({ id: 'test', user_metadata: { picture: url } }).profile.avatarUrl, null);
+  }
 });

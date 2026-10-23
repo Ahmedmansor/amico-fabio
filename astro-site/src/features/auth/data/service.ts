@@ -2,12 +2,13 @@ import type { SupabaseClient, Session } from '@supabase/supabase-js';
 import type { Locale } from '../../../shared/config/languages.ts';
 import { normalizeEmail, safeReturnPath, cooldownRemaining, type AuthResult, type AccountSession, type CallbackInput } from '../domain/auth.ts';
 import { authReturnPaths, defaultAuthReturn, type AuthConfig } from './config.ts';
+import { accountSession } from './profile.ts';
 
 type Client = Pick<SupabaseClient, 'auth'>;
 const failure = (reason: 'unavailable' | 'invalid-email' | 'invalid-link' | 'rate-limited' | 'failed' | 'busy'): AuthResult<never> => ({ ok: false, reason });
 const success = <T>(value: T): AuthResult<T> => ({ ok: true, value });
 function sessionView(session: Session | null): AccountSession | null {
-  return session?.user?.id ? { userId: session.user.id } : null;
+  return session?.user?.id ? accountSession(session.user) : null;
 }
 function rateLimited(error: unknown): boolean {
   return !!error && typeof error === 'object' && 'status' in error && error.status === 429;
@@ -32,11 +33,13 @@ export function createAuthService(client: Client, config: AuthConfig, now: () =>
         // The SDK owns token refresh; validate identity without using editable metadata.
         const verified = await client.auth.getUser();
         if (verified.error || !verified.data.user || verified.data.user.id !== data.session.user.id) return failure('failed');
-        return success({ userId: verified.data.user.id });
+        return success(accountSession(verified.data.user));
       } catch { return failure('failed'); }
     },
     subscribe(listener: (session: AccountSession | null) => void): () => void {
-      const { data } = client.auth.onAuthStateChange((_event, session) => {
+      const { data } = client.auth.onAuthStateChange((event, session) => {
+        // Initial restoration goes through currentSession/getUser, including fresh profile.
+        if (event === 'INITIAL_SESSION') return;
         // Keep async consumers out of the SDK's locked synchronous callback.
         queueMicrotask(() => listener(sessionView(session)));
       });

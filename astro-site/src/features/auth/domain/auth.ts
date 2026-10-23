@@ -1,6 +1,7 @@
 export type AuthFailure = 'unavailable' | 'invalid-email' | 'invalid-link' | 'rate-limited' | 'failed' | 'busy';
 export type AuthResult<T> = { ok: true; value: T } | { ok: false; reason: AuthFailure };
-export interface AccountSession { userId: string }
+export interface AccountProfile { displayName: string | null; email: string | null; avatarUrl: string | null }
+export interface AccountSession { userId: string; profile: AccountProfile }
 export type CallbackInput = { kind: 'email'; tokenHash: string } | { kind: 'google'; code: string } | { kind: 'invalid' };
 
 /** Preserve mailbox identity, including dots, case and +tags; normalize the domain only. */

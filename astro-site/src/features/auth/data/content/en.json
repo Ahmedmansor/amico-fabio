@@ -1,6 +1,8 @@
 {
   "signIn": "Sign in",
   "accountTitle": "Your account",
+  "name": "Name",
+  "avatar": "Profile picture",
   "title": "Sign in to Fabio Egypt",
   "intro": "Continue with Google or receive a sign-in link by email.",
   "googleIntro": "Sign in with your Google account.",

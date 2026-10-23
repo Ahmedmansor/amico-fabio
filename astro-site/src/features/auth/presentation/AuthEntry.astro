@@ -3,9 +3,10 @@ import { authConfig } from '../data/build-config';
 import { getAuthMessages } from '../data/messages';
 import type { Locale } from '../../../shared/config/languages';
 import './auth.css';
+import AccountSummary from './AccountSummary.astro';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const m = getAuthMessages(locale);
 const intro = authConfig?.googleEnabled && authConfig.emailEnabled ? m.intro : authConfig?.googleEnabled ? m.googleIntro : m.emailIntro;
 ---
-{authConfig && <section class="auth-entry"><p>{intro}</p><button type="button" class="auth-button" data-auth-open aria-haspopup="dialog" hidden>{m.signIn}</button></section>}
+{authConfig && <section class="auth-entry"><p data-auth-entry-guest hidden>{intro}</p><AccountSummary locale={locale}/><button type="button" class="auth-button" data-auth-open aria-haspopup="dialog" hidden>{m.signIn}</button></section>}

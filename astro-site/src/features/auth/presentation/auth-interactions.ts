@@ -24,13 +24,39 @@ async function initialize() {
   let pending = false;
   let session: AccountSession | null = null;
   let revision = 0;
+  let ready = false;
   const service = await browserAuth(config);
+  const profiles = [...document.querySelectorAll<HTMLElement>('[data-auth-profile]')];
+  for (const profile of profiles) {
+    const image = profile.querySelector<HTMLImageElement>('[data-auth-avatar]')!;
+    const fallback = profile.querySelector<HTMLElement>('[data-auth-avatar-fallback]')!;
+    image.addEventListener('load', () => { image.hidden = false; fallback.hidden = true; });
+    image.addEventListener('error', () => { image.dataset.failedSrc = image.getAttribute('src') ?? ''; image.hidden = true; fallback.hidden = false; });
+  }
   const show = (text: string) => { status.textContent = text; status.hidden = !text; };
   function render() {
     guest.hidden = !!session;
     account.hidden = !session;
+    dialog.toggleAttribute('aria-describedby', !session);
+    if (!session) dialog.setAttribute('aria-describedby', 'auth-intro');
+    for (const text of document.querySelectorAll<HTMLElement>('[data-auth-entry-guest]')) text.hidden = !ready || !!session;
+    for (const profile of profiles) {
+      profile.hidden = !session;
+      const values = session?.profile;
+      profile.querySelector('[data-auth-name]')!.textContent = values?.displayName ?? '';
+      profile.querySelector<HTMLElement>('[data-auth-name-row]')!.hidden = !values?.displayName;
+      profile.querySelector('[data-auth-email]')!.textContent = values?.email ?? '';
+      profile.querySelector<HTMLElement>('[data-auth-email-row]')!.hidden = !values?.email;
+      const image = profile.querySelector<HTMLImageElement>('[data-auth-avatar]')!;
+      const fallback = profile.querySelector<HTMLElement>('[data-auth-avatar-fallback]')!;
+      if (!values?.avatarUrl) {
+        image.removeAttribute('src'); image.hidden = true; fallback.hidden = false; delete image.dataset.failedSrc;
+      } else if (image.getAttribute('src') !== values.avatarUrl) {
+        image.hidden = true; fallback.hidden = false; delete image.dataset.failedSrc; image.src = values.avatarUrl;
+      }
+    }
     dialog.querySelector('#auth-title')!.textContent = session ? m.accountTitle : m.title;
-    for (const trigger of triggers) trigger.textContent = session ? m.accountTitle : m.signIn;
+    for (const trigger of triggers) { trigger.textContent = session ? m.accountTitle : m.signIn; trigger.hidden = !ready; }
     const remaining = service?.remainingCooldown() ?? 0;
     if (send) send.disabled = pending || !service || remaining > 0;
     if (google) google.disabled = pending || !service;
@@ -43,7 +69,6 @@ async function initialize() {
     dialog.setAttribute('aria-busy', String(pending));
   }
   for (const trigger of triggers) {
-    trigger.hidden = false;
     trigger.addEventListener('click', () => {
       opener = trigger;
       show(service ? '' : m.unavailable);
@@ -104,6 +129,7 @@ async function initialize() {
       else show(m.failed);
     }
   }
+  ready = true;
   render();
   window.setInterval(() => { if (dialog.open) render(); }, 1000);
 }

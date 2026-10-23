@@ -2,7 +2,7 @@
 
 Created: 2026-10-23. English execution reference replacing the Arabic text.
 
-**Status: guest wishlist and local Auth UI/adapters implemented; real Auth activation, account sync and mail features remain pending.** Agreement
+**Status: guest wishlist and local Google Auth/profile display implemented; account sync and email activation/services remain pending.** Agreement
 on those decisions and editing this document do not authorize all operational
 settings, remote schema changes, Auth configuration, email sending, or deployment.
 This document coordinates the phases. Its location in `auth` does not make
@@ -398,6 +398,14 @@ The user confirmed on 2026-10-23:
   remaining protection decisions. Real provider settings, new browser-key
   configuration, backend controls, user tables/RLS and deployment are not claimed
   complete or authorized by the local implementation.
+- Subsequent user setup enabled real Google sign-in locally on port 4322. The
+  user reported completing Google login, and the existing authenticated session
+  and Google profile image were then verified in the actual browser. Account
+  name/email/avatar are now shown in the wishlist entry and account dialog.
+  The guest sign-in prompt disappears when authenticated. Profile metadata is
+  display-only, not an ownership/authorization source. No public profile table
+  or additional Google scope was added. Email UI remains disabled pending the
+  planned sending protection review; no password flow is part of the agreed UX.
 
 Still to define before the relevant implementation/release phase:
 
