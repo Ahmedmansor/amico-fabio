@@ -5,6 +5,7 @@ import { languages, supportedLocales, type Locale } from '../config/languages';
 import { getSharedMessages } from '../i18n/shared';
 import WishlistLink from '../../features/wishlist/presentation/WishlistLink.astro';
 import AuthTrigger from '../../features/auth/presentation/AuthTrigger.astro';
+import { authConfig } from '../../features/auth/data/build-config';
 interface Props { locale: Locale; route: string }
 const { locale, route } = Astro.props;
 const messages = getSharedMessages(locale);
@@ -16,7 +17,7 @@ const nav = [
   { key: 'blog', label: messages.menu.blog, href: '#' },
 ];
 ---
-<header id="global-header" class="fixed w-full top-0 z-50">
+<header id="global-header" class="fixed w-full top-0 z-50" data-session-pending={authConfig ? 'true' : undefined}>
   <div id="scroll-progress"></div>
   <div class="gh-container">
     <div class="gh-left">

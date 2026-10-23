@@ -67,3 +67,41 @@ Header browser: 4 cases passed, including pending/ready shimmer, reduced motion,
 unchanged navigation geometry, greeting/signout and asynchronous focus return.
 An initial browser assertion checked focus before the dialog close event; it now
 waits for focus restoration before asserting. No application focus logic changed.
+
+## Coordinated avatar and favorites loading
+
+The header now starts with a shared session-pending state only when Auth is
+configured. Account avatar and name placeholders, plus the heart/count mask,
+render from static HTML/CSS before the Auth module loads. Completing Auth
+restoration clears the header mask for guests, restored users and handled
+service failures. Wishlist persistence/count logic remains browser-local.
+
+The account button uses the existing sanitized Google avatar URL from the Auth
+profile adapter. Its image has explicit dimensions, a circular crop and
+no-referrer policy. The avatar placeholder remains until image load/error;
+missing or failed images reveal the existing neutral account icon. Signout
+removes image src and restores that icon. Header and profile/dialog images share
+load/error and render handling. No new profile cache or analytics fields exist.
+
+All shimmers respect reduced motion. Mobile shows circular avatar/heart
+placeholders; desktop also shows the existing reserved name placeholder.
+
+Real verification:
+
+```text
+Header startup: 4 cases passed; avatar/name/favorites shimmer, delayed Google
+avatar, image failure fallback, reduced motion, signout and stable layout.
+Wishlist count: 4 language/viewport cases passed; add/remove, reload,
+header-only page, cross-tab, clear, stable geometry and unavailable storage.
+npx astro check
+Result (224 files): 0 errors; 0 warnings; 0 hints
+npm run build
+Validated live Supabase: 22 trips, 14 packages, 3 addons, 1 settings.
+94 page(s) built in 29.24s
+Complete!
+```
+
+Avatar browser verification uses a synthetic session and intercepted image,
+including delayed success and failed image loading. No real profile images or
+personal values are committed. Screenshots are local and ignored. Build retains
+the existing Browserslist age notice. No remote Auth/hosting changes occurred.

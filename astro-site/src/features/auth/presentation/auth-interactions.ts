@@ -27,11 +27,18 @@ async function initialize() {
   let ready = false;
   const service = await browserAuth(config);
   const profiles = [...document.querySelectorAll<HTMLElement>('[data-auth-profile]')];
-  for (const profile of profiles) {
-    const image = profile.querySelector<HTMLImageElement>('[data-auth-avatar]')!;
-    const fallback = profile.querySelector<HTMLElement>('[data-auth-avatar-fallback]')!;
-    image.addEventListener('load', () => { image.hidden = false; fallback.hidden = true; });
-    image.addEventListener('error', () => { image.dataset.failedSrc = image.getAttribute('src') ?? ''; image.hidden = true; fallback.hidden = false; });
+  const avatars = [...document.querySelectorAll<HTMLImageElement>('[data-auth-avatar]')];
+  for (const image of avatars) {
+    const wrapper = image.parentElement!;
+    const fallback = wrapper.querySelector<HTMLElement>('[data-auth-avatar-fallback]')!;
+    image.addEventListener('load', () => {
+      if (!image.getAttribute('src')) return;
+      image.hidden = false; fallback.hidden = true; wrapper.dataset.avatarLoading = String(!ready);
+    });
+    image.addEventListener('error', () => {
+      image.dataset.failedSrc = image.getAttribute('src') ?? '';
+      image.hidden = true; fallback.hidden = false; wrapper.dataset.avatarLoading = String(!ready);
+    });
   }
   const show = (text: string) => { status.textContent = text; status.hidden = !text; };
   function render() {
@@ -47,12 +54,19 @@ async function initialize() {
       profile.querySelector<HTMLElement>('[data-auth-name-row]')!.hidden = !values?.displayName;
       profile.querySelector('[data-auth-email]')!.textContent = values?.email ?? '';
       profile.querySelector<HTMLElement>('[data-auth-email-row]')!.hidden = !values?.email;
-      const image = profile.querySelector<HTMLImageElement>('[data-auth-avatar]')!;
-      const fallback = profile.querySelector<HTMLElement>('[data-auth-avatar-fallback]')!;
+    }
+    for (const image of avatars) {
+      const values = session?.profile;
+      const wrapper = image.parentElement!;
+      const fallback = wrapper.querySelector<HTMLElement>('[data-auth-avatar-fallback]')!;
       if (!values?.avatarUrl) {
         image.removeAttribute('src'); image.hidden = true; fallback.hidden = false; delete image.dataset.failedSrc;
+        wrapper.dataset.avatarLoading = String(!ready);
       } else if (image.getAttribute('src') !== values.avatarUrl) {
         image.hidden = true; fallback.hidden = false; delete image.dataset.failedSrc; image.src = values.avatarUrl;
+        wrapper.dataset.avatarLoading = 'true';
+      } else {
+        wrapper.dataset.avatarLoading = String(!ready || (!image.complete && image.dataset.failedSrc !== values.avatarUrl));
       }
     }
     dialog.querySelector('#auth-title')!.textContent = session ? m.accountTitle : m.title;
@@ -79,6 +93,7 @@ async function initialize() {
       countdown.textContent = remaining ? m.resend.replace('{seconds}', String(remaining)) : '';
     }
     dialog.setAttribute('aria-busy', String(pending));
+    document.getElementById('global-header')?.setAttribute('data-session-pending', String(!ready));
   }
   for (const trigger of triggers) {
     trigger.addEventListener('click', () => {

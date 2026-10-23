@@ -10,6 +10,12 @@
 .wishlist-link { position:relative; border-color:transparent; flex-shrink:0; }
 .wishlist-count { position:absolute; top:0; right:0; display:flex; align-items:center; justify-content:center; min-width:18px; height:18px; padding:0 4px; border-radius:999px; background:var(--color-gold); color:black; font:700 11px/1 "Montserrat",sans-serif; pointer-events:none; }
 .wishlist-count[hidden] { display:none!important; }
+.wishlist-loading { display:none; }
+#global-header[data-session-pending="true"] .wishlist-link > svg,#global-header[data-session-pending="true"] .wishlist-count { visibility:hidden; }
+#global-header[data-session-pending="true"] .wishlist-loading { display:block; position:absolute; inset:8px; border-radius:50%; overflow:hidden; background:rgba(255,255,255,.1); }
+.wishlist-loading::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(212,175,55,.24),transparent); transform:translateX(-100%); animation:wishlist-shimmer 1.5s ease-in-out infinite; }
+@keyframes wishlist-shimmer { to { transform:translateX(100%); } }
+@media(prefers-reduced-motion:reduce) { .wishlist-loading::after { animation:none; } }
 .wishlist-page { max-width:1280px; margin:auto; padding:150px 24px 80px; min-height:75vh; }
 .wishlist-heading { padding-bottom:32px; margin-bottom:32px; border-bottom:1px solid var(--color-gold); }
 .wishlist-heading h1 { font-family:'Playfair Display',serif; color:var(--color-gold-soft); font-size:clamp(2rem,5vw,3.5rem); line-height:1.2; margin:0 0 16px; }

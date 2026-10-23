@@ -7,5 +7,5 @@ interface Props { locale: Locale; active: boolean }
 const { locale, active } = Astro.props;
 const messages = getWishlistMessages(locale);
 ---
-<a class="wishlist-link" href={`/${locale}/wishlist/`} data-wishlist-link data-count-label={messages.countLabel} aria-label={messages.title} aria-current={active ? 'page' : undefined}><Heart/><span class="wishlist-count" data-wishlist-count aria-hidden="true" hidden></span></a>
+<a class="wishlist-link" href={`/${locale}/wishlist/`} data-wishlist-link data-count-label={messages.countLabel} aria-label={messages.title} aria-current={active ? 'page' : undefined}><Heart/><span class="wishlist-count" data-wishlist-count aria-hidden="true" hidden></span><span class="wishlist-loading" aria-hidden="true"></span></a>
 <script>import './wishlist-interactions';</script>
