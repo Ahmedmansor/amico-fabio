@@ -11,15 +11,20 @@ authorized by the earlier catalog approval or by preparing these files.
 2. `public.wishlists`: account UUID, existing stable tour ID, server-added
    timestamp. Composite primary key prevents duplicates. Auth account deletion
    cascades these rows; catalog deletion is restricted while referenced.
-3. Ownership RLS plus minimal authenticated grants on these two tables. Anonymous
+3. `public.package_wishlists`: account UUID, stable package ID, server-added
+   timestamp, composite key and matching FKs. This extension was requested on
+   2026-10-24. Tour and package IDs are separate namespaces.
+4. Ownership RLS plus minimal authenticated grants on these three tables. Anonymous
    users have no read/write permissions. Clients cannot alter timestamps or
    transfer rows to a different account. No privileged functions, signup triggers,
    hooks, Cron, emails or changes to Auth providers/SMTP.
-4. Narrow additional `authenticated` SELECT on `trips(id,is_active)` and a
-   published-only SELECT policy. The wishlist INSERT policy needs this lookup
+5. Narrow additional `authenticated` SELECT on `trips(id,is_active)` and
+   `packages(id,is_active)`, each with a published-only SELECT policy. INSERT needs these lookups
    because existing catalog grants/policies allow only `anon`. This does not
    grant prices or other catalog columns and leaves existing anon access intact.
 
+The package extension has not had a remote metadata preflight or SQL execution.
+Before activation, recheck all three tables and both catalog grant/policy sets.
 The SQL has one transaction and deliberately has no IF NOT EXISTS/replace clauses
 that could hide an unexpected schema. Recheck preflight before applying.
 The locale CHECK mirrors the current shared language configuration (it/en);
@@ -47,6 +52,11 @@ remain required; Astro build/check do not validate this SQL.
 - Add missing tours with ON CONFLICT (user_id,trip_id) DO NOTHING; no UPDATE
   grant is needed and existing added_at is not reset. Read back the account list
   before acknowledging the merge. Explicit user removals are separate DELETEs.
+- Packages use package_wishlists and (user_id,package_id) with the same rules.
+  Combined reads fail if either table fails; they never report a partial list as
+  complete. Internal package keys are `package:<encoded stable ID>`; tour keys
+  stay compatible with saved v1 browser entries. Separate storage prefixes keep
+  same-ID tour/package records independent. No catalog IDs or prices are changed.
 - Keep account preferences separate from Google profile display metadata.
   Create the minimal locale row lazily, not with a trigger that could block signup.
 - Preserve saved inactive tours for their owner; only additions require an active
@@ -85,9 +95,9 @@ Activation stays off until SQL execution and role tests have actually succeeded.
 
 `role-tests.sql` is a separate remote test-write scope requiring approval after
 schema execution. It creates two synthetic Auth UUIDs without email addresses,
-one unpublished synthetic trip, and disposable profile/wishlist rows in one
+one unpublished synthetic trip and package, and disposable profile/favorite rows in one
 transaction that ends in ROLLBACK. It never substitutes or edits real users or
-existing tour records. No Auth API or email send is called. It refuses to create
+existing tour/package records. No Auth API or email send is called. It refuses to create
 fixtures if Auth user triggers or required columns have changed.
 
 Read-only metadata inspection on 2026-10-23 found no noninternal auth.users

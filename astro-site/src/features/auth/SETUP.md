@@ -10,8 +10,10 @@
   the actual local environment and all hosting configurations.
 - Remote profiles/wishlists tables do not exist in the last read-only preflight.
   Review ../../../supabase/account-wishlist/README.md and schema.sql. The exact
-  write scope is two user tables/ownership policies plus authenticated SELECT of
-  published trips(id,is_active). Prior catalog approval does not cover it.
+  write scope now includes three user tables (profiles, wishlists,
+  package_wishlists)/ownership policies plus authenticated SELECT of published
+  trips(id,is_active) and packages(id,is_active). The package extension was
+  requested on 2026-10-24. Prior catalog approval does not cover it.
 - role-tests.sql is prepared but NOT RUN. Its disposable Auth/catalog fixtures
   and rollback require explicit test-write approval. No real-user data is used.
 - After approved schema execution, successful real role tests and integration

@@ -12,6 +12,7 @@ import Faq from '../../../shared/components/Faq.astro';
 import IncludedTrips from './IncludedTrips.astro';
 import PackageGallery from './PackageGallery.astro';
 import IncludedTripModal from './IncludedTripModal.astro';
+import FavoriteButton from '../../wishlist/presentation/FavoriteButton.astro';
 import {imageAssets} from './images';
 import {headlinePrice,pricesHtml,breakdownHtml,listHtml,programHtml} from './markup';
 import '../../tours/presentation/details.css';
@@ -49,6 +50,7 @@ const initialTotal=calculateTotal({adults:trip.minPax,children:0,selectedAddons:
                     </div>
                     <h1 id="detail-title"
                         class="text-2xl lg:text-3xl font-playfair font-bold text-white leading-tight mb-4" set:html={text.title}></h1>
+                    <div class="mb-6"><FavoriteButton id={trip.id} kind="package" locale={locale} title={text.title} compact={false}/></div>
                     <div class="flex items-baseline gap-2 mb-6 border-b border-gray-800 pb-6">
                         <span class="text-gray-400 text-sm" data-i18n="global.price_from">{copy("global.price_from")}</span>
                         <span id="detail-price" class="text-xl font-bold text-gold" set:html={pricesHtml(trip,true)}></span>

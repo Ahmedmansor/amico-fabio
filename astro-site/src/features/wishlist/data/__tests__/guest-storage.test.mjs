@@ -1,5 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { favoriteKey } from '../../domain/wishlist.ts';
 import { browserGuestStorage, guestWishlistPrefix as prefix, readGuestWishlist, saveGuestFavorite, readGuestSnapshot, promoteGuestSnapshot, removeGuestRevision } from '../guest-storage.ts';
 
 function memoryStorage() {
@@ -12,6 +13,21 @@ function memoryStorage() {
     removeItem(key) { entries.delete(key); },
   };
 }
+
+test('packages coexist with old tour IDs, preserve revisions, and remove independently', () => {
+  const storage = memoryStorage();
+  storage.setItem(prefix + 'same', '1');
+  const pack = favoriteKey('package', 'same');
+  assert.equal(saveGuestFavorite(storage, pack, true).ok, true);
+  assert.deepEqual(readGuestWishlist(storage), {ok:true,value:[pack,'same']});
+  const snapshot = promoteGuestSnapshot(storage).value;
+  const revision = snapshot.find(item=>item.id===pack);
+  saveGuestFavorite(storage, pack, false);
+  saveGuestFavorite(storage, pack, true);
+  assert.deepEqual(removeGuestRevision(storage, revision), {ok:true,value:false});
+  saveGuestFavorite(storage, 'same', false);
+  assert.deepEqual(readGuestWishlist(storage), {ok:true,value:[pack]});
+});
 
 test('two callers preserve unrelated additions and removals without stale list writes', () => {
   const storage = memoryStorage();

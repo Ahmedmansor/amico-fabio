@@ -23,7 +23,7 @@ const href = `/${locale}/${isPackage?'packages':'tours'}/${card.offer.slug}/`;
     </div>
   </div>
   <div class="card-content">
-    {!isPackage && <div class="card-favorite"><FavoriteButton id={card.id} locale={locale} title={text.title}/></div>}
+    <div class="card-favorite"><FavoriteButton id={card.id} kind={card.kind} locale={locale} title={text.title}/></div>
     {isPackage && <div class="text-[10px] tracking-[0.22em] uppercase text-gold mb-1">{m.labels.premium_package}</div>}
     <h3 class="catalog-card-title">{text.title}</h3><div class="card-divider"></div>
     <p class="catalog-card-desc">{text.short_desc}</p>

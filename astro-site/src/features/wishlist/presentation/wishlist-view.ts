@@ -28,6 +28,9 @@ export function createWishlistView(){
       }
       let visible=0;
       for(const item of items){item.hidden=!ids?.has(item.dataset.tripId!);if(!item.hidden)visible++;}
+      for(const section of document.querySelectorAll<HTMLElement>('[data-wishlist-section]')){
+        section.hidden=![...section.querySelectorAll<HTMLElement>('[data-wishlist-item]')].some(item=>!item.hidden);
+      }
       const hasUnavailable=!!page && !!ids && [...ids].some(id=>!knownIds.has(id));
       if(catalogNotice)catalogNotice.hidden=!hasUnavailable;
       if(empty)empty.hidden=ids===null || busy || visible>0 || hasUnavailable;

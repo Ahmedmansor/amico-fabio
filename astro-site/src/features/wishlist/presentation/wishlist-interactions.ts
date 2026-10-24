@@ -1,4 +1,4 @@
-import { browserGuestStorage, guestWishlistPrefix, readGuestWishlist, saveGuestFavorite } from '../data/guest-storage';
+import { browserGuestStorage, guestWishlistPrefix, guestPackagePrefix, readGuestWishlist, saveGuestFavorite } from '../data/guest-storage';
 import { createWishlistView } from './wishlist-view';
 
 if(document.getElementById('wishlist-config')){
@@ -23,7 +23,7 @@ if(document.getElementById('wishlist-config')){
   });
   window.addEventListener('storage',event=>{
     const storage=browserGuestStorage();
-    if(storage && event.storageArea===storage && (event.key===null || event.key.startsWith(guestWishlistPrefix) || event.key.startsWith('fabio:wishlist:ack:')))refresh();
+    if(storage && event.storageArea===storage && (event.key===null || event.key.startsWith(guestWishlistPrefix) || event.key.startsWith(guestPackagePrefix) || event.key.startsWith('fabio:wishlist:ack:')))refresh();
   });
   window.addEventListener('pageshow',refresh);window.addEventListener('focus',refresh);refresh();
 }

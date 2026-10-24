@@ -295,3 +295,36 @@ Guest count browser suite passed 4 cases plus its new unavailable-ID notice
 case. Static account browser suite passed all 4 cases including unavailable
 retention/notice and no impossible retry. Built gate and local Google/callback
 checks passed; real account sync and email remain off. No SQL/remote writes.
+
+## Tour and package favorites — 2026-10-24
+
+User requested packages in favorites and separate tour/package sections. Package
+hearts now appear on catalog cards and package detail pages. The wishlist
+renders published static cards under localized Tours / Packages headings, hides
+empty sections and counts both types in the header. Links, images and prices
+come from the existing catalog. No prices, IDs or booking behavior changed.
+
+Legacy tour keys and revisions stay readable. Packages have a separate browser
+prefix and typed internal identity; equal catalog IDs cannot overwrite each
+other. Both storage prefixes participate in cross-tab updates and the existing
+revision-safe merge. Account reads/writes route to their own FK-backed tables;
+combined reads fail closed if either table fails. The account gate remains OFF.
+The SQL/review/role-test proposals now include package_wishlists and minimal
+published-package lookup grants; none were executed remotely or parsed by a
+PostgreSQL engine. Actual role isolation remains an activation requirement.
+
+Actual output:
+- npm test: 129 Node tests passed, 0 failed; 11 Vitest files / 117 tests passed.
+- npx astro check: Result (251 files), 0 errors, 0 warnings, 0 hints.
+- npm run build: 94 pages built in 9.80s; Complete!
+- packages-browser.mjs: 4 IT/EN mobile/desktop cases passed: legacy tour plus
+  package detail save, total badge, separate sections, correct detail URLs,
+  reload, cross-tab removal and empty state. Local screenshots inspected.
+- count-browser.mjs: existing four count/persistence/storage cases passed.
+- sync-browser.mjs: four synthetic account cases plus missing-schema recovery
+  passed with package add, write failure/retry and combined lists. Actual SDK,
+  intercepted synthetic endpoints only; no real account/database writes.
+- verify-sync-built.mjs: default account gate remains disabled on six routes.
+
+The user's 4322 server/session was left unchanged. No new dependency, hosting
+change, push or deployment. User also reported successful local testing.

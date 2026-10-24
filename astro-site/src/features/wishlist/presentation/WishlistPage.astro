@@ -7,8 +7,9 @@ import Heart from './Heart.astro';
 import AuthEntry from '../../auth/presentation/AuthEntry.astro';
 import WishlistSyncStatus from './WishlistSyncStatus.astro';
 import './wishlist.css';
-interface Props { locale: Locale; trips: Offer[] }
-const { locale, trips } = Astro.props;
+import { favoriteKey } from '../domain/wishlist';
+interface Props { locale: Locale; trips: Offer[]; packages: Offer[] }
+const { locale, trips, packages } = Astro.props;
 const m = getWishlistMessages(locale);
 ---
 <main class="wishlist-page" data-wishlist-page data-unavailable={m.unavailable}>
@@ -24,9 +25,18 @@ const m = getWishlistMessages(locale);
   <section data-wishlist-empty class="wishlist-empty" hidden>
     <Heart/><p>{m.empty}</p>
   </section>
-  <div class="wishlist-grid">
-    {trips.map(trip => <div data-wishlist-item data-trip-id={trip.id} hidden><WishlistCard trip={trip} locale={locale}/></div>)}
-  </div>
+  <section class="wishlist-section" data-wishlist-section hidden aria-labelledby="wishlist-tours-title">
+    <h2 id="wishlist-tours-title">{m.tours}</h2>
+    <div class="wishlist-grid">
+      {trips.map(trip => <div data-wishlist-item data-trip-id={favoriteKey('trip', trip.id)} hidden><WishlistCard trip={trip} locale={locale}/></div>)}
+    </div>
+  </section>
+  <section class="wishlist-section" data-wishlist-section hidden aria-labelledby="wishlist-packages-title">
+    <h2 id="wishlist-packages-title">{m.packages}</h2>
+    <div class="wishlist-grid">
+      {packages.map(trip => <div data-wishlist-item data-trip-id={favoriteKey('package', trip.id)} hidden><WishlistCard trip={trip} kind="package" locale={locale}/></div>)}
+    </div>
+  </section>
   <noscript><p class="wishlist-notice">{m.javascript}</p></noscript>
 </main>
 <script>import './wishlist-interactions';</script>

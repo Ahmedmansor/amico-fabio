@@ -19,15 +19,25 @@ create table public.wishlists (
 -- The primary key covers ownership queries and user deletion. Index the other FK.
 create index wishlists_trip_id_idx on public.wishlists (trip_id);
 
+create table public.package_wishlists (
+  user_id uuid not null references auth.users(id) on delete cascade,
+  package_id text not null references public.packages(id) on delete restrict,
+  added_at timestamptz not null default now(),
+  primary key (user_id, package_id)
+);
+create index package_wishlists_package_id_idx on public.package_wishlists (package_id);
+
 alter table public.profiles enable row level security;
 alter table public.wishlists enable row level security;
-revoke all privileges on table public.profiles, public.wishlists
+alter table public.package_wishlists enable row level security;
+revoke all privileges on table public.profiles, public.wishlists, public.package_wishlists
   from public, anon, authenticated;
 grant usage on schema public to authenticated;
 
-grant select on table public.profiles, public.wishlists to authenticated;
+grant select on table public.profiles, public.wishlists, public.package_wishlists to authenticated;
 grant insert (user_id, locale), update (locale) on public.profiles to authenticated;
 grant insert (user_id, trip_id), delete on public.wishlists to authenticated;
+grant insert (user_id, package_id), delete on public.package_wishlists to authenticated;
 -- No client writes to timestamps, no wishlist UPDATE, no profile DELETE.
 
 create policy profiles_owner_select on public.profiles
@@ -55,6 +65,21 @@ create policy wishlists_owner_insert on public.wishlists
     )
   );
 create policy wishlists_owner_delete on public.wishlists
+  for delete to authenticated using ((select auth.uid()) = user_id);
+
+grant select (id, is_active) on public.packages to authenticated;
+create policy packages_published_identity_select on public.packages
+  for select to authenticated using (is_active);
+create policy package_wishlists_owner_select on public.package_wishlists
+  for select to authenticated using ((select auth.uid()) = user_id);
+create policy package_wishlists_owner_insert on public.package_wishlists
+  for insert to authenticated with check (
+    (select auth.uid()) = user_id
+    and exists (
+      select 1 from public.packages p where p.id = package_wishlists.package_id and p.is_active
+    )
+  );
+create policy package_wishlists_owner_delete on public.package_wishlists
   for delete to authenticated using ((select auth.uid()) = user_id);
 
 commit;

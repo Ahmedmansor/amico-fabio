@@ -2,6 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {createAccountRepository} from '../account-repository.ts';
 const userId='00000000-0000-4000-8000-000000000001';
+import { favoriteKey } from '../../domain/wishlist.ts';
 function fixture(responses=[]) {
   const calls=[];
   const client={from(table){
@@ -25,14 +26,14 @@ test('reads every page with an ownership filter and stable order, including over
   const {repository,calls}=fixture([{data:first,error:null},{data:[{trip_id:'trip_200'}],error:null}]);
   const result=await repository.list(userId);
   assert.equal(result.ok,true);assert.equal(result.value.length,201);
-  assert.deepEqual(calls.map(call=>call.cursor),[undefined,['trip_id','trip_199'],['trip_id','trip_200']]);
-  for(const call of calls){assert.deepEqual(call.filters,[['user_id',userId]]);assert.equal(call.order,'trip_id');}
+  assert.deepEqual(calls.filter(call=>call.table==='wishlists').map(call=>call.cursor),[undefined,['trip_id','trip_199'],['trip_id','trip_200']]);
+  for(const call of calls){assert.deepEqual(call.filters,[['user_id',userId]]);assert.equal(call.order,call.table==='wishlists'?'trip_id':'package_id');}
 });
 
 test('short server-capped pages do not truncate the account list',async()=>{
   const {repository,calls}=fixture([{data:[{trip_id:'a'},{trip_id:'b'}],error:null},{data:[{trip_id:'c'}],error:null}]);
   assert.deepEqual(await repository.list(userId),{ok:true,value:['a','b','c']});
-  assert.equal(calls.length,3);assert.ok(calls.every(call=>call.limit===200));
+  assert.equal(calls.length,4);assert.ok(calls.every(call=>call.limit===200));
 });
 
 test('a nonadvancing cursor fails instead of looping or returning partial success',async()=>{
@@ -78,5 +79,27 @@ test('rejects invalid identity/locale and corrupt required IDs; no raw provider 
   assert.deepEqual(await repository.add('not-a-user',['a']),{ok:false,reason:'invalid-data'});
   assert.deepEqual(await repository.ensureProfile(userId,'xx'),{ok:false,reason:'invalid-data'});
   assert.equal(calls.length,0);
+  assert.deepEqual(await repository.list(userId),{ok:false,reason:'failed'});
+});
+
+test('package and tour rows with equal IDs read, insert and delete independently',async()=>{
+  const {repository,calls}=fixture([
+    {data:[{trip_id:'same'}],error:null},{data:[],error:null},
+    {data:[{package_id:'same'}],error:null},{data:[],error:null},
+  ]);
+  const pack=favoriteKey('package','same');
+  assert.deepEqual(await repository.list(userId),{ok:true,value:[pack,'same']});
+  assert.equal((await repository.add(userId,['same',pack,pack])).ok,true);
+  assert.deepEqual(calls.slice(4).map(call=>[call.table,call.rows,call.options.onConflict]),[
+    ['wishlists',[{user_id:userId,trip_id:'same'}],'user_id,trip_id'],
+    ['package_wishlists',[{user_id:userId,package_id:'same'}],'user_id,package_id'],
+  ]);
+  assert.equal((await repository.remove(userId,pack)).ok,true);
+  assert.equal(calls.at(-1).table,'package_wishlists');
+  assert.deepEqual(calls.at(-1).filters,[['user_id',userId],['package_id','same']]);
+});
+
+test('missing package schema fails the combined read instead of claiming a complete list',async()=>{
+  const {repository}=fixture([{data:[{trip_id:'a'}],error:null},{data:[],error:null},{data:null,error:{message:'missing table'}}]);
   assert.deepEqual(await repository.list(userId),{ok:false,reason:'failed'});
 });

@@ -3,7 +3,7 @@ import type { AuthConfig } from '../../auth/data/config';
 import { browserSupabase } from '../../../shared/data/browser-client';
 import { createAccountRepository } from '../data/account-repository';
 import { createGuestMergePort, browserGuestLock } from '../data/guest-merge';
-import { browserGuestStorage, guestWishlistPrefix } from '../data/guest-storage';
+import { browserGuestStorage, guestWishlistPrefix, guestPackagePrefix } from '../data/guest-storage';
 import { createWishlistCoordinator, type WishlistState } from '../data/coordinator';
 import type { getWishlistMessages } from '../data/messages';
 import { createWishlistView } from './wishlist-view';
@@ -83,6 +83,6 @@ export async function initializeAccountWishlist(){
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')refresh();});
   window.addEventListener('storage',event=>{
     if(event.key===invitationDismissalKey){const allowed=canOfferSignIn(browserGuestStorage(),Date.now());if(allowed.ok && !allowed.value && invitation)invitation.hidden=true;}
-    if(event.key===null || event.key.startsWith(guestWishlistPrefix) || event.key.startsWith('fabio:wishlist:ack:'))refresh();
+    if(event.key===null || event.key.startsWith(guestWishlistPrefix) || event.key.startsWith(guestPackagePrefix) || event.key.startsWith('fabio:wishlist:ack:'))refresh();
   });
 }

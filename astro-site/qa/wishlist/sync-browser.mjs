@@ -7,7 +7,8 @@ const html=await(await fetch(`${origin}/en/wishlist/`)).text();
 const bootstrap=JSON.parse(html.match(/<script[^>]*id="wishlist-config"[^>]*>([\s\S]*?)<\/script>/)?.[1]||'null');
 assert.ok(bootstrap,'Run on the isolated enabled synthetic sync server');
 assert.equal(bootstrap.auth.url,'https://auth-qa.invalid');
-const [first,second,third]=bootstrap.publishedIds;
+const [first,second]=bootstrap.publishedIds.filter(id=>!id.startsWith('package:'));
+const third=bootstrap.publishedIds.find(id=>id.startsWith('package:'));
 assert.ok(first&&second&&third);
 const browser=await chromium.launch({headless:true,executablePath:process.env.QA_BROWSER});
 const results=[];
@@ -32,25 +33,29 @@ async function mock(context,backend){
       if(backend.missingSchema)return route.fulfill({status:404,headers,json:{code:'PGRST205',message:'synthetic missing schema'}});
       backend.profileWrites++;return route.fulfill({status:201,headers,body:''});
     }
-    if(url.pathname==='/rest/v1/wishlists'){
+    if(['/rest/v1/wishlists','/rest/v1/package_wishlists'].includes(url.pathname)){
+      const isPackage=url.pathname.endsWith('/package_wishlists');
+      const column=isPackage?'package_id':'trip_id';
+      const keyFor=id=>isPackage?'package:'+encodeURIComponent(id):id;
+      const idFor=key=>isPackage?decodeURIComponent(key.slice(8)):key;
       const key=url.searchParams.get('user_id')?.replace(/^eq\./,'');
       if(request.method()==='GET'){
         assert.equal(key,id,'Account reads filter the authenticated identity');
-        const cursor=url.searchParams.get('trip_id')?.replace(/^gt\./,'');
-        const rows=(backend.rows.get(id)||[]).filter(value=>!cursor || value>cursor).sort().slice(0,Math.min(Number(url.searchParams.get('limit')||200),backend.pageCap||200));
-        backend.reads++;return route.fulfill({status:200,headers,json:rows.map(trip_id=>({trip_id}))});
+        const cursor=url.searchParams.get(column)?.replace(/^gt\./,'');
+        const rows=(backend.rows.get(id)||[]).filter(value=>value.startsWith('package:')===isPackage).map(idFor).filter(value=>!cursor || value>cursor).sort().slice(0,Math.min(Number(url.searchParams.get('limit')||200),backend.pageCap||200));
+        backend.reads++;return route.fulfill({status:200,headers,json:rows.map(value=>({[column]:value}))});
       }
       if(request.method()==='POST'){
         if(backend.failNext){backend.failNext=false;return route.fulfill({status:503,headers,json:{message:'synthetic failure'}});}
         if(backend.gate)await backend.gate;
         for(const row of request.postDataJSON()){
           assert.equal(row.user_id,id);assert.equal('added_at' in row,false);
-          backend.rows.set(id,[...new Set([...(backend.rows.get(id)||[]),row.trip_id])]);
+          backend.rows.set(id,[...new Set([...(backend.rows.get(id)||[]),keyFor(row[column])])]);
         }
         return route.fulfill({status:201,headers,body:''});
       }
       if(request.method()==='DELETE'){
-        assert.equal(key,id);const removed=url.searchParams.get('trip_id')?.replace(/^eq\./,'');
+        assert.equal(key,id);const removed=keyFor(url.searchParams.get(column)?.replace(/^eq\./,''));
         backend.rows.set(id,(backend.rows.get(id)||[]).filter(value=>value!==removed));
         return route.fulfill({status:204,headers,body:''});
       }
@@ -77,6 +82,8 @@ try{
     const sameBrowser=await context.newPage();await sameBrowser.goto(`${origin}/${locale}/wishlist/`);await count(sameBrowser,1);
     await page.bringToFront();
     await page.goto(`${origin}/${locale}/explore/`);await count(page,1);
+    const packagePath=await page.locator(`[data-explore-card]:has([data-favorite-id="${third}"]) [data-detail-link]`).getAttribute('href');
+    await page.goto(origin+packagePath);await count(page,1);
     const unsaved=page.locator(`[data-favorite-id="${third}"]`);await unsaved.waitFor({state:'visible'});
     backend.failNext=true;await unsaved.click();
     await unsaved.locator('..').locator('[data-favorite-error]').waitFor({state:'visible'});

@@ -1,7 +1,8 @@
-import { normalizeWishlist, tripId } from '../domain/wishlist.ts';
+import { favoriteIdentity, favoriteKey, normalizeWishlist } from '../domain/wishlist.ts';
 import type { GuestEntry } from '../domain/merge.ts';
 
 export const guestWishlistPrefix = 'fabio:wishlist:v1:trip:';
+export const guestPackagePrefix = 'fabio:wishlist:v1:package:';
 const acknowledgementPrefix = 'fabio:wishlist:ack:v1:';
 
 export interface GuestStorage {
@@ -17,7 +18,8 @@ export type StorageResult<T> = { ok: true; value: T } | {
 };
 
 function itemKey(id: string): string {
-  return guestWishlistPrefix + encodeURIComponent(tripId(id));
+  const item = favoriteIdentity(id);
+  return (item.kind === 'trip' ? guestWishlistPrefix : guestPackagePrefix) + encodeURIComponent(item.id);
 }
 
 /** Resolve localStorage at the point of use: accessing the getter can itself throw. */
@@ -39,13 +41,15 @@ export function readGuestSnapshot(storage: GuestStorage | null): StorageResult<G
   try {
     for (let index = 0; index < storage.length; index++) {
       const key = storage.key(index);
-      if (!key?.startsWith(guestWishlistPrefix)) continue;
+      const kind = key?.startsWith(guestWishlistPrefix) ? 'trip' : key?.startsWith(guestPackagePrefix) ? 'package' : null;
+      if (!key || !kind) continue;
       const value = storage.getItem(key);
       // A different tab can remove a key while this snapshot is being read.
       if (value === null) continue;
       if (!validRevision(value)) return { ok: false, reason: 'invalid-data' };
       try {
-        const id = decodeURIComponent(key.slice(guestWishlistPrefix.length));
+        const prefix = kind === 'trip' ? guestWishlistPrefix : guestPackagePrefix;
+        const id = favoriteKey(kind, decodeURIComponent(key.slice(prefix.length)));
         if (itemKey(id) !== key) return { ok: false, reason: 'invalid-data' };
         if (value !== '1' && storage.getItem(acknowledgementPrefix + value) === '1') continue;
         entries.push({ id, revision: value });
@@ -64,8 +68,8 @@ export function readGuestWishlist(storage: GuestStorage | null): StorageResult<s
   return result.ok ? { ok: true, value: normalizeWishlist(result.value.map(entry => entry.id)) } : result;
 }
 
-/** One key per tour avoids overwriting another tab's unrelated saved tours.
- * Same-tour writes follow storage's last completed operation; no stale list rewrite.
+/** One key per typed item avoids overwriting another tab's unrelated favorites.
+ * Same-item writes follow storage's last completed operation; no stale list rewrite.
  * Report success only after the storage operation and read-back succeed.
  */
 export function saveGuestFavorite(

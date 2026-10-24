@@ -188,6 +188,7 @@ Review message classification and final wording for the actual business and audi
 | `auth.users` | Supabase identity and verified account email |
 | `profiles` | Minimal account settings and language |
 | `wishlists` | `user_id`, `trip_id`, added timestamp; UNIQUE per user/tour |
+| `package_wishlists` | `user_id`, `package_id`, added timestamp; UNIQUE per user/package; requested 2026-10-24 |
 | Email consent history | Grant/withdrawal, subscription type, text version, language, server timestamp |
 | Suppression records | Unsubscription, bounce, complaint, optional-mail suppression state |
 | Delivery queue/log | Message identity, payload references, status, attempts, Brevo message ID |
@@ -196,7 +197,10 @@ Review `../../../supabase/account-wishlist/README.md` and its prepared schema
 before remote execution. It covers only minimal profiles and account wishlists;
 mail/consent entities remain proposals. `trip_id` references the
 existing stable ID in `trips`; do not duplicate the catalog. Package favorites
-are a separate scope decision.
+were authorized on 2026-10-24 and reference `packages.id` through a separate
+package_wishlists table. The revised local SQL and role-test proposals remain
+unexecuted and require remote authorization. Guest UI groups tours and packages
+under separate headings and counts both; historical tour storage is preserved.
 
 Prefer keeping reminder lifecycle separate from wishlist rows so removing and
 re-adding a favorite cannot restart an unlimited sequence. Define re-addition

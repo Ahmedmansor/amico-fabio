@@ -3,8 +3,10 @@ import type { Locale } from '../../../shared/config/languages';
 import { getWishlistMessages } from '../data/messages';
 import Heart from './Heart.astro';
 import './wishlist.css';
-interface Props { id: string; locale: Locale; title: string; compact?: boolean }
-const { id, locale, title, compact = true } = Astro.props;
+import { favoriteKey, type FavoriteKind } from '../domain/wishlist';
+interface Props { id: string; locale: Locale; title: string; compact?: boolean; kind?: FavoriteKind }
+const { id: catalogId, locale, title, compact = true, kind = 'trip' } = Astro.props;
+const id = favoriteKey(kind, catalogId);
 const m = getWishlistMessages(locale);
 ---
 <span class:list={['favorite-control', { 'favorite-compact': compact }]}>
