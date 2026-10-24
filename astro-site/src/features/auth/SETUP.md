@@ -84,6 +84,10 @@ The canonical contract is [PLAN.md section 6.1](PLAN.md#61-approved-language-and
 It separates page URL, profile language and follow-site/explicit correspondence
 language; documents atomic ownership-verified writes, ordering/retries and realistic
 request costs. No locale migration or endpoint was activated by documenting it.
+Continuation implemented the local domain/service/RPC repository with 17 passing
+tests. [SQL proposal](../../../supabase/account-locale/README.md) is ready for
+review; schema/rollback fixtures are NOT executed. Verified checks and limits:
+[LOCALE.md](../../../qa/auth/LOCALE.md). No new dependency or live flag change.
 The current test job fixes English; switching to Italian does not yet localize
 that test. Preference UI is not mounted. Google Auth/account sync are local-only;
 the static Vercel test catalog exists but its Auth flags/redirects are not enabled.

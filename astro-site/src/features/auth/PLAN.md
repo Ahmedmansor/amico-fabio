@@ -373,8 +373,16 @@ Keep Brevo rather than introducing another provider without a concrete need.
    durable reminder events/queue/allowance, quota controls and unsubscribe/suppression
    before enabling automatic sending. Hosting/Auth deployment remains a gate.
 
-Current gaps: profile creation only initializes locale; switch persistence and
-`locale_source` are not implemented. Both email templates exist, but the restricted
+Local implementation checkpoint: strict locale commands/state, pure policy,
+backend service and Supabase RPC repository now exist with 10 Node + 7 domain
+tests passing. Reviewed local SQL proposes `locale_source`, profile revision,
+private idempotency ledger and serialized locale/consent writes; it is not applied.
+Astro check passed (317 files, 0 diagnostics); static build passed (94 pages).
+See [locale evidence](../../../qa/auth/LOCALE.md) and
+[SQL review](../../../supabase/account-locale/README.md).
+
+Current gaps: profile creation only initializes live locale; browser switch
+persistence and remote `locale_source` are not activated. Both email templates exist, but the restricted
 test job currently fixes `locale: 'en'`; changing the site to Italian does not yet
 change that test email. Real preference UI is not mounted in WishlistPage.
 
