@@ -9,7 +9,6 @@ const m = getLocaleMessages(locale);
   <h3 id="email-locale-title"><label for="email-locale-choice">{m.title}</label></h3>
   <form data-locale-form hidden>
     <select id="email-locale-choice" data-locale-choice aria-describedby="email-locale-status">
-      <option value="follow_site">{m.followSite}</option>
       {supportedLocales.map(code => <option value={code}>{languages[code].label}</option>)}
     </select>
     <button type="submit" class="auth-button auth-secondary" data-locale-save>{m.save}</button>

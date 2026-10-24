@@ -1,5 +1,20 @@
 # Account language persistence — local implementation checkpoint
 
+## Browsing decoupling — 2026-10-25
+
+Source now removes the account-language switch listener and follow-site option.
+Only an explicit correspondence Save sends a mutation. Retired site/follow-site
+pending commands are discarded, including a site command behind a newer intent.
+Existing database fields/RPC remain for compatibility; consent initialization
+still needs its separately reviewed successor migration.
+
+Four Chrome IT/EN mobile/desktop synthetic cases passed: explicit save, same-ID
+lost-response retry, conflict, account isolation, retired pending-site discard
+and real-anchor navigation with zero writes/revision changes. Results are in
+`locale-browser-results.json`. Astro check: 351 files, 0 errors/warnings/hints
+(includes the temporary fixture); normal build after fixture removal: 94 pages
+in 5.71s. No remote schema/deployment or email changed.
+
 ## Authorized local activation — 2026-10-25
 
 This checkpoint supersedes historical disabled/undeployed statements below.

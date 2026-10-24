@@ -10,6 +10,12 @@ const results=[],output=new URL('./screenshots/',import.meta.url);await mkdir(ou
 try{
 for(const locale of ['it','en'])for(const width of [375,1440]){
   const context=await browser.newContext({viewport:{width,height:960},reducedMotion:'reduce'});
+  await context.addInitScript(({a,locale})=>{
+    if(sessionStorage.getItem('qa:retired-intent'))return;
+    sessionStorage.setItem('qa:retired-intent','1');
+    sessionStorage.setItem(`fabio:locale-pending:v1:${a}`,JSON.stringify({version:1,savedAt:Date.now(),value:{
+      intent:{kind:'site',locale},command:{kind:'site',locale,expectedRevision:0,requestId:crypto.randomUUID()}}}));
+  },{a,locale});
   const state=new Map([[a,{siteLocale:locale,revision:0,email:{locale,source:'follow_site'}}],[b,{siteLocale:locale,revision:0,email:null}]]);
   const commands=[],reads=[],ledger=new Map(),errors=[];let loseNext=false;
   await context.route('https://locale-qa.invalid/**',async route=>{
@@ -44,7 +50,7 @@ for(const locale of ['it','en'])for(const width of [375,1440]){
   assert.equal(await page.locator('[data-locale-settings]').isVisible(),false);
   await page.locator('[data-qa-a]').click();await ready();assert.equal(reads.length,1);
   const select=page.locator('[data-locale-choice]');
-  assert.equal(await select.inputValue(),'follow_site');
+  assert.equal(await select.inputValue(),locale);
   assert.equal(await select.getAttribute('aria-describedby'),'email-locale-status');
   await select.focus();await page.keyboard.press('Tab');
   assert.equal(await page.locator('[data-locale-save]').evaluate(node=>node===document.activeElement),true);
@@ -55,7 +61,7 @@ for(const locale of ['it','en'])for(const width of [375,1440]){
   const beforeReload=reads.length;await page.reload();await page.locator('[data-qa-a]').click();await ready();
   assert.equal(reads.length,beforeReload); // bounded display cache, no navigation write
   loseNext=true;
-  await page.locator('[data-locale-choice]').selectOption('follow_site');
+  await page.locator('[data-locale-choice]').selectOption(locale);
   await page.locator('[data-locale-save]').click();
   await page.waitForFunction(()=>document.querySelector('[data-locale-settings]')?.getAttribute('data-state')==='uncertain');
   assert.equal(await page.locator('[data-locale-save]').isDisabled(),true);
@@ -63,32 +69,31 @@ for(const locale of ['it','en'])for(const width of [375,1440]){
   await page.locator('[data-locale-retry]').click();await ready();
   assert.equal(commands.at(-1).command.requestId,lostId);
   // Another device changes settings; no automatic overwrite follows a conflict.
-  const remote=state.get(a);state.set(a,{...remote,revision:remote.revision+1,email:{locale:choice,source:'explicit'}});
-  await page.locator('[data-locale-choice]').selectOption(locale);
+  const remote=state.get(a);state.set(a,{...remote,revision:remote.revision+1,email:{locale,source:'explicit'}});
+  await page.locator('[data-locale-choice]').selectOption(choice);
   await page.locator('[data-locale-save]').click();
   await page.waitForFunction(()=>document.querySelector('[data-locale-settings]')?.getAttribute('data-state')==='conflict');
   const conflicts=commands.length;await page.waitForTimeout(40);assert.equal(commands.length,conflicts);
-  await page.locator('[data-locale-save]').click();await ready();assert.equal(state.get(a).email.locale,locale);
+  await page.locator('[data-locale-save]').click();await ready();assert.equal(state.get(a).email.locale,choice);
   await page.locator('[data-qa-b]').click();await ready();
   assert.equal(await page.locator('[data-locale-form]').isVisible(),false);
   assert.equal(await page.locator('[data-locale-no-preference]').isVisible(),true);
   assert.equal(commands.filter(item=>item.owner===b).length,0);
   await page.locator('[data-qa-out]').click();assert.equal(await page.locator('[data-locale-settings]').isVisible(),false);
   await page.locator('[data-qa-a]').click();await ready();
-  await page.locator('[data-locale-choice]').selectOption('follow_site');await page.locator('[data-locale-save]').click();await ready();
+  await page.locator('[data-locale-choice]').selectOption(choice);await page.locator('[data-locale-save]').click();await ready();
   await page.screenshot({path:new URL(`locale-${locale}-${width}.png`,output).pathname.replace(/^\/([A-Za-z]:)/,'$1'),fullPage:true});
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   for(const selector of ['[data-locale-choice]','[data-locale-save]'])
     assert.ok(await page.locator(selector).evaluate(node=>node.getBoundingClientRect().height)>=44);
-  // A real anchor navigates immediately; one captured same-ID recovery completes
-  // an acknowledgement lost during unload, without a second state transition.
-  loseNext=true;const previousRevision=state.get(a).revision;
+  // Browsing anchors never write the account or correspondence language.
+  const previousRevision=state.get(a).revision,previousWrites=commands.length;
   const nextLocale=locale==='it'?'en':'it';
   await page.locator(`[data-lang="${nextLocale}"]`).click();
   await page.waitForURL(`${origin}/${nextLocale}/qa-account-locale/`);
   await page.locator('[data-qa-a]').click();await ready();
-  assert.equal(state.get(a).siteLocale,nextLocale);assert.equal(state.get(a).email.locale,nextLocale);
-  assert.equal(state.get(a).revision,previousRevision+1);
+  assert.equal(state.get(a).email.locale,choice);
+  assert.equal(state.get(a).revision,previousRevision);assert.equal(commands.length,previousWrites);
   assert.equal(errors.length,0,errors.join('\n'));
   results.push({locale,width,passed:true,requests:{reads:reads.length,writesIncludingRetries:commands.length},errors});
   await context.close();

@@ -15,8 +15,7 @@ export function bindLocaleView(root: HTMLElement, coordinator: Pick<ReturnType<t
   form.addEventListener('submit', event => {
     event.preventDefault();
     if (save.disabled) return;
-    if (select.value === 'follow_site') void coordinator.choose({kind: 'email_follow_site'});
-    else if (isLocale(select.value)) void coordinator.choose({kind: 'email_explicit', locale: select.value});
+    if (isLocale(select.value)) void coordinator.choose({kind: 'email_explicit', locale: select.value});
   });
   retry.addEventListener('click', () => {void (pending ? coordinator.retry() : coordinator.refresh());});
   return (state: LocaleCoordinatorState) => {
@@ -29,8 +28,7 @@ export function bindLocaleView(root: HTMLElement, coordinator: Pick<ReturnType<t
     noPreference.hidden = busy || !state.confirmed || hasPreference;
     select.disabled = save.disabled = busy || state.status === 'uncertain' || !hasPreference;
     if (state.pendingIntent?.kind === 'email_explicit') select.value = state.pendingIntent.locale;
-    else if (state.pendingIntent?.kind === 'email_follow_site') select.value = 'follow_site';
-    else if (state.confirmed?.email) select.value = state.confirmed.email.source === 'follow_site' ? 'follow_site' : state.confirmed.email.locale;
+    else if (state.confirmed?.email) select.value = state.confirmed.email.locale;
     retry.hidden = busy || (!state.pending && state.status !== 'failed')
       || (state.status === 'conflict' && state.pendingIntent?.kind !== 'site');
     let text = state.status === 'loading' ? messages.loading : state.status === 'saving' ? messages.saving

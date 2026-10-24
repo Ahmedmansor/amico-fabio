@@ -3,7 +3,7 @@
   "followSite": "Follow website language",
   "save": "Save language",
   "retry": "Continue saving",
-  "noPreference": "Your website language will be used if you choose email reminders. Changing language does not subscribe you.",
+  "noPreference": "Choose your reminder language when you first enable reminders. Browsing language changes do not subscribe you or change your email language.",
   "loading": "Loading language settings…",
   "saving": "Saving language…",
   "saved": "Language saved.",

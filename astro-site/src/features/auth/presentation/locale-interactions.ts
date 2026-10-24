@@ -5,7 +5,6 @@ import {createLocaleClient} from '../data/locale-client.ts';
 import {createLocaleCoordinator} from '../data/locale-coordinator.ts';
 import {createLocalePendingStore} from '../data/locale-pending-store.ts';
 import {createCachedLocaleRepository} from '../data/locale-cache.ts';
-import {isLocale} from '../../../shared/config/languages.ts';
 import {bindLocaleView} from './locale-view.ts';
 
 /** Feature-scoped binding; Auth supplies its already restored identity. No new
@@ -29,20 +28,21 @@ export function bindAccountLocale(options: {
     }});
   const cached = createCachedLocaleRepository({repository: client, storage, now: Date.now, maxAgeMs: options.config.cacheMaxAgeMs});
   let render: ReturnType<typeof bindLocaleView> | undefined;
+  const pendingStore = createLocalePendingStore({storage, now: Date.now, maxAgeMs: options.config.pendingMaxAgeMs});
   const coordinator = createLocaleCoordinator({repository: cached.repository,
-    store: createLocalePendingStore({storage, now: Date.now, maxAgeMs: options.config.pendingMaxAgeMs}),
+    store: {...pendingStore, read(userId) {
+      const value = pendingStore.read(userId);
+      // Never replay a site/follow-site command captured by the retired flow.
+      if (value && (value.intent.kind !== 'email_explicit'
+        || (value.command && value.command.kind !== 'email_explicit'))) {
+        pendingStore.remove(userId); return null;
+      }
+      return value;
+    }},
     requestId: () => crypto.randomUUID(), onChange: state => render?.(state)});
   render = bindLocaleView(options.root, coordinator, options.messages);
   render(coordinator.snapshot());
-  document.querySelectorAll<HTMLAnchorElement>('[data-lang]').forEach(link => {
-    link.addEventListener('click', () => {
-      if (!account || !isLocale(link.dataset.lang)) return;
-      const url = new URL(link.href);
-      if (url.origin !== location.origin || url.pathname.split('/')[1] !== link.dataset.lang) return;
-      // Do not preventDefault or await; store pending intent synchronously first.
-      void coordinator.choose({kind: 'site', locale: link.dataset.lang});
-    });
-  });
+  // Site language anchors only navigate. Correspondence changes require Save.
   return {
     setAccount(userId: string | null) {
       if (account === userId) return;
