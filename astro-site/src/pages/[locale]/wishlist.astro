@@ -5,6 +5,7 @@ import { getTrips } from '../../features/tours/data/trips.mjs';
 import { getPackages } from '../../features/packages/data/packages.mjs';
 import { getWishlistMessages } from '../../features/wishlist/data/messages';
 import WishlistPage from '../../features/wishlist/presentation/WishlistPage.astro';
+import SummaryEmailTest from '../../features/reminders/presentation/SummaryEmailTest.astro';
 export async function getStaticPaths() {
   const [trips, packages] = await Promise.all([getTrips(), getPackages()]);
   return supportedLocales.map(locale => ({ params: { locale }, props: { locale, trips, packages } }));
@@ -13,5 +14,5 @@ const { locale, trips, packages } = Astro.props;
 const m = getWishlistMessages(locale);
 ---
 <BaseLayout locale={locale} route="wishlist" title={`${m.title} | Fabio Egypt`} description={m.local} bodyClass="bg-black font-sans text-gray-200">
-  <WishlistPage locale={locale} trips={trips} packages={packages}/>
+  <WishlistPage locale={locale} trips={trips} packages={packages}><SummaryEmailTest slot="email-test" locale={locale}/></WishlistPage>
 </BaseLayout>

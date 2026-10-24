@@ -1,0 +1,17 @@
+{
+  "enabled": false,
+  "userId": "REQUIRES_AUTHORIZED_ACCOUNT_UUID",
+  "recipient": "REQUIRES_AUTHORIZED_TEST_ADDRESS",
+  "senderEmail": "info@fabioegypt.com",
+  "senderName": "Fabio Egypt",
+  "locale": "en",
+  "allowedOrigin": "http://127.0.0.1:4322",
+  "catalogOrigin": "https://amico-fabio-iyzo.vercel.app",
+  "deliveryId": "REQUIRES_ONE_JOB_UUID",
+  "createdAt": 0,
+  "expiresAt": 0,
+  "timeoutMs": 10000,
+  "maxResponseBytes": 1048576,
+  "maxRequestBytes": 1048576,
+  "catalogMaxAgeMs": 86400000
+}

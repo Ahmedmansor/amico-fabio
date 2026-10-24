@@ -103,3 +103,12 @@ test('profile uses fresh verified-user fields; metadata is display only and cann
     assert.equal(accountSession({ id: 'test', user_metadata: { picture: url } }).profile.avatarUrl, null);
   }
 });
+
+test('internal bearer access is bound to the expected account and never uses profile metadata', async () => {
+  const valid={...session,access_token:'synthetic-feature-token'};
+  const {service}=setup({getSession:async()=>({data:{session:valid},error:null})});
+  assert.deepEqual(await service.bearerFor('test-user'),{ok:true,value:'synthetic-feature-token'});
+  assert.deepEqual(await service.bearerFor('different-account'),{ok:false,reason:'failed'});
+  const absent=setup({getSession:async()=>({data:{session:null},error:null})});
+  assert.deepEqual(await absent.service.bearerFor('test-user'),{ok:false,reason:'failed'});
+});

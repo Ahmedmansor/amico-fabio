@@ -25,6 +25,15 @@ export function createAuthService(client: Client, config: AuthConfig, now: () =>
   }
   return {
     remainingCooldown() { return cooldownRemaining(sentAt, now(), config.resendSeconds); },
+    /** Internal feature transport only. Never render, persist again or log this
+     * bearer. The receiving backend must remotely verify the token itself. */
+    async bearerFor(userId:string):Promise<AuthResult<string>>{
+      try{
+        const {data,error}=await client.auth.getSession();
+        if(error||!data.session||data.session.user.id!==userId||!data.session.access_token)return failure('failed');
+        return success(data.session.access_token);
+      }catch{return failure('failed');}
+    },
     async currentSession(): Promise<AuthResult<AccountSession | null>> {
       try {
         const { data, error } = await client.auth.getSession();

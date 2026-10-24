@@ -1,0 +1,10 @@
+{
+  "title": "Test email dei preferiti",
+  "description": "Invia le escursioni e i pacchetti salvati all’indirizzo email di prova autorizzato. Questo non attiva i promemoria.",
+  "send": "Invia email di prova",
+  "sending": "Invio dei preferiti…",
+  "accepted": "Brevo ha accettato l’email. Controlla la posta in arrivo e lo spam.",
+  "failed": "Non è stato possibile inviare l’email di prova. Verifica di usare l’account di prova autorizzato.",
+  "unknown": "Non è stato possibile confermare l’invio. Controlla la posta prima di riprovare.",
+  "expired": "Questo test è scaduto. È necessario un nuovo test autorizzato."
+}

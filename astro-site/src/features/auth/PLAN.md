@@ -398,7 +398,15 @@ HTML renderer and inline styles; reminders/data/content owns matching IT/EN
 subjects/body copy. Summary/reminder HTML and plain-text drafts can be generated
 from the test catalog. Eight local browser previews passed; inbox rendering,
 real unsubscribe, final copy/sender details and delivery are not yet verified.
-The Brevo sender is not implemented. See ../reminders/README.md and ../../../qa/reminders.
+Brevo REST transport, verified-account source, public manifest fetcher and local
+summary-template orchestration are implemented as of 2026-10-24. A restricted
+authenticated one-job test entry is prepared but not deployed; the normal
+wishlist button defaults off. User authorized a test recipient/sender and
+reported adding BREVO_API_KEY in Edge Secrets. No real email has been sent.
+Current Vercel test alias lacks the manifest/wishlist routes, so a separately
+approved test-site update and new sender-function deployment remain gates.
+See ../../../qa/reminders/BREVO.md and the email-test function README. Durable
+reminder queue/allowance/suppression/unsubscribe remain unimplemented.
 
 Approved 2026-10-24: **one optional reminder** per account, due 24 hours after
 the later of the latest real wishlist addition and consent activation. A new
