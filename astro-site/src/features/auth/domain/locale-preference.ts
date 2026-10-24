@@ -50,6 +50,23 @@ export type LocaleResult<T> = {ok: true; value: T}
   | {ok: false; reason: 'invalid-input' | 'unavailable' | 'failed' | 'missing-profile' | 'missing-preference'}
   | {ok: false; reason: 'conflict'; state: AccountLocaleState};
 export interface LocaleConfirmation {state: AccountLocaleState; outcome: 'applied' | 'duplicate'}
+/** Shared RPC/HTTP confirmation checks; an old duplicate reports current state. */
+export function parseLocaleMutation(value: unknown, command: LocaleCommand): LocaleResult<LocaleConfirmation> | null {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const row = value as Record<string, unknown>;
+  if (Object.keys(row).some(key => !['state', 'outcome'].includes(key))) return null;
+  const state = parseAccountLocaleState(row.state);
+  if (!state) return null;
+  if (row.outcome === 'conflict') return state.revision !== command.expectedRevision
+    ? {ok: false, reason: 'conflict', state} : null;
+  if (row.outcome === 'applied' && (state.revision !== command.expectedRevision + 1
+    || (command.kind === 'site' && state.siteLocale !== command.locale)
+    || (command.kind === 'email_explicit' && (state.email?.source !== 'explicit' || state.email.locale !== command.locale))
+    || (command.kind === 'email_follow_site' && state.email?.source !== 'follow_site'))) return null;
+  if (row.outcome === 'duplicate' && state.revision <= command.expectedRevision) return null;
+  return row.outcome === 'applied' || row.outcome === 'duplicate'
+    ? {ok: true, value: {state, outcome: row.outcome}} : null;
+}
 export interface LocaleRepository {
   read(verifiedUserId: string): Promise<LocaleResult<AccountLocaleState>>;
   change(verifiedUserId: string, command: LocaleCommand): Promise<LocaleResult<LocaleConfirmation>>;

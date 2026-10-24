@@ -71,3 +71,16 @@ tables and the existing leaked-password warning; no public grants were added.
 References: [RLS information](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy),
 [password protection](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection).
 Earlier local-proposal paragraphs above are historical evidence, superseded here.
+
+## Protected HTTP transport — local only
+
+Backend handler and browser transport are implemented with a shared pure
+confirmation validator for RPC/HTTP. Eleven HTTP tests plus the previous 20 data
+tests passed (31 total); the 7 domain tests passed. Coverage includes round trip,
+headers-only bearer, verified owner, denied origins, Auth/limiter outages,
+rate limiting, body size/deadline, malformed confirmations, conflicts and bounded
+session restoration. The disabled Edge entry test read zero environment values
+and returned 503. Package preparation verified 13 explicit files/imports without
+reading secrets or uploading. Astro check: 325 files, 0 errors/warnings/hints.
+Static build: 94 pages in 10.81s. Deno/native deployed startup is not verified;
+configuration remains disabled, no endpoint deployed and no header binding yet.

@@ -1,5 +1,5 @@
 import type {SupabaseClient} from '@supabase/supabase-js';
-import {isLocaleRequestId, parseLocaleCommand, parseAccountLocaleState,
+import {isLocaleRequestId, parseLocaleCommand, parseAccountLocaleState, parseLocaleMutation,
   type AccountLocaleState, type LocaleRepository, type LocaleResult} from '../domain/locale-preference.ts';
 
 function stateFromRow(row: Record<string, unknown>): AccountLocaleState | null {
@@ -40,17 +40,7 @@ export function createLocaleRepository(client: Pick<SupabaseClient, 'rpc'> | nul
       if (!row) return failed();
       if (row.outcome === 'missing-profile' || row.outcome === 'missing-preference' || row.outcome === 'invalid-input')
         return {ok: false, reason: row.outcome};
-      const state = stateFromRow(row);
-      if (!state) return failed();
-      if (row.outcome === 'conflict') return state.revision !== command.expectedRevision
-        ? {ok: false, reason: 'conflict', state} : failed();
-      if (row.outcome === 'applied' && (state.revision !== command.expectedRevision + 1
-        || (command.kind === 'site' && state.siteLocale !== command.locale)
-        || (command.kind === 'email_explicit' && (state.email?.source !== 'explicit' || state.email.locale !== command.locale))
-        || (command.kind === 'email_follow_site' && state.email?.source !== 'follow_site'))) return failed();
-      if (row.outcome === 'duplicate' && state.revision <= command.expectedRevision) return failed();
-      return row.outcome === 'applied' || row.outcome === 'duplicate'
-        ? {ok: true, value: {state, outcome: row.outcome}} : failed();
+      return parseLocaleMutation({state: stateFromRow(row), outcome: row.outcome}, command) ?? failed();
     },
   };
 }

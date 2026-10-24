@@ -386,6 +386,10 @@ The local coordinator/pending-store continuation adds 10 passing Node tests for
 latest intent, account isolation and explicit recovery; it is not bound to the
 header or a live endpoint. Its final check passed (320 files, 0 diagnostics),
 and static build passed (94 pages in 8.94s).
+Protected HTTP handler/browser transport and a disabled Edge package are now
+prepared locally: 31 data/HTTP + 7 domain tests passed; 325-file Astro check had
+0 diagnostics; static build produced 94 pages in 10.81s. The 13-file package
+was checked without uploading. This does not activate a public endpoint.
 
 Current gaps: browser switch persistence and the protected HTTP endpoint are
 not activated; actual overlapping-connection testing remains pending. Both email templates exist, but the restricted
