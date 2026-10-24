@@ -57,14 +57,11 @@
 
 ## Previous handoff — 2026-10-23 (superseded by activation above)
 
-Email update 2026-10-24: real Brevo REST transport and authenticated summary
-orchestration are implemented. The restricted test function is NOT deployed;
-the main wishlist test button defaults off. User supplied authorized sender and
-recipient and reported adding BREVO_API_KEY in Edge Secrets (value not read).
-Existing Vercel test manifest/wishlist URLs returned 404; obtain separate
-test-site update and email-function deployment approval before actual sending.
-Evidence, source map and remaining gates: ../../../qa/reminders/BREVO.md.
-Do not infer email-test deployment permission from preference-service approval.
+Email update 2026-10-24: the authorized test deployment and restricted
+wishlist-email-test Edge Function are active. The ignored local .env.local
+enables the button on port 4322 for one account and one short job window; hosting
+defaults remain off. No actual email has been sent. Follow
+../../../qa/reminders/BREVO.md for the current status and safe retry guidance.
 
 - Local Google Auth/profile/header is available on 4322. The user's server and
   signed-in browser were not stopped or signed out during isolated QA.

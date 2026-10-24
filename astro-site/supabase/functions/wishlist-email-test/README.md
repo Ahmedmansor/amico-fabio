@@ -1,4 +1,4 @@
-# Restricted wishlist email test — not deployed
+# Restricted wishlist email test — deployed for one authorized job
 
 This entry exercises the real Brevo REST sender and local IT/EN template with
 all available favorites of the authenticated, authorized account. It is a
@@ -35,11 +35,12 @@ https://api.brevo.com/v3/smtp/email endpoint. Sender must already be registered
 and verified in Brevo; that has not been independently checked.
 
 User authorized one test recipient and sender in the conversation. Their
-private recipient/UUID are not committed. An actual job goes only in ignored
-.astro/reminder-email-test-job.json, with keys matching configuration.example.json.
-Use a new delivery UUID, createdAt=activation time and expiresAt=createdAt+20min;
-never reuse an expired job as a new message. Example config is disabled and
-contains placeholders, not actual recipient data or an active job.
+private recipient/UUID are not committed. The active job is stored only in the
+ignored .astro/reminder-email-test-job.json and expires at
+2026-10-24T15:44:56Z. The deployed function is version 1, ID
+9d386e74-962f-45a3-9c4e-b0b6509d9560. A new test after expiry requires a fresh
+delivery UUID, activation timestamp, packaging and deployment; never reuse an
+expired job as a new message. Example config stays disabled with placeholders.
 
 From astro-site:
 
@@ -52,22 +53,27 @@ rejected. Recursive relative imports are collected from explicit source roots;
 28 files are currently packaged. No upload or email happens in the preparer.
 Native Deno compilation remains a deployment check, not a local success claim.
 
-## Remaining authorized-test steps
+## Deployment and user test
 
-The existing test alias https://amico-fabio-iyzo.vercel.app returned 404 for
-/tours-manifest.json and /en/wishlist/ during preflight. A separately approved
-update of Vercel project amico-fabio-test is needed before real sending, so mail
-images/links resolve. Do not change legacy main/fabioegypt.com/amico-fabio.
-Publish the static test build with noindex, validate its manifest and selected
-page/image links, then deploy this new function after explicit authorization.
-The preference-function deployment approval does not silently cover this sender.
+The user approved the update of Vercel project amico-fabio-test and deployment
+of this function. Commit 70fbe40 is Ready in the test project's Production
+environment. The stable alias https://amico-fabio-iyzo.vercel.app serves a
+schema-v1 test manifest with 36 items; both wishlist routes and detail pages
+return noindex, and the sampled image returned HTTP 200. Do not change legacy
+main/fabioegypt.com or the existing project's production settings.
 
-The local wishlist test button is behind PUBLIC_WISHLIST_EMAIL_TEST_ENABLED=0.
-After approved activation, enable only the ignored local setting and the exact
-Supabase /functions/v1/wishlist-email-test endpoint. Auth supplies its own bearer
-internally; never extract or show the user's token. The signed-in owner presses
-Send test email. UI distinguishes acceptance, unknown result and expiry, and
-locks after one attempt per page load. Hosting/defaults remain disabled.
+Live function checks: allowed-origin OPTIONS returned 204; anonymous POST
+returned 401; disallowed-origin POST returned 403 without CORS permission. These
+checks sent no email. The automated branch push also created a Vercel Preview in
+the separate amico-fabio project; it has no custom domain and is not production.
+
+The ignored local astro-site/.env.local sets
+PUBLIC_WISHLIST_EMAIL_TEST_ENABLED=1 and the exact Supabase function endpoint.
+Restart the local dev server at port 4322 so Astro reads these settings, sign in
+to the authorized account, open /en/wishlist/ or /it/wishlist/, then press the
+explicit test button. Auth supplies its bearer internally; never extract or
+show the user's token. UI distinguishes acceptance, unknown result and expiry,
+and locks after one attempt per page load. Hosting defaults remain disabled.
 
 No Cron, delivery queue, durable mail ledger, daily allowance, bounce/complaint
 webhooks, automatic-reminder sender or real unsubscribe is activated by this

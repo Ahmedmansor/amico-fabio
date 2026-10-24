@@ -2,9 +2,9 @@
 
 Created: 2026-10-23. English execution reference replacing the Arabic text.
 
-**Status (2026-10-24): Google Auth and tour/package favorites implemented. The three account tables and reviewed RLS/grants are applied on fabioEgypt; real disposable SQL ownership tests passed with ROLLBACK. Local sync is enabled for the user's authenticated browser test; hosting/defaults remain off. Brevo/reminder services remain pending.** Agreement
-on those decisions and editing this document do not authorize all operational
-settings, remote schema changes, Auth configuration, email sending, or deployment.
+**Status (2026-10-24): Google Auth and tour/package favorites implemented. The three account tables and reviewed RLS/grants are applied on fabioEgypt; real disposable SQL ownership tests passed with ROLLBACK. The user authorized one Brevo wishlist summary test: its authenticated one-job Edge Function is active, the Vercel test site serves the current manifest, and the ignored local .env.local enables the explicit button for a short test window. No email has been sent yet. The automatic 24-hour reminder pipeline remains pending.**
+This status records the approved one-off test only; it does not authorize new
+business features, production hosting changes, or broader email delivery.
 This document coordinates the phases. Its location in `auth` does not make
 wishlists or reminder delivery responsibilities of the Auth feature.
 
@@ -399,13 +399,12 @@ subjects/body copy. Summary/reminder HTML and plain-text drafts can be generated
 from the test catalog. Eight local browser previews passed; inbox rendering,
 real unsubscribe, final copy/sender details and delivery are not yet verified.
 Brevo REST transport, verified-account source, public manifest fetcher and local
-summary-template orchestration are implemented as of 2026-10-24. A restricted
-authenticated one-job test entry is prepared but not deployed; the normal
-wishlist button defaults off. User authorized a test recipient/sender and
-reported adding BREVO_API_KEY in Edge Secrets. No real email has been sent.
-Current Vercel test alias lacks the manifest/wishlist routes, so a separately
-approved test-site update and new sender-function deployment remain gates.
-See ../../../qa/reminders/BREVO.md and the email-test function README. Durable
+summary-template orchestration are implemented as of 2026-10-24. The approved
+test site and restricted authenticated one-job function are now deployed. The
+button is enabled only in the ignored local .env.local; it remains absent from
+committed and hosting defaults. The authorized one-job window expires at
+2026-10-24T15:44:56Z. No real email has been sent. See
+../../../qa/reminders/BREVO.md and the email-test function README. Durable
 reminder queue/allowance/suppression/unsubscribe remain unimplemented.
 
 Approved 2026-10-24: **one optional reminder** per account, due 24 hours after
