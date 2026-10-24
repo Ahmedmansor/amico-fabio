@@ -12,7 +12,6 @@ export function renderWishlistEmail(model:WishlistEmailModel,m:EmailCopy):{subje
   const title=model.kind==='summary'?m.summaryTitle:m.reminderTitle;
   const intro=model.kind==='summary'?m.summaryIntro:m.reminderIntro;
   const reason=model.kind==='summary'?m.summaryReason:m.reminderReason;
-  const more=m.moreItems.replace('{count}',String(model.remainingCount));
   const groups=(['trip','package'] as const).flatMap(kind=>{
     const items=model.items.filter(item=>item.kind===kind);
     return items.length?[{title:kind==='trip'?m.tours:m.packages,items}]:[];
@@ -28,7 +27,6 @@ export function renderWishlistEmail(model:WishlistEmailModel,m:EmailCopy):{subje
 <!--[if mso]><table role="presentation" width="600" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="${s.shell}"><tr><td style="${s.brand}">FABIO EGYPT</td></tr>
 <tr><td style="${s.content}"><h1 style="${s.title}">${e(title)}</h1><p style="${s.paragraph}">${e(intro)}</p>${cards}
-${model.remainingCount?`<p style="${s.paragraph}">${e(more)}</p>`:''}
 <p style="${s.paragraph}"><a href="${e(model.wishlistUrl)}" style="${s.button}">${e(m.viewFavorites)}</a></p>
 <p style="${s.small}">${e(m.catalogNote)}</p></td></tr>
 <tr><td style="${s.footer}"><p style="${s.small}">${e(reason)}</p>
@@ -37,7 +35,7 @@ ${model.unsubscribeUrl?`<p style="${s.small}"><a href="${e(model.unsubscribeUrl)
 <!--[if mso]></td></tr></table><![endif]-->
 </td></tr></table></body></html>`;
   const textContent=[title,intro,...groups.flatMap(group=>[group.title,...group.items.map(item=>`${item.title}\n${m.priceFrom} €${item.price}\n${item.url}`)]),
-    ...(model.remainingCount?[more]:[]),`${m.viewFavorites}: ${model.wishlistUrl}`,m.catalogNote,reason,
+    `${m.viewFavorites}: ${model.wishlistUrl}`,m.catalogNote,reason,
     ...(model.unsubscribeUrl?[`${m.unsubscribe}: ${model.unsubscribeUrl}`]:[]),`${m.privacy}: ${model.privacyUrl}`,
   ].join('\n\n');
   return {subject,htmlContent,textContent};

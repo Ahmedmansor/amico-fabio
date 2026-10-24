@@ -9,7 +9,7 @@ function fixture(locale='en',kind='summary'){
   const catalog=buildEmailCatalog(['trip','package'].map(kind=>({kind,id:'same',slug:'same',adult_price:0,
     localized:Object.fromEntries(['it','en'].map(locale=>[locale,{title:'<script>alert("x")</script> & title',url:`${origin}/${locale}/${kind==='trip'?'tours':'packages'}/same/`}])),
     image:{url:`${origin}/image.jpg`,width:640,height:400}})),origin,'2026-10-24T00:00:00Z','test');
-  return prepareWishlistEmail({catalog,expectedEnvironment:'test',ids:['same','package:same'],locale,kind,cardLimit:4,unsubscribeUrl:`${origin}/email-preferences/?token=example`}).model;
+  return prepareWishlistEmail({catalog,expectedEnvironment:'test',ids:['same','package:same'],locale,kind,unsubscribeUrl:`${origin}/email-preferences/?token=example`}).model;
 }
 test('both languages and message types render HTML and plain text from the same selected data',()=>{
   for(const locale of ['it','en'])for(const kind of ['summary','reminder']){

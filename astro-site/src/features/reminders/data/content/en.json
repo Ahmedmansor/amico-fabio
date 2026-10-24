@@ -10,7 +10,6 @@
   "priceFrom": "Starting from",
   "discover": "View details",
   "viewFavorites": "Open your favorites",
-  "moreItems": "Your favorites include {count} more saved items. Open your list to see them.",
   "summaryReason": "You requested a copy of your favorites by email. This request does not subscribe you to reminders.",
   "reminderReason": "You’re receiving this reminder because you opted in to emails about your favorites.",
   "unsubscribe": "Stop favorites reminders",

@@ -7,7 +7,7 @@ function item(kind:EmailCatalogItem['kind'],id='same'):EmailCatalogItem{
   return {kind,id,slug:id,adult_price:0,localized:{it:{title:'Titolo',url:`${origin}/it/${namespace}/${id}/`},en:{title:'Title',url:`${origin}/en/${namespace}/${id}/`}},image:{url:`${origin}/poster.jpg`,width:640,height:400}};
 }
 const catalog=buildEmailCatalog([item('trip'),item('package'),item('trip','another')],origin,'2026-10-24T00:00:00Z','test');
-const input={catalog,expectedEnvironment:'test' as const,ids:['same','package:same'],locale:'en' as const,kind:'summary' as const,cardLimit:4};
+const input={catalog,expectedEnvironment:'test' as const,ids:['same','package:same'],locale:'en' as const,kind:'summary' as const};
 describe('wishlist email selection',()=>{
   it('selects only saved items, deduplicates, preserves free prices and kind identity',()=>{
     const result=prepareWishlistEmail({...input,ids:['same','same','package:same']});
@@ -21,9 +21,10 @@ describe('wishlist email selection',()=>{
   it('does not prepare an empty email when every saved item is unavailable',()=>{
     expect(prepareWishlistEmail({...input,ids:['missing']}).model).toBe(null);
   });
-  it('requires an explicit card limit and reports the omitted published items',()=>{
-    expect(prepareWishlistEmail({...input,cardLimit:1}).model?.remainingCount).toBe(1);
-    expect(()=>prepareWishlistEmail({...input,cardLimit:0})).toThrow(/card limit/);
+  it('includes all available saved items without a per-message card cap',()=>{
+    const result=prepareWishlistEmail({...input,ids:['same','package:same','another']});
+    expect(result.model?.items).toHaveLength(3);
+    expect(result.model?.items.map(item=>item.url)).toContain(`${origin}/en/tours/another/`);
   });
   it('uses the selected language and does not silently cross environments',()=>{
     expect(prepareWishlistEmail({...input,locale:'it'}).model?.wishlistUrl).toBe(`${origin}/it/wishlist/`);

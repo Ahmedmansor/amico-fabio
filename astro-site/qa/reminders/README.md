@@ -61,3 +61,11 @@ setting, hosting environment, push or deployment changed during these tasks.
 Reference for client CSS support:
 [Gmail CSS documentation](https://developers.google.com/workspace/gmail/design/css).
 Actual inbox and delivery checks remain separate authorized tests.
+
+User clarification, 2026-10-24: render all available saved tours/packages, with
+no 4/6-card cap. The selector now returns all eligible items and the truncation
+copy/remaining-count path is removed. The domain test covers the complete saved
+selection. npm test: 133 Node tests / 129 Vitest tests passed. Reminder opt-in
+UI has not appeared during signup because it is not implemented; asking about
+it is not approval of the proposed timing/re-addition policy. That remains open.
+All-items follow-up checks: Astro check 265 files, 0 errors/warnings/hints; static build 94 pages in 7.34s, Complete. Local HTML/text previews regenerated successfully.

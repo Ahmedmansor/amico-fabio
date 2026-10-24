@@ -361,7 +361,11 @@ Confirmed starting point: **one optional reminder**, 24 hours after wishlist
 eligibility. A second message 48 hours after the first is a later decision after
 reviewing results and user experience.
 
-- Aggregate tours into one user message, with a card limit and a link to their list.
+- User confirmed 2026-10-24: include all available saved tours and packages in
+  one message, with no 4/6-card cap; keep a link to the full list for convenience.
+- Reminder opt-in UI/service are not implemented yet. Google registration and
+  saving favorites do not subscribe a user. The user asked where reminders appear;
+  this is not approval of the proposed 24-hour eligibility/re-addition rules.
 - Do not claim seats are running out or a booking is confirmed without reliable data.
 - Define eligibility start and handling of newly added tours or an emptied wishlist.
 - Opening WhatsApp or clicking Book is not proof of a completed booking. Users

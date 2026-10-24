@@ -8,8 +8,8 @@ Edit these files:
 - `presentation/wishlist-email.ts`: HTML structure and plain-text rendering.
 - `presentation/email-styles.ts`: versioned inline email styles; no website CSS,
   Tailwind CDN, external fonts or UI framework is required by the message.
-- `domain/email.ts`: pure selection of saved catalog items, localization,
-  deduplication, unavailable items and explicit per-message card limit.
+- `domain/email.ts`: pure selection of all available saved catalog items,
+  localization, deduplication and unavailable-item reporting. No card cap.
 
 The public static `/tours-manifest.json` is produced through catalog feature data
 APIs. JPEG thumbnail crops are generated at build time; email clients do not need
@@ -34,8 +34,9 @@ Open http://127.0.0.1:4330/email-preview/ for four draft HTML messages and their
 plain-text versions. Preview output lives in ignored .astro/; source and tests
 are committed. Changing copy/styles only requires rerunning preview.mjs, not
 fetching customer data. The generator refuses production/non-loopback manifests.
-Four catalog examples demonstrate both sections; this is not a launch card-limit
-decision or a real customer wishlist. No sending SDK or API call is present.
+Four catalog examples demonstrate both sections; every supplied available item
+is rendered, as requested by the user. This is not a real customer wishlist.
+No sending SDK or API call is present.
 
 ## Important execution boundaries
 
@@ -47,7 +48,7 @@ An email with no published saved items is not prepared. Missing catalog IDs are
 returned separately so future orchestration cannot count them as delivered.
 
 Before sending: approve copy, sender identity and required business/footer
-details; define timing/re-addition and card-limit policies; implement auditable
+details; define timing/re-addition policy; implement auditable
 consent, queue/idempotency, quota limits and opt-out/bounce handling under
 separately authorized backend scope. Future sender must resolve verified account
 recipients server-side, enforce manifest environment/freshness rules and protect

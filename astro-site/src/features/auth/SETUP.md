@@ -22,7 +22,8 @@
 - Email preparation now includes /tours-manifest.json for published tours and
   packages and local IT/EN summary/reminder templates with inline styles and
   plain text. Preview source and regeneration: ../reminders/README.md. Preview
-  unsubscribe is inert. Timing/re-addition policy, launch card limit, operational
+  unsubscribe is inert. User chose all available saved items without a card cap.
+  Opt-in UI is not implemented; timing/re-addition policy, operational
   caps, real consent/unsubscribe service, approved sender/footer details and a
   permitted test recipient remain gates before real mail delivery.
 

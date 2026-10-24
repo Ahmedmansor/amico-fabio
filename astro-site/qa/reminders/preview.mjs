@@ -16,12 +16,12 @@ if(catalog.environment!=='test' || !['localhost','127.0.0.1','[::1]'].includes(o
   throw new Error('Email previews require a test manifest with an explicit loopback origin. Production links are refused.');
 const directory=resolve(dirname(path),'email-preview');
 await mkdir(directory,{recursive:true});
-// Four public catalog examples, not a real user's wishlist or the launch card limit.
+// Four public catalog examples, not a real user's wishlist. All selected items render.
 const examples=['trip','package'].flatMap(kind=>catalog.items.filter(item=>item.kind===kind).slice(0,2));
 const ids=examples.map(item=>favoriteKey(item.kind,item.id));
 const links=[];
 for(const locale of supportedLocales)for(const kind of ['summary','reminder']){
-  const prepared=prepareWishlistEmail({catalog,expectedEnvironment:'test',ids,locale,kind,cardLimit:4,
+  const prepared=prepareWishlistEmail({catalog,expectedEnvironment:'test',ids,locale,kind,
     unsubscribeUrl:new URL('/email-preview/unsubscribe-preview.html',origin).href});
   if(!prepared.model)throw new Error('Published examples are required for preview.');
   const rendered=renderWishlistEmail(prepared.model,getEmailMessages(locale));
