@@ -318,6 +318,49 @@ documentation update. Evidence: [Brevo](../../../qa/reminders/BREVO.md),
 
 ### 6.1. Approved language and request contract — 2026-10-24
 
+#### Superseding target policy and priority — 2026-10-25
+
+This policy supersedes the earlier follow-site coupling and Italian root-detection
+fallback described in the implementation history below. It is agreed behavior;
+the current deployed/local implementation has not yet been refactored to match.
+
+Browsing priority:
+1. Explicit `/it/` or `/en/` URL always wins.
+2. On bare `/` only, honor a valid previously saved browser language choice.
+3. Otherwise scan `navigator.languages` in order for the first supported language
+   (including regional variants such as `en-GB` mapping to `en`).
+4. If no supported language is present, use **English**. Define this detection
+   fallback once in shared configuration, separately from the site's Italian
+   editorial/default-language setting. Root browser detection is not implemented.
+
+Correspondence priority:
+1. An existing stored correspondence language remains unchanged on browsing,
+   sign-in, consent withdrawal and later re-enablement.
+2. If absent, initialize once on first reminder opt-in from the language shown
+   in the consent control, initially selected from the current page. The user
+   can explicitly choose another supported language before consenting.
+3. After initialization, only an explicit correspondence-settings save changes it.
+4. At dispatch, read the stored correspondence language; there is no open page
+   to inspect. Never derive it again from the latest URL, browser, IP, nationality,
+   email domain or Google account. Missing/unsupported stored language needs
+   repair before dispatch, not a guessed replacement or an unsupported template.
+
+Examples:
+
+| Visitor and entry | Browsing result | First opt-in / later reminder |
+| --- | --- | --- |
+| In Germany, opens `/en/`, browser `de` only | English: explicit URL wins | `en`, unless explicitly changed in consent/settings |
+| Opens `/`, no saved choice, browser `de`, `en` | English: first supported browser language | `en` on first opt-in |
+| Opens `/`, no saved choice, browser `de` only | English: no supported language, detection fallback | `en` on first opt-in |
+| In Germany, opens `/it/`, browser `de` only | Italian: explicit URL wins | `it` on first opt-in |
+| Egyptian visitor on `/en/`, browser `ar`, `en` | English; nationality is irrelevant | `en` on first opt-in |
+| Stored email language `en`, later explores `/it/` and closes site | Italian browsing only | Reminder remains `en` |
+
+The immediate-send button is restricted QA only. Template-testing overrides do
+not change stored correspondence language or add a customer-facing mail flow.
+
+#### Earlier implementation contract (history; follow-site refactor pending)
+
 This is the canonical continuation design. Its storage migration is applied and
 role-tested below; the browser endpoint is not enabled. Keep production static on GitHub Pages; Vercel
 is the separate migration test environment. No SSR or middleware is required.
@@ -352,7 +395,7 @@ Do not infer language from IP, nationality or Google profile. Future `es`/`pt`
 also require actual approved dictionaries, content, templates and validation;
 adding a language code alone does not publish a translation.
 
-Proposed first visit to `/`: browser-side detection may use saved guest choice,
+Earlier proposal, superseded above: browser-side detection used saved guest choice,
 then supported `navigator.languages`, then Italian. Respect explicit language
 URLs. The root detector is not implemented by this decision. Existing header
 storage uses `fabio_lang` and `preferredLanguage`; keep one coherent policy rather
