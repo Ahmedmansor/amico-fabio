@@ -1,4 +1,5 @@
 import type {createPreferenceService} from '../data/preferences-service.ts';
+import type {PreferenceLimiter} from '../domain/preference-limits.ts';
 export type PreferenceUserResult={ok:true;userId:string}|{ok:false;reason:'unauthenticated'|'unavailable'};
 
 /** Portable backend HTTP boundary, not an Astro API route and not deployed.
@@ -8,8 +9,12 @@ export function createPreferenceHandler(options:{
   verifyUser:(bearer:string)=>Promise<PreferenceUserResult>;
   allowedOrigins:readonly string[];
   maxBodyBytes:number;
+  // Required by the deployable runtime; optional only for isolated local ports.
+  limiter?:PreferenceLimiter;
+  bodyTimeoutMs?:number;
 }){
   if(!Number.isSafeInteger(options.maxBodyBytes)||options.maxBodyBytes<1)throw new Error('[reminders] Body limit required.');
+  if(options.bodyTimeoutMs!==undefined&&(!Number.isSafeInteger(options.bodyTimeoutMs)||options.bodyTimeoutMs<1))throw new Error('[reminders] Body deadline required.');
   const origins=new Set(options.allowedOrigins);
   if(!origins.size||origins.has('*'))throw new Error('[reminders] Explicit allowed origins required.');
   for(const origin of origins)if(new URL(origin).origin!==origin)throw new Error('[reminders] Invalid allowed origin.');
@@ -28,6 +33,14 @@ export function createPreferenceHandler(options:{
     try{
       const identity=await options.verifyUser(bearer);
       if(!identity.ok)return respond(identity.reason==='unavailable'?503:401,{error:identity.reason});
+      if(options.limiter){
+        const limit=await options.limiter.take(identity.userId,request.method==='GET'?'read':'write');
+        if(limit.status==='unavailable')return respond(503,{error:'unavailable'});
+        if(limit.status==='limited'){
+          headers.set('Retry-After',String(limit.retryAfterSeconds));
+          return respond(429,{error:'rate-limited'});
+        }
+      }
       let result;
       if(request.method==='GET')result=await options.service.read(identity.userId);
       else{
@@ -35,13 +48,15 @@ export function createPreferenceHandler(options:{
         const reader=request.body?.getReader();
         if(!reader)return respond(400,{error:'invalid-input'});
         const decoder=new TextDecoder('utf-8',{fatal:true});let size=0,body='';
+        let bodyExpired=false;
+        const bodyTimer=options.bodyTimeoutMs===undefined?undefined:setTimeout(()=>{bodyExpired=true;void reader.cancel().catch(()=>{});},options.bodyTimeoutMs);
         try{
-          while(true){const chunk=await reader.read();if(chunk.done)break;size+=chunk.value.byteLength;
-            if(size>options.maxBodyBytes){await reader.cancel();return respond(413,{error:'body-too-large'});}
+          while(true){const chunk=await reader.read();if(bodyExpired)return respond(408,{error:'request-timeout'});if(chunk.done)break;size+=chunk.value.byteLength;
+            if(size>options.maxBodyBytes){void reader.cancel().catch(()=>{});return respond(413,{error:'body-too-large'});}
             body+=decoder.decode(chunk.value,{stream:true});
           }
           body+=decoder.decode();
-        }finally{reader.releaseLock();}
+        }finally{clearTimeout(bodyTimer);reader.releaseLock();}
         let command:unknown;try{command=JSON.parse(body);}catch{return respond(400,{error:'invalid-input'});}
         result=await options.service.change(identity.userId,command);
       }

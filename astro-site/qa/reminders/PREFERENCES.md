@@ -114,3 +114,32 @@ Final UI task checks: npm test — 154 Node tests passed, 0 failed; 15 Vitest fi
 static build — 94 pages in 5.22s, Complete. Isolated noindex preview build — 96
 pages in 12.21s, Complete. Four browser cases passed. No new dependency, remote
 write, user subscription, email, hosting change, push or deployment in this task.
+
+## Separate Edge runtime preparation — local only
+
+The prepared entry composes remote getUser, separate public-Auth/backend-data
+SDK clients, current preference/audit RPC and a proposed database-backed limiter.
+The counter schema and role fixtures are NOT APPLIED/RUN and have not been
+parsed by PostgreSQL. No new remote write or deployment occurred in this task.
+The configuration is explicitly disabled; a Node test with mock Deno proves
+that this guard returns 503 without reading runtime secrets. Native Deno/CLI
+are unavailable locally; no installation was performed or native Edge result
+claimed. Packaging validates 13 explicit source/config files and relative imports.
+
+Eight new runtime tests use the actual pinned supabase-js SDK against synthetic
+fetch responses: verified owner binding, backend credential isolation, separate
+read/write quotas, limiter denial/outage blocking data access, Auth 429 remains
+unavailable rather than false signout, incoming stalled-body timeout, bounded
+upstream response/body deadline, malformed limits/config fail closed, and the
+disabled entry guard. No real user session or privileged credential was read.
+
+Proposed review settings: 30 reads and 10 writes per 60 seconds/account, local
+4322 origin only, incoming 4096 bytes, upstream 65536 bytes, network 10000ms,
+body 5000ms. These numbers are proposals, not approved/active defaults or mail
+allowance. See ../../supabase/functions/wishlist-email-preferences/README.md
+for exact code/package/deployment gates and authentication mode. Gateway/IP
+controls before Auth verification and project budgets still need launch review.
+
+Actual final checks: npm test — 162 Node tests passed, 0 failed; 16 Vitest files /
+142 tests passed. npx astro check — 292 files, 0 errors/warnings/hints. Static
+build — 94 pages in 5.53s, Complete. No new dependency or version change.

@@ -23,7 +23,8 @@
   packages and local IT/EN summary/reminder templates with inline styles and
   plain text. Preview source and regeneration: ../reminders/README.md. Preview
   unsubscribe is inert. User chose all available saved items without a card cap.
-  Opt-in UI is not implemented. Timing/re-addition policy was approved on
+  Draft opt-in UI is implemented in an isolated preview, not mounted on the site.
+  Timing/re-addition policy was approved on
   2026-10-24: 24h after max(last real addition, consent), one reminder only;
   empty list cancels and re-addition before the first send restarts waiting.
   Operational
@@ -45,6 +46,13 @@
   browser-tested in isolation; real Auth binding/Edge deployment remain work.
   Do not mount or enable it before approved wording, runtime controls and a
   deployed verified endpoint are ready. See ../../../qa/reminders/README.md.
+- The composed Edge preference service is now prepared locally under
+  ../../../supabase/functions/wishlist-email-preferences/. Its checked-in
+  configuration is explicitly disabled. A distributed counter schema and
+  disposable role tests are proposed but NOT APPLIED/RUN. Do not deploy or
+  enable the service without separate approval of scope and proposed limits.
+  Current Node tests exercise real SDK calls against synthetic fetch responses;
+  native Deno and live service checks remain. No Deno/CLI was installed.
 
 ## Previous handoff — 2026-10-23 (superseded by activation above)
 

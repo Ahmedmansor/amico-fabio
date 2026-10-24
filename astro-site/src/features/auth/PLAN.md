@@ -220,6 +220,16 @@ Consent wording still needs final approval before activation; the draft wording
 version must stay aligned with the backend. Preview regeneration and evidence
 are in qa/reminders/README.md and PREFERENCES.md.
 
+Local runtime preparation, 2026-10-24: a separate Supabase Edge entry composes
+remote Auth verification, private preference access, distributed per-account
+read/write limiting, incoming body deadline and bounded network responses.
+Its configuration is disabled; proposed limits are not activated. New counter
+table/RPC SQL and rollback tests are local review artifacts, not executed SQL.
+The upload preparer checks 13 explicit files without reading secret files or
+deploying. See supabase/functions/wishlist-email-preferences/README.md.
+Separate schema/test/deployment approval, native Edge compilation and live
+integration checks remain required. No Astro runtime API or SSR is introduced.
+
 Review `../../../supabase/account-wishlist/README.md` and its prepared schema
 before remote execution. It covers only minimal profiles and account wishlists;
 consent storage is applied; delivery entities remain proposals. `trip_id` references the

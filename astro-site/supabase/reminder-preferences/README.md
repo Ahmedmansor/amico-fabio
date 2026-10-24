@@ -29,3 +29,23 @@ endpoint or website opt-in. Verified identity, runtime limits, trusted secret
 storage, unsubscribe integration and deployment approval are still required.
 Final wording and retention/export/suppression decisions remain launch gates.
 Never expose privileged credentials through public Astro configuration.
+
+## Proposed distributed preference request limits — NOT APPLIED
+
+rate-limit-schema.sql proposes wishlist_preference_rate_limits and the
+service-only SECURITY INVOKER consume_wishlist_preference_limit RPC. Rows are
+per account/operation with trusted server time and counters, RLS enabled, no
+browser grants/policies, and Auth-deletion cascade. Per-account/operation
+transaction locking serializes independent Edge instances; denied requests do
+not increase the count. Expired windows reset on the next request, so no Cron
+cleanup is required and storage is bounded to two rows per existing account.
+
+rate-limit-role-tests.sql uses two synthetic Auth UUIDs without email, checks
+threshold/deny/retry-after/reset, account/operation independence, invalid input,
+anonymous/authenticated denial and cascade, then ROLLBACK. It has NOT run or
+been parsed by PostgreSQL. Its small thresholds are tests, not deployment policy.
+Both new remote schema execution and disposable writes need separate approval.
+Do not infer their approval from the earlier consent table activation.
+
+The prepared Edge service and proposed settings are in
+../functions/wishlist-email-preferences/README.md. No function is deployed.
