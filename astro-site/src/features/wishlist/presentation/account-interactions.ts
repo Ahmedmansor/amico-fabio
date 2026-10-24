@@ -1,4 +1,5 @@
 import { browserAuth } from '../../auth/data/browser';
+import {getAccountState} from '../../auth/data/account-state';
 import type { AuthConfig } from '../../auth/data/config';
 import { browserSupabase } from '../../../shared/data/browser-client';
 import { createAccountRepository } from '../data/account-repository';
@@ -60,19 +61,19 @@ export async function initializeAccountWishlist(){
   });
   document.querySelector('[data-wishlist-invite-signin]')?.addEventListener('click',()=>{invitationClosed=true;if(invitation)invitation.hidden=true;});
   retry?.addEventListener('click',()=>{void coordinator.merge().then(result=>{if(result.ok)announce();});});
-  let revision=0,currentUser:string|null|undefined;
+  let currentUser:string|null|undefined;
   function connect(userId:string|null){
     if(currentUser===userId)return;
     currentUser=userId;authFailed=false;resolvingAuth=false;
     void coordinator.connect(userId).then(result=>{if(result.ok)announce();});
   }
-  service?.subscribe(session=>{revision++;connect(session?.userId??null);});
-  const before=revision;
-  const restored=service?await service.currentSession():{ok:false as const};
-  if(before===revision){
-    connect(restored.ok?restored.value?.userId??null:null);
-    if(!restored.ok){authFailed=true;render(coordinator.getState());}
-  }
+  if(service)getAccountState(service).subscribe(state=>{
+    if(state.status==='loading'){resolvingAuth=true;render(coordinator.getState());return;}
+    resolvingAuth=false;
+    connect(state.session?.userId??null);
+    authFailed=state.status==='failed';render(coordinator.getState());
+  });
+  else{connect(null);authFailed=true;render(coordinator.getState());}
   let refreshQueued=false;
   function refresh(){
     if(refreshQueued || coordinator.getState().busy)return;

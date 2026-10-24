@@ -111,6 +111,11 @@ Local page-locale email protocol is prepared behind
 Its locale-aware handler and a fresh approved job/window must be deployed before
 a real IT/EN sending check. Each restricted job has one immutable locale/key.
 No external email, renewal or provider change occurred in this continuation.
+Header, wishlist and summary UI now reuse the Auth-owned minimal account-state
+feed, rather than separately restoring/verifying the same browser session.
+Four synthetic full-shell browser cases measured one initial client getUser,
+and verified signout/home behavior. This is an in-page identity cache only;
+it does not replace remote verification or RLS on any backend request.
 
 ## Previous handoff — 2026-10-23 (historical; superseded above)
 

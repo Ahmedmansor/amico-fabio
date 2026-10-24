@@ -8,7 +8,8 @@
       "calls": {
         "reads": 2,
         "writes": 1,
-        "logout": 1
+        "logout": 1,
+        "authVerifies": 1
       },
       "errors": []
     },
@@ -19,7 +20,8 @@
       "calls": {
         "reads": 2,
         "writes": 1,
-        "logout": 1
+        "logout": 1,
+        "authVerifies": 1
       },
       "errors": []
     },
@@ -30,7 +32,8 @@
       "calls": {
         "reads": 2,
         "writes": 1,
-        "logout": 1
+        "logout": 1,
+        "authVerifies": 1
       },
       "errors": []
     },
@@ -41,7 +44,8 @@
       "calls": {
         "reads": 2,
         "writes": 1,
-        "logout": 1
+        "logout": 1,
+        "authVerifies": 1
       },
       "errors": []
     }

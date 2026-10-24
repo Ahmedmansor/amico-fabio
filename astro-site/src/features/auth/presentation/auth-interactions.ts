@@ -6,6 +6,7 @@ import type { AccountSession } from '../domain/auth';
 import type {LocaleBrowserConfig} from '../data/locale-browser-config';
 import type {getLocaleMessages} from '../data/locale-messages';
 import type {bindAccountLocale} from './locale-interactions';
+import {getAccountState} from '../data/account-state';
 
 async function initialize() {
   const configNode = document.getElementById('auth-config');
@@ -31,7 +32,6 @@ async function initialize() {
   let opener: HTMLElement | null = null;
   let pending = false;
   let session: AccountSession | null = null;
-  let revision = 0;
   let ready = false;
   const service = await browserAuth(config);
   let localeBinding: ReturnType<typeof bindAccountLocale> | null = null;
@@ -182,16 +182,12 @@ async function initialize() {
     render();
   });
   if (service) {
-    service.subscribe(next => { revision++; session = next; render(); });
-    const before = revision;
-    const restored = await service.currentSession();
-    if (before === revision) {
-      if (restored.ok) session = restored.value;
-      else show(m.failed);
-    }
-  }
-  ready = true;
-  render();
+    getAccountState(service).subscribe(state => {
+      ready = state.status !== 'loading'; session = state.session;
+      if (state.status === 'failed') show(m.failed);
+      render();
+    });
+  } else {ready = true; render();}
   window.setInterval(() => { if (dialog.open) render(); }, 1000);
 }
 void initialize();

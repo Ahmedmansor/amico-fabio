@@ -22,12 +22,12 @@ for(const locale of ['it','en'])for(const width of [375,1440]){
     }
   },{user,token});
   let state={siteLocale:locale,revision:0,email:{locale,source:'follow_site'}};
-  const calls={reads:0,writes:0,logout:0},errors=[];
+  const calls={reads:0,writes:0,logout:0,authVerifies:0},errors=[];
   await context.route(`${endpoint}/**`,async route=>{
     const request=route.request(),url=new URL(request.url()),method=request.method();
     const headers={'access-control-allow-origin':origin,'access-control-allow-headers':'*','access-control-allow-methods':'GET, POST, PATCH, DELETE, OPTIONS','cache-control':'no-store'};
     if(method==='OPTIONS')return route.fulfill({status:200,headers,body:''});
-    if(url.pathname==='/auth/v1/user')return route.fulfill({status:200,headers,json:user});
+    if(url.pathname==='/auth/v1/user'){calls.authVerifies++;return route.fulfill({status:200,headers,json:user});}
     if(url.pathname==='/auth/v1/logout'){calls.logout++;return route.fulfill({status:204,headers});}
     if(url.pathname==='/functions/v1/account-locale'){
       assert.ok(request.headers().authorization?.startsWith('Bearer '));
@@ -60,6 +60,7 @@ for(const locale of ['it','en'])for(const width of [375,1440]){
   await page.keyboard.press('Tab');assert.equal(await select.evaluate(node=>node===document.activeElement),true);
   const other=locale==='it'?'en':'it';await select.selectOption(other);await page.locator('[data-locale-save]').click();await ready();
   assert.equal(state.email.source,'explicit');assert.equal(state.email.locale,other);assert.equal(calls.writes,1);
+  assert.equal(calls.authVerifies,1); // Header and wishlist share verified restoration.
   assert.equal(await page.locator('[data-auth-dialog]').evaluate(node=>node.scrollWidth<=node.clientWidth),true);
   await page.screenshot({path:new URL(`locale-auth-${locale}-${width}.png`,output).pathname.replace(/^\/([A-Za-z]:)/,'$1'),fullPage:true});
   const beforeSignout=calls.reads;

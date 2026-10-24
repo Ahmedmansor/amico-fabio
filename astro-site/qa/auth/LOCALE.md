@@ -143,3 +143,19 @@ absent. The synthetic enabled full-shell build generated 94 pages in 9.89s;
 its four browser cases passed after the final field-label refinement. Default
 build and QA artifacts remain local and unpushed. Native/live endpoint activation
 and real authenticated locale persistence are still unverified.
+
+## Shared verified account restoration — 2026-10-25
+
+Auth now exposes a page-lifetime minimal account-state feed reused by the header,
+wishlist and restricted-summary UI. Initial `currentSession/getUser` is shared,
+SDK events update one subscription, and a late initial read cannot overwrite
+signout/account changes. No bearer or provider role/metadata is retained in this
+feed; it never authorizes data access. Backend verification/RLS remain required.
+Six targeted feed tests plus nine existing Auth data tests passed. Full suite:
+235 Node tests and 18 Vitest files / 152 tests passed. Astro check: 339 files,
+0 errors/warnings/hints. Normal build: 94 pages in 9.70s.
+Four full Auth browser cases passed again, each measuring exactly one initial
+client `/auth/v1/user` call shared by header/wishlist, plus 2 locale reads
+(initial and explicit settings open), 1 language write and 1 logout. This is not
+a promise that protected backend requests or token refresh need no Auth work.
+No provider setting, browser session, live flag or deployment changed.

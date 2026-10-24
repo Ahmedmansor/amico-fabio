@@ -407,6 +407,12 @@ to reminder timing. No new preference/consent is created by the picker.
 Four standalone and four full Auth browser cases passed in IT/EN at 375/1440px,
 including native language navigation/recovery, focus trap and home after logout.
 An actual Chrome fetch invocation issue was found and fixed during these checks.
+Auth identity continuation now shares a minimal verified restoration across
+header, wishlist and summary UI through `auth/data/account-state.ts`. A late
+restore is ignored after an account event. Browser QA measured one initial
+client Auth verification for header/wishlist; backend request verification and
+SDK token refresh remain separate work. No tokens or account-table access live
+in this identity feed.
 
 Current gaps: the protected HTTP endpoint and live browser flag are not
 activated; actual overlapping-connection testing remains pending. Both email templates exist, but the restricted
