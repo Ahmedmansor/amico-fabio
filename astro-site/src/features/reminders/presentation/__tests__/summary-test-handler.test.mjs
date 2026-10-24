@@ -6,14 +6,16 @@ const origin='http://127.0.0.1:4322';
 const now=Date.parse('2026-10-24T00:00:00Z');
 function fixture(overrides={}){
   const calls=[];
-  const options={sender:{sendForUser:async(...args)=>{calls.push(args);return {status:'accepted',messageId:'<synthetic@example.test>'};}},
+  const bearers=[];
+  const options={senderForBearer:bearer=>{bearers.push(bearer);return {sendForUser:async(...args)=>{calls.push(args);return {status:'accepted',messageId:'<synthetic@example.test>'};}};},
     verifyUser:async()=>({ok:true,userId}),userId,deliveryId:other,locale:'en',allowedOrigin:origin,createdAt:now,expiresAt:now+20*60*1000,now:()=>now,bodyTimeoutMs:20,...overrides};
-  return {calls,options,handler:createSummaryTestHandler(options)};
+  return {calls,bearers,options,handler:createSummaryTestHandler(options)};
 }
 const request=(options={})=>new Request(origin+'/email-test',{method:'POST',headers:{Origin:origin,Authorization:'Bearer synthetic-test-token'},...options});
 test('authorized test uses only fixed owner, locale and stable delivery ID, with no recipient/body input',async()=>{
   const f=fixture();for(let attempt=0;attempt<2;attempt++)assert.equal((await f.handler(request())).status,200);
   assert.deepEqual(f.calls,[[userId,'en',other],[userId,'en',other]]);
+  assert.deepEqual(f.bearers,['synthetic-test-token','synthetic-test-token']);
 });
 test('wrong identity, missing bearer, wrong origin or arbitrary body never reaches sender',async()=>{
   const f=fixture();
@@ -21,6 +23,7 @@ test('wrong identity, missing bearer, wrong origin or arbitrary body never reach
   assert.equal((await f.handler(request({headers:{Origin:origin}}))).status,401);
   assert.equal((await f.handler(request({body:JSON.stringify({recipient:'other@example.test'})}))).status,400);
   assert.equal(f.calls.length,0);
+  assert.equal(f.bearers.length,0);
   const otherAccount=fixture({verifyUser:async()=>({ok:true,userId:other})});assert.equal((await otherAccount.handler(request())).status,403);assert.equal(otherAccount.calls.length,0);
 });
 test('expired/future/invalid-time jobs cannot send; job window must stay below Brevo deduplication TTL',async()=>{
@@ -29,7 +32,15 @@ test('expired/future/invalid-time jobs cannot send; job window must stay below B
 });
 test('preflight never sends and ambiguous provider results are not reported as delivered',async()=>{
   const f=fixture();const response=await f.handler(request({method:'OPTIONS'}));assert.equal(response.status,204);assert.equal(f.calls.length,0);
-  const unknown=fixture({sender:{sendForUser:async()=>({status:'unknown'})}});const result=await unknown.handler(request());assert.equal(result.status,503);assert.deepEqual(await result.json(),{status:'unknown'});
+  const unknown=fixture({senderForBearer:()=>({sendForUser:async()=>({status:'unknown'})})});const result=await unknown.handler(request());assert.equal(result.status,503);assert.deepEqual(await result.json(),{status:'unknown'});
+});
+
+test('each verified request gets its own bearer-bound sender without sharing tokens',async()=>{
+  const f=fixture();
+  await Promise.all(['first-synthetic-token','second-synthetic-token'].map(token=>f.handler(request({headers:{Origin:origin,Authorization:`Bearer ${token}`}}))));
+  assert.deepEqual(f.bearers.sort(),['first-synthetic-token','second-synthetic-token']);
+  const denied=fixture({verifyUser:async()=>({ok:true,userId:other})});
+  await denied.handler(request());assert.equal(denied.bearers.length,0);
 });
 
 test('empty POST stream is accepted, nonempty or stalled body never sends',async()=>{

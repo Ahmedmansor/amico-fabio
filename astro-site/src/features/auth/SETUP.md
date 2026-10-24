@@ -62,6 +62,10 @@ wishlist-email-test Edge Function are active. The ignored local .env.local
 enables the button on port 4322 for one account and one short job window; hosting
 defaults remain off. No actual email has been sent. Follow
 ../../../qa/reminders/BREVO.md for the current status and safe retry guidance.
+The first authenticated attempt was blocked by wishlist SELECT permission
+before any Brevo dispatch. Version 2 uses the caller's existing authenticated
+RLS for favorites reads; no service_role table privileges were added. Reload the
+local wishlist page before the next manual attempt.
 
 - Local Google Auth/profile/header is available on 4322. The user's server and
   signed-in browser were not stopped or signed out during isolated QA.

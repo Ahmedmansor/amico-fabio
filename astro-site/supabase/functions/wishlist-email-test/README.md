@@ -7,8 +7,9 @@ requested summary, not automatic reminder enrollment or a scheduled campaign.
 - One recipient and one Auth UUID are fixed in an ignored job configuration.
 - Remote getUser verifies the caller; the account source rechecks the same Auth
   ID, confirmed email and recipient allowlist through Auth Admin. Favorites are
-  read through wishlist/data/createAccountRepository, never through a duplicate
-  provider implementation. No recipient, favorite IDs, subject or HTML comes
+  read through wishlist/data/createAccountRepository using a fresh per-request
+  publishable client and the verified caller's bearer, so ownership RLS applies.
+  The admin client never reads wishlist tables. No recipient, favorite IDs, subject or HTML comes
   from the browser request.
 - The test body must be empty; empty POST streams are supported with a bounded
   read deadline. CORS alone is never authorization.
@@ -37,7 +38,7 @@ and verified in Brevo; that has not been independently checked.
 User authorized one test recipient and sender in the conversation. Their
 private recipient/UUID are not committed. The active job is stored only in the
 ignored .astro/reminder-email-test-job.json and expires at
-2026-10-24T15:44:56Z. The deployed function is version 1, ID
+2026-10-24T15:44:56Z. The deployed function is version 2, ID
 9d386e74-962f-45a3-9c4e-b0b6509d9560. A new test after expiry requires a fresh
 delivery UUID, activation timestamp, packaging and deployment; never reuse an
 expired job as a new message. Example config stays disabled with placeholders.

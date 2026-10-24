@@ -11,7 +11,7 @@ email-catalog-source.ts; presentation/send-wishlist-summary.ts composes them
 with domain/email.ts and the existing renderer. presentation/summary-test-handler.ts
 and supabase/functions/wishlist-email-test/ implement a restricted authenticated
 one-job test with expiry and stable provider idempotency. The dedicated test
-function is now deployed as version 1 on fabioEgypt.
+function is now deployed as version 2 on fabioEgypt.
 
 The public test flag defaults off. The wishlist route composes SummaryEmailTest
 through a named slot so wishlist does not depend on reminders (reminders already
@@ -65,3 +65,28 @@ Brevo only after the authenticated backend reads the account favorites. If the
 result is unknown, do not retry until Brevo is reconciled. Native Edge execution,
 actual inbox delivery, sender verification, optional reminder scheduling,
 queue/ledger/suppression/unsubscribe remain unverified.
+
+## First authenticated attempt and correction — 2026-10-24
+
+The user reported no received email and the UI showed an unknown outcome.
+At 15:28:40 UTC the function returned HTTP 503. Targeted sanitized gateway logs
+showed Auth getUser 200, Auth Admin recipient lookup 200, then GET wishlists
+403. Metadata-only privilege checks confirmed service_role had no SELECT on
+either wishlist table. The sender stopped at the incomplete favorites read,
+before calling Brevo; this was not an ambiguous provider acceptance.
+
+The correction keeps current table grants and RLS. The admin client handles
+only verified recipient lookup. After caller verification, a fresh per-request
+publishable client receives that request's bearer through accessToken and reads
+both wishlist tables under the account's existing ownership RLS. No bearer is
+logged, stored, or shared across requests. Known blocked/rejected responses now
+display failure; genuinely uncertain responses remain unknown.
+
+Verification: 20 targeted Node tests passed, including real SDK header/ownership
+filters on both tables, per-request bearer isolation, rejected identities and
+known failure versus unknown UI outcomes. Astro check reported 312 files,
+0 errors/warnings/hints. Static build completed with 94 pages in 6.35s.
+Function version 2 deployed with the original delivery ID and expiry, hash
+23f3be8b15c8a127e5aca8a0e910212b03a1471b4648c750fdaca95619485fbb.
+Live OPTIONS returned 204 and anonymous POST returned 401. The authenticated
+retry and actual Brevo acceptance/inbox receipt still require the user's click.

@@ -24,3 +24,10 @@ test('unknown acceptance or expired test remains distinct; failed session never 
   let calls=0;const client=createSummaryTestClient({endpoint,timeoutMs:100,maxResponseBytes:4096,service:{bearerFor:async()=>({ok:false,reason:'failed'})},fetcher:async()=>{calls++;return Response.json({});}});
   assert.equal(await client.send('owner'),'failed');assert.equal(calls,0);
 });
+
+test('known pre-send block or provider rejection displays failure; ambiguous 503 stays unknown',async()=>{
+  for(const [body,expected] of [[{status:'blocked'},'failed'],[{status:'rejected',reason:'provider-rejected'},'failed'],[{status:'unknown'},'unknown'],[{},'unknown']]){
+    const client=createSummaryTestClient({endpoint,timeoutMs:100,maxResponseBytes:4096,service:{bearerFor:async()=>({ok:true,value:'synthetic-token'})},fetcher:async()=>Response.json(body,{status:503})});
+    assert.equal(await client.send('owner'),expected);
+  }
+});

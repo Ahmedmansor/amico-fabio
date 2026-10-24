@@ -4,6 +4,7 @@ import {createBrevoDelivery} from '../brevo-delivery.ts';
 import {createEmailAccountSource} from '../email-account-source.ts';
 import {createEmailCatalogSource} from '../email-catalog-source.ts';
 import {buildEmailCatalog} from '../../domain/catalog.ts';
+import {createClient} from '@supabase/supabase-js';
 const userId='00000000-0000-4000-8000-000000000001';
 const deliveryId='00000000-0000-4000-8000-000000000002';
 const input={deliveryId,recipient:'allowed@example.test',content:{subject:'Favorites',htmlContent:'<p>Local template</p>',textContent:'Local template'}};
@@ -41,10 +42,30 @@ test('429 is deferred without sending again; explicit 4xx rejection exposes no p
 });
 test('recipient uses confirmed Auth email and exact owner, ignoring editable metadata',async()=>{
   const base={id:userId,email:input.recipient,email_confirmed_at:'2026-10-24T00:00:00Z',user_metadata:{email:'other@example.test'}};
-  const source=user=>createEmailAccountSource({auth:{admin:{getUserById:async id=>{assert.equal(id,userId);return {data:{user},error:null};}}}},[input.recipient],100);
+  const source=user=>createEmailAccountSource({auth:{admin:{getUserById:async id=>{assert.equal(id,userId);return {data:{user},error:null};}}}},{from:()=>{throw new Error('No wishlist read expected.');}},[input.recipient],100);
   assert.deepEqual(await source(base).recipient(userId),{ok:true,email:input.recipient});
   for(const user of [{...base,email_confirmed_at:null},{...base,email:'other@example.test'},{...base,id:deliveryId}])
     assert.deepEqual(await source(user).recipient(userId),{ok:false});
+});
+
+test('favorites use the bearer-bound public client and both ownership-filtered tables, never the admin client',async()=>{
+  const calls=[];
+  const wishlist=createClient('https://project.example.test','sb_publishable_synthetic',{
+    auth:{persistSession:false,autoRefreshToken:false},accessToken:async()=>'synthetic-owner-token',
+    global:{fetch:async(url,init)=>{
+      const parsed=new URL(url),table=parsed.pathname.split('/').at(-1),column=table==='wishlists'?'trip_id':'package_id';
+      assert.equal(new Headers(init.headers).get('Authorization'),'Bearer synthetic-owner-token');
+      assert.equal(new Headers(init.headers).get('apikey'),'sb_publishable_synthetic');
+      assert.equal(parsed.searchParams.get('user_id'),'eq.'+userId);
+      assert.equal(parsed.searchParams.get('select'),column);
+      calls.push(table);
+      return Response.json(parsed.searchParams.has(column)?[]:[{[column]:'saved'}]);
+    }},
+  });
+  const identity={auth:{},from:()=>{throw new Error('Admin must not read favorites.');}};
+  const source=createEmailAccountSource(identity,wishlist,[input.recipient],1000);
+  assert.deepEqual(await source.favorites(userId),{ok:true,value:['package:saved','saved']});
+  assert.deepEqual(calls,['wishlists','wishlists','package_wishlists','package_wishlists']);
 });
 test('catalog loader refuses absent, stale, future, wrong-origin or wrong-environment manifests before sending',async()=>{
   const origin='https://preview.example.test',stamp='2026-10-24T00:00:00Z';

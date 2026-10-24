@@ -7,7 +7,7 @@ import type {Locale} from '../../../shared/config/languages.ts';
  * The same fixed Brevo key is reused throughout a window shorter than its
  * documented 30-minute deduplication TTL. No timers, automatic retry or Cron. */
 export function createSummaryTestHandler(options:{
-  sender:ReturnType<typeof createWishlistSummarySender>;
+  senderForBearer:(bearer:string)=>ReturnType<typeof createWishlistSummarySender>;
   verifyUser:(bearer:string)=>Promise<PreferenceUserResult>;
   userId:string;deliveryId:string;locale:Locale;
   allowedOrigin:string;createdAt:number;expiresAt:number;now:()=>number;bodyTimeoutMs:number;
@@ -46,7 +46,7 @@ export function createSummaryTestHandler(options:{
         }}finally{clearTimeout(timer);reader.releaseLock();}
       }
       if(options.now()>=options.expiresAt)return reply(410,{error:'test-expired'});
-      const result=await options.sender.sendForUser(user.userId,options.locale,options.deliveryId);
+      const result=await options.senderForBearer(bearer).sendForUser(user.userId,options.locale,options.deliveryId);
       return reply(result.status==='accepted'?200:result.status==='empty'?409:result.status==='deferred'?429:503,result);
     }catch{return reply(503,{status:'unknown'});}
   };

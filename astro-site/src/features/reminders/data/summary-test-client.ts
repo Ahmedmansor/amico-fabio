@@ -17,7 +17,13 @@ export function createSummaryTestClient(options:{service:Pick<AuthService,'beare
     try{
       const response=await fetcher(options.endpoint,{method:'POST',headers:{Authorization:`Bearer ${token.value}`},credentials:'omit',cache:'no-store',referrerPolicy:'no-referrer'});
       if(response.status===410)return 'expired';
-      if(!response.ok)return response.status===503?'unknown':'failed';
+      if(!response.ok){
+        if(response.status!==503)return 'failed';
+        const result=await response.json();
+        // A known pre-send block or explicit provider rejection is not an
+        // uncertain acceptance. Preserve unknown for transport/ambiguous cases.
+        return result?.status==='blocked'||result?.status==='rejected'?'failed':'unknown';
+      }
       const result=await response.json();return result?.status==='accepted'&&typeof result.messageId==='string'?'accepted':'unknown';
     }catch{return 'unknown';}
   }};
