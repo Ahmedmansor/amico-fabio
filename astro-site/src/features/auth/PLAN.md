@@ -2,7 +2,7 @@
 
 Created: 2026-10-23. English execution reference replacing the Arabic text.
 
-**Status (2026-10-24): Google Auth and tour/package favorites implemented. The three account tables and reviewed RLS/grants are applied on fabioEgypt; real disposable SQL ownership tests passed with ROLLBACK. The real Brevo summary test succeeded: the user found it in Gmail Promotions and confirmed its actual saved tours/packages. The one-job window is expired. The user then requested WhatsApp booking actions; local bilingual templates and previews now include them, without another email or deployment. The automatic 24-hour reminder pipeline remains pending.**
+**Status (2026-10-24): Google Auth and tour/package favorites implemented. The three account tables and reviewed RLS/grants are applied on fabioEgypt; real disposable SQL ownership tests passed with ROLLBACK. The first real Brevo summary test succeeded: the user found it in Gmail Promotions and confirmed its actual saved tours/packages. The user then approved a second test of the WhatsApp booking actions; version 3 of the test function is active with a fresh window ending 2026-10-24T18:02:33Z. Its manual dispatch/receipt is pending. The automatic 24-hour reminder pipeline remains pending.**
 This status records the approved one-off test only; it does not authorize new
 business features, production hosting changes, or broader email delivery.
 This document coordinates the phases. Its location in `auth` does not make
@@ -404,8 +404,9 @@ test site and restricted authenticated one-job function are now deployed. The
 button is enabled only in the ignored local .env.local; it remains absent from
 committed and hosting defaults. The authorized one-job window expired at
 2026-10-24T15:44:56Z after a real summary was delivered and confirmed by the
-user. WhatsApp booking actions are now implemented and verified locally; the
-deployed test function still has the previous template and expired job. See
+user. WhatsApp booking actions are implemented and verified locally, and the
+user-authorized version-3 test deployment now includes them. The second test
+window ends 2026-10-24T18:02:33Z; manual dispatch and receipt are pending. See
 ../../../qa/reminders/BREVO.md and the email-test function README. Durable
 reminder queue/allowance/suppression/unsubscribe remain unimplemented.
 

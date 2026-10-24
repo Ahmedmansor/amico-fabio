@@ -68,8 +68,10 @@ before any Brevo dispatch. Version 2 uses the caller's existing authenticated
 RLS for favorites reads; no service_role table privileges were added. Reload the
 local wishlist page before the next manual attempt.
 The requested IT/EN WhatsApp booking actions are prepared and checked in the
-local email templates. Preview them on port 4333; no second email or template
-deployment has occurred. A further test must use a fresh authorized job.
+local email templates. Preview them on port 4333. The user then approved a
+second test: function version 3 includes the CTA template, with a fresh ignored
+job expiring 2026-10-24T18:02:33Z. Refresh the signed-in local wishlist on port
+4322 and click once; dispatch and receipt are still pending.
 
 - Local Google Auth/profile/header is available on 4322. The user's server and
   signed-in browser were not stopped or signed out during isolated QA.

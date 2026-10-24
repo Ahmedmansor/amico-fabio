@@ -11,7 +11,7 @@ email-catalog-source.ts; presentation/send-wishlist-summary.ts composes them
 with domain/email.ts and the existing renderer. presentation/summary-test-handler.ts
 and supabase/functions/wishlist-email-test/ implement a restricted authenticated
 one-job test with expiry and stable provider idempotency. The dedicated test
-function is now deployed as version 2 on fabioEgypt.
+function is now deployed as version 3 on fabioEgypt.
 
 The public test flag defaults off. The wishlist route composes SummaryEmailTest
 through a named slot so wishlist does not depend on reminders (reminders already
@@ -115,7 +115,26 @@ restarting only that isolated server outside it made all cases pass.
 Rendering all 36 published catalog items produced 63,494 HTML bytes in Italian
 and 62,414 in English before provider rewriting; no card cap was introduced.
 The source package now includes 29 files and was prepared disabled for review.
-No updated function/site deployment or second email occurred for this change.
+The template was first prepared locally with no updated deployment or email.
 The local sample preview is http://127.0.0.1:4333/email-preview/summary-en.html
 (Italian: summary-it.html); its four public catalog examples are not the user's
 private favorites. Screenshot files remain local and ignored.
+
+### Second authorized test activation — 2026-10-24
+
+The user explicitly approved updating the test function and activating a second
+summary test for the same recipient/sender. The public Vercel test manifest was
+rechecked: HTTP 200, test environment, 36 items, expected origin, within its
+24-hour freshness limit. No website push or hosting-setting change occurred.
+
+The ignored job configuration now has a fresh delivery UUID and 20-minute
+window ending 2026-10-24T18:02:33Z (21:02 Cairo). Its private recipient/owner
+remain uncommitted. The 29-file package includes both localized CTA dictionaries,
+the updated renderer and shared WhatsApp configuration. Function version 3 is
+ACTIVE, with hash
+693f4180dece9af1fd865ddb9dbd28ee6d2bd3932f90325d6e65fbaf1812e756.
+Live smoke results: allowed-origin OPTIONS 204, anonymous POST 401, unapproved
+origin POST 403. No credentials were read or printed. Existing local public
+test flag/endpoint remain enabled. These probes do not send email; the signed-in
+user must refresh the local wishlist page and click once to dispatch the newly
+authorized test. Its Brevo acceptance and inbox appearance are still pending.

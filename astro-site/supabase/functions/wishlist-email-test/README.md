@@ -1,4 +1,4 @@
-# Restricted wishlist email test — original authorized job completed
+# Restricted wishlist email test — second authorized job active
 
 This entry exercises the real Brevo REST sender and local IT/EN template with
 all available favorites of the authenticated, authorized account. It is a
@@ -35,10 +35,11 @@ No Brevo SDK/dependency was installed; the transport uses fetch to the fixed
 https://api.brevo.com/v3/smtp/email endpoint. Sender must already be registered
 and verified in Brevo; that has not been independently checked.
 
-User authorized one test recipient and sender in the conversation. Their
-private recipient/UUID are not committed. The original job is stored only in the
-ignored .astro/reminder-email-test-job.json and expired at
-2026-10-24T15:44:56Z. The deployed function is version 2, ID
+User authorized one test recipient and sender in the conversation, and then
+explicitly approved a second test with the booking-action template. Their
+private recipient/UUID are not committed. The fresh job is stored only in the
+ignored .astro/reminder-email-test-job.json and expires at
+2026-10-24T18:02:33Z. The deployed function is version 3, ID
 9d386e74-962f-45a3-9c4e-b0b6509d9560. A new test after expiry requires a fresh
 delivery UUID, activation timestamp, packaging and deployment; never reuse an
 expired job as a new message. Example config stays disabled with placeholders.
@@ -80,8 +81,11 @@ and locks after one attempt per page load. Hosting defaults remain disabled.
 
 The real version-2 summary was Delivered by Brevo and found in Gmail Promotions;
 the user confirmed the favorites content. The initial job is now expired.
-The later WhatsApp booking-action template update is local only; it has not been
-deployed or sent in another test. Do not reuse the completed job for a new email.
+The later WhatsApp booking-action template is now deployed in version 3 for the
+second user-authorized test, with a fresh delivery ID and window. Live startup
+probes returned OPTIONS 204, anonymous POST 401 and unapproved-origin POST 403.
+These checks sent no email. The user must refresh the signed-in local wishlist
+and click once before expiry; second-test acceptance/receipt are not yet verified.
 
 No Cron, delivery queue, durable mail ledger, daily allowance, bounce/complaint
 webhooks, automatic-reminder sender or real unsubscribe is activated by this
