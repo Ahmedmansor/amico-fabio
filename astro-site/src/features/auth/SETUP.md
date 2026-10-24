@@ -48,9 +48,10 @@
   deployed verified endpoint are ready. See ../../../qa/reminders/README.md.
 - The composed Edge preference service is now prepared locally under
   ../../../supabase/functions/wishlist-email-preferences/. Its checked-in
-  configuration is explicitly disabled. A distributed counter schema and
-  disposable role tests are proposed but NOT APPLIED/RUN. Do not deploy or
-  enable the service without separate approval of scope and proposed limits.
+  configuration was explicitly approved and enabled on 2026-10-24. The counter
+  schema is applied, rollback role tests passed, and service version 1 is ACTIVE.
+  Live smoke checks passed: preflight 204, anonymous/invalid bearer 401, denied
+  origin 403. Authenticated saving from the website remains untested/unmounted.
   Current Node tests exercise real SDK calls against synthetic fetch responses;
   native Deno and live service checks remain. No Deno/CLI was installed.
 

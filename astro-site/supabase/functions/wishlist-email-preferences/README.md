@@ -79,3 +79,11 @@ References:
 - https://supabase.com/docs/guides/functions
 - https://supabase.com/docs/guides/getting-started/migrating-to-new-api-keys
 - https://supabase.com/docs/reference/javascript/auth-getuser
+
+## Activation 2026-10-24 supersedes the preparation notes above
+
+After explicit approval, counter schema and rollback tests passed and service
+version 1 deployed ACTIVE. Config is enabled with approved limits. Live preflight
+204, anonymous/invalid bearer 401 and denied-origin 403 passed. No authenticated
+CRUD, mail delivery or normal website binding is claimed. See
+../../../qa/reminders/PREFERENCES.md.

@@ -94,12 +94,12 @@ test('invalid limiter replies fail closed; missing configuration never supplies 
   assert.throws(()=>readPreferenceRuntimeConfig(key=>key==='REMINDER_PREFERENCE_ALLOWED_ORIGINS'?'http://remote.test':env[key]));
 });
 
-test('unapproved entry remains disabled without reading runtime secrets',async()=>{
+test('approved entry fails closed when injected Supabase bindings are absent',async()=>{
   const previous=globalThis.Deno;let handler,reads=0;
-  globalThis.Deno={env:{get(){reads++;throw new Error('Secret access not expected.');}},serve(value){handler=value;}};
+  globalThis.Deno={env:{get(){reads++;return undefined;}},serve(value){handler=value;}};
   try{
     await import('../../../../../supabase/functions/wishlist-email-preferences/index.mjs');
-    assert.equal(reads,0);assert.equal(typeof handler,'function');
+    assert.ok(reads>0);assert.equal(typeof handler,'function');
     const response=await handler(request());assert.equal(response.status,503);
     assert.deepEqual(await response.json(),{error:'unavailable'});
   }finally{if(previous===undefined)delete globalThis.Deno;else globalThis.Deno=previous;}

@@ -1,4 +1,4 @@
--- LOCAL REVIEW ONLY. NOT RUN. Requires disposable-write authorization after schema approval.
+-- Passed on fabioEgypt on 2026-10-24 after explicit disposable-write authorization.
 -- Two synthetic Auth UUIDs without email; all changes end in ROLLBACK.
 begin;
 do $$ begin

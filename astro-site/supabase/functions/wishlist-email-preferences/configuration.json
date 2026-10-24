@@ -1,6 +1,6 @@
 {
-  "status": "proposed-review-only-not-activated",
-  "enabled": false,
+  "status": "approved-2026-10-24",
+  "enabled": true,
   "REMINDER_PREFERENCE_ALLOWED_ORIGINS": "http://127.0.0.1:4322",
   "REMINDER_PREFERENCE_READ_LIMIT": "30",
   "REMINDER_PREFERENCE_READ_WINDOW_SECONDS": "60",

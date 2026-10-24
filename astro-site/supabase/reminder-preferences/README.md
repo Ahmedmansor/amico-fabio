@@ -49,3 +49,8 @@ Do not infer their approval from the earlier consent table activation.
 
 The prepared Edge service and proposed settings are in
 ../functions/wishlist-email-preferences/README.md. No function is deployed.
+
+Activation update 2026-10-24: rate schema and disposable tests were separately
+authorized and executed successfully. ROLLBACK left zero counter rows, RLS true,
+browser/anonymous SELECT and EXECUTE denied. Do not rerun rate-limit-schema.sql.
+See ../../qa/reminders/PREFERENCES.md; this supersedes proposal status above.

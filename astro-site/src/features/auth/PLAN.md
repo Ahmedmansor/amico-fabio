@@ -230,6 +230,15 @@ deploying. See supabase/functions/wishlist-email-preferences/README.md.
 Separate schema/test/deployment approval, native Edge compilation and live
 integration checks remain required. No Astro runtime API or SSR is introduced.
 
+Activation 2026-10-24 supersedes that local-only status: the user explicitly
+approved counter schema, rollback fixtures, 30 reads / 10 writes per minute
+per account and preference-service deployment. Counter role tests passed with
+zero rows afterward. wishlist-email-preferences version 1 is ACTIVE with
+in-function Auth verification. Live preflight/anonymous/invalid-token/origin
+smoke checks passed; authenticated website integration is not claimed. Email
+sending remains separate. The user then requested moving directly to Brevo
+sending implementation rather than further preference preparation.
+
 Review `../../../supabase/account-wishlist/README.md` and its prepared schema
 before remote execution. It covers only minimal profiles and account wishlists;
 consent storage is applied; delivery entities remain proposals. `trip_id` references the

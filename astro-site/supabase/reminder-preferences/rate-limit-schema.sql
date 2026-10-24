@@ -1,4 +1,4 @@
--- LOCAL REVIEW ONLY. NOT APPLIED. Requires separate remote-write authorization.
+-- Applied to fabioEgypt on 2026-10-24 after explicit authorization. Do not rerun.
 -- Operational counters only. No email sender, queue or Cron.
 begin;
 create table public.wishlist_preference_rate_limits (

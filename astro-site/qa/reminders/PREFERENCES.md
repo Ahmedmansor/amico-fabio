@@ -143,3 +143,28 @@ controls before Auth verification and project budgets still need launch review.
 Actual final checks: npm test — 162 Node tests passed, 0 failed; 16 Vitest files /
 142 tests passed. npx astro check — 292 files, 0 errors/warnings/hints. Static
 build — 94 pages in 5.53s, Complete. No new dependency or version change.
+
+## Authorized activation — 2026-10-24 (supersedes local-only status)
+
+The user explicitly approved the counter schema, disposable tests and service
+deployment at 30 reads/10 writes per minute/account. Schema applied. Actual SQL
+output: Rate role assertions reached; ROLLBACK follows. Follow-up: RLS true,
+counter rows 0, browser/anon SELECT false; RPC SECURITY INVOKER, anon/browser
+EXECUTE false, service EXECUTE true.
+
+wishlist-email-preferences version 1 deployed ACTIVE, verify_jwt=false with
+in-function getUser. Deployment id 71f36c77-979c-4e8e-a79d-9f2fff850b1c.
+Live smoke: OPTIONS 204 with allowed CORS; anonymous GET 401; denied origin 403
+without CORS; synthetic invalid bearer GET 401. Runtime startup/native loading
+and rejection paths passed; authenticated preference CRUD is not claimed.
+Reproduce: node qa/reminders/verify-preference-service.mjs. No real session was
+read and no email sent. The normal website control remains unmounted.
+
+Advisor: three INFO rls_enabled_no_policy notices intentionally correspond to
+backend-only tables without browser grants; existing leaked-password warning
+unchanged. References remain in the earlier evidence above.
+The user requested moving next to Brevo sender implementation, not repeating
+preference scaffolding. Authorized test recipient/sender are pending.
+Activation project checks: 162 Node tests and 142 Vitest tests passed; Astro
+check 293 files with zero errors/warnings/hints; static build 94 pages in 7.86s,
+Complete. No site push/deployment or email was performed during activation.
