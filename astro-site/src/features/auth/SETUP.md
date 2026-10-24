@@ -13,11 +13,10 @@
 - Ignored .env.local now sets PUBLIC_WISHLIST_ACCOUNT_SYNC_ENABLED=1. The actual
   4322 page exposes the bootstrap, and real anonymous REST returns 401 on all
   three account tables. Committed defaults and hosting variables stay off.
-- Final user integration check: sign in through Google on 4322, save a tour
-  and package, open a separate browser/profile at the same origin and sign into
-  the same Google account, confirm both restore, then verify a removal after
-  focus/refresh. A different account must show only its own list. The agent has
-  not accessed the user's browser session or claimed this manual check passed.
+- User confirmed real synchronization works on 2026-10-24: favorites restore
+  across browsers, removals propagate after refresh, and duplicate guest items
+  do not create duplicates on login. This is user-reported integration evidence;
+  the agent has not extracted or accessed the user's session.
 - Email/reminders remain off; no mail was sent, no hosting/provider setting
   changed, and no deployment occurred. Evidence: ../../../qa/wishlist/LIVE_SYNC.md.
 

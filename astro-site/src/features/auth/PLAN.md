@@ -44,8 +44,8 @@ flowchart TD
 The account database path is now applied on the real project under the user's
 2026-10-24 authorization. Disposable authenticated/anonymous SQL role tests
 passed and rolled back. Live anonymous REST denies access to all three account
-tables (401). The user's local sync flag is enabled; real Google cross-browser
-save/restore testing is still to be performed by the user. No real user session
+tables (401). The user's local sync flag is enabled; the user confirmed real
+cross-browser save/restore/removal and duplicate merging work on 2026-10-24. No real user session
 or access token was read by the agent. See ../../../qa/wishlist/LIVE_SYNC.md.
 Auth owns identity/session access; wishlist owns persistence/merge; shared code
 provides a single neutral browser SDK connection. There is no Astro SSR/server
@@ -310,12 +310,18 @@ Do not enable a new browser feature merely because the public key can reach it.
 - Monitor accepted/rejected requests, sends, bounces, and allowance consumption
   without logging secrets, sign-in links, or tokens.
 
-## 8. Published catalog manifest: `tours-manifest.json`
+## 8. Published catalog manifest: `tours-manifest.json` — implemented locally
 
 Generate a public static JSON file during Astro build through the tours feature's
 data functions. Do not access another feature's provider directly or include user data.
 
-Proposed contents:
+Implemented 2026-10-24: static endpoint assembled through reminders/data using
+getTrips()/getPackages(), with a pure validated domain contract and tests.
+Includes tours and packages, with distinct identity namespaces. Default and
+explicit noindex test builds were checked against all 72 corresponding HTML
+pages and generated JPEG files. No deployment or sender is implied.
+
+Contents:
 
 - `schema_version`, `generated_at`, and a build/release identifier if available.
 - Final price and currency `EUR`, preserving explicit zero.
@@ -472,7 +478,8 @@ The user confirmed on 2026-10-23:
 
 Still to define before the relevant implementation/release phase:
 
-1. User's authenticated cross-browser Google sync check after local activation.
+1. Google account sync was confirmed working by the user on 2026-10-24; preserve
+   the distinction between user-reported browser results and automated role tests.
 2. Activate email sign-in only after the existing Magic Link UI/callback's backend
    protection and sending settings are reviewed; the callback code is implemented.
 3. Define reminder eligibility, cooldown/re-addition, account deletion, and retention.
