@@ -142,3 +142,20 @@ and opening its per-item WhatsApp action with the correct package title and URL.
 This is user-reported integration evidence; no additional provider message ID,
 delivery timestamp or inbox-client test was collected. This bounded test does
 not activate the automatic 24-hour reminder pipeline.
+
+### Page locale and immutable test jobs — local only, 2026-10-25
+
+The browser can pass page locale through the full summary path with the new
+default-off `PUBLIC_WISHLIST_EMAIL_TEST_PAGE_LOCALE_ENABLED` protocol. The handler
+validates a 256-byte JSON allowlist, rejects arbitrary owner/recipient/consent/job
+fields and confirms accepted locale. Each approved test job keeps one immutable
+language/key; a different locale gets 409 without dispatch, preserving provider
+deduplication. Legacy clients keep their configured-job language. Deployed v3/CORS
+and its expired window are unchanged. In page-locale mode, old/wrong-language
+success responses are unknown, not a language-specific acceptance claim.
+
+20 targeted Node tests passed, including local client -> handler -> actual
+renderer/delivery spy for IT/EN subjects, tour/package URLs and WhatsApp wording.
+Astro check: 337 files, 0 errors/warnings/hints. Build: 94 pages in 10.64s.
+The 29-file disabled package was prepared without keys, upload, job renewal or
+external email. These are synthetic checks, not another inbox test.

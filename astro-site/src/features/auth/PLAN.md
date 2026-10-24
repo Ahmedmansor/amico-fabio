@@ -412,6 +412,12 @@ Current gaps: the protected HTTP endpoint and live browser flag are not
 activated; actual overlapping-connection testing remains pending. Both email templates exist, but the restricted
 test job currently fixes `locale: 'en'`; changing the site to Italian does not yet
 change that test email. Real preference UI is not mounted in WishlistPage.
+Local requested-summary continuation (2026-10-25) validates a page-locale-only
+payload and confirms language in the response, behind default-off
+`PUBLIC_WISHLIST_EMAIL_TEST_PAGE_LOCALE_ENABLED`. The restricted test rejects a
+different configured job language to preserve one immutable delivery identity.
+General immediate mail must bind each new job to request language. Deployed v3
+and its expired window are unchanged; no new external mail was sent.
 
 References: [database functions](https://supabase.com/docs/guides/database/functions),
 [keepalive delivery limits](https://developer.mozilla.org/en-US/docs/Web/API/Request/keepalive),

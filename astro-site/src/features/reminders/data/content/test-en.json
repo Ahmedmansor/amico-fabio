@@ -6,5 +6,6 @@
   "accepted": "Brevo accepted the email. Check your inbox and spam folder.",
   "failed": "The test email could not be sent. Check that you are using the approved test account.",
   "unknown": "The sending result could not be confirmed. Check your inbox before trying again.",
-  "expired": "This test has expired. A new authorized test is needed."
+  "expired": "This test has expired. A new authorized test is needed.",
+  "localeUnavailable": "This test window uses another language. A new authorized test is needed for the selected language."
 }

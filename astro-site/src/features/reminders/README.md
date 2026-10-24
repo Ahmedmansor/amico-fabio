@@ -9,6 +9,11 @@ The approved, pending locale/request contract is in
 [PLAN.md section 6.1](../auth/PLAN.md#61-approved-language-and-request-contract--2026-10-24).
 IT/EN templates exist; the current restricted test job fixes English, so changing
 the website language does not yet change that email.
+Local continuation carries page locale through the summary test behind
+`PUBLIC_WISHLIST_EMAIL_TEST_PAGE_LOCALE_ENABLED=0`. Its one approved job language
+must match; another language requires a fresh authorized job, never a different
+message under the same delivery ID. This protocol is not deployed. See
+[test service details](../../../supabase/functions/wishlist-email-test/README.md).
 
 Edit these files:
 - `data/content/it.json` and `en.json`: subject lines and all visible copy.

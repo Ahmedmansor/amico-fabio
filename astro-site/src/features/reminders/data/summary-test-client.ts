@@ -1,6 +1,7 @@
 import type {AuthService} from '../../auth/data/service.ts';
 import type {AuthConfig} from '../../auth/data/config.ts';
 import {createPreferenceFetch} from './preference-runtime-config.ts';
+import {isLocale,type Locale} from '../../../shared/config/languages.ts';
 export function readSummaryTestEndpoint(env:Record<string,unknown>,auth:AuthConfig|null):string|null {
   if(env.PUBLIC_WISHLIST_EMAIL_TEST_ENABLED===undefined||env.PUBLIC_WISHLIST_EMAIL_TEST_ENABLED===''||env.PUBLIC_WISHLIST_EMAIL_TEST_ENABLED==='0')return null;
   if(env.PUBLIC_WISHLIST_EMAIL_TEST_ENABLED!=='1'||!auth)throw new Error('[wishlist-email] Explicit Auth-enabled test configuration required.');
@@ -10,13 +11,22 @@ export function readSummaryTestEndpoint(env:Record<string,unknown>,auth:AuthConf
   if(url.href!==`${auth.url}/functions/v1/wishlist-email-test`)throw new Error('[wishlist-email] Test endpoint must use the configured Supabase project.');
   return url.href;
 }
-export function createSummaryTestClient(options:{service:Pick<AuthService,'bearerFor'>;endpoint:string;fetcher:typeof fetch;timeoutMs:number;maxResponseBytes:number}){
+export function readSummaryPageLocaleFlag(env:Record<string,unknown>):boolean {
+  const flag=env.PUBLIC_WISHLIST_EMAIL_TEST_PAGE_LOCALE_ENABLED;
+  if(flag===undefined||flag===''||flag==='0')return false;
+  if(flag!=='1')throw new Error('[wishlist-email] Page locale flag must be 0 or 1.');
+  return true;
+}
+export function createSummaryTestClient(options:{service:Pick<AuthService,'bearerFor'>;endpoint:string;fetcher:typeof fetch;timeoutMs:number;maxResponseBytes:number;requestLocaleEnabled?:boolean}){
   const fetcher=createPreferenceFetch(options.fetcher,options.timeoutMs,options.maxResponseBytes);
-  return {async send(userId:string):Promise<'accepted'|'unknown'|'failed'|'expired'>{
+  return {async send(userId:string,locale:Locale):Promise<'accepted'|'unknown'|'failed'|'expired'|'localeUnavailable'>{
+    if(!isLocale(locale))return 'failed';
     const token=await options.service.bearerFor(userId);if(!token.ok)return 'failed';
     try{
-      const response=await fetcher(options.endpoint,{method:'POST',headers:{Authorization:`Bearer ${token.value}`},credentials:'omit',cache:'no-store',referrerPolicy:'no-referrer'});
+      const response=await fetcher(options.endpoint,{method:'POST',headers:{Authorization:`Bearer ${token.value}`,...(options.requestLocaleEnabled?{'Content-Type':'application/json'}:{})},
+        ...(options.requestLocaleEnabled?{body:JSON.stringify({locale})}:{}),credentials:'omit',cache:'no-store',referrerPolicy:'no-referrer'});
       if(response.status===410)return 'expired';
+      if(response.status===409){const result=await response.json();return result?.error==='job-locale-mismatch'?'localeUnavailable':'failed';}
       if(!response.ok){
         if(response.status!==503)return 'failed';
         const result=await response.json();
@@ -24,7 +34,8 @@ export function createSummaryTestClient(options:{service:Pick<AuthService,'beare
         // uncertain acceptance. Preserve unknown for transport/ambiguous cases.
         return result?.status==='blocked'||result?.status==='rejected'?'failed':'unknown';
       }
-      const result=await response.json();return result?.status==='accepted'&&typeof result.messageId==='string'?'accepted':'unknown';
+      const result=await response.json();return result?.status==='accepted'&&typeof result.messageId==='string'
+        &&(!options.requestLocaleEnabled||result.locale===locale)?'accepted':'unknown';
     }catch{return 'unknown';}
   }};
 }

@@ -106,6 +106,12 @@ that test. Preference UI is not mounted. Google Auth/account sync are local-only
 the static Vercel test catalog exists but its Auth flags/redirects are not enabled.
 Production remains static GitHub Pages. Do not introduce middleware or SSR.
 
+Local page-locale email protocol is prepared behind
+`PUBLIC_WISHLIST_EMAIL_TEST_PAGE_LOCALE_ENABLED=0`; leave it off for deployed v3.
+Its locale-aware handler and a fresh approved job/window must be deployed before
+a real IT/EN sending check. Each restricted job has one immutable locale/key.
+No external email, renewal or provider change occurred in this continuation.
+
 ## Previous handoff — 2026-10-23 (historical; superseded above)
 
 - Local Google Auth/profile/header is available on 4322. The user's server and

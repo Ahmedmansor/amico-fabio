@@ -1,4 +1,4 @@
-# Restricted wishlist email test — second authorized job active
+# Restricted wishlist email test — deployed job expired, locale source prepared
 
 This entry exercises the real Brevo REST sender and local IT/EN template with
 all available favorites of the authenticated, authorized account. It is a
@@ -11,8 +11,13 @@ requested summary, not automatic reminder enrollment or a scheduled campaign.
   publishable client and the verified caller's bearer, so ownership RLS applies.
   The admin client never reads wishlist tables. No recipient, favorite IDs, subject or HTML comes
   from the browser request.
-- The test body must be empty; empty POST streams are supported with a bounded
-  read deadline. CORS alone is never authorization.
+- Deployed v3 accepts an empty body and uses its configured English language.
+  New local source also accepts only `{locale: 'it' | 'en'}` as JSON, capped at
+  256 bytes with a deadline. It rejects recipient/owner/consent/job fields and
+  unsupported languages. Empty streams retain legacy behavior. CORS is not Auth.
+- One restricted job has one immutable language/key. A different request language
+  returns 409 without contacting the sender. A fresh approved Italian job can
+  test an Italian page; a language switch never creates another delivery.
 - A fixed delivery UUID is sent as Brevo headers.idempotencyKey. The authorized
   job expires in 20 minutes, inside Brevo's documented 30-minute TTL. A dispatch
   guard rechecks the window immediately before the provider call. Expired jobs
@@ -84,8 +89,22 @@ the user confirmed the favorites content. The initial job is now expired.
 The later WhatsApp booking-action template is now deployed in version 3 for the
 second user-authorized test, with a fresh delivery ID and window. Live startup
 probes returned OPTIONS 204, anonymous POST 401 and unapproved-origin POST 403.
-These checks sent no email. The user must refresh the signed-in local wishlist
-and click once before expiry; second-test acceptance/receipt are not yet verified.
+These checks sent no email. The user subsequently confirmed the new email and
+correct per-item WhatsApp text/URL. The second window is now expired; do not renew
+it or send another message without the required authorization.
+
+## Page-language protocol — local continuation, 2026-10-25
+
+`PUBLIC_WISHLIST_EMAIL_TEST_PAGE_LOCALE_ENABLED=0` preserves v3 compatibility:
+empty body, existing preflight and configured-job language. The deployed endpoint
+has not changed. Enable the new protocol only with its deployed handler and a
+fresh approved job/window. Enabled clients send only page locale and require its
+echo on acceptance; old/wrong-language acknowledgements remain unknown. A job in
+another language has a distinct IT/EN UI message. A general requested-summary
+service must bind each new job to validated request locale; this restricted test
+is not that public service. Delayed reminders use stored correspondence locale.
+The disabled 29-file package was prepared; no secrets, job renewal, upload,
+deployment or external email occurred. See qa/reminders/BREVO.md for test results.
 
 No Cron, delivery queue, durable mail ledger, daily allowance, bounce/complaint
 webhooks, automatic-reminder sender or real unsubscribe is activated by this

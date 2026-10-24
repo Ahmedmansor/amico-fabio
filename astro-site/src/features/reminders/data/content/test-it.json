@@ -6,5 +6,6 @@
   "accepted": "Brevo ha accettato l’email. Controlla la posta in arrivo e lo spam.",
   "failed": "Non è stato possibile inviare l’email di prova. Verifica di usare l’account di prova autorizzato.",
   "unknown": "Non è stato possibile confermare l’invio. Controlla la posta prima di riprovare.",
-  "expired": "Questo test è scaduto. È necessario un nuovo test autorizzato."
+  "expired": "Questo test è scaduto. È necessario un nuovo test autorizzato.",
+  "localeUnavailable": "Questa finestra di prova usa un’altra lingua. Per la lingua selezionata è necessario un nuovo test autorizzato."
 }

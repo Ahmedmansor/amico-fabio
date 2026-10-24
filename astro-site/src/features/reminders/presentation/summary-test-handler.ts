@@ -1,7 +1,7 @@
 import type {createWishlistSummarySender} from './send-wishlist-summary.ts';
 import type {PreferenceUserResult} from './preferences-handler.ts';
 import {isPreferenceRequestId} from '../domain/preferences.ts';
-import type {Locale} from '../../../shared/config/languages.ts';
+import {isLocale,type Locale} from '../../../shared/config/languages.ts';
 
 /** One explicitly authorized test job, never a general public email endpoint.
  * The same fixed Brevo key is reused throughout a window shorter than its
@@ -13,6 +13,7 @@ export function createSummaryTestHandler(options:{
   allowedOrigin:string;createdAt:number;expiresAt:number;now:()=>number;bodyTimeoutMs:number;
 }){
   if(!isPreferenceRequestId(options.userId)||!isPreferenceRequestId(options.deliveryId)
+    ||!isLocale(options.locale)
     ||!Number.isFinite(options.createdAt)||!Number.isFinite(options.expiresAt)
     ||options.expiresAt<=options.createdAt||options.expiresAt-options.createdAt>=30*60*1000)
     throw new Error('[wishlist-email] Explicit bounded test job required.');
@@ -25,7 +26,7 @@ export function createSummaryTestHandler(options:{
     if(origin&&origin!==options.allowedOrigin)return reply(403,{error:'origin-denied'});
     if(origin)headers.set('Access-Control-Allow-Origin',origin);
     headers.set('Access-Control-Allow-Methods','POST, OPTIONS');
-    headers.set('Access-Control-Allow-Headers','Authorization, apikey');
+    headers.set('Access-Control-Allow-Headers','Authorization, Content-Type, apikey');
     if(request.method==='OPTIONS')return new Response(null,{status:204,headers});
     if(request.method!=='POST')return reply(405,{error:'method-not-allowed'});
     const time=options.now();
@@ -36,18 +37,38 @@ export function createSummaryTestHandler(options:{
       const user=await options.verifyUser(bearer);
       if(!user.ok)return reply(user.reason==='unavailable'?503:401,{error:user.reason});
       if(user.userId!==options.userId)return reply(403,{error:'account-not-allowed'});
-      // Some runtimes expose an empty POST as a readable stream. Accept only
-      // zero bytes, with a deadline; never accept a browser-selected recipient.
+      // Empty requests retain the configured language for older clients. New
+      // clients may choose only a supported locale, never an owner/recipient/job.
+      let locale=options.locale;
       if(request.body){
-        const reader=request.body.getReader();let expired=false;
+        const reader=request.body.getReader();let expired=false,size=0,text='';
+        const decoder=new TextDecoder('utf-8',{fatal:true});
         const timer=setTimeout(()=>{expired=true;void reader.cancel().catch(()=>{});},options.bodyTimeoutMs);
         try{while(true){const part=await reader.read();if(expired)return reply(408,{error:'request-timeout'});
-          if(part.done)break;if(part.value.byteLength){void reader.cancel().catch(()=>{});return reply(400,{error:'body-not-allowed'});}
-        }}finally{clearTimeout(timer);reader.releaseLock();}
+          if(part.done)break;size+=part.value.byteLength;
+          if(size>256){void reader.cancel().catch(()=>{});return reply(413,{error:'body-too-large'});}
+          text+=decoder.decode(part.value,{stream:true});
+        }
+          text+=decoder.decode();
+          if(size){
+            if(request.headers.get('content-type')?.split(';')[0].trim()!=='application/json')return reply(415,{error:'json-required'});
+            const body=JSON.parse(text);
+            if(!body||typeof body!=='object'||Array.isArray(body)||Object.keys(body).length!==1||!isLocale(body.locale))
+              return reply(400,{error:'invalid-locale'});
+            locale=body.locale;
+          }
+        }catch{return reply(expired?408:400,{error:expired?'request-timeout':'invalid-locale'});}
+        finally{clearTimeout(timer);reader.releaseLock();}
       }
       if(options.now()>=options.expiresAt)return reply(410,{error:'test-expired'});
-      const result=await options.senderForBearer(bearer).sendForUser(user.userId,options.locale,options.deliveryId);
-      return reply(result.status==='accepted'?200:result.status==='empty'?409:result.status==='deferred'?429:503,result);
+      // This endpoint represents ONE immutable test job. Its delivery key must
+      // never acknowledge a different locale after provider deduplication.
+      // A new authorized language test gets a new job configured in that locale.
+      if(locale!==options.locale)return reply(409,{error:'job-locale-mismatch',locale:options.locale});
+      // Switching language never creates another job or bypasses its fixed key.
+      const result=await options.senderForBearer(bearer).sendForUser(user.userId,locale,options.deliveryId);
+      return reply(result.status==='accepted'?200:result.status==='empty'?409:result.status==='deferred'?429:503,
+        result.status==='accepted'?{...result,locale}:result);
     }catch{return reply(503,{status:'unknown'});}
   };
 }
