@@ -1,7 +1,8 @@
-# Account locale Edge service — disabled local package
+# Account locale Edge service — local integration activated
 
-`configuration.json` has `enabled=false`; no function is deployed by preparing
-these files. The [storage migration](../../account-locale/README.md) is already
+On 2026-10-25 the user approved deployment and local activation. The function is
+ACTIVE v1 on fabioEgypt, with only `http://127.0.0.1:4322` allowed. Preparing these
+files alone does not deploy them. The [storage migration](../../account-locale/README.md) is already
 applied/role-tested. No Astro API route, SSR or application server is introduced.
 
 GET returns a coherent site/email-language/revision snapshot. PATCH changes only

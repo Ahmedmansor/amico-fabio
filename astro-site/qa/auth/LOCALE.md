@@ -1,5 +1,36 @@
 # Account language persistence — local implementation checkpoint
 
+## Authorized local activation — 2026-10-25
+
+This checkpoint supersedes historical disabled/undeployed statements below.
+User approved deployment and local enablement. `account-locale` is ACTIVE v1,
+13 explicit packaged files, in-function remote Auth verification, allowed origin
+`http://127.0.0.1:4322`. Deployment digest:
+`531b003f8ca81834e131d3cc9061b51b526222fca52517ab89fa8cb03275007a`.
+
+Actual live smoke output:
+
+```text
+preflight     204  allow-origin http://127.0.0.1:4322
+anonymous     401  unauthenticated
+invalid-token 401  unauthenticated
+denied-origin 403  origin-denied; no allow-origin header
+```
+
+Ignored local environment flag enabled; committed browser defaults and hosting
+flags remain off. Restarted the verified existing Astro server on port 4322.
+Both `/en/wishlist/` and `/it/wishlist/` returned 200 with locale settings markup
+and the correct endpoint. No real bearer/session was read, no authenticated
+mutation or email was made by the smoke checks. Real account persistence remains
+the user's next check. Without an existing email-preferences record the UI shows
+an explanation instead of creating a subscription or language preference row.
+
+Final checks: 244 Node tests passed; 19 Vitest files / 158 tests passed; Astro
+350 files with 0 errors/warnings/hints; build 94 pages complete in 14.96s.
+The entry smoke unit test now covers activated configuration with unavailable
+runtime bindings (503), replacing its historical disabled-config assumption.
+Official runtime/Auth reference reviewed: https://supabase.com/docs/guides/functions/auth.
+
 Local policy/service/repository implemented; remote SQL is applied and role-tested
 after separate approval. Browser integration is not activated. No email,
 deployment, dependency or provider change.

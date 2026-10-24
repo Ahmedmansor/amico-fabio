@@ -106,12 +106,12 @@ test('untrusted endpoint and configuration cannot silently become a production f
     assert.throws(()=>createLocaleClient({...options,endpoint:bad}));
   assert.throws(()=>createLocaleHandler({...fixture().options,allowedOrigins:['*']}));
 });
-test('disabled Edge entry fails closed without reading runtime keys',async()=>{
+test('activated Edge entry fails closed when runtime bindings are unavailable',async()=>{
   const previous=globalThis.Deno;let reads=0,handler;
-  globalThis.Deno={env:{get(){reads++;throw new Error('Must not read.');}},serve(value){handler=value;}};
+  globalThis.Deno={env:{get(){reads++;return undefined;}},serve(value){handler=value;}};
   try{
     await import('../../../../../supabase/functions/account-locale/index.mjs');
-    assert.equal(reads,0);
+    assert.ok(reads>0);
     assert.equal((await handler(new Request(endpoint))).status,503);
   }finally{if(previous===undefined)delete globalThis.Deno;else globalThis.Deno=previous;}
 });

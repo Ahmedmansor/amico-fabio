@@ -1,6 +1,6 @@
 {
-  "status": "local-review-not-deployed",
-  "enabled": false,
+  "status": "authorized-local-integration",
+  "enabled": true,
   "REMINDER_PREFERENCE_ALLOWED_ORIGINS": "http://127.0.0.1:4322",
   "REMINDER_PREFERENCE_READ_LIMIT": "30",
   "REMINDER_PREFERENCE_READ_WINDOW_SECONDS": "60",

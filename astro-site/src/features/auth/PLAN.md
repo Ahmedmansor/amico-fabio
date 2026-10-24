@@ -10,6 +10,11 @@ wishlists or reminder delivery responsibilities of the Auth feature.
 
 ### Current continuation checkpoint — 2026-10-25
 
+- Later activation: user approved deploying `account-locale` and enabling only
+  the ignored local flag. ACTIVE v1 passed live preflight/anonymous/invalid-token/
+  denied-origin checks (204/401/401/403). The local 4322 server was restarted.
+  This supersedes the undeployed status above; real signed-in saving is the next
+  user check. Consent, automatic sending and hosting flags remain off.
 - Shared verified account restoration avoids duplicate initial browser Auth
   verification for the header, favorites and reminder controls. Backend identity
   verification and RLS remain required independently.

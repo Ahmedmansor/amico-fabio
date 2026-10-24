@@ -2,6 +2,13 @@
 
 ## Latest checkpoint — 2026-10-25
 
+Later user-approved activation: `account-locale` is now ACTIVE v1, local origin
+4322 only. `PUBLIC_ACCOUNT_LOCALE_ENABLED=1` is set only in ignored `.env.local`;
+committed browser defaults remain off. Live smoke checks returned 204 for
+preflight, 401 for missing/invalid bearer and 403 for denied origin. The local
+Astro server was restarted to pick up the flag. Real account saving remains a
+user integration check. This supersedes the undeployed status below.
+
 This checkpoint supersedes historical pending/unmounted statements below.
 The approved locale schema is applied and real rollback role tests passed;
 `account-locale` HTTP source/package and account settings remain disabled and
