@@ -216,6 +216,22 @@ account identity through a trusted backend path.
 
 ## 7. Security and Auth
 
+**Required RLS review before release — user request, 2026-10-24.** The browser's
+Supabase publishable key (the modern alternative to the legacy anon key) is
+public and can be copied from the generated website. Hiding it is not an access
+control. Never expose service-role/secret keys; enforce access through explicit
+grants and RLS on every table exposed through the Data API.
+
+Current status: catalog RLS is implemented; profiles, wishlists and
+package_wishlists ownership RLS is applied and its real role tests passed.
+This is an ongoing release requirement, not an unimplemented initial RLS task.
+Before release and after any permission/schema change, verify anonymous access
+is limited to published catalog data, account rows are restricted by auth.uid(),
+and cross-account reads/writes are denied. Review column grants as well as row
+policies. New consent, suppression and email queue/log tables must receive their
+own reviewed access rules before exposure; deny browser access unless needed.
+Do not enable a new browser feature merely because the public key can reach it.
+
 - Enable RLS on user tables; target policies to `authenticated` with ownership predicates.
 - Grant only required operations/columns. Do not expose unrestricted updates to
   consent timestamps, delivery stages, recipient email, or suppression records.
