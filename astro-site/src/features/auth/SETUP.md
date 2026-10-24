@@ -17,8 +17,9 @@
   across browsers, removals propagate after refresh, and duplicate guest items
   do not create duplicates on login. This is user-reported integration evidence;
   the agent has not extracted or accessed the user's session.
-- Email/reminders remain off; no mail was sent, no hosting/provider setting
-  changed, and no deployment occurred. Evidence: ../../../qa/wishlist/LIVE_SYNC.md.
+- Account synchronization evidence: ../../../qa/wishlist/LIVE_SYNC.md.
+  Restricted summary email sending was subsequently activated and received;
+  automatic reminders remain off. See the email handoff below.
 - Email preparation now includes /tours-manifest.json for published tours and
   packages and local IT/EN summary/reminder templates with inline styles and
   plain text. Preview source and regeneration: ../reminders/README.md. Preview
@@ -27,35 +28,35 @@
   Timing/re-addition policy was approved on
   2026-10-24: 24h after max(last real addition, consent), one reminder only;
   empty list cancels and re-addition before the first send restarts waiting.
-  Operational
-  caps, real consent/unsubscribe service, approved sender/footer details and a
-  permitted test recipient remain gates before real mail delivery.
+  Durable scheduling, quota controls, unsubscribe/suppression and final release
+  review remain gates for automatic reminders. Sender and one restricted test
+  recipient were approved for the summary test, not general customer sending.
 - Reminder preferences now have a local backend service/repository, remote
   getUser-based Auth verifier and portable HTTP handler (explicit origins,
-  bounded JSON, verified ownership). This is not a deployed Edge Function.
+  bounded JSON, verified ownership). Its Edge composition is deployed below.
   Two tables + service-role-only atomic RPC were separately authorized and
   applied on 2026-10-24; rollback role tests passed and left zero records.
   Source: ../../../supabase/reminder-preferences/; evidence: ../../../qa/reminders/PREFERENCES.md.
-  Future deployment requires approved backend scope, secret storage, runtime
-  request/rate limits and real role/integration tests before showing live opt-in.
+  Authenticated website integration remains required before showing live opt-in.
 - The browser HTTP client and account-aware preference controller are prepared
   and tested locally. They reject malformed confirmations, isolate late replies
   after account changes and preserve request identity on explicit retries. They
-  are not mounted, do not call a live endpoint and never store bearer tokens or
+  are not mounted in the actual wishlist and never store bearer tokens or
   consent in localStorage. The draft opt-in component/binder is implemented and
-  browser-tested in isolation; real Auth binding/Edge deployment remain work.
+  browser-tested in isolation; real website Auth binding remains work.
   Do not mount or enable it before approved wording, runtime controls and a
   deployed verified endpoint are ready. See ../../../qa/reminders/README.md.
 - The composed Edge preference service is now prepared locally under
   ../../../supabase/functions/wishlist-email-preferences/. Its checked-in
   configuration was explicitly approved and enabled on 2026-10-24. The counter
-  schema is applied, rollback role tests passed, and service version 1 is ACTIVE.
+  schema is applied, rollback role tests passed, and service version 2 is ACTIVE.
   Live smoke checks passed: preflight 204, anonymous/invalid bearer 401, denied
   origin 403. Authenticated saving from the website remains untested/unmounted.
   Current Node tests exercise real SDK calls against synthetic fetch responses;
-  native Deno and live service checks remain. No Deno/CLI was installed.
+  local native Deno checks were not run; deployed startup/smoke checks are real.
+  No Deno/CLI was installed.
 
-## Previous handoff — 2026-10-23 (superseded by activation above)
+## Current restricted email handoff — 2026-10-24
 
 Email update 2026-10-24: the authorized test deployment and restricted
 wishlist-email-test Edge Function are active. The ignored local .env.local
@@ -66,12 +67,29 @@ in Gmail Promotions. The original one-job window is expired. Follow
 The first authenticated attempt was blocked by wishlist SELECT permission
 before any Brevo dispatch. Version 2 uses the caller's existing authenticated
 RLS for favorites reads; no service_role table privileges were added. Reload the
-local wishlist page before the next manual attempt.
+local wishlist page when testing an authorized active job.
 The requested IT/EN WhatsApp booking actions are prepared and checked in the
-local email templates. Preview them on port 4333. The user then approved a
+local email templates. Preview generation is documented in reminders/README.md;
+an earlier preview used port 4333, which is not a guaranteed running server.
+The user then approved a
 second test: function version 3 includes the CTA template, with a fresh ignored
-job expiring 2026-10-24T18:02:33Z. Refresh the signed-in local wishlist on port
-4322 and click once; dispatch and receipt are still pending.
+job configured to expire 2026-10-24T18:02:33Z. The user subsequently confirmed
+receipt of the updated email and the correct per-item WhatsApp booking message.
+This is user-reported integration evidence, not a new provider-log inspection.
+Do not extend the job or send another email without its required authorization.
+
+## Approved locale continuation — not implemented
+
+The canonical contract is [PLAN.md section 6.1](PLAN.md#61-approved-language-and-request-contract--2026-10-24).
+It separates page URL, profile language and follow-site/explicit correspondence
+language; documents atomic ownership-verified writes, ordering/retries and realistic
+request costs. No locale migration or endpoint was activated by documenting it.
+The current test job fixes English; switching to Italian does not yet localize
+that test. Preference UI is not mounted. Google Auth/account sync are local-only;
+the static Vercel test catalog exists but its Auth flags/redirects are not enabled.
+Production remains static GitHub Pages. Do not introduce middleware or SSR.
+
+## Previous handoff — 2026-10-23 (historical; superseded above)
 
 - Local Google Auth/profile/header is available on 4322. The user's server and
   signed-in browser were not stopped or signed out during isolated QA.

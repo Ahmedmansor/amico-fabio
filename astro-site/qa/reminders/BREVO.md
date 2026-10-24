@@ -136,5 +136,9 @@ ACTIVE, with hash
 Live smoke results: allowed-origin OPTIONS 204, anonymous POST 401, unapproved
 origin POST 403. No credentials were read or printed. Existing local public
 test flag/endpoint remain enabled. These probes do not send email; the signed-in
-user must refresh the local wishlist page and click once to dispatch the newly
-authorized test. Its Brevo acceptance and inbox appearance are still pending.
+user was instructed to refresh the local wishlist page and click once to dispatch
+the authorized test. The user subsequently confirmed receiving the updated email
+and opening its per-item WhatsApp action with the correct package title and URL.
+This is user-reported integration evidence; no additional provider message ID,
+delivery timestamp or inbox-client test was collected. This bounded test does
+not activate the automatic 24-hour reminder pipeline.

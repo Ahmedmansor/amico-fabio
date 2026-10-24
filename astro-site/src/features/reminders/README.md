@@ -1,7 +1,14 @@
-# Wishlist emails — local drafts, no sender enabled
+# Wishlist emails — repository templates and restricted Brevo test
 
-The email source stays in this repository. Brevo is intended to deliver rendered
-HTML/plain text later; no editable dashboard template is required for this draft.
+The email source stays in this repository. Brevo delivers rendered HTML/plain
+text through the restricted test service; no dashboard-only template is required.
+The user confirmed the actual favorites summary and the updated WhatsApp booking
+actions. Automatic reminders are not active. Current operational evidence is in
+[BREVO.md](../../../qa/reminders/BREVO.md) and [SETUP.md](../auth/SETUP.md).
+The approved, pending locale/request contract is in
+[PLAN.md section 6.1](../auth/PLAN.md#61-approved-language-and-request-contract--2026-10-24).
+IT/EN templates exist; the current restricted test job fixes English, so changing
+the website language does not yet change that email.
 
 Edit these files:
 - `data/content/it.json` and `en.json`: subject lines and all visible copy.
@@ -36,14 +43,16 @@ are committed. Changing copy/styles only requires rerunning preview.mjs, not
 fetching customer data. The generator refuses production/non-loopback manifests.
 Four catalog examples demonstrate both sections; every supplied available item
 is rendered, as requested by the user. This is not a real customer wishlist.
-No sending SDK or API call is present.
+The preview generator makes no sending call; the separate backend Brevo transport
+does. Previewing does not enroll a user or dispatch a message.
 
 ## Important execution boundaries
 
-These drafts do not enroll anyone or schedule mail. Local preference service,
-repository, Auth verifier and HTTP handler are prepared but unbound. Preference
+These previews do not enroll anyone or schedule mail. The preference service,
+repository, Auth verifier and HTTP handler have a deployed Edge composition. Preference
 storage was separately applied and role-tested on 2026-10-24, with zero records
-after ROLLBACK. No public endpoint or website opt-in is active.
+after ROLLBACK. The protected preference endpoint is active; the website opt-in
+is not mounted and real authenticated website saving remains unverified.
 The draft ReminderPreferences.astro component, binder and IT/EN wording are
 prepared for isolated review. They are not imported by WishlistPage. Local
 preview steps and browser checks are in ../../../qa/reminders/README.md.
@@ -53,8 +62,8 @@ unsubscription handler, scoped tokens/headers and provider tests are still neede
 An email with no published saved items is not prepared. Missing catalog IDs are
 returned separately so future orchestration cannot count them as delivered.
 
-Before sending: approve copy, sender identity and required business/footer
-details; apply/test reviewed consent storage; implement durable
+Before automatic reminder release: review final copy/business/footer details;
+integrate the applied/tested consent storage; implement durable
 event capture, queue/idempotency, quota limits and opt-out/bounce handling under
 separately authorized backend scope. Future sender must resolve verified account
 recipients server-side, enforce manifest environment/freshness rules and protect

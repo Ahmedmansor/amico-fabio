@@ -2,7 +2,7 @@
 
 Created: 2026-10-23. English execution reference replacing the Arabic text.
 
-**Status (2026-10-24): Google Auth and tour/package favorites implemented. The three account tables and reviewed RLS/grants are applied on fabioEgypt; real disposable SQL ownership tests passed with ROLLBACK. The first real Brevo summary test succeeded: the user found it in Gmail Promotions and confirmed its actual saved tours/packages. The user then approved a second test of the WhatsApp booking actions; version 3 of the test function is active with a fresh window ending 2026-10-24T18:02:33Z. Its manual dispatch/receipt is pending. The automatic 24-hour reminder pipeline remains pending.**
+**Status (2026-10-24): Google Auth and tour/package favorites implemented. The three account tables and reviewed RLS/grants are applied on fabioEgypt; real disposable SQL ownership tests passed with ROLLBACK. The user confirmed cross-browser synchronization, receipt of the real Brevo favorites summary in Gmail Promotions, and then receipt of the updated email with a working per-item WhatsApp booking message. These are user-reported integration results. Automatic 24-hour reminders and the locale persistence contract below remain pending implementation.**
 This status records the approved one-off test only; it does not authorize new
 business features, production hosting changes, or broader email delivery.
 This document coordinates the phases. Its location in `auth` does not make
@@ -184,7 +184,7 @@ Draft subscription wording, to review and translate before implementation:
 This is technical design guidance, not a guarantee of full legal compliance.
 Review message classification and final wording for the actual business and audience.
 
-## 6. Data model — account tables applied; email entities still proposed
+## 6. Data model — account/consent storage applied; delivery lifecycle pending
 
 | Entity | Responsibility |
 | --- | --- |
@@ -233,7 +233,7 @@ integration checks remain required. No Astro runtime API or SSR is introduced.
 Activation 2026-10-24 supersedes that local-only status: the user explicitly
 approved counter schema, rollback fixtures, 30 reads / 10 writes per minute
 per account and preference-service deployment. Counter role tests passed with
-zero rows afterward. wishlist-email-preferences version 1 is ACTIVE with
+zero rows afterward. wishlist-email-preferences version 2 is ACTIVE with
 in-function Auth verification. Live preflight/anonymous/invalid-token/origin
 smoke checks passed; authenticated website integration is not claimed. Email
 sending remains separate. The user then requested moving directly to Brevo
@@ -256,6 +256,131 @@ Validate locale against shared supported-language configuration. Do not store
 translated UI text in each profile. Do not send privileged mail to an email
 column that the browser can arbitrarily change; resolve recipients from verified
 account identity through a trusted backend path.
+
+### Execution checkpoint — 2026-10-24
+
+| Area | Implemented and verified | Remaining boundary |
+| --- | --- | --- |
+| Auth/header | Local Google login, name/avatar and loading state | Vercel Auth activation and email sign-in remain separate scope |
+| Favorites | Tours/packages, grouped list, combined count; applied ownership RLS with rollback tests; user-confirmed cross-browser sync | Hosting flags remain off; retain revision/account-safe guest merge and re-add behavior |
+| Consent | Applied private tables, atomic RPC and rate limits; deployed preference service smoke checks | Actual wishlist opt-in mounting and authenticated save integration |
+| Email | Repository IT/EN HTML/text/styles, all available saved items, Brevo transport, per-item/general WhatsApp actions | Current restricted test fixes English; no automatic reminder sending |
+| Scheduling | Tested pure one-reminder policy, 24h after latest real addition or consent | Durable events, queue/leases, eligibility recheck, allowance/ledger, quotas, unsubscribe and suppression |
+| Languages | Existing shared language configuration and IT/EN templates | Section 6.1 persistence/mode/concurrency design below is not implemented |
+
+Recorded checks for the booking-action implementation (`5cb32e5`): 8 Node tests
+and 8 domain Vitest tests passed; Astro checked 312 files with 0 errors/warnings/
+hints; the static build generated 94 pages in 10.19s. Eight browser cases covered
+IT/EN summary/reminder previews at 375/1440px, links, images and overflow.
+Version-3 live smoke checks returned OPTIONS 204, anonymous POST 401 and denied
+origin POST 403. User receipt/booking-link confirmation is separate from those
+agent-run checks. These are recorded prior results, not checks rerun for this
+documentation update. Evidence: [Brevo](../../../qa/reminders/BREVO.md),
+[preferences](../../../qa/reminders/PREFERENCES.md),
+[account sync](../../../qa/wishlist/LIVE_SYNC.md).
+
+### 6.1. Approved language and request contract — 2026-10-24
+
+This is the canonical continuation design, not evidence of an applied migration
+or an enabled language endpoint. Keep production static on GitHub Pages; Vercel
+is the separate migration test environment. No SSR or middleware is required.
+
+| Source | Responsibility |
+| --- | --- |
+| Explicit `/it/` or `/en/` URL | Current page language; strongest browsing signal |
+| `profiles.locale` | Initial site language, then the last explicit signed-in site-language choice |
+| `wishlist_email_preferences.locale` | Stored language for delayed wishlist correspondence |
+| Proposed `locale_source` | `follow_site` by default, or `explicit` correspondence choice |
+| Guest browser preference | Remember the guest's site choice without a database write |
+
+Do not add a competing `preferred_locale` column. Initialize the profile once;
+ordinary visits and subsequent sign-ins must not overwrite an existing choice.
+When a signed-in user explicitly switches site language, update the profile and
+an existing follow-site email preference atomically. Preserve an explicit email
+choice. An independent correspondence-language control may choose a language
+or return to following the site. No preference row means no invented consent:
+initialize its language/mode when the user explicitly opts in.
+
+Language changes must never subscribe, restore withdrawn consent, change consent
+activation time, restart the 24-hour timer or consume the one-reminder allowance.
+Immediate requested mail uses the validated page/request language. A delayed
+reminder resolves the stored correspondence language at dispatch time.
+
+Use the existing shared `supportedLocales` configuration and derived `Locale`
+type in `src/shared/config/languages.ts`. Validate supported values on the trusted
+backend too. Reject unsupported writes; Italian is the fallback for missing or
+unsupported detection/display values, not a silent replacement for a bad write.
+Do not infer language from IP, nationality or Google profile. Future `es`/`pt`
+also require actual approved dictionaries, content, templates and validation;
+adding a language code alone does not publish a translation.
+
+Proposed first visit to `/`: browser-side detection may use saved guest choice,
+then supported `navigator.languages`, then Italian. Respect explicit language
+URLs. The root detector is not implemented by this decision. Existing header
+storage uses `fabio_lang` and `preferredLanguage`; keep one coherent policy rather
+than adding competing keys. No language API call is needed for guest switching
+or browser detection.
+
+#### Writes, ownership and navigation
+
+- Ordinary page loads, rendering and navigation do not write language. Existing
+  Auth sessions do not contain `profiles.locale`; initial profile loading/caching
+  may need a read. Do not claim the value already arrives with every session.
+- Aim for one functional browser mutation per actual signed-in choice, backed
+  by one transactional operation. Auth checks, preflight, rate limiting and
+  backend queries can add network/database work; this is not a total HTTP count.
+- Keep reminder tables and existing service RPCs private. Use a verified backend
+  entry and a narrowly scoped atomic RPC; do not broaden browser grants just to
+  save a request. Derive account identity from verified Auth, never client IDs,
+  recipient addresses, metadata or timestamps.
+- Serialize site-language and explicit correspondence-language updates per
+  account. A stale follow-site request must not overwrite explicit mode. Design
+  request identity, retry idempotency, revisions/order and cross-device conflicts
+  before activation. Fast `it -> en` changes must preserve the latest intent.
+- Skip unchanged choices using confirmed state while accounting for newer pending
+  intent. A comparison against stale cached profile data alone is insufficient.
+- Keep the switch an ordinary link; navigation must not wait for persistence.
+  `fetch(..., { keepalive: true })` helps during unload but does not guarantee
+  delivery. Save only minimal account-scoped pending intent, never credentials;
+  reconcile with bounded retries when possible. Never apply a previous account's
+  or anonymous intent to another account, or blindly write on every page load.
+- On failure the URL still selects the correct page, but email language may stay
+  old until confirmation/reconciliation. Do not show an unconfirmed saved status.
+
+For scheduled sending, fetch due accounts and preferences through bounded joined
+or aggregated batches, avoiding a preference query for each recipient. Claiming,
+leases, final eligibility checks, quotas and delivery-ledger writes still need
+operations: do not promise one query for the entire job. Observe actual usage;
+small expected traffic does not make requests exempt from plan limits.
+
+Google callback routes carry the language. Email sign-in remains disabled under
+the current Google-only scope; Vercel is not a technical prerequisite for it.
+If added later, derive per-request language from a validated allowlisted redirect
+path, not an assumption that `data.locale` changes for an existing OTP user.
+SMTP is delivery transport; localized Auth templates/hooks choose the wording.
+Keep Brevo rather than introducing another provider without a concrete need.
+
+#### Implementation sequence and acceptance evidence
+
+1. Prepare reviewed locale-mode migration/RPC and ownership/concurrency tests.
+   Remote schema/grant changes require their separate authorization.
+2. Add account-scoped profile loading and explicit switch persistence, then the
+   correspondence-language control; verify retries, failures, account changes,
+   ordering, follow-site/explicit mode and unchanged consent/schedule state.
+3. Wire immediate email request locale and delayed stored locale separately.
+   Test IT/EN subjects, copy, item titles, URLs and WhatsApp booking messages.
+4. Integrate the actual opt-in UI and authenticated preference saving, then build
+   durable reminder events/queue/allowance, quota controls and unsubscribe/suppression
+   before enabling automatic sending. Hosting/Auth deployment remains a gate.
+
+Current gaps: profile creation only initializes locale; switch persistence and
+`locale_source` are not implemented. Both email templates exist, but the restricted
+test job currently fixes `locale: 'en'`; changing the site to Italian does not yet
+change that test email. Real preference UI is not mounted in WishlistPage.
+
+References: [database functions](https://supabase.com/docs/guides/database/functions),
+[keepalive delivery limits](https://developer.mozilla.org/en-US/docs/Web/API/Request/keepalive),
+[Auth email hook](https://supabase.com/docs/guides/auth/auth-hooks/send-email-hook).
 
 ## 7. Security and Auth
 
@@ -396,8 +521,9 @@ Brevo, rather than making the Brevo dashboard the only editable template source.
 Local template preparation is implemented: reminders/presentation owns the
 HTML renderer and inline styles; reminders/data/content owns matching IT/EN
 subjects/body copy. Summary/reminder HTML and plain-text drafts can be generated
-from the test catalog. Eight local browser previews passed; inbox rendering,
-real unsubscribe, final copy/sender details and delivery are not yet verified.
+from the test catalog. Eight local browser previews passed. The user subsequently
+confirmed Gmail receipt; broader inbox-client rendering, real unsubscribe and
+final release copy/footer review remain unverified.
 Brevo REST transport, verified-account source, public manifest fetcher and local
 summary-template orchestration are implemented as of 2026-10-24. The approved
 test site and restricted authenticated one-job function are now deployed. The
@@ -405,8 +531,10 @@ button is enabled only in the ignored local .env.local; it remains absent from
 committed and hosting defaults. The authorized one-job window expired at
 2026-10-24T15:44:56Z after a real summary was delivered and confirmed by the
 user. WhatsApp booking actions are implemented and verified locally, and the
-user-authorized version-3 test deployment now includes them. The second test
-window ends 2026-10-24T18:02:33Z; manual dispatch and receipt are pending. See
+user-authorized version-3 test deployment includes them. Its bounded test window
+was configured to end 2026-10-24T18:02:33Z. The user confirmed receiving the new
+template and opening the correct item-specific WhatsApp message and package URL;
+no additional provider log or inbox-client verification is implied. See
 ../../../qa/reminders/BREVO.md and the email-test function README. Durable
 reminder queue/allowance/suppression/unsubscribe remain unimplemented.
 
