@@ -6,7 +6,7 @@ import {createPreferenceUserVerifier} from '../../data/preference-user.ts';
 import {reminderConsentVersion} from '../../domain/preferences.ts';
 const userId='00000000-0000-4000-8000-000000000001';
 const origin='http://127.0.0.1:4322';
-const body={requestId:'00000000-0000-4000-8000-000000000002',enabled:true,locale:'en',wordingVersion:reminderConsentVersion};
+const body={requestId:'00000000-0000-4000-8000-000000000002',enabled:true,locale:'en',consentLocale:'en',wordingVersion:reminderConsentVersion};
 function fixture(){
   const calls=[];
   const repository={read:async id=>{calls.push(['read',id]);return {ok:true,value:null};},change:async(id,command)=>{calls.push(['change',id,command]);return {ok:true,value:{enabled:command.enabled}};}};

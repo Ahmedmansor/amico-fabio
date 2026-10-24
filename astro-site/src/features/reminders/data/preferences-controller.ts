@@ -47,13 +47,13 @@ export function createPreferenceController(client:PreferenceClient,newRequestId:
       state={userId,status:userId?'ready':'signed-out',preference:null,error:null,retryable:false};publish();
       if(userId)await perform(null);
     },
-    async save(enabled:boolean,locale:Locale){
+    async save(enabled:boolean,locale:Locale,consentLocale:Locale=locale){
       // Resolve an uncertain write using its original request ID before
       // accepting another command. No automatic background opt-in/retry.
       if(!state.userId || state.status!=='ready' || pending)return;
       const requestId=newRequestId();
       if(!isPreferenceRequestId(requestId))throw new Error('[reminders] Invalid request identity.');
-      pending={requestId,enabled,locale,wordingVersion:reminderConsentVersion};
+      pending={requestId,enabled,locale,consentLocale,wordingVersion:reminderConsentVersion};
       await perform(pending);
     },
     async retry(){if(state.status==='error'&&state.retryable)await perform(pending);},

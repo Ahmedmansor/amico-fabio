@@ -1,5 +1,7 @@
 {
   "title": "Email reminder",
+  "languageLabel": "Reminder language",
+  "languageNote": "Choose before enabling reminders for the first time. Later, use Email language in your account settings. Changing the website language does not change this preference.",
   "label": "Email me one reminder about my favorites",
   "description": "Optional. At most one reminder per account, 24 hours after your latest addition or enabling reminders, whichever is later. An empty favorites list cancels the wait. You can turn reminders off at any time.",
   "save": "Save preference",

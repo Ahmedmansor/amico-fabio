@@ -9,7 +9,7 @@ import {reminderConsentVersion} from '../../domain/preferences.ts';
 const a='00000000-0000-4000-8000-000000000001',b='00000000-0000-4000-8000-000000000002';
 const requestId='00000000-0000-4000-8000-000000000003';
 const endpoint='http://127.0.0.1:4330/preferences';
-const command={requestId,enabled:true,locale:'en',wordingVersion:reminderConsentVersion};
+const command={requestId,enabled:true,locale:'en',consentLocale:'en',wordingVersion:reminderConsentVersion};
 const preference={enabled:true,locale:'en',wordingVersion:reminderConsentVersion,updatedAt:'2026-10-24T00:00:00Z',enabledSince:'2026-10-24T00:00:00Z'};
 const ok=value=>({ok:true,value});
 const reply=value=>Response.json({preference:value});

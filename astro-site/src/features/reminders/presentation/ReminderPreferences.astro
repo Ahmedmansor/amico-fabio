@@ -1,5 +1,5 @@
 ---
-import type {Locale} from '../../../shared/config/languages';
+import {languages,supportedLocales,type Locale} from '../../../shared/config/languages';
 import {getPreferenceMessages} from '../data/preference-messages';
 import './preferences.css';
 interface Props {locale:Locale}
@@ -17,6 +17,11 @@ const id=`reminder-preferences-${locale}`;
         <span>{m.label}</span>
       </label>
       <p id={`${id}-description`} class="reminder-description">{m.description}</p>
+      <label for={`${id}-language`}>{m.languageLabel}</label>
+      <select id={`${id}-language`} data-reminder-language aria-describedby={`${id}-language-note`}>
+        {supportedLocales.map(code=><option value={code} selected={code===locale}>{languages[code].label}</option>)}
+      </select>
+      <p id={`${id}-language-note`} class="reminder-description">{m.languageNote}</p>
       <button class="reminder-button" type="submit" data-reminder-save>{m.save}</button>
     </fieldset>
   </form>

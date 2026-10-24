@@ -22,7 +22,7 @@ function fixture({limit={allowed:true,retry_after_seconds:0},authStatus=200,limi
     const path=new URL(url).pathname;calls.push({path,headers:new Headers(init.headers),body:init.body?JSON.parse(init.body):undefined});
     if(path==='/auth/v1/user')return Response.json(authStatus===200?{id:a,user_metadata:{user_id:'attacker'}}:{msg:'Synthetic Auth failure'},{status:authStatus});
     if(path==='/rest/v1/rpc/consume_wishlist_preference_limit')return limitOutage?Response.json({message:'private provider error'},{status:503}):Response.json([limit]);
-    if(path==='/rest/v1/rpc/change_wishlist_email_preference')return Response.json([row]);
+    if(path==='/rest/v1/rpc/change_wishlist_email_preference_v2')return Response.json([row]);
     if(path==='/rest/v1/wishlist_email_preferences')return Response.json(row);
     throw new Error('Unexpected network path.');
   };
@@ -34,7 +34,7 @@ function fixture({limit={allowed:true,retry_after_seconds:0},authStatus=200,limi
 
 test('runtime authenticates before shared limiter, binds ownership, and isolates backend credentials',async()=>{
   const f=fixture();const response=await f.handle(request('PATCH',command));assert.equal(response.status,200);
-  assert.deepEqual(f.calls.map(call=>call.path),['/auth/v1/user','/rest/v1/rpc/consume_wishlist_preference_limit','/rest/v1/rpc/change_wishlist_email_preference']);
+  assert.deepEqual(f.calls.map(call=>call.path),['/auth/v1/user','/rest/v1/rpc/consume_wishlist_preference_limit','/rest/v1/rpc/change_wishlist_email_preference_v2']);
   assert.equal(f.calls[0].headers.get('Authorization'),'Bearer synthetic-user-token');
   for(const call of f.calls.slice(1)){
     assert.equal(call.headers.get('apikey'),'sb_secret_synthetic');

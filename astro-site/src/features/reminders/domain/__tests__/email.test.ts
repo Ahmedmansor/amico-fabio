@@ -36,6 +36,14 @@ describe('wishlist email selection',()=>{
     const result=prepareWishlistEmail({...input,kind:'reminder',unsubscribeUrl:`${origin}/en/email-preferences/?token=example`});
     expect(result.model?.unsubscribeUrl).toContain('token=example');
   });
+  it('falls back to Italian for missing/unsupported stored reminder language, without weakening summary validation',()=>{
+    for(const locale of [null,undefined,'','de','ar',{},'EN']){
+      const result=prepareWishlistEmail({...input,locale,kind:'reminder',unsubscribeUrl:`${origin}/it/email-preferences/`});
+      expect(result.model?.locale).toBe('it');expect(result.model?.items[0].title).toBe('Titolo');
+      expect(result.model?.wishlistUrl).toContain('/it/');
+      expect(()=>prepareWishlistEmail({...input,locale})).toThrow(/language/);
+    }
+  });
 });
 
 describe('wishlist email contact links',()=>{

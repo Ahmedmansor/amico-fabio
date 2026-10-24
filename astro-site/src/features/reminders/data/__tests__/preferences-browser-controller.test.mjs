@@ -20,7 +20,7 @@ test('guest and repeated same-account Auth events do not request preferences or 
 });
 test('only explicit save writes consent; caller identity and timestamps never enter the body',async()=>{
   const f=fixture();await f.bridge.connect(a);await f.bridge.controller.save(true,'it');
-  assert.deepEqual(JSON.parse(f.calls[1].init.body),{requestId:b,enabled:true,locale:'it',wordingVersion:'wishlist-reminders-v1'});
+  assert.deepEqual(JSON.parse(f.calls[1].init.body),{requestId:b,enabled:true,locale:'it',consentLocale:'it',wordingVersion:'wishlist-reminders-v1'});
   assert.deepEqual(f.bearers,[a,a]);assert.equal(f.bridge.controller.getState().preference.enabled,true);
   await f.bridge.connect(null);assert.equal(f.bridge.controller.getState().status,'signed-out');
 });

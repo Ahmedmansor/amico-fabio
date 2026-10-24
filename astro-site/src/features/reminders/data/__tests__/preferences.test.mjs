@@ -22,8 +22,8 @@ test('reading an absent preference does not create a subscription or consent eve
 test('explicit changes use only the verified caller identity and the atomic backend RPC',async()=>{
   const f=fixture();const result=await f.service.change(userId,change);
   assert.equal(result.ok,true);assert.equal(result.value.enabled,true);
-  assert.equal(f.calls[0].name,'change_wishlist_email_preference');
-  assert.deepEqual(f.calls[0].args,{p_user_id:userId,p_request_id:change.requestId,p_enabled:true,p_locale:'it',p_wording_version:reminderConsentVersion,p_source:'wishlist-page'});
+  assert.equal(f.calls[0].name,'change_wishlist_email_preference_v2');
+  assert.deepEqual(f.calls[0].args,{p_user_id:userId,p_request_id:change.requestId,p_enabled:true,p_locale:'it',p_consent_locale:'it',p_wording_version:reminderConsentVersion,p_source:'wishlist-page'});
   assert.equal(f.calls[0].signal.aborted,false);
 });
 test('invalid or forged commands never reach persistence',async()=>{

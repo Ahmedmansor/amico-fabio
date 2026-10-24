@@ -10,14 +10,18 @@ describe('explicit reminder consent commands',()=>{
       expect(parseEmailPreference(invalid)).toBeNull();
   });
   it('accepts a current explicit opt-in without deriving consent from identity or favorites',()=>{
-    expect(parsePreferenceChange(valid)).toEqual({ok:true,value:valid});
+    expect(parsePreferenceChange(valid)).toEqual({ok:true,value:{...valid,consentLocale:valid.locale}});
     expect(parsePreferenceChange({})).toEqual({ok:false,reason:'invalid-input'});
   });
   it('requires the displayed current wording for a grant',()=>{
     expect(parsePreferenceChange({...valid,wordingVersion:'old-copy'})).toEqual({ok:false,reason:'outdated-consent'});
   });
+  it('keeps displayed consent language distinct from selected correspondence language',()=>{
+    expect(parsePreferenceChange({...valid,locale:'it',consentLocale:'en'})).toEqual({ok:true,value:{...valid,locale:'it',consentLocale:'en'}});
+    expect(parsePreferenceChange({...valid,consentLocale:'de'}).ok).toBe(false);
+  });
   it('allows withdrawal with stale wording so old pages cannot block opting out',()=>{
-    expect(parsePreferenceChange({...valid,enabled:false,wordingVersion:'old-copy'})).toEqual({ok:true,value:{...valid,enabled:false}});
+    expect(parsePreferenceChange({...valid,enabled:false,wordingVersion:'old-copy'})).toEqual({ok:true,value:{...valid,enabled:false,consentLocale:valid.locale}});
   });
   it('rejects ownership, recipient and audit-time injection as well as implicit truthy opt-in',()=>{
     for(const extra of [{userId:'other'},{email:'person@example.test'},{acceptedAt:'2026-10-24'},{source:'signup'}])

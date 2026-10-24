@@ -48,10 +48,10 @@ for(const locale of ['it','en'])for(const width of [375,1440]){
       assert.equal('userId' in command,false);assert.equal('enabledSince' in command,false);
       if(!consentRequests.has(command.requestId)){
         consentRequests.add(command.requestId);
-        const language=state.email?.source==='explicit'?state.email.locale:state.siteLocale;
+        const language=state.email?.locale??command.locale;
         preference={enabled:command.enabled,locale:language,wordingVersion:command.wordingVersion,updatedAt:'2026-10-25T00:00:00Z',
           enabledSince:command.enabled?'2026-10-25T00:00:00Z':null};
-        if(!state.email)state={...state,email:{locale:language,source:'follow_site'}};
+        if(!state.email)state={...state,email:{locale:language,source:'explicit'}};
       }
       if(loseConsentReply){loseConsentReply=false;return route.fulfill({status:503,headers,json:{error:'unavailable'}});}
       return route.fulfill({status:200,headers,json:{preference}});
@@ -73,10 +73,14 @@ for(const locale of ['it','en'])for(const width of [375,1440]){
   if(optIn){
     await page.waitForFunction(()=>!document.querySelector('[data-reminder-form] fieldset')?.disabled);
     const choice=page.locator('[data-reminder-choice]');assert.equal(await choice.isChecked(),false);
+    const initialLanguage=locale==='it'?'en':'it';
+    await page.locator('[data-reminder-language]').selectOption(initialLanguage);
     assert.equal(calls.preferenceWrites,0);assert.equal(calls.preferenceReads,1);
     await choice.check();await page.waitForTimeout(1100);assert.equal(calls.preferenceWrites,0);
     await page.locator('[data-reminder-save]').click();await page.locator('[data-reminder-retry]').waitFor({state:'visible'});
     assert.equal(preference.enabled,true);assert.equal(calls.preferenceWrites,1);
+    assert.equal(preference.locale,initialLanguage);
+    assert.equal(consentCommands[0].consentLocale,locale);
     await page.locator('[data-reminder-retry]').click();
     await page.waitForFunction(()=>!document.querySelector('[data-reminder-form] fieldset')?.disabled);
     assert.equal(await choice.isChecked(),true);assert.equal(calls.preferenceWrites,2);
@@ -89,7 +93,7 @@ for(const locale of ['it','en'])for(const width of [375,1440]){
   const select=page.locator('[data-locale-choice]');await select.focus();await page.keyboard.press('Shift+Tab');
   assert.equal(await page.locator('[data-auth-close]').evaluate(node=>node===document.activeElement),true);
   await page.keyboard.press('Tab');assert.equal(await select.evaluate(node=>node===document.activeElement),true);
-  const other=locale==='it'?'en':'it';await select.selectOption(other);await page.locator('[data-locale-save]').click();await ready();
+  const other=optIn?locale:locale==='it'?'en':'it';await select.selectOption(other);await page.locator('[data-locale-save]').click();await ready();
   assert.equal(state.email.source,'explicit');assert.equal(state.email.locale,other);assert.equal(calls.writes,1);
   assert.equal(calls.authVerifies,1); // Header and wishlist share verified restoration.
   assert.equal(await page.locator('[data-auth-dialog]').evaluate(node=>node.scrollWidth<=node.clientWidth),true);

@@ -36,9 +36,10 @@ export function createPreferenceRepository(client:Pick<SupabaseClient,'from'|'rp
       if(!isPreferenceRequestId(userId))return {ok:false,reason:'invalid-input'};
       try{
         // Atomic ledger + current state, restricted to the backend database role.
-        const {data,error}=await request(signal=>client.rpc('change_wishlist_email_preference',{
+        const {data,error}=await request(signal=>client.rpc('change_wishlist_email_preference_v2',{
           p_user_id:userId,p_request_id:input.requestId,p_enabled:input.enabled,
-          p_locale:input.locale,p_wording_version:input.wordingVersion,p_source:'wishlist-page',
+          p_locale:input.locale,p_consent_locale:input.consentLocale??input.locale,
+          p_wording_version:input.wordingVersion,p_source:'wishlist-page',
         }).abortSignal(signal));
         if(error||!Array.isArray(data)||data.length!==1)return failure();
         return {ok:true,value:preference(data[0])};

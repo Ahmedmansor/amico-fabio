@@ -1,4 +1,4 @@
-import { isLocale, type Locale } from '../../../shared/config/languages.ts';
+import { isLocale, resolveLocale, type Locale } from '../../../shared/config/languages.ts';
 import { favoriteKey, favoriteIdentity } from '../../wishlist/domain/wishlist.ts';
 import { validateEmailCatalog, type EmailCatalogItem, type EmailCatalog } from './catalog.ts';
 
@@ -31,11 +31,14 @@ export function wishlistWhatsAppUrl(number:string,intro:string,item?:Pick<Wishli
 /** No scheduling, consent assumptions or provider access: caller supplies context. */
 export function prepareWishlistEmail(input: {
   catalog: unknown; expectedEnvironment: EmailCatalog['environment']; ids: readonly string[];
-  locale: Locale; kind: WishlistEmailKind; unsubscribeUrl?: string;
+  locale: unknown; kind: WishlistEmailKind; unsubscribeUrl?: string;
 }): {model: WishlistEmailModel|null;unavailableKeys:string[]} {
   const catalog=validateEmailCatalog(input.catalog);
   if(catalog.environment!==input.expectedEnvironment) throw new Error('[wishlist-email] Manifest environment mismatch.');
-  if(!isLocale(input.locale) || !['summary','reminder'].includes(input.kind)) throw new Error('[wishlist-email] Invalid language or message kind.');
+  if(!['summary','reminder'].includes(input.kind)||(!isLocale(input.locale)&&input.kind!=='reminder')) throw new Error('[wishlist-email] Invalid language or message kind.');
+  // Dispatch resolves stored correspondence, never the current browsing page.
+  // Do not mutate its stored value; invalid/missing reminder locale uses Italian.
+  const locale=resolveLocale(input.locale);
   const keys=[...new Set(input.ids.map(key=>{const item=favoriteIdentity(key);return favoriteKey(item.kind,item.id);} ))];
   const byKey=new Map(catalog.items.map(item=>[favoriteKey(item.kind,item.id),item]));
   const unavailableKeys=keys.filter(key=>!byKey.has(key));
@@ -51,11 +54,11 @@ export function prepareWishlistEmail(input: {
   }
   // User decision, 2026-10-24: include every available saved tour/package.
   const items=eligible.map(item=>({kind:item.kind,
-    title:item.localized[input.locale].title,url:item.localized[input.locale].url,
+    title:item.localized[locale].title,url:item.localized[locale].url,
     price:item.adult_price,image:{...item.image},
   }));
-  return {model:{locale:input.locale,kind:input.kind,origin:catalog.origin,items,
-    wishlistUrl:new URL(`/${input.locale}/wishlist/`,catalog.origin).href,
-    privacyUrl:new URL(`/${input.locale}/legal/`,catalog.origin).href,unsubscribeUrl,
+  return {model:{locale,kind:input.kind,origin:catalog.origin,items,
+    wishlistUrl:new URL(`/${locale}/wishlist/`,catalog.origin).href,
+    privacyUrl:new URL(`/${locale}/legal/`,catalog.origin).href,unsubscribeUrl,
   },unavailableKeys};
 }
