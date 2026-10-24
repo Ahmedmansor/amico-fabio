@@ -40,17 +40,30 @@ No sending SDK or API call is present.
 
 ## Important execution boundaries
 
-These drafts do not enroll anyone, schedule mail or implement subscription
-storage. A reminder model requires an unsubscribe URL on the approved site
+These drafts do not enroll anyone or schedule mail. Local preference service,
+repository, Auth verifier, HTTP handler and SQL/role-test proposals are now
+prepared but unbound/unexecuted. No subscription storage or endpoint is active.
+A reminder model requires an unsubscribe URL on the approved site
 origin; the preview target only explains that no preference changed. A real
 unsubscription handler, scoped tokens/headers and provider tests are still needed.
 An email with no published saved items is not prepared. Missing catalog IDs are
 returned separately so future orchestration cannot count them as delivered.
 
 Before sending: approve copy, sender identity and required business/footer
-details; define timing/re-addition policy; implement auditable
-consent, queue/idempotency, quota limits and opt-out/bounce handling under
+details; apply/test reviewed consent storage; implement durable
+event capture, queue/idempotency, quota limits and opt-out/bounce handling under
 separately authorized backend scope. Future sender must resolve verified account
 recipients server-side, enforce manifest environment/freshness rules and protect
 Brevo secrets outside the static site. Local browser tests are not proof of
 Gmail/Outlook inbox rendering, unsubscribe behavior or actual delivery.
+
+## Approved schedule, not an active Cron job
+
+One reminder, 24 hours after the later of consent activation and the latest real
+addition. Duplicate saves, page visits and language changes do not postpone.
+Emptying cancels; refilling before any send restarts. After provider acceptance,
+no additional automatic reminder is allowed. Pure state transitions are tested
+in domain/schedule.ts. A durable backend still needs to record every committed
+addition/removal and acceptance: deriving last-addition time only from the
+remaining rows would incorrectly move the clock back when the newest item is
+removed. Never source this state from client timestamps or Analytics.

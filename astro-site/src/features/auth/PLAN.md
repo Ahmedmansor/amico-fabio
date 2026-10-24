@@ -164,7 +164,7 @@ transactional; encouraging users to return and book may be marketing.
 
 Draft subscription wording, to review and translate before implementation:
 
-> I would like email reminders about tours I have saved. I can unsubscribe at any time.
+> I would like email reminders about tours and packages I have saved. I can unsubscribe at any time.
 
 - Record acceptance and withdrawal, wording version, language, and source with
   trusted server timestamps.
@@ -195,6 +195,13 @@ Review message classification and final wording for the actual business and audi
 | Email consent history | Grant/withdrawal, subscription type, text version, language, server timestamp |
 | Suppression records | Unsubscription, bounce, complaint, optional-mail suppression state |
 | Delivery queue/log | Message identity, payload references, status, attempts, Brevo message ID |
+
+Local preparation, 2026-10-24: reminders/domain/preferences.ts, backend-only
+preference repository/service, Auth verifier and portable HTTP handler are
+implemented with synthetic tests. The proposed preferences/audit tables and
+service-only atomic RPC live in ../../../supabase/reminder-preferences/.
+They are NOT APPLIED and their PostgreSQL role tests are NOT RUN. No HTTP
+function is deployed and no opt-in control is active on the website yet.
 
 Review `../../../supabase/account-wishlist/README.md` and its prepared schema
 before remote execution. It covers only minimal profiles and account wishlists;
@@ -357,15 +364,23 @@ from the test catalog. Eight local browser previews passed; inbox rendering,
 real unsubscribe, final copy/sender details and delivery are not yet verified.
 The Brevo sender is not implemented. See ../reminders/README.md and ../../../qa/reminders.
 
-Confirmed starting point: **one optional reminder**, 24 hours after wishlist
-eligibility. A second message 48 hours after the first is a later decision after
-reviewing results and user experience.
+Approved 2026-10-24: **one optional reminder** per account, due 24 hours after
+the later of the latest real wishlist addition and consent activation. A new
+actual addition postpones it; refreshes, duplicate saves, language changes and
+re-saving an already enabled preference do not. Emptying the list cancels the
+wait; refilling before the first send starts a new wait. Withdrawal prevents
+sending. After the first provider-accepted reminder, no automatic further
+reminders, including after re-addition or re-subscription. Acceptance is not
+proof of inbox delivery; unknown provider responses still need reconciliation.
+Pure event/state scheduling logic and tests are in reminders/domain/schedule.ts;
+durable event capture, queue/leases and Cron are not implemented or deployed.
 
 - User confirmed 2026-10-24: include all available saved tours and packages in
   one message, with no 4/6-card cap; keep a link to the full list for convenience.
-- Reminder opt-in UI/service are not implemented yet. Google registration and
-  saving favorites do not subscribe a user. The user asked where reminders appear;
-  this is not approval of the proposed 24-hour eligibility/re-addition rules.
+- Google registration and saving favorites do not subscribe a user. Local
+  preference backend logic is prepared, but its storage, deployment and opt-in
+  UI are not active. The user separately approved the timing rules above after
+  clarifying that the reminder is an email.
 - Do not claim seats are running out or a booking is confirmed without reliable data.
 - Define eligibility start and handling of newly added tours or an emptied wishlist.
 - Opening WhatsApp or clicking Book is not proof of a completed booking. Users
@@ -491,7 +506,9 @@ Still to define before the relevant implementation/release phase:
    the distinction between user-reported browser results and automated role tests.
 2. Activate email sign-in only after the existing Magic Link UI/callback's backend
    protection and sending settings are reviewed; the callback code is implemented.
-3. Define reminder eligibility, cooldown/re-addition, account deletion, and retention.
+3. Timing/re-addition policy is approved above. Define account deletion,
+   retention/export and suppression rules before launch; finish durable queue
+   and committed wishlist event capture without relying on browser clocks.
 4. Approve Edge Functions/Cron scope, Brevo sending path, budget, and operational limits.
 5. Choose rate-limit numbers, reserved sign-in allowance, disposable-domain list,
    CAPTCHA provider, and enforcement on the real Auth path without bypasses.

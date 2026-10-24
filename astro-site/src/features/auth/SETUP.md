@@ -23,9 +23,19 @@
   packages and local IT/EN summary/reminder templates with inline styles and
   plain text. Preview source and regeneration: ../reminders/README.md. Preview
   unsubscribe is inert. User chose all available saved items without a card cap.
-  Opt-in UI is not implemented; timing/re-addition policy, operational
+  Opt-in UI is not implemented. Timing/re-addition policy was approved on
+  2026-10-24: 24h after max(last real addition, consent), one reminder only;
+  empty list cancels and re-addition before the first send restarts waiting.
+  Operational
   caps, real consent/unsubscribe service, approved sender/footer details and a
   permitted test recipient remain gates before real mail delivery.
+- Reminder preferences now have a local backend service/repository, remote
+  getUser-based Auth verifier and portable HTTP handler (explicit origins,
+  bounded JSON, verified ownership). This is not a deployed Edge Function.
+  Proposed two tables + service-role-only atomic RPC and rollback role tests:
+  ../../../supabase/reminder-preferences/. No schema there has been applied.
+  Future deployment requires approved backend scope, secret storage, runtime
+  request/rate limits and real role/integration tests before showing live opt-in.
 
 ## Previous handoff — 2026-10-23 (superseded by activation above)
 
