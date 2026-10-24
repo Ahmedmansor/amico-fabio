@@ -36,3 +36,14 @@ also needs actual verification before deployment.
 No switch persistence/endpoint is enabled and the existing restricted email job
 still fixes English. Track continuation in
 [PLAN.md](../../src/features/auth/PLAN.md#61-approved-language-and-request-contract--2026-10-24).
+
+## Browser coordination continuation
+
+Ten additional Node tests passed for the local coordinator and per-tab pending
+store: rapid return to the cached language, lost acknowledgement, same-ID retry,
+restore without automatic writes, external conflict, account change, read retry,
+newer remote revisions, expiry and blocked storage. Combined data suite: 20 passed.
+The first check found one fixture-inference hint; an explicit Promise annotation
+fixed it. Final Astro check: 320 files, 0 errors/warnings/hints. Static build:
+94 pages in 8.94s. These tests use synthetic persistence, not browser/SQL RLS.
+No UI binding, endpoint, keepalive transport or deployment was enabled.

@@ -36,11 +36,15 @@ current state without replay; changing its payload is rejected. Two accounts may
 use the same UUID independently. Ledger rows cascade on account deletion; plan
 storage retention before large-scale launch without weakening replay safety.
 
-Browser integration is subsequent work: serialize requests within an account,
-retain only the newest pending intent, and never rebase an older conflict over
-an explicit/newer remote choice automatically. Retry uncertain writes with the
-same identity. Account changes discard pending in-memory credentials/requests.
-Do not enable the existing switch before the backend and reconciliation are ready.
+Local browser coordination is implemented in auth/data/locale-coordinator.ts:
+serialize account requests, preserve the newest pending choice, skip confirmed
+unchanged choices, and never automatically rebase a stale conflict. Uncertain
+writes retry the same identity; account epochs ignore late replies. Restore reads
+state without writing until explicit retry. The pending-store adapter accepts
+per-tab sessionStorage (not shared localStorage), scopes records by account and
+requires an explicit expiry. It rejects unexpected fields/credentials and reports
+failed durability. It is not mounted or connected to a live HTTP endpoint yet.
+Do not enable the switch before backend and real integration checks are ready.
 
 ## Review and activation gates
 

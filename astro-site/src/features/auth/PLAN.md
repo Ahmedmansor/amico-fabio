@@ -380,6 +380,10 @@ private idempotency ledger and serialized locale/consent writes; it is not appli
 Astro check passed (317 files, 0 diagnostics); static build passed (94 pages).
 See [locale evidence](../../../qa/auth/LOCALE.md) and
 [SQL review](../../../supabase/account-locale/README.md).
+The local coordinator/pending-store continuation adds 10 passing Node tests for
+latest intent, account isolation and explicit recovery; it is not bound to the
+header or a live endpoint. Its final check passed (320 files, 0 diagnostics),
+and static build passed (94 pages in 8.94s).
 
 Current gaps: profile creation only initializes live locale; browser switch
 persistence and remote `locale_source` are not activated. Both email templates exist, but the restricted
