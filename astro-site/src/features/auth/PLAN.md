@@ -206,6 +206,11 @@ Draft subscription wording, to review and translate before implementation:
 
 - Record acceptance and withdrawal, wording version, language, and source with
   trusted server timestamps.
+- Save the accepted wording version, language of the displayed consent text and
+  trusted server acceptance time together atomically in the consent audit event.
+  Record selected correspondence language too if different from the consent text
+  language. Later settings changes must not rewrite historical consent. This
+  records the action, not proof of comprehension or a compliance guarantee.
 - Client timestamps or localStorage flags are not sufficient proof of consent.
 - Keep consent history instead of only overwriting a boolean.
 - Signing in, analytics consent, and saving favorites never imply email opt-in.
@@ -344,8 +349,12 @@ Correspondence priority:
 3. After initialization, only an explicit correspondence-settings save changes it.
 4. At dispatch, read the stored correspondence language; there is no open page
    to inspect. Never derive it again from the latest URL, browser, IP, nationality,
-   email domain or Google account. Missing/unsupported stored language needs
-   repair before dispatch, not a guessed replacement or an unsupported template.
+   email domain or Google account. Validate at dispatch against supported email
+   templates. Empty/unsupported stored language falls back to Italian for that
+   delivery, as explicitly requested by the user; do not fail merely for that
+   value or silently rewrite the stored choice. Use the resolved language for
+   subject, copy, content links and the correspondence-management page. This
+   fallback does not bypass consent, suppression or other eligibility checks.
 
 Examples:
 
@@ -733,6 +742,15 @@ durable event capture, queue/leases and Cron are not implemented or deployed.
   RFC 8058 headers. Inspect actual test-message links and headers for the chosen path.
 - Unsubscribe without sign-in using an unguessable, appropriately scoped/tokenized
   mechanism. Distinguish the unsubscribe page from a one-click POST where required.
+- The email link opens a correspondence-management page in the language of that
+  email and works without an Auth session, including on a different device.
+  Use an account-bound, scoped management token distinct from sign-in tokens;
+  it must not grant access to the account, favorites or other personal data.
+  This same page may offer explicit correspondence-language changes alongside
+  unsubscribe. A language save must never re-enable reminders. Opening a GET
+  link must not itself mutate preferences; require an explicit action. Protect
+  tokens from logs/analytics/referrer leakage; define expiry/rotation/recovery
+  before activation without making normal unsubscribe depend on login.
 - Authenticate webhooks using provider-supported mechanisms. Handle replay,
   duplicate/out-of-order events; do not trust arbitrary email/user_id fields from
   an unauthenticated public request.
