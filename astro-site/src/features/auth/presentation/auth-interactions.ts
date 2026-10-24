@@ -19,6 +19,8 @@ async function initialize() {
   const send = dialog.querySelector<HTMLButtonElement>('[data-auth-send]');
   const google = dialog.querySelector<HTMLButtonElement>('[data-auth-google]');
   const signout = dialog.querySelector<HTMLButtonElement>('[data-auth-signout]')!;
+  const modeSwitch = dialog.querySelector<HTMLButtonElement>('[data-auth-mode-switch]')!;
+  let signingUp = false;
   const triggers = [...document.querySelectorAll<HTMLButtonElement>('[data-auth-open]')];
   let opener: HTMLElement | null = null;
   let pending = false;
@@ -69,7 +71,12 @@ async function initialize() {
         wrapper.dataset.avatarLoading = String(!ready || (!image.complete && image.dataset.failedSrc !== values.avatarUrl));
       }
     }
-    dialog.querySelector('#auth-title')!.textContent = session ? m.accountTitle : m.title;
+    dialog.querySelector('#auth-title')!.textContent = session ? m.accountTitle : signingUp ? m.signUpTitle : m.title;
+    dialog.querySelector('[data-auth-mode-prompt]')!.textContent = signingUp ? m.alreadyRegistered : m.noAccount;
+    modeSwitch.textContent = signingUp ? m.signIn : m.signUp;
+    modeSwitch.disabled = pending;
+    const googleLabel = dialog.querySelector('[data-auth-google-label]');
+    if (googleLabel) googleLabel.textContent = signingUp ? m.signUpGoogle : m.google;
     for (const trigger of triggers) {
       if (trigger.classList.contains('auth-trigger')) {
         const firstName = session?.profile.displayName?.trim().split(/\s+/u)[0];
@@ -98,12 +105,21 @@ async function initialize() {
   for (const trigger of triggers) {
     trigger.addEventListener('click', () => {
       opener = trigger;
+      signingUp = false;
       show(service ? '' : m.unavailable);
       render();
       dialog.showModal();
       (session ? signout : email ?? google)?.focus();
     });
   }
+  modeSwitch.addEventListener('click', () => {
+    if (pending) return;
+    signingUp = !signingUp;
+    show('');
+    if (inputError) inputError.hidden = true;
+    email?.removeAttribute('aria-invalid');
+    render();
+  });
   dialog.querySelector('[data-auth-close]')!.addEventListener('click', () => dialog.close());
   dialog.addEventListener('keydown', event => {
     if (event.key !== 'Tab') return;
@@ -144,7 +160,11 @@ async function initialize() {
     pending = true; render();
     const result = await service.signOut();
     pending = false;
-    if (result.ok) { session = null; show(''); } else show(m.failed);
+    if (result.ok) {
+      session = null; show(''); render(); dialog.close();
+      window.location.replace(`/${locale}/`);
+      return;
+    } else show(m.failed);
     render();
   });
   if (service) {

@@ -45,6 +45,11 @@
 .auth-secondary { color:var(--color-gold-soft); background:black; }
 .auth-secondary:hover { color:black; }
 .auth-button:disabled { opacity:.55; cursor:wait; }
+.auth-google { position:relative; padding-inline:48px; }
+.auth-google svg { position:absolute; left:16px; flex-shrink:0; }
+.auth-mode-switch { text-align:center; }
+.auth-mode-switch button { display:inline; min-height:44px; padding:4px; border:0; background:transparent; color:var(--color-gold-soft); font:inherit; font-weight:600; text-decoration:underline; text-underline-offset:4px; cursor:pointer; }
+.auth-mode-switch button:disabled { opacity:.55; cursor:wait; }
 .auth-close { display:block; min-height:44px; width:100%; background:transparent; border:0; color:var(--color-text-light); font:inherit; text-decoration:underline; text-underline-offset:4px; margin-top:16px; cursor:pointer; }
 .auth-privacy,.auth-callback a { color:var(--color-gold-soft); display:inline-flex; align-items:center; min-height:44px; text-underline-offset:4px; }
 .auth-content :focus-visible,.auth-trigger:focus-visible,.auth-callback :focus-visible { outline:3px solid var(--color-gold-soft); outline-offset:4px; }

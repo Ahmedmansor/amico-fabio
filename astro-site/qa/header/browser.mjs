@@ -23,8 +23,8 @@ try {
         let listener;
         return {
           subscribe(fn) { listener = fn; }, remainingCooldown() { return 0; },
-          async currentSession() { return {ok:true,value:{userId:'synthetic',profile:{displayName:'Alexandria Example',email:null,avatarUrl:'https://lh3.googleusercontent.com/qa-header-avatar'}}}; },
-          async signOut() { listener(null); return {ok:true}; }
+          async currentSession() { return {ok:true,value:sessionStorage.getItem('qa:signed-out') ? null : {userId:'synthetic',profile:{displayName:'Alexandria Example',email:null,avatarUrl:'https://lh3.googleusercontent.com/qa-header-avatar'}}}; },
+          async signOut() { sessionStorage.setItem('qa:signed-out','1'); listener(null); return {ok:true}; }
         };
       }
     ` }));
@@ -86,16 +86,15 @@ try {
     await trigger.click();
     await page.locator('[data-auth-dialog]').waitFor({ state: 'visible' });
     await page.locator('[data-auth-signout]').click();
-    await page.locator('[data-auth-guest]').waitFor({ state: 'visible' });
+    await page.waitForFunction(() => sessionStorage.getItem('qa:signed-out') === '1' && !document.querySelector('[data-auth-dialog]')?.open && !document.querySelector('#global-header [data-auth-open]')?.disabled);
+    assert.equal(page.url(), `${origin}/${locale}/`);
     assert.equal(await trigger.getAttribute('aria-label'), locale === 'it' ? 'Accedi' : 'Sign in');
     assert.equal(await avatar.locator('img').getAttribute('src'), null);
     assert.equal(await avatar.locator('[data-auth-avatar-fallback]').isVisible(), true);
-    await page.keyboard.press('Escape');
-    await page.waitForFunction(() => document.activeElement?.matches('#global-header [data-auth-open]'));
-    assert.equal(await trigger.evaluate(button => button === document.activeElement), true);
+    assert.equal(await page.locator('[data-auth-dialog]').isVisible(), false);
     assert.deepEqual(await trigger.boundingBox(), buttonBefore);
     assert.deepEqual(await page.locator('#gh-nav-inline').boundingBox(), navBefore);
-    results.push({ locale, width, pendingVisible: true, pendingDisabled: true, greeting: true, stableGeometry: true, leftPosition: true, signoutLabel: true, focusRestored: true, avatarAndFavoritesShimmer: true, delayedAvatar: true, avatarFailureFallback: true, avatarClearedOnSignout: true, reducedMotion: true });
+    results.push({ locale, width, pendingVisible: true, pendingDisabled: true, greeting: true, stableGeometry: true, leftPosition: true, signoutLabel: true, signoutHome: true, avatarAndFavoritesShimmer: true, delayedAvatar: true, avatarFailureFallback: true, avatarClearedOnSignout: true, reducedMotion: true });
     await context.close();
   }
 } finally { await browser.close(); }

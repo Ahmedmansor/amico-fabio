@@ -218,3 +218,17 @@ passed with read-only network access. Synthetic browser suite passed all four
 IT/EN mobile/desktop cases, email confirmation unchanged, two automatic Google
 completions across local signout, expired Google code, safe returns and session
 restoration. No real Google account, email or remote settings were changed.
+
+## Sign-in/sign-up presentation and signout home — 2026-10-24
+
+The existing dialog now offers localized Sign in / Sign up modes, reciprocal
+account prompts, and a decorative multicolor Google mark in the Google button.
+Both modes use the existing provider flow; no password or new provider is added.
+Successful local signout closes the dialog and replaces the route with the
+language home. Failed signout retains the current UI and existing error message.
+
+Verified: Astro check (250 files), 0 errors/warnings/hints; static build 94 pages
+in 20.61s, Complete. Synthetic browser suites: Auth 4 IT/EN 375/1440 cases with
+mode switching and home redirect, Header 4 cases, account-wishlist 4 cases plus
+missing-schema recovery. Google repeat login and explicit email confirmation
+remain covered. Mobile signup screenshot inspected locally. No remote changes.

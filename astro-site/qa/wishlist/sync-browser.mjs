@@ -89,6 +89,8 @@ try{
     assert.equal(await page.locator('[data-wishlist-catalog-notice]').isVisible(),true);
     await page.screenshot({path:new URL(`./screenshots/sync-${locale}-${width}.png`,import.meta.url).pathname.slice(1)});
     await page.locator('#global-header [data-auth-open]').click();await page.locator('[data-auth-signout]').click();
+    await page.waitForURL(`${origin}/${locale}/`);
+    assert.equal(await page.locator('[data-auth-dialog]').isVisible(),false);
     await count(page,1);assert.ok(await page.evaluate(()=>localStorage.getItem('fabio:wishlist:v1:trip:unpublished_fixture')));
     assert.equal(await page.locator('.auth-trigger-avatar img').getAttribute('src'),null);
     assert.deepEqual(errors,[]);results.push({locale,width,merge:true,deduplicated:true,remove:true,secondDevice:true,crossTab:true,serverSmallCap:true,writeFailure:true,retry:true,unpublishedRetained:true,signout:true,noPageErrors:true});

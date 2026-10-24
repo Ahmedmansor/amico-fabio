@@ -71,6 +71,15 @@ try {
     await consent(page, locale);
     await openDialog(page, width);
     await shot(page, `${locale}-${width}-signin.png`);
+    assert.equal(await page.locator('[data-auth-google] svg').count(), 1);
+    await page.locator('[data-auth-mode-switch]').click();
+    assert.match(await page.locator('#auth-title').innerText(), locale === 'it' ? /Crea/ : /Create/);
+    assert.equal(await page.locator('[data-auth-mode-switch]').innerText(), locale === 'it' ? 'Accedi' : 'Sign in');
+    await shot(page, `${locale}-${width}-signup.png`);
+    await page.locator('[data-auth-mode-switch]').click();
+    assert.match(await page.locator('#auth-title').innerText(), /Fabio Egypt/);
+    assert.equal(calls.authorizes, 0);
+    assert.equal(calls.sends, 0);
     await page.locator('#auth-email').fill('invalid');
     await page.locator('[data-auth-send]').click();
     await page.locator('[data-auth-input-error]').waitFor({ state: 'visible' });
@@ -119,7 +128,9 @@ try {
     await shot(callback, `${locale}-${width}-account.png`);
     assert.equal(await callback.evaluate(() => localStorage.getItem('fabio:wishlist:v1:trip:ras_mohammed_bus_half_day')), '1');
     await callback.locator('[data-auth-signout]').click();
-    await callback.locator('[data-auth-guest]').waitFor({ state: 'visible' });
+    await callback.waitForURL(`${origin}/${locale}/`);
+    await callback.waitForFunction(() => !document.querySelector('#global-header [data-auth-open]')?.disabled);
+    assert.equal(await callback.locator('[data-auth-dialog]').isVisible(), false);
     assert.equal(freshCalls.signouts, 1);
     assert.equal(await callback.evaluate(() => localStorage.getItem('fabio:auth:session:v1')), null);
     assert.equal(await callback.evaluate(() => localStorage.getItem('fabio:wishlist:v1:trip:ras_mohammed_bus_half_day')), '1');
@@ -154,7 +165,9 @@ try {
     await openDialog(googlePage, 1280);
     await googlePage.locator('[data-auth-account]').waitFor({ state: 'visible' });
     await googlePage.locator('[data-auth-signout]').click();
-    await googlePage.locator('[data-auth-guest]').waitFor({ state: 'visible' });
+    await googlePage.waitForURL(`${origin}/en/`);
+    assert.equal(await googlePage.locator('[data-auth-dialog]').isVisible(), false);
+    await openDialog(googlePage, 1280);
     await googlePage.locator('[data-auth-google]').click();
     await googlePage.waitForURL('https://auth-qa.invalid/**');
   }
