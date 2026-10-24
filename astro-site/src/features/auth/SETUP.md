@@ -2,6 +2,13 @@
 
 ## Latest checkpoint — 2026-10-25
 
+Product clarification: immediate sending is a restricted test tool only, not a
+public "send my favorites" feature. Actual customer wishlist mail is the delayed
+reminder in stored correspondence language. The target policy initializes that
+language once on first opt-in and changes it only explicitly thereafter; removing
+the implemented follow-site coupling is pending. No code behavior is changed by
+this clarification. Do not turn on test sending for public visitors.
+
 Later user-approved activation: `account-locale` is now ACTIVE v1, local origin
 4322 only. `PUBLIC_ACCOUNT_LOCALE_ENABLED=1` is set only in ignored `.env.local`;
 committed browser defaults remain off. Live smoke checks returned 204 for

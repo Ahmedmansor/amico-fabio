@@ -1,5 +1,11 @@
 # Wishlist emails — repository templates and restricted Brevo test
 
+**Scope clarification (2026-10-25):** the immediate send button is QA only, not
+a customer feature. The real flow sends an optional reminder after the approved
+24-hour wait in stored correspondence language. Test-page language overrides
+are only for checking templates and do not define the automatic reminder policy.
+Do not expose the test button as a production feature.
+
 The email source stays in this repository. Brevo delivers rendered HTML/plain
 text through the restricted test service; no dashboard-only template is required.
 The user confirmed the actual favorites summary and the updated WhatsApp booking

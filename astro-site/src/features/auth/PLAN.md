@@ -10,6 +10,16 @@ wishlists or reminder delivery responsibilities of the Auth feature.
 
 ### Current continuation checkpoint — 2026-10-25
 
+- Product scope clarified by the user: there is no customer-facing immediate
+  "send my favorites" feature. The send button is a restricted QA tool only;
+  keep it outside the customer journey and production release requirements.
+  The real wishlist email is the optional delayed reminder, using stored
+  correspondence language. Its approved timing remains unchanged.
+- Updated target locale policy: browsing switches do not write correspondence
+  language. Initialize it once at first reminder opt-in if absent; later changes
+  are explicit in correspondence settings. The earlier follow-site design below
+  describes the current implementation/history, not the new target behavior.
+  Refactoring that implementation is pending; do not claim it has changed yet.
 - Later activation: user approved deploying `account-locale` and enabling only
   the ignored local flag. ACTIVE v1 passed live preflight/anonymous/invalid-token/
   denied-origin checks (204/401/401/403). The local 4322 server was restarted.
@@ -37,8 +47,9 @@ wishlists or reminder delivery responsibilities of the Auth feature.
 ## 1. Goal
 
 Let visitors save tours while browsing and optionally sign in to synchronize
-favorites across devices. Users may request a one-off email summary and
-separately opt into reminders about saved tours. Reminder subscription must
+favorites across devices. Users may separately opt into delayed reminders
+about saved tours. Immediate email sending is restricted QA, not a product feature.
+Reminder subscription must
 never be required for registration or saving favorites.
 
 Keep Astro output static and publish generated files to static hosting.
@@ -150,7 +161,8 @@ src/features/
    duplicates. Clear only guest items whose synchronization succeeded. Never
    announce successful synchronization after a failed request.
 8. Signed-in users can add/remove favorites, set email language, and stop reminders.
-9. Send my list by email requests one summary; it never implicitly enables reminders.
+9. No immediate email-send button in the public customer journey. Restricted QA
+   sending must never implicitly enable reminders.
 
 Optimistic UI needs rollback and translated errors on failure. If localStorage
 is unavailable, do not claim persistence succeeded. Repeated clicks and multiple
@@ -204,8 +216,7 @@ Draft subscription wording, to review and translate before implementation:
 - Account deletion stops queued optional mail. Define any justified minimum
   suppression/audit retention rather than deleting everything indiscriminately
   or keeping records forever.
-- A requested one-off summary stays tied to that request; do not append an
-  automatic promotional sequence.
+- A restricted QA send creates no customer subscription or promotional sequence.
 
 This is technical design guidance, not a guarantee of full legal compliance.
 Review message classification and final wording for the actual business and audience.
@@ -329,8 +340,9 @@ initialize its language/mode when the user explicitly opts in.
 
 Language changes must never subscribe, restore withdrawn consent, change consent
 activation time, restart the 24-hour timer or consume the one-reminder allowance.
-Immediate requested mail uses the validated page/request language. A delayed
-reminder resolves the stored correspondence language at dispatch time.
+The real delayed reminder resolves stored correspondence language at dispatch
+time. Any page-language override belongs only to restricted template testing;
+it is not a second customer email flow.
 
 Use the existing shared `supportedLocales` configuration and derived `Locale`
 type in `src/shared/config/languages.ts`. Validate supported values on the trusted
@@ -398,7 +410,8 @@ Keep Brevo rather than introducing another provider without a concrete need.
 2. Add account-scoped profile loading and explicit switch persistence, then the
    correspondence-language control; verify retries, failures, account changes,
    ordering, follow-site/explicit mode and unchanged consent/schedule state.
-3. Wire immediate email request locale and delayed stored locale separately.
+3. Use stored correspondence locale for actual reminder dispatch; keep template
+   language overrides isolated to restricted QA.
    Test IT/EN subjects, copy, item titles, URLs and WhatsApp booking messages.
 4. Integrate the actual opt-in UI and authenticated preference saving, then build
    durable reminder events/queue/allowance, quota controls and unsubscribe/suppression
@@ -449,7 +462,7 @@ Local requested-summary continuation (2026-10-25) validates a page-locale-only
 payload and confirms language in the response, behind default-off
 `PUBLIC_WISHLIST_EMAIL_TEST_PAGE_LOCALE_ENABLED`. The restricted test rejects a
 different configured job language to preserve one immutable delivery identity.
-General immediate mail must bind each new job to request language. Deployed v3
+This is QA tooling only, not a general immediate-mail feature. Deployed v3
 and its expired window are unchanged; no new external mail was sent.
 Optional consent UI continuation now composes the actual wishlist route behind
 `PUBLIC_WISHLIST_REMINDER_OPT_IN_ENABLED=0`. It requires Auth/profiles/locale
@@ -681,7 +694,7 @@ durable event capture, queue/leases and Cron are not implemented or deployed.
 | Auth and sync | Google and Magic Link for valid emails, safe callback, persistent session, RLS, lossless merge |
 | Sign-in protection | Validation/disposable-domain policy, optional corrections, backend limits/CAPTCHA, no direct-endpoint bypass |
 | Published catalog | Static manifest matching deployed prices, URLs, and images |
-| Requested summary | Authorized verified test recipient, abuse protection, no implicit subscription |
+| Restricted email QA (not product scope) | Authorized test recipient/window, abuse protection, no implicit subscription |
 | Optional reminder | Auditable consent, queue, deduplication, daily allowance, working unsubscribe |
 | Launch | Delivery/rejection/bounce/withdrawal/account-deletion checks, then authorized deployment |
 
