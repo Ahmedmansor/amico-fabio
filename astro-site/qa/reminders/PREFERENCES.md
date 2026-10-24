@@ -88,3 +88,29 @@ website yet; component/Auth binding and backend deployment remain.
 Actual final checks: npm test — 154 Node tests passed, 0 failed; 15 Vitest files,
 141 tests passed. npx astro check — 278 files, 0 errors/warnings/hints. Static
 build — 94 pages in 5.28s, Complete. No dependencies or remote state changed.
+
+## Draft preference UI
+
+ReminderPreferences.astro and preferences-view.ts are prepared but not mounted
+in WishlistPage. The control is hidden until bound to an authenticated controller,
+starts unchecked for an absent preference, and uses explicit form submission.
+Loading/saving disables inputs, errors restore confirmed state and expose an
+explicit retry. The binder hides and clears account-specific display on signout.
+No skeleton animation is needed for this text/status control; layout and status
+space are reserved and busy state is accessible. Existing black/gold variables,
+local fonts, visible labels/focus rings and 44px controls are used.
+
+Draft copy exists under data/content/preferences-it.json and preferences-en.json;
+matching keys are validated. Review the wording before enabling real consent.
+The preview uses in-memory fixtures only. Browser JSON covers four IT/EN cases
+at 375/1440px: keyboard activation, default unchecked/no writes, failure after
+simulated commit then exact-ID retry, late account replies, no overflow, local
+requests only and no page errors. Screenshots remain ignored and were inspected.
+No claim of real endpoint security, consent activation or email delivery follows.
+See README.md in this QA folder for regeneration and preview instructions.
+
+Final UI task checks: npm test — 154 Node tests passed, 0 failed; 15 Vitest files /
+141 tests passed. npx astro check — 284 files, 0 errors/warnings/hints. Normal
+static build — 94 pages in 5.22s, Complete. Isolated noindex preview build — 96
+pages in 12.21s, Complete. Four browser cases passed. No new dependency, remote
+write, user subscription, email, hosting change, push or deployment in this task.

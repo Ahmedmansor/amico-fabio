@@ -212,6 +212,14 @@ and retries uncertain writes only on explicit action using the same request ID.
 These modules are not mounted in the website yet; no opt-in or deployment is
 implied. See qa/reminders/PREFERENCES.md for synthetic integration checks.
 
+Draft opt-in component and binder are also prepared, without mounting on the
+main site. Local QA covers IT/EN at 375/1440px: unchecked default, explicit
+keyboard save, confirmed status, uncertain-write retry and account changes.
+Editable draft wording: reminders/data/content/preferences-{it,en}.json.
+Consent wording still needs final approval before activation; the draft wording
+version must stay aligned with the backend. Preview regeneration and evidence
+are in qa/reminders/README.md and PREFERENCES.md.
+
 Review `../../../supabase/account-wishlist/README.md` and its prepared schema
 before remote execution. It covers only minimal profiles and account wishlists;
 consent storage is applied; delivery entities remain proposals. `trip_id` references the

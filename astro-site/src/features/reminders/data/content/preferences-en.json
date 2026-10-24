@@ -1,0 +1,15 @@
+{
+  "title": "Email reminder",
+  "label": "Email me one reminder about my favorites",
+  "description": "Optional. At most one reminder per account, 24 hours after your latest addition or enabling reminders, whichever is later. An empty favorites list cancels the wait. You can turn reminders off at any time.",
+  "save": "Save preference",
+  "loading": "Loading your reminder preference…",
+  "saving": "Saving your reminder preference…",
+  "enabled": "Email reminders are enabled for this account.",
+  "disabled": "Email reminders are off. Your favorites are still saved.",
+  "error": "Couldn’t confirm your reminder preference. Please try again.",
+  "outdated": "The reminder information has changed. Reload your preference before choosing again.",
+  "retry": "Try again",
+  "reload": "Reload preference",
+  "privacy": "Privacy notice"
+}

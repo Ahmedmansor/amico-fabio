@@ -41,8 +41,10 @@
   and tested locally. They reject malformed confirmations, isolate late replies
   after account changes and preserve request identity on explicit retries. They
   are not mounted, do not call a live endpoint and never store bearer tokens or
-  consent in localStorage. Actual Auth binding/Edge deployment and the opt-in
-  component remain integration work.
+  consent in localStorage. The draft opt-in component/binder is implemented and
+  browser-tested in isolation; real Auth binding/Edge deployment remain work.
+  Do not mount or enable it before approved wording, runtime controls and a
+  deployed verified endpoint are ready. See ../../../qa/reminders/README.md.
 
 ## Previous handoff — 2026-10-23 (superseded by activation above)
 

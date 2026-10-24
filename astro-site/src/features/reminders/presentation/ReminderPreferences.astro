@@ -1,0 +1,26 @@
+---
+import type {Locale} from '../../../shared/config/languages';
+import {getPreferenceMessages} from '../data/preference-messages';
+import './preferences.css';
+interface Props {locale:Locale}
+const {locale}=Astro.props;
+const m=getPreferenceMessages(locale);
+const id=`reminder-preferences-${locale}`;
+---
+<!-- Hidden until an authenticated controller is explicitly bound. Not mounted on the live site. -->
+<section class="reminder-preferences" data-reminder-preferences hidden aria-labelledby={`${id}-title`}>
+  <h2 id={`${id}-title`}>{m.title}</h2>
+  <form data-reminder-form>
+    <fieldset disabled>
+      <label class="reminder-choice" for={`${id}-choice`}>
+        <input type="checkbox" id={`${id}-choice`} data-reminder-choice aria-describedby={`${id}-description`}/>
+        <span>{m.label}</span>
+      </label>
+      <p id={`${id}-description`} class="reminder-description">{m.description}</p>
+      <button class="reminder-button" type="submit" data-reminder-save>{m.save}</button>
+    </fieldset>
+  </form>
+  <p class="reminder-status" data-reminder-status role="status" aria-live="polite" aria-atomic="true">{m.loading}</p>
+  <button class="reminder-button" type="button" data-reminder-retry hidden>{m.retry}</button>
+  <a class="reminder-privacy" href={`/${locale}/legal/`}>{m.privacy}</a>
+</section>

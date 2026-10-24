@@ -69,3 +69,43 @@ selection. npm test: 133 Node tests / 129 Vitest tests passed. Reminder opt-in
 UI has not appeared during signup because it is not implemented; asking about
 it is not approval of the proposed timing/re-addition policy. That remains open.
 All-items follow-up checks: Astro check 265 files, 0 errors/warnings/hints; static build 94 pages in 7.34s, Complete. Local HTML/text previews regenerated successfully.
+
+## Preference UI preview — 2026-10-24
+
+The draft component is now implemented but not mounted on the normal site.
+The latest-addition/consent +24h policy and all-items email content were approved
+later than the historical notes above. Final IT/EN consent wording still needs
+review before activation. Source:
+
+- src/features/reminders/presentation/ReminderPreferences.astro, preferences.css
+  and preferences-view.ts.
+- src/features/reminders/data/content/preferences-it.json / preferences-en.json.
+- data/preference-messages.ts validates matching language keys and nonempty text.
+
+Reproduce from astro-site (no new dependencies):
+
+    node qa/reminders/build-preferences-preview.mjs
+    node scripts/serve-static-qa.mjs .astro/reminder-preferences-ui 4331
+
+The preview builder creates a temporary qa-reminder-preferences.astro route with
+exclusive write mode and removes only that file in finally. Do not run two
+preview builds concurrently or interrupt it during source generation. It uses
+a separate noindex output, localhost origin, synthetic in-memory accounts and
+no live Auth/preference endpoint. Normal dist is not the preview artifact.
+
+Open http://127.0.0.1:4331/en/qa-reminder-preferences/ or the /it/ equivalent.
+Choose Show test account / Mostra account di prova to display the draft control.
+The preview does not subscribe any real account, send email or persist choices.
+
+Set PLAYWRIGHT_MODULE and QA_BROWSER to the existing external Playwright module
+and Edge executable, then run:
+
+    node qa/reminders/preferences-browser.mjs
+
+Actual result: four IT/EN mobile/desktop cases passed (375/1440px), including
+unchecked default, keyboard-only save, no implicit subscription, uncertain-write
+retry with the same ID, loading/disabled controls, account isolation, no overflow,
+no external requests and no page errors. JSON results are committed; screenshots
+are local/ignored. English mobile and Italian desktop screenshots were inspected.
+The initial preview used an underscore-prefixed route, which Astro ignored;
+renaming the disposable route fixed the fixture. No product behavior changed.

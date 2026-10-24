@@ -44,6 +44,9 @@ These drafts do not enroll anyone or schedule mail. Local preference service,
 repository, Auth verifier and HTTP handler are prepared but unbound. Preference
 storage was separately applied and role-tested on 2026-10-24, with zero records
 after ROLLBACK. No public endpoint or website opt-in is active.
+The draft ReminderPreferences.astro component, binder and IT/EN wording are
+prepared for isolated review. They are not imported by WishlistPage. Local
+preview steps and browser checks are in ../../../qa/reminders/README.md.
 A reminder model requires an unsubscribe URL on the approved site
 origin; the preview target only explains that no preference changed. A real
 unsubscription handler, scoped tokens/headers and provider tests are still needed.
