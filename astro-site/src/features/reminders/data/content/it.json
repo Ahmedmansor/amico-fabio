@@ -1,0 +1,20 @@
+{
+  "summarySubject": "I tuoi preferiti di Fabio Egypt",
+  "reminderSubject": "Le escursioni e i pacchetti salvati — Fabio Egypt",
+  "summaryTitle": "I tuoi preferiti, tutti insieme",
+  "reminderTitle": "Le esperienze che hai salvato sono qui",
+  "summaryIntro": "Ecco le escursioni e i pacchetti della tua lista dei preferiti.",
+  "reminderIntro": "Riguarda le escursioni e i pacchetti che hai salvato quando preferisci.",
+  "tours": "Escursioni",
+  "packages": "Pacchetti",
+  "priceFrom": "A partire da",
+  "discover": "Vedi i dettagli",
+  "viewFavorites": "Apri i tuoi preferiti",
+  "moreItems": "Nei tuoi preferiti ci sono altri {count} elementi salvati. Apri la lista per vederli.",
+  "summaryReason": "Hai richiesto una copia dei tuoi preferiti via email. Questa richiesta non ti iscrive ai promemoria.",
+  "reminderReason": "Ricevi questo promemoria perché hai scelto di ricevere email sui tuoi preferiti.",
+  "unsubscribe": "Disattiva i promemoria sui preferiti",
+  "privacy": "Informativa sulla privacy",
+  "catalogNote": "I prezzi mostrati corrispondono alla versione del sito usata per preparare questa email. Consulta la pagina dei dettagli per le informazioni attuali.",
+  "previewOnly": "Solo anteprima del modello. Nessuna email è stata inviata e nessuna preferenza è stata modificata."
+}

@@ -350,7 +350,12 @@ User requirement confirmed 2026-10-24: email wording, HTML structure and styles
 must live in this repository, with IT/EN versions and local preview. The future
 backend should render email-compatible HTML from that source and send it through
 Brevo, rather than making the Brevo dashboard the only editable template source.
-This requirement is recorded; the reminder template/sender are not implemented.
+Local template preparation is implemented: reminders/presentation owns the
+HTML renderer and inline styles; reminders/data/content owns matching IT/EN
+subjects/body copy. Summary/reminder HTML and plain-text drafts can be generated
+from the test catalog. Eight local browser previews passed; inbox rendering,
+real unsubscribe, final copy/sender details and delivery are not yet verified.
+The Brevo sender is not implemented. See ../reminders/README.md and ../../../qa/reminders.
 
 Confirmed starting point: **one optional reminder**, 24 hours after wishlist
 eligibility. A second message 48 hours after the first is a later decision after

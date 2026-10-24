@@ -1,0 +1,20 @@
+{
+  "summarySubject": "Your Fabio Egypt favorites",
+  "reminderSubject": "Your saved tours and packages — Fabio Egypt",
+  "summaryTitle": "Your favorites, in one place",
+  "reminderTitle": "Your saved experiences are here",
+  "summaryIntro": "Here are the tours and packages from your favorites list.",
+  "reminderIntro": "Take another look at the tours and packages you saved whenever you’re ready.",
+  "tours": "Tours",
+  "packages": "Packages",
+  "priceFrom": "Starting from",
+  "discover": "View details",
+  "viewFavorites": "Open your favorites",
+  "moreItems": "Your favorites include {count} more saved items. Open your list to see them.",
+  "summaryReason": "You requested a copy of your favorites by email. This request does not subscribe you to reminders.",
+  "reminderReason": "You’re receiving this reminder because you opted in to emails about your favorites.",
+  "unsubscribe": "Stop favorites reminders",
+  "privacy": "Privacy notice",
+  "catalogNote": "Prices shown match the website version used to prepare this email. Check the details page for current information.",
+  "previewOnly": "Template preview only. No email has been sent and no preferences have changed."
+}

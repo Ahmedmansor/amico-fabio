@@ -19,6 +19,12 @@
   the agent has not extracted or accessed the user's session.
 - Email/reminders remain off; no mail was sent, no hosting/provider setting
   changed, and no deployment occurred. Evidence: ../../../qa/wishlist/LIVE_SYNC.md.
+- Email preparation now includes /tours-manifest.json for published tours and
+  packages and local IT/EN summary/reminder templates with inline styles and
+  plain text. Preview source and regeneration: ../reminders/README.md. Preview
+  unsubscribe is inert. Timing/re-addition policy, launch card limit, operational
+  caps, real consent/unsubscribe service, approved sender/footer details and a
+  permitted test recipient remain gates before real mail delivery.
 
 ## Previous handoff — 2026-10-23 (superseded by activation above)
 

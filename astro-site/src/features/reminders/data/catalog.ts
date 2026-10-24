@@ -15,7 +15,8 @@ export async function getEmailCatalog(origin: string,generatedAt: string,environ
     const poster=posters[offer.poster];
     if(!poster) throw new Error(`[email-catalog:${kind}:${offer.id}] Missing linked image ${offer.poster}.`);
     const width=Math.min(640,poster.width);
-    const image=await getImage({src:poster,width,format:'jpeg'});
+    // Bake the thumbnail crop into the JPEG; email clients need no object-fit CSS.
+    const image=await getImage({src:poster,width,height:Math.round(width*9/16),fit:'cover',format:'jpeg'});
     return {kind,id:offer.id,slug:offer.slug,adult_price:offer.prices.adult,
       localized:Object.fromEntries(supportedLocales.map(locale=>[locale,{
         title:offer.text[locale].title,url:new URL(`/${locale}/${kind==='trip'?'tours':'packages'}/${offer.slug}/`,origin).href,

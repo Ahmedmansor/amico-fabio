@@ -1,0 +1,93 @@
+{
+  "mode": "local-browser-rendering-only",
+  "cases": [
+    {
+      "locale": "it",
+      "kind": "summary",
+      "width": 375,
+      "images": 4,
+      "separateGroups": true,
+      "noHorizontalOverflow": true,
+      "localRequestsOnly": true,
+      "previewUnsubscribe": false,
+      "noPageErrors": true
+    },
+    {
+      "locale": "it",
+      "kind": "summary",
+      "width": 1440,
+      "images": 4,
+      "separateGroups": true,
+      "noHorizontalOverflow": true,
+      "localRequestsOnly": true,
+      "previewUnsubscribe": false,
+      "noPageErrors": true
+    },
+    {
+      "locale": "it",
+      "kind": "reminder",
+      "width": 375,
+      "images": 4,
+      "separateGroups": true,
+      "noHorizontalOverflow": true,
+      "localRequestsOnly": true,
+      "previewUnsubscribe": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "it",
+      "kind": "reminder",
+      "width": 1440,
+      "images": 4,
+      "separateGroups": true,
+      "noHorizontalOverflow": true,
+      "localRequestsOnly": true,
+      "previewUnsubscribe": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "en",
+      "kind": "summary",
+      "width": 375,
+      "images": 4,
+      "separateGroups": true,
+      "noHorizontalOverflow": true,
+      "localRequestsOnly": true,
+      "previewUnsubscribe": false,
+      "noPageErrors": true
+    },
+    {
+      "locale": "en",
+      "kind": "summary",
+      "width": 1440,
+      "images": 4,
+      "separateGroups": true,
+      "noHorizontalOverflow": true,
+      "localRequestsOnly": true,
+      "previewUnsubscribe": false,
+      "noPageErrors": true
+    },
+    {
+      "locale": "en",
+      "kind": "reminder",
+      "width": 375,
+      "images": 4,
+      "separateGroups": true,
+      "noHorizontalOverflow": true,
+      "localRequestsOnly": true,
+      "previewUnsubscribe": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "en",
+      "kind": "reminder",
+      "width": 1440,
+      "images": 4,
+      "separateGroups": true,
+      "noHorizontalOverflow": true,
+      "localRequestsOnly": true,
+      "previewUnsubscribe": true,
+      "noPageErrors": true
+    }
+  ]
+}

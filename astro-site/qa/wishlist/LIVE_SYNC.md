@@ -63,3 +63,8 @@ Application checks: npx astro check — Result (252 files), 0 errors, 0 warnings
 0 hints. npm run build — 94 pages in 8.42s, Complete! Enabled bootstrap verified
 in the generated output on six main-site routes. These build checks do not
 replace the authenticated browser check above.
+
+User follow-up, 2026-10-24: the user confirmed real synchronization works,
+including cross-browser restoration/removal and deduplication on login. This
+completes the previously pending manual check as user-reported evidence; no
+user session/token was extracted by the agent.
