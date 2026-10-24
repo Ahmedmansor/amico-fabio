@@ -204,6 +204,14 @@ Separately authorized and applied on 2026-10-24; PostgreSQL role tests passed
 with ROLLBACK and zero preference/audit rows afterward. No HTTP
 function is deployed and no opt-in control is active on the website yet.
 
+Browser flow prepared locally on 2026-10-24: reminders/data/preferences-client.ts
+talks only to a fixed authenticated HTTP endpoint with no-store/omit credentials,
+bounded response/deadline and strict confirmation parsing. The feature controller
+discards late replies on account changes, retains only confirmed preference state
+and retries uncertain writes only on explicit action using the same request ID.
+These modules are not mounted in the website yet; no opt-in or deployment is
+implied. See qa/reminders/PREFERENCES.md for synthetic integration checks.
+
 Review `../../../supabase/account-wishlist/README.md` and its prepared schema
 before remote execution. It covers only minimal profiles and account wishlists;
 consent storage is applied; delivery entities remain proposals. `trip_id` references the

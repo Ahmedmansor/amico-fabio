@@ -8,6 +8,18 @@ export interface PreferenceRepository {
   read(userId:string):Promise<PreferenceResult<EmailPreference|null>>;
   change(userId:string,input:PreferenceChange):Promise<PreferenceResult<EmailPreference>>;
 }
+
+/** Shared wire model validation; never treat a malformed response as consent. */
+export function parseEmailPreference(value:unknown):EmailPreference|null {
+  if(!value || typeof value!=='object' || Array.isArray(value))return null;
+  const row=value as Record<string,unknown>;
+  if(Object.keys(row).some(key=>!['enabled','locale','wordingVersion','updatedAt','enabledSince'].includes(key))
+    || typeof row.enabled!=='boolean' || !isLocale(row.locale)
+    || typeof row.wordingVersion!=='string' || !row.wordingVersion
+    || typeof row.updatedAt!=='string' || !Number.isFinite(Date.parse(row.updatedAt)))return null;
+  if(row.enabled ? typeof row.enabledSince!=='string' || !Number.isFinite(Date.parse(row.enabledSince)) : row.enabledSince!==null)return null;
+  return {enabled:row.enabled,locale:row.locale,wordingVersion:row.wordingVersion,updatedAt:row.updatedAt,enabledSince:row.enabledSince as string|null};
+}
 const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 export function isPreferenceRequestId(value:unknown):value is string {return typeof value==='string'&&uuid.test(value);}
 

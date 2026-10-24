@@ -64,3 +64,27 @@ or timed out. The authorized network-enabled retry succeeded: validated live
 Supabase 22 trips, 14 packages, 3 addons, 1 settings; static build 94 pages in
 6.64s, Complete. Existing Browserslist data-age notice remains; no dependency
 was changed. git diff --check passed. No push or deployment occurred.
+
+## Browser preference flow preparation — 2026-10-24
+
+preferences-client.ts is a fixed-endpoint HTTP adapter, not a table/RPC client.
+Auth session lookup is injected; no bearer is persisted, placed in a URL/body
+or logged. It refuses missing/switched sessions before dispatch, uses no-store,
+omit credentials, no referrer and redirect:error, bounds JSON responses and
+includes session lookup in its deadline. The backend still verifies identity.
+
+preferences-controller.ts keeps only confirmed preferences, clears them on
+account changes and discards late replies. Uncertain writes retry only after
+explicit action with the identical command/request ID, blocking a conflicting
+new command until resolved. An old grant retry can return a newer withdrawal
+from another tab; the controller displays current server state and never
+replays the old grant. It does not infer consent from Auth or favorites.
+
+Synthetic tests: 11 transport/controller cases including an HTTP boundary
+round trip. No browser, real account, deployed endpoint, runtime limits or
+email delivery is claimed by these tests. Neither module is mounted on the
+website yet; component/Auth binding and backend deployment remain.
+
+Actual final checks: npm test — 154 Node tests passed, 0 failed; 15 Vitest files,
+141 tests passed. npx astro check — 278 files, 0 errors/warnings/hints. Static
+build — 94 pages in 5.28s, Complete. No dependencies or remote state changed.

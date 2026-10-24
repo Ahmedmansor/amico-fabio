@@ -37,6 +37,12 @@
   Source: ../../../supabase/reminder-preferences/; evidence: ../../../qa/reminders/PREFERENCES.md.
   Future deployment requires approved backend scope, secret storage, runtime
   request/rate limits and real role/integration tests before showing live opt-in.
+- The browser HTTP client and account-aware preference controller are prepared
+  and tested locally. They reject malformed confirmations, isolate late replies
+  after account changes and preserve request identity on explicit retries. They
+  are not mounted, do not call a live endpoint and never store bearer tokens or
+  consent in localStorage. Actual Auth binding/Edge deployment and the opt-in
+  component remain integration work.
 
 ## Previous handoff — 2026-10-23 (superseded by activation above)
 
