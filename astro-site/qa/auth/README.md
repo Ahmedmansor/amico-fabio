@@ -204,3 +204,17 @@ in 5.04s, Complete! Full synthetic Auth browser suite also passed all 4 IT/EN
 The isolated server used loopback 4330, fake configuration and separate caches;
 the user's 4322 server was left running. No real sign-in/mail or database writes.
 No schema-execution/RLS guarantee is implied by the mock repository tests.
+
+## Google callback completion fix — 2026-10-24
+
+OAuth PKCE callbacks now exchange the code automatically once and return to the
+validated destination. Only email token links require the Continue action. The
+static callback initially shows the existing localized pending text, preventing
+email instructions from flashing during Google return.
+
+Verification: Astro check, 250 files, 0 errors/warnings/hints; static build,
+94 pages in 5.23s, Complete. Initial sandbox catalog request failed; the build
+passed with read-only network access. Synthetic browser suite passed all four
+IT/EN mobile/desktop cases, email confirmation unchanged, two automatic Google
+completions across local signout, expired Google code, safe returns and session
+restoration. No real Google account, email or remote settings were changed.

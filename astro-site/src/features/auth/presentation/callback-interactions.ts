@@ -13,14 +13,14 @@ async function initialize() {
   const destination = safeReturnPath(new URLSearchParams(handoff?.search).get('next'), authReturnPaths(), defaultAuthReturn(locale));
   const button = document.querySelector<HTMLButtonElement>('[data-auth-continue]')!;
   const status = document.querySelector<HTMLElement>('[data-auth-callback-status]')!;
+  const intro = document.querySelector<HTMLElement>('[data-auth-callback-intro]')!;
   const back = document.querySelector<HTMLAnchorElement>('[data-auth-back]')!;
   back.href = destination;
   const service = await browserAuth(config);
   if (!service) { status.textContent = m.unavailable; return; }
   if (input.kind === 'invalid') { status.textContent = m.invalidLink; return; }
-  button.hidden = false;
   let pending = false;
-  button.addEventListener('click', async () => {
+  const complete = async () => {
     if (pending) return;
     pending = true; button.disabled = true; status.textContent = m.pending;
     const result = await service.completeCallback(input);
@@ -29,6 +29,15 @@ async function initialize() {
     status.textContent = m.invalidLink;
     button.hidden = true;
     back.focus();
-  });
+  };
+  if (input.kind === 'google') {
+    // OAuth already follows an explicit sign-in action; exchange PKCE once on return.
+    await complete();
+  } else {
+    // Email links retain the explicit action before consuming their one-time token.
+    intro.textContent = m.callbackIntro;
+    button.hidden = false;
+    button.addEventListener('click', () => { void complete(); });
+  }
 }
 void initialize();

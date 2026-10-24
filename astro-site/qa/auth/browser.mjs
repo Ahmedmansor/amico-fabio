@@ -13,12 +13,20 @@ const token = () => {
   return `${Buffer.from('{"alg":"HS256","typ":"JWT"}').toString('base64url')}.${Buffer.from(JSON.stringify(payload)).toString('base64url')}.synthetic_test_signature`;
 };
 async function mock(context, expired = false) {
-  const calls = { sends: 0, verifies: 0, authorizes: 0, signouts: 0 };
+  const calls = { sends: 0, verifies: 0, authorizes: 0, signouts: 0, exchanges: 0 };
   await context.route('https://auth-qa.invalid/**', async route => {
     const url = new URL(route.request().url());
     const headers = { 'access-control-allow-origin': origin, 'access-control-allow-headers': '*' };
     if (route.request().method() === 'OPTIONS') return route.fulfill({ status: 200, headers, body: '' });
     if (url.pathname.endsWith('/otp')) { calls.sends++; return route.fulfill({ status: 200, headers, json: {} }); }
+    if (url.pathname.endsWith('/token') && url.searchParams.get('grant_type') === 'pkce') {
+      calls.exchanges++;
+      const body = route.request().postDataJSON();
+      assert.equal(body.auth_code, 'synthetic_google_code');
+      assert.ok(body.code_verifier);
+      if (expired) return route.fulfill({ status: 400, headers, json: { code: 'flow_state_expired', msg: 'expired test code' } });
+      return route.fulfill({ status: 200, headers, json: { access_token: token(), refresh_token: 'synthetic_refresh', token_type: 'bearer', expires_in: 3600, user } });
+    }
     if (url.pathname.endsWith('/verify')) {
       calls.verifies++;
       const body = route.request().postDataJSON();
@@ -138,7 +146,33 @@ try {
   await googlePage.locator('[data-auth-google]').click();
   await googlePage.waitForURL('https://auth-qa.invalid/**');
   assert.equal(googleCalls.authorizes, 1);
+  // Repeat the complete Google round trip after local signout, with no Continue click.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    await googlePage.goto(`${origin}/en/auth/callback/?code=synthetic_google_code&next=/en/wishlist/`);
+    await googlePage.waitForURL(`${origin}/en/wishlist/`);
+    assert.equal(googleCalls.exchanges, attempt + 1);
+    await openDialog(googlePage, 1280);
+    await googlePage.locator('[data-auth-account]').waitFor({ state: 'visible' });
+    await googlePage.locator('[data-auth-signout]').click();
+    await googlePage.locator('[data-auth-guest]').waitFor({ state: 'visible' });
+    await googlePage.locator('[data-auth-google]').click();
+    await googlePage.waitForURL('https://auth-qa.invalid/**');
+  }
   await googleContext.close();
+  const failedGoogle = await browser.newContext();
+  const failedGoogleCalls = await mock(failedGoogle, true);
+  const failedGooglePage = await failedGoogle.newPage();
+  await failedGooglePage.goto(`${origin}/en/wishlist/`);
+  await consent(failedGooglePage, 'en');
+  await openDialog(failedGooglePage, 1280);
+  await failedGooglePage.locator('[data-auth-google]').click();
+  await failedGooglePage.waitForURL('https://auth-qa.invalid/**');
+  await failedGooglePage.goto(`${origin}/en/auth/callback/?code=synthetic_google_code`);
+  await failedGooglePage.locator('[data-auth-callback-status]').filter({ hasText: /invalid, expired or already used/ }).waitFor();
+  assert.equal(failedGoogleCalls.exchanges, 1);
+  assert.equal(await failedGooglePage.locator('[data-auth-continue]').isVisible(), false);
+  assert.equal(new URL(failedGooglePage.url()).search, '');
+  await failedGoogle.close();
   const deniedContext = await browser.newContext();
   const deniedCalls = await mock(deniedContext);
   await deniedContext.addInitScript(() => Object.defineProperty(window, 'localStorage', { get() { throw new Error('storage denied'); } }));
@@ -157,5 +191,5 @@ try {
   assert.match(await staticPage.locator('.auth-callback noscript').innerText(), /Enable JavaScript/);
   await noJS.close();
   await writeFile(new URL('./browser-results.json', import.meta.url), JSON.stringify({ mode: 'synthetic-auth-only', cases: results, expiredLink: true, googlePKCE: true, deniedStorage: true, noJavaScript: true, directWishlistEntry: true, nativeDialogFocusTrap: true }, null, 2) + '\n');
-  console.log(`Auth browser checks passed: ${results.length} language/viewport combinations; fresh-browser email callback, session restoration, local signout, expired link and Google PKCE URL.`);
+  console.log(`Auth browser checks passed: ${results.length} language/viewport combinations; email confirmation, Google automatic PKCE completion twice across signout, expired Google code, session restoration and safe callbacks.`);
 } finally { await browser.close(); }
