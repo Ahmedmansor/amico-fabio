@@ -78,15 +78,17 @@ receipt of the updated email and the correct per-item WhatsApp booking message.
 This is user-reported integration evidence, not a new provider-log inspection.
 Do not extend the job or send another email without its required authorization.
 
-## Approved locale continuation — not implemented
+## Locale continuation — applied storage, local integration pending
 
 The canonical contract is [PLAN.md section 6.1](PLAN.md#61-approved-language-and-request-contract--2026-10-24).
 It separates page URL, profile language and follow-site/explicit correspondence
 language; documents atomic ownership-verified writes, ordering/retries and realistic
-request costs. No locale migration or endpoint was activated by documenting it.
+request costs. Documenting the design alone did not activate it.
 Continuation implemented the local domain/service/RPC repository with 17 passing
-tests. [SQL proposal](../../../supabase/account-locale/README.md) is ready for
-review; schema/rollback fixtures are NOT executed. Verified checks and limits:
+tests. The separately authorized [SQL delta](../../../supabase/account-locale/README.md)
+is now applied (`20261024203756`); two-account rollback tests passed and cleanup
+was verified. The local coordinator adds 10 tests. Endpoint/header binding remain
+off and actual overlapping-connection testing is not claimed. Checks and limits:
 [LOCALE.md](../../../qa/auth/LOCALE.md). No new dependency or live flag change.
 The current test job fixes English; switching to Italian does not yet localize
 that test. Preference UI is not mounted. Google Auth/account sync are local-only;

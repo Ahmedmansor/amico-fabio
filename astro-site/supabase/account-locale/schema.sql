@@ -1,5 +1,5 @@
--- LOCAL REVIEW PROPOSAL ONLY. Not executed. Requires separate remote-write approval.
--- Source artifact, not a Supabase CLI migration/history entry. Apply once after review.
+-- Applied 2026-10-24 after explicit user approval; DO NOT RERUN.
+-- Remote migration 20261024203756 account_locale_preferences; retained reviewed source.
 -- Prerequisites: applied account-wishlist and reminder-preferences schemas.
 begin;
 

@@ -1,9 +1,12 @@
-# Account locale persistence — local review proposal
+# Account locale persistence — applied storage, local integration
 
-Not applied or enabled. No new dependency, browser endpoint, deployment or email
-send is part of this task. Canonical behavior: [PLAN.md section 6.1](../../src/features/auth/PLAN.md#61-approved-language-and-request-contract--2026-10-24).
+Applied on fabioEgypt after explicit user approval, migration `20261024203756`
+(`account_locale_preferences`). Two-account rollback role tests passed and left
+zero command/preference fixtures. No new dependency, browser endpoint, deployment
+or email send. Canonical behavior:
+[PLAN.md section 6.1](../../src/features/auth/PLAN.md#61-approved-language-and-request-contract--2026-10-24).
 
-## Proposed database delta
+## Applied database delta
 
 - Add `profiles.locale_revision` for optimistic concurrency and an append-only,
   private `account_locale_commands` ledger for account-scoped idempotency.
@@ -22,10 +25,10 @@ send is part of this task. Canonical behavior: [PLAN.md section 6.1](../../src/f
 - No enabled/consent time/wording/audit changes from language writes. No scheduler,
   sender, new consent, provider or hosting setting changes.
 
-These files are review artifacts following the project's existing schema.sql
-workflow, not generated CLI migration-history files. Supabase CLI/Postgres are
-not installed locally; no installation is proposed. Do not edit/reapply the old
-already-applied account/consent schema files.
+These retained source files follow the project's schema.sql workflow. The remote
+MCP migration has a history entry; no local CLI history file was fabricated.
+Supabase CLI/Postgres are not installed locally. Do not rerun this schema or the
+old account/consent schema files.
 
 ## Conflict and retry protocol
 
@@ -48,15 +51,15 @@ Do not enable the switch before backend and real integration checks are ready.
 
 ## Review and activation gates
 
-1. Review schema delta, existing grants/default privileges and current function
-   definition before separate remote-write authorization.
-2. Apply `schema.sql` once transactionally only after that authorization.
-3. Separately authorize `role-tests.sql`: two random Auth IDs without emails,
-   profile/preferences/ledger fixtures, no catalog or email sends, all ROLLBACK.
-   **The tests have not run.** Sequential stale-revision cases do not prove
-   simultaneous-connection lock behavior; run a controlled multi-connection test
-   before deployment too.
-4. Verify advisors/grants and backfill, then compose the protected endpoint with
+1. Completed: live columns/grants/consent definition reviewed; separate schema
+   and two-account rollback-test approval received and executed.
+2. Completed: migration success and role assertions; zero preference/command
+   rows afterward. Profile INSERT/SELECT retained, browser locale UPDATE/RPC denied.
+3. Advisors: four intentional INFO entries for service-only RLS tables without
+   browser policies; existing leaked-password-protection warning unchanged.
+   A two-request lock probe returned `not-overlapping`; it does **not** verify
+   concurrent connections. Actual overlapping lock verification remains pending.
+4. Compose the protected endpoint with
    remote Auth validation, origin/body/deadline/rate limits. Its account identity
    must come from verified Auth; private RPC `p_user_id` is not a public API.
 5. Integrate profile loading/switch/settings and IT/EN UI, then request-driven

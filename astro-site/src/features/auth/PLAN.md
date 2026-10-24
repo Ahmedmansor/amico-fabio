@@ -266,7 +266,7 @@ account identity through a trusted backend path.
 | Consent | Applied private tables, atomic RPC and rate limits; deployed preference service smoke checks | Actual wishlist opt-in mounting and authenticated save integration |
 | Email | Repository IT/EN HTML/text/styles, all available saved items, Brevo transport, per-item/general WhatsApp actions | Current restricted test fixes English; no automatic reminder sending |
 | Scheduling | Tested pure one-reminder policy, 24h after latest real addition or consent | Durable events, queue/leases, eligibility recheck, allowance/ledger, quotas, unsubscribe and suppression |
-| Languages | Existing shared language configuration and IT/EN templates | Section 6.1 persistence/mode/concurrency design below is not implemented |
+| Languages | Shared IT/EN configuration/templates; locale storage/RPC migration and rollback role tests passed | Protected HTTP transport, header/settings binding and overlapping-connection test |
 
 Recorded checks for the booking-action implementation (`5cb32e5`): 8 Node tests
 and 8 domain Vitest tests passed; Astro checked 312 files with 0 errors/warnings/
@@ -281,8 +281,8 @@ documentation update. Evidence: [Brevo](../../../qa/reminders/BREVO.md),
 
 ### 6.1. Approved language and request contract — 2026-10-24
 
-This is the canonical continuation design, not evidence of an applied migration
-or an enabled language endpoint. Keep production static on GitHub Pages; Vercel
+This is the canonical continuation design. Its storage migration is applied and
+role-tested below; the browser endpoint is not enabled. Keep production static on GitHub Pages; Vercel
 is the separate migration test environment. No SSR or middleware is required.
 
 | Source | Responsibility |
@@ -290,7 +290,7 @@ is the separate migration test environment. No SSR or middleware is required.
 | Explicit `/it/` or `/en/` URL | Current page language; strongest browsing signal |
 | `profiles.locale` | Initial site language, then the last explicit signed-in site-language choice |
 | `wishlist_email_preferences.locale` | Stored language for delayed wishlist correspondence |
-| Proposed `locale_source` | `follow_site` by default, or `explicit` correspondence choice |
+| `locale_source` | `follow_site` by default for new rows, or `explicit` correspondence choice; pre-existing rows preserved as explicit |
 | Guest browser preference | Remember the guest's site choice without a database write |
 
 Do not add a competing `preferred_locale` column. Initialize the profile once;
@@ -375,8 +375,10 @@ Keep Brevo rather than introducing another provider without a concrete need.
 
 Local implementation checkpoint: strict locale commands/state, pure policy,
 backend service and Supabase RPC repository now exist with 10 Node + 7 domain
-tests passing. Reviewed local SQL proposes `locale_source`, profile revision,
-private idempotency ledger and serialized locale/consent writes; it is not applied.
+tests passing. Separately authorized migration `20261024203756` applied
+`locale_source`, profile revision, private idempotency ledger and serialized
+locale/consent writes. Real two-account rollback role tests passed; zero fixtures
+remain. Browser UPDATE/RPC denied; profile initialization/read retained.
 Astro check passed (317 files, 0 diagnostics); static build passed (94 pages).
 See [locale evidence](../../../qa/auth/LOCALE.md) and
 [SQL review](../../../supabase/account-locale/README.md).
@@ -385,8 +387,8 @@ latest intent, account isolation and explicit recovery; it is not bound to the
 header or a live endpoint. Its final check passed (320 files, 0 diagnostics),
 and static build passed (94 pages in 8.94s).
 
-Current gaps: profile creation only initializes live locale; browser switch
-persistence and remote `locale_source` are not activated. Both email templates exist, but the restricted
+Current gaps: browser switch persistence and the protected HTTP endpoint are
+not activated; actual overlapping-connection testing remains pending. Both email templates exist, but the restricted
 test job currently fixes `locale: 'en'`; changing the site to Italian does not yet
 change that test email. Real preference UI is not mounted in WishlistPage.
 

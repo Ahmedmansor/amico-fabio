@@ -1,7 +1,8 @@
 # Account language persistence — local implementation checkpoint
 
-Local policy/service/repository implemented; remote SQL and browser integration
-are not activated. No email, deployment, dependency or provider change.
+Local policy/service/repository implemented; remote SQL is applied and role-tested
+after separate approval. Browser integration is not activated. No email,
+deployment, dependency or provider change.
 
 ## Evidence
 
@@ -47,3 +48,26 @@ The first check found one fixture-inference hint; an explicit Promise annotation
 fixed it. Final Astro check: 320 files, 0 errors/warnings/hints. Static build:
 94 pages in 8.94s. These tests use synthetic persistence, not browser/SQL RLS.
 No UI binding, endpoint, keepalive transport or deployment was enabled.
+
+## Authorized remote activation — 2026-10-24
+
+User separately approved schema and temporary Auth fixtures. Live preflight:
+zero preferences, no custom Auth triggers, no existing ledger; authenticated had
+column-only locale UPDATE and service role had no profile SELECT/UPDATE.
+Migration `20261024203756` / `account_locale_preferences` returned `success: true`.
+`role-tests.sql` reached `Locale role assertions reached; ROLLBACK follows.`
+Assertions covered following/explicit mode, no implicit consent, unchanged consent
+timestamps/history, duplicate identity, conflicting payload, stale revision,
+withdrawal, cross-account RLS, denied browser/anonymous RPC and command access,
+direct UPDATE denial and account cascade. Post-rollback preferences/commands: 0.
+Read-only verification: ledger RLS true, functions invoker with empty search path,
+browser UPDATE/RPC false, service RPC true, browser profile INSERT/SELECT true.
+
+Two overlapping MCP requests attempted an advisory-lock probe without creating
+accounts. The result was `not-overlapping`, so simultaneous-connection behavior
+is **not verified**. No timeout/serialization claim is made from that probe.
+Security advisor has four INFO findings for deliberately policy-free private
+tables and the existing leaked-password warning; no public grants were added.
+References: [RLS information](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy),
+[password protection](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection).
+Earlier local-proposal paragraphs above are historical evidence, superseded here.

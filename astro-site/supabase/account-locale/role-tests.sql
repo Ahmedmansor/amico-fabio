@@ -1,5 +1,5 @@
--- NOT RUN. Separate disposable Auth writes/ROLLBACK approval required.
--- Run after the separately approved schema proposal. No email or catalog fixtures.
+-- Passed on fabioEgypt 2026-10-24 after disposable-write approval; ROLLBACK verified.
+-- Retained test source. Re-execution needs permitted fixture scope. No emails/catalog.
 begin;
 do $$ begin
   if exists(select 1 from pg_trigger where tgrelid='auth.users'::regclass and not tgisinternal)
