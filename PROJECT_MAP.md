@@ -2,7 +2,7 @@
 
 Inspection date: October 13, 2026. This file documents the local version before any changes to the site's functionality or design.
 
-## Current Auth/wishlist continuation reference — October 24, 2026
+## Current Auth/wishlist continuation reference — October 25, 2026
 
 The historical inspection below describes the legacy site. The later approved
 Auth/wishlist work lives only in astro-site/; its current flow, implementation
@@ -10,8 +10,11 @@ status and activation boundaries are in astro-site/src/features/auth/PLAN.md
 and SETUP.md. Google Auth/profile display and tour/package favorites work locally.
 Account schema and ownership RLS are applied and real rollback role tests passed;
 the user confirmed cross-browser synchronization. Restricted Brevo summary tests
-were received, including the updated WhatsApp booking actions. Automatic reminders
-and the approved locale persistence contract (PLAN.md section 6.1) remain pending.
+were received, including the updated WhatsApp booking actions. The approved locale
+schema is applied with real rollback role verification. Locale HTTP/UI and consent
+bindings are implemented behind disabled flags and tested synthetically; the locale
+endpoint remains undeployed. Durable activity capture is an unexecuted SQL proposal.
+Automatic reminder delivery, queue, suppression and unsubscribe remain pending.
 The static Vercel migration test has not enabled Auth/account-sync hosting flags;
 production remains static GitHub Pages. AGENTS.md remains the enforceable workflow
 and authorization reference. The historical legacy inspection below is unchanged.

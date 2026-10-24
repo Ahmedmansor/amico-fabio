@@ -40,13 +40,19 @@ export function updateReminderState(state:ReminderState,event:ReminderEvent):Rem
   }
   return next;
 }
-export function reminderSchedule(state:ReminderState,now:number):{
+export function reminderSchedule(state:ReminderState,now:number){
+  return reminderActivitySchedule({...state,favoriteCount:state.ids.length},now);
+}
+/** Worker can decide eligibility from one joined activity/consent row before
+ * loading actual item content. This does not claim a job or authorize sending. */
+export function reminderActivitySchedule(state:Omit<ReminderState,'ids'> & {favoriteCount:number},now:number):{
   status:'disabled'|'empty'|'consumed'|'waiting'|'due';dueAt:number|null;
 }{
   time(now);
+  if(!Number.isSafeInteger(state.favoriteCount)||state.favoriteCount<0)throw new Error('[reminders] Invalid committed favorite count.');
   if(state.firstAcceptedAt!==null)return {status:'consumed',dueAt:null};
   if(!state.enabled)return {status:'disabled',dueAt:null};
-  if(!state.ids.length)return {status:'empty',dueAt:null};
+  if(!state.favoriteCount)return {status:'empty',dueAt:null};
   if(state.consentGrantedAt===null||state.lastAdditionAt===null)throw new Error('[reminders] Missing server eligibility history.');
   time(state.consentGrantedAt);time(state.lastAdditionAt);
   const dueAt=Math.max(state.consentGrantedAt,state.lastAdditionAt)+reminderDelayMs;

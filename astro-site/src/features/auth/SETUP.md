@@ -1,5 +1,22 @@
 # Auth activation and remaining setup
 
+## Latest checkpoint — 2026-10-25
+
+This checkpoint supersedes historical pending/unmounted statements below.
+The approved locale schema is applied and real rollback role tests passed;
+`account-locale` HTTP source/package and account settings remain disabled and
+undeployed. Consent UI is now mounted through a disabled wishlist feature gate
+and passed synthetic IT/EN mobile/desktop tests, including same-command retry and
+withdrawal. Real signed-in consent saving remains unverified; do not enable opt-in
+before the automatic delivery/unsubscribe controls and wording review are ready.
+
+`../../../supabase/reminder-activity/` is a new **unexecuted** SQL proposal. It
+needs separate review because its triggers join the real favorites write path
+and installation briefly locks account/favorite/consent tables. Its disposable
+tests are also unexecuted. Local reader/scheduling tests are not SQL/RLS evidence.
+See `../../../qa/reminders/ACTIVITY.md` for verification and the remaining gates.
+No email, hosting setting, Cron or new consent was activated during this work.
+
 ## Current handoff — 2026-10-24
 
 - User authorized real schema activation and separately authorized disposable

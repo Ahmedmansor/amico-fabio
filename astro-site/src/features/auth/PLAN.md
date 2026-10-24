@@ -2,11 +2,32 @@
 
 Created: 2026-10-23. English execution reference replacing the Arabic text.
 
-**Status (2026-10-24): Google Auth and tour/package favorites implemented. The three account tables and reviewed RLS/grants are applied on fabioEgypt; real disposable SQL ownership tests passed with ROLLBACK. The user confirmed cross-browser synchronization, receipt of the real Brevo favorites summary in Gmail Promotions, and then receipt of the updated email with a working per-item WhatsApp booking message. These are user-reported integration results. Automatic 24-hour reminders and the locale persistence contract below remain pending implementation.**
+**Status (2026-10-25): Google Auth and tour/package favorites implemented. Account ownership/RLS and the separately approved locale schema have passed real disposable SQL tests with ROLLBACK. The user confirmed cross-browser favorites and receipt of the updated Brevo summary with working WhatsApp booking actions. Locale HTTP/UI, page-language summary protocol and consent UI are implemented behind disabled flags; synthetic browser checks passed. The locale Edge endpoint is not deployed. Durable favorite activity capture is a local SQL proposal, not applied. Automatic 24-hour delivery remains unimplemented/off.**
 This status records the approved one-off test only; it does not authorize new
 business features, production hosting changes, or broader email delivery.
 This document coordinates the phases. Its location in `auth` does not make
 wishlists or reminder delivery responsibilities of the Auth feature.
+
+### Current continuation checkpoint — 2026-10-25
+
+- Shared verified account restoration avoids duplicate initial browser Auth
+  verification for the header, favorites and reminder controls. Backend identity
+  verification and RLS remain required independently.
+- Locale settings and consent controls are wired to the actual wishlist behind
+  disabled flags. Four synthetic IT/EN mobile/desktop browser cases cover consent
+  save, lost-acknowledgment retry, withdrawal and explicit correspondence language.
+  No real subscription or email was created by those checks.
+- Durable activity preparation: `../../../supabase/reminder-activity/` contains
+  unexecuted SQL and rollback fixtures. The count-based scheduling/read layers
+  preserve the approved 24-hour timing without loading every item first. See
+  `../../../qa/reminders/ACTIVITY.md`. Nothing currently calls this new RPC.
+- Next activation gates: review/deploy the locale endpoint and real account
+  integration; separately review activity-trigger maintenance/role/concurrency
+  tests; finish queue/acceptance ledger, quotas, suppression and unsubscribe before
+  automatic delivery. Hosting flags, new email windows and Cron remain off.
+- Budget and retention/deletion/suppression decisions, public opt-in wording and
+  deployment stay for the user's review. Continue safe local work without routine
+  questions; do not infer approval for these release actions from local QA.
 
 ## 1. Goal
 
