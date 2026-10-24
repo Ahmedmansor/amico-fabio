@@ -1,0 +1,49 @@
+{
+  "syntheticOnly": true,
+  "cases": [
+    {
+      "locale": "it",
+      "width": 375,
+      "passed": true,
+      "calls": {
+        "reads": 2,
+        "writes": 1,
+        "logout": 1
+      },
+      "errors": []
+    },
+    {
+      "locale": "it",
+      "width": 1440,
+      "passed": true,
+      "calls": {
+        "reads": 2,
+        "writes": 1,
+        "logout": 1
+      },
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "passed": true,
+      "calls": {
+        "reads": 2,
+        "writes": 1,
+        "logout": 1
+      },
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "passed": true,
+      "calls": {
+        "reads": 2,
+        "writes": 1,
+        "logout": 1
+      },
+      "errors": []
+    }
+  ]
+}

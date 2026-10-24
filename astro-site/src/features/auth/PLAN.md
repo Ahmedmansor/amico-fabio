@@ -344,6 +344,11 @@ or browser detection.
   delivery. Save only minimal account-scoped pending intent, never credentials;
   reconcile with bounded retries when possible. Never apply a previous account's
   or anonymous intent to another account, or blindly write on every page load.
+  Implemented recovery refinement: a persisted, already captured explicit command
+  may get one automatic same-ID retry after navigation. Persist its consumed
+  recovery budget first; if storage fails, require manual retry. No captured
+  revision or an exhausted budget means no automatic write. This is recovery of
+  a prior explicit action, not a write on ordinary visits.
 - On failure the URL still selects the correct page, but email language may stay
   old until confirmation/reconciliation. Do not show an unconfirmed saved status.
 
@@ -391,8 +396,20 @@ prepared locally: 31 data/HTTP + 7 domain tests passed; 325-file Astro check had
 0 diagnostics; static build produced 94 pages in 10.81s. The 13-file package
 was checked without uploading. This does not activate a public endpoint.
 
-Current gaps: browser switch persistence and the protected HTTP endpoint are
-not activated; actual overlapping-connection testing remains pending. Both email templates exist, but the restricted
+Local UI checkpoint (2026-10-25): header-language and account-dialog bindings,
+IT/EN correspondence-language controls, status/retry UI and per-tab display cache
+are implemented behind `PUBLIC_ACCOUNT_LOCALE_ENABLED=0`. They reuse Auth's
+already restored identity; no additional client `getUser/currentSession` is added.
+The cache lasts at most five minutes; explicit account-dialog opening refreshes
+it. Every actual mutation still reaches the verified backend. Pending choices
+are account-scoped in sessionStorage with a 24-hour recovery lifetime, unrelated
+to reminder timing. No new preference/consent is created by the picker.
+Four standalone and four full Auth browser cases passed in IT/EN at 375/1440px,
+including native language navigation/recovery, focus trap and home after logout.
+An actual Chrome fetch invocation issue was found and fixed during these checks.
+
+Current gaps: the protected HTTP endpoint and live browser flag are not
+activated; actual overlapping-connection testing remains pending. Both email templates exist, but the restricted
 test job currently fixes `locale: 'en'`; changing the site to Italian does not yet
 change that test email. Real preference UI is not mounted in WishlistPage.
 

@@ -58,13 +58,34 @@ test('lost acknowledgement preserves request identity; a queued newer choice wai
   assert.equal(f.calls[2].command.locale,'en');
   assert.equal(c.snapshot().confirmed.siteLocale,'en');assert.equal(c.snapshot().pending,false);
 });
-test('restoring pending intent on a new page reads state but does not blindly write',async()=>{
+test('navigation recovers an explicit pending command once with the same identity',async()=>{
   const f=fixture(),first=f.create();await first.setAccount(a);f.lose=true;
   await first.choose({kind:'site',locale:'it'});
   const next=f.create();await next.setAccount(a);
-  assert.equal(f.calls.length,1);assert.equal(next.snapshot().status,'uncertain');
-  await next.retry();assert.equal(f.calls.length,2);
+  assert.equal(f.calls.length,2);
+  assert.equal(f.calls[0].command.requestId,f.calls[1].command.requestId);
   assert.equal(next.snapshot().status,'ready');
+});
+test('automatic recovery cannot repeat on every page load, and intent without a captured revision never auto-writes',async()=>{
+  const f=fixture(),first=f.create();await first.setAccount(a);f.lose=true;
+  await first.choose({kind:'site',locale:'it'});
+  const saved=f.records.get(a);saved.recoveryAttempted=true;
+  const next=f.create();await next.setAccount(a);
+  assert.equal(f.calls.length,1);assert.equal(next.snapshot().status,'uncertain');
+  await next.retry();assert.equal(f.calls.length,2);assert.equal(next.snapshot().status,'ready');
+  f.records.set(a,{intent:{kind:'site',locale:'en'},command:null,recoveryAttempted:false});
+  await f.create().setAccount(a);assert.equal(f.calls.length,2);
+});
+test('automatic recovery requires its one-attempt budget to be stored durably',async()=>{
+  let writes=0;
+  const command={requestId:b,expectedRevision:0,kind:'site',locale:'it'};
+  const coordinator=createLocaleCoordinator({repository:{read:async()=>({ok:true,value:initial()}),
+    change:async()=>{writes++;return {ok:false,reason:'failed'};}},
+    store:{read:()=>({intent:{kind:'site',locale:'it'},command,recoveryAttempted:false}),write:()=>false,remove(){}},requestId:()=>a});
+  await coordinator.setAccount(a);
+  assert.equal(writes,0);assert.equal(coordinator.snapshot().status,'uncertain');
+  assert.equal(coordinator.snapshot().durable,false);
+  await coordinator.retry();assert.equal(writes,1);
 });
 test('a stale conflict is exposed without automatically overwriting another device',async()=>{
   const f=fixture(),c=f.create();await c.setAccount(a);
@@ -104,7 +125,7 @@ test('pending storage is account-scoped, bounded and rejects secrets or malforme
   const items=new Map();let now=1000;
   const storage={getItem:key=>items.get(key)??null,setItem:(key,value)=>items.set(key,value),removeItem:key=>items.delete(key)};
   const store=createLocalePendingStore({storage,now:()=>now,maxAgeMs:100});
-  const pending={intent:{kind:'site',locale:'it'},command:null};
+  const pending={intent:{kind:'site',locale:'it'},command:null,recoveryAttempted:false};
   assert.equal(store.write(a,pending),true);assert.deepEqual(store.read(a),pending);assert.equal(store.read(b),null);
   assert.equal(store.write(a,{...pending,token:'synthetic'}),false);
   assert.equal(store.write(a,{...pending,intent:{...pending.intent,enabled:true}}),false);

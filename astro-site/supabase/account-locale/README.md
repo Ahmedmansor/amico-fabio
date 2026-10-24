@@ -42,11 +42,16 @@ storage retention before large-scale launch without weakening replay safety.
 Local browser coordination is implemented in auth/data/locale-coordinator.ts:
 serialize account requests, preserve the newest pending choice, skip confirmed
 unchanged choices, and never automatically rebase a stale conflict. Uncertain
-writes retry the same identity; account epochs ignore late replies. Restore reads
-state without writing until explicit retry. The pending-store adapter accepts
+writes retry the same identity; account epochs ignore late replies. After navigation,
+an existing captured command can receive one automatic same-ID recovery, with
+its budget persisted first. No captured revision/exhausted budget/failed budget
+storage means manual recovery only. Ordinary loads do not write. The pending-store adapter accepts
 per-tab sessionStorage (not shared localStorage), scopes records by account and
 requires an explicit expiry. It rejects unexpected fields/credentials and reports
-failed durability. It is not mounted or connected to a live HTTP endpoint yet.
+failed durability. The header/account view binding is implemented behind
+`PUBLIC_ACCOUNT_LOCALE_ENABLED=0`; it is not connected to a deployed endpoint.
+Per-tab display caching avoids repeat reads for five minutes; opening the account
+dialog explicitly refreshes it. Cache values never authorize writes/consent.
 Do not enable the switch before backend and real integration checks are ready.
 
 ## Review and activation gates

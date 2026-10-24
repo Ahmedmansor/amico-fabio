@@ -1,0 +1,14 @@
+{
+  "title": "Lingua delle email",
+  "followSite": "Segui la lingua del sito",
+  "save": "Salva lingua",
+  "retry": "Continua il salvataggio",
+  "noPreference": "Se scegli i promemoria via email, verrà usata la lingua del sito. Cambiare lingua non attiva l’iscrizione.",
+  "loading": "Caricamento delle impostazioni della lingua…",
+  "saving": "Salvataggio della lingua…",
+  "saved": "Lingua salvata.",
+  "uncertain": "La tua scelta è in attesa di conferma. Continua il salvataggio per verificare il risultato.",
+  "conflict": "Le impostazioni della lingua sono cambiate altrove. Controlla la lingua selezionata prima di salvare di nuovo.",
+  "failed": "Impossibile caricare le impostazioni della lingua. Riprova.",
+  "storageFailed": "Il browser non ha potuto conservare la scelta in attesa. Tieni aperta questa scheda e riprova."
+}

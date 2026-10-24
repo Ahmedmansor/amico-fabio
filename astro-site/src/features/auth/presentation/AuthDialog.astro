@@ -1,14 +1,17 @@
 ---
-import { authConfig } from '../data/build-config';
+import { authConfig, localeBrowserConfig } from '../data/build-config';
 import { getAuthMessages } from '../data/messages';
 import type { Locale } from '../../../shared/config/languages';
 import './auth.css';
 import AccountSummary from './AccountSummary.astro';
+import EmailLocaleSettings from './EmailLocaleSettings.astro';
+import {getLocaleMessages} from '../data/locale-messages';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const m = getAuthMessages(locale);
 const intro = authConfig?.googleEnabled && authConfig.emailEnabled ? m.intro : authConfig?.googleEnabled ? m.googleIntro : m.emailIntro;
-const configuration = JSON.stringify({ config: authConfig, messages: m, locale }).replace(/</g, '\\u003c');
+const localeSettings = localeBrowserConfig ? {config: localeBrowserConfig, messages: getLocaleMessages(locale)} : null;
+const configuration = JSON.stringify({ config: authConfig, messages: m, locale, localeSettings }).replace(/</g, '\\u003c');
 ---
 {authConfig && <>
   <script type="application/json" id="auth-config" set:html={configuration}/>
@@ -36,7 +39,7 @@ const configuration = JSON.stringify({ config: authConfig, messages: m, locale }
         </form>}
         <p class="auth-mode-switch"><span data-auth-mode-prompt>{m.noAccount}</span> <button type="button" data-auth-mode-switch>{m.signUp}</button></p>
       </div>
-      <div data-auth-account hidden><p>{m.signedIn}</p><AccountSummary locale={locale}/><button type="button" class="auth-button auth-secondary" data-auth-signout>{m.signOut}</button></div>
+      <div data-auth-account hidden><p>{m.signedIn}</p><AccountSummary locale={locale}/>{localeSettings && <EmailLocaleSettings locale={locale}/>}<button type="button" class="auth-button auth-secondary" data-auth-signout>{m.signOut}</button></div>
       <p data-auth-status role="status" aria-live="polite" hidden></p>
       <a class="auth-privacy" href={`/${locale}/legal/`}>{m.privacy}</a>
       <button type="button" class="auth-close" data-auth-close>{m.notNow}</button>

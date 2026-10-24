@@ -3,7 +3,7 @@ import {isLocaleRequestId, parseLocaleCommand, type AccountLocaleState, type Loc
 import type {Locale} from '../../../shared/config/languages.ts';
 
 export type LocaleIntent = {kind: 'site' | 'email_explicit'; locale: Locale} | {kind: 'email_follow_site'};
-export interface PendingLocaleIntent {intent: LocaleIntent; command: LocaleCommand | null}
+export interface PendingLocaleIntent {intent: LocaleIntent; command: LocaleCommand | null; recoveryAttempted?: boolean}
 export interface LocalePendingStore {
   read(userId: string): PendingLocaleIntent | null;
   write(userId: string, value: PendingLocaleIntent): boolean;
@@ -13,6 +13,7 @@ export interface LocaleCoordinatorState {
   status: 'signed-out' | 'loading' | 'ready' | 'saving' | 'uncertain' | 'conflict' | 'failed';
   confirmed: AccountLocaleState | null;
   pending: boolean;
+  pendingIntent: LocaleIntent | null;
   durable: boolean;
 }
 const intentOf = (command: LocaleCommand): LocaleIntent => command.kind === 'email_follow_site'
@@ -33,12 +34,12 @@ export function createLocaleCoordinator(options: {
   onChange?: (state: LocaleCoordinatorState) => void;
 }) {
   let userId: string | null = null, epoch = 0;
-  let state: LocaleCoordinatorState = {status: 'signed-out', confirmed: null, pending: false, durable: true};
+  let state: LocaleCoordinatorState = {status: 'signed-out', confirmed: null, pending: false, pendingIntent: null, durable: true};
   let pending: PendingLocaleIntent | null = null;
   let running: Promise<void> | null = null;
   let freshChoice = false;
   const snapshot = () => structuredClone(state);
-  function emit() {state.pending = pending !== null; options.onChange?.(snapshot());}
+  function emit() {state.pending = pending !== null; state.pendingIntent = pending?.intent ?? null; options.onChange?.(snapshot());}
   function persist() {
     if (!userId) return;
     try {
@@ -60,6 +61,7 @@ export function createLocaleCoordinator(options: {
             requestId: options.requestId()});
           if (!command) {state.status = 'failed'; emit(); return;}
           pending.command = command;
+          pending.recoveryAttempted = false;
         }
         const command = structuredClone(pending.command);
         persist(); state.status = 'saving'; emit();
@@ -97,7 +99,7 @@ export function createLocaleCoordinator(options: {
       if (next === userId) return;
       userId = next; epoch++; running = null; freshChoice = false;
       pending = null;
-      state = {status: next ? 'loading' : 'signed-out', confirmed: null, pending: false, durable: true};
+      state = {status: next ? 'loading' : 'signed-out', confirmed: null, pending: false, pendingIntent: null, durable: true};
       if (!next) {emit(); return;}
       try {pending = options.store.read(next);} catch {state.durable = false;}
       const capturedEpoch = epoch;
@@ -107,15 +109,34 @@ export function createLocaleCoordinator(options: {
       if (capturedEpoch !== epoch) return;
       if (!result.ok) {state.status = 'failed'; emit(); return;}
       state.confirmed = result.value;
-      // Restoring storage never writes on page load. Explicit retry is required.
+      // Ordinary loads never write. A captured explicit command may get exactly
+      // one same-ID recovery after navigation; persist its budget before sending.
       state.status = pending ? 'uncertain' : 'ready'; emit();
       if (freshChoice) {freshChoice = false; await flush();}
+      else if (pending?.command && !pending.recoveryAttempted) {
+        pending.recoveryAttempted = true; persist();
+        // If its budget cannot be stored, automatic recovery could repeat on
+        // every navigation. Fall back to an explicit action instead.
+        if (state.durable) await flush(); else emit();
+      }
+    },
+    async refresh() {
+      if (!userId || running || state.status === 'loading') return;
+      const capturedEpoch = epoch, capturedUser = userId;
+      state.status = 'loading'; emit();
+      let result;
+      try {result = await options.repository.read(capturedUser);} catch {result = {ok: false} as const;}
+      if (capturedEpoch !== epoch || running) return;
+      if (!result.ok) {state.status = 'failed'; emit(); return;}
+      if (state.confirmed && result.value.revision < state.confirmed.revision) return;
+      state.confirmed = result.value;
+      state.status = pending ? 'uncertain' : 'ready'; emit();
     },
     async choose(intent: LocaleIntent) {
       if (!userId) return;
       const valid = parseLocaleCommand({...intent, requestId: '00000000-0000-4000-8000-000000000000', expectedRevision: 0});
       if (!valid) return;
-      pending = {intent: intentOf(valid), command: pending?.command ?? null};
+      pending = {intent: intentOf(valid), command: pending?.command ?? null, recoveryAttempted: pending?.recoveryAttempted ?? false};
       persist(); emit();
       if (!state.confirmed) {freshChoice = true; return;}
       // Preserve an uncertain operation until its identity has been resolved.

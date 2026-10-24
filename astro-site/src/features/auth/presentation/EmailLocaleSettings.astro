@@ -1,0 +1,27 @@
+---
+import {languages, supportedLocales, type Locale} from '../../../shared/config/languages';
+import {getLocaleMessages} from '../data/locale-messages';
+interface Props {locale: Locale}
+const {locale} = Astro.props;
+const m = getLocaleMessages(locale);
+---
+<section class="auth-locale-settings" data-locale-settings hidden aria-labelledby="email-locale-title">
+  <h3 id="email-locale-title"><label for="email-locale-choice">{m.title}</label></h3>
+  <form data-locale-form hidden>
+    <select id="email-locale-choice" data-locale-choice aria-describedby="email-locale-status">
+      <option value="follow_site">{m.followSite}</option>
+      {supportedLocales.map(code => <option value={code}>{languages[code].label}</option>)}
+    </select>
+    <button type="submit" class="auth-button auth-secondary" data-locale-save>{m.save}</button>
+  </form>
+  <p data-locale-no-preference hidden>{m.noPreference}</p>
+  <p id="email-locale-status" data-locale-status role="status" aria-live="polite" hidden></p>
+  <button type="button" class="auth-button auth-secondary" data-locale-retry hidden>{m.retry}</button>
+</section>
+<style>
+  .auth-locale-settings{margin-block:24px;padding-block:20px;border-block:1px solid var(--color-gold);}
+  .auth-locale-settings[hidden],.auth-locale-settings [hidden]{display:none!important;}
+  .auth-locale-settings h3{font:inherit;font-weight:600;color:var(--color-gold-soft);}
+  .auth-locale-settings h3 label{margin:0;font:inherit;}
+  .auth-locale-settings select{display:block;width:100%;min-height:48px;padding:12px;font:inherit;font-size:16px;color:var(--color-text-light);background:black;border:1px solid var(--color-gold);border-radius:8px;}
+</style>

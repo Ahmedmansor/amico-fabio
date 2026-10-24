@@ -16,7 +16,8 @@ export function createLocalePendingStore(options: {
   function parse(value: unknown): PendingLocaleIntent | null {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
     const row = value as Record<string, unknown>;
-    if (Object.keys(row).some(field => !['intent', 'command'].includes(field))
+    if (Object.keys(row).some(field => !['intent', 'command', 'recoveryAttempted'].includes(field))
+      || (row.recoveryAttempted !== undefined && typeof row.recoveryAttempted !== 'boolean')
       || !row.intent || typeof row.intent !== 'object' || Array.isArray(row.intent)) return null;
     const intent = row.intent as Record<string, unknown>;
     if (Object.keys(intent).some(field => !['kind', 'locale'].includes(field))) return null;
@@ -24,7 +25,7 @@ export function createLocalePendingStore(options: {
     const command = row.command === null ? null : parseLocaleCommand(row.command);
     if (!checked || (row.command !== null && !command)) return null;
     return {intent: checked.kind === 'email_follow_site' ? {kind: checked.kind}
-      : {kind: checked.kind, locale: checked.locale}, command};
+      : {kind: checked.kind, locale: checked.locale}, command, recoveryAttempted: row.recoveryAttempted ?? false};
   }
   return {
     read(userId) {

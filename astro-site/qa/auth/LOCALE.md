@@ -84,3 +84,62 @@ and returned 503. Package preparation verified 13 explicit files/imports without
 reading secrets or uploading. Astro check: 325 files, 0 errors/warnings/hints.
 Static build: 94 pages in 10.81s. Deno/native deployed startup is not verified;
 configuration remains disabled, no endpoint deployed and no header binding yet.
+
+## Gated header and account view — 2026-10-25
+
+Current source binds the explicit language anchors and a correspondence-language
+picker inside the existing account dialog only when `PUBLIC_ACCOUNT_LOCALE_ENABLED=1`.
+Default, hosting and ignored local flags were not enabled. Endpoint is derived
+from the Auth project; enabling requires existing account-profile integration.
+It reuses Auth's restored identity and the existing bearer access method.
+Optional per-tab display cache lasts five minutes; explicit dialog opening forces
+a fresh read. Pending recovery stores no credentials, email address or consent.
+
+Recovery refinement supersedes the earlier explicit-only local checkpoint:
+after navigation, an already captured explicit command may receive one automatic
+same-ID retry. Its consumed budget must be durably stored first; no captured
+revision/exhausted budget/blocked storage means manual retry. This prevents both
+endless load-time writes and asking for confirmation after every normal language
+navigation. All writes still use server revision/idempotency and verified owner.
+
+Standalone Chrome checks passed 4 IT/EN cases at 375/1440px: field labels, keyboard
+access, explicit/follow-site save, reload cache, unknown-result retry, conflict,
+account switch, no implicit preference, real anchor navigation and recovery,
+44px targets, no overflow/page errors. The mock server saw 2 reads and 8 writes
+including intentional retries across each complete multi-action scenario.
+Initial browser failure revealed native `fetch` called with the wrong receiver;
+the binder now supplies a context-free wrapper. An initial standalone fixture
+omitted legacy theme variables; its shell was corrected before visual review.
+
+Full main-site Auth checks passed another 4 cases: synthetic Google SDK session,
+dialog/heading, new control, keyboard focus trap, one successful save, no reads
+from periodic Auth rendering, signout and home redirect without new locale reads.
+Each scenario had 2 reads (initial load and explicit dialog refresh), 1 write,
+1 logout, zero page/unexpected-network errors. Synthetic endpoint only; no real
+user token, Google connection, preference subscription or email dispatch.
+Screenshots are ignored/local; result JSON and scripts are committed.
+
+Reproduce the two isolated previews from astro-site:
+
+```powershell
+node qa/auth/build-locale-preview.mjs
+node scripts/serve-static-qa.mjs .astro/account-locale-ui 4334
+# Separate terminal: set PLAYWRIGHT_MODULE/QA_BROWSER to existing local runtime paths.
+node qa/auth/locale-browser.mjs
+node qa/auth/build-locale-auth-preview.mjs
+node scripts/serve-static-qa.mjs .astro/account-locale-auth 4335
+node qa/auth/locale-auth-browser.mjs
+```
+
+Build helpers use only temporary child-process settings; no .env.local or hosted
+configuration is modified. The first removes its exact generated route in finally.
+Earlier unmounted/explicit-only paragraphs are historical checkpoints.
+
+Final verification for this UI task: `npm test` passed **222 Node tests** and
+**18 Vitest files / 152 tests**; Astro check passed **337 files, 0 errors,
+0 warnings, 0 hints**. Normal `npm run build` generated **94 pages in 9.89s**.
+An explicit generated-HTML assertion confirmed default-off settings markup is
+absent. The synthetic enabled full-shell build generated 94 pages in 9.89s;
+its four browser cases passed after the final field-label refinement. Default
+build and QA artifacts remain local and unpushed. Native/live endpoint activation
+and real authenticated locale persistence are still unverified.

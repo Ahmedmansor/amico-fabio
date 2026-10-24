@@ -3,11 +3,17 @@ import { getAuthMessages } from '../data/messages';
 import type { AuthConfig } from '../data/config';
 import type { Locale } from '../../../shared/config/languages';
 import type { AccountSession } from '../domain/auth';
+import type {LocaleBrowserConfig} from '../data/locale-browser-config';
+import type {getLocaleMessages} from '../data/locale-messages';
+import type {bindAccountLocale} from './locale-interactions';
 
 async function initialize() {
   const configNode = document.getElementById('auth-config');
   if (!configNode) return;
-  const { config, messages: m, locale } = JSON.parse(configNode.textContent!) as { config: AuthConfig; messages: ReturnType<typeof getAuthMessages>; locale: Locale };
+  const { config, messages: m, locale, localeSettings } = JSON.parse(configNode.textContent!) as {
+    config: AuthConfig; messages: ReturnType<typeof getAuthMessages>; locale: Locale;
+    localeSettings?: {config: LocaleBrowserConfig; messages: ReturnType<typeof getLocaleMessages>} | null;
+  };
   const dialog = document.querySelector<HTMLDialogElement>('[data-auth-dialog]')!;
   const guest = dialog.querySelector<HTMLElement>('[data-auth-guest]')!;
   const account = dialog.querySelector<HTMLElement>('[data-auth-account]')!;
@@ -28,6 +34,12 @@ async function initialize() {
   let revision = 0;
   let ready = false;
   const service = await browserAuth(config);
+  let localeBinding: ReturnType<typeof bindAccountLocale> | null = null;
+  const localeRoot = dialog.querySelector<HTMLElement>('[data-locale-settings]');
+  if (service && localeSettings && localeRoot) {
+    const {bindAccountLocale} = await import('./locale-interactions');
+    localeBinding = bindAccountLocale({root: localeRoot, service, ...localeSettings});
+  }
   const profiles = [...document.querySelectorAll<HTMLElement>('[data-auth-profile]')];
   const avatars = [...document.querySelectorAll<HTMLImageElement>('[data-auth-avatar]')];
   for (const image of avatars) {
@@ -44,6 +56,7 @@ async function initialize() {
   }
   const show = (text: string) => { status.textContent = text; status.hidden = !text; };
   function render() {
+    if (ready) localeBinding?.setAccount(session?.userId ?? null);
     guest.hidden = !!session;
     account.hidden = !session;
     dialog.toggleAttribute('aria-describedby', !session);
@@ -109,6 +122,7 @@ async function initialize() {
       show(service ? '' : m.unavailable);
       render();
       dialog.showModal();
+      if (session) localeBinding?.refresh();
       (session ? signout : email ?? google)?.focus();
     });
   }
@@ -123,7 +137,7 @@ async function initialize() {
   dialog.querySelector('[data-auth-close]')!.addEventListener('click', () => dialog.close());
   dialog.addEventListener('keydown', event => {
     if (event.key !== 'Tab') return;
-    const focusable = [...dialog.querySelectorAll<HTMLElement>('button:not(:disabled),input:not(:disabled),a[href]')]
+    const focusable = [...dialog.querySelectorAll<HTMLElement>('button:not(:disabled),input:not(:disabled),select:not(:disabled),a[href]')]
       .filter(element => element.getClientRects().length > 0);
     const first = focusable[0], last = focusable.at(-1);
     if (first && last && ((event.shiftKey && document.activeElement === first) || (!event.shiftKey && document.activeElement === last))) {

@@ -1,0 +1,14 @@
+{
+  "title": "Email language",
+  "followSite": "Follow website language",
+  "save": "Save language",
+  "retry": "Continue saving",
+  "noPreference": "Your website language will be used if you choose email reminders. Changing language does not subscribe you.",
+  "loading": "Loading language settings…",
+  "saving": "Saving language…",
+  "saved": "Language saved.",
+  "uncertain": "Your choice is waiting for confirmation. Continue saving to check the result.",
+  "conflict": "Language settings changed elsewhere. Review your selected language before saving again.",
+  "failed": "Language settings could not be loaded. Try again.",
+  "storageFailed": "Your browser could not keep the pending choice. Keep this tab open and try again."
+}

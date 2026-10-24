@@ -87,13 +87,20 @@ request costs. Documenting the design alone did not activate it.
 Continuation implemented the local domain/service/RPC repository with 17 passing
 tests. The separately authorized [SQL delta](../../../supabase/account-locale/README.md)
 is now applied (`20261024203756`); two-account rollback tests passed and cleanup
-was verified. The local coordinator adds 10 tests. Endpoint/header binding remain
-off and actual overlapping-connection testing is not claimed. Checks and limits:
+was verified. Local coordination, transport and gated header/account binding are
+implemented. Live endpoint/flag remain off and actual overlapping-connection
+testing is not claimed. Checks and limits:
 [LOCALE.md](../../../qa/auth/LOCALE.md). No new dependency or live flag change.
 The local [account-locale service package](../../../supabase/functions/account-locale/README.md)
 now includes browser HTTP transport and a protected handler; configuration stays
 disabled. Prepare with `node qa/auth/prepare-locale-function.mjs` (13 files).
-No upload/deployment, native Edge verification or real header binding is claimed.
+No upload/deployment, native Edge verification or real authenticated locale save
+is claimed. The gated binding reuses Auth's existing restored identity. Set
+`PUBLIC_ACCOUNT_LOCALE_ENABLED=1` only after endpoint activation/integration;
+default/hosting/ignored local flags have not been enabled. It requires Auth and
+account profiles and derives the endpoint from that Auth project. Cache is
+per-tab/account, five minutes; pending recovery is 24 hours with one automatic
+same-ID attempt after navigation, then manual retry. None of this changes consent.
 The current test job fixes English; switching to Italian does not yet localize
 that test. Preference UI is not mounted. Google Auth/account sync are local-only;
 the static Vercel test catalog exists but its Auth flags/redirects are not enabled.
