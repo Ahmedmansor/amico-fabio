@@ -1,47 +1,66 @@
-# Reminder consent/backend preparation — 2026-10-24
+# Reminder preference verification — 2026-10-24
 
-Local implementation only. No website opt-in, deployed endpoint, Cron, new
-remote tables, real consent record or email has been activated by this task.
+## Authorized remote execution
 
-## Prepared source
+The user approved the two preference/consent tables, their grants and atomic
+RPC, and disposable tests after the exact scope was explained. The initial
+attempt was rejected by automatic approval review; no write occurred then.
+Execution succeeded after the follow-up authorization. No deployment, Cron,
+Brevo setting or actual mail sending was performed.
 
-- Pure preference commands: explicit boolean, language, current displayed
-  wording version and retry request ID. Recipient/user/audit injection rejected.
-  Withdrawal stays possible from stale pages. Signup/favorites never imply consent.
-- Backend repository/service: owner-bound reads and one atomic preference RPC,
-  neutral errors, strict provider mapping, bounded data requests. An absent row
-  is returned as absent without creating a subscription. The client is injected;
-  no backend key is read from files or browser config.
-- Auth adapter uses remote getUser, not a locally decoded JWT or user metadata.
-  HTTP boundary binds identity from this verifier, handles explicit CORS,
-  noncached private responses, method/content-type/size checks and error statuses.
-  It is portable source, not an Astro route or a deployed Edge Function.
-- Pure schedule: approved latest-addition/consent +24h, exact due boundary,
-  duplicate saves and repeated opt-in do not reset, newest-item removal cannot
-  move time backward, empty-list cancellation/refill, withdrawal and no recurring
-  reminder after provider acceptance (including a late send response).
+Fresh metadata preflight: both tables and RPC absent, zero noninternal Auth
+user triggers, and id the only required Auth column without a default.
+schema.sql was applied to fabioEgypt (iiivnvwspoikfrlclhyr).
 
-## Database gate
+Actual role-tests.sql output:
 
-Review ../../supabase/reminder-preferences/schema.sql, README.md, verify.sql
-and role-tests.sql. Proposal: two RLS-enabled tables without browser grants,
-service-only SECURITY INVOKER atomic RPC, append-only grant/withdrawal audit,
-server-only timestamps, stable enabled_since and idempotent request binding.
-The SQL/role fixtures have not been executed or parsed by a PostgreSQL engine.
-Local tests exercise injected clients; they do not establish real RLS success.
+    Preference role assertions reached; ROLLBACK follows.
 
-Read-only remote preflight found both proposed tables absent and RPC absent;
-Auth has no noninternal user triggers and id is its only required column
-without a default. No customer rows or credentials were read.
+This success marker was returned before the final ROLLBACK. Assertions cover
+atomic service writes, duplicate/conflicting IDs, unchanged consent start on
+language changes, stale version rejection, old grants after withdrawal,
+per-account request identity, audit UPDATE denial, authenticated/anonymous
+SELECT and RPC denial, and account-deletion cascades. Two synthetic Auth UUIDs
+had no email; fixtures were rolled back.
 
-Before activation: separately authorize schema and disposable tests, then
-verify them on PostgreSQL; prepare the actual Edge Function entry/runtime,
-trusted secret storage, network deadlines and rate limits; implement verified
-unsubscribe tokens and queue/suppression integration; deploy only with explicit
-approval. Source HTTP tests are not proof of live service security or delivery.
+Follow-up metadata output:
 
-Actual checks: npm test — 143 Node tests passed, 0 failed; 15 Vitest files /
-140 tests passed. npx astro check — 275 files, 0 errors/warnings/hints. Static
-build — 94 pages in 5.37s, Complete. Prepared backend preference names are absent
-from generated browser HTML/JS; no browser imports or new direct dependencies.
-These outputs do not validate PostgreSQL syntax, grants or live HTTP integration.
+- wishlist_email_preferences: RLS true.
+- wishlist_email_consent_events: RLS true.
+- service_role preferences: SELECT, INSERT, UPDATE; audit: SELECT, INSERT.
+- No PUBLIC/anon/authenticated table grants.
+- RPC security_definer false, search_path empty; anon/authenticated EXECUTE false,
+  service_role EXECUTE true.
+- preference_rows 0; audit_rows 0; ensure_rls event trigger enabled (O).
+
+Security advisor returned two INFO rls_enabled_no_policy findings. This is
+intentional: these tables allow backend-only access and have no browser grants.
+Do not add browser policies just to remove the informational finding.
+Reference: https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy
+The existing Auth leaked-password-protection warning remains unchanged; password
+login is not used. Reference:
+https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection
+
+## Remaining integration gates
+
+The repository/service, remote getUser verifier and portable HTTP handler are
+local source, not a deployed endpoint. No real user was subscribed. Website
+opt-in, actual Edge entry/runtime, request deadlines/rate limits, trusted secret
+storage, verified unsubscribe, durable event capture, queue/suppression,
+Cron and sending integration remain. Deployment and recipient tests require
+their own authorization. Signup/favorites never imply email consent.
+
+Approved schedule remains one reminder 24h after max(last real addition,
+consent activation). Duplicates and repeated opt-in do not reset it; empty
+lists cancel waiting; refill before first send restarts waiting. Acceptance by
+the provider consumes the one reminder. Pure tests do not prove delivery.
+
+## Project checks after activation
+
+npm test: 143 Node tests passed, 0 failed; 15 Vitest files / 140 tests passed.
+npx astro check: Result (275 files), 0 errors, 0 warnings, 0 hints.
+The first sandboxed build failed with [Supabase:trips] Network request failed
+or timed out. The authorized network-enabled retry succeeded: validated live
+Supabase 22 trips, 14 packages, 3 addons, 1 settings; static build 94 pages in
+6.64s, Complete. Existing Browserslist data-age notice remains; no dependency
+was changed. git diff --check passed. No push or deployment occurred.

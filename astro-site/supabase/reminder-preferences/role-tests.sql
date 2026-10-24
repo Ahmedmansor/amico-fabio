@@ -1,4 +1,4 @@
--- LOCAL REVIEW ONLY. NOT RUN. Separate explicit disposable-write approval needed.
+-- Passed on fabioEgypt on 2026-10-24 after separate disposable-write approval.
 -- Two synthetic Auth UUIDs, no emails. All preference fixtures end in ROLLBACK.
 begin;
 do $$ begin

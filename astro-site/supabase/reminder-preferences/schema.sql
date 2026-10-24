@@ -1,4 +1,4 @@
--- LOCAL REVIEW ONLY. NOT APPLIED. Account-wishlist approval does not cover this.
+-- Applied to fabioEgypt on 2026-10-24 after separate user authorization. Do not rerun.
 -- Two private-to-backend tables and one service-role-only atomic RPC. No sender/Cron.
 begin;
 

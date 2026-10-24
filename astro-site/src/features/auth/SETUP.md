@@ -32,8 +32,9 @@
 - Reminder preferences now have a local backend service/repository, remote
   getUser-based Auth verifier and portable HTTP handler (explicit origins,
   bounded JSON, verified ownership). This is not a deployed Edge Function.
-  Proposed two tables + service-role-only atomic RPC and rollback role tests:
-  ../../../supabase/reminder-preferences/. No schema there has been applied.
+  Two tables + service-role-only atomic RPC were separately authorized and
+  applied on 2026-10-24; rollback role tests passed and left zero records.
+  Source: ../../../supabase/reminder-preferences/; evidence: ../../../qa/reminders/PREFERENCES.md.
   Future deployment requires approved backend scope, secret storage, runtime
   request/rate limits and real role/integration tests before showing live opt-in.
 

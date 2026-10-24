@@ -200,12 +200,13 @@ Local preparation, 2026-10-24: reminders/domain/preferences.ts, backend-only
 preference repository/service, Auth verifier and portable HTTP handler are
 implemented with synthetic tests. The proposed preferences/audit tables and
 service-only atomic RPC live in ../../../supabase/reminder-preferences/.
-They are NOT APPLIED and their PostgreSQL role tests are NOT RUN. No HTTP
+Separately authorized and applied on 2026-10-24; PostgreSQL role tests passed
+with ROLLBACK and zero preference/audit rows afterward. No HTTP
 function is deployed and no opt-in control is active on the website yet.
 
 Review `../../../supabase/account-wishlist/README.md` and its prepared schema
 before remote execution. It covers only minimal profiles and account wishlists;
-mail/consent entities remain proposals. `trip_id` references the
+consent storage is applied; delivery entities remain proposals. `trip_id` references the
 existing stable ID in `trips`; do not duplicate the catalog. Package favorites
 were authorized on 2026-10-24 and reference `packages.id` through a separate
 package_wishlists table. The revised SQL and disposable role tests were applied
@@ -378,7 +379,7 @@ durable event capture, queue/leases and Cron are not implemented or deployed.
 - User confirmed 2026-10-24: include all available saved tours and packages in
   one message, with no 4/6-card cap; keep a link to the full list for convenience.
 - Google registration and saving favorites do not subscribe a user. Local
-  preference backend logic is prepared, but its storage, deployment and opt-in
+  preference storage is applied and role-tested; backend deployment and opt-in
   UI are not active. The user separately approved the timing rules above after
   clarifying that the reminder is an email.
 - Do not claim seats are running out or a booking is confirmed without reliable data.
