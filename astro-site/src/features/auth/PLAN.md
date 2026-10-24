@@ -320,18 +320,20 @@ documentation update. Evidence: [Brevo](../../../qa/reminders/BREVO.md),
 
 #### Superseding target policy and priority — 2026-10-25
 
-This policy supersedes the earlier follow-site coupling and Italian root-detection
-fallback described in the implementation history below. It is agreed behavior;
+This policy supersedes the earlier follow-site coupling. The user's latest
+summary restores Italian as the default, superseding the interim English
+detection fallback. It is agreed behavior;
 the current deployed/local implementation has not yet been refactored to match.
 
 Browsing priority:
 1. Explicit `/it/` or `/en/` URL always wins.
-2. On bare `/` only, honor a valid previously saved browser language choice.
-3. Otherwise scan `navigator.languages` in order for the first supported language
-   (including regional variants such as `en-GB` mapping to `en`).
-4. If no supported language is present, use **English**. Define this detection
-   fallback once in shared configuration, separately from the site's Italian
-   editorial/default-language setting. Root browser detection is not implemented.
+2. Bare `/` currently opens Italian. The site switch changes browsing only and
+   must not write to the database under the target design.
+3. Browser detection remains a proposal, not the current root behavior. If later
+   implemented for static GitHub Pages, use a small browser script; honor a valid
+   saved browser choice, then the first supported `navigator.languages` entry
+   (regional variants normalize to a supported code), otherwise Italian. Keep
+   the default in shared configuration, not scattered through page scripts.
 
 Correspondence priority:
 1. An existing stored correspondence language remains unchanged on browsing,
@@ -350,14 +352,25 @@ Examples:
 | Visitor and entry | Browsing result | First opt-in / later reminder |
 | --- | --- | --- |
 | In Germany, opens `/en/`, browser `de` only | English: explicit URL wins | `en`, unless explicitly changed in consent/settings |
-| Opens `/`, no saved choice, browser `de`, `en` | English: first supported browser language | `en` on first opt-in |
-| Opens `/`, no saved choice, browser `de` only | English: no supported language, detection fallback | `en` on first opt-in |
+| Opens `/`, no saved choice, browser `de`, `en` | Currently Italian; English only if proposed browser detection is implemented | Language actually shown/selected at first opt-in |
+| Opens `/`, no saved choice, browser `de` only | Italian default, also the proposed detection fallback | `it` unless changed before first opt-in |
 | In Germany, opens `/it/`, browser `de` only | Italian: explicit URL wins | `it` on first opt-in |
 | Egyptian visitor on `/en/`, browser `ar`, `en` | English; nationality is irrelevant | `en` on first opt-in |
 | Stored email language `en`, later explores `/it/` and closes site | Italian browsing only | Reminder remains `en` |
 
 The immediate-send button is restricted QA only. Template-testing overrides do
 not change stored correspondence language or add a customer-facing mail flow.
+
+Simplification status: remove follow-site behavior from the target flow, not
+all persistence safeguards. `locale_source`/`follow_site`, revision/command RPCs
+and retry code still exist in the applied schema/source; no column or endpoint
+has been dropped. Explicit correspondence saves still need verified ownership,
+atomic persistence and protection against duplicate/late commands. Review the
+smallest useful implementation before retiring obsolete fields; do not describe
+every RPC/retry as unnecessary. `locale_updated_at` was not introduced by this work.
+Google remains the active local sign-in method; Magic Link activation is deferred.
+Brevo and local IT/EN templates remain. The English-only expired QA send still
+needs its separate language-test update; it is not a customer-facing feature.
 
 #### Earlier implementation contract (history; follow-site refactor pending)
 
