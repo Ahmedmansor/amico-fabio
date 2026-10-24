@@ -1,6 +1,6 @@
 import {describe,it,expect} from 'vitest';
 import {buildEmailCatalog,type EmailCatalogItem} from '../catalog';
-import {prepareWishlistEmail} from '../email';
+import {prepareWishlistEmail,wishlistWhatsAppUrl} from '../email';
 const origin='https://preview.example.test';
 function item(kind:EmailCatalogItem['kind'],id='same'):EmailCatalogItem{
   const namespace=kind==='trip'?'tours':'packages';
@@ -35,5 +35,19 @@ describe('wishlist email selection',()=>{
     expect(()=>prepareWishlistEmail({...input,kind:'reminder',unsubscribeUrl:'https://untrusted.test/stop/'})).toThrow(/origin/);
     const result=prepareWishlistEmail({...input,kind:'reminder',unsubscribeUrl:`${origin}/en/email-preferences/?token=example`});
     expect(result.model?.unsubscribeUrl).toContain('token=example');
+  });
+});
+
+describe('wishlist email contact links',()=>{
+  it('encodes one selected title and URL without making a booking or including other items',()=>{
+    const item={title:'Dolphins & sea + relax?',url:origin+'/en/tours/same/'};
+    const url=new URL(wishlistWhatsAppUrl('201063239261','I would like to book this experience.',item));
+    expect(url.origin).toBe('https://wa.me');expect(url.pathname).toBe('/201063239261');
+    expect(url.searchParams.get('text')).toBe(`I would like to book this experience.\n${item.title}\n${item.url}`);
+  });
+  it('keeps the general contact message short regardless of wishlist size and validates contact settings',()=>{
+    expect(new URL(wishlistWhatsAppUrl('201063239261','Help me plan my trip.')).searchParams.get('text')).toBe('Help me plan my trip.');
+    for(const number of ['','+201063239261','201063239261?recipient=other','123'])expect(()=>wishlistWhatsAppUrl(number,'Hello')).toThrow(/configuration/);
+    expect(()=>wishlistWhatsAppUrl('201063239261',' ')).toThrow(/configuration/);
   });
 });

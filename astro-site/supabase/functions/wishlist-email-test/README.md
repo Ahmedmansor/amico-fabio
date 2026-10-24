@@ -1,4 +1,4 @@
-# Restricted wishlist email test — deployed for one authorized job
+# Restricted wishlist email test — original authorized job completed
 
 This entry exercises the real Brevo REST sender and local IT/EN template with
 all available favorites of the authenticated, authorized account. It is a
@@ -36,8 +36,8 @@ https://api.brevo.com/v3/smtp/email endpoint. Sender must already be registered
 and verified in Brevo; that has not been independently checked.
 
 User authorized one test recipient and sender in the conversation. Their
-private recipient/UUID are not committed. The active job is stored only in the
-ignored .astro/reminder-email-test-job.json and expires at
+private recipient/UUID are not committed. The original job is stored only in the
+ignored .astro/reminder-email-test-job.json and expired at
 2026-10-24T15:44:56Z. The deployed function is version 2, ID
 9d386e74-962f-45a3-9c4e-b0b6509d9560. A new test after expiry requires a fresh
 delivery UUID, activation timestamp, packaging and deployment; never reuse an
@@ -51,7 +51,8 @@ From astro-site:
 The first command creates a disabled review package. The second reads only the
 named ignored nonsecret job file. Unknown keys (including credentials) are
 rejected. Recursive relative imports are collected from explicit source roots;
-28 files are currently packaged. No upload or email happens in the preparer.
+29 files are currently packaged, including the shared public contact config for
+the local WhatsApp action update. No upload or email happens in the preparer.
 Native Deno compilation remains a deployment check, not a local success claim.
 
 ## Deployment and user test
@@ -70,11 +71,17 @@ the separate amico-fabio project; it has no custom domain and is not production.
 
 The ignored local astro-site/.env.local sets
 PUBLIC_WISHLIST_EMAIL_TEST_ENABLED=1 and the exact Supabase function endpoint.
-Restart the local dev server at port 4322 so Astro reads these settings, sign in
+For a future fresh authorized job, restart the local dev server at port 4322 so
+Astro reads these settings, sign in
 to the authorized account, open /en/wishlist/ or /it/wishlist/, then press the
 explicit test button. Auth supplies its bearer internally; never extract or
 show the user's token. UI distinguishes acceptance, unknown result and expiry,
 and locks after one attempt per page load. Hosting defaults remain disabled.
+
+The real version-2 summary was Delivered by Brevo and found in Gmail Promotions;
+the user confirmed the favorites content. The initial job is now expired.
+The later WhatsApp booking-action template update is local only; it has not been
+deployed or sent in another test. Do not reuse the completed job for a new email.
 
 No Cron, delivery queue, durable mail ledger, daily allowance, bounce/complaint
 webhooks, automatic-reminder sender or real unsubscribe is activated by this

@@ -60,12 +60,16 @@
 Email update 2026-10-24: the authorized test deployment and restricted
 wishlist-email-test Edge Function are active. The ignored local .env.local
 enables the button on port 4322 for one account and one short job window; hosting
-defaults remain off. No actual email has been sent. Follow
+defaults remain off. The user confirmed receiving the actual favorites summary
+in Gmail Promotions. The original one-job window is expired. Follow
 ../../../qa/reminders/BREVO.md for the current status and safe retry guidance.
 The first authenticated attempt was blocked by wishlist SELECT permission
 before any Brevo dispatch. Version 2 uses the caller's existing authenticated
 RLS for favorites reads; no service_role table privileges were added. Reload the
 local wishlist page before the next manual attempt.
+The requested IT/EN WhatsApp booking actions are prepared and checked in the
+local email templates. Preview them on port 4333; no second email or template
+deployment has occurred. A further test must use a fresh authorized job.
 
 - Local Google Auth/profile/header is available on 4322. The user's server and
   signed-in browser were not stopped or signed out during isolated QA.

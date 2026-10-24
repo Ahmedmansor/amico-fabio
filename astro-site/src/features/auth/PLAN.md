@@ -2,7 +2,7 @@
 
 Created: 2026-10-23. English execution reference replacing the Arabic text.
 
-**Status (2026-10-24): Google Auth and tour/package favorites implemented. The three account tables and reviewed RLS/grants are applied on fabioEgypt; real disposable SQL ownership tests passed with ROLLBACK. The user authorized one Brevo wishlist summary test: its authenticated one-job Edge Function is active, the Vercel test site serves the current manifest, and the ignored local .env.local enables the explicit button for a short test window. No email has been sent yet. The automatic 24-hour reminder pipeline remains pending.**
+**Status (2026-10-24): Google Auth and tour/package favorites implemented. The three account tables and reviewed RLS/grants are applied on fabioEgypt; real disposable SQL ownership tests passed with ROLLBACK. The real Brevo summary test succeeded: the user found it in Gmail Promotions and confirmed its actual saved tours/packages. The one-job window is expired. The user then requested WhatsApp booking actions; local bilingual templates and previews now include them, without another email or deployment. The automatic 24-hour reminder pipeline remains pending.**
 This status records the approved one-off test only; it does not authorize new
 business features, production hosting changes, or broader email delivery.
 This document coordinates the phases. Its location in `auth` does not make
@@ -402,8 +402,10 @@ Brevo REST transport, verified-account source, public manifest fetcher and local
 summary-template orchestration are implemented as of 2026-10-24. The approved
 test site and restricted authenticated one-job function are now deployed. The
 button is enabled only in the ignored local .env.local; it remains absent from
-committed and hosting defaults. The authorized one-job window expires at
-2026-10-24T15:44:56Z. No real email has been sent. See
+committed and hosting defaults. The authorized one-job window expired at
+2026-10-24T15:44:56Z after a real summary was delivered and confirmed by the
+user. WhatsApp booking actions are now implemented and verified locally; the
+deployed test function still has the previous template and expired job. See
 ../../../qa/reminders/BREVO.md and the email-test function README. Durable
 reminder queue/allowance/suppression/unsubscribe remain unimplemented.
 

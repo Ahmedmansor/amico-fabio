@@ -17,6 +17,15 @@ export interface EmailCopy {
   summaryIntro:string;reminderIntro:string;tours:string;packages:string;priceFrom:string;
   discover:string;viewFavorites:string;summaryReason:string;reminderReason:string;
   unsubscribe:string;privacy:string;catalogNote:string;previewOnly:string;
+  bookingTitle:string;bookingIntro:string;contact:string;bookTrip:string;bookPackage:string;
+  whatsappIntro:string;whatsappItemIntro:string;
+}
+
+/** User-initiated contact only; opening this link does not confirm a booking. */
+export function wishlistWhatsAppUrl(number:string,intro:string,item?:Pick<WishlistEmailModel['items'][number],'title'|'url'>):string {
+  if(!/^[1-9]\d{7,14}$/.test(number)||!intro.trim())throw new Error('[wishlist-email] Invalid WhatsApp contact configuration.');
+  const message=[intro,...(item?[item.title,item.url]:[])].join('\n');
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }
 
 /** No scheduling, consent assumptions or provider access: caller supplies context. */

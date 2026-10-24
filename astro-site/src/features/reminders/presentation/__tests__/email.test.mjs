@@ -4,6 +4,7 @@ import {buildEmailCatalog} from '../../domain/catalog.ts';
 import {prepareWishlistEmail} from '../../domain/email.ts';
 import {renderWishlistEmail} from '../wishlist-email.ts';
 import {getEmailMessages} from '../../data/messages.mjs';
+import {siteConfig} from '../../../../shared/config/site.ts';
 const origin='https://preview.example.test';
 function fixture(locale='en',kind='summary'){
   const catalog=buildEmailCatalog(['trip','package'].map(kind=>({kind,id:'same',slug:'same',adult_price:0,
@@ -33,4 +34,24 @@ test('summary never carries reminder unsubscribe or opt-in claims',()=>{
 test('rejects header newlines and validates IT/EN copy keys',()=>{
   assert.throws(()=>renderWishlistEmail(fixture(),{...getEmailMessages('en'),summarySubject:'Bad\r\nHeader'}),/subject/);
   assert.deepEqual(Object.keys(getEmailMessages('it')).sort(),Object.keys(getEmailMessages('en')).sort());
+});
+
+test('IT/EN email provides primary WhatsApp contact and item-specific booking actions in HTML and plain text',()=>{
+  for(const locale of ['it','en']){
+    const model=fixture(locale),m=getEmailMessages(locale),rendered=renderWishlistEmail(model,m);
+    const decode=value=>value.replaceAll('&#39;',"'").replaceAll('&quot;','"').replaceAll('&lt;','<').replaceAll('&gt;','>').replaceAll('&amp;','&');
+    const links=[...rendered.htmlContent.matchAll(/href="(https:\/\/wa\.me\/[^\"]+)"/g)].map(match=>new URL(decode(match[1])));
+    const plainLinks=[...rendered.textContent.matchAll(/https:\/\/wa\.me\/\S+/g)].map(match=>new URL(match[0]));
+    assert.equal(links.length,model.items.length+2);
+    for(const url of links)assert.equal(url.pathname,'/'+siteConfig.whatsapp.number);
+    assert.equal(links[0].searchParams.get('text'),m.whatsappIntro);
+    for(const [index,item] of model.items.entries()){
+      const message=links[index+1].searchParams.get('text');
+      assert.equal(message,`${m.whatsappItemIntro}\n${item.title}\n${item.url}`);
+      assert.equal(plainLinks[index+1].searchParams.get('text'),message);
+    }
+    assert.ok(rendered.htmlContent.includes(m.bookTrip));assert.ok(rendered.htmlContent.includes(m.bookPackage));
+    assert.ok(rendered.htmlContent.indexOf(m.contact)<rendered.htmlContent.indexOf('<h2'));
+    assert.ok(rendered.htmlContent.includes(`href="${model.wishlistUrl}"`));
+  }
 });

@@ -16,6 +16,13 @@ try{
     assert.equal(await page.locator('html').getAttribute('lang'),locale);
     assert.equal(await page.locator('h1').count(),1);assert.equal(await page.locator('h2').count(),2);
     assert.equal(await page.locator('h3').count(),4);
+    const contactLinks=await page.locator('a[href^="https://wa.me/"]').all();
+    assert.equal(contactLinks.length,6);
+    for(const link of contactLinks){
+      const url=new URL(await link.getAttribute('href'));
+      assert.ok(url.searchParams.get('text')?.trim());
+      const box=await link.boundingBox();assert.ok(box.height>=44);
+    }
     await page.waitForFunction(()=>[...document.images].every(image=>image.complete&&image.naturalWidth>0));
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
     assert.equal(await page.locator('a[href*="unsubscribe-preview"]').count(),kind==='reminder'?1:0);
@@ -26,9 +33,9 @@ try{
       await page.locator('a[href*="unsubscribe-preview"]').click();
       assert.match(await page.locator('body').innerText(),/No email has been sent/);
     }
-    results.push({locale,kind,width,images:4,separateGroups:true,noHorizontalOverflow:true,localRequestsOnly:true,previewUnsubscribe:kind==='reminder',noPageErrors:true});
+    results.push({locale,kind,width,images:4,separateGroups:true,whatsappActions:6,noHorizontalOverflow:true,localRequestsOnly:true,previewUnsubscribe:kind==='reminder',noPageErrors:true});
     await context.close();
   }
   await writeFile(new URL('./browser-results.json',import.meta.url),JSON.stringify({mode:'local-browser-rendering-only',cases:results},null,2)+'\n');
-  console.log('Email previews passed: 8 IT/EN summary/reminder mobile/desktop cases; four loaded images, grouped cards, local-only resources, no horizontal overflow, inert unsubscribe preview and no page errors. No inbox delivery tested.');
+  console.log('Email previews passed: 8 IT/EN summary/reminder mobile/desktop cases; four loaded images, grouped cards, six WhatsApp actions, local-only resources, no horizontal overflow, inert unsubscribe preview and no page errors. No messages sent or inbox delivery tested.');
 }finally{await browser.close();}

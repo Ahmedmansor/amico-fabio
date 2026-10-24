@@ -37,7 +37,9 @@ User authorized the test recipient/sender and reported adding BREVO_API_KEY in
 Supabase Secrets. Only the authorized Auth identity/confirmation status was
 looked up; no token/key was extracted. Direct administrative wishlist preview
 was not completed; the real test intentionally loads favorites through the
-verified authenticated backend flow. No real Brevo request/email has occurred.
+verified authenticated backend flow. The subsequent real summary was accepted
+at 15:37 UTC, recorded Delivered in Brevo, and found by the user in Gmail's
+Promotions tab. The user confirmed that its tours/packages were their favorites.
 
 Deployment activation, 2026-10-24:
 - Vercel project amico-fabio-test deployed commit 70fbe40 to its Production
@@ -52,19 +54,17 @@ Deployment activation, 2026-10-24:
 - Ignored local astro-site/.env.local enables the wishlist test button and points
   to this function. The single-job window expires at 2026-10-24T15:44:56Z; it
   uses a private ignored config and a fresh delivery ID. The sender/key values
-  were not independently inspected, and no actual Brevo request or inbox
-  delivery is claimed.
+  were not independently inspected. The initial deployment smoke checks did
+  not dispatch email; the later authenticated test was confirmed by the user.
 - Pushing the authorized branch also triggered a Preview deployment in the
   separate Vercel project amico-fabio. Vercel labels it Preview and assigns no
   custom domain; its production domain and main branch were not changed.
 
-The remaining user step is to restart the local Astro server on port 4322, sign
-into the authorized account, open /en/wishlist/ or /it/wishlist/, and press the
-explicit email-test button before the one-job window expires. This sends through
-Brevo only after the authenticated backend reads the account favorites. If the
-result is unknown, do not retry until Brevo is reconciled. Native Edge execution,
-actual inbox delivery, sender verification, optional reminder scheduling,
-queue/ledger/suppression/unsubscribe remain unverified.
+The original job window has expired after a successful real summary test.
+A new external test needs an authorized fresh job; do not replay unknown
+provider outcomes before reconciliation. Authenticated on-demand delivery is
+confirmed for that test. Optional reminder scheduling, queue/ledger,
+suppression/unsubscribe remain unverified.
 
 ## First authenticated attempt and correction — 2026-10-24
 
@@ -89,4 +89,33 @@ known failure versus unknown UI outcomes. Astro check reported 312 files,
 Function version 2 deployed with the original delivery ID and expiry, hash
 23f3be8b15c8a127e5aca8a0e910212b03a1471b4648c750fdaca95619485fbb.
 Live OPTIONS returned 204 and anonymous POST returned 401. The authenticated
-retry and actual Brevo acceptance/inbox receipt still require the user's click.
+retry returned HTTP 200 at 15:37:38 UTC. The user provided the matching Brevo
+Sent/Delivered rows and then confirmed finding the correct favorites email in
+Gmail Promotions. This verifies the requested summary, not automatic reminders.
+
+## WhatsApp booking actions — local template update
+
+The user requested a clear booking/contact action in the received email.
+Local IT/EN HTML and plain-text templates now include a general WhatsApp action
+before the cards and after the complete list. Each tour/package also has a
+booking action with that item's exact localized title and URL in its draft
+WhatsApp message. The general message stays short independently of list size.
+All numbers come from shared/config/site.ts; no new contact number, availability
+claim, discount or confirmed reservation is introduced. Website details and the
+full wishlist remain secondary links. Opening a link never sends a WhatsApp
+message automatically.
+
+Checks: 8 Node tests and 8 domain Vitest tests passed. Astro check: 312 files,
+0 errors/warnings/hints. Noindex test build: 94 pages in 10.19s. Eight browser
+cases passed (IT/EN summary/reminder at 375/1440px), each with four sample cards,
+six WhatsApp actions, 44px-or-larger buttons, loaded images, no overflow and no
+page errors. The test inspects links without opening WhatsApp. Initial local
+browser connection timed out because the preview server ran inside the sandbox;
+restarting only that isolated server outside it made all cases pass.
+Rendering all 36 published catalog items produced 63,494 HTML bytes in Italian
+and 62,414 in English before provider rewriting; no card cap was introduced.
+The source package now includes 29 files and was prepared disabled for review.
+No updated function/site deployment or second email occurred for this change.
+The local sample preview is http://127.0.0.1:4333/email-preview/summary-en.html
+(Italian: summary-it.html); its four public catalog examples are not the user's
+private favorites. Screenshot files remain local and ignored.
