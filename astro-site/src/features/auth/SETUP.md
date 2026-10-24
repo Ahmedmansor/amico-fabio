@@ -43,7 +43,8 @@
   after account changes and preserve request identity on explicit retries. They
   are not mounted in the actual wishlist and never store bearer tokens or
   consent in localStorage. The draft opt-in component/binder is implemented and
-  browser-tested in isolation; real website Auth binding remains work.
+  browser-tested in isolation; a gated source binding now exists below, while
+  real authenticated website saving remains unverified.
   Do not mount or enable it before approved wording, runtime controls and a
   deployed verified endpoint are ready. See ../../../qa/reminders/README.md.
 - The composed Edge preference service is now prepared locally under
@@ -116,6 +117,11 @@ feed, rather than separately restoring/verifying the same browser session.
 Four synthetic full-shell browser cases measured one initial client getUser,
 and verified signout/home behavior. This is an in-page identity cache only;
 it does not replace remote verification or RLS on any backend request.
+The actual wishlist route now has a gated preference bootstrap, using
+`PUBLIC_WISHLIST_REMINDER_OPT_IN_ENABLED=0`. Its bridge and four native-page
+synthetic cases passed. It requires Auth/profiles/locale flags, shares identity
+and never writes without explicit Save. Do not activate opt-in before automated
+delivery, unsubscribe and final wording review. No real consent was stored.
 
 ## Previous handoff — 2026-10-23 (historical; superseded above)
 

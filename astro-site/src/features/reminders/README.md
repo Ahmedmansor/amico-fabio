@@ -57,10 +57,14 @@ These previews do not enroll anyone or schedule mail. The preference service,
 repository, Auth verifier and HTTP handler have a deployed Edge composition. Preference
 storage was separately applied and role-tested on 2026-10-24, with zero records
 after ROLLBACK. The protected preference endpoint is active; the website opt-in
-is not mounted and real authenticated website saving remains unverified.
-The draft ReminderPreferences.astro component, binder and IT/EN wording are
-prepared for isolated review. They are not imported by WishlistPage. Local
-preview steps and browser checks are in ../../../qa/reminders/README.md.
+remains disabled and real authenticated website saving remains unverified.
+The main wishlist route can compose PreferenceBootstrap through a presentation
+slot behind `PUBLIC_WISHLIST_REMINDER_OPT_IN_ENABLED=0`. This preserves the
+acyclic feature graph; WishlistPage never imports reminder data/components.
+The bridge reuses Auth's restored identity and reads consent once per account;
+only an explicit Save writes. Native-page synthetic IT/EN browser checks passed.
+Delivery/unsubscribe/final-wording review still precede live opt-in activation.
+Local previews and evidence are in ../../../qa/reminders/PREFERENCES.md.
 A reminder model requires an unsubscribe URL on the approved site
 origin; the preview target only explains that no preference changed. A real
 unsubscription handler, scoped tokens/headers and provider tests are still needed.

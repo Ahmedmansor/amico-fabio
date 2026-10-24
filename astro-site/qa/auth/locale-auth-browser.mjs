@@ -4,6 +4,7 @@ import {pathToFileURL} from 'node:url';
 import {nextLocaleState} from '../../src/features/auth/domain/locale-preference.ts';
 const {chromium}=process.env.PLAYWRIGHT_MODULE?await import(pathToFileURL(process.env.PLAYWRIGHT_MODULE).href):await import('playwright');
 const origin=process.env.QA_ORIGIN||'http://127.0.0.1:4335',endpoint='https://auth-qa.invalid';
+const optIn=process.env.QA_REMINDER_OPT_IN==='1';
 const browser=await chromium.launch({headless:true,...(process.env.QA_BROWSER?{executablePath:process.env.QA_BROWSER}:{})});
 const results=[],output=new URL('./screenshots/',import.meta.url);await mkdir(output,{recursive:true});
 const id='00000000-0000-4000-8000-000000000001';
@@ -21,8 +22,10 @@ for(const locale of ['it','en'])for(const width of [375,1440]){
         expires_in:3600,expires_at:Math.floor(Date.now()/1000)+3600,user}));
     }
   },{user,token});
-  let state={siteLocale:locale,revision:0,email:{locale,source:'follow_site'}};
-  const calls={reads:0,writes:0,logout:0,authVerifies:0},errors=[];
+  let state={siteLocale:locale,revision:0,email:optIn?null:{locale,source:'follow_site'}};
+  let preference=null,loseConsentReply=optIn;
+  const consentCommands=[],consentRequests=new Set();
+  const calls={reads:0,writes:0,logout:0,authVerifies:0,preferenceReads:0,preferenceWrites:0},errors=[];
   await context.route(`${endpoint}/**`,async route=>{
     const request=route.request(),url=new URL(request.url()),method=request.method();
     const headers={'access-control-allow-origin':origin,'access-control-allow-headers':'*','access-control-allow-methods':'GET, POST, PATCH, DELETE, OPTIONS','cache-control':'no-store'};
@@ -35,7 +38,23 @@ for(const locale of ['it','en'])for(const width of [375,1440]){
       assert.equal(method,'PATCH');calls.writes++;
       const command=request.postDataJSON();assert.equal('enabled' in command,false);assert.equal('userId' in command,false);
       const result=nextLocaleState(state,command);assert.equal(result.ok,true);state=result.value;
+      if(preference)preference={...preference,locale:state.email.locale};
       return route.fulfill({status:200,headers,json:{outcome:'applied',state}});
+    }
+    if(url.pathname==='/functions/v1/wishlist-email-preferences'&&optIn){
+      if(method==='GET'){calls.preferenceReads++;return route.fulfill({status:200,headers,json:{preference}});}
+      assert.equal(method,'PATCH');calls.preferenceWrites++;
+      const command=request.postDataJSON();consentCommands.push(command);
+      assert.equal('userId' in command,false);assert.equal('enabledSince' in command,false);
+      if(!consentRequests.has(command.requestId)){
+        consentRequests.add(command.requestId);
+        const language=state.email?.source==='explicit'?state.email.locale:state.siteLocale;
+        preference={enabled:command.enabled,locale:language,wordingVersion:command.wordingVersion,updatedAt:'2026-10-25T00:00:00Z',
+          enabledSince:command.enabled?'2026-10-25T00:00:00Z':null};
+        if(!state.email)state={...state,email:{locale:language,source:'follow_site'}};
+      }
+      if(loseConsentReply){loseConsentReply=false;return route.fulfill({status:503,headers,json:{error:'unavailable'}});}
+      return route.fulfill({status:200,headers,json:{preference}});
     }
     if(url.pathname==='/rest/v1/profiles'&&method==='POST')return route.fulfill({status:201,headers,body:''});
     if(['/rest/v1/wishlists','/rest/v1/package_wishlists'].includes(url.pathname)&&method==='GET')return route.fulfill({status:200,headers,json:[]});
@@ -51,6 +70,18 @@ for(const locale of ['it','en'])for(const width of [375,1440]){
   const trigger=page.locator('#global-header [data-auth-open]');
   await page.waitForFunction(()=>!document.querySelector('#global-header [data-auth-open]')?.disabled);
   assert.match(await trigger.textContent(),/QA/);
+  if(optIn){
+    await page.waitForFunction(()=>!document.querySelector('[data-reminder-form] fieldset')?.disabled);
+    const choice=page.locator('[data-reminder-choice]');assert.equal(await choice.isChecked(),false);
+    assert.equal(calls.preferenceWrites,0);assert.equal(calls.preferenceReads,1);
+    await choice.check();await page.waitForTimeout(1100);assert.equal(calls.preferenceWrites,0);
+    await page.locator('[data-reminder-save]').click();await page.locator('[data-reminder-retry]').waitFor({state:'visible'});
+    assert.equal(preference.enabled,true);assert.equal(calls.preferenceWrites,1);
+    await page.locator('[data-reminder-retry]').click();
+    await page.waitForFunction(()=>!document.querySelector('[data-reminder-form] fieldset')?.disabled);
+    assert.equal(await choice.isChecked(),true);assert.equal(calls.preferenceWrites,2);
+    assert.equal(consentCommands[0].requestId,consentCommands[1].requestId);
+  }
   await trigger.click();await page.locator('[data-auth-dialog]').waitFor({state:'visible'});
   const ready=()=>page.waitForFunction(()=>document.querySelector('[data-locale-settings]')?.getAttribute('data-state')==='ready');
   await ready();const stableReads=calls.reads;await page.waitForTimeout(1100);assert.equal(calls.reads,stableReads);
@@ -63,15 +94,27 @@ for(const locale of ['it','en'])for(const width of [375,1440]){
   assert.equal(calls.authVerifies,1); // Header and wishlist share verified restoration.
   assert.equal(await page.locator('[data-auth-dialog]').evaluate(node=>node.scrollWidth<=node.clientWidth),true);
   await page.screenshot({path:new URL(`locale-auth-${locale}-${width}.png`,output).pathname.replace(/^\/([A-Za-z]:)/,'$1'),fullPage:true});
+  if(optIn){
+    await page.locator('[data-auth-close]').click();
+    await page.locator('[data-reminder-choice]').uncheck();await page.locator('[data-reminder-save]').click();
+    await page.waitForFunction(()=>!document.querySelector('[data-reminder-form] fieldset')?.disabled);
+    assert.equal(preference.enabled,false);assert.equal(preference.enabledSince,null);
+    assert.equal(preference.locale,other);assert.equal(state.email.source,'explicit');
+    assert.equal(calls.preferenceWrites,3);assert.equal(consentRequests.size,2);
+    await page.evaluate(()=>scrollTo(0,0));
+    await page.screenshot({path:new URL(`preferences-auth-${locale}-${width}.png`,output).pathname.replace(/^\/([A-Za-z]:)/,'$1'),fullPage:true});
+    await trigger.click();await ready();
+  }
   const beforeSignout=calls.reads;
   await page.locator('[data-auth-signout]').click();await page.waitForURL(`${origin}/${locale}/`);
   await page.waitForFunction(()=>!document.querySelector('#global-header [data-auth-open]')?.disabled);
   assert.equal(calls.logout,1);assert.equal(calls.reads,beforeSignout);
   assert.equal(await page.locator('[data-auth-dialog]').isVisible(),false);
   assert.equal(await page.locator('[data-locale-settings]').isVisible(),false);
+  if(optIn)assert.equal(await page.locator('[data-reminder-preferences]').isVisible(),false);
   assert.equal(errors.length,0,errors.join('\n'));
   results.push({locale,width,passed:true,calls,errors});await context.close();
 }
-await writeFile(new URL('./locale-auth-browser-results.json',import.meta.url),JSON.stringify({syntheticOnly:true,cases:results},null,2)+'\n');
-console.log(`Full Auth/locale integration passed: ${results.length} IT/EN mobile/desktop cases; focus trap, one save, stable reads and home after logout.`);
+await writeFile(new URL(optIn?'../reminders/preferences-auth-browser-results.json':'./locale-auth-browser-results.json',import.meta.url),JSON.stringify({syntheticOnly:true,cases:results},null,2)+'\n');
+console.log(`Full Auth/locale${optIn?'/consent':''} integration passed: ${results.length} IT/EN mobile/desktop cases; one Auth restore, explicit saves/retries, and home after logout.`);
 }finally{await browser.close();}

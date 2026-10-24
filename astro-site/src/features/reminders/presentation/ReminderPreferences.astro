@@ -7,7 +7,7 @@ const {locale}=Astro.props;
 const m=getPreferenceMessages(locale);
 const id=`reminder-preferences-${locale}`;
 ---
-<!-- Hidden until an authenticated controller is explicitly bound. Not mounted on the live site. -->
+<!-- Hidden until an authenticated controller is bound; live opt-in remains gated. -->
 <section class="reminder-preferences" data-reminder-preferences hidden aria-labelledby={`${id}-title`}>
   <h2 id={`${id}-title`}>{m.title}</h2>
   <form data-reminder-form>

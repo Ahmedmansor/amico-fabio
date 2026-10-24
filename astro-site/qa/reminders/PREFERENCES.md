@@ -168,3 +168,42 @@ preference scaffolding. Authorized test recipient/sender are pending.
 Activation project checks: 162 Node tests and 142 Vitest tests passed; Astro
 check 293 files with zero errors/warnings/hints; static build 94 pages in 7.86s,
 Complete. No site push/deployment or email was performed during activation.
+
+## Gated actual-page binding — 2026-10-25
+
+The wishlist route now composes a consent bootstrap through a presentation slot
+when `PUBLIC_WISHLIST_REMINDER_OPT_IN_ENABLED=1`. Default/hosting/ignored local
+flags stay off; scheduler, unsubscribe and final wording are release gates.
+The bootstrap requires enabled Auth/profiles/locale integration, derives the
+preference endpoint from that Auth project and uses the shared minimal verified
+account state. No extra client getUser or stored bearer/consent is added.
+Repeated same-account events do not reread or reset the form. The checkbox is
+unchecked when no confirmed preference exists; only explicit Save writes.
+
+Five bridge tests plus sixteen existing preference data/client tests passed.
+Full suite: 240 Node tests and 18 Vitest files / 152 tests passed. Astro check:
+346 files, 0 errors/warnings/hints. Normal build: 94 pages in 11.97s; a generated
+HTML assertion confirmed both consent and locale UI remain off by default.
+
+Four actual-page Chrome cases passed (IT/EN, 375/1440px) against synthetic SDK/API
+responses. Each measured one initial client Auth verification, one preference
+read, three consent HTTP writes for two distinct commands (grant, same-ID retry
+after lost acknowledgement, withdrawal), one explicit language write, and home
+after logout. Restoring/account rendering caused no consent write. Withdrawal
+preserved the explicit correspondence locale. No real consent or mail was made.
+Results: preferences-auth-browser-results.json. Images stay ignored in
+qa/auth/screenshots/preferences-auth-*.png. Reproduce:
+
+```powershell
+node qa/reminders/build-preferences-auth-preview.mjs
+node scripts/serve-static-qa.mjs .astro/reminder-preferences-auth 4336
+# Separate terminal, existing PLAYWRIGHT_MODULE and QA_BROWSER paths configured:
+$env:QA_ORIGIN='http://127.0.0.1:4336'
+$env:QA_REMINDER_OPT_IN='1'
+node qa/auth/locale-auth-browser.mjs
+```
+
+This source wiring supersedes earlier unbound-source notes, not the live gate:
+real authenticated preference CRUD through the deployed endpoint remains a user
+integration check. The consent service is deployed at version 2; older version-1
+activation results above are historical evidence, not current metadata.
