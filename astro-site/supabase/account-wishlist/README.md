@@ -1,4 +1,14 @@
-# Account wishlist schema proposal — NOT APPLIED
+# Account wishlist schema — APPLIED 2026-10-24
+
+User approved applying schema.sql on fabioEgypt and separately approved the
+disposable role-test writes. All three tables, reviewed grants, policies and
+indexes are applied. role-tests.sql passed on PostgreSQL with ROLLBACK; cleanup
+verification found zero synthetic catalog rows. Local sync is enabled for user
+integration testing; hosting/defaults remain off. No email or deployment changes.
+See ../../qa/wishlist/LIVE_SYNC.md for evidence and remaining browser check.
+
+The preparation notes below are historical; NOT APPLIED / NOT RUN references
+describe the pre-activation review state, superseded by this status.
 
 Prepared 2026-10-23 for fabioEgypt (`iiivnvwspoikfrlclhyr`). This is a SQL Editor
 review artifact, not a migration that has been executed. No remote writes are

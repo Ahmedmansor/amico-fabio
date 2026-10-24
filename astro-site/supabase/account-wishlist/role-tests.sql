@@ -1,5 +1,5 @@
--- REVIEW ONLY: NOT RUN. Requires explicit authorization for disposable remote
--- test writes AFTER schema.sql has been approved/applied. Run the whole script
+-- PASSED 2026-10-24 after explicit user approval; all fixtures rolled back.
+-- Future remote test writes require authorization. Run the whole script
 -- in one session. It inserts two synthetic Auth identities (no email), one
 -- unpublished synthetic trip and package plus test favorites, then ROLLBACKs.
 -- Never substitute real account IDs. No Auth API, mail or secret keys are used.
@@ -225,4 +225,5 @@ do $$ declare b uuid; begin
   end if;
   raise notice 'All account wishlist role assertions reached successfully; ROLLBACK follows. No live API/mail delivery was tested.';
 end $$;
+select 'passed: own CRUD, cross-account and anonymous denial, published items, timestamps, deduplication and cascades; transaction will roll back' as role_test_result;
 rollback;

@@ -1,5 +1,5 @@
--- LOCAL REVIEW ARTIFACT. Not applied to fabioEgypt (iiivnvwspoikfrlclhyr).
--- Requires explicit remote-write approval after reviewing README.md.
+-- Applied 2026-10-24 to fabioEgypt (iiivnvwspoikfrlclhyr) after user authorization.
+-- Retained as the reviewed source artifact; DO NOT RERUN on the existing schema.
 -- Apply once, transactionally; fail on existing objects rather than overwrite.
 begin;
 

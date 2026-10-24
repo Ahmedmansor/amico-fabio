@@ -14,4 +14,4 @@ for(const locale of ['it','en'])for(const route of ['wishlist','explore','legal'
   }
   if(route==='wishlist')assert.equal(html.includes('data-wishlist-sync-retry'),enabled);
 }
-console.log(`Built wishlist gate: ${enabled?'enabled synthetic configuration':'disabled by default; no account bootstrap/retry UI'} verified for 6 main-site routes. Key values not printed.`);
+console.log(`Built wishlist gate: ${enabled?'enabled configuration':'disabled by default; no account bootstrap/retry UI'} verified for 6 main-site routes. Key values not printed.`);

@@ -2,7 +2,7 @@
 
 Created: 2026-10-23. English execution reference replacing the Arabic text.
 
-**Status: guest wishlist and local Google Auth/profile display implemented. Account-sync code is implemented behind an off-by-default gate and tested with synthetic services; remote schema/RLS verification and activation remain pending. Email activation/services remain pending.** Agreement
+**Status (2026-10-24): Google Auth and tour/package favorites implemented. The three account tables and reviewed RLS/grants are applied on fabioEgypt; real disposable SQL ownership tests passed with ROLLBACK. Local sync is enabled for the user's authenticated browser test; hosting/defaults remain off. Brevo/reminder services remain pending.** Agreement
 on those decisions and editing this document do not authorize all operational
 settings, remote schema changes, Auth configuration, email sending, or deployment.
 This document coordinates the phases. Its location in `auth` does not make
@@ -22,7 +22,7 @@ SSR or runtime API routes inside Astro.
 
 ## 2. Existing project facts
 
-### Current implemented flow and activation boundary (2026-10-23)
+### Current implemented flow and activation boundary (2026-10-24)
 
 ```mermaid
 flowchart TD
@@ -33,17 +33,20 @@ flowchart TD
   Auth --> Session[Verified/restored account session]
   Session --> Profile[Header name and Google avatar]
   Session --> Gate{Account sync explicitly enabled?}
-  Gate -->|No - current default| Guest
-  Gate -->|Yes - isolated QA only so far| Coordinator[Account-bound wishlist coordinator]
+  Gate -->|No - committed and hosting default| Guest
+  Gate -->|Yes - local integration test| Coordinator[Account-bound wishlist coordinator]
   Guest -->|Revision snapshot and account claim| Coordinator
-  Coordinator -->|Owner-scoped requests| RLS[Supabase profiles and wishlists with RLS]
+  Coordinator -->|Owner-scoped requests| RLS[Supabase profiles, wishlists and package_wishlists with RLS]
   RLS -->|Read-back confirmed IDs| Ack[Acknowledge exact guest revisions]
   Ack --> View[Header count, cards, errors and retry]
 ```
 
-The diagram's account database path is implemented in source and tested with
-synthetic services, not activated on the real project. The remote schema and
-disposable role test artifacts are awaiting review/execution authorization.
+The account database path is now applied on the real project under the user's
+2026-10-24 authorization. Disposable authenticated/anonymous SQL role tests
+passed and rolled back. Live anonymous REST denies access to all three account
+tables (401). The user's local sync flag is enabled; real Google cross-browser
+save/restore testing is still to be performed by the user. No real user session
+or access token was read by the agent. See ../../../qa/wishlist/LIVE_SYNC.md.
 Auth owns identity/session access; wishlist owns persistence/merge; shared code
 provides a single neutral browser SDK connection. There is no Astro SSR/server
 API or email/reminder service in this implementation. The invitation never
@@ -181,7 +184,7 @@ Draft subscription wording, to review and translate before implementation:
 This is technical design guidance, not a guarantee of full legal compliance.
 Review message classification and final wording for the actual business and audience.
 
-## 6. Proposed data model — SQL prepared locally, not applied
+## 6. Data model — account tables applied; email entities still proposed
 
 | Entity | Responsibility |
 | --- | --- |
@@ -198,8 +201,8 @@ before remote execution. It covers only minimal profiles and account wishlists;
 mail/consent entities remain proposals. `trip_id` references the
 existing stable ID in `trips`; do not duplicate the catalog. Package favorites
 were authorized on 2026-10-24 and reference `packages.id` through a separate
-package_wishlists table. The revised local SQL and role-test proposals remain
-unexecuted and require remote authorization. Guest UI groups tours and packages
+package_wishlists table. The revised SQL and disposable role tests were applied
+and verified on 2026-10-24 after explicit authorization. Guest UI groups tours and packages
 under separate headings and counts both; historical tour storage is preserved.
 
 Prefer keeping reminder lifecycle separate from wishlist rows so removing and
@@ -320,6 +323,12 @@ Test manifest origins and emails must not silently use production. Use a test
 environment and an explicit allowed-recipient list to avoid messaging real customers.
 
 ## 9. Email strategy and Brevo
+
+User requirement confirmed 2026-10-24: email wording, HTML structure and styles
+must live in this repository, with IT/EN versions and local preview. The future
+backend should render email-compatible HTML from that source and send it through
+Brevo, rather than making the Brevo dashboard the only editable template source.
+This requirement is recorded; the reminder template/sender are not implemented.
 
 Confirmed starting point: **one optional reminder**, 24 hours after wishlist
 eligibility. A second message 48 hours after the first is a later decision after
@@ -447,13 +456,15 @@ The user confirmed on 2026-10-23:
 
 Still to define before the relevant implementation/release phase:
 
-1. Continue with bounded Auth/synchronization tasks after the completed guest phase.
-2. Choose Magic Link verification/callback/email details satisfying the agreed behavior.
+1. User's authenticated cross-browser Google sync check after local activation.
+2. Activate email sign-in only after the existing Magic Link UI/callback's backend
+   protection and sending settings are reviewed; the callback code is implemented.
 3. Define reminder eligibility, cooldown/re-addition, account deletion, and retention.
 4. Approve Edge Functions/Cron scope, Brevo sending path, budget, and operational limits.
 5. Choose rate-limit numbers, reserved sign-in allowance, disposable-domain list,
    CAPTCHA provider, and enforcement on the real Auth path without bypasses.
-6. Approve final IT/EN copy and sign-in/wishlist/email-preferences design.
+6. Approve final email/preferences copy and template; current sign-in/wishlist
+   presentation was tested and accepted by the user.
 
 ## Design references
 

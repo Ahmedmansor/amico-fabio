@@ -1,6 +1,27 @@
 # Auth activation and remaining setup
 
-## Current handoff — 2026-10-23
+## Current handoff — 2026-10-24
+
+- User authorized real schema activation and separately authorized disposable
+  Auth/catalog role-test writes with ROLLBACK. profiles, wishlists and
+  package_wishlists are applied on fabioEgypt, with ownership RLS and the
+  reviewed narrow trips/packages lookup grants. Do not rerun schema.sql.
+- Real SQL role assertions passed for own operations, cross-account/anonymous
+  denial, duplicates, timestamps, published items and account cascades. Rollback
+  left zero qa_wishlist_* catalog records. Security advisor reports only the
+  existing Auth leaked-password-protection warning; no user-table RLS finding.
+- Ignored .env.local now sets PUBLIC_WISHLIST_ACCOUNT_SYNC_ENABLED=1. The actual
+  4322 page exposes the bootstrap, and real anonymous REST returns 401 on all
+  three account tables. Committed defaults and hosting variables stay off.
+- Final user integration check: sign in through Google on 4322, save a tour
+  and package, open a separate browser/profile at the same origin and sign into
+  the same Google account, confirm both restore, then verify a removal after
+  focus/refresh. A different account must show only its own list. The agent has
+  not accessed the user's browser session or claimed this manual check passed.
+- Email/reminders remain off; no mail was sent, no hosting/provider setting
+  changed, and no deployment occurred. Evidence: ../../../qa/wishlist/LIVE_SYNC.md.
+
+## Previous handoff — 2026-10-23 (superseded by activation above)
 
 - Local Google Auth/profile/header is available on 4322. The user's server and
   signed-in browser were not stopped or signed out during isolated QA.
