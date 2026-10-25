@@ -52,7 +52,7 @@ set local role service_role;
 do $$ declare f record; original_addition timestamptz; begin
   select * into f from qa_activity_fixture;
   select last_addition_at into original_addition from public.read_wishlist_reminder_activity(f.a);
-  perform public.change_wishlist_email_preference(f.a,gen_random_uuid(),true,'it','wishlist-reminders-v1','wishlist-page');
+  perform public.change_wishlist_email_preference_v2(f.a,gen_random_uuid(),true,'it','it','wishlist-reminders-v1','wishlist-page');
   perform public.change_account_locale(f.a,gen_random_uuid(),0,'site','en');
   if (select last_addition_at from public.read_wishlist_reminder_activity(f.a)) is distinct from original_addition then
     raise exception 'Consent or language changed real addition history.';
