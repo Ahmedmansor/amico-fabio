@@ -27,6 +27,13 @@ async function initialize() {
   const google = dialog.querySelector<HTMLButtonElement>('[data-auth-google]');
   const signout = dialog.querySelector<HTMLButtonElement>('[data-auth-signout]')!;
   const modeSwitch = dialog.querySelector<HTMLButtonElement>('[data-auth-mode-switch]')!;
+  const reminderCheckbox = dialog.querySelector<HTMLInputElement>('[data-auth-reminder-optin]');
+  const recordPendingOptIn = () => {
+    try {
+      if (reminderCheckbox?.checked) sessionStorage.setItem('fabio:auth:pending-reminder-optin:v1', JSON.stringify({ enabled: true, locale }));
+      else sessionStorage.removeItem('fabio:auth:pending-reminder-optin:v1');
+    } catch {}
+  };
   let signingUp = false;
   const triggers = [...document.querySelectorAll<HTMLButtonElement>('[data-auth-open]')];
   let opener: HTMLElement | null = null;
@@ -151,6 +158,7 @@ async function initialize() {
   form?.addEventListener('submit', async event => {
     event.preventDefault();
     if (!service || pending) return;
+    recordPendingOptIn();
     pending = true; inputError!.hidden = true; email!.removeAttribute('aria-invalid'); show(m.pending); render();
     const result = await service.requestMagicLink(email!.value, locale);
     pending = false;
@@ -164,6 +172,7 @@ async function initialize() {
   });
   google?.addEventListener('click', async () => {
     if (!service || pending) return;
+    recordPendingOptIn();
     pending = true; show(m.pending); render();
     const result = await service.googleUrl(locale);
     if (result.ok) { window.location.assign(result.value); return; }

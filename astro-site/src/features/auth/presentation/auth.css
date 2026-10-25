@@ -58,3 +58,5 @@
 .auth-callback .auth-button { width:auto; min-width:160px; }
 @media(max-width:639px) { .auth-content { padding:24px; } .auth-callback { padding:120px 16px 64px; } }
 @media(prefers-reduced-motion:reduce) { .auth-button { transition:none; } }
+.auth-reminder-optin { display:flex; align-items:flex-start; gap:12px; margin:16px 0; cursor:pointer; font-size:.9rem; line-height:1.4; color:var(--color-text-light); text-align:start; }
+.auth-reminder-optin input[type="checkbox"] { width:20px; height:20px; min-height:20px; margin-top:2px; accent-color:var(--color-gold); flex-shrink:0; cursor:pointer; }

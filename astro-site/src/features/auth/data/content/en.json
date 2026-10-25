@@ -17,6 +17,7 @@
   "email": "Email",
   "send": "Email me a sign-in link",
   "notNow": "Not now",
+  "reminderOptIn": "Send me a reminder with my favorites (optional)",
   "privacy": "Privacy notice",
   "guidance": "Open the link in the browser where you want to use the website. Opening it on your phone signs in your phone.",
   "sent": "If the request can be processed, you’ll receive a sign-in link. Check your spam folder too.",

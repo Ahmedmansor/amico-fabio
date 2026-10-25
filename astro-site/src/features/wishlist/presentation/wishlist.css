@@ -58,3 +58,9 @@
 @media(max-width:1023px) { .wishlist-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:639px) { .wishlist-page { padding:120px 16px 64px; } .wishlist-grid { grid-template-columns:minmax(0,1fr); } }
 @media(prefers-reduced-motion:reduce) { .favorite-button,.wishlist-link { transition:none; } }
+.wishlist-inline-reminder { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 20px; margin:0 0 24px; background:var(--color-glass-darker); border:1px solid var(--color-gold); border-radius:var(--radius-card); color:var(--color-text-light); }
+.wishlist-inline-reminder[hidden] { display:none!important; }
+.wishlist-inline-reminder p { margin:0; font-size:.95rem; line-height:1.4; }
+.wishlist-inline-reminder-btn { display:inline-flex; align-items:center; justify-content:center; padding:8px 16px; min-height:40px; background:var(--color-gold); color:black; font:inherit; font-weight:600; font-size:.85rem; border:1px solid var(--color-gold); border-radius:var(--radius-pill); cursor:pointer; white-space:nowrap; transition:background-color 150ms; }
+.wishlist-inline-reminder-btn:hover { background:var(--color-gold-soft); }
+@media(max-width:639px) { .wishlist-inline-reminder { flex-direction:column; align-items:flex-start; gap:12px; } }

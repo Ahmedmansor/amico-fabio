@@ -9,6 +9,7 @@ import { createWishlistCoordinator, type WishlistState } from '../data/coordinat
 import type { getWishlistMessages } from '../data/messages';
 import { createWishlistView } from './wishlist-view';
 import { canOfferSignIn, dismissSignInInvitation, invitationDismissalKey } from '../data/invitation-storage';
+import { canShowGuestInvitation } from '../domain/invitation';
 
 export async function initializeAccountWishlist(){
   const node=document.getElementById('wishlist-config');if(!node)return;
@@ -31,6 +32,13 @@ export async function initializeAccountWishlist(){
   const announce=()=>channel?.postMessage({userId:coordinator.getState().userId});
   function render(state:WishlistState){
     if(state.userId && invitation)invitation.hidden=true;
+    if(!state.userId && service && !authFailed && !invitationClosed && invitation){
+      const count=state.ids?.length ?? 0;
+      const allowed=canOfferSignIn(browserGuestStorage(),Date.now());
+      invitation.hidden=!(allowed.ok && allowed.value && canShowGuestInvitation(count, null, Date.now()));
+    }
+    const inlineReminder=view.page?.querySelector<HTMLElement>('[data-wishlist-inline-reminder]');
+    if(inlineReminder)inlineReminder.hidden=!state.userId;
     const ids=state.ids?new Set(state.ids):null;
     view.render(ids,resolvingAuth || state.busy,resolvingAuth || state.busy || (state.status==='error' && !ids));
     if(storageMessage)storageMessage.textContent=state.userId?(state.busy?m.syncing:!ids?'':m.account):m.local;
@@ -50,7 +58,8 @@ export async function initializeAccountWishlist(){
     if(!result.ok && result.reason!=='stale'){message.textContent=button.dataset.error!;message.hidden=false;}
     else if(focused)view.focusAfterRemoval(button);
     if(result.ok)announce();
-    if(result.ok && desired && !coordinator.getState().userId && service && !authFailed && !invitationClosed && invitation){
+    const guestCount=coordinator.getState().ids?.length ?? 0;
+    if(result.ok && desired && !coordinator.getState().userId && canShowGuestInvitation(guestCount, null, Date.now()) && service && !authFailed && !invitationClosed && invitation){
       const allowed=canOfferSignIn(browserGuestStorage(),Date.now());
       if(allowed.ok && allowed.value)invitation.hidden=false;
     }
@@ -60,6 +69,14 @@ export async function initializeAccountWishlist(){
     dismissSignInInvitation(browserGuestStorage(),Date.now());
   });
   document.querySelector('[data-wishlist-invite-signin]')?.addEventListener('click',()=>{invitationClosed=true;if(invitation)invitation.hidden=true;});
+  view.page?.querySelector('[data-wishlist-inline-reminder-enable]')?.addEventListener('click',()=>{
+    const reminderPrefs=document.querySelector<HTMLElement>('[data-reminder-preferences]');
+    if(reminderPrefs){
+      reminderPrefs.hidden=false;
+      reminderPrefs.scrollIntoView({behavior:'smooth'});
+      reminderPrefs.querySelector<HTMLInputElement>('[data-reminder-choice]')?.focus();
+    }
+  });
   retry?.addEventListener('click',()=>{void coordinator.merge().then(result=>{if(result.ok)announce();});});
   let currentUser:string|null|undefined;
   function connect(userId:string|null){

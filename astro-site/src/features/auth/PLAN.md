@@ -158,20 +158,45 @@ src/features/
 
 ## 4. User journey
 
-1. A guest clicks a heart. Save the tour ID locally and reflect successful storage.
-2. Offer a lightweight invitation to sign in and synchronize favorites; browsing
-   and guest favorites remain available without an account.
-3. Choosing Not now suppresses automatic invitations for seven days. Manual
-   sign-in remains accessible.
+1. A guest clicks a heart. Save the tour or package ID locally in `localStorage`
+   and reflect successful storage immediately without prompts or interruptions.
+   This is a core functional service, strictly necessary, and requires no marketing
+   consent or cookies banner.
+2. Progressive engagement threshold: do NOT show an invitation on the very first
+   heart click (the user has not experienced sufficient value yet). Only after
+   the visitor saves 2–3 items, or on a returning visit with existing saved items,
+   display a lightweight, non-intrusive prompt:
+   - Header: "Save your favorites so you don't lose them" (IT: "Salva i tuoi preferiti per non perderli", EN: "Save your favorites so you don't lose them").
+   - Action controls: Sign in with Google button and manual Email entry (Magic Link).
+3. Choosing "Not now" suppresses automatic invitations for seven days. Manual
+   sign-in remains accessible at any time from navigation/wishlist.
 4. Confirmed sign-in methods: Google OAuth and a manually entered email address
    receiving a Magic Link. No password or user-entered OTP in the agreed UX.
-5. Show the privacy notice, and terms if required, separately from email subscription.
-6. Reminders are optional and unchecked by default. Leaving that box unchecked
-   is not an error: no red warning, disabled registration, or blocked wishlist.
+5. Optional reminder opt-in checkbox: Display an unchecked-by-default checkbox
+   on the prompt screen (positioned above the action buttons or alongside the email field):
+   - IT: "Inviami un promemoria con i miei preferiti (opzionale)"
+   - EN: "Send me a reminder with my favorites (optional)"
+6. Strictly optional consent: Leaving the reminder checkbox unchecked is never
+   an error (no validation warning, disabled registration, or blocked wishlist).
+   Registration and account synchronization succeed regardless of checkbox state.
+   - If UNCHECKED: The account is created/authenticated, guest favorites synchronize
+     to the database, and `reminder_consent = false` is recorded. No reminder emails
+     are scheduled or sent.
+   - If CHECKED: The account is created/authenticated, favorites synchronize,
+     `reminder_consent = true` is recorded, and the correspondence language is
+     initialized from the active browsing language (`it` or `en`) at the moment
+     of consent.
 7. After establishing the authenticated session, merge guest favorites without
    duplicates. Clear only guest items whose synchronization succeeded. Never
    announce successful synchronization after a failed request.
-8. Signed-in users can add/remove favorites, set email language, and stop reminders.
+8. Signed-in users can add/remove favorites, manage correspondence language, and stop reminders.
+   - For signed-in users who have NOT enabled reminders: do NOT display modal popups
+     or interrupt their browsing on tour/package pages. Instead, when they view their
+     Wishlist page (`/wishlist/`), display a quiet, non-blocking inline banner:
+     - IT: "Vuoi ricevere un promemoria per queste escursioni? [Attiva promemoria]"
+     - EN: "Want to receive a reminder for these tours? [Enable reminder]"
+     - Activating it enables reminders immediately, initializing correspondence language
+       from the active site language (`it` or `en`) chosen by the user on the site.
 9. No immediate email-send button in the public customer journey. Restricted QA
    sending must never implicitly enable reminders.
 
@@ -211,9 +236,10 @@ Writing reminders into terms does not automatically make them contractually
 necessary. The absence of a discount does not determine whether a message is
 transactional; encouraging users to return and book may be marketing.
 
-Draft subscription wording, to review and translate before implementation:
+Approved reminder checkbox wording:
 
-> I would like email reminders about tours and packages I have saved. I can unsubscribe at any time.
+> IT: Inviami un promemoria con i miei preferiti (opzionale)
+> EN: Send me a reminder with my favorites (optional)
 
 - Record acceptance and withdrawal, wording version, language, and source with
   trusted server timestamps.
@@ -354,9 +380,10 @@ Browsing priority:
 Correspondence priority:
 1. An existing stored correspondence language remains unchanged on browsing,
    sign-in, consent withdrawal and later re-enablement.
-2. If absent, initialize once on first reminder opt-in from the language shown
-   in the consent control, initially selected from the current page. The user
-   can explicitly choose another supported language before consenting.
+2. If absent, initialize once on first reminder opt-in from the active site language
+   chosen by the user on the website (`it` or `en`) at the moment of opt-in.
+   It NEVER derives from the user's device, OS, or browser settings (`navigator.language`),
+   ensuring the user receives correspondence in the exact website language they experienced.
 3. After initialization, only an explicit correspondence-settings save changes it.
 4. At dispatch, read the stored correspondence language; there is no open page
    to inspect. Never derive it again from the latest URL, browser, IP, nationality,
