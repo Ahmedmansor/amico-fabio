@@ -313,7 +313,7 @@ test('reconcilePendingOptIn binds to account and blocks cross-account intent tra
   let userASaves = 0;
   let userAState = {
     status: 'ready',
-    preference: {enabled: false, locale: 'it', wordingVersion: 'wishlist-reminders-v1'},
+    preference: null,
     userId: userA,
     error: null,
     retryable: false,
@@ -345,7 +345,7 @@ test('reconcilePendingOptIn binds to account and blocks cross-account intent tra
   let userBSaves = 0;
   const userBState = {
     status: 'ready',
-    preference: {enabled: false, locale: 'it', wordingVersion: 'wishlist-reminders-v1'},
+    preference: null,
     userId: userB,
     error: null,
     retryable: false,
@@ -380,7 +380,7 @@ test('reconcilePendingOptIn retains intent on save failure and deletes on confir
 
   let state = {
     status: 'ready',
-    preference: {enabled: false, locale: 'en', wordingVersion: 'wishlist-reminders-v1'},
+    preference: null,
     userId,
     error: null,
     retryable: false,
@@ -418,6 +418,94 @@ test('reconcilePendingOptIn retains intent on save failure and deletes on confir
   });
   assert.equal(resSuccess, 'saved');
   assert.equal(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null, 'Intent deleted on confirmed save');
+});
+
+test('reconcilePendingOptIn respects confirmed withdrawal (enabled=false) and does not re-subscribe', async () => {
+  const storage = new Map();
+  const mockStorage = {
+    getItem: k => storage.get(k) ?? null,
+    setItem: (k, v) => storage.set(k, String(v)),
+    removeItem: k => storage.delete(k),
+  };
+
+  const userId = '00000000-0000-4000-8000-000000000001';
+  recordPendingReminderOptIn(mockStorage, 'it');
+
+  let saves = 0;
+  const save = async () => { saves++; };
+
+  // Server confirmed the user withdrew consent from another tab: preference.enabled === false
+  const withdrawnState = {
+    status: 'ready',
+    preference: {
+      enabled: false,
+      locale: 'it',
+      wordingVersion: 'wishlist-reminders-v1',
+      updatedAt: new Date().toISOString(),
+      enabledSince: null,
+    },
+    userId,
+    error: null,
+    retryable: false,
+  };
+
+  const res = await reconcilePendingOptIn({
+    storage: mockStorage,
+    userId,
+    prefState: withdrawnState,
+    activeLocale: 'it',
+    save,
+    getState: () => withdrawnState,
+  });
+
+  // Must NOT trigger a new save!
+  assert.equal(res, 'cleared');
+  assert.equal(saves, 0, 'Must NOT re-subscribe when server confirmed user is disabled/withdrawn');
+  assert.equal(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null, 'Must clear pending storage');
+});
+
+test('reconcilePendingOptIn halts and clears storage if account binding fails to persist', async () => {
+  const storage = new Map();
+  const failingStorage = {
+    getItem: k => storage.get(k) ?? null,
+    setItem: (_k, _v) => {
+      throw new Error('QuotaExceededError: storage is full');
+    },
+    removeItem: k => storage.delete(k),
+  };
+
+  const userId = '00000000-0000-4000-8000-000000000001';
+  storage.set(PENDING_REMINDER_OPTIN_KEY, JSON.stringify({
+    enabled: true,
+    locale: 'it',
+    createdAt: Date.now(),
+    attemptId: 'test-attempt-1',
+    targetUserId: null,
+  }));
+
+  let saves = 0;
+  const save = async () => { saves++; };
+
+  const readyState = {
+    status: 'ready',
+    preference: null,
+    userId,
+    error: null,
+    retryable: false,
+  };
+
+  const res = await reconcilePendingOptIn({
+    storage: failingStorage,
+    userId,
+    prefState: readyState,
+    activeLocale: 'it',
+    save,
+    getState: () => readyState,
+  });
+
+  assert.equal(res, 'failed');
+  assert.equal(saves, 0, 'Must not send opt-in write when account binding cannot be persisted');
+  assert.equal(storage.get(PENDING_REMINDER_OPTIN_KEY), undefined, 'Must purge unbound storage on failure');
 });
 
 test('createPreferenceController.connect performs server read first and never emits ready prematurely', async () => {

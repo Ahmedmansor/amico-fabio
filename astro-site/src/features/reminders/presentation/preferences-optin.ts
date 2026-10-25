@@ -52,33 +52,49 @@ export async function reconcilePendingOptIn(
     return 'mismatched';
   }
 
-  // Bind targetUserId to this userId if not yet bound
+  // Bind targetUserId to this userId if not yet bound.
+  // If binding cannot be persisted securely in storage, abort automatic opt-in to prevent cross-account leakage.
   if (!parsed.targetUserId) {
     parsed.targetUserId = userId;
     try {
       storage.setItem(PENDING_REMINDER_OPTIN_KEY, JSON.stringify(parsed));
-    } catch {}
+      const verifyRaw = storage.getItem(PENDING_REMINDER_OPTIN_KEY);
+      if (!verifyRaw) {
+        clearPendingReminderOptIn(storage);
+        return 'failed';
+      }
+      const verified = JSON.parse(verifyRaw) as PendingReminderOptIn;
+      if (verified.targetUserId !== userId) {
+        clearPendingReminderOptIn(storage);
+        return 'failed';
+      }
+    } catch {
+      clearPendingReminderOptIn(storage);
+      return 'failed';
+    }
   }
 
-  // 3. If preferences are already confirmed enabled on server, clean up and exit
-  if (prefState.preference?.enabled === true) {
-    clearPendingReminderOptIn(storage);
-    return 'cleared';
-  }
-
-  // 4. Must wait for confirmed 'ready' status (meaning client.read finished successfully)
+  // 3. Must wait for confirmed 'ready' status (meaning client.read finished successfully).
   // If still loading or in error, do NOT attempt save yet!
   if (prefState.status !== 'ready') {
     return 'skipped';
   }
 
-  // 5. Perform save
+  // 4. Respect confirmed server preference:
+  // If preferences already exist on server (whether enabled=true or explicitly disabled=false after withdrawal),
+  // we must respect the server's confirmed state and clear the pending intent without sending a new opt-in command.
+  if (prefState.preference !== null) {
+    clearPendingReminderOptIn(storage);
+    return 'cleared';
+  }
+
+  // 5. Perform initial save (only when server record does not exist yet)
   try {
     await save(true, activeLocale, parsed.locale ?? activeLocale);
     const confirmed = getState();
-    if (confirmed.status === 'ready' && confirmed.preference?.enabled === true) {
+    if (confirmed.status === 'ready') {
       clearPendingReminderOptIn(storage);
-      return 'saved';
+      return confirmed.preference?.enabled === true ? 'saved' : 'cleared';
     }
     return 'failed';
   } catch {
