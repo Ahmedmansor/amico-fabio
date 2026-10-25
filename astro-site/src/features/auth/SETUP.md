@@ -2,6 +2,15 @@
 
 ## Latest checkpoint — 2026-10-25
 
+Local dev recovery verified: the Google button was disabled with unavailable Auth
+because Vite served its optimized Supabase module with HTTP 504. Restarted only
+the verified Astro process on 4322; the same module returned 200. Reload restored
+the existing real account and both tour/package favorites. No session/browser
+storage was cleared, no sign-out was forced and no email was sent. A disabled
+button's wait cursor was mistaken for hover-triggered loading; there is no hover
+Auth handler. If this dev-only 504 recurs, restart the existing dev server and
+reload the page. Do not reinstall Astro or recreate the project.
+
 Restricted activation was explicitly approved and applied. See
 ../../../qa/reminders/ACTIVATION.md for deployed versions, SQL evidence and limits.
 Google/sync/explicit reminder preferences and management pages are now enabled on
