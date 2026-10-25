@@ -1,5 +1,26 @@
 # Restricted activation — 2026-10-25
 
+**Current outcome: restricted activation is ready for the user's integration
+test.** Brevo webhook registration returned 200/configured; webhook_ready=true,
+Cron active=true on */15 * * * *. Delivery still requires the user's explicit
+consent and 24-hour eligibility. No real email was sent by this activation.
+
+After explicit approval at action time, added only Webhooks Read/write to the
+existing restricted API key. User completed Brevo's email verification themselves.
+No key was generated, revealed, copied or rotated; original three scopes and
+expiry are unchanged. Brevo permission propagation initially retained 403, then
+the empty account returned 400/document_not_found. Dispatch v6 handles exactly
+that empty lookup; other lookup errors still fail closed. Existing fixed callback
+ownership remains checked before updates. The authenticated setup confirmed ready.
+
+Latest checks: nine targeted runtime tests passed; Astro 387 files with zero
+errors/warnings/hints; static build 96 pages in 8.81s. QA remains local-only,
+once per language for conantotta@gmail.com until 26 October 2026 05:21 Cairo.
+Google sign-in, consent saving, final mailbox delivery and actual provider-event
+receipt remain the user's integration checks; readiness is not a delivery claim.
+
+## Activation history
+
 User explicitly approved the consolidated activation: account
 conantotta@gmail.com only, EN/IT QA once each within 24 hours, one optional
 real reminder after 24 hours, daily reminder attempt budget 5, management links

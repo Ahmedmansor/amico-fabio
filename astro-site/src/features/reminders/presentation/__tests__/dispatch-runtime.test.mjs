@@ -38,6 +38,8 @@ async function fixture(locale='en',mode='accepted'){
     if(path==='/v3/webhooks'&&!init.method){
       if(mode==='webhook-denied')return Response.json({code:'permission_denied',message:'Synthetic private provider text'},{status:403});
       if(mode==='webhook-empty')return new Response(null,{status:204});
+      if(mode==='webhook-not-found')return Response.json({code:'document_not_found',message:'No webhook found'},{status:400});
+      if(mode==='webhook-invalid')return Response.json({code:'invalid_parameter',message:'Invalid lookup'},{status:400});
       return Response.json({webhooks:[]});
     }
     if(path==='/v3/webhooks'&&init.method==='POST')return Response.json({id:123},{status:201});
@@ -93,8 +95,19 @@ test('webhook permission refusal returns bounded diagnostics, preserves the read
 });
 
 test('an empty successful webhook lookup permits creating the fixed authenticated callback',async()=>{
-  const f=await fixture('it','webhook-empty');
+  for(const mode of ['webhook-empty','webhook-not-found']){
+  const f=await fixture('it',mode);
   const response=await f.handle(new Request(supabaseUrl+'/functions/v1/wishlist-reminder-dispatch/configure-webhook',{
     method:'POST',headers:{'x-fabio-reminder-token':cronToken}}));
   assert.equal(response.status,200);assert.equal(f.ready(),true);assert.equal(f.sent.length,0);
+  assert.equal(f.calls.filter(call=>call.path==='/v3/webhooks'&&call.body?.type==='transactional').length,1);
+  }
+});
+
+test('other lookup errors cannot be mistaken for an empty account or create a new webhook',async()=>{
+  const f=await fixture('en','webhook-invalid');
+  const response=await f.handle(new Request(supabaseUrl+'/functions/v1/wishlist-reminder-dispatch/configure-webhook',{
+    method:'POST',headers:{'x-fabio-reminder-token':cronToken}}));
+  assert.equal(response.status,503);assert.equal(f.ready(),false);
+  assert.equal(f.calls.filter(call=>call.path==='/v3/webhooks'&&call.body).length,0);
 });

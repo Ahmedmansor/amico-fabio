@@ -2,10 +2,11 @@
 
 **Later restricted activation supersedes the historical checkpoint below.**
 See ACTIVATION.md: all reviewed schemas applied; preference v4, account-locale v2,
-management v1, dispatch v4 and bilingual QA v4 deployed. Static test site updated;
-Cron scheduled but delivery gated on Brevo webhook setup, currently 403
-permission_denied. Actual authenticated empty worker returned 200 with zero claims
-and zero sends. User must log into the correct Brevo account to resolve that gate.
+management v1, dispatch v6 and bilingual QA v4 deployed. Static test site updated;
+Cron scheduled and fixed Brevo callback confirmed with 200/configured after the
+explicitly approved Webhooks Read/write addition. webhook_ready=true. Actual
+authenticated empty worker returned 200 with zero claims and zero sends. Ready
+for the user's signed-in and mailbox integration checks.
 
 User approved the prepared database changes and disposable rollback tests, then
 explicitly approved the preference Edge upgrade and local UI activation.

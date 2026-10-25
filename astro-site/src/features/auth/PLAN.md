@@ -5,9 +5,9 @@ Created: 2026-10-23. English execution reference replacing the Arabic text.
 **Current status — 2026-10-25:** restricted activation is deployed on the separate
 Vercel test project and localhost. Google, account favorites, explicit reminder
 consent/language and no-login management pages are enabled. Native activity,
-queue and ownership assertions passed with ROLLBACK. Cron runs every 15 minutes,
-but real reminder sending is gated because Brevo webhook setup returns 403
-permission_denied. This is an external activation blocker, not a completed send.
+queue and ownership assertions passed with ROLLBACK. Cron runs every 15 minutes;
+Brevo webhook setup now returns 200/configured and webhook_ready=true. Restricted
+activation is ready for user testing; actual email delivery is not yet verified.
 
 ## Current continuation checkpoint
 
@@ -18,7 +18,7 @@ permission_denied. This is an external activation blocker, not a completed send.
   reminder queue, provider reconciliation and durable QA ledger. Browser access
   remains limited by explicit grants/RLS; private tables and service RPCs are
   unavailable to browser roles.
-- Deployed preferences v4, account-locale v2, management v1, dispatch v4 and QA v4.
+- Deployed preferences v4, account-locale v2, management v1, dispatch v6 and QA v4.
   Vercel test has current static pages and Google IT/EN callback allowlisting.
   Local flags are enabled; committed defaults remain off. QA send controls remain
   local only, with distinct immutable EN/IT jobs in a renewed 24-hour window.
@@ -32,10 +32,11 @@ permission_denied. This is an external activation blocker, not a completed send.
   sends are quarantined rather than blindly retried.
 - Approved test limits: account/recipient allowlist, 5 reminder attempts/day,
   90-day management capability and 60 management requests/minute. A fixed callback
-  must be confirmed before final send admission. Brevo currently denies its setup;
-  user login to the correct Brevo account is needed to inspect/resolve access.
+  must be confirmed before final send admission. Brevo setup is now confirmed after
+  separately approved Webhooks Read/write access and user-completed verification.
+  Empty lookup 400/document_not_found is handled; other failures remain closed.
 - Completed: static build 96 pages, Astro 0 diagnostics, native rollback assertions,
-  eight targeted dispatch/runtime checks. No real email was sent in this activation.
+  nine targeted dispatch/runtime checks. No real email was sent in this activation.
   Actual Google sign-in, saved consent and final mailbox result remain user checks.
 - Evidence and exact remaining external gate: ../../../qa/reminders/ACTIVATION.md.
   Magic Link, broad customer sending and public production release remain outside

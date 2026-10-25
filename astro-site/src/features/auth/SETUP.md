@@ -9,12 +9,13 @@ localhost 4322 and amico-fabio-test. The real site's main/domain are unchanged.
 Committed flags remain off; only the authorized test project and ignored local
 settings are enabled. Immediate QA sending remains local only.
 
-Cron is scheduled every 15 minutes. It cannot admit an email until its fixed Brevo
-callback is ready. Bootstrap currently returns 503 with the bounded diagnostic
-stage=lookup, provider_status=403, reason=permission_denied. No provider response
-text, credentials or raw capability is logged or exposed. Correct Brevo account
-login/access review is the remaining external gate. Do not mark delivery ready,
-reset real consent, weaken the webhook gate or blindly retry unknown sends.
+Cron is scheduled every 15 minutes. Its fixed Brevo callback is now ready:
+bootstrap returned 200/configured and webhook_ready=true. User separately approved
+Webhooks Read/write on the existing restricted key and completed Brevo verification.
+Dispatch v6 handles the verified empty-account 400/document_not_found response;
+all other setup failures remain closed. No raw provider text or credential is
+exposed. Do not reset real consent or blindly retry unknown sends. Actual mailbox
+delivery remains a user integration check, not proved by successful registration.
 
 Prepared user checks after that gate: Google login on the test host; add a tour
 and package; choose and save reminder language/consent; change browsing language

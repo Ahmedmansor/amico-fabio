@@ -9,7 +9,7 @@ export class WebhookSetupError extends Error {
 }
 async function providerFailure(stage:'lookup'|'save',response:Response){
   const body=await response.json().catch(()=>null);
-  const code=['permission_denied','unauthorized','access_denied','key_not_found','not_enough_credits'].includes(body?.code)?body.code:'unspecified';
+  const code=['permission_denied','unauthorized','access_denied','key_not_found','not_enough_credits','document_not_found','invalid_parameter','missing_parameter'].includes(body?.code)?body.code:'unspecified';
   const reason=typeof body?.message==='string'&&/unrecognized IP|unauthorized IP|IP address|whitelist/i.test(body.message)?'ip-restriction':code;
   return new WebhookSetupError(stage,response.status,reason);
 }
@@ -28,8 +28,15 @@ export function createReminderWebhookSetup(options:{apiKey:string;url:string;tok
   const headers={'api-key':options.apiKey,'Content-Type':'application/json',Accept:'application/json'};
   return {async configure(){
     const response=await request('https://api.brevo.com/v3/webhooks?type=transactional',{headers,credentials:'omit',referrerPolicy:'no-referrer'});
-    if(!response.ok)throw await providerFailure('lookup',response);
-    const data=response.status===204?{webhooks:[]}:await response.json();if(!Array.isArray(data.webhooks))throw new WebhookSetupError('lookup-shape',response.status);
+    // Brevo reports an account with no hooks as document_not_found rather than
+    // an empty successful array. Other lookup failures must still fail closed.
+    let data;
+    if(!response.ok){
+      const failure=await providerFailure('lookup',response);
+      if(response.status!==400||failure.reason!=='document_not_found')throw failure;
+      data={webhooks:[]};
+    }else data=response.status===204?{webhooks:[]}:await response.json();
+    if(!Array.isArray(data.webhooks))throw new WebhookSetupError('lookup-shape',response.status);
     const matches=data.webhooks.filter((hook:{url?:string})=>hook.url===url.href);
     if(matches.length>1||matches.some((hook:{description?:string})=>hook.description!==description))throw new Error('[reminders] Callback ownership needs review.');
     const existing=matches[0];if(existing&&(!Number.isSafeInteger(existing.id)||existing.id<1))throw new Error('[reminders] Invalid callback identity.');
