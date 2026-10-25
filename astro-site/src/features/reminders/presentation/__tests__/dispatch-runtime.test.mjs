@@ -35,7 +35,11 @@ async function fixture(locale='en',mode='accepted'){
       state=body.p_status==='retry'?'queued':body.p_status;return Response.json(true);}
     if(path.endsWith('/release_wishlist_reminder')){state='queued';return Response.json(true);}
     if(path.endsWith('/record_wishlist_reminder_event')){state='accepted';return Response.json(true);}
-    if(path==='/v3/webhooks'&&!init.method)return Response.json({webhooks:[]});
+    if(path==='/v3/webhooks'&&!init.method){
+      if(mode==='webhook-denied')return Response.json({code:'permission_denied',message:'Synthetic private provider text'},{status:403});
+      if(mode==='webhook-empty')return new Response(null,{status:204});
+      return Response.json({webhooks:[]});
+    }
     if(path==='/v3/webhooks'&&init.method==='POST')return Response.json({id:123},{status:201});
     if(path.endsWith('/confirm_wishlist_reminder_webhook')){webhookReady=true;return Response.json(true);}
     throw new Error('Unexpected synthetic network path: '+path);
@@ -77,4 +81,20 @@ test('fixed webhook bootstrap is authenticated and marks readiness only after pr
   assert.equal((await f.handle(new Request(url,{method:'POST'}))).status,401);
   assert.equal((await f.handle(new Request(url,{method:'POST',headers:{'x-fabio-reminder-token':cronToken}}))).status,200);
   assert.equal(f.ready(),true);assert.equal(f.sent.length,0);
+});
+
+test('webhook permission refusal returns bounded diagnostics, preserves the readiness gate and never exposes provider text',async()=>{
+  const f=await fixture('en','webhook-denied');
+  const response=await f.handle(new Request(supabaseUrl+'/functions/v1/wishlist-reminder-dispatch/configure-webhook',{
+    method:'POST',headers:{'x-fabio-reminder-token':cronToken}}));
+  assert.equal(response.status,503);
+  assert.deepEqual(await response.json(),{error:'unavailable',stage:'lookup',status:403,reason:'permission_denied'});
+  assert.equal(f.ready(),false);assert.equal(f.sent.length,0);
+});
+
+test('an empty successful webhook lookup permits creating the fixed authenticated callback',async()=>{
+  const f=await fixture('it','webhook-empty');
+  const response=await f.handle(new Request(supabaseUrl+'/functions/v1/wishlist-reminder-dispatch/configure-webhook',{
+    method:'POST',headers:{'x-fabio-reminder-token':cronToken}}));
+  assert.equal(response.status,200);assert.equal(f.ready(),true);assert.equal(f.sent.length,0);
 });

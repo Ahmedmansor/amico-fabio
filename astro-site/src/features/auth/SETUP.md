@@ -2,65 +2,29 @@
 
 ## Latest checkpoint — 2026-10-25
 
-Authorized live continuation: correspondence-policy, token and ingress schemas
-are now applied and all three real rollback role-test scripts passed. Cleanup
-counts are zero; private RLS/browser RPC denial verified. Preference Edge v3 is
-ACTIVE and the consent UI is enabled only in ignored localhost 4322 settings
-after explicit approval. This supersedes unapplied/disabled statements below.
-See ../../../qa/reminders/LIVE_CORRESPONDENCE.md. Management Edge, automatic
-delivery and QA email renewal remain off; real signed-in UI testing is pending.
+Restricted activation was explicitly approved and applied. See
+../../../qa/reminders/ACTIVATION.md for deployed versions, SQL evidence and limits.
+Google/sync/explicit reminder preferences and management pages are now enabled on
+localhost 4322 and amico-fabio-test. The real site's main/domain are unchanged.
+Committed flags remain off; only the authorized test project and ignored local
+settings are enabled. Immediate QA sending remains local only.
 
-Latest source implementation: browsing no longer writes account/correspondence
-language; retired pending site commands are discarded. First opt-in shows a
-supported-language selector and carries displayed consent language separately.
-The source preference repository now requires the **unapplied** v2 RPC proposal
-in `../../../supabase/correspondence-policy/`; keep live opt-in off until reviewed
-SQL/role tests and coordinated preference Edge upgrade succeed.
+Cron is scheduled every 15 minutes. It cannot admit an email until its fixed Brevo
+callback is ready. Bootstrap currently returns 503 with the bounded diagnostic
+stage=lookup, provider_status=403, reason=permission_denied. No provider response
+text, credentials or raw capability is logged or exposed. Correct Brevo account
+login/access review is the remaining external gate. Do not mark delivery ready,
+reset real consent, weaken the webhook gate or blindly retry unknown sends.
 
-No-login email management source/pages and hashed scoped capability SQL are under
-`../../../supabase/correspondence-management/`; not applied/deployed. Keep
-PUBLIC_WISHLIST_EMAIL_MANAGEMENT_ENABLED=0. Token lifetime/recovery/retention and
-a bounded trusted distributed ingress limiter are explicit activation gates.
-Italian fallback now prepares consistent subject, content and localized
-management link. See ../../../qa/reminders/CORRESPONDENCE.md for real local
-checks and remaining native tests. No new remote writes or emails occurred.
+Prepared user checks after that gate: Google login on the test host; add a tour
+and package; choose and save reminder language/consent; change browsing language
+without changing saved correspondence language. On localhost wishlist only, QA
+sends once in each page language within its renewed 24-hour window. Real reminder
+is one message after 24 hours from the later of consent/last actual addition.
+Its management link opens without login, expires after 90 days and supports
+explicit language save/withdrawal. Withdrawal never requires signing in again.
 
-Management runtime/package continuation: disabled Edge source now composes a
-fixed global distributed admission budget, with unapplied singleton SQL and
-rollback fixtures. It does not trust IP headers or allocate per-token buckets.
-Capacity/window remain blank required activation settings and are shared by
-legitimate visitors too. See ../../../supabase/functions/wishlist-email-management/README.md.
-Native SQL/concurrency/startup verification and perimeter protection are pending;
-the source package is not evidence of a deployment.
-
-Product clarification: immediate sending is a restricted test tool only, not a
-public "send my favorites" feature. Actual customer wishlist mail is the delayed
-reminder in stored correspondence language. The target policy initializes that
-language once on first opt-in and changes it only explicitly thereafter; removing
-the implemented follow-site coupling is pending. No code behavior is changed by
-this clarification. Do not turn on test sending for public visitors.
-
-Later user-approved activation: `account-locale` is now ACTIVE v1, local origin
-4322 only. `PUBLIC_ACCOUNT_LOCALE_ENABLED=1` is set only in ignored `.env.local`;
-committed browser defaults remain off. Live smoke checks returned 204 for
-preflight, 401 for missing/invalid bearer and 403 for denied origin. The local
-Astro server was restarted to pick up the flag. Real account saving remains a
-user integration check. This supersedes the undeployed status below.
-
-This checkpoint supersedes historical pending/unmounted statements below.
-The approved locale schema is applied and real rollback role tests passed;
-`account-locale` HTTP source/package and account settings remain disabled and
-undeployed. Consent UI is now mounted through a disabled wishlist feature gate
-and passed synthetic IT/EN mobile/desktop tests, including same-command retry and
-withdrawal. Real signed-in consent saving remains unverified; do not enable opt-in
-before the automatic delivery/unsubscribe controls and wording review are ready.
-
-`../../../supabase/reminder-activity/` is a new **unexecuted** SQL proposal. It
-needs separate review because its triggers join the real favorites write path
-and installation briefly locks account/favorite/consent tables. Its disposable
-tests are also unexecuted. Local reader/scheduling tests are not SQL/RLS evidence.
-See `../../../qa/reminders/ACTIVITY.md` for verification and the remaining gates.
-No email, hosting setting, Cron or new consent was activated during this work.
+The following older handoffs are historical and superseded by this checkpoint.
 
 ## Current handoff — 2026-10-24
 

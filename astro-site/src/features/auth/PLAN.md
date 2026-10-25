@@ -2,62 +2,44 @@
 
 Created: 2026-10-23. English execution reference replacing the Arabic text.
 
-**Status (2026-10-25): Google Auth and tour/package favorites work locally; ownership/RLS and the approved locale schema passed real rollback role tests. The user confirmed favorites synchronization and Brevo QA email/WhatsApp actions. Account-locale Edge v1 is deployed for localhost only. Source now separates browsing from correspondence language, exposes first-consent language selection, and prepares reminders with Italian fallback. No-login management pages/service and successor consent/token SQL are implemented locally and tested synthetically; their SQL is not applied and management endpoint is not deployed. Consent activation and automatic 24-hour delivery remain off; durable queue/sending is unfinished.**
-This status records the approved one-off test only; it does not authorize new
-business features, production hosting changes, or broader email delivery.
-This document coordinates the phases. Its location in `auth` does not make
-wishlists or reminder delivery responsibilities of the Auth feature.
+**Current status — 2026-10-25:** restricted activation is deployed on the separate
+Vercel test project and localhost. Google, account favorites, explicit reminder
+consent/language and no-login management pages are enabled. Native activity,
+queue and ownership assertions passed with ROLLBACK. Cron runs every 15 minutes,
+but real reminder sending is gated because Brevo webhook setup returns 403
+permission_denied. This is an external activation blocker, not a completed send.
 
-### Current continuation checkpoint — 2026-10-25
+## Current continuation checkpoint
 
-- Full remaining pipeline is now source-prepared: private one-job queue, leases,
-  final eligibility/daily-budget gate, immutable content, provider reconciliation/
-  suppression, scoped Cron/bootstrap and durable once-per-language QA. See
-  `../../../qa/reminders/DISPATCH.md` and `../../../supabase/reminder-dispatch/`.
-  These additional SQL/Cron/provider/deployment actions are not yet executed.
-  Previously applied correspondence schema/preferences v3 remain live. The next
-  user test should follow one combined final activation, not isolated UI stages.
-- Product scope clarified by the user: there is no customer-facing immediate
-  "send my favorites" feature. The send button is a restricted QA tool only;
-  keep it outside the customer journey and production release requirements.
-  The real wishlist email is the optional delayed reminder, using stored
-  correspondence language. Its approved timing remains unchanged.
-- Updated target locale policy: browsing switches do not write correspondence
-  language. Initialize it once at first reminder opt-in if absent; later changes
-  are explicit in correspondence settings. The earlier follow-site design below
-  describes the current implementation/history, not the new target behavior.
-  Browser refactor is implemented/tested: zero switch writes, no follow-site
-  option and no replay of retired pending site commands. Successor consent SQL
-  preserves existing language and records distinct consent/correspondence
-  languages; it is prepared, not applied. Existing live schema remains unchanged.
-- Later activation: user approved deploying `account-locale` and enabling only
-  the ignored local flag. ACTIVE v1 passed live preflight/anonymous/invalid-token/
-  denied-origin checks (204/401/401/403). The local 4322 server was restarted.
-  This supersedes the undeployed status above; real signed-in saving is the next
-  user check. Consent, automatic sending and hosting flags remain off.
-- Shared verified account restoration avoids duplicate initial browser Auth
-  verification for the header, favorites and reminder controls. Backend identity
-  verification and RLS remain required independently.
-- Locale settings and consent controls are wired to the actual wishlist behind
-  disabled flags. Four synthetic IT/EN mobile/desktop browser cases cover consent
-  save, lost-acknowledgment retry, withdrawal and explicit correspondence language.
-  No real subscription or email was created by those checks.
-- Durable activity preparation: `../../../supabase/reminder-activity/` contains
-  unexecuted SQL and rollback fixtures. The count-based scheduling/read layers
-  preserve the approved 24-hour timing without loading every item first. See
-  `../../../qa/reminders/ACTIVITY.md`. Nothing currently calls this new RPC.
-- No-login management source is implemented with localized static noindex pages,
-  fragment-only random capability, hashed private storage proposal, restricted
-  service-only RPCs and explicit unsubscribe/language actions. No Auth session,
-  analytics or browser storage is used on that page. Italian fallback controls
-  both email content and its management link. Native SQL/deployment remains gated.
-- Next activation gates: review successor consent/token SQL and real account
-  integration; separately review activity-trigger maintenance/role/concurrency
-  tests; finish queue/acceptance ledger, quotas, suppression and unsubscribe before
-  automatic delivery. Hosting flags, new email windows and Cron remain off.
-- Budget and retention/deletion/suppression decisions, public opt-in wording and
-  deployment stay for the user's review. Continue safe local work without routine
-  questions; do not infer approval for these release actions from local QA.
+- User approved SQL, restricted services, Cron/Brevo callback and amico-fabio-test
+  deployment. Only conantotta@gmail.com is authorized for delivery. Main, legacy
+  GitHub Pages site, domain and the original Vercel project are excluded.
+- Applied correspondence/consent audit/token/ingress, durable favorites activity,
+  reminder queue, provider reconciliation and durable QA ledger. Browser access
+  remains limited by explicit grants/RLS; private tables and service RPCs are
+  unavailable to browser roles.
+- Deployed preferences v4, account-locale v2, management v1, dispatch v4 and QA v4.
+  Vercel test has current static pages and Google IT/EN callback allowlisting.
+  Local flags are enabled; committed defaults remain off. QA send controls remain
+  local only, with distinct immutable EN/IT jobs in a renewed 24-hour window.
+- Browsing language switches make zero correspondence writes. First consent shows
+  an explicit email-language choice; later changes are explicit. Reminder delivery
+  uses saved correspondence language, falling back to Italian for invalid/missing
+  values. No country/IP/Google-language inference or browser-language redirect.
+- One optional reminder is due 24 hours after the later of consent and last actual
+  addition. Duplicate additions do not reset it; empty favorites cancel waiting.
+  First provider acceptance consumes the account allowance permanently. Ambiguous
+  sends are quarantined rather than blindly retried.
+- Approved test limits: account/recipient allowlist, 5 reminder attempts/day,
+  90-day management capability and 60 management requests/minute. A fixed callback
+  must be confirmed before final send admission. Brevo currently denies its setup;
+  user login to the correct Brevo account is needed to inspect/resolve access.
+- Completed: static build 96 pages, Astro 0 diagnostics, native rollback assertions,
+  eight targeted dispatch/runtime checks. No real email was sent in this activation.
+  Actual Google sign-in, saved consent and final mailbox result remain user checks.
+- Evidence and exact remaining external gate: ../../../qa/reminders/ACTIVATION.md.
+  Magic Link, broad customer sending and public production release remain outside
+  this restricted activation. The immediate send button is QA only.
 
 ## 1. Goal
 

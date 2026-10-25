@@ -6,7 +6,7 @@ import {createManagementIssuer} from '../data/management-issuer.ts';
 import {hashManagementToken} from '../data/management-service.ts';
 import {createBrevoDelivery} from '../data/brevo-delivery.ts';
 import {createEmailCatalogSource} from '../data/email-catalog-source.ts';
-import {createReminderWebhookSetup,reminderWebhookToken} from '../data/dispatch-webhook.ts';
+import {createReminderWebhookSetup,reminderWebhookToken,WebhookSetupError} from '../data/dispatch-webhook.ts';
 import {createReminderDispatcher} from './dispatch-reminders.ts';
 import {createDispatchHandler,createReminderWebhook} from './dispatch-handler.ts';
 /** One backend composition; all HTTP dispatch inputs are fixed configuration.
@@ -41,7 +41,7 @@ export async function createDispatchRuntime(options:{client:SupabaseClient;confi
       try{if(!await authorize(request))return new Response(null,{status:401});
         await setup.configure();if(await rpc('confirm_wishlist_reminder_webhook',{})!==true)throw new Error('Not ready.');
         return Response.json({status:'configured'},{headers:{'Cache-Control':'no-store'}});
-      }catch{return Response.json({error:'unavailable'},{status:503});}
+      }catch(error){return Response.json({error:'unavailable',...(error instanceof WebhookSetupError?{stage:error.stage,status:error.status,reason:error.reason}:{})},{status:503});}
     }
     if(!path.endsWith('/wishlist-reminder-dispatch'))return new Response(null,{status:404});
     return handleDispatch(request);

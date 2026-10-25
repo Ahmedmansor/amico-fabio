@@ -1,5 +1,12 @@
 # Authorized correspondence activation — 2026-10-25
 
+**Later restricted activation supersedes the historical checkpoint below.**
+See ACTIVATION.md: all reviewed schemas applied; preference v4, account-locale v2,
+management v1, dispatch v4 and bilingual QA v4 deployed. Static test site updated;
+Cron scheduled but delivery gated on Brevo webhook setup, currently 403
+permission_denied. Actual authenticated empty worker returned 200 with zero claims
+and zero sends. User must log into the correct Brevo account to resolve that gate.
+
 User approved the prepared database changes and disposable rollback tests, then
 explicitly approved the preference Edge upgrade and local UI activation.
 
