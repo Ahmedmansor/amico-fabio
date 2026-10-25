@@ -39,7 +39,7 @@ export async function initializeAccountWishlist(){
       invitation.hidden=!(allowed.ok && allowed.value && canShowGuestInvitation(count, null, Date.now()));
     }
     const inlineReminder=view.page?.querySelector<HTMLElement>('[data-wishlist-inline-reminder]');
-    if(inlineReminder)inlineReminder.hidden=!state.userId;
+    if(inlineReminder)inlineReminder.hidden=!state.userId || inlineReminder.dataset.subscribed==='true';
     const ids=state.ids?new Set(state.ids):initial.ids;
     view.render(ids,state.busy,state.busy || (state.status==='error' && !ids));
     if(storageMessage)storageMessage.textContent=state.userId?(state.busy?m.syncing:!ids?'':m.account):m.local;

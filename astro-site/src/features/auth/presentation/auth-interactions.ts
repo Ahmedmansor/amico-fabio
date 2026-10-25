@@ -55,7 +55,7 @@ async function initialize() {
   const localeRoot = dialog.querySelector<HTMLElement>('[data-locale-settings]');
   if (service && localeSettings && localeRoot) {
     const {bindAccountLocale} = await import('./locale-interactions');
-    localeBinding = bindAccountLocale({root: localeRoot, service, ...localeSettings});
+    localeBinding = bindAccountLocale({root: localeRoot, service, activeLocale: locale, ...localeSettings});
   }
   const profiles = [...document.querySelectorAll<HTMLElement>('[data-auth-profile]')];
   const avatars = [...document.querySelectorAll<HTMLImageElement>('[data-auth-avatar]')];

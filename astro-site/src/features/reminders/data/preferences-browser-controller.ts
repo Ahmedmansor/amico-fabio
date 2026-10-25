@@ -44,14 +44,14 @@ export function createBrowserPreferenceController(options: {
       const state=await locales.read(userId);
       if(!state.ok)return {ok:false,reason:'failed'};
       if(currentUser!==userId)return {ok:false,reason:'account-changed'};
-      pendingLanguage={userId,requestId:input.requestId,command:{kind:'email_explicit',locale:input.locale,
+      pendingLanguage={userId,requestId:input.requestId,command:{kind:'site',locale:input.locale,
         requestId:input.requestId,expectedRevision:state.value.revision}};
     }
     // Preserve exactly the same command on an uncertain response/retry.
     const changed=await locales.change(userId,pendingLanguage.command);
     if(currentUser!==userId)return {ok:false,reason:'account-changed'};
     if(!changed.ok)return {ok:false,reason:changed.reason==='conflict'?'outdated-consent':'failed'};
-    if(changed.value.state.email?.locale!==input.locale)return {ok:false,reason:'outdated-consent'};
+    if(changed.value.state.siteLocale!==input.locale)return {ok:false,reason:'outdated-consent'};
     pendingLanguage=null;
     const confirmed=await client.read(userId);
     return confirmed.ok&&confirmed.value?{ok:true,value:confirmed.value}:confirmed.ok?{ok:false,reason:'failed'}:confirmed;

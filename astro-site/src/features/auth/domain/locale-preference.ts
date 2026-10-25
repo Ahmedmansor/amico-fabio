@@ -80,11 +80,12 @@ export function nextLocaleState(state: AccountLocaleState, command: LocaleComman
   let email = state.email;
   if (command.kind === 'site') {
     siteLocale = command.locale;
-    if (email?.source === 'follow_site') email = {...email, locale: siteLocale};
+    if (email) email = {...email, locale: siteLocale};
   } else {
     if (!email) return {ok: false, reason: 'missing-preference'};
     email = command.kind === 'email_follow_site'
       ? {locale: siteLocale, source: 'follow_site'} : {locale: command.locale, source: 'explicit'};
+    if (command.kind === 'email_explicit') siteLocale = command.locale;
   }
   return {ok: true, value: {siteLocale, revision: state.revision + 1, email}};
 }

@@ -1,6 +1,7 @@
 import type {AuthService} from '../data/service.ts';
 import type {LocaleBrowserConfig} from '../data/locale-browser-config.ts';
 import type {getLocaleMessages} from '../data/locale-messages.ts';
+import type {Locale} from '../../../shared/config/languages.ts';
 import {createLocaleClient} from '../data/locale-client.ts';
 import {createLocaleCoordinator} from '../data/locale-coordinator.ts';
 import {createLocalePendingStore} from '../data/locale-pending-store.ts';
@@ -12,6 +13,7 @@ import {bindLocaleView} from './locale-view.ts';
 export function bindAccountLocale(options: {
   root: HTMLElement; service: Pick<AuthService, 'bearerFor'>; config: LocaleBrowserConfig;
   messages: ReturnType<typeof getLocaleMessages>;
+  activeLocale?: Locale;
 }) {
   let account: string | null = null;
   // Access can throw in restricted browsers. Keep navigation/HTTP usable anyway.
@@ -32,14 +34,19 @@ export function bindAccountLocale(options: {
   const coordinator = createLocaleCoordinator({repository: cached.repository,
     store: {...pendingStore, read(userId) {
       const value = pendingStore.read(userId);
-      // Never replay a site/follow-site command captured by the retired flow.
-      if (value && (value.intent.kind !== 'email_explicit'
-        || (value.command && value.command.kind !== 'email_explicit'))) {
+      if (value && value.intent.kind !== 'email_explicit' && value.intent.kind !== 'site') {
         pendingStore.remove(userId); return null;
       }
       return value;
     }},
-    requestId: () => crypto.randomUUID(), onChange: state => render?.(state)});
+    requestId: () => crypto.randomUUID(), onChange: state => {
+      render?.(state);
+      if (options.activeLocale && state.status === 'ready' && state.confirmed && !state.pending) {
+        if (state.confirmed.siteLocale !== options.activeLocale) {
+          void coordinator.choose({kind: 'site', locale: options.activeLocale});
+        }
+      }
+    }});
   render = bindLocaleView(options.root, coordinator, options.messages);
   render(coordinator.snapshot());
   // Site language anchors only navigate. Correspondence changes require Save.

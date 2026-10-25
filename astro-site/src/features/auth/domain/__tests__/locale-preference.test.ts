@@ -10,9 +10,9 @@ describe('account language policy', () => {
       siteLocale: 'en', revision: 1, email: {locale: 'en', source: 'follow_site'}}});
     expect(initial.email?.locale).toBe('it');
   });
-  it('preserves an explicit correspondence language while browsing another language', () => {
+  it('updates email correspondence language with latest site choice even from an explicit initial row', () => {
     const explicit: AccountLocaleState = {...initial, email: {locale: 'it', source: 'explicit'}};
-    expect(nextLocaleState(explicit, site)).toEqual({ok: true, value: {...explicit, siteLocale: 'en', revision: 1}});
+    expect(nextLocaleState(explicit, site)).toEqual({ok: true, value: {...explicit, siteLocale: 'en', revision: 1, email: {locale: 'en', source: 'explicit'}}});
   });
   it('never creates consent or a preference from a site switch', () => {
     expect(nextLocaleState({...initial, email: null}, site)).toEqual({ok: true, value: {
@@ -20,12 +20,12 @@ describe('account language policy', () => {
     expect(nextLocaleState({...initial, email: null}, {...site, kind: 'email_explicit'}))
       .toEqual({ok: false, reason: 'missing-preference'});
   });
-  it('allows an explicit choice and returning to follow-site without changing site language', () => {
+  it('allows an explicit choice which aligns site and email language', () => {
     const explicit = nextLocaleState(initial, {...site, kind: 'email_explicit'});
-    expect(explicit).toEqual({ok: true, value: {...initial, revision: 1, email: {locale: 'en', source: 'explicit'}}});
+    expect(explicit).toEqual({ok: true, value: {...initial, siteLocale: 'en', revision: 1, email: {locale: 'en', source: 'explicit'}}});
     if (!explicit.ok) throw new Error('Expected explicit choice.');
     expect(nextLocaleState(explicit.value, {requestId, expectedRevision: 1, kind: 'email_follow_site'}))
-      .toEqual({ok: true, value: {...initial, revision: 2}});
+      .toEqual({ok: true, value: {...initial, siteLocale: 'en', revision: 2, email: {locale: 'en', source: 'follow_site'}}});
   });
   it('rejects a delayed old site request after a newer explicit correspondence choice', () => {
     const newer: AccountLocaleState = {...initial, revision: 1, email: {locale: 'en', source: 'explicit'}};

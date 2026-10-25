@@ -18,8 +18,45 @@ async function initialize() {
   const bridge = createBrowserPreferenceController({service, config, requestId: () => crypto.randomUUID(),
     fetcher: (input, init) => fetch(input, init)});
   bindPreferenceView(root, bridge.controller, locale, messages);
+  const inlineReminder = document.querySelector<HTMLElement>('[data-wishlist-inline-reminder]');
+  const inlineEnable = inlineReminder?.querySelector<HTMLButtonElement>('[data-wishlist-inline-reminder-enable]');
+
+  inlineEnable?.addEventListener('click', async () => {
+    if (bridge.controller.getState().status === 'ready') {
+      inlineEnable.disabled = true;
+      try {
+        await bridge.controller.save(true, locale);
+      } finally {
+        inlineEnable.disabled = false;
+      }
+    }
+  });
+
+  bridge.controller.subscribe(prefState => {
+    if (!inlineReminder) return;
+    const isSubscribed = prefState.preference?.enabled === true;
+    inlineReminder.dataset.subscribed = String(isSubscribed);
+    inlineReminder.hidden = !prefState.userId || isSubscribed;
+  });
+
   getAccountState(service).subscribe(state => {
-    if (state.status !== 'loading') void bridge.connect(state.status === 'ready' ? state.session?.userId ?? null : null);
+    if (state.status !== 'loading') {
+      const userId = state.status === 'ready' ? state.session?.userId ?? null : null;
+      void bridge.connect(userId).then(async () => {
+        if (userId) {
+          try {
+            const raw = sessionStorage.getItem('fabio:auth:pending-reminder-optin:v1');
+            if (raw) {
+              sessionStorage.removeItem('fabio:auth:pending-reminder-optin:v1');
+              const parsed = JSON.parse(raw);
+              if (parsed?.enabled === true) {
+                await bridge.controller.save(true, locale, parsed.locale ?? locale);
+              }
+            }
+          } catch {}
+        }
+      });
+    }
   });
 }
 void initialize();

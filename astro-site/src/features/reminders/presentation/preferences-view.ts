@@ -30,7 +30,17 @@ export function bindPreferenceView(root:HTMLElement,controller:ReturnType<typeof
   });
   const changed=()=>{draft=choice.checked;dirty(controller.getState());};
   const submitted=(event:SubmitEvent)=>{event.preventDefault();draft=choice.checked;
-    if(isLocale(language.value))void controller.save(draft,language.value,locale);};
+    if(isLocale(language.value)){
+      const chosen=language.value;
+      void controller.save(draft,chosen,locale).then(()=>{
+        if(chosen!==locale){
+          const currentPath=window.location.pathname;
+          const nextPath=currentPath.replace(new RegExp(`^/${locale}(/|$)`),`/${chosen}$1`);
+          if(nextPath!==currentPath)window.location.href=nextPath+window.location.search+window.location.hash;
+        }
+      });
+    }
+  };
   const retried=()=>{const state=controller.getState();void(state.retryable?controller.retry():controller.refresh());};
   choice.addEventListener('change',changed);language.addEventListener('change',changed);form.addEventListener('submit',submitted);retry.addEventListener('click',retried);
   return ()=>{unsubscribe();choice.removeEventListener('change',changed);language.removeEventListener('change',changed);form.removeEventListener('submit',submitted);retry.removeEventListener('click',retried);root.hidden=true;};
