@@ -2,7 +2,7 @@
 
 Created: 2026-10-23. English execution reference replacing the Arabic text.
 
-**Status (2026-10-25): Google Auth and tour/package favorites implemented. Account ownership/RLS and the separately approved locale schema have passed real disposable SQL tests with ROLLBACK. The user confirmed cross-browser favorites and receipt of the updated Brevo summary with working WhatsApp booking actions. Locale HTTP/UI, page-language summary protocol and consent UI are implemented behind disabled flags; synthetic browser checks passed. The locale Edge endpoint is not deployed. Durable favorite activity capture is a local SQL proposal, not applied. Automatic 24-hour delivery remains unimplemented/off.**
+**Status (2026-10-25): Google Auth and tour/package favorites work locally; ownership/RLS and the approved locale schema passed real rollback role tests. The user confirmed favorites synchronization and Brevo QA email/WhatsApp actions. Account-locale Edge v1 is deployed for localhost only. Source now separates browsing from correspondence language, exposes first-consent language selection, and prepares reminders with Italian fallback. No-login management pages/service and successor consent/token SQL are implemented locally and tested synthetically; their SQL is not applied and management endpoint is not deployed. Consent activation and automatic 24-hour delivery remain off; durable queue/sending is unfinished.**
 This status records the approved one-off test only; it does not authorize new
 business features, production hosting changes, or broader email delivery.
 This document coordinates the phases. Its location in `auth` does not make
@@ -19,7 +19,10 @@ wishlists or reminder delivery responsibilities of the Auth feature.
   language. Initialize it once at first reminder opt-in if absent; later changes
   are explicit in correspondence settings. The earlier follow-site design below
   describes the current implementation/history, not the new target behavior.
-  Refactoring that implementation is pending; do not claim it has changed yet.
+  Browser refactor is implemented/tested: zero switch writes, no follow-site
+  option and no replay of retired pending site commands. Successor consent SQL
+  preserves existing language and records distinct consent/correspondence
+  languages; it is prepared, not applied. Existing live schema remains unchanged.
 - Later activation: user approved deploying `account-locale` and enabling only
   the ignored local flag. ACTIVE v1 passed live preflight/anonymous/invalid-token/
   denied-origin checks (204/401/401/403). The local 4322 server was restarted.
@@ -36,7 +39,12 @@ wishlists or reminder delivery responsibilities of the Auth feature.
   unexecuted SQL and rollback fixtures. The count-based scheduling/read layers
   preserve the approved 24-hour timing without loading every item first. See
   `../../../qa/reminders/ACTIVITY.md`. Nothing currently calls this new RPC.
-- Next activation gates: review/deploy the locale endpoint and real account
+- No-login management source is implemented with localized static noindex pages,
+  fragment-only random capability, hashed private storage proposal, restricted
+  service-only RPCs and explicit unsubscribe/language actions. No Auth session,
+  analytics or browser storage is used on that page. Italian fallback controls
+  both email content and its management link. Native SQL/deployment remains gated.
+- Next activation gates: review successor consent/token SQL and real account
   integration; separately review activity-trigger maintenance/role/concurrency
   tests; finish queue/acceptance ledger, quotas, suppression and unsubscribe before
   automatic delivery. Hosting flags, new email windows and Cron remain off.

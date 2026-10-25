@@ -1,5 +1,10 @@
 -- NOT RUN. Separately approve disposable Auth rows; no emails/catalog changes.
 begin;
+do $$ begin
+  if exists(select 1 from pg_trigger where tgrelid='auth.users'::regclass and not tgisinternal) then
+    raise exception 'Review custom Auth triggers before disposable fixtures.';
+  end if;
+end $$;
 create temporary table qa_correspondence(user_id uuid,grant_id uuid,withdraw_id uuid) on commit drop;
 insert into qa_correspondence values(gen_random_uuid(),gen_random_uuid(),gen_random_uuid());
 insert into auth.users(id) select user_id from qa_correspondence;

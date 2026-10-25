@@ -1,0 +1,7 @@
+---
+import {supportedLocales} from '../../shared/config/languages';
+import ManagementPage from '../../features/reminders/presentation/ManagementPage.astro';
+export function getStaticPaths(){return supportedLocales.map(locale=>({params:{locale},props:{locale}}));}
+const {locale}=Astro.props;
+---
+<ManagementPage locale={locale}/>

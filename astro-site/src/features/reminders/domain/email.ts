@@ -1,6 +1,7 @@
 import { isLocale, resolveLocale, type Locale } from '../../../shared/config/languages.ts';
 import { favoriteKey, favoriteIdentity } from '../../wishlist/domain/wishlist.ts';
 import { validateEmailCatalog, type EmailCatalogItem, type EmailCatalog } from './catalog.ts';
+import {isManagementToken} from './management.ts';
 
 export type WishlistEmailKind='summary'|'reminder';
 export interface WishlistEmailModel {
@@ -48,7 +49,10 @@ export function prepareWishlistEmail(input: {
   if(input.kind==='reminder'){
     if(!input.unsubscribeUrl) throw new Error('[wishlist-email] Reminder requires an unsubscribe URL.');
     const url=new URL(input.unsubscribeUrl);
-    if(url.origin!==catalog.origin || url.username || url.password || url.hash)
+    const managementHash=new URLSearchParams(url.hash.slice(1));
+    const validFragment=url.pathname===`/${locale}/email-preferences/`&&!url.search
+      &&managementHash.size===1&&isManagementToken(managementHash.get('token'));
+    if(url.origin!==catalog.origin || url.username || url.password || (url.hash&&!validFragment))
       throw new Error('[wishlist-email] Unsubscribe URL must use the approved site origin.');
     unsubscribeUrl=url.href;
   }

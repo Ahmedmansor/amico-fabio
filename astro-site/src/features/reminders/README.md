@@ -1,5 +1,13 @@
 # Wishlist emails — repository templates and restricted Brevo test
 
+Source continuation: browsing and correspondence language are separated; first
+opt-in has an explicit language selector. Reminder preparation resolves invalid
+stored locale to Italian consistently across copy/content/management links.
+Static no-login management pages and scoped-token backend are source-implemented
+behind a default-off gate. Successor consent/token SQL is prepared, not applied;
+management runtime/real distributed ingress limiter is not deployed. Evidence and
+activation boundaries: [CORRESPONDENCE.md](../../../qa/reminders/CORRESPONDENCE.md).
+
 **Scope clarification (2026-10-25):** the immediate send button is QA only, not
 a customer feature. The real flow sends an optional reminder after the approved
 24-hour wait in stored correspondence language. Test-page language overrides

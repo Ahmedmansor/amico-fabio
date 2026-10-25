@@ -1,0 +1,19 @@
+{
+  "title": "Preferenze email",
+  "intro": "Gestisci i promemoria dei preferiti senza accedere.",
+  "noScript": "Attiva JavaScript per usare questo link oppure gestisci i promemoria nel tuo account.",
+  "language": "Lingua dei promemoria",
+  "save": "Salva lingua",
+  "unsubscribe": "Disattiva i promemoria",
+  "retry": "Riprova",
+  "loading": "Caricamento delle preferenze email…",
+  "saving": "Salvataggio della scelta…",
+  "saved": "La lingua delle email è stata salvata.",
+  "stopped": "I promemoria sono disattivati. Cambiare lingua non li riattiverà.",
+  "enabled": "I promemoria sono attivi. Puoi disattivarli qui.",
+  "invalid": "Questo link non è valido o non è più disponibile. Apri un link valido dall’email di promemoria oppure gestisci i promemoria nel tuo account.",
+  "error": "Non è stato possibile confermare la scelta. Riprova per verificare il risultato.",
+  "conflict": "La lingua è stata modificata altrove. Controlla la scelta attuale e salva di nuovo se necessario.",
+  "disabled": "I link per le preferenze email non sono ancora disponibili. Puoi gestire i promemoria nel tuo account.",
+  "back": "Torna ai preferiti"
+}

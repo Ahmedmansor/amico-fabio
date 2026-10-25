@@ -1,0 +1,19 @@
+{
+  "title": "Email preferences",
+  "intro": "Manage favorites reminders without signing in.",
+  "noScript": "Enable JavaScript to use this link, or manage reminders in your account.",
+  "language": "Reminder language",
+  "save": "Save language",
+  "unsubscribe": "Stop reminders",
+  "retry": "Try again",
+  "loading": "Loading email preferences…",
+  "saving": "Saving your choice…",
+  "saved": "Your email language has been saved.",
+  "stopped": "Reminders are off. Changing language will not turn them back on.",
+  "enabled": "Reminders are enabled. You can stop them here.",
+  "invalid": "This link is invalid or no longer available. Open a valid link from your reminder email, or manage reminders in your account.",
+  "error": "Your choice could not be confirmed. Try again to check the result.",
+  "conflict": "The language changed elsewhere. Review the current choice and save again if needed.",
+  "disabled": "Email preference links are not available yet. You can manage reminders in your account.",
+  "back": "Back to favorites"
+}

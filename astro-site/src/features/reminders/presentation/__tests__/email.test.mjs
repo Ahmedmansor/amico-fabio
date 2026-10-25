@@ -5,7 +5,20 @@ import {prepareWishlistEmail} from '../../domain/email.ts';
 import {renderWishlistEmail} from '../wishlist-email.ts';
 import {getEmailMessages} from '../../data/messages.mjs';
 import {siteConfig} from '../../../../shared/config/site.ts';
+import {prepareReminderMessage} from '../prepare-reminder-message.ts';
 const origin='https://preview.example.test';
+test('dispatch preparation uses one resolved language for fallback subject, content and management link',()=>{
+  const catalog=buildEmailCatalog([{kind:'trip',id:'same',slug:'same',adult_price:25,
+    localized:{it:{title:'Titolo italiano',url:`${origin}/it/tours/same/`},en:{title:'English title',url:`${origin}/en/tours/same/`}},
+    image:{url:`${origin}/image.jpg`,width:640,height:400}}],origin,'2026-10-25T00:00:00Z','test');
+  for(const [storedLocale,locale]of [[null,'it'],['de','it'],['en','en'],['it','it']]){
+    const {message}=prepareReminderMessage({catalog,expectedEnvironment:'test',ids:['same'],storedLocale,managementToken:'a'.repeat(64)});
+    assert.equal(message.subject,getEmailMessages(locale).reminderSubject);
+    assert.ok(message.htmlContent.includes(`lang="${locale}"`));
+    assert.ok(message.textContent.includes(`/${locale}/email-preferences/#token=`));
+    assert.ok(message.textContent.includes(`/${locale}/tours/same/`));
+  }
+});
 function fixture(locale='en',kind='summary'){
   const catalog=buildEmailCatalog(['trip','package'].map(kind=>({kind,id:'same',slug:'same',adult_price:0,
     localized:Object.fromEntries(['it','en'].map(locale=>[locale,{title:'<script>alert("x")</script> & title',url:`${origin}/${locale}/${kind==='trip'?'tours':'packages'}/same/`}])),

@@ -21,3 +21,33 @@ Mobile screenshot visually inspected; no overflow. Results are in
 These are source/synthetic checks, not real SQL or signed-in consent evidence.
 Keep opt-in off: successor SQL, native role/concurrency tests and Edge upgrade
 must be separately reviewed before activation. No email or remote write occurred.
+
+## No-login management continuation
+
+Implemented locally: two static noindex pages, minimal scoped commands, hashed
+capability issuer/repository/service, bounded public HTTP/client transports and
+explicit unsubscribe/language UI. No Auth SDK, analytics or browser storage on
+these pages. Read does not mutate; unknown write retries retain command identity;
+conflicts display current state instead of overwriting; language never grants
+consent. A second link in the same tab reloads rather than retaining an old token.
+
+`prepareReminderMessage` resolves stored language once and prepares matching
+IT/EN subject/content/item URLs and a localized fragment-only management link.
+Missing/unsupported stored language uses Italian without modifying persistence.
+This function does not send or authorize a reminder.
+
+Final actual checks: **251 Node tests, 20 Vitest files / 163 tests passed**;
+Astro **366 files, 0 errors/warnings/hints**; normal static build **96 pages in
+19.26s**, with 90 indexable pages unchanged (two management pages are noindex).
+Four synthetic Chrome IT/EN mobile/desktop cases passed after final refinements:
+token-only read, same-ID lost acknowledgment recovery, withdrawal, language
+change without resubscription, revision conflict and invalid second link.
+Results: `management-browser-results.json`; ignored screenshots under screenshots/.
+Mobile layout was visually inspected. These are not native expiry/RLS tests.
+
+`../../supabase/correspondence-management/` contains unexecuted schema/role tests
+and release instructions. Management flag remains off, no endpoint is deployed.
+Distributed trusted ingress limiting, lifetime/expiry recovery/rotation/retention,
+native disposable and concurrency tests, then a separately reviewed runtime
+deployment and real inbox-link check remain activation gates. No real token,
+remote schema write, subscription, provider setting or email was created.

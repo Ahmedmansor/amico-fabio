@@ -2,6 +2,21 @@
 
 ## Latest checkpoint — 2026-10-25
 
+Latest source implementation: browsing no longer writes account/correspondence
+language; retired pending site commands are discarded. First opt-in shows a
+supported-language selector and carries displayed consent language separately.
+The source preference repository now requires the **unapplied** v2 RPC proposal
+in `../../../supabase/correspondence-policy/`; keep live opt-in off until reviewed
+SQL/role tests and coordinated preference Edge upgrade succeed.
+
+No-login email management source/pages and hashed scoped capability SQL are under
+`../../../supabase/correspondence-management/`; not applied/deployed. Keep
+PUBLIC_WISHLIST_EMAIL_MANAGEMENT_ENABLED=0. Token lifetime/recovery/retention and
+a bounded trusted distributed ingress limiter are explicit activation gates.
+Italian fallback now prepares consistent subject, content and localized
+management link. See ../../../qa/reminders/CORRESPONDENCE.md for real local
+checks and remaining native tests. No new remote writes or emails occurred.
+
 Product clarification: immediate sending is a restricted test tool only, not a
 public "send my favorites" feature. Actual customer wishlist mail is the delayed
 reminder in stored correspondence language. The target policy initializes that
