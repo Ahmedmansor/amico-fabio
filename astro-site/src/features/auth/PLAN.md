@@ -9,13 +9,30 @@ queue and ownership assertions passed with ROLLBACK. Cron runs every 15 minutes;
 Brevo webhook setup now returns 200/configured and webhook_ready=true. Restricted
 activation is ready for user testing; actual email delivery is not yet verified.
 
+## Decision autonomy — current instruction (2026-10-25)
+
+Continue the agreed Auth/wishlist/reminder work autonomously. Choose routine
+implementation details, copy consistent with approved content, tests, local file
+changes and technical defaults using judgment; document material choices and
+results instead of stopping to ask the user about every decision. Earlier wording
+asking to agree/review/approve routine decisions is superseded by this instruction.
+Ask only for genuinely missing information that blocks work or an action outside
+standing authorization. Separate gates for new dependencies, external sending,
+remote writes/settings and deployment/domain changes remain as recorded in
+AGENTS.md; reuse existing explicit authorization rather than requesting it again.
+
 ## Current continuation checkpoint
+
+- Current language target: the latest site language is the account email language,
+  as defined in section 6.1. Older checkpoint entries below describe historical
+  implementation/evidence and cannot override that target. Implementation alignment
+  is pending; no deployment or remote preference write occurs in this plan update.
 
 - Reminder language is now editable directly in the reminder form after first
   consent. Save uses the existing explicit correspondence endpoint, preserves
   consent/timing on language-only changes and keeps the same command on uncertain
-  retries. No site-switch coupling. User explicitly requested this UI fix without
-  tests; no automated checks/build or external preference writes were run for it.
+  retries. At that checkpoint, site switching was not coupled; section 6.1 now
+  supersedes that policy. User explicitly requested this UI fix without tests; no automated checks/build or external preference writes were run for it.
 
 - Corrected manual QA to mirror the real reminder: server reads saved consent
   and correspondence language, never a page-language request. It uses the same
@@ -35,10 +52,9 @@ activation is ready for user testing; actual email delivery is not yet verified.
   Vercel test has current static pages and Google IT/EN callback allowlisting.
   Local flags are enabled; committed defaults remain off. QA send controls remain
   local only, with distinct immutable EN/IT jobs in a renewed 24-hour window.
-- Browsing language switches make zero correspondence writes. First consent shows
-  an explicit email-language choice; later changes are explicit. Reminder delivery
-  uses saved correspondence language, falling back to Italian for invalid/missing
-  values. No country/IP/Google-language inference or browser-language redirect.
+- Historical activation used independent correspondence-language saves. The new
+  target in section 6.1 replaces that behavior with the latest site language;
+  historical activation checks do not verify the new target.
 - One optional reminder is due 24 hours after the later of consent and last actual
   addition. Duplicate additions do not reset it; empty favorites cancel waiting.
   First provider acceptance consumes the account allowance permanently. Ambiguous
@@ -189,7 +205,7 @@ src/features/
 7. After establishing the authenticated session, merge guest favorites without
    duplicates. Clear only guest items whose synchronization succeeded. Never
    announce successful synchronization after a failed request.
-8. Signed-in users can add/remove favorites, manage correspondence language, and stop reminders.
+8. Signed-in users can add/remove favorites, change site language (also used for future emails), and stop reminders.
    - For signed-in users who have NOT enabled reminders: do NOT display modal popups
      or interrupt their browsing on tour/package pages. Instead, when they view their
      Wishlist page (`/wishlist/`), display a quiet, non-blocking inline banner:
@@ -360,167 +376,83 @@ documentation update. Evidence: [Brevo](../../../qa/reminders/BREVO.md),
 
 ### 6.1. Approved language and request contract — 2026-10-24
 
-#### Superseding target policy and priority — 2026-10-25
+#### Current approved policy — last site language wins (2026-10-25)
 
-This policy supersedes the earlier follow-site coupling. The user's latest
-summary restores Italian as the default, superseding the interim English
-detection fallback. It is agreed behavior;
-the current deployed/local implementation has not yet been refactored to match.
+The user's latest instruction supersedes both the independent email-language
+policy and the older follow-site/explicit override design. The latest supported
+site language used by the signed-in customer is the language of future emails.
+Do not preserve a separate email-language override against a newer site choice.
 
 Browsing priority:
-1. Explicit `/it/` or `/en/` URL always wins.
-2. Bare `/` entry:
-   - Italian (`it`) is the brand and primary market language for Italian visitors.
-   - For international visitors whose language is NOT Italian or is currently unsupported
-     (e.g. German `de`, French `fr`, Russian `ru`, Spanish `es`, Polish `pl`): the universal
-     international fallback is **English (`en`)**, as English is the global lingua franca
-     in travel and non-Italian visitors do not understand Italian.
-   - Future language additions follow the same rule: if a visitor speaks a supported
-     language, they receive that language; if their language is not supported, they
-     fall back to English (`en`).
-3. Browser detection for static GitHub Pages (when active): honor a valid saved
-   choice in `localStorage`, then match the first supported `navigator.languages` entry.
-   If none matches (unsupported language), route to English (`en`) as the international fallback.
+1. An explicit /it/ or /en/ URL selects the current page language.
+2. Bare-root detection, when active, uses a valid saved choice, then the first
+   supported navigator.languages entry, then English for unsupported languages.
+   Italian remains the brand/default content language. No IP, nationality or
+   Google-profile inference is used.
+3. Guest browsing remembers the choice locally without account writes. On sign-in,
+   the active supported site language becomes the account's latest language.
 
-Correspondence priority:
-1. An existing stored correspondence language remains unchanged on browsing,
-   sign-in, consent withdrawal and later re-enablement.
-2. If absent, initialize once on first reminder opt-in from the active site language
-   chosen by the user on the website (`it` or `en`) at the moment of opt-in.
-   It NEVER derives from the user's device, OS, or browser settings (`navigator.language`),
-   ensuring the user receives correspondence in the exact website language they experienced.
-3. After initialization, only an explicit correspondence-settings save changes it.
-4. At dispatch, read the stored correspondence language; there is no open page
-   to inspect. Never derive it again from the latest URL, browser, IP, nationality,
-   email domain or Google account. Validate at dispatch against supported email
-   templates. Empty/unsupported stored language falls back to English (`en`) for
-   international users or Italian for Italian registrations; do not fail merely
-   for that value or silently rewrite the stored choice. Use the resolved language
-   for subject, copy, content links and the correspondence-management page. This
-   fallback does not bypass consent, suppression or other eligibility checks.
+Correspondence policy:
+1. Persist the latest supported active site language for the verified account.
+   Opening a different supported language route or using the language switcher
+   counts as a site-language change. Ordinary navigation in the same language
+   must not create redundant writes. The latest successfully saved account choice
+   applies across devices; preserve ordering and account isolation.
+2. Update the profile and an existing reminder language atomically. If no reminder
+   preference exists, store the account language without creating consent. At
+   first opt-in, initialize the reminder language from the active site language.
+3. At dispatch, read the account's latest persisted language through the trusted
+   data layer; no browser page is available then. Use it consistently for subject,
+   text, content links and management-page links. Reject unsupported writes;
+   missing/invalid stored language falls back to Italian without granting consent.
+4. Example: a customer last used English, then visits /it/ and leaves. After the
+   Italian choice is successfully saved, the next eligible email is Italian.
+   A failed write must not be presented as saved; retain/reconcile the latest intent.
+5. Language changes never grant or restore consent, rewrite consent history,
+   change consent activation time, restart the 24-hour timer or consume allowance.
+   The historical language of the accepted consent wording stays unchanged.
+6. An existing email/management language selector must converge on the same account
+   language setting, rather than create a permanent independent override. Opening
+   an email management GET link alone must not mutate settings or consent; an
+   explicit language Save can update the common setting without subscribing.
+7. Manual QA reads the same saved language and consent as real dispatch. Browser
+   locale overrides are not sending inputs and do not consume the real allowance.
 
-Examples:
+Use only the shared supportedLocales/Locale configuration. Keep Astro static and
+Brevo as the provider. Magic Link activation remains deferred. Existing
+locale_source/follow_site/explicit schema and RPCs are implementation history,
+not competing product policies. Adapt them with the smallest safe change; preserve
+verified ownership, atomic updates, idempotency and late-command protection.
 
-| Visitor and entry | Browsing result | First opt-in / later reminder |
-| --- | --- | --- |
-| In Germany, opens `/en/`, browser `de` only | English: explicit URL wins | `en`, unless explicitly changed in consent/settings |
-| Opens `/`, no saved choice, browser `de` (or unsupported) | English fallback (universal international standard for unsupported languages) | `en` on first opt-in |
-| Opens `/`, no saved choice, browser `it` | Italian base language for Italian travelers | `it` on first opt-in |
-| In Germany, opens `/it/`, browser `de` only | Italian: explicit URL wins | `it` on first opt-in |
-| Egyptian visitor on `/en/`, browser `ar`, `en` | English; nationality is irrelevant | `en` on first opt-in |
-| Future visitor with unsupported language (e.g. `fr`, `ru`) | English fallback (`en`) | `en` on first opt-in |
-| Stored email language `en`, later explores `/it/` and closes site | Italian browsing only | Reminder remains `en` |
+#### Implementation boundary and persistence safeguards
 
-The immediate-send button is restricted QA only. Template-testing overrides do
-not change stored correspondence language or add a customer-facing mail flow.
+This instruction changes the plan, not deployed behavior. Current language
+controls and services still need implementation review against this contract;
+this documentation change does not claim that automatic following is activated.
 
-Simplification status: remove follow-site behavior from the target flow, not
-all persistence safeguards. `locale_source`/`follow_site`, revision/command RPCs
-and retry code still exist in the applied schema/source; no column or endpoint
-has been dropped. Explicit correspondence saves still need verified ownership,
-atomic persistence and protection against duplicate/late commands. Review the
-smallest useful implementation before retiring obsolete fields; do not describe
-every RPC/retry as unnecessary. `locale_updated_at` was not introduced by this work.
-Google remains the active local sign-in method; Magic Link activation is deferred.
-Brevo and local IT/EN templates remain. The English-only expired QA send still
-needs its separate language-test update; it is not a customer-facing feature.
-
-#### Earlier implementation contract (history; follow-site refactor pending)
-
-This is the canonical continuation design. Its storage migration is applied and
-role-tested below; the browser endpoint is not enabled. Keep production static on GitHub Pages; Vercel
-is the separate migration test environment. No SSR or middleware is required.
-
-| Source | Responsibility |
-| --- | --- |
-| Explicit `/it/` or `/en/` URL | Current page language; strongest browsing signal |
-| `profiles.locale` | Initial site language, then the last explicit signed-in site-language choice |
-| `wishlist_email_preferences.locale` | Stored language for delayed wishlist correspondence |
-| `locale_source` | `follow_site` by default for new rows, or `explicit` correspondence choice; pre-existing rows preserved as explicit |
-| Guest browser preference | Remember the guest's site choice without a database write |
-
-Do not add a competing `preferred_locale` column. Initialize the profile once;
-ordinary visits and subsequent sign-ins must not overwrite an existing choice.
-When a signed-in user explicitly switches site language, update the profile and
-an existing follow-site email preference atomically. Preserve an explicit email
-choice. An independent correspondence-language control may choose a language
-or return to following the site. No preference row means no invented consent:
-initialize its language/mode when the user explicitly opts in.
-
-Language changes must never subscribe, restore withdrawn consent, change consent
-activation time, restart the 24-hour timer or consume the one-reminder allowance.
-The real delayed reminder resolves stored correspondence language at dispatch
-time. Any page-language override belongs only to restricted template testing;
-it is not a second customer email flow.
-
-Use the existing shared `supportedLocales` configuration and derived `Locale`
-type in `src/shared/config/languages.ts`. Validate supported values on the trusted
-backend too. Reject unsupported writes; Italian is the fallback for missing or
-unsupported detection/display values, not a silent replacement for a bad write.
-Do not infer language from IP, nationality or Google profile. Future `es`/`pt`
-also require actual approved dictionaries, content, templates and validation;
-adding a language code alone does not publish a translation.
-
-Earlier proposal, superseded above: browser-side detection used saved guest choice,
-then supported `navigator.languages`, then Italian. Respect explicit language
-URLs. The root detector is not implemented by this decision. Existing header
-storage uses `fabio_lang` and `preferredLanguage`; keep one coherent policy rather
-than adding competing keys. No language API call is needed for guest switching
-or browser detection.
-
-#### Writes, ownership and navigation
-
-- Ordinary page loads, rendering and navigation do not write language. Existing
-  Auth sessions do not contain `profiles.locale`; initial profile loading/caching
-  may need a read. Do not claim the value already arrives with every session.
-- Aim for one functional browser mutation per actual signed-in choice, backed
-  by one transactional operation. Auth checks, preflight, rate limiting and
-  backend queries can add network/database work; this is not a total HTTP count.
-- Keep reminder tables and existing service RPCs private. Use a verified backend
-  entry and a narrowly scoped atomic RPC; do not broaden browser grants just to
-  save a request. Derive account identity from verified Auth, never client IDs,
-  recipient addresses, metadata or timestamps.
-- Serialize site-language and explicit correspondence-language updates per
-  account. A stale follow-site request must not overwrite explicit mode. Design
-  request identity, retry idempotency, revisions/order and cross-device conflicts
-  before activation. Fast `it -> en` changes must preserve the latest intent.
-- Skip unchanged choices using confirmed state while accounting for newer pending
-  intent. A comparison against stale cached profile data alone is insufficient.
-- Keep the switch an ordinary link; navigation must not wait for persistence.
-  `fetch(..., { keepalive: true })` helps during unload but does not guarantee
-  delivery. Save only minimal account-scoped pending intent, never credentials;
-  reconcile with bounded retries when possible. Never apply a previous account's
-  or anonymous intent to another account, or blindly write on every page load.
-  Implemented recovery refinement: a persisted, already captured explicit command
-  may get one automatic same-ID retry after navigation. Persist its consumed
-  recovery budget first; if storage fails, require manual retry. No captured
-  revision or an exhausted budget means no automatic write. This is recovery of
-  a prior explicit action, not a write on ordinary visits.
-- On failure the URL still selects the correct page, but email language may stay
-  old until confirmation/reconciliation. Do not show an unconfirmed saved status.
-
-For scheduled sending, fetch due accounts and preferences through bounded joined
-or aggregated batches, avoiding a preference query for each recipient. Claiming,
-leases, final eligibility checks, quotas and delivery-ledger writes still need
-operations: do not promise one query for the entire job. Observe actual usage;
-small expected traffic does not make requests exempt from plan limits.
-
-Google callback routes carry the language. Email sign-in remains disabled under
-the current Google-only scope; Vercel is not a technical prerequisite for it.
-If added later, derive per-request language from a validated allowlisted redirect
-path, not an assumption that `data.locale` changes for an existing OTP user.
-SMTP is delivery transport; localized Auth templates/hooks choose the wording.
-Keep Brevo rather than introducing another provider without a concrete need.
+- Auth owns identity and account-language access; reminders own consent/delivery.
+- Keep private reminder tables/RPCs behind verified backend access. Do not broaden
+  browser grants; derive identity from verified Auth, never client metadata.
+- Skip unchanged confirmed language while accounting for newer pending intent.
+  Serialize changes, preserve latest intent and use bounded same-command retries.
+  Never apply one account's pending choice to another account.
+- Keep language links navigable without waiting for persistence. Store only minimal
+  account-scoped pending intent, never credentials. Reconcile a captured change
+  after navigation; do not blindly write on every load.
+- Dispatch reads bounded account/preference batches and rechecks eligibility and
+  current language before sending. Keep queue, quota and suppression safeguards.
+- Test switching IT/EN, entry via explicit routes, sign-in, rapid changes, retries,
+  cross-device/account changes, unchanged consent/timing and final email language.
 
 #### Implementation sequence and acceptance evidence
 
 1. Prepare reviewed locale-mode migration/RPC and ownership/concurrency tests.
    Remote schema/grant changes require their separate authorization.
 2. Add account-scoped profile loading and explicit switch persistence, then the
-   correspondence-language control; verify retries, failures, account changes,
-   ordering, follow-site/explicit mode and unchanged consent/schedule state.
-3. Use stored correspondence locale for actual reminder dispatch; keep template
-   language overrides isolated to restricted QA.
+   unified account-language control; verify retries, failures, account changes,
+   ordering, latest-site-language precedence and unchanged consent/schedule state.
+3. Use the latest persisted account language for actual reminder dispatch and
+   manual QA; do not accept browser page-language overrides.
    Test IT/EN subjects, copy, item titles, URLs and WhatsApp booking messages.
 4. Integrate the actual opt-in UI and authenticated preference saving, then build
    durable reminder events/queue/allowance, quota controls and unsubscribe/suppression
@@ -886,14 +818,16 @@ Still to define before the relevant implementation/release phase:
    the distinction between user-reported browser results and automated role tests.
 2. Activate email sign-in only after the existing Magic Link UI/callback's backend
    protection and sending settings are reviewed; the callback code is implemented.
-3. Timing/re-addition policy is approved above. Define account deletion,
-   retention/export and suppression rules before launch; finish durable queue
-   and committed wishlist event capture without relying on browser clocks.
-4. Approve Edge Functions/Cron scope, Brevo sending path, budget, and operational limits.
-5. Choose rate-limit numbers, reserved sign-in allowance, disposable-domain list,
-   CAPTCHA provider, and enforcement on the real Auth path without bypasses.
-6. Approve final email/preferences copy and template; current sign-in/wishlist
-   presentation was tested and accepted by the user.
+3. Timing/re-addition policy is approved above. Prepare account deletion,
+   retention/export and suppression rules before launch. Durable queue/activity
+   implementation and restricted activation are recorded in ACTIVATION.md.
+4. Reuse the approved restricted Edge/Cron/Brevo scope and limits; choose routine
+   technical details autonomously. Broader external activation remains separate.
+5. Prepare sign-in protection defaults, reserved allowance, disposable-domain
+   policy and CAPTCHA enforcement without asking about each local design choice;
+   actual external/provider changes retain their authorization boundary.
+6. Refine email/preferences copy and templates autonomously within approved
+   content and behavior; do not add unsupported marketing claims.
 
 ## Design references
 

@@ -1,6 +1,19 @@
 # Auth activation and remaining setup
 
-## Latest checkpoint — 2026-10-25
+## Current language and autonomy contract — 2026-10-25
+
+The latest user instruction makes the customer's last supported site language
+also the language of future emails. PLAN.md section 6.1 is authoritative: persist
+changed signed-in language, use it at dispatch, preserve consent/timing, and do
+not keep an independent email override against a newer site choice. Routine
+implementation decisions proceed autonomously under PLAN.md's Decision autonomy
+section. This documentation update does not change runtime or deployment.
+
+The checkpoints below are historical evidence. Their independent-language and
+follow-site/explicit-override descriptions are superseded as product policy;
+implementation alignment and verification remain outstanding.
+
+## Latest implementation checkpoint — 2026-10-25
 
 Reminder dropdown fix: it is no longer locked after first consent. A changed
 language enables Save preference and uses the existing explicit locale service;
@@ -44,8 +57,8 @@ delivery remains a user integration check, not proved by successful registration
 
 Prepared user checks after that gate: Google login on the test host; add a tour
 and package; choose and save reminder language/consent; change browsing language
-without changing saved correspondence language. On localhost wishlist only, QA
-sends once in each page language within its renewed 24-hour window. Real reminder
+and verify the saved account/email language follows it after implementation
+alignment. On localhost wishlist only, QA sends once in each page language within its renewed 24-hour window. Real reminder
 is one message after 24 hours from the later of consent/last actual addition.
 Its management link opens without login, expires after 90 days and supports
 explicit language save/withdrawal. Withdrawal never requires signing in again.
