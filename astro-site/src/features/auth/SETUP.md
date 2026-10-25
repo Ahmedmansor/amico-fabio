@@ -2,6 +2,15 @@
 
 ## Latest checkpoint — 2026-10-25
 
+Manual QA correction: wishlist-email-test v5 uses saved correspondence language
+from the server and the actual reminder template/management links. Browser page
+locale is neither sent nor accepted. Consent must already be enabled; save does
+not happen implicitly. A final snapshot check blocks withdrawal/language changes
+during preparation. QA jobs remain separate from automatic dispatch. Replays say
+already-sent instead of implying another email was sent. The corrected test has
+fresh bounded per-language IDs; previous accepted summaries remain in their ledger.
+The old PUBLIC_WISHLIST_EMAIL_TEST_PAGE_LOCALE_ENABLED protocol is retired.
+
 Local dev recovery verified: the Google button was disabled with unavailable Auth
 because Vite served its optimized Supabase module with HTTP 504. Restarted only
 the verified Astro process on 4322; the same module returned 200. Reload restored

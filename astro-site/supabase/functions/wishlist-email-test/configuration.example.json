@@ -1,5 +1,6 @@
 {
   "enabled": false,
+  "managementLifetimeMs": null,
   "durableTests": false,
   "jobs": null,
   "userId": "REQUIRES_AUTHORIZED_ACCOUNT_UUID",

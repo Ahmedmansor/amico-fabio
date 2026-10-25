@@ -1,33 +1,21 @@
-# Wishlist emails — repository templates and restricted Brevo test
+# Wishlist reminder emails
 
-Source continuation: browsing and correspondence language are separated; first
-opt-in has an explicit language selector. Reminder preparation resolves invalid
-stored locale to Italian consistently across copy/content/management links.
-Static no-login management pages and scoped-token backend are source-implemented
-behind a default-off gate. Successor consent/token SQL is prepared, not applied;
-management runtime/real distributed ingress limiter is not deployed. Evidence and
-activation boundaries: [CORRESPONDENCE.md](../../../qa/reminders/CORRESPONDENCE.md).
+The real customer flow is one optional reminder after 24 hours from the later
+of consent and last actual addition. It reads saved correspondence language;
+browsing switches never change it. Invalid/missing saved values fall back to
+Italian. Templates and styles remain in this repository; Brevo delivers them.
 
-**Scope clarification (2026-10-25):** the immediate send button is QA only, not
-a customer feature. The real flow sends an optional reminder after the approved
-24-hour wait in stored correspondence language. Test-page language overrides
-are only for checking templates and do not define the automatic reminder policy.
-Do not expose the test button as a production feature.
+The localhost-only QA button now mirrors that flow's actual reminder content,
+saved language and no-login management links. It requires saved opt-in, accepts
+no browser language/recipient/owner/content input and rechecks consent/language
+before delivery. It does not wait 24 hours and does not consume/reset the real
+automatic reminder allowance. Each approved language job is once-only in a
+private durable QA ledger; a repeat explicitly reports that no new email was sent.
+The previous page-language summary test and flag are retired.
 
-The email source stays in this repository. Brevo delivers rendered HTML/plain
-text through the restricted test service; no dashboard-only template is required.
-The user confirmed the actual favorites summary and the updated WhatsApp booking
-actions. Automatic reminders are not active. Current operational evidence is in
-[BREVO.md](../../../qa/reminders/BREVO.md) and [SETUP.md](../auth/SETUP.md).
-The approved, pending locale/request contract is in
-[PLAN.md section 6.1](../auth/PLAN.md#61-approved-language-and-request-contract--2026-10-24).
-IT/EN templates exist; the current restricted test job fixes English, so changing
-the website language does not yet change that email.
-Local continuation carries page locale through the summary test behind
-`PUBLIC_WISHLIST_EMAIL_TEST_PAGE_LOCALE_ENABLED=0`. Its one approved job language
-must match; another language requires a fresh authorized job, never a different
-message under the same delivery ID. This protocol is not deployed. See
-[test service details](../../../supabase/functions/wishlist-email-test/README.md).
+Restricted services/Cron are deployed for the authorized test account only.
+See ../../../qa/reminders/ACTIVATION.md and ../auth/SETUP.md for current evidence
+and bounds. Public production release and Magic Link remain outside this scope.
 
 Edit these files:
 - `data/content/it.json` and `en.json`: subject lines and all visible copy.

@@ -1,13 +1,13 @@
 ---
 import {authConfig} from '../../auth/data/build-config';
-import {readSummaryTestEndpoint,readSummaryPageLocaleFlag} from '../data/summary-test-client';
+import {readSummaryTestEndpoint} from '../data/summary-test-client';
 import {getSummaryTestMessages} from '../data/summary-test-messages';
 import type {Locale} from '../../../shared/config/languages';
 import './preferences.css';
 interface Props {locale:Locale}
 const {locale}=Astro.props,m=getSummaryTestMessages(locale);
 const endpoint=readSummaryTestEndpoint(import.meta.env,authConfig);
-const config=JSON.stringify({auth:authConfig,endpoint,m,locale,requestLocaleEnabled:readSummaryPageLocaleFlag(import.meta.env)}).replace(/</g,'\\u003c');
+const config=JSON.stringify({auth:authConfig,endpoint,m}).replace(/</g,'\\u003c');
 ---
 {endpoint&&<section class="reminder-preferences" data-summary-email-test hidden aria-labelledby={`summary-email-test-${locale}`}>
   <h2 id={`summary-email-test-${locale}`}>{m.title}</h2><p class="reminder-description">{m.description}</p>

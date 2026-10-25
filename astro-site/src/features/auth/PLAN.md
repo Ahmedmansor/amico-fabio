@@ -11,6 +11,13 @@ activation is ready for user testing; actual email delivery is not yet verified.
 
 ## Current continuation checkpoint
 
+- Corrected manual QA to mirror the real reminder: server reads saved consent
+  and correspondence language, never a page-language request. It uses the same
+  reminder renderer and no-login management links, with final consent/language
+  recheck before provider HTTP. Separate QA jobs never reset or consume the real
+  automatic allowance. Repeated confirmed tests explicitly report no new email;
+  uncertain sends remain quarantined. Retired the page-locale test protocol/flag.
+
 - User approved SQL, restricted services, Cron/Brevo callback and amico-fabio-test
   deployment. Only conantotta@gmail.com is authorized for delivery. Main, legacy
   GitHub Pages site, domain and the original Vercel project are excluded.
@@ -516,17 +523,12 @@ client Auth verification for header/wishlist; backend request verification and
 SDK token refresh remain separate work. No tokens or account-table access live
 in this identity feed.
 
-Current gaps: the protected HTTP endpoint and live browser flag are not
-activated; actual overlapping-connection testing remains pending. Both email templates exist, but the restricted
-test job currently fixes `locale: 'en'`; changing the site to Italian does not yet
-change that test email. Live preference UI remains disabled; its gated route-slot
-integration is tested with synthetic endpoints.
-Local requested-summary continuation (2026-10-25) validates a page-locale-only
-payload and confirms language in the response, behind default-off
-`PUBLIC_WISHLIST_EMAIL_TEST_PAGE_LOCALE_ENABLED`. The restricted test rejects a
-different configured job language to preserve one immutable delivery identity.
-This is QA tooling only, not a general immediate-mail feature. Deployed v3
-and its expired window are unchanged; no new external mail was sent.
+The former fixed-English/page-locale QA summary protocol is retired. Current
+protected QA v5 reads saved correspondence/consent on the server and renders the
+same reminder content/management links as automatic dispatch. Browser locale is
+not a sending input. Per-language immutable QA jobs remain separate from the real
+reminder allowance; repeated acceptance explicitly reports no new email. Current
+restricted activation evidence is in ../../../qa/reminders/ACTIVATION.md.
 Optional consent UI continuation now composes the actual wishlist route behind
 `PUBLIC_WISHLIST_REMINDER_OPT_IN_ENABLED=0`. It requires Auth/profiles/locale
 integration and shares verified identity. Four IT/EN native-page browser cases

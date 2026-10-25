@@ -7,7 +7,9 @@ import {createPreferenceUserVerifier} from '../../../src/features/reminders/data
 import {createEmailAccountSource} from '../../../src/features/reminders/data/email-account-source.ts';
 import {createEmailCatalogSource} from '../../../src/features/reminders/data/email-catalog-source.ts';
 import {createBrevoDelivery} from '../../../src/features/reminders/data/brevo-delivery.ts';
-import {createWishlistSummarySender} from '../../../src/features/reminders/presentation/send-wishlist-summary.ts';
+import {createReminderTestSender} from '../../../src/features/reminders/presentation/send-reminder-test.ts';
+import {createReminderTestPreference} from '../../../src/features/reminders/data/reminder-test-preference.ts';
+import {createManagementIssuer} from '../../../src/features/reminders/data/management-issuer.ts';
 import {createSummaryTestHandler} from '../../../src/features/reminders/presentation/summary-test-handler.ts';
 import {createSummaryTestLedger} from '../../../src/features/reminders/data/summary-test-ledger.ts';
 
@@ -28,12 +30,14 @@ try{
   const delivery=createBrevoDelivery({apiKey,sender:{email:configuration.senderEmail,name:configuration.senderName},allowedRecipients:[configuration.recipient],
       isDispatchAllowed:()=>Date.now()>=configuration.createdAt&&Date.now()<configuration.expiresAt,
       fetcher:fetch,timeoutMs:configuration.timeoutMs,maxResponseBytes:configuration.maxResponseBytes,maxRequestBytes:configuration.maxRequestBytes});
-  const senderForBearer=bearer=>createWishlistSummarySender({environment:'test',catalog,delivery,
+  const readPreference=createReminderTestPreference(backend,configuration.timeoutMs);
+  const management=createManagementIssuer(backend,{lifetimeMs:configuration.managementLifetimeMs,timeoutMs:configuration.timeoutMs,now:Date.now});
+  const senderForBearer=bearer=>createReminderTestSender({environment:'test',catalog,delivery,preference:readPreference,management:management.issueWithExpiry,
     account:createEmailAccountSource(backend,createClient(url,publicKey,{
       ...clientOptions,accessToken:async()=>bearer,
     }),[configuration.recipient],configuration.timeoutMs),
   });
-  handler=createSummaryTestHandler({senderForBearer,verifyUser:createPreferenceUserVerifier(auth),...configuration,
+  handler=createSummaryTestHandler({senderForBearer,readPreference,verifyUser:createPreferenceUserVerifier(auth),...configuration,
     ...(configuration.durableTests?{ledger:createSummaryTestLedger(backend,configuration.timeoutMs)}:{}),bodyTimeoutMs:configuration.timeoutMs,now:Date.now});
 }catch{
   handler=async()=>new Response(JSON.stringify({error:'unavailable'}),{status:503,headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});

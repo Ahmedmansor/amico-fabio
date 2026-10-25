@@ -1,5 +1,21 @@
 # Restricted activation — 2026-10-25
 
+## Corrected real-flow QA
+
+The initial QA sender exercised page-language summaries, which did not represent
+the delayed reminder. Superseded by wishlist-email-test v5: no browser locale
+input, saved consent/language read on the server, same reminder renderer and
+management links, final consent/language recheck. QA requires saved opt-in and
+never consumes the actual automatic reminder. Confirmed repeats explicitly return
+already-sent; unknown sends remain quarantined. Old accepted summary records are
+preserved; a new bounded pair of corrected manual test IDs is configured for the
+same authorized account/recipient only. No agent-triggered mail was sent.
+
+17 targeted tests passed, including opposite-page/saved-language behavior,
+fallback, blocked client overrides, replay, uncertainty, actual reminder links and
+withdrawal/language races. Astro: 389 files, zero errors/warnings/hints. Static
+build: 96 pages in 12.49s. No schema or actual reminder scheduling change.
+
 **Current outcome: restricted activation is ready for the user's integration
 test.** Brevo webhook registration returned 200/configured; webhook_ready=true,
 Cron active=true on */15 * * * *. Delivery still requires the user's explicit

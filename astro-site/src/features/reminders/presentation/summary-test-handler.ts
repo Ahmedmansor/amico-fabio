@@ -1,14 +1,16 @@
-import type {createWishlistSummarySender} from './send-wishlist-summary.ts';
+import type {createReminderTestSender} from './send-reminder-test.ts';
 import type {PreferenceUserResult} from './preferences-handler.ts';
 import {isPreferenceRequestId} from '../domain/preferences.ts';
-import {isLocale,type Locale} from '../../../shared/config/languages.ts';
+import {isLocale,resolveLocale,type Locale} from '../../../shared/config/languages.ts';
 import type {SummaryTestLedger} from '../data/summary-test-ledger.ts';
+import type {ReminderTestPreference} from '../data/reminder-test-preference.ts';
 
 /** Restricted QA only. Legacy jobs stay within provider deduplication lifetime;
  * durable jobs get separate immutable language IDs and private once-only ledger.
  * No timers, automatic retry or customer-facing immediate email feature. */
 export function createSummaryTestHandler(options:{
-  senderForBearer:(bearer:string)=>ReturnType<typeof createWishlistSummarySender>;
+  senderForBearer:(bearer:string)=>ReturnType<typeof createReminderTestSender>;
+  readPreference:(userId:string)=>Promise<ReminderTestPreference>;
   verifyUser:(bearer:string)=>Promise<PreferenceUserResult>;
   userId:string;deliveryId:string;locale:Locale;
   allowedOrigin:string;createdAt:number;expiresAt:number;now:()=>number;bodyTimeoutMs:number;
@@ -44,9 +46,8 @@ export function createSummaryTestHandler(options:{
       const user=await options.verifyUser(bearer);
       if(!user.ok)return reply(user.reason==='unavailable'?503:401,{error:user.reason});
       if(user.userId!==options.userId)return reply(403,{error:'account-not-allowed'});
-      // Empty requests retain the configured language for older clients. New
-      // clients may choose only a supported locale, never an owner/recipient/job.
-      let locale=options.locale;
+      // The browser cannot choose language, identity, recipient or job. The
+      // server reads the same saved correspondence used by delayed reminders.
       if(request.body){
         const reader=request.body.getReader();let expired=false,size=0,text='';
         const decoder=new TextDecoder('utf-8',{fatal:true});
@@ -60,13 +61,15 @@ export function createSummaryTestHandler(options:{
           if(size){
             if(request.headers.get('content-type')?.split(';')[0].trim()!=='application/json')return reply(415,{error:'json-required'});
             const body=JSON.parse(text);
-            if(!body||typeof body!=='object'||Array.isArray(body)||Object.keys(body).length!==1||!isLocale(body.locale))
-              return reply(400,{error:'invalid-locale'});
-            locale=body.locale;
+            if(!body||typeof body!=='object'||Array.isArray(body)||Object.keys(body).length!==0)
+              return reply(400,{error:'invalid-input'});
           }
         }catch{return reply(expired?408:400,{error:expired?'request-timeout':'invalid-locale'});}
         finally{clearTimeout(timer);reader.releaseLock();}
       }
+      const preference=await options.readPreference(user.userId);
+      if(!preference?.enabled)return reply(409,{error:'reminder-disabled'});
+      const locale=resolveLocale(preference.locale);
       if(options.now()>=options.expiresAt)return reply(410,{error:'test-expired'});
       // This endpoint represents ONE immutable test job. Its delivery key must
       // never acknowledge a different locale after provider deduplication.
@@ -75,7 +78,7 @@ export function createSummaryTestHandler(options:{
       if(!deliveryId)return reply(409,{error:'job-locale-mismatch',locale:options.locale});
       // Switching language never creates another job or bypasses its fixed key.
       if(options.ledger){const lease=await options.ledger.claim(deliveryId,user.userId,locale);
-        if(lease.outcome==='accepted')return reply(200,{status:'accepted',messageId:lease.messageId,locale});
+        if(lease.outcome==='accepted')return reply(200,{status:'already-sent',locale});
         if(lease.outcome==='unknown')return reply(503,{status:'unknown'});
       }
       let result;

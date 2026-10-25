@@ -11,31 +11,25 @@ export function readSummaryTestEndpoint(env:Record<string,unknown>,auth:AuthConf
   if(url.href!==`${auth.url}/functions/v1/wishlist-email-test`)throw new Error('[wishlist-email] Test endpoint must use the configured Supabase project.');
   return url.href;
 }
-export function readSummaryPageLocaleFlag(env:Record<string,unknown>):boolean {
-  const flag=env.PUBLIC_WISHLIST_EMAIL_TEST_PAGE_LOCALE_ENABLED;
-  if(flag===undefined||flag===''||flag==='0')return false;
-  if(flag!=='1')throw new Error('[wishlist-email] Page locale flag must be 0 or 1.');
-  return true;
-}
-export function createSummaryTestClient(options:{service:Pick<AuthService,'bearerFor'>;endpoint:string;fetcher:typeof fetch;timeoutMs:number;maxResponseBytes:number;requestLocaleEnabled?:boolean}){
+export type ReminderTestResult={status:'accepted'|'alreadySent';locale:Locale}|{status:'unknown'|'failed'|'expired'|'localeUnavailable'|'reminderDisabled'};
+export function createSummaryTestClient(options:{service:Pick<AuthService,'bearerFor'>;endpoint:string;fetcher:typeof fetch;timeoutMs:number;maxResponseBytes:number}){
   const fetcher=createPreferenceFetch(options.fetcher,options.timeoutMs,options.maxResponseBytes);
-  return {async send(userId:string,locale:Locale):Promise<'accepted'|'unknown'|'failed'|'expired'|'localeUnavailable'>{
-    if(!isLocale(locale))return 'failed';
-    const token=await options.service.bearerFor(userId);if(!token.ok)return 'failed';
+  return {async send(userId:string):Promise<ReminderTestResult>{
+    const token=await options.service.bearerFor(userId);if(!token.ok)return {status:'failed'};
     try{
-      const response=await fetcher(options.endpoint,{method:'POST',headers:{Authorization:`Bearer ${token.value}`,...(options.requestLocaleEnabled?{'Content-Type':'application/json'}:{})},
-        ...(options.requestLocaleEnabled?{body:JSON.stringify({locale})}:{}),credentials:'omit',cache:'no-store',referrerPolicy:'no-referrer'});
-      if(response.status===410)return 'expired';
-      if(response.status===409){const result=await response.json();return result?.error==='job-locale-mismatch'?'localeUnavailable':'failed';}
+      const response=await fetcher(options.endpoint,{method:'POST',headers:{Authorization:`Bearer ${token.value}`},credentials:'omit',cache:'no-store',referrerPolicy:'no-referrer'});
+      if(response.status===410)return {status:'expired'};
+      if(response.status===409){const result=await response.json();return {status:result?.error==='job-locale-mismatch'?'localeUnavailable':result?.error==='reminder-disabled'?'reminderDisabled':'failed'};}
       if(!response.ok){
-        if(response.status!==503)return 'failed';
+        if(response.status!==503)return {status:'failed'};
         const result=await response.json();
         // A known pre-send block or explicit provider rejection is not an
         // uncertain acceptance. Preserve unknown for transport/ambiguous cases.
-        return result?.status==='blocked'||result?.status==='rejected'?'failed':'unknown';
+        return {status:result?.status==='blocked'||result?.status==='rejected'?'failed':'unknown'};
       }
-      const result=await response.json();return result?.status==='accepted'&&typeof result.messageId==='string'
-        &&(!options.requestLocaleEnabled||result.locale===locale)?'accepted':'unknown';
-    }catch{return 'unknown';}
+      const result=await response.json();
+      if(result?.status==='already-sent'&&isLocale(result.locale))return {status:'alreadySent',locale:result.locale};
+      return result?.status==='accepted'&&typeof result.messageId==='string'&&isLocale(result.locale)?{status:'accepted',locale:result.locale}:{status:'unknown'};
+    }catch{return {status:'unknown'};}
   }};
 }
