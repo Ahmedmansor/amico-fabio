@@ -33,7 +33,8 @@ export function bindPreferenceView(root:HTMLElement,controller:ReturnType<typeof
     if(isLocale(language.value)){
       const chosen=language.value;
       void controller.save(draft,chosen,locale).then(()=>{
-        if(chosen!==locale){
+        const current=controller.getState();
+        if(current.status==='ready' && current.preference?.locale===chosen && chosen!==locale){
           const currentPath=window.location.pathname;
           const nextPath=currentPath.replace(new RegExp(`^/${locale}(/|$)`),`/${chosen}$1`);
           if(nextPath!==currentPath)window.location.href=nextPath+window.location.search+window.location.hash;

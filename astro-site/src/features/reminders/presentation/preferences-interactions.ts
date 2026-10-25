@@ -32,30 +32,56 @@ async function initialize() {
     }
   });
 
+  const optInKey = 'fabio:auth:pending-reminder-optin:v1';
+  let reconciling = false;
+
+  const reconcilePendingOptIn = async (userId: string, prefState: ReturnType<typeof bridge.controller.getState>) => {
+    if (reconciling || !userId || prefState.userId !== userId) return;
+    const raw = sessionStorage.getItem(optInKey);
+    if (!raw) return;
+    try {
+      const parsed = JSON.parse(raw);
+      const isFresh = !parsed.createdAt || (Date.now() - parsed.createdAt < 24 * 60 * 60 * 1000);
+      if (!isFresh || parsed.enabled !== true) {
+        sessionStorage.removeItem(optInKey);
+        return;
+      }
+      if (prefState.preference?.enabled === true) {
+        sessionStorage.removeItem(optInKey);
+        return;
+      }
+      if (prefState.status === 'ready') {
+        reconciling = true;
+        try {
+          await bridge.controller.save(true, locale, parsed.locale ?? locale);
+          const confirmed = bridge.controller.getState();
+          if (confirmed.status === 'ready' && confirmed.preference?.enabled === true) {
+            sessionStorage.removeItem(optInKey);
+          }
+        } finally {
+          reconciling = false;
+        }
+      }
+    } catch {
+      sessionStorage.removeItem(optInKey);
+    }
+  };
+
   bridge.controller.subscribe(prefState => {
-    if (!inlineReminder) return;
-    const isSubscribed = prefState.preference?.enabled === true;
-    inlineReminder.dataset.subscribed = String(isSubscribed);
-    inlineReminder.hidden = !prefState.userId || isSubscribed;
+    if (inlineReminder) {
+      const isSubscribed = prefState.preference?.enabled === true;
+      inlineReminder.dataset.subscribed = String(isSubscribed);
+      inlineReminder.hidden = !prefState.userId || isSubscribed;
+    }
+    if (prefState.userId) {
+      void reconcilePendingOptIn(prefState.userId, prefState);
+    }
   });
 
   getAccountState(service).subscribe(state => {
     if (state.status !== 'loading') {
       const userId = state.status === 'ready' ? state.session?.userId ?? null : null;
-      void bridge.connect(userId).then(async () => {
-        if (userId) {
-          try {
-            const raw = sessionStorage.getItem('fabio:auth:pending-reminder-optin:v1');
-            if (raw) {
-              sessionStorage.removeItem('fabio:auth:pending-reminder-optin:v1');
-              const parsed = JSON.parse(raw);
-              if (parsed?.enabled === true) {
-                await bridge.controller.save(true, locale, parsed.locale ?? locale);
-              }
-            }
-          } catch {}
-        }
-      });
+      void bridge.connect(userId);
     }
   });
 }

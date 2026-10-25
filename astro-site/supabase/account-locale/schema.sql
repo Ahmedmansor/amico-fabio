@@ -97,8 +97,9 @@ begin
   if p_kind='site' then
     update public.profiles p set locale=p_locale where p.user_id=p_user_id;
     update public.wishlist_email_preferences e set locale=p_locale
-      where e.user_id=p_user_id and e.locale_source='follow_site' and e.locale is distinct from p_locale;
+      where e.user_id=p_user_id and e.locale is distinct from p_locale;
   elsif p_kind='email_explicit' then
+    update public.profiles p set locale=p_locale where p.user_id=p_user_id;
     update public.wishlist_email_preferences e set locale=p_locale,locale_source='explicit' where e.user_id=p_user_id;
   else
     update public.wishlist_email_preferences e set locale=profile_row.locale,locale_source='follow_site' where e.user_id=p_user_id;

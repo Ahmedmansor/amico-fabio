@@ -32,7 +32,7 @@ async function initialize() {
   const reminderCheckbox = dialog.querySelector<HTMLInputElement>('[data-auth-reminder-optin]');
   const recordPendingOptIn = () => {
     try {
-      if (reminderCheckbox?.checked) sessionStorage.setItem('fabio:auth:pending-reminder-optin:v1', JSON.stringify({ enabled: true, locale }));
+      if (reminderCheckbox?.checked) sessionStorage.setItem('fabio:auth:pending-reminder-optin:v1', JSON.stringify({ enabled: true, locale, createdAt: Date.now() }));
       else sessionStorage.removeItem('fabio:auth:pending-reminder-optin:v1');
     } catch {}
   };
