@@ -369,13 +369,18 @@ the current deployed/local implementation has not yet been refactored to match.
 
 Browsing priority:
 1. Explicit `/it/` or `/en/` URL always wins.
-2. Bare `/` currently opens Italian. The site switch changes browsing only and
-   must not write to the database under the target design.
-3. Browser detection remains a proposal, not the current root behavior. If later
-   implemented for static GitHub Pages, use a small browser script; honor a valid
-   saved browser choice, then the first supported `navigator.languages` entry
-   (regional variants normalize to a supported code), otherwise Italian. Keep
-   the default in shared configuration, not scattered through page scripts.
+2. Bare `/` entry:
+   - Italian (`it`) is the brand and primary market language for Italian visitors.
+   - For international visitors whose language is NOT Italian or is currently unsupported
+     (e.g. German `de`, French `fr`, Russian `ru`, Spanish `es`, Polish `pl`): the universal
+     international fallback is **English (`en`)**, as English is the global lingua franca
+     in travel and non-Italian visitors do not understand Italian.
+   - Future language additions follow the same rule: if a visitor speaks a supported
+     language, they receive that language; if their language is not supported, they
+     fall back to English (`en`).
+3. Browser detection for static GitHub Pages (when active): honor a valid saved
+   choice in `localStorage`, then match the first supported `navigator.languages` entry.
+   If none matches (unsupported language), route to English (`en`) as the international fallback.
 
 Correspondence priority:
 1. An existing stored correspondence language remains unchanged on browsing,
@@ -388,10 +393,10 @@ Correspondence priority:
 4. At dispatch, read the stored correspondence language; there is no open page
    to inspect. Never derive it again from the latest URL, browser, IP, nationality,
    email domain or Google account. Validate at dispatch against supported email
-   templates. Empty/unsupported stored language falls back to Italian for that
-   delivery, as explicitly requested by the user; do not fail merely for that
-   value or silently rewrite the stored choice. Use the resolved language for
-   subject, copy, content links and the correspondence-management page. This
+   templates. Empty/unsupported stored language falls back to English (`en`) for
+   international users or Italian for Italian registrations; do not fail merely
+   for that value or silently rewrite the stored choice. Use the resolved language
+   for subject, copy, content links and the correspondence-management page. This
    fallback does not bypass consent, suppression or other eligibility checks.
 
 Examples:
@@ -399,10 +404,11 @@ Examples:
 | Visitor and entry | Browsing result | First opt-in / later reminder |
 | --- | --- | --- |
 | In Germany, opens `/en/`, browser `de` only | English: explicit URL wins | `en`, unless explicitly changed in consent/settings |
-| Opens `/`, no saved choice, browser `de`, `en` | Currently Italian; English only if proposed browser detection is implemented | Language actually shown/selected at first opt-in |
-| Opens `/`, no saved choice, browser `de` only | Italian default, also the proposed detection fallback | `it` unless changed before first opt-in |
+| Opens `/`, no saved choice, browser `de` (or unsupported) | English fallback (universal international standard for unsupported languages) | `en` on first opt-in |
+| Opens `/`, no saved choice, browser `it` | Italian base language for Italian travelers | `it` on first opt-in |
 | In Germany, opens `/it/`, browser `de` only | Italian: explicit URL wins | `it` on first opt-in |
 | Egyptian visitor on `/en/`, browser `ar`, `en` | English; nationality is irrelevant | `en` on first opt-in |
+| Future visitor with unsupported language (e.g. `fr`, `ru`) | English fallback (`en`) | `en` on first opt-in |
 | Stored email language `en`, later explores `/it/` and closes site | Italian browsing only | Reminder remains `en` |
 
 The immediate-send button is restricted QA only. Template-testing overrides do
