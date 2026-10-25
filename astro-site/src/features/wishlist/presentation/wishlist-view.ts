@@ -12,8 +12,9 @@ export function createWishlistView(){
     render(ids:ReadonlySet<string>|null,busy=false,disabled=busy){
       for(const link of links){
         const count=link.querySelector<HTMLElement>('[data-wishlist-count]')!;
-        count.hidden=ids===null;
-        if(ids){count.textContent=String(ids.size);link.setAttribute('aria-label',link.dataset.countLabel!.replace('{count}',String(ids.size)));}
+        const hasCount=!!ids && ids.size > 0;
+        count.hidden=!hasCount;
+        if(hasCount){count.textContent=String(ids.size);link.setAttribute('aria-label',link.dataset.countLabel!.replace('{count}',String(ids.size)));}
         else {count.textContent='';link.setAttribute('aria-label',link.dataset.baseLabel!);}
         link.dataset.wishlistLoading=String(busy && ids===null);
         link.setAttribute('aria-busy',String(busy));

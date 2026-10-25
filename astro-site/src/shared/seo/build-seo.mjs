@@ -6,7 +6,7 @@ export function seoFiles({noindex=false,assetOrigin=siteConfig.url}={}){return {
  const entries=[];
  async function visit(folder){for(const item of await fs.readdir(folder,{withFileTypes:true})){const url=new URL(item.name+(item.isDirectory()?'/':''),folder);if(item.isDirectory())await visit(url);else if(item.name.endsWith('.html')){
   const html=await fs.readFile(url,'utf8');
-  if(item.name==='404.html'||/<meta\b[^>]*http-equiv="refresh"/i.test(html))continue;
+  if(item.name==='404.html'||/<meta\b[^>]*http-equiv="refresh"/i.test(html)||url.pathname.includes('/email-preview/'))continue;
   const blocked=/<meta\b[^>]*name="robots"[^>]*content="[^"]*noindex/.test(html);
   if(noindex&&!blocked)throw new Error(`[SEO:${url.pathname}] Test page is missing noindex.`);
   if(blocked&&!noindex)continue;

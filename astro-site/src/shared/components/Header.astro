@@ -19,6 +19,100 @@ const nav = [
 ---
 <header id="global-header" class="fixed w-full top-0 z-50" data-session-pending={authConfig ? 'true' : undefined}>
   <div id="scroll-progress"></div>
+  <script is:inline>
+    (function() {
+      try {
+        var header = document.getElementById('global-header');
+        if (!header) return;
+        var profileRaw = localStorage.getItem('fabio:auth:profile:v1');
+        var profile = null;
+        if (profileRaw) {
+          try { profile = JSON.parse(profileRaw); } catch(e) {}
+        }
+        var hasSession = false;
+        if (profile && profile.userId) {
+          hasSession = true;
+        } else {
+          for (var i = 0; i < localStorage.length; i++) {
+            var k = localStorage.key(i);
+            if (k && k.indexOf('sb-') === 0 && k.indexOf('-auth-token') !== -1) {
+              hasSession = true; break;
+            }
+          }
+        }
+        var trigger = header.querySelector('.auth-trigger');
+        if (trigger) {
+          if (profile && profile.displayName) {
+            var nameParts = profile.displayName.trim().split(/\s+/);
+            var firstName = nameParts[0] || profile.displayName;
+            var labelEl = trigger.querySelector('.auth-trigger-label');
+            var greetingTpl = trigger.getAttribute('data-greeting-tpl') || 'Ciao, {name}';
+            var greeting = greetingTpl.replace('{name}', firstName);
+            if (labelEl) labelEl.textContent = greeting;
+            trigger.setAttribute('aria-label', greeting);
+            var avatarWrap = trigger.querySelector('.auth-trigger-avatar');
+            if (avatarWrap) {
+              avatarWrap.setAttribute('data-avatar-loading', 'false');
+              if (profile.avatarUrl) {
+                var img = avatarWrap.querySelector('img');
+                var fallback = avatarWrap.querySelector('[data-auth-avatar-fallback]');
+                if (img) { img.src = profile.avatarUrl; img.hidden = false; }
+                if (fallback) fallback.hidden = true;
+              }
+            }
+            trigger.setAttribute('aria-busy', 'false');
+            trigger.removeAttribute('disabled');
+            header.removeAttribute('data-session-pending');
+          } else if (!hasSession) {
+            var labelEl = trigger.querySelector('.auth-trigger-label');
+            var signInText = trigger.getAttribute('data-signin-label');
+            if (labelEl && signInText) {
+              labelEl.textContent = signInText;
+              trigger.setAttribute('aria-label', signInText);
+            }
+            var avatarWrap = trigger.querySelector('.auth-trigger-avatar');
+            if (avatarWrap) avatarWrap.setAttribute('data-avatar-loading', 'false');
+            trigger.setAttribute('aria-busy', 'false');
+            trigger.removeAttribute('disabled');
+            header.removeAttribute('data-session-pending');
+          }
+        }
+        var count = 0;
+        if (profile && profile.userId) {
+          var accRaw = localStorage.getItem('fabio:wishlist:account:' + encodeURIComponent(profile.userId) + ':v1');
+          if (accRaw) {
+            try {
+              var acc = JSON.parse(accRaw);
+              if (acc && Array.isArray(acc.ids)) count = acc.ids.length;
+            } catch(e) {}
+          }
+        } else {
+          for (var j = 0; j < localStorage.length; j++) {
+            var key = localStorage.key(j);
+            if (key && (key.indexOf('fabio:wishlist:v1:trip:') === 0 || key.indexOf('fabio:wishlist:v1:package:') === 0)) {
+              count++;
+            }
+          }
+        }
+        var countEl = header.querySelector('[data-wishlist-count]');
+        var linkEl = header.querySelector('[data-wishlist-link]');
+        if (linkEl) {
+          linkEl.setAttribute('data-wishlist-loading', 'false');
+          linkEl.setAttribute('aria-busy', 'false');
+          if (count > 0) {
+            if (countEl) { countEl.textContent = String(count); countEl.hidden = false; }
+            var countTpl = linkEl.getAttribute('data-count-label');
+            if (countTpl) linkEl.setAttribute('aria-label', countTpl.replace('{count}', String(count)));
+          } else {
+            if (countEl) { countEl.textContent = ''; countEl.hidden = true; }
+            var baseLabel = linkEl.getAttribute('data-base-label');
+            if (baseLabel) linkEl.setAttribute('aria-label', baseLabel);
+          }
+          header.removeAttribute('data-session-pending');
+        }
+      } catch(e) {}
+    })();
+  </script>
   <div class="gh-container">
     <div class="gh-left">
       <AuthTrigger locale={locale}/>

@@ -10,6 +10,7 @@ import type { getWishlistMessages } from '../data/messages';
 import { createWishlistView } from './wishlist-view';
 import { canOfferSignIn, dismissSignInInvitation, invitationDismissalKey } from '../data/invitation-storage';
 import { canShowGuestInvitation } from '../domain/invitation';
+import { readInitialWishlistIds } from '../data/wishlist-cache';
 
 export async function initializeAccountWishlist(){
   const node=document.getElementById('wishlist-config');if(!node)return;
@@ -22,12 +23,12 @@ export async function initializeAccountWishlist(){
   const unavailable=view.page?.querySelector<HTMLElement>('[data-wishlist-catalog-notice]');
   const invitation=document.querySelector<HTMLElement>('[data-wishlist-invitation]');
   let invitationClosed=false;
-  view.render(null,true);
+  const initial=readInitialWishlistIds();
+  view.render(initial.ids.size > 0 ? initial.ids : null, false);
   const guest=createGuestMergePort(browserGuestStorage(),browserGuestLock());
   const [service,client]=await Promise.all([browserAuth(config.auth),browserSupabase(config.auth)]);
   const coordinator=createWishlistCoordinator(createAccountRepository(client),guest,config.publishedIds,config.locale);
   let authFailed=false;
-  let resolvingAuth=true;
   const channel=typeof BroadcastChannel!=='undefined'?new BroadcastChannel('fabio:wishlist:account:v1'):null;
   const announce=()=>channel?.postMessage({userId:coordinator.getState().userId});
   function render(state:WishlistState){
@@ -39,8 +40,8 @@ export async function initializeAccountWishlist(){
     }
     const inlineReminder=view.page?.querySelector<HTMLElement>('[data-wishlist-inline-reminder]');
     if(inlineReminder)inlineReminder.hidden=!state.userId;
-    const ids=state.ids?new Set(state.ids):null;
-    view.render(ids,resolvingAuth || state.busy,resolvingAuth || state.busy || (state.status==='error' && !ids));
+    const ids=state.ids?new Set(state.ids):initial.ids;
+    view.render(ids,state.busy,state.busy || (state.status==='error' && !ids));
     if(storageMessage)storageMessage.textContent=state.userId?(state.busy?m.syncing:!ids?'':m.account):m.local;
     if(error){error.hidden=!state.error || state.error==='confirmation';error.textContent=state.userId?m.syncError:state.ids?m.error:m.unavailable;}
     const canMerge=state.pendingGuest>state.unavailableGuest;
@@ -81,12 +82,11 @@ export async function initializeAccountWishlist(){
   let currentUser:string|null|undefined;
   function connect(userId:string|null){
     if(currentUser===userId)return;
-    currentUser=userId;authFailed=false;resolvingAuth=false;
+    currentUser=userId;authFailed=false;
     void coordinator.connect(userId).then(result=>{if(result.ok)announce();});
   }
   if(service)getAccountState(service).subscribe(state=>{
-    if(state.status==='loading'){resolvingAuth=true;render(coordinator.getState());return;}
-    resolvingAuth=false;
+    if(state.status==='loading'){render(coordinator.getState());return;}
     connect(state.session?.userId??null);
     authFailed=state.status==='failed';render(coordinator.getState());
   });
@@ -101,6 +101,6 @@ export async function initializeAccountWishlist(){
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')refresh();});
   window.addEventListener('storage',event=>{
     if(event.key===invitationDismissalKey){const allowed=canOfferSignIn(browserGuestStorage(),Date.now());if(allowed.ok && !allowed.value && invitation)invitation.hidden=true;}
-    if(event.key===null || event.key.startsWith(guestWishlistPrefix) || event.key.startsWith(guestPackagePrefix) || event.key.startsWith('fabio:wishlist:ack:'))refresh();
+    if(event.key===null || event.key.startsWith(guestWishlistPrefix) || event.key.startsWith(guestPackagePrefix) || event.key.startsWith('fabio:wishlist:ack:') || event.key.startsWith('fabio:wishlist:account:'))refresh();
   });
 }

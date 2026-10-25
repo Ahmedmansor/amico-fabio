@@ -7,6 +7,8 @@ import type {LocaleBrowserConfig} from '../data/locale-browser-config';
 import type {getLocaleMessages} from '../data/locale-messages';
 import type {bindAccountLocale} from './locale-interactions';
 import {getAccountState} from '../data/account-state';
+import { readCachedAuthProfile, saveCachedAuthProfile, clearCachedAuthProfile, hasCachedAuthSession } from '../data/auth-cache';
+import { clearAccountWishlistCache } from '../../wishlist/data/wishlist-cache';
 
 async function initialize() {
   const configNode = document.getElementById('auth-config');
@@ -40,6 +42,14 @@ async function initialize() {
   let pending = false;
   let session: AccountSession | null = null;
   let ready = false;
+  const cachedProfile = readCachedAuthProfile();
+  if (cachedProfile) {
+    session = { userId: cachedProfile.userId, profile: cachedProfile.profile };
+    ready = true;
+  } else if (!hasCachedAuthSession()) {
+    session = null;
+    ready = true;
+  }
   const service = await browserAuth(config);
   let localeBinding: ReturnType<typeof bindAccountLocale> | null = null;
   const localeRoot = dialog.querySelector<HTMLElement>('[data-locale-settings]');
@@ -184,19 +194,42 @@ async function initialize() {
     const result = await service.signOut();
     pending = false;
     if (result.ok) {
+      clearCachedAuthProfile();
+      clearAccountWishlistCache();
       session = null; show(''); render(); dialog.close();
       window.location.replace(`/${locale}/`);
       return;
     } else show(m.failed);
     render();
   });
+  render();
   if (service) {
     getAccountState(service).subscribe(state => {
-      ready = state.status !== 'loading'; session = state.session;
-      if (state.status === 'failed') show(m.failed);
+      ready = state.status !== 'loading';
+      session = state.session;
+      if (state.status === 'ready') {
+        if (state.session) saveCachedAuthProfile(state.session);
+        else clearCachedAuthProfile();
+      } else if (state.status === 'failed') {
+        clearCachedAuthProfile();
+        show(m.failed);
+      }
       render();
     });
   } else {ready = true; render();}
+  window.addEventListener('storage', event => {
+    if (event.key === 'fabio:auth:profile:v1' || (event.key && event.key.startsWith('sb-') && event.key.endsWith('-auth-token'))) {
+      const freshCached = readCachedAuthProfile();
+      if (freshCached) {
+        session = { userId: freshCached.userId, profile: freshCached.profile };
+        ready = true;
+      } else if (!hasCachedAuthSession()) {
+        session = null;
+        ready = true;
+      }
+      render();
+    }
+  });
   window.setInterval(() => { if (dialog.open) render(); }, 1000);
 }
 void initialize();

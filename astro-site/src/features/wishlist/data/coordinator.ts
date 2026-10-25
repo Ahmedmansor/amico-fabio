@@ -2,6 +2,7 @@ import type { AccountWishlistRepository, WishlistFailure, WishlistResult } from 
 import { planGuestMerge } from '../domain/merge.ts';
 import type { GuestMergePort } from './guest-merge.ts';
 import { normalizeWishlist } from '../domain/wishlist.ts';
+import { readAccountWishlistCache, saveAccountWishlistCache } from './wishlist-cache.ts';
 export interface WishlistState {
   status:'guest'|'loading'|'account'|'error'; userId:string|null; ids:string[]|null;
   pendingGuest:number; unavailableGuest:number; busy:boolean; error:WishlistFailure|null;
@@ -25,7 +26,7 @@ export function createWishlistCoordinator(repository:AccountWishlistRepository,g
   async function load(userId:string,revision:number,merge:boolean,explicit:boolean):Promise<WishlistResult<void>> {
     const current=()=>isCurrent(userId,revision);
     if(!current())return stale();
-    state={...state,status:'loading',busy:true,error:null};emit();
+    state={...state,status:state.ids?'account':'loading',busy:!state.ids || explicit,error:null};emit();
     const profile=await repository.ensureProfile(userId,locale);
     if(!current())return stale();
     if(!profile.ok){error(profile.reason);return profile;}
@@ -61,6 +62,7 @@ export function createWishlistCoordinator(repository:AccountWishlistRepository,g
       }
     }
     if(!current())return stale();
+    saveAccountWishlistCache(userId, account.value);
     state={status:failure?'error':'account',userId,ids:account.value,...guestCounts(),busy:false,error:failure};emit();
     return failure?{ok:false,reason:failure}:good(undefined);
   }
@@ -70,7 +72,9 @@ export function createWishlistCoordinator(repository:AccountWishlistRepository,g
     async connect(userId:string|null){
       generation++;const revision=generation;tail=Promise.resolve();
       const local=guest.read();
-      state={status:userId?'loading':'guest',userId,ids:userId?null:(local.ok?local.value:null),pendingGuest:0,unavailableGuest:local.ok?unavailable(local.value):0,busy:!!userId,error:local.ok?null:'storage'};emit();
+      const cachedAccount = userId ? readAccountWishlistCache(userId) : null;
+      const initialIds = userId ? cachedAccount : (local.ok ? local.value : null);
+      state={status:userId?(cachedAccount?'account':'loading'):'guest',userId,ids:initialIds,pendingGuest:0,unavailableGuest:initialIds?unavailable(initialIds):0,busy:userId?!cachedAccount:false,error:local.ok?null:'storage'};emit();
       return userId?enqueue(()=>load(userId,revision,true,false)):good(undefined);
     },
     async refresh(){
@@ -101,6 +105,7 @@ export function createWishlistCoordinator(repository:AccountWishlistRepository,g
         if(!isCurrent(userId,revision))return stale();
         if(!fresh.ok){error(fresh.reason);return fresh;}
         if(fresh.value.includes(id)!==saved){error('failed');return {ok:false,reason:'failed'};}
+        saveAccountWishlistCache(userId, fresh.value);
         state={...state,status:'account',ids:normalizeWishlist(fresh.value),busy:false,error:null,...guestCounts()};emit();
         return good(undefined);
       });
