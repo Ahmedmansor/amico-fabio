@@ -1,6 +1,13 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {bindPreferenceView} from '../preferences-view.ts';
+import {reconcilePendingOptIn} from '../preferences-optin.ts';
+import {
+  recordPendingReminderOptIn,
+  clearPendingReminderOptIn,
+  PENDING_REMINDER_OPTIN_KEY,
+} from '../../../auth/presentation/pending-optin.ts';
+import {createPreferenceController} from '../../data/preferences-controller.ts';
 
 const messages = {
   title: 'Promemoria',
@@ -209,60 +216,253 @@ test('preferences-view redirects to matching language route only upon confirmed 
   }
 });
 
-test('pending opt-in is retained during read or save failure and deleted only on confirmed success', async () => {
-  const optInKey = 'fabio:auth:pending-reminder-optin:v1';
+test('reconcilePendingOptIn waits for confirmed ready state and never saves on loading or error', async () => {
   const storage = new Map();
-  const mockSessionStorage = {
+  const mockStorage = {
     getItem: k => storage.get(k) ?? null,
     setItem: (k, v) => storage.set(k, String(v)),
     removeItem: k => storage.delete(k),
   };
 
-  const originalSessionStorage = globalThis.sessionStorage;
-  globalThis.sessionStorage = mockSessionStorage;
+  const userId = '00000000-0000-4000-8000-000000000001';
+  recordPendingReminderOptIn(mockStorage, 'it');
+  assert.notEqual(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null);
 
-  try {
-    // 1. Initial opt-in recorded at login
-    storage.set(optInKey, JSON.stringify({enabled: true, locale: 'it', createdAt: Date.now()}));
+  let saves = 0;
+  const save = async () => { saves++; };
 
-    // 2. Read failure occurs (controller in error state)
-    let state = {status: 'error', preference: null, userId: '00000000-0000-4000-8000-000000000001'};
-    let saveCalled = false;
+  // 1. Controller is in 'loading' status (connect() reading initial state from server)
+  const loadingState = {status: 'loading', preference: null, userId, error: null, retryable: false};
+  const resLoading = await reconcilePendingOptIn({
+    storage: mockStorage,
+    userId,
+    prefState: loadingState,
+    activeLocale: 'it',
+    save,
+    getState: () => loadingState,
+  });
+  assert.equal(resLoading, 'skipped');
+  assert.equal(saves, 0);
+  assert.notEqual(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null);
 
-    // Simulate reconcile function behavior
-    const reconcile = async (prefState, saveFn) => {
-      const raw = mockSessionStorage.getItem(optInKey);
-      if (!raw) return;
-      const parsed = JSON.parse(raw);
-      if (prefState.preference?.enabled === true) {
-        mockSessionStorage.removeItem(optInKey);
-        return;
-      }
-      if (prefState.status === 'ready') {
-        const ok = await saveFn(parsed);
-        if (ok) mockSessionStorage.removeItem(optInKey);
-      }
-    };
+  // 2. Controller is in 'error' status (read failure)
+  const errorState = {status: 'error', preference: null, userId, error: 'unavailable', retryable: true};
+  const resError = await reconcilePendingOptIn({
+    storage: mockStorage,
+    userId,
+    prefState: errorState,
+    activeLocale: 'it',
+    save,
+    getState: () => errorState,
+  });
+  assert.equal(resError, 'skipped');
+  assert.equal(saves, 0);
+  assert.notEqual(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null);
+});
 
-    // Initial read failed -> status is 'error'
-    await reconcile(state, async () => { saveCalled = true; return true; });
-    assert.equal(saveCalled, false);
-    // Intent MUST still be in storage!
-    assert.notEqual(mockSessionStorage.getItem(optInKey), null);
+test('reconcilePendingOptIn clears intent without writes if server preference is already enabled', async () => {
+  const storage = new Map();
+  const mockStorage = {
+    getItem: k => storage.get(k) ?? null,
+    setItem: (k, v) => storage.set(k, String(v)),
+    removeItem: k => storage.delete(k),
+  };
 
-    // 3. Status becomes 'ready', but save network request fails
-    state = {status: 'ready', preference: null, userId: '00000000-0000-4000-8000-000000000001'};
-    await reconcile(state, async () => { saveCalled = true; return false; /* save failed */ });
-    assert.equal(saveCalled, true);
-    // Intent MUST still be in storage after save failure!
-    assert.notEqual(mockSessionStorage.getItem(optInKey), null);
+  const userId = '00000000-0000-4000-8000-000000000001';
+  recordPendingReminderOptIn(mockStorage, 'it');
 
-    // 4. Retry succeeds -> status 'ready' and preference.enabled === true
-    state = {status: 'ready', preference: {enabled: true, locale: 'it'}, userId: '00000000-0000-4000-8000-000000000001'};
-    await reconcile(state, async () => true);
-    // Intent is now safely removed!
-    assert.equal(mockSessionStorage.getItem(optInKey), null);
-  } finally {
-    globalThis.sessionStorage = originalSessionStorage;
-  }
+  let saves = 0;
+  const save = async () => { saves++; };
+
+  const readyAlreadyEnabled = {
+    status: 'ready',
+    preference: {enabled: true, locale: 'it', wordingVersion: 'wishlist-reminders-v1'},
+    userId,
+    error: null,
+    retryable: false,
+  };
+
+  const res = await reconcilePendingOptIn({
+    storage: mockStorage,
+    userId,
+    prefState: readyAlreadyEnabled,
+    activeLocale: 'it',
+    save,
+    getState: () => readyAlreadyEnabled,
+  });
+
+  assert.equal(res, 'cleared');
+  assert.equal(saves, 0, 'Must NOT perform a redundant save when server confirms user is already enabled');
+  assert.equal(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null, 'Must clear pending storage');
+});
+
+test('reconcilePendingOptIn binds to account and blocks cross-account intent transfer (A -> B)', async () => {
+  const storage = new Map();
+  const mockStorage = {
+    getItem: k => storage.get(k) ?? null,
+    setItem: (k, v) => storage.set(k, String(v)),
+    removeItem: k => storage.delete(k),
+  };
+
+  const userA = '00000000-0000-4000-8000-000000000001';
+  const userB = '00000000-0000-4000-8000-000000000002';
+
+  // User A signs in with opt-in intent
+  recordPendingReminderOptIn(mockStorage, 'it');
+
+  let userASaves = 0;
+  let userAState = {
+    status: 'ready',
+    preference: {enabled: false, locale: 'it', wordingVersion: 'wishlist-reminders-v1'},
+    userId: userA,
+    error: null,
+    retryable: false,
+  };
+
+  // Simulate save failure for User A (e.g. server 500)
+  const saveUserA = async () => {
+    userASaves++;
+    userAState = {...userAState, status: 'error', error: 'unavailable', retryable: true};
+  };
+
+  const resUserA = await reconcilePendingOptIn({
+    storage: mockStorage,
+    userId: userA,
+    prefState: userAState,
+    activeLocale: 'it',
+    save: saveUserA,
+    getState: () => userAState,
+  });
+
+  assert.equal(resUserA, 'failed');
+  assert.equal(userASaves, 1);
+  // Intent is still in storage, bound to User A!
+  const rawA = mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY);
+  assert.notEqual(rawA, null);
+  assert.equal(JSON.parse(rawA).targetUserId, userA);
+
+  // Now User switches to User B (without signout clearing storage)
+  let userBSaves = 0;
+  const userBState = {
+    status: 'ready',
+    preference: {enabled: false, locale: 'it', wordingVersion: 'wishlist-reminders-v1'},
+    userId: userB,
+    error: null,
+    retryable: false,
+  };
+  const saveUserB = async () => { userBSaves++; };
+
+  const resUserB = await reconcilePendingOptIn({
+    storage: mockStorage,
+    userId: userB,
+    prefState: userBState,
+    activeLocale: 'it',
+    save: saveUserB,
+    getState: () => userBState,
+  });
+
+  // MUST be rejected as mismatched, and User B must NEVER be saved!
+  assert.equal(resUserB, 'mismatched');
+  assert.equal(userBSaves, 0, 'User B must NOT inherit User A pending opt-in');
+  assert.equal(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null, 'Mismatched storage must be purged');
+});
+
+test('reconcilePendingOptIn retains intent on save failure and deletes on confirmed success', async () => {
+  const storage = new Map();
+  const mockStorage = {
+    getItem: k => storage.get(k) ?? null,
+    setItem: (k, v) => storage.set(k, String(v)),
+    removeItem: k => storage.delete(k),
+  };
+
+  const userId = '00000000-0000-4000-8000-000000000001';
+  recordPendingReminderOptIn(mockStorage, 'en');
+
+  let state = {
+    status: 'ready',
+    preference: {enabled: false, locale: 'en', wordingVersion: 'wishlist-reminders-v1'},
+    userId,
+    error: null,
+    retryable: false,
+  };
+
+  // 1. Save fails
+  const resFail = await reconcilePendingOptIn({
+    storage: mockStorage,
+    userId,
+    prefState: state,
+    activeLocale: 'en',
+    save: async () => {
+      state = {...state, status: 'error', error: 'unavailable', retryable: true};
+    },
+    getState: () => state,
+  });
+  assert.equal(resFail, 'failed');
+  assert.notEqual(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null, 'Intent retained on save failure');
+
+  // 2. Retry succeeds
+  state = {...state, status: 'ready'};
+  const resSuccess = await reconcilePendingOptIn({
+    storage: mockStorage,
+    userId,
+    prefState: state,
+    activeLocale: 'en',
+    save: async () => {
+      state = {
+        ...state,
+        status: 'ready',
+        preference: {enabled: true, locale: 'en', wordingVersion: 'wishlist-reminders-v1'},
+      };
+    },
+    getState: () => state,
+  });
+  assert.equal(resSuccess, 'saved');
+  assert.equal(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null, 'Intent deleted on confirmed save');
+});
+
+test('createPreferenceController.connect performs server read first and never emits ready prematurely', async () => {
+  const userId = '00000000-0000-4000-8000-000000000001';
+  const observedStatuses = [];
+  let readCalled = false;
+
+  const mockClient = {
+    read: async _id => {
+      readCalled = true;
+      return {
+        ok: true,
+        value: {enabled: true, locale: 'it', wordingVersion: 'wishlist-reminders-v1'},
+      };
+    },
+    change: async () => assert.fail('change should not be called during connect'),
+  };
+
+  const controller = createPreferenceController(mockClient, () => '00000000-0000-4000-8000-000000000099');
+  controller.subscribe(s => {
+    if (s.userId) observedStatuses.push({status: s.status, pref: s.preference});
+  });
+
+  await controller.connect(userId);
+
+  assert.equal(readCalled, true);
+  // Initial state published upon connect(userId) must be 'loading', NOT premature 'ready'
+  assert.equal(observedStatuses[0].status, 'loading');
+  assert.equal(observedStatuses[0].pref, null);
+
+  // Subsequent state published must be 'ready' with confirmed server preference
+  const lastState = observedStatuses.at(-1);
+  assert.equal(lastState.status, 'ready');
+  assert.equal(lastState.pref.enabled, true);
+});
+
+test('clearPendingReminderOptIn clears pending storage immediately', () => {
+  const storage = new Map();
+  const mockStorage = {
+    getItem: k => storage.get(k) ?? null,
+    setItem: (k, v) => storage.set(k, String(v)),
+    removeItem: k => storage.delete(k),
+  };
+  recordPendingReminderOptIn(mockStorage, 'it');
+  assert.notEqual(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null);
+  clearPendingReminderOptIn(mockStorage);
+  assert.equal(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null);
 });

@@ -44,8 +44,30 @@ export function createPreferenceController(client:PreferenceClient,newRequestId:
     async connect(userId:string|null){
       if(userId!==null&&!isPreferenceRequestId(userId))throw new Error('[reminders] Invalid account identity.');
       revision++;pending=null;
-      state={userId,status:userId?'ready':'signed-out',preference:null,error:null,retryable:false};publish();
-      if(userId)await perform(null);
+      if(!userId){
+        state={userId:null,status:'signed-out',preference:null,error:null,retryable:false};
+        publish();
+        return;
+      }
+      state={userId,status:'loading',preference:null,error:null,retryable:false};
+      publish();
+      const operation=revision;
+      try {
+        const result=await client.read(userId);
+        if(operation!==revision || state.userId!==userId)return;
+        if(result.ok){
+          pending=null;
+          state={...state,status:'ready',preference:result.value,error:null,retryable:false};
+        } else {
+          const retryable=['unavailable','failed','rate-limited'].includes(result.reason);
+          if(!retryable)pending=null;
+          state={...state,status:'error',error:result.reason,retryable};
+        }
+      } catch {
+        if(operation!==revision || state.userId!==userId)return;
+        state={...state,status:'error',error:'unavailable',retryable:true};
+      }
+      publish();
     },
     async save(enabled:boolean,locale:Locale,consentLocale:Locale=locale){
       // Resolve an uncertain write using its original request ID before

@@ -6,6 +6,7 @@ import type {PreferenceBrowserConfig} from '../data/preferences-browser-config';
 import type {getPreferenceMessages} from '../data/preference-messages';
 import {createBrowserPreferenceController} from '../data/preferences-browser-controller';
 import {bindPreferenceView} from './preferences-view';
+import {reconcilePendingOptIn} from './preferences-optin.ts';
 
 async function initialize() {
   const node = document.getElementById('reminder-preference-config');
@@ -32,38 +33,21 @@ async function initialize() {
     }
   });
 
-  const optInKey = 'fabio:auth:pending-reminder-optin:v1';
   let reconciling = false;
-
-  const reconcilePendingOptIn = async (userId: string, prefState: ReturnType<typeof bridge.controller.getState>) => {
-    if (reconciling || !userId || prefState.userId !== userId) return;
-    const raw = sessionStorage.getItem(optInKey);
-    if (!raw) return;
+  const reconcile = async (userId: string, prefState: ReturnType<typeof bridge.controller.getState>) => {
+    if (reconciling) return;
+    reconciling = true;
     try {
-      const parsed = JSON.parse(raw);
-      const isFresh = !parsed.createdAt || (Date.now() - parsed.createdAt < 24 * 60 * 60 * 1000);
-      if (!isFresh || parsed.enabled !== true) {
-        sessionStorage.removeItem(optInKey);
-        return;
-      }
-      if (prefState.preference?.enabled === true) {
-        sessionStorage.removeItem(optInKey);
-        return;
-      }
-      if (prefState.status === 'ready') {
-        reconciling = true;
-        try {
-          await bridge.controller.save(true, locale, parsed.locale ?? locale);
-          const confirmed = bridge.controller.getState();
-          if (confirmed.status === 'ready' && confirmed.preference?.enabled === true) {
-            sessionStorage.removeItem(optInKey);
-          }
-        } finally {
-          reconciling = false;
-        }
-      }
-    } catch {
-      sessionStorage.removeItem(optInKey);
+      await reconcilePendingOptIn({
+        storage: sessionStorage,
+        userId,
+        prefState,
+        activeLocale: locale,
+        save: (enabled, loc, consentLoc) => bridge.controller.save(enabled, loc, consentLoc),
+        getState: () => bridge.controller.getState(),
+      });
+    } finally {
+      reconciling = false;
     }
   };
 
@@ -74,7 +58,7 @@ async function initialize() {
       inlineReminder.hidden = !prefState.userId || isSubscribed;
     }
     if (prefState.userId) {
-      void reconcilePendingOptIn(prefState.userId, prefState);
+      void reconcile(prefState.userId, prefState);
     }
   });
 

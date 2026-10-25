@@ -9,6 +9,7 @@ import type {bindAccountLocale} from './locale-interactions';
 import {getAccountState} from '../data/account-state';
 import { readCachedAuthProfile, saveCachedAuthProfile, clearCachedAuthProfile, hasCachedAuthSession } from '../data/auth-cache';
 import { clearAccountWishlistCache } from '../../wishlist/data/wishlist-cache';
+import { recordPendingReminderOptIn, clearPendingReminderOptIn } from './pending-optin';
 
 async function initialize() {
   const configNode = document.getElementById('auth-config');
@@ -31,11 +32,12 @@ async function initialize() {
   const modeSwitch = dialog.querySelector<HTMLButtonElement>('[data-auth-mode-switch]')!;
   const reminderCheckbox = dialog.querySelector<HTMLInputElement>('[data-auth-reminder-optin]');
   const recordPendingOptIn = () => {
-    try {
-      if (reminderCheckbox?.checked) sessionStorage.setItem('fabio:auth:pending-reminder-optin:v1', JSON.stringify({ enabled: true, locale, createdAt: Date.now() }));
-      else sessionStorage.removeItem('fabio:auth:pending-reminder-optin:v1');
-    } catch {}
+    if (reminderCheckbox?.checked) recordPendingReminderOptIn(sessionStorage, locale);
+    else clearPendingReminderOptIn(sessionStorage);
   };
+  reminderCheckbox?.addEventListener('change', () => {
+    if (!reminderCheckbox.checked) clearPendingReminderOptIn(sessionStorage);
+  });
   let signingUp = false;
   const triggers = [...document.querySelectorAll<HTMLButtonElement>('[data-auth-open]')];
   let opener: HTMLElement | null = null;
@@ -196,6 +198,7 @@ async function initialize() {
     if (result.ok) {
       clearCachedAuthProfile();
       clearAccountWishlistCache();
+      clearPendingReminderOptIn(sessionStorage);
       session = null; show(''); render(); dialog.close();
       window.location.replace(`/${locale}/`);
       return;
