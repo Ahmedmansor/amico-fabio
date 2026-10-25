@@ -51,3 +51,22 @@ Distributed trusted ingress limiting, lifetime/expiry recovery/rotation/retentio
 native disposable and concurrency tests, then a separately reviewed runtime
 deployment and real inbox-link check remain activation gates. No real token,
 remote schema write, subscription, provider setting or email was created.
+
+## Disabled runtime packaging and distributed admission
+
+Runtime source now composes a singleton database admission gate before capability
+lookup/body processing, including malformed/invalid tokens. It does not trust
+forwarded IP headers or create a bucket per request. Quota/window are required
+nonsecret settings, left blank in disabled configuration. All legitimate users
+share this budget; no numerical operational choice was made. Perimeter protection
+against invocation abuse and native database/concurrency tests remain gates.
+
+Prepared 13-file Edge payload/digest manifest with complete imports using
+`node qa/reminders/prepare-management-function.mjs`. No secret/env file was read.
+Actual verification: **256 Node tests and 20 Vitest files / 163 tests passed**;
+Astro **371 files, 0 errors/warnings/hints**; normal build **96 pages in 11.11s**.
+New real-SDK synthetic runtime tests cover gate-before-lookup, fixed request
+identity, exhausted quota, outage, deadline and disabled-entry 503 without any
+runtime-key read. These do not prove native Deno, SQL parsing/RLS or concurrent
+admission. UI was unchanged; its preceding four browser cases remain applicable.
+No new remote write, deployment, token issuance or email occurred.

@@ -17,6 +17,14 @@ Italian fallback now prepares consistent subject, content and localized
 management link. See ../../../qa/reminders/CORRESPONDENCE.md for real local
 checks and remaining native tests. No new remote writes or emails occurred.
 
+Management runtime/package continuation: disabled Edge source now composes a
+fixed global distributed admission budget, with unapplied singleton SQL and
+rollback fixtures. It does not trust IP headers or allocate per-token buckets.
+Capacity/window remain blank required activation settings and are shared by
+legitimate visitors too. See ../../../supabase/functions/wishlist-email-management/README.md.
+Native SQL/concurrency/startup verification and perimeter protection are pending;
+the source package is not evidence of a deployment.
+
 Product clarification: immediate sending is a restricted test tool only, not a
 public "send my favorites" feature. Actual customer wishlist mail is the delayed
 reminder in stored correspondence language. The target policy initializes that

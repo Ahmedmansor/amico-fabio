@@ -30,9 +30,19 @@ for both actions until expiry/revocation; it is not a password-reset token.
 - Keep `PUBLIC_WISHLIST_EMAIL_MANAGEMENT_ENABLED=0` in normal/hosting settings.
 - Review/apply both proposals and run approved disposable native tests. The
   prepared fixtures send no email and end in ROLLBACK.
-- Compose/deploy the prepared handler with a real bounded distributed ingress
-  limiter based on trusted platform identity, including invalid tokens. There is
-  deliberately no permissive default limiter or deployed public endpoint.
+- Source runtime now composes a database-backed global ingress gate, including
+  invalid tokens, without IP/header identity assumptions. Its singleton storage
+  cannot grow per visitor/token or reset when a caller forges a header. Review
+  `rate-limit-schema.sql` and the unexecuted rollback role proposal. A global
+  budget is shared by legitimate visitors too: capacity/window need approval.
+  This is not a guarantee against Edge invocation costs or denial of service;
+  review gateway/perimeter controls before public release.
+- A mixed runtime policy fails closed rather than resetting the budget; changing
+  policy requires a reviewed singleton reset. Native concurrent admission and
+  lock/latency checks remain pending. No counter or endpoint is deployed.
+- Disabled Edge composition/package now lives in
+  `../functions/wishlist-email-management/`. Both ingress policy fields are
+  intentionally blank, so merely flipping enabled cannot activate it.
 - Choose token lifetime, expiry recovery/reissue, rotation and cleanup/retention.
   Issuer requires lifetime explicitly; test values are not operational choices.
   Normal valid-link withdrawal must work without a logged-in session.
