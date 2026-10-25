@@ -1,7 +1,7 @@
 {
   "title": "Promemoria via email",
   "languageLabel": "Lingua dei promemoria",
-  "languageNote": "Scegli prima di attivare i promemoria per la prima volta. In seguito, usa Lingua delle email nelle impostazioni dell’account. Cambiare la lingua del sito non modifica questa preferenza.",
+  "languageNote": "Scegli la lingua dei promemoria e premi Salva preferenza. Puoi cambiarla qui in qualsiasi momento. Cambiare la lingua del sito non modifica questa preferenza.",
   "label": "Desidero ricevere un promemoria via email sui miei preferiti",
   "description": "Facoltativo. Al massimo un promemoria per account, 24 ore dopo l’ultima aggiunta o l’attivazione dei promemoria, a seconda di quale avviene dopo. Svuotare i preferiti annulla l’attesa. Puoi disattivare i promemoria in qualsiasi momento.",
   "save": "Salva preferenza",

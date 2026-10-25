@@ -2,6 +2,13 @@
 
 ## Latest checkpoint — 2026-10-25
 
+Reminder dropdown fix: it is no longer locked after first consent. A changed
+language enables Save preference and uses the existing explicit locale service;
+language-only saves do not grant consent or reset its start time. No backend SQL
+or service deployment change. Implemented without running tests/build or saving
+the real user's preference, as explicitly requested. This supersedes instructions
+that require opening account settings to change reminder language.
+
 Manual QA correction: wishlist-email-test v5 uses saved correspondence language
 from the server and the actual reminder template/management links. Browser page
 locale is neither sent nor accepted. Consent must already be enabled; save does

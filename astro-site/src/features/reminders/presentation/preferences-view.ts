@@ -12,17 +12,16 @@ export function bindPreferenceView(root:HTMLElement,controller:ReturnType<typeof
   const status=root.querySelector<HTMLElement>('[data-reminder-status]')!;
   const language=root.querySelector<HTMLSelectElement>('[data-reminder-language]')!;
   let draft=false;
-  function dirty(state:PreferenceViewState){save.disabled=state.status!=='ready'||choice.checked===(state.preference?.enabled??false);}
+  function dirty(state:PreferenceViewState){save.disabled=state.status!=='ready'||(choice.checked===(state.preference?.enabled??false)&&(!state.preference||language.value===state.preference.locale));}
   const unsubscribe=controller.subscribe(state=>{
     root.hidden=state.status==='signed-out';
     const busy=state.status==='loading'||state.status==='saving';
     form.setAttribute('aria-busy',String(busy));root.setAttribute('aria-busy',String(busy));
     fieldset.disabled=state.status!=='ready';
     choice.checked=state.status==='saving'?draft:(state.preference?.enabled??false);
-    // Existing correspondence survives withdrawal/re-enable. Initial choice is
-    // the page language and is editable before the first explicit opt-in.
+    // Language remains an explicit saved preference, editable from this form.
     if(state.preference)language.value=state.preference.locale;
-    language.disabled=!!state.preference||state.status!=='ready';
+    language.disabled=state.status!=='ready';
     dirty(state);
     retry.hidden=state.status!=='error';retry.textContent=state.retryable?m.retry:m.reload;
     status.textContent=state.status==='loading'?m.loading:state.status==='saving'?m.saving:
@@ -33,6 +32,6 @@ export function bindPreferenceView(root:HTMLElement,controller:ReturnType<typeof
   const submitted=(event:SubmitEvent)=>{event.preventDefault();draft=choice.checked;
     if(isLocale(language.value))void controller.save(draft,language.value,locale);};
   const retried=()=>{const state=controller.getState();void(state.retryable?controller.retry():controller.refresh());};
-  choice.addEventListener('change',changed);form.addEventListener('submit',submitted);retry.addEventListener('click',retried);
-  return ()=>{unsubscribe();choice.removeEventListener('change',changed);form.removeEventListener('submit',submitted);retry.removeEventListener('click',retried);root.hidden=true;};
+  choice.addEventListener('change',changed);language.addEventListener('change',changed);form.addEventListener('submit',submitted);retry.addEventListener('click',retried);
+  return ()=>{unsubscribe();choice.removeEventListener('change',changed);language.removeEventListener('change',changed);form.removeEventListener('submit',submitted);retry.removeEventListener('click',retried);root.hidden=true;};
 }

@@ -11,6 +11,12 @@ activation is ready for user testing; actual email delivery is not yet verified.
 
 ## Current continuation checkpoint
 
+- Reminder language is now editable directly in the reminder form after first
+  consent. Save uses the existing explicit correspondence endpoint, preserves
+  consent/timing on language-only changes and keeps the same command on uncertain
+  retries. No site-switch coupling. User explicitly requested this UI fix without
+  tests; no automated checks/build or external preference writes were run for it.
+
 - Corrected manual QA to mirror the real reminder: server reads saved consent
   and correspondence language, never a page-language request. It uses the same
   reminder renderer and no-login management links, with final consent/language
