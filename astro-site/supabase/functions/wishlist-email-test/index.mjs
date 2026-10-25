@@ -9,6 +9,7 @@ import {createEmailCatalogSource} from '../../../src/features/reminders/data/ema
 import {createBrevoDelivery} from '../../../src/features/reminders/data/brevo-delivery.ts';
 import {createWishlistSummarySender} from '../../../src/features/reminders/presentation/send-wishlist-summary.ts';
 import {createSummaryTestHandler} from '../../../src/features/reminders/presentation/summary-test-handler.ts';
+import {createSummaryTestLedger} from '../../../src/features/reminders/data/summary-test-ledger.ts';
 
 let handler;
 try{
@@ -32,7 +33,8 @@ try{
       ...clientOptions,accessToken:async()=>bearer,
     }),[configuration.recipient],configuration.timeoutMs),
   });
-  handler=createSummaryTestHandler({senderForBearer,verifyUser:createPreferenceUserVerifier(auth),...configuration,bodyTimeoutMs:configuration.timeoutMs,now:Date.now});
+  handler=createSummaryTestHandler({senderForBearer,verifyUser:createPreferenceUserVerifier(auth),...configuration,
+    ...(configuration.durableTests?{ledger:createSummaryTestLedger(backend,configuration.timeoutMs)}:{}),bodyTimeoutMs:configuration.timeoutMs,now:Date.now});
 }catch{
   handler=async()=>new Response(JSON.stringify({error:'unavailable'}),{status:503,headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});
 }

@@ -7,7 +7,7 @@ import {newManagementToken,hashManagementToken} from './management-service.ts';
  * guessed default. Retry the same email job with its same previously issued link. */
 export function createManagementIssuer(client:Pick<SupabaseClient,'rpc'>,options:{lifetimeMs:number;timeoutMs:number;now:()=>number}){
   if([options.lifetimeMs,options.timeoutMs].some(value=>!Number.isSafeInteger(value)||value<1))throw new Error('[reminders] Reviewed capability lifetime/deadline required.');
-  return {async issue(userId:string,origin:string,locale:Locale):Promise<string|null>{
+  async function issueWithExpiry(userId:string,origin:string,locale:Locale):Promise<{url:string;expiresAt:string}|null>{
     if(!isPreferenceRequestId(userId)||!isLocale(locale))return null;
     const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),options.timeoutMs);
     try{
@@ -16,7 +16,8 @@ export function createManagementIssuer(client:Pick<SupabaseClient,'rpc'>,options
       const {data,error}=await client.rpc('issue_wishlist_correspondence_token',{
         p_user_id:userId,p_token_hash:await hashManagementToken(token),p_expires_at:expiresAt,
       }).abortSignal(controller.signal);
-      return error||data!==true?null:url;
+      return error||data!==true?null:{url,expiresAt};
     }catch{return null;}finally{clearTimeout(timer);}
-  }};
+  }
+  return {issueWithExpiry,async issue(userId:string,origin:string,locale:Locale){return (await issueWithExpiry(userId,origin,locale))?.url??null;}};
 }

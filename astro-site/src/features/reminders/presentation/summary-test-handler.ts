@@ -2,21 +2,28 @@ import type {createWishlistSummarySender} from './send-wishlist-summary.ts';
 import type {PreferenceUserResult} from './preferences-handler.ts';
 import {isPreferenceRequestId} from '../domain/preferences.ts';
 import {isLocale,type Locale} from '../../../shared/config/languages.ts';
+import type {SummaryTestLedger} from '../data/summary-test-ledger.ts';
 
-/** One explicitly authorized test job, never a general public email endpoint.
- * The same fixed Brevo key is reused throughout a window shorter than its
- * documented 30-minute deduplication TTL. No timers, automatic retry or Cron. */
+/** Restricted QA only. Legacy jobs stay within provider deduplication lifetime;
+ * durable jobs get separate immutable language IDs and private once-only ledger.
+ * No timers, automatic retry or customer-facing immediate email feature. */
 export function createSummaryTestHandler(options:{
   senderForBearer:(bearer:string)=>ReturnType<typeof createWishlistSummarySender>;
   verifyUser:(bearer:string)=>Promise<PreferenceUserResult>;
   userId:string;deliveryId:string;locale:Locale;
   allowedOrigin:string;createdAt:number;expiresAt:number;now:()=>number;bodyTimeoutMs:number;
+  jobs?:Partial<Record<Locale,string>>|null;ledger?:SummaryTestLedger;
 }){
   if(!isPreferenceRequestId(options.userId)||!isPreferenceRequestId(options.deliveryId)
     ||!isLocale(options.locale)
     ||!Number.isFinite(options.createdAt)||!Number.isFinite(options.expiresAt)
-    ||options.expiresAt<=options.createdAt||options.expiresAt-options.createdAt>=30*60*1000)
+    ||options.expiresAt<=options.createdAt||options.expiresAt-options.createdAt>=(options.ledger?7*24*60*60*1000:30*60*1000))
     throw new Error('[wishlist-email] Explicit bounded test job required.');
+  const jobs=new Map<Locale,string>([[options.locale,options.deliveryId]]);
+  for(const [locale,id]of Object.entries(options.jobs??{})){
+    if(!isLocale(locale)||!isPreferenceRequestId(id))throw new Error('[wishlist-email] Invalid language test job.');jobs.set(locale,id);
+  }
+  if(new Set(jobs.values()).size!==jobs.size)throw new Error('[wishlist-email] Each language needs a distinct immutable job.');
   if(!Number.isSafeInteger(options.bodyTimeoutMs)||options.bodyTimeoutMs<1)throw new Error('[wishlist-email] Body deadline required.');
   if(new URL(options.allowedOrigin).origin!==options.allowedOrigin)throw new Error('[wishlist-email] Explicit test origin required.');
   return async(request:Request):Promise<Response>=>{
@@ -64,9 +71,17 @@ export function createSummaryTestHandler(options:{
       // This endpoint represents ONE immutable test job. Its delivery key must
       // never acknowledge a different locale after provider deduplication.
       // A new authorized language test gets a new job configured in that locale.
-      if(locale!==options.locale)return reply(409,{error:'job-locale-mismatch',locale:options.locale});
+      const deliveryId=jobs.get(locale);
+      if(!deliveryId)return reply(409,{error:'job-locale-mismatch',locale:options.locale});
       // Switching language never creates another job or bypasses its fixed key.
-      const result=await options.senderForBearer(bearer).sendForUser(user.userId,locale,options.deliveryId);
+      if(options.ledger){const lease=await options.ledger.claim(deliveryId,user.userId,locale);
+        if(lease.outcome==='accepted')return reply(200,{status:'accepted',messageId:lease.messageId,locale});
+        if(lease.outcome==='unknown')return reply(503,{status:'unknown'});
+      }
+      let result;
+      try{result=await options.senderForBearer(bearer).sendForUser(user.userId,locale,deliveryId);}
+      catch{if(options.ledger)await options.ledger.finish(deliveryId,user.userId,locale,'unknown',null);return reply(503,{status:'unknown'});}
+      if(options.ledger)await options.ledger.finish(deliveryId,user.userId,locale,result.status==='accepted'?'accepted':['empty','blocked'].includes(result.status)?'retryable':'unknown',result.status==='accepted'?result.messageId:null);
       return reply(result.status==='accepted'?200:result.status==='empty'?409:result.status==='deferred'?429:503,
         result.status==='accepted'?{...result,locale}:result);
     }catch{return reply(503,{status:'unknown'});}

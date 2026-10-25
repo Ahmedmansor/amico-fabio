@@ -1,9 +1,9 @@
 {
   "title": "Test email dei preferiti",
-  "description": "Invia le escursioni e i pacchetti salvati all’indirizzo email di prova autorizzato. Questo non attiva i promemoria.",
+  "description": "Prova il modello nella lingua della pagina usando le escursioni e i pacchetti salvati. Ogni lingua viene inviata una sola volta all’indirizzo di prova autorizzato. Questo non cambia la lingua dei promemoria e non li attiva.",
   "send": "Invia email di prova",
   "sending": "Invio dei preferiti…",
-  "accepted": "Brevo ha accettato l’email. Controlla la posta in arrivo e lo spam.",
+  "accepted": "L’email di prova in questa lingua è stata accettata. Viene inviata una sola volta: controlla Posta in arrivo, Promozioni e Spam.",
   "failed": "Non è stato possibile inviare l’email di prova. Verifica di usare l’account di prova autorizzato.",
   "unknown": "Non è stato possibile confermare l’invio. Controlla la posta prima di riprovare.",
   "expired": "Questo test è scaduto. È necessario un nuovo test autorizzato.",

@@ -7,6 +7,7 @@ export function createBrevoDelivery(options:{
   apiKey:string|null;sender:{email:string;name:string};allowedRecipients:readonly string[];
   isDispatchAllowed:()=>boolean;
   fetcher:typeof fetch;timeoutMs:number;maxResponseBytes:number;maxRequestBytes:number;
+  correlateDelivery?:boolean;
 }):WishlistDeliveryPort {
   const sender={email:validatedMailAddress(options.sender.email),name:options.sender.name};
   if(!sender.name.trim()||/[\r\n]/.test(sender.name))throw new Error('[wishlist-email] Invalid sender name.');
@@ -21,7 +22,7 @@ export function createBrevoDelivery(options:{
     if(!options.apiKey || /\s/.test(options.apiKey))return {status:'rejected',reason:'unavailable'};
     const body=JSON.stringify({sender,to:[{email:input.recipient,contactPixelTrackingConsent:false}],
       subject:input.content.subject,htmlContent:input.content.htmlContent,textContent:input.content.textContent,
-      headers:{idempotencyKey:input.deliveryId}});
+      headers:{idempotencyKey:input.deliveryId,...(options.correlateDelivery?{'X-Mailin-custom':JSON.stringify({deliveryId:input.deliveryId})}:{})}});
     if(new TextEncoder().encode(body).byteLength>options.maxRequestBytes)return {status:'rejected',reason:'invalid-input'};
     try {
       const response=await fetcher('https://api.brevo.com/v3/smtp/email',{

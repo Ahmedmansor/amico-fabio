@@ -12,6 +12,26 @@ function fixture(overrides={}){
   return {calls,bearers,options,handler:createSummaryTestHandler(options)};
 }
 const request=(options={})=>new Request(origin+'/email-test',{method:'POST',headers:{Origin:origin,Authorization:'Bearer synthetic-test-token'},...options});
+
+test('durable bilingual QA can stay open beyond provider TTL but sends each immutable language job once',async()=>{
+  const records=new Map();
+  const ledger={async claim(id,user,locale){const key=id+user+locale;if(records.has(key))return records.get(key);records.set(key,{outcome:'unknown'});return {outcome:'new'};},
+    async finish(id,user,locale,status,messageId){records.set(id+user+locale,status==='accepted'?{outcome:'accepted',messageId}:{outcome:'unknown'});}};
+  const itId='00000000-0000-4000-8000-000000000003';
+  const f=fixture({jobs:{it:itId,en:other},ledger,expiresAt:now+24*60*60*1000});
+  for(const locale of ['it','en','it','en']){
+    const reply=await f.handler(request({headers:{Origin:origin,Authorization:'Bearer synthetic-test-token','Content-Type':'application/json'},body:JSON.stringify({locale})}));
+    assert.equal(reply.status,200);assert.equal((await reply.json()).locale,locale);
+  }
+  assert.deepEqual(f.calls,[[userId,'it',itId],[userId,'en',other]]);
+  assert.throws(()=>fixture({jobs:{it:other,en:other},ledger}));
+});
+test('durable QA never retries an ambiguous send or overwrites its language identity',async()=>{
+  let claimed=false,sends=0;
+  const ledger={async claim(){if(claimed)return {outcome:'unknown'};claimed=true;return {outcome:'new'};},async finish(){}};
+  const f=fixture({ledger,senderForBearer:()=>({sendForUser:async()=>{sends++;return {status:'unknown'};}})});
+  assert.equal((await f.handler(request())).status,503);assert.equal((await f.handler(request())).status,503);assert.equal(sends,1);
+});
 test('legacy empty requests use fixed owner/default locale/delivery ID without recipient input',async()=>{
   const f=fixture();for(let attempt=0;attempt<2;attempt++)assert.equal((await f.handler(request())).status,200);
   assert.deepEqual(f.calls,[[userId,'en',other],[userId,'en',other]]);

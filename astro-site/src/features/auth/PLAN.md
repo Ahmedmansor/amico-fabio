@@ -10,6 +10,13 @@ wishlists or reminder delivery responsibilities of the Auth feature.
 
 ### Current continuation checkpoint — 2026-10-25
 
+- Full remaining pipeline is now source-prepared: private one-job queue, leases,
+  final eligibility/daily-budget gate, immutable content, provider reconciliation/
+  suppression, scoped Cron/bootstrap and durable once-per-language QA. See
+  `../../../qa/reminders/DISPATCH.md` and `../../../supabase/reminder-dispatch/`.
+  These additional SQL/Cron/provider/deployment actions are not yet executed.
+  Previously applied correspondence schema/preferences v3 remain live. The next
+  user test should follow one combined final activation, not isolated UI stages.
 - Product scope clarified by the user: there is no customer-facing immediate
   "send my favorites" feature. The send button is a restricted QA tool only;
   keep it outside the customer journey and production release requirements.

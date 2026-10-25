@@ -1,5 +1,7 @@
 {
   "enabled": false,
+  "durableTests": false,
+  "jobs": null,
   "userId": "REQUIRES_AUTHORIZED_ACCOUNT_UUID",
   "recipient": "REQUIRES_AUTHORIZED_TEST_ADDRESS",
   "senderEmail": "info@fabioegypt.com",

@@ -1,9 +1,9 @@
 {
   "title": "Favorites email test",
-  "description": "Send your saved tours and packages to the approved test email address. This does not turn on reminders.",
+  "description": "Test the template in the current page language using your saved tours and packages. Each language is sent once to the approved test address. This does not change reminder language or turn on reminders.",
   "send": "Send test email",
   "sending": "Sending your favorites…",
-  "accepted": "Brevo accepted the email. Check your inbox and spam folder.",
+  "accepted": "This language’s test email has been accepted. It is sent only once; check your inbox, Promotions and spam folders.",
   "failed": "The test email could not be sent. Check that you are using the approved test account.",
   "unknown": "The sending result could not be confirmed. Check your inbox before trying again.",
   "expired": "This test has expired. A new authorized test is needed.",
