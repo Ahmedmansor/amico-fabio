@@ -2,6 +2,14 @@
 
 ## Latest checkpoint — 2026-10-25
 
+Authorized live continuation: correspondence-policy, token and ingress schemas
+are now applied and all three real rollback role-test scripts passed. Cleanup
+counts are zero; private RLS/browser RPC denial verified. Preference Edge v3 is
+ACTIVE and the consent UI is enabled only in ignored localhost 4322 settings
+after explicit approval. This supersedes unapplied/disabled statements below.
+See ../../../qa/reminders/LIVE_CORRESPONDENCE.md. Management Edge, automatic
+delivery and QA email renewal remain off; real signed-in UI testing is pending.
+
 Latest source implementation: browsing no longer writes account/correspondence
 language; retired pending site commands are discarded. First opt-in shows a
 supported-language selector and carries displayed consent language separately.
