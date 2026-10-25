@@ -2,7 +2,7 @@ import type { AccountWishlistRepository, WishlistFailure, WishlistResult } from 
 import { planGuestMerge } from '../domain/merge.ts';
 import type { GuestMergePort } from './guest-merge.ts';
 import { normalizeWishlist } from '../domain/wishlist.ts';
-import { readAccountWishlistCache, saveAccountWishlistCache } from './wishlist-cache.ts';
+import { readAccountWishlistCache, saveAccountWishlistCache, isAccountWishlistCacheFresh } from './wishlist-cache.ts';
 export interface WishlistState {
   status:'guest'|'loading'|'account'|'error'; userId:string|null; ids:string[]|null;
   pendingGuest:number; unavailableGuest:number; busy:boolean; error:WishlistFailure|null;
@@ -75,11 +75,20 @@ export function createWishlistCoordinator(repository:AccountWishlistRepository,g
       const cachedAccount = userId ? readAccountWishlistCache(userId) : null;
       const initialIds = userId ? cachedAccount : (local.ok ? local.value : null);
       state={status:userId?(cachedAccount?'account':'loading'):'guest',userId,ids:initialIds,pendingGuest:0,unavailableGuest:initialIds?unavailable(initialIds):0,busy:userId?!cachedAccount:false,error:local.ok?null:'storage'};emit();
-      return userId?enqueue(()=>load(userId,revision,true,false)):good(undefined);
+      if(!userId)return good(undefined);
+      const isFresh = isAccountWishlistCacheFresh(userId);
+      const unmergedGuest = local.ok && cachedAccount ? local.value.filter(id => !cachedAccount.includes(id)).length : (local.ok ? local.value.length : 0);
+      if(isFresh && unmergedGuest === 0){
+        return good(undefined);
+      }
+      return enqueue(()=>load(userId,revision,true,false));
     },
-    async refresh(){
+    async refresh(force = false){
       const userId=state.userId,revision=generation;
       if(!userId){const local=guest.read();state={...state,ids:local.ok?local.value:null,unavailableGuest:local.ok?unavailable(local.value):0,error:local.ok?null:'storage'};emit();return good(undefined);}
+      if(!force && isAccountWishlistCacheFresh(userId)){
+        return good(undefined);
+      }
       return enqueue(()=>load(userId,revision,false,false));
     },
     async merge(){

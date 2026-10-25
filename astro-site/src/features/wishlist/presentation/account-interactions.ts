@@ -83,7 +83,7 @@ export async function initializeAccountWishlist(){
   function connect(userId:string|null){
     if(currentUser===userId)return;
     currentUser=userId;authFailed=false;
-    void coordinator.connect(userId).then(result=>{if(result.ok)announce();});
+    void coordinator.connect(userId);
   }
   if(service)getAccountState(service).subscribe(state=>{
     if(state.status==='loading'){render(coordinator.getState());return;}

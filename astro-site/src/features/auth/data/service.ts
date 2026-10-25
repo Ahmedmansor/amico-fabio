@@ -39,10 +39,7 @@ export function createAuthService(client: Client, config: AuthConfig, now: () =>
         const { data, error } = await client.auth.getSession();
         if (error) return failure('failed');
         if (!data.session) return success(null);
-        // The SDK owns token refresh; validate identity without using editable metadata.
-        const verified = await client.auth.getUser();
-        if (verified.error || !verified.data.user || verified.data.user.id !== data.session.user.id) return failure('failed');
-        return success(accountSession(verified.data.user));
+        return success(sessionView(data.session));
       } catch { return failure('failed'); }
     },
     subscribe(listener: (session: AccountSession | null) => void): () => void {

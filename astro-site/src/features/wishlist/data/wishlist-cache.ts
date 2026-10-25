@@ -33,18 +33,35 @@ export function saveAccountWishlistCache(userId: string, ids: readonly string[],
   }
 }
 
-export function readAccountWishlistCache(userId: string, storage?: Pick<Storage, 'getItem'>): string[] | null {
+export const WISHLIST_CACHE_MAX_AGE_MS = 5 * 60 * 1000;
+
+export function getAccountWishlistCacheEntry(userId: string, storage?: Pick<Storage, 'getItem'>): CachedAccountWishlist | null {
   const store = storage ?? resolveStorage();
   if (!store || !userId?.trim()) return null;
   try {
     const raw = store.getItem(accountKey(userId));
     if (!raw || raw.length > 32768) return null;
     const data = JSON.parse(raw);
-    if (!data || data.userId !== userId.trim() || !Array.isArray(data.ids)) return null;
-    return data.ids.filter((id: unknown): id is string => typeof id === 'string' && id.trim().length > 0);
+    if (!data || data.userId !== userId.trim() || !Array.isArray(data.ids) || typeof data.savedAt !== 'number') return null;
+    return {
+      userId: data.userId,
+      ids: data.ids.filter((id: unknown): id is string => typeof id === 'string' && id.trim().length > 0),
+      savedAt: data.savedAt,
+    };
   } catch {
     return null;
   }
+}
+
+export function isAccountWishlistCacheFresh(userId: string, maxAgeMs = WISHLIST_CACHE_MAX_AGE_MS, now: () => number = Date.now, storage?: Pick<Storage, 'getItem'>): boolean {
+  const entry = getAccountWishlistCacheEntry(userId, storage);
+  if (!entry) return false;
+  const age = now() - entry.savedAt;
+  return age >= 0 && age < maxAgeMs;
+}
+
+export function readAccountWishlistCache(userId: string, storage?: Pick<Storage, 'getItem'>): string[] | null {
+  return getAccountWishlistCacheEntry(userId, storage)?.ids ?? null;
 }
 
 export function clearAccountWishlistCache(userId?: string, storage?: Pick<Storage, 'removeItem' | 'length' | 'key'>): void {

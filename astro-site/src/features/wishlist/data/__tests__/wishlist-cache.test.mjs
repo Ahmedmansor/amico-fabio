@@ -5,6 +5,7 @@ import {
   readAccountWishlistCache,
   clearAccountWishlistCache,
   readInitialWishlistIds,
+  isAccountWishlistCacheFresh,
 } from '../wishlist-cache.ts';
 import { authProfileCacheKey } from '../../../auth/data/auth-cache.ts';
 import { guestWishlistPrefix, guestPackagePrefix } from '../guest-storage.ts';
@@ -64,4 +65,13 @@ test('wishlist-cache: readInitialWishlistIds falls back to guest items when no a
   const initial = readInitialWishlistIds(storage);
   assert.equal(initial.userId, null);
   assert.deepEqual([...initial.ids].sort(), ['package:classic-sinai', 'ras-mohammed']);
+});
+
+test('wishlist-cache: isAccountWishlistCacheFresh verifies cache within max age', () => {
+  const storage = createMockStorage();
+  assert.equal(isAccountWishlistCacheFresh('u1', 5000, () => 1000, storage), false);
+
+  saveAccountWishlistCache('u1', ['trip:1'], storage, () => 1000);
+  assert.equal(isAccountWishlistCacheFresh('u1', 5000, () => 2000, storage), true);
+  assert.equal(isAccountWishlistCacheFresh('u1', 5000, () => 7000, storage), false);
 });

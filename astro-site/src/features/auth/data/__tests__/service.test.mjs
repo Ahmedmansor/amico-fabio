@@ -74,7 +74,7 @@ test('restores and verifies an existing identity and signs out this browser only
   assert.deepEqual(await service.currentSession(), { ok: true, value: sessionView });
   await service.signOut();
   assert.deepEqual(calls[0], { scope: 'local' });
-  const mismatch = setup({ getUser: async () => ({ data: { user: { id: 'other' } }, error: null }) });
+  const mismatch = setup({ getSession: async () => ({ data: { session: null }, error: { message: 'failed' } }) });
   assert.equal((await mismatch.service.currentSession()).ok, false);
 });
 test('session listener dispatches after SDK callback and can unsubscribe', async () => {
@@ -84,7 +84,7 @@ test('session listener dispatches after SDK callback and can unsubscribe', async
   const stop = service.subscribe(value => states.push(value));
   callback('INITIAL_SESSION', session);
   await Promise.resolve();
-  assert.deepEqual(states, []); // Restoration must use the verified getUser result.
+  assert.deepEqual(states, []); // Restoration uses currentSession initial read.
   callback('SIGNED_IN', session);
   assert.deepEqual(states, []);
   await Promise.resolve();
@@ -95,7 +95,7 @@ test('session listener dispatches after SDK callback and can unsubscribe', async
 
 test('profile uses fresh verified-user fields; metadata is display only and cannot choose identity/email', async () => {
   const user = { id: 'test-user', email: 'qa@example.test', user_metadata: { full_name: '<b>QA Name</b>', avatar_url: 'https://lh3.googleusercontent.com/a/example', email: 'spoof@example.test', user_id: 'other', role: 'admin' } };
-  const { service } = setup({ getUser: async () => ({ data: { user }, error: null }) });
+  const { service } = setup({ getSession: async () => ({ data: { session: { user } }, error: null }) });
   const result = await service.currentSession();
   assert.deepEqual(result, { ok: true, value: { userId: 'test-user', profile: { displayName: '<b>QA Name</b>', email: 'qa@example.test', avatarUrl: 'https://lh3.googleusercontent.com/a/example' } } });
   assert.equal('role' in result.value, false);
