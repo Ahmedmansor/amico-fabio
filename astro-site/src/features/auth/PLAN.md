@@ -2,6 +2,14 @@
 
 ## Magic Link protection correction — 2026-10-26
 
+Email UI correction: sign-in/sign-up now has a separate "Continue with email"
+choice that expands the labeled email input and send-link button. Local dev
+renders this choice for visual review even while `emailEnabled` is false; sending
+then stays disabled with a localized availability message and a submit guard.
+Production still exposes email only when its existing activation gate is enabled.
+IT/EN mobile/desktop UI and synthetic sending/callback browser checks passed;
+this is not evidence of real email activation or inbox delivery.
+
 Local correction now implements a signed HTTP boundary, static localized fragment
 callback, atomic hourly/UTC-day admission, durable dispatch replay protection,
 bounded provider I/O and IPv6/temporary-DNS fallback handling. The SQL proposal

@@ -24,6 +24,7 @@ async function initialize() {
   const account = dialog.querySelector<HTMLElement>('[data-auth-account]')!;
   const status = dialog.querySelector<HTMLElement>('[data-auth-status]')!;
   const form = dialog.querySelector<HTMLFormElement>('[data-auth-form]');
+  const emailToggle = dialog.querySelector<HTMLButtonElement>('[data-auth-email-toggle]');
   const email = dialog.querySelector<HTMLInputElement>('#auth-email');
   const inputError = dialog.querySelector<HTMLElement>('[data-auth-input-error]');
   const suggestion = dialog.querySelector<HTMLElement>('[data-auth-email-suggestion]');
@@ -127,7 +128,8 @@ async function initialize() {
       }
     }
     const remaining = service?.remainingCooldown() ?? 0;
-    if (send) send.disabled = pending || !service || remaining > 0;
+    if (send) send.disabled = !config.emailEnabled || pending || !service || remaining > 0;
+    if (emailToggle) emailToggle.disabled = pending;
     if (google) google.disabled = pending || !service;
     if (email) email.disabled = pending || !service;
     signout.disabled = pending || !service;
@@ -183,7 +185,7 @@ async function initialize() {
       render();
       dialog.showModal();
       if (session) localeBinding?.refresh();
-      (session ? signout : email ?? google)?.focus();
+      (session ? signout : google ?? emailToggle ?? email)?.focus();
     });
   }
   modeSwitch.addEventListener('click', () => {
@@ -194,6 +196,12 @@ async function initialize() {
     if (inputError) inputError.hidden = true;
     email?.removeAttribute('aria-invalid');
     render();
+  });
+  emailToggle?.addEventListener('click', () => {
+    if (!form || pending) return;
+    form.hidden = !form.hidden;
+    emailToggle.setAttribute('aria-expanded', String(!form.hidden));
+    if (!form.hidden) email?.focus();
   });
   dialog.querySelector('[data-auth-close]')!.addEventListener('click', () => dialog.close());
   dialog.addEventListener('keydown', event => {
@@ -212,7 +220,7 @@ async function initialize() {
   });
   form?.addEventListener('submit', async event => {
     event.preventDefault();
-    if (!service || pending || !email) return;
+    if (!config.emailEnabled || !service || pending || !email) return;
     recordPendingOptIn();
     pending = true;
     if (inputError) inputError.hidden = true;
@@ -281,7 +289,7 @@ async function initialize() {
       show(service ? '' : m.unavailable);
       render();
       dialog.showModal();
-      (session ? signout : email ?? google)?.focus();
+      (session ? signout : google ?? emailToggle ?? email)?.focus();
       const cleanUrl = new URL(window.location.href);
       cleanUrl.searchParams.delete('auth');
       window.history.replaceState(null, '', cleanUrl.pathname + (cleanUrl.search ? cleanUrl.search : '') + cleanUrl.hash);

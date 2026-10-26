@@ -67,7 +67,7 @@ try {
     const page = await context.newPage();
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
-    await page.goto(`${origin}/${locale}/wishlist/`);
+    await page.goto(`${origin}/${locale}/wishlist/`, {waitUntil: 'domcontentloaded'});
     await consent(page, locale);
     await openDialog(page, width);
     await shot(page, `${locale}-${width}-signin.png`);
@@ -80,6 +80,8 @@ try {
     assert.match(await page.locator('#auth-title').innerText(), /Fabio Egypt/);
     assert.equal(calls.authorizes, 0);
     assert.equal(calls.sends, 0);
+    await page.locator('[data-auth-email-toggle]').click();
+    assert.equal(await page.locator('[data-auth-email-toggle]').getAttribute('aria-expanded'), 'true');
     await page.locator('#auth-email').fill('invalid');
     await page.locator('[data-auth-send]').click();
     await page.locator('[data-auth-input-error]').waitFor({ state: 'visible' });
@@ -111,7 +113,7 @@ try {
     const freshCalls = await mock(fresh);
     const callback = await fresh.newPage();
     callback.on('pageerror', error => errors.push(error.message));
-    await callback.goto(`${origin}/${locale}/auth/callback/?next=//evil.test/#token_hash=synthetic_email_hash&type=email`);
+    await callback.goto(`${origin}/${locale}/auth/callback/?next=//evil.test/#token_hash=synthetic_email_hash&type=email`, {waitUntil: 'domcontentloaded'});
     await consent(callback, locale);
     await callback.locator('[data-auth-continue]').waitFor({ state: 'visible' });
     assert.equal(new URL(callback.url()).search, '');
@@ -141,7 +143,7 @@ try {
   const expired = await browser.newContext();
   const expiredCalls = await mock(expired, true);
   const expiredPage = await expired.newPage();
-  await expiredPage.goto(`${origin}/en/auth/callback/#token_hash=synthetic_email_hash&type=email`);
+  await expiredPage.goto(`${origin}/en/auth/callback/#token_hash=synthetic_email_hash&type=email`, {waitUntil: 'domcontentloaded'});
   await consent(expiredPage, 'en');
   await expiredPage.locator('[data-auth-continue]').click();
   await expiredPage.locator('[data-auth-continue]').waitFor({ state: 'hidden' });
@@ -151,7 +153,7 @@ try {
   const googleContext = await browser.newContext();
   const googleCalls = await mock(googleContext);
   const googlePage = await googleContext.newPage();
-  await googlePage.goto(`${origin}/en/wishlist/`);
+  await googlePage.goto(`${origin}/en/wishlist/`, {waitUntil: 'domcontentloaded'});
   await consent(googlePage, 'en');
   await openDialog(googlePage, 1280);
   await googlePage.locator('[data-auth-google]').click();
@@ -159,7 +161,7 @@ try {
   assert.equal(googleCalls.authorizes, 1);
   // Repeat the complete Google round trip after local signout, with no Continue click.
   for (let attempt = 0; attempt < 2; attempt++) {
-    await googlePage.goto(`${origin}/en/auth/callback/?code=synthetic_google_code&next=/en/wishlist/`);
+    await googlePage.goto(`${origin}/en/auth/callback/?code=synthetic_google_code&next=/en/wishlist/`, {waitUntil: 'domcontentloaded'});
     await googlePage.waitForURL(`${origin}/en/wishlist/`);
     assert.equal(googleCalls.exchanges, attempt + 1);
     await openDialog(googlePage, 1280);
@@ -175,12 +177,12 @@ try {
   const failedGoogle = await browser.newContext();
   const failedGoogleCalls = await mock(failedGoogle, true);
   const failedGooglePage = await failedGoogle.newPage();
-  await failedGooglePage.goto(`${origin}/en/wishlist/`);
+  await failedGooglePage.goto(`${origin}/en/wishlist/`, {waitUntil: 'domcontentloaded'});
   await consent(failedGooglePage, 'en');
   await openDialog(failedGooglePage, 1280);
   await failedGooglePage.locator('[data-auth-google]').click();
   await failedGooglePage.waitForURL('https://auth-qa.invalid/**');
-  await failedGooglePage.goto(`${origin}/en/auth/callback/?code=synthetic_google_code`);
+  await failedGooglePage.goto(`${origin}/en/auth/callback/?code=synthetic_google_code`, {waitUntil: 'domcontentloaded'});
   await failedGooglePage.locator('[data-auth-callback-status]').filter({ hasText: /invalid, expired or already used/ }).waitFor();
   assert.equal(failedGoogleCalls.exchanges, 1);
   assert.equal(await failedGooglePage.locator('[data-auth-continue]').isVisible(), false);
@@ -190,7 +192,7 @@ try {
   const deniedCalls = await mock(deniedContext);
   await deniedContext.addInitScript(() => Object.defineProperty(window, 'localStorage', { get() { throw new Error('storage denied'); } }));
   const denied = await deniedContext.newPage();
-  await denied.goto(`${origin}/en/wishlist/`);
+  await denied.goto(`${origin}/en/wishlist/`, {waitUntil: 'domcontentloaded'});
   await consent(denied, 'en');
   await openDialog(denied, 1280);
   assert.match(await denied.locator('[data-auth-status]').innerText(), /currently unavailable/);
@@ -199,7 +201,7 @@ try {
   await deniedContext.close();
   const noJS = await browser.newContext({ javaScriptEnabled: false });
   const staticPage = await noJS.newPage();
-  await staticPage.goto(`${origin}/en/auth/callback/`);
+  await staticPage.goto(`${origin}/en/auth/callback/`, {waitUntil: 'domcontentloaded'});
   assert.equal(await staticPage.locator('[data-auth-continue]').isVisible(), false);
   assert.match(await staticPage.locator('.auth-callback noscript').innerText(), /Enable JavaScript/);
   await noJS.close();

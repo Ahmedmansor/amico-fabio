@@ -51,6 +51,11 @@
 .auth-button:disabled { opacity:.55; cursor:wait; }
 .auth-google { position:relative; padding-inline:48px; }
 .auth-google svg { position:absolute; left:16px; flex-shrink:0; }
+.auth-email-choice { position:relative; padding-inline:48px; }
+.auth-email-choice svg { position:absolute; left:16px; }
+.auth-method-divider { display:flex; align-items:center; gap:12px; color:var(--color-text-muted); font-size:.85rem; margin:16px 0; }
+.auth-method-divider::before,.auth-method-divider::after { content:""; height:1px; flex:1; background:var(--color-gold); opacity:.35; }
+.auth-button[data-auth-send]:disabled { cursor:not-allowed; }
 .auth-mode-switch { text-align:center; }
 .auth-mode-switch button { display:inline; min-height:44px; padding:4px; border:0; background:transparent; color:var(--color-gold-soft); font:inherit; font-weight:600; text-decoration:underline; text-underline-offset:4px; cursor:pointer; }
 .auth-mode-switch button:disabled { opacity:.55; cursor:wait; }

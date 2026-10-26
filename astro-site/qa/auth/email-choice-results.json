@@ -1,0 +1,34 @@
+[
+  {
+    "locale": "it",
+    "width": 375,
+    "visibleEmailChoice": true,
+    "expandableForm": true,
+    "disabledDelivery": true,
+    "sends": 0
+  },
+  {
+    "locale": "it",
+    "width": 1440,
+    "visibleEmailChoice": true,
+    "expandableForm": true,
+    "disabledDelivery": true,
+    "sends": 0
+  },
+  {
+    "locale": "en",
+    "width": 375,
+    "visibleEmailChoice": true,
+    "expandableForm": true,
+    "disabledDelivery": true,
+    "sends": 0
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "visibleEmailChoice": true,
+    "expandableForm": true,
+    "disabledDelivery": true,
+    "sends": 0
+  }
+]

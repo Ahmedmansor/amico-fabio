@@ -1,5 +1,37 @@
 # Auth local implementation checks
 
+## Email choice visibility correction — 2026-10-26
+
+The previous email delivery gate also removed the form from local visual review.
+The dialog now includes an outlined email choice below Google, with an envelope
+icon and a localized divider. Selecting it opens the labeled email field and
+send-link button, using `aria-expanded`/`aria-controls` and input focus.
+
+Local `DEV` renders the email choice independently of live delivery. With the
+real email gate off, submit stays disabled, the IT/EN availability message is
+visible and even programmatic submission cannot request an email. Production
+keeps the existing activation gate. No provider settings or actual sending changed.
+
+Actual verification:
+- `npm test`: 365 Node + 195 Vitest tests passed, zero failures.
+- `npx astro check`: 421 files, zero errors/warnings/hints.
+- `npm run build`: 96 static pages, SEO validation passed.
+- `node qa/auth/browser.mjs`: passed IT/EN at 375/1440px, synthetic request,
+  callback, cooldown, Google PKCE and expired-link checks. Only the fake Auth
+  host is used. Navigation waits for DOM readiness rather than remote images.
+- `node qa/auth/email-choice-preview.mjs`: actual local preview passed the same
+  language/width matrix, form expansion/collapse, disabled delivery, no horizontal
+  overflow, zero page errors and zero OTP requests.
+
+Both browser commands use external `PLAYWRIGHT_MODULE`/`QA_BROWSER` tooling.
+The isolated 4330 fixture must also disable `PUBLIC_WISHLIST_EMAIL_TEST_ENABLED`
+and other real account/reminder integrations to avoid inherited local settings.
+The preview script defaults to the real local dev server on 4322, in fresh browser
+contexts with Auth requests blocked. Its screenshots are ignored under
+`screenshots/email-choice-<locale>-<width>.png` and `email-form-...png`; visual
+inspection confirmed the existing black/gold design and readable mobile layout.
+The expanded form scrolls inside the bounded dialog at small viewport heights.
+
 ## Task 1: SDK/data/domain foundation — 2026-10-23
 
 The user approved `@supabase/supabase-js@2.118.0` after reviewing its name,

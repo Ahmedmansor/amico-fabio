@@ -1,5 +1,5 @@
 ---
-import { authConfig, localeBrowserConfig } from '../data/build-config';
+import { authConfig, emailPresentationEnabled, localeBrowserConfig } from '../data/build-config';
 import { getAuthMessages } from '../data/messages';
 import type { Locale } from '../../../shared/config/languages';
 import './auth.css';
@@ -8,7 +8,7 @@ import {getLocaleMessages} from '../data/locale-messages';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const m = getAuthMessages(locale);
-const intro = authConfig?.googleEnabled && authConfig.emailEnabled ? m.intro : authConfig?.googleEnabled ? m.googleIntro : m.emailIntro;
+const intro = authConfig?.googleEnabled && emailPresentationEnabled ? m.intro : authConfig?.googleEnabled ? m.googleIntro : m.emailIntro;
 const localeSettings = localeBrowserConfig ? {config: localeBrowserConfig, messages: getLocaleMessages(locale)} : null;
 const configuration = JSON.stringify({ config: authConfig, messages: m, locale, localeSettings }).replace(/</g, '\\u003c');
 ---
@@ -28,7 +28,13 @@ const configuration = JSON.stringify({ config: authConfig, messages: m, locale, 
           </svg>
           <span data-auth-google-label>{m.google}</span>
         </button>}
-        {authConfig.emailEnabled && <form data-auth-form novalidate>
+        {emailPresentationEnabled && <>
+        {authConfig.googleEnabled && <div class="auth-method-divider" aria-hidden="true"><span>{m.or}</span></div>}
+        <button type="button" class="auth-button auth-secondary auth-email-choice" data-auth-email-toggle aria-expanded="false" aria-controls="auth-email-form">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
+          <span>{m.continueEmail}</span>
+        </button>
+        <form id="auth-email-form" data-auth-form novalidate hidden>
           <label for="auth-email">{m.email}</label>
           <input id="auth-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" required aria-describedby="auth-input-error auth-email-suggestion auth-guidance"/>
           <div id="auth-email-suggestion" class="auth-suggestion" data-auth-email-suggestion role="status" aria-live="polite" hidden>
@@ -36,10 +42,12 @@ const configuration = JSON.stringify({ config: authConfig, messages: m, locale, 
             <button type="button" class="auth-suggestion-button" data-auth-apply-suggestion>{m.useSuggestion}</button>
           </div>
           <p id="auth-input-error" class="auth-error" data-auth-input-error role="alert" aria-live="assertive" hidden></p>
-          <button type="submit" class="auth-button" data-auth-send>{m.send}</button>
+          <button type="submit" class="auth-button" data-auth-send disabled={!authConfig.emailEnabled} aria-describedby={!authConfig.emailEnabled ? 'auth-email-unavailable' : undefined}>{m.send}</button>
+          {!authConfig.emailEnabled && <p id="auth-email-unavailable">{m.emailUnavailable}</p>}
           <p id="auth-guidance">{m.guidance}</p>
           <p data-auth-countdown role="timer" aria-live="off" hidden></p>
-        </form>}
+        </form>
+        </>}
         <p class="auth-legal-acknowledgement">
           {locale === 'it' ? (
             <>Continuando, accetti i <a href={`/${locale}/legal/#liability`} target="_blank" rel="noopener">{m.terms}</a> e l’<a href={`/${locale}/legal/#intro`} target="_blank" rel="noopener">{m.privacy}</a>.</>

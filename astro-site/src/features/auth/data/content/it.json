@@ -48,5 +48,8 @@
   "welcomeFavoritesSynced": "I tuoi preferiti sono stati salvati nel tuo account.",
   "welcomeFavoritesSyncing": "Salvataggio dei tuoi preferiti in corso…",
   "welcomeFavoritesFailed": "I tuoi preferiti restano al sicuro su questo dispositivo.",
-  "close": "Chiudi"
+  "close": "Chiudi",
+  "continueEmail": "Continua con email",
+  "or": "oppure",
+  "emailUnavailable": "L’accesso via email non è al momento disponibile. Usa Google."
 }

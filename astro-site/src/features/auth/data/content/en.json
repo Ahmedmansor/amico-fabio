@@ -48,5 +48,8 @@
   "welcomeFavoritesSynced": "Your favorites have been saved to your account.",
   "welcomeFavoritesSyncing": "Saving your favorites to your account…",
   "welcomeFavoritesFailed": "Your favorites remain safe on this device.",
-  "close": "Close"
+  "close": "Close",
+  "continueEmail": "Continue with email",
+  "or": "or",
+  "emailUnavailable": "Email sign-in is temporarily unavailable. Please use Google."
 }
