@@ -5,6 +5,7 @@ import {
   completeOnboardingRecord,
   skipOnboardingRecord,
   parseOnboardingRecord,
+  parseOnboardingDecisionResult,
   type AccountOnboardingRecord,
 } from '../onboarding.ts';
 
@@ -143,3 +144,43 @@ describe('parseOnboardingRecord', () => {
     })).toBeNull();
   });
 });
+
+describe('parseOnboardingDecisionResult', () => {
+  it('parses valid applied decision result', () => {
+    const raw = {
+      outcome: 'applied',
+      completedAt: '2026-10-26T02:00:00.000Z',
+      skippedAt: null,
+    };
+    expect(parseOnboardingDecisionResult(raw)).toEqual(raw);
+  });
+
+  it('parses valid skipped decision result', () => {
+    const raw = {
+      outcome: 'applied',
+      completedAt: null,
+      skippedAt: '2026-10-26T02:00:00.000Z',
+    };
+    expect(parseOnboardingDecisionResult(raw)).toEqual(raw);
+  });
+
+  it('parses already-resolved and ineligible outcomes', () => {
+    expect(parseOnboardingDecisionResult({outcome: 'already-resolved', completedAt: null, skippedAt: null})).toEqual({
+      outcome: 'already-resolved',
+      completedAt: null,
+      skippedAt: null,
+    });
+    expect(parseOnboardingDecisionResult({outcome: 'ineligible', completedAt: null, skippedAt: null})).toEqual({
+      outcome: 'ineligible',
+      completedAt: null,
+      skippedAt: null,
+    });
+  });
+
+  it('rejects unknown outcome or invalid timestamps', () => {
+    expect(parseOnboardingDecisionResult(null)).toBeNull();
+    expect(parseOnboardingDecisionResult({outcome: 'bad-outcome'})).toBeNull();
+    expect(parseOnboardingDecisionResult({outcome: 'applied', completedAt: 'bad-date'})).toBeNull();
+  });
+});
+

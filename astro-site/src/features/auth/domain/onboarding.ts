@@ -118,3 +118,57 @@ export function parseOnboardingRecord(value: unknown): AccountOnboardingRecord |
     skippedAt,
   };
 }
+
+export type OnboardingDecisionOutcome =
+  | 'applied'
+  | 'already-resolved'
+  | 'ineligible'
+  | 'version-mismatch'
+  | 'missing-record'
+  | 'invalid-input';
+
+export interface OnboardingDecisionResult {
+  outcome: OnboardingDecisionOutcome;
+  completedAt: string | null;
+  skippedAt: string | null;
+}
+
+export type OnboardingResult<T> =
+  | { ok: true; value: T }
+  | { ok: false; reason: 'unavailable' | 'failed' | 'invalid-input' | 'unauthorized' };
+
+export interface OnboardingRepository {
+  read(userId: string): Promise<OnboardingResult<AccountOnboardingRecord | null>>;
+  recordDecision(
+    userId: string,
+    decision: 'complete' | 'skip',
+    version: string
+  ): Promise<OnboardingResult<OnboardingDecisionResult>>;
+}
+
+export function parseOnboardingDecisionResult(value: unknown): OnboardingDecisionResult | null {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const obj = value as Record<string, unknown>;
+  const allowedOutcomes: OnboardingDecisionOutcome[] = [
+    'applied',
+    'already-resolved',
+    'ineligible',
+    'version-mismatch',
+    'missing-record',
+    'invalid-input',
+  ];
+  if (typeof obj.outcome !== 'string' || !allowedOutcomes.includes(obj.outcome as OnboardingDecisionOutcome)) {
+    return null;
+  }
+  const completedAt = obj.completedAt === null || obj.completedAt === undefined ? null : obj.completedAt;
+  const skippedAt = obj.skippedAt === null || obj.skippedAt === undefined ? null : obj.skippedAt;
+  if (completedAt !== null && !isValidIsoTimestamp(completedAt)) return null;
+  if (skippedAt !== null && !isValidIsoTimestamp(skippedAt)) return null;
+
+  return {
+    outcome: obj.outcome as OnboardingDecisionOutcome,
+    completedAt,
+    skippedAt,
+  };
+}
+
