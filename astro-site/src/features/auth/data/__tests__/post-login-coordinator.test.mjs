@@ -306,7 +306,7 @@ test('complete write failure leaves prompt open for retry and does not suppress 
   assert.equal(f.sessionStore.has(userA), true);
 });
 
-test('skip write failure falls back to local skip and suppresses session', async () => {
+test('skip write failure falls back to local skip, preserves session suppression, does not save to cache, and reconciles later', async () => {
   const f = createFixture();
   f.records.set(userA, {
     userId: userA,
@@ -317,16 +317,211 @@ test('skip write failure falls back to local skip and suppresses session', async
     skippedAt: null,
   });
   f.setWriteFailure(true);
+  const cacheMap = new Map();
 
-  const coordinator = f.createCoordinator();
+  let serverOnline = false;
+  const coordinator = createPostLoginCoordinator({
+    onboardingRepo: {
+      read: async u => ({ok: true, value: f.records.get(u)}),
+      recordDecision: async (_u, _d, _v) => {
+        if (!serverOnline) return {ok: false, reason: 'network-error'};
+        return {ok: true, value: {outcome: 'applied', completedAt: null, skippedAt: new Date().toISOString()}};
+      },
+    },
+    sessionStore: f.sessionStore,
+    cache: {
+      read: (u, v) => cacheMap.get(`${u}:${v}`) ?? null,
+      save: e => cacheMap.set(`${e.userId}:${e.rolloutVersion}`, e),
+    },
+  });
+
   await coordinator.connectUser(userA, {displayName: 'Mario'});
   assert.equal(coordinator.getState().status, 'prompt');
 
+  // Skip fails on server
   const result = await coordinator.skip();
   assert.equal(result.ok, true);
   assert.equal(result.outcome, 'skipped-locally');
   assert.equal(coordinator.getState().status, 'skipped');
   assert.equal(coordinator.getState().decisionReason, 'skipped-locally');
   assert.equal(f.sessionStore.has(userA), true);
+  // CRITICAL: Durable cache must NOT have skipped-locally!
+  assert.equal(cacheMap.has(`${userA}:welcome-v1`), false);
+
+  // Now server recovers
+  serverOnline = true;
+
+  // Reconcile via connectUser
+  await coordinator.connectUser(userA, {displayName: 'Mario'});
+  assert.equal(coordinator.getState().status, 'already-resolved');
+  assert.equal(coordinator.getState().decisionReason, 'applied');
+  // CRITICAL: Now confirmed result is cached!
+  assert.deepEqual(cacheMap.get(`${userA}:welcome-v1`), {
+    userId: userA,
+    rolloutVersion: 'welcome-v1',
+    status: 'skipped',
+    reason: 'applied',
+  });
+});
+
+test('onboarding cache: cache hit bypasses repo read completely', async () => {
+  const cacheMap = new Map();
+  cacheMap.set(`${userA}:welcome-v1`, {status: 'already-resolved', reason: 'already-completed'});
+
+  const coordinator = createPostLoginCoordinator({
+    onboardingRepo: {
+      read: async () => { throw new Error('Repo read should not be called on cache hit'); },
+      recordDecision: async () => ({ok: true}),
+    },
+    cache: {
+      read: (u, v) => cacheMap.get(`${u}:${v}`) ?? null,
+      save: e => cacheMap.set(`${e.userId}:${e.rolloutVersion}`, e),
+    },
+  });
+
+  await coordinator.connectUser(userA, {displayName: 'Ahmed'});
+  assert.equal(coordinator.getState().status, 'already-resolved');
+  assert.equal(coordinator.getState().decisionReason, 'already-completed');
+});
+
+test('onboarding cache: completed and skipped decisions are saved to cache', async () => {
+  const f = createFixture();
+  f.records.set(userA, {
+    userId: userA,
+    rolloutVersion: 'welcome-v1',
+    isEligible: true,
+    eligibleAt: '2026-10-26T00:00:00.000Z',
+    completedAt: null,
+    skippedAt: null,
+  });
+  const cacheMap = new Map();
+
+  const coordinator = createPostLoginCoordinator({
+    onboardingRepo: {
+      read: async u => ({ok: true, value: f.records.get(u)}),
+      recordDecision: async (_u, d) => ({ok: true, value: {outcome: d}}),
+    },
+    cache: {
+      read: (u, v) => cacheMap.get(`${u}:${v}`) ?? null,
+      save: e => cacheMap.set(`${e.userId}:${e.rolloutVersion}`, e),
+    },
+  });
+
+  await coordinator.connectUser(userA, {displayName: 'Ahmed'});
+  assert.equal(coordinator.getState().status, 'prompt');
+  assert.equal(cacheMap.has(`${userA}:welcome-v1`), false);
+
+  await coordinator.complete();
+  assert.equal(coordinator.getState().status, 'completed');
+  assert.deepEqual(cacheMap.get(`${userA}:welcome-v1`), {
+    userId: userA,
+    rolloutVersion: 'welcome-v1',
+    status: 'completed',
+    reason: 'complete',
+  });
+});
+
+test('late reconciliation response isolation: user switch discards pending reconciliation from previous user and preserves new user state', async () => {
+  const f = createFixture();
+  const cacheMap = new Map();
+
+  let resolveUserASkip;
+  const slowSkipPromise = new Promise(resolve => (resolveUserASkip = resolve));
+
+  f.records.set(userA, {
+    userId: userA,
+    rolloutVersion: 'welcome-v1',
+    isEligible: true,
+    eligibleAt: '2026-10-26T00:00:00.000Z',
+    completedAt: null,
+    skippedAt: null,
+  });
+  f.records.set(userB, {
+    userId: userB,
+    rolloutVersion: 'welcome-v1',
+    isEligible: false,
+    eligibleAt: '2026-10-26T00:00:00.000Z',
+    completedAt: null,
+    skippedAt: null,
+  });
+
+  const reconciliationStore = new Map();
+  // userA has a pending skip
+  reconciliationStore.set(userA, 'skip');
+
+  const coordinator = createPostLoginCoordinator({
+    onboardingRepo: {
+      read: async u => ({ok: true, value: f.records.get(u)}),
+      recordDecision: async (u, _d, _v) => {
+        if (u === userA) {
+          await slowSkipPromise;
+        }
+        return {ok: true, value: {outcome: 'applied', completedAt: null, skippedAt: new Date().toISOString()}};
+      },
+    },
+    reconciliationStore: {
+      get: u => reconciliationStore.get(u) ?? null,
+      set: (u, a) => reconciliationStore.set(u, a),
+      remove: u => reconciliationStore.delete(u),
+    },
+    cache: {
+      read: (u, v) => cacheMap.get(`${u}:${v}`) ?? null,
+      save: e => cacheMap.set(`${e.userId}:${e.rolloutVersion}`, e),
+    },
+  });
+
+  // Start connecting User A (triggers pending reconciliation for A, which pauses on slowSkipPromise)
+  const connectAPromise = coordinator.connectUser(userA, {displayName: 'User A'});
+
+  // Switch to User B immediately!
+  const connectBPromise = coordinator.connectUser(userB, {displayName: 'User B'});
+
+  // Wait for User B to finish connectUser
+  await connectBPromise;
+  assert.equal(coordinator.getState().userId, userB);
+  assert.equal(coordinator.getState().status, 'ineligible');
+  assert.equal(coordinator.getState().decisionReason, 'legacy-ineligible');
+
+  // Now resolve User A's slow reconciliation
+  resolveUserASkip();
+  await connectAPromise;
+
+  // CRITICAL: Coordinator state MUST STILL be User B, and not overwritten by User A's reconciliation!
+  const finalState = coordinator.getState();
+  assert.equal(finalState.userId, userB);
+  assert.equal(finalState.status, 'ineligible');
+  assert.equal(finalState.decisionReason, 'legacy-ineligible');
+
+  // User A's reconciliation did succeed in the background and was saved to A's cache
+  assert.deepEqual(cacheMap.get(`${userA}:welcome-v1`), {
+    userId: userA,
+    rolloutVersion: 'welcome-v1',
+    status: 'skipped',
+    reason: 'applied',
+  });
+});
+
+test('reconciliation store: protected against throwing sessionStorage getter (SecurityError)', () => {
+  const originalWindow = globalThis.window;
+  try {
+    globalThis.window = {
+      get sessionStorage() {
+        throw new Error('SecurityError: Access is denied');
+      },
+    };
+    const coordinator = createPostLoginCoordinator({
+      onboardingRepo: {
+        read: async () => ({ok: true, value: null}),
+        recordDecision: async () => ({ok: true}),
+      },
+    });
+    assert.doesNotThrow(() => coordinator.getState());
+  } finally {
+    if (originalWindow === undefined) {
+      delete globalThis.window;
+    } else {
+      globalThis.window = originalWindow;
+    }
+  }
 });
 

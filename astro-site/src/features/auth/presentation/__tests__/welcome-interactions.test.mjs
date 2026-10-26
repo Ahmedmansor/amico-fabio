@@ -317,6 +317,7 @@ test('createWelcomeActions: optIn=true connects bridge, saves consent, and compl
       getState: () => ({
         status: fakeBridge.connectedUser ? 'ready' : 'signed-out',
         preference: fakeBridge.saved ? {enabled: true} : null,
+        confirmed: fakeBridge.saved,
       }),
       save: async (enabled, locale, consentLocale) => {
         calls.push({action: 'save', enabled, locale, consentLocale});
@@ -361,6 +362,56 @@ test('createWelcomeActions: optIn=true connects bridge, saves consent, and compl
   ]);
 });
 
+test('createWelcomeActions: cached enabled=true without server confirmation must verify via save and not complete prematurely', async () => {
+  const calls = [];
+  let saveCalled = false;
+  const fakeBridge = {
+    connectedUser: null,
+    controller: {
+      getState: () => ({
+        status: 'ready',
+        preference: {enabled: true},
+        confirmed: saveCalled, // False initially because it was from cache!
+      }),
+      save: async (enabled, locale, consentLocale) => {
+        calls.push({action: 'save', enabled, locale, consentLocale});
+        saveCalled = true;
+      },
+    },
+    connect: async userId => {
+      calls.push({action: 'connect', userId});
+      fakeBridge.connectedUser = userId;
+    },
+  };
+
+  const coordinator = {
+    state: {userId: '00000000-0000-4000-8000-000000000001'},
+    getState: () => coordinator.state,
+    complete: async user => {
+      calls.push({action: 'complete', user});
+      return {ok: true};
+    },
+  };
+
+  const actions = createWelcomeActions({
+    coordinator,
+    service: {bearerFor: async () => ({ok: true, value: 'token'})},
+    preferences: {endpoint: 'https://auth.invalid/functions/v1/wishlist-email-preferences', timeoutMs: 5000, maxResponseBytes: 4096},
+    locale: 'it',
+    createBridge: () => fakeBridge,
+  });
+
+  await actions.onContinue(true);
+
+  // Verifies that save() was NOT bypassed despite preference.enabled being true in cache
+  assert.equal(saveCalled, true);
+  assert.deepEqual(calls, [
+    {action: 'connect', userId: '00000000-0000-4000-8000-000000000001'},
+    {action: 'save', enabled: true, locale: 'it', consentLocale: 'it'},
+    {action: 'complete', user: '00000000-0000-4000-8000-000000000001'},
+  ]);
+});
+
 test('createWelcomeActions: retryable error preserves bridge and calls retry() on second attempt', async () => {
   const calls = [];
   let saveAttempted = false;
@@ -370,10 +421,10 @@ test('createWelcomeActions: retryable error preserves bridge and calls retry() o
     connectedUser: null,
     controller: {
       getState: () => {
-        if (!fakeBridge.connectedUser) return {status: 'signed-out'};
-        if (retryAttempted) return {status: 'ready', preference: {enabled: true}};
-        if (saveAttempted) return {status: 'error', retryable: true, preference: null};
-        return {status: 'ready', preference: null};
+        if (!fakeBridge.connectedUser) return {status: 'signed-out', confirmed: false};
+        if (retryAttempted) return {status: 'ready', preference: {enabled: true}, confirmed: true};
+        if (saveAttempted) return {status: 'error', retryable: true, preference: null, confirmed: false};
+        return {status: 'ready', preference: null, confirmed: false};
       },
       save: async (enabled, locale, consentLocale) => {
         calls.push({action: 'save', enabled, locale, consentLocale});
@@ -790,7 +841,7 @@ test('integration: complete failure leaves dialog open, shows error, preserves c
   const fakeBridge = {
     connectedUser: null,
     controller: {
-      getState: () => ({status: 'ready', preference: {enabled: true}}),
+      getState: () => ({status: 'ready', preference: {enabled: true}, confirmed: true}),
       save: async () => {},
       retry: async () => {},
     },

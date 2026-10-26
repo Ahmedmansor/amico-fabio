@@ -8,13 +8,23 @@ export interface PreferenceViewState {
   preference:EmailPreference|null;
   error:PreferenceClientFailure|null;
   retryable:boolean;
+  confirmed:boolean;
+}
+
+export interface PreferenceCache {
+  read(userId: string): EmailPreference | null | undefined;
+  save(userId: string, preference: EmailPreference | null): void;
 }
 
 /** Feature-scoped state for the future opt-in control. No DOM, storage or tokens.
  * Only confirmed replies change the displayed preference. Account changes
  * invalidate old replies, including replies to writes already sent. */
-export function createPreferenceController(client:PreferenceClient,newRequestId:()=>string){
-  let state:PreferenceViewState={userId:null,status:'signed-out',preference:null,error:null,retryable:false};
+export function createPreferenceController(
+  client: PreferenceClient,
+  newRequestId: () => string,
+  cache?: PreferenceCache
+){
+  let state:PreferenceViewState={userId:null,status:'signed-out',preference:null,error:null,retryable:false,confirmed:false};
   let revision=0,pending:PreferenceChange|null=null;
   const listeners=new Set<(state:PreferenceViewState)=>void>();
   const snapshot=():PreferenceViewState=>({...state,preference:state.preference?{...state.preference}:null});
@@ -26,15 +36,19 @@ export function createPreferenceController(client:PreferenceClient,newRequestId:
     try {
       const result=command?await client.change(userId,command):await client.read(userId);
       if(operation!==revision || state.userId!==userId)return;
-      if(result.ok){pending=null;state={...state,status:'ready',preference:result.value,error:null,retryable:false};}
+      if(result.ok){
+        pending=null;
+        cache?.save(userId, result.value);
+        state={...state,status:'ready',preference:result.value,error:null,retryable:false,confirmed:true};
+      }
       else{
         const retryable=['unavailable','failed','rate-limited'].includes(result.reason);
         if(!retryable)pending=null;
-        state={...state,status:'error',error:result.reason,retryable};
+        state={...state,status:'error',error:result.reason,retryable,confirmed:false};
       }
     }catch{
       if(operation!==revision || state.userId!==userId)return;
-      state={...state,status:'error',error:'unavailable',retryable:true};
+      state={...state,status:'error',error:'unavailable',retryable:true,confirmed:false};
     }
     publish();
   }
@@ -45,11 +59,17 @@ export function createPreferenceController(client:PreferenceClient,newRequestId:
       if(userId!==null&&!isPreferenceRequestId(userId))throw new Error('[reminders] Invalid account identity.');
       revision++;pending=null;
       if(!userId){
-        state={userId:null,status:'signed-out',preference:null,error:null,retryable:false};
+        state={userId:null,status:'signed-out',preference:null,error:null,retryable:false,confirmed:false};
         publish();
         return;
       }
-      state={userId,status:'loading',preference:null,error:null,retryable:false};
+      const cached = cache?.read(userId);
+      if(cached !== undefined){
+        state={userId,status:'ready',preference:cached,error:null,retryable:false,confirmed:false};
+        publish();
+        return;
+      }
+      state={userId,status:'loading',preference:null,error:null,retryable:false,confirmed:false};
       publish();
       const operation=revision;
       try {
@@ -57,15 +77,16 @@ export function createPreferenceController(client:PreferenceClient,newRequestId:
         if(operation!==revision || state.userId!==userId)return;
         if(result.ok){
           pending=null;
-          state={...state,status:'ready',preference:result.value,error:null,retryable:false};
+          cache?.save(userId, result.value);
+          state={...state,status:'ready',preference:result.value,error:null,retryable:false,confirmed:true};
         } else {
           const retryable=['unavailable','failed','rate-limited'].includes(result.reason);
           if(!retryable)pending=null;
-          state={...state,status:'error',error:result.reason,retryable};
+          state={...state,status:'error',error:result.reason,retryable,confirmed:false};
         }
       } catch {
         if(operation!==revision || state.userId!==userId)return;
-        state={...state,status:'error',error:'unavailable',retryable:true};
+        state={...state,status:'error',error:'unavailable',retryable:true,confirmed:false};
       }
       publish();
     },

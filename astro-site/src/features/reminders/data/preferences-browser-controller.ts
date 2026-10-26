@@ -6,6 +6,8 @@ import {isPreferenceRequestId} from '../domain/preferences.ts';
 import {createLocaleClient} from '../../auth/data/locale-client.ts';
 import type {LocaleCommand} from '../../auth/domain/locale-preference.ts';
 import type {PreferenceClient} from './preferences-client.ts';
+import type {PreferenceCache} from './preferences-controller.ts';
+import {readCachedPreference, saveCachedPreference} from './preferences-cache.ts';
 
 /** Feature-owned consent bridge. Auth supplies identity/bearer, never table access. */
 export function createBrowserPreferenceController(options: {
@@ -13,6 +15,7 @@ export function createBrowserPreferenceController(options: {
   config: PreferenceBrowserConfig;
   fetcher: typeof fetch;
   requestId: () => string;
+  cache?: PreferenceCache;
 }) {
   let currentUser: string | null = null;
   const client = createPreferenceClient({...options.config, fetcher: options.fetcher,
@@ -56,7 +59,14 @@ export function createBrowserPreferenceController(options: {
     const confirmed=await client.read(userId);
     return confirmed.ok&&confirmed.value?{ok:true,value:confirmed.value}:confirmed.ok?{ok:false,reason:'failed'}:confirmed;
   }};
-  const controller = createPreferenceController(combined, options.requestId);
+  const controller = createPreferenceController(
+    combined,
+    options.requestId,
+    options.cache ?? {
+      read: userId => readCachedPreference(userId),
+      save: (userId, preference) => saveCachedPreference(userId, preference),
+    }
+  );
   return {controller,
     async connect(userId: string | null) {
       const next = isPreferenceRequestId(userId) ? userId : null;

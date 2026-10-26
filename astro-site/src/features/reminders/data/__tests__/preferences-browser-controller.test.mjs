@@ -48,3 +48,56 @@ test('opt-in config stays off and cannot be enabled with incomplete Auth/locale 
   const result=readPreferenceBrowserConfig({PUBLIC_WISHLIST_REMINDER_OPT_IN_ENABLED:'1',PUBLIC_WISHLIST_ACCOUNT_SYNC_ENABLED:'1',PUBLIC_ACCOUNT_LOCALE_ENABLED:'1'},auth);
   assert.equal(result.endpoint,config.endpoint);
 });
+
+test('preferences cache: cache hit bypasses server fetch on connect but marks confirmed as false', async () => {
+  const cacheMap = new Map();
+  cacheMap.set(a, row);
+  let networkCalls = 0;
+  const bridge = createBrowserPreferenceController({
+    config,
+    requestId: () => b,
+    service: { bearerFor: async () => ({ ok: true, value: 'synthetic' }) },
+    fetcher: async () => { networkCalls++; return Response.json({ preference: row }); },
+    cache: {
+      read: userId => cacheMap.get(userId),
+      save: (userId, pref) => cacheMap.set(userId, pref),
+    },
+  });
+
+  await bridge.connect(a);
+  assert.equal(networkCalls, 0);
+  assert.deepEqual(bridge.controller.getState().preference, row);
+  assert.equal(bridge.controller.getState().status, 'ready');
+  assert.equal(bridge.controller.getState().confirmed, false);
+
+  // Saving from unconfirmed cache verifies against the server and sets confirmed to true
+  await bridge.controller.save(true, 'it');
+  assert.equal(networkCalls, 1);
+  assert.equal(bridge.controller.getState().confirmed, true);
+  assert.equal(bridge.controller.getState().status, 'ready');
+});
+
+test('preferences cache: saving from stale cache when server has withdrawn consent fails with outdated-consent', async () => {
+  const cacheMap = new Map();
+  cacheMap.set(a, row); // cached as enabled=true
+  const withdrawnServerRow = { ...row, enabled: false, enabledSince: null };
+  const bridge = createBrowserPreferenceController({
+    config,
+    requestId: () => b,
+    service: { bearerFor: async () => ({ ok: true, value: 'synthetic' }) },
+    fetcher: async () => Response.json({ preference: withdrawnServerRow }),
+    cache: {
+      read: userId => cacheMap.get(userId),
+      save: (userId, pref) => cacheMap.set(userId, pref),
+    },
+  });
+
+  await bridge.connect(a);
+  assert.equal(bridge.controller.getState().confirmed, false);
+
+  // Attempting to confirm opt-in will read server, detect mismatch, and fail
+  await bridge.controller.save(true, 'it');
+  assert.equal(bridge.controller.getState().status, 'error');
+  assert.equal(bridge.controller.getState().error, 'outdated-consent');
+  assert.equal(bridge.controller.getState().confirmed, false);
+});

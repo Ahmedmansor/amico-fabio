@@ -21,5 +21,8 @@ export default defineConfig({
   vite: {
     define: {'import.meta.env.PUBLIC_NOINDEX':JSON.stringify(noindexValue||''),'import.meta.env.PUBLIC_ASSET_ORIGIN':JSON.stringify(assetOrigin)},
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: ['@supabase/supabase-js'],
+    },
   },
 });

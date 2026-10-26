@@ -1,4 +1,4 @@
-import type { SupabaseClient } from '@supabase/supabase-js';
+import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 interface BrowserClientConfig { url:string; publishableKey:string; siteOrigin:string }
 let instance: Promise<SupabaseClient | null> | undefined;
 let identity: string | undefined;
@@ -17,7 +17,6 @@ export function browserSupabase(config: BrowserClientConfig | null): Promise<Sup
       storage.setItem(probe, '1');
       if (storage.getItem(probe) !== '1') return null;
       storage.removeItem(probe);
-      const { createClient } = await import('@supabase/supabase-js');
       return createClient(config.url, config.publishableKey, { auth: {
         flowType:'pkce', detectSessionInUrl:false, persistSession:true,
         autoRefreshToken:true, storage, storageKey:'fabio:auth:session:v1',

@@ -275,7 +275,9 @@ export function createWelcomeActions(options: {
         if (currentState.status === 'error' && currentState.retryable) {
           await controller.retry();
         } else if (currentState.status === 'ready') {
-          if (currentState.preference?.enabled !== true) {
+          // If preference is unconfirmed from server in this session, OR enabled is not true,
+          // we must verify/save with the server to ensure we never trust stale cache.
+          if (!currentState.confirmed || currentState.preference?.enabled !== true) {
             await controller.save(true, options.locale, options.locale);
           }
         } else {
@@ -285,7 +287,7 @@ export function createWelcomeActions(options: {
         if (!isCurrent()) return { ok: false, stale: true };
 
         const savedState = controller.getState();
-        if (savedState.status !== 'ready' || savedState.preference?.enabled !== true) {
+        if (savedState.status !== 'ready' || savedState.preference?.enabled !== true || !savedState.confirmed) {
           return { ok: false, error: 'Failed to confirm reminder preference opt-in.' };
         }
       }
@@ -355,6 +357,7 @@ async function initialize() {
   const {getAccountState} = await import('../data/account-state.ts');
   const {createOnboardingRepository} = await import('../data/onboarding-repository.ts');
   const {createPostLoginCoordinator} = await import('../data/post-login-coordinator.ts');
+  const {readCachedOnboarding, saveCachedOnboarding} = await import('../data/onboarding-cache.ts');
 
   const [service, client] = await Promise.all([browserAuth(config), browserSupabase(config)]);
   if (!service || !client) return;
@@ -364,6 +367,10 @@ async function initialize() {
   const coordinator = createPostLoginCoordinator({
     onboardingRepo,
     rolloutVersion: onboarding.rolloutVersion,
+    cache: {
+      read: (userId, version) => readCachedOnboarding(userId, version),
+      save: entry => saveCachedOnboarding(entry),
+    },
     onStateChange: state => binding?.render(state),
   });
 
