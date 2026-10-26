@@ -5,6 +5,7 @@ import {reconcilePendingOptIn} from '../preferences-optin.ts';
 import {
   recordPendingReminderOptIn,
   clearPendingReminderOptIn,
+  clearMatchingPendingReminderOptIn,
   PENDING_REMINDER_OPTIN_KEY,
 } from '../../../auth/presentation/pending-optin.ts';
 import {createPreferenceController} from '../../data/preferences-controller.ts';
@@ -553,4 +554,102 @@ test('clearPendingReminderOptIn clears pending storage immediately', () => {
   assert.notEqual(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null);
   clearPendingReminderOptIn(mockStorage);
   assert.equal(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null);
+});
+
+test('clearMatchingPendingReminderOptIn only clears when both attemptId and targetUserId match', () => {
+  const storage = new Map();
+  const mockStorage = {
+    getItem: k => storage.get(k) ?? null,
+    setItem: (k, v) => storage.set(k, String(v)),
+    removeItem: k => storage.delete(k),
+  };
+
+  const userA = '00000000-0000-4000-8000-000000000001';
+  const userB = '00000000-0000-4000-8000-000000000002';
+
+  // 1. Storage holds attempt-b for user B
+  mockStorage.setItem(PENDING_REMINDER_OPTIN_KEY, JSON.stringify({
+    enabled: true,
+    locale: 'it',
+    createdAt: Date.now(),
+    attemptId: 'attempt-b',
+    targetUserId: userB,
+  }));
+
+  // Attempting to clear matching attempt-a for user A must fail and preserve attempt-b
+  const clearedMismatch = clearMatchingPendingReminderOptIn(mockStorage, 'attempt-a', userA);
+  assert.equal(clearedMismatch, false);
+  assert.notEqual(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null);
+
+  // Attempting to clear with matching attempt-b but wrong user must fail
+  const clearedWrongUser = clearMatchingPendingReminderOptIn(mockStorage, 'attempt-b', userA);
+  assert.equal(clearedWrongUser, false);
+  assert.notEqual(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null);
+
+  // Clearing with exact matching attempt-b and user B must succeed
+  const clearedMatch = clearMatchingPendingReminderOptIn(mockStorage, 'attempt-b', userB);
+  assert.equal(clearedMatch, true);
+  assert.equal(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY), null);
+});
+
+test('reconcilePendingOptIn preserves newer intent B when slower save A completes', async () => {
+  const storage = new Map();
+  const mockStorage = {
+    getItem: k => storage.get(k) ?? null,
+    setItem: (k, v) => storage.set(k, String(v)),
+    removeItem: k => storage.delete(k),
+  };
+
+  const userA = '00000000-0000-4000-8000-000000000001';
+  const userB = '00000000-0000-4000-8000-000000000002';
+
+  // 1. Initial intent for attempt A
+  recordPendingReminderOptIn(mockStorage, 'it', 'attempt-a');
+
+  let resolveSaveA;
+  const saveAPromise = new Promise(resolve => { resolveSaveA = resolve; });
+
+  let stateA = {
+    status: 'ready',
+    preference: null,
+    userId: userA,
+    error: null,
+    retryable: false,
+  };
+
+  // 2. Start reconciliation for Attempt A
+  const reconcileAPromise = reconcilePendingOptIn({
+    storage: mockStorage,
+    userId: userA,
+    prefState: stateA,
+    activeLocale: 'it',
+    save: async () => {
+      // While save A is pending, a newer intent B is recorded in storage for user B
+      recordPendingReminderOptIn(mockStorage, 'en', 'attempt-b');
+      const current = JSON.parse(mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY));
+      current.targetUserId = userB;
+      mockStorage.setItem(PENDING_REMINDER_OPTIN_KEY, JSON.stringify(current));
+
+      // Wait for save A to complete
+      await saveAPromise;
+      stateA = {
+        ...stateA,
+        status: 'ready',
+        preference: {enabled: true, locale: 'it', wordingVersion: 'wishlist-reminders-v1'},
+      };
+    },
+    getState: () => stateA,
+  });
+
+  // Resolve save A
+  resolveSaveA();
+  const resA = await reconcileAPromise;
+  assert.equal(resA, 'saved');
+
+  // 3. Verify: Intent B MUST NOT have been deleted by Attempt A's completion!
+  const rawAfterA = mockStorage.getItem(PENDING_REMINDER_OPTIN_KEY);
+  assert.notEqual(rawAfterA, null, 'Newer intent B must be preserved in storage');
+  const parsedAfterA = JSON.parse(rawAfterA);
+  assert.equal(parsedAfterA.attemptId, 'attempt-b', 'Attempt B ID must be intact');
+  assert.equal(parsedAfterA.targetUserId, userB, 'Attempt B targetUserId must be intact');
 });

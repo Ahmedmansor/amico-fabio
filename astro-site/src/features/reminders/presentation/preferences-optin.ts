@@ -4,6 +4,7 @@ import {
   PENDING_REMINDER_OPTIN_KEY,
   type PendingReminderOptIn,
   clearPendingReminderOptIn,
+  clearMatchingPendingReminderOptIn,
 } from '../../auth/presentation/pending-optin.ts';
 
 export interface ReconcileOptInOptions {
@@ -84,7 +85,7 @@ export async function reconcilePendingOptIn(
   // If preferences already exist on server (whether enabled=true or explicitly disabled=false after withdrawal),
   // we must respect the server's confirmed state and clear the pending intent without sending a new opt-in command.
   if (prefState.preference !== null) {
-    clearPendingReminderOptIn(storage);
+    clearMatchingPendingReminderOptIn(storage, parsed.attemptId, userId);
     return 'cleared';
   }
 
@@ -93,7 +94,7 @@ export async function reconcilePendingOptIn(
     await save(true, activeLocale, parsed.locale ?? activeLocale);
     const confirmed = getState();
     if (confirmed.status === 'ready') {
-      clearPendingReminderOptIn(storage);
+      clearMatchingPendingReminderOptIn(storage, parsed.attemptId, userId);
       return confirmed.preference?.enabled === true ? 'saved' : 'cleared';
     }
     return 'failed';
