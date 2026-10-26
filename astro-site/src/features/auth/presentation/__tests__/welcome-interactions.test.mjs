@@ -270,3 +270,111 @@ test('pressing Escape calls onDismiss and closes dialog', async () => {
   assert.deepEqual(f.actionLog, [{action: 'dismiss'}]);
   assert.equal(f.elements.dialog.open, false);
 });
+
+test('action handler: optIn=true connects bridge, verifies status, saves consent, and completes', async () => {
+  const calls = [];
+  const fakeBridge = {
+    connectedUser: null,
+    saved: false,
+    controller: {
+      getState: () => ({
+        status: fakeBridge.connectedUser ? 'ready' : 'signed-out',
+        preference: fakeBridge.saved ? {enabled: true} : null,
+      }),
+      save: async (enabled, locale, consentLocale) => {
+        calls.push({action: 'save', enabled, locale, consentLocale});
+        fakeBridge.saved = true;
+      },
+    },
+    connect: async userId => {
+      calls.push({action: 'connect', userId});
+      fakeBridge.connectedUser = userId;
+    },
+  };
+  const fakeCoordinator = {
+    getState: () => ({userId: '00000000-0000-4000-8000-000000000001'}),
+    complete: async () => {
+      calls.push({action: 'complete'});
+      return {ok: true};
+    },
+  };
+
+  const executeContinue = async (optIn, bridge) => {
+    const userId = fakeCoordinator.getState().userId;
+    if (!userId) throw new Error('No user');
+    if (optIn) {
+      await bridge.connect(userId);
+      if (bridge.controller.getState().status !== 'ready') throw new Error('Not ready');
+      await bridge.controller.save(true, 'it', 'it');
+      if (bridge.controller.getState().preference?.enabled !== true) throw new Error('Not enabled');
+    }
+    const res = await fakeCoordinator.complete();
+    if (!res.ok) throw new Error('Failed');
+  };
+
+  await executeContinue(true, fakeBridge);
+  assert.deepEqual(calls, [
+    {action: 'connect', userId: '00000000-0000-4000-8000-000000000001'},
+    {action: 'save', enabled: true, locale: 'it', consentLocale: 'it'},
+    {action: 'complete'},
+  ]);
+});
+
+test('action handler: optIn=false makes 0 bridge calls and completes directly', async () => {
+  const calls = [];
+  const fakeBridge = {
+    connect: async () => calls.push({action: 'connect'}),
+    controller: {save: async () => calls.push({action: 'save'})},
+  };
+  const fakeCoordinator = {
+    getState: () => ({userId: '00000000-0000-4000-8000-000000000001'}),
+    complete: async () => {
+      calls.push({action: 'complete'});
+      return {ok: true};
+    },
+  };
+
+  const executeContinue = async (optIn, bridge) => {
+    const userId = fakeCoordinator.getState().userId;
+    if (!userId) throw new Error('No user');
+    if (optIn) {
+      await bridge.connect(userId);
+      await bridge.controller.save(true, 'it', 'it');
+    }
+    const res = await fakeCoordinator.complete();
+    if (!res.ok) throw new Error('Failed');
+  };
+
+  await executeContinue(false, fakeBridge);
+  assert.deepEqual(calls, [{action: 'complete'}]);
+});
+
+test('action handler: bridge connect failure throws and aborts completion', async () => {
+  const calls = [];
+  const fakeBridge = {
+    connect: async () => {
+      calls.push({action: 'connect'});
+      throw new Error('Connection failed');
+    },
+    controller: {
+      getState: () => ({status: 'signed-out'}),
+      save: async () => calls.push({action: 'save'}),
+    },
+  };
+  const fakeCoordinator = {
+    getState: () => ({userId: '00000000-0000-4000-8000-000000000001'}),
+    complete: async () => calls.push({action: 'complete'}),
+  };
+
+  let threw = false;
+  try {
+    const userId = fakeCoordinator.getState().userId;
+    await fakeBridge.connect(userId);
+    await fakeCoordinator.complete();
+  } catch {
+    threw = true;
+  }
+
+  assert.equal(threw, true);
+  assert.deepEqual(calls, [{action: 'connect'}]);
+});

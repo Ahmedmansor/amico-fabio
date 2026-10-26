@@ -12,12 +12,10 @@ values
   ('00000000-0000-4000-8000-0000000000c1', 'authenticated', 'authenticated', 'user_c1@example.test')
 on conflict (id) do nothing;
 
--- 1. Setup onboarding records
-insert into public.account_onboarding (user_id, rollout_version, is_eligible, eligible_at)
-values
-  ('00000000-0000-4000-8000-0000000000a1', 'welcome-v1', true, now()),
-  ('00000000-0000-4000-8000-0000000000b1', 'welcome-v1', true, now()),
-  ('00000000-0000-4000-8000-0000000000c1', 'welcome-v1', false, now()); -- Grandfathered legacy user
+-- 1. Setup grandfathered state for user C (A and B were created as eligible by the trigger)
+update public.account_onboarding
+set is_eligible = false, completed_at = null, skipped_at = now()
+where user_id = '00000000-0000-4000-8000-0000000000c1';
 
 -- 2. Test anon role: cannot execute RPCs or select
 set local role anon;
@@ -60,7 +58,32 @@ begin
 end;
 $$;
 
--- Cannot record decision for user B
+-- Cannot update is_eligible directly (only completed_at, skipped_at, updated_at granted)
+do $$
+begin
+  begin
+    update public.account_onboarding set is_eligible = false where user_id = '00000000-0000-4000-8000-0000000000a1';
+    raise exception 'Authenticated user must not update is_eligible directly';
+  exception when insufficient_privilege then
+    -- Expected: is_eligible column update is not granted to authenticated
+  end;
+end;
+$$;
+
+-- Cannot update User B record directly (RLS enforces own user_id)
+do $$
+declare
+  rows_updated int;
+begin
+  update public.account_onboarding set skipped_at = now() where user_id = '00000000-0000-4000-8000-0000000000b1';
+  get diagnostics rows_updated = row_count;
+  if rows_updated <> 0 then
+    raise exception 'User A must not update User B onboarding record directly';
+  end if;
+end;
+$$;
+
+-- Cannot record decision for user B via RPC
 do $$
 declare
   out_res record;
@@ -125,9 +148,13 @@ end;
 $$;
 
 -- 6. Test trigger on auth.users for newly registered account
+-- Must reset role before writing to auth.users
+reset role;
+
 insert into auth.users (id, aud, role, email)
 values ('00000000-0000-4000-8000-0000000000d1', 'authenticated', 'authenticated', 'user_d1@example.test');
 
+set local role authenticated;
 set local "request.jwt.claims" to '{"sub": "00000000-0000-4000-8000-0000000000d1", "role": "authenticated"}';
 
 do $$
@@ -141,5 +168,6 @@ begin
 end;
 $$;
 
+reset role;
 rollback;
 

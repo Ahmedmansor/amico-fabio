@@ -31,7 +31,47 @@ export async function initializeAccountWishlist(){
   let authFailed=false;
   const channel=typeof BroadcastChannel!=='undefined'?new BroadcastChannel('fabio:wishlist:account:v1'):null;
   const announce=()=>channel?.postMessage({userId:coordinator.getState().userId});
+  let previousGuestCount = 0;
+  const initialGuest = guest.read();
+  if (initialGuest.ok) previousGuestCount = initialGuest.value.length;
+
+  type WishlistSyncEventReport =
+    | { status: 'none' }
+    | { status: 'syncing' }
+    | { status: 'synced'; count: number }
+    | { status: 'failed'; reason?: string };
+
+  function broadcastWishlistSync(report: WishlistSyncEventReport) {
+    if (typeof window !== 'undefined') {
+      (window as unknown as {__fabio_wishlist_sync?: WishlistSyncEventReport}).__fabio_wishlist_sync = report;
+      window.dispatchEvent(new CustomEvent('fabio:wishlist:sync', { detail: report }));
+    }
+  }
+
   function render(state:WishlistState){
+    if (state.userId) {
+      if (state.busy || state.status === 'loading') {
+        if (previousGuestCount > 0) {
+          broadcastWishlistSync({ status: 'syncing' });
+        }
+      } else if (state.status === 'account') {
+        if (previousGuestCount > 0) {
+          const count = previousGuestCount;
+          previousGuestCount = 0;
+          broadcastWishlistSync({ status: 'synced', count });
+        } else {
+          broadcastWishlistSync({ status: 'none' });
+        }
+      } else if (state.status === 'error') {
+        if (previousGuestCount > 0) {
+          broadcastWishlistSync({ status: 'failed', reason: state.error ?? 'failed' });
+        }
+      }
+    } else {
+      const currentGuest = guest.read();
+      previousGuestCount = currentGuest.ok ? currentGuest.value.length : 0;
+      broadcastWishlistSync({ status: 'none' });
+    }
     if(state.userId && invitation)invitation.hidden=true;
     if(!state.userId && service && !authFailed && !invitationClosed && invitation){
       const count=state.ids?.length ?? 0;

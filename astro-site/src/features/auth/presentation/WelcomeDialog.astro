@@ -1,5 +1,6 @@
 ---
 import { authConfig, onboardingBrowserConfig } from '../data/build-config';
+import { preferenceBrowserConfig } from '../../reminders/data/preferences-build-config';
 import { getAuthMessages } from '../data/messages';
 import type { Locale } from '../../../shared/config/languages';
 import './auth.css';
@@ -10,6 +11,7 @@ const m = getAuthMessages(locale);
 const configuration = JSON.stringify({
   config: authConfig,
   onboarding: onboardingBrowserConfig,
+  preferences: preferenceBrowserConfig,
   messages: m,
   locale
 }).replace(/</g, '\\u003c');

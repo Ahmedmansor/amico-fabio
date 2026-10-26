@@ -45,11 +45,17 @@ alter table public.account_onboarding enable row level security;
 
 -- Revoke all table-level access from clients; access is mediated through RPC and least-privilege policies
 revoke all on public.account_onboarding from public, anon, authenticated;
-grant select on public.account_onboarding to authenticated;
+grant select, update (completed_at, skipped_at, updated_at) on public.account_onboarding to authenticated;
 
 -- Owner-only SELECT policy
 create policy account_onboarding_owner_select on public.account_onboarding
   for select to authenticated using ((select auth.uid()) = user_id);
+
+-- Owner-only UPDATE policy
+create policy account_onboarding_owner_update on public.account_onboarding
+  for update to authenticated
+  using ((select auth.uid()) = user_id)
+  with check ((select auth.uid()) = user_id);
 
 -- Read onboarding state RPC
 create or replace function public.read_account_onboarding(p_user_id uuid)
