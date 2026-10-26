@@ -1,6 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {bindWelcomeDialog, createWelcomeActions} from '../welcome-interactions.ts';
+import {createPostLoginCoordinator} from '../../data/post-login-coordinator.ts';
 
 const messages = {
   welcomeTitle: 'Benvenuto in Fabio Egypt',
@@ -102,10 +103,12 @@ function createDialogFixture() {
   const actions = {
     onContinue: async optIn => {
       actionLog.push({action: 'continue', optIn});
-      if (continueFails) throw new Error('Network error');
+      if (continueFails) return {ok: false, error: 'Network error'};
+      return {ok: true};
     },
     onSkip: async () => {
       actionLog.push({action: 'skip'});
+      return {ok: true};
     },
     onDismiss: () => {
       actionLog.push({action: 'dismiss'});
@@ -411,13 +414,8 @@ test('createWelcomeActions: retryable error preserves bridge and calls retry() o
   });
 
   // Attempt 1: save fails with retryable error
-  let attempt1Error = null;
-  try {
-    await actions.onContinue(true);
-  } catch (err) {
-    attempt1Error = err;
-  }
-  assert.ok(attempt1Error);
+  const attempt1Result = await actions.onContinue(true);
+  assert.equal(attempt1Result.ok, false);
   assert.equal(bridgeFactoryCallCount, 1);
   assert.deepEqual(calls, [
     {action: 'connect', userId: '00000000-0000-4000-8000-000000000001'},
@@ -425,7 +423,8 @@ test('createWelcomeActions: retryable error preserves bridge and calls retry() o
   ]);
 
   // Attempt 2: retry must reuse bridge, preserve operation identity, call retry(), and complete
-  await actions.onContinue(true);
+  const attempt2Result = await actions.onContinue(true);
+  assert.equal(attempt2Result.ok, true);
 
   // Must NOT have recreated bridge!
   assert.equal(bridgeFactoryCallCount, 1);
@@ -450,11 +449,13 @@ test('createWelcomeActions: account switch during save aborts completion on othe
     dismiss: () => {},
   };
 
+  let preferenceSaved = false;
   const fakeBridge = {
     connectedUser: null,
     controller: {
-      getState: () => ({status: 'ready', preference: {enabled: true}}),
+      getState: () => ({status: 'ready', preference: {enabled: preferenceSaved}}),
       save: async () => {
+        preferenceSaved = true;
         // Switch user while save is running
         coordinator.state = {userId: '00000000-0000-4000-8000-00000000000b'};
         calls.push({action: 'save'});
@@ -475,7 +476,9 @@ test('createWelcomeActions: account switch during save aborts completion on othe
     createBridge: () => fakeBridge,
   });
 
-  await actions.onContinue(true);
+  const result = await actions.onContinue(true);
+  assert.equal(result.ok, false);
+  assert.equal(result.stale, true);
 
   // Must NOT call complete on user B!
   assert.deepEqual(calls, [
@@ -540,3 +543,210 @@ test('createWelcomeActions: onSkip calls coordinator.skip for captured user', as
     {action: 'skip', user: '00000000-0000-4000-8000-000000000001'},
   ]);
 });
+
+test('integration: account switch while save is pending preserves and leaves open new user dialog', async () => {
+  const records = new Map();
+  const userA = '00000000-0000-4000-8000-00000000000a';
+  const userB = '00000000-0000-4000-8000-00000000000b';
+
+  records.set(userA, {
+    userId: userA,
+    rolloutVersion: 'welcome-v1',
+    isEligible: true,
+    eligibleAt: '2026-10-26T00:00:00.000Z',
+    completedAt: null,
+    skippedAt: null,
+  });
+  records.set(userB, {
+    userId: userB,
+    rolloutVersion: 'welcome-v1',
+    isEligible: true,
+    eligibleAt: '2026-10-26T00:00:00.000Z',
+    completedAt: null,
+    skippedAt: null,
+  });
+
+  const onboardingRepo = {
+    read: async userId => ({ok: true, value: records.get(userId) ?? null}),
+    recordDecision: async (_userId, decision) => {
+      return {ok: true, value: {outcome: decision}};
+    },
+  };
+
+  let resolveUserASave;
+  const userASavePromise = new Promise(resolve => (resolveUserASave = resolve));
+
+  const fakeBridge = {
+    connectedUser: null,
+    controller: {
+      getState: () => ({status: 'ready', preference: {enabled: true}}),
+      save: async () => {
+        await userASavePromise;
+      },
+      retry: async () => {},
+    },
+    connect: async userId => {
+      fakeBridge.connectedUser = userId;
+    },
+  };
+
+  const dialog = createMockElement('dialog');
+  const titleEl = createMockElement('h2');
+  const introEl = createMockElement('p');
+  const syncStatusEl = createMockElement('p');
+  const errorEl = createMockElement('p');
+  const reminderCheckbox = createMockElement('input', {type: 'checkbox'});
+  const continueBtn = createMockElement('button');
+  const skipBtn = createMockElement('button');
+
+  dialog.continueBtn = continueBtn;
+  dialog.skipBtn = skipBtn;
+  dialog.reminderCheckbox = reminderCheckbox;
+
+  const elements = {dialog, titleEl, introEl, syncStatusEl, errorEl, reminderCheckbox, continueBtn, skipBtn};
+
+  let binding;
+  const coordinator = createPostLoginCoordinator({
+    onboardingRepo,
+    rolloutVersion: 'welcome-v1',
+    onStateChange: state => binding?.render(state),
+  });
+
+  const actions = createWelcomeActions({
+    coordinator,
+    service: {bearerFor: async () => ({ok: true, value: 'token'})},
+    preferences: {endpoint: 'https://auth.invalid/functions/v1/wishlist-email-preferences', timeoutMs: 5000, maxResponseBytes: 4096},
+    locale: 'it',
+    createBridge: () => fakeBridge,
+  });
+
+  binding = bindWelcomeDialog(elements, messages, actions);
+
+  // 1. User A connects: dialog opens for User A
+  await coordinator.connectUser(userA, {displayName: 'User A'});
+  assert.equal(dialog.open, true);
+  assert.equal(titleEl.textContent, 'Ciao, User A!');
+
+  // 2. User A clicks continue (save starts and blocks on userASavePromise)
+  reminderCheckbox.checked = true;
+  continueBtn.dispatchEvent({type: 'click'});
+  await new Promise(resolve => setTimeout(resolve, 0));
+  assert.equal(continueBtn.disabled, true);
+
+  // 3. While save is in-flight, auth switches to User B!
+  actions.resetBridge();
+  await coordinator.connectUser(userB, {displayName: 'User B'});
+
+  // Dialog must now show User B and be interactive
+  assert.equal(dialog.open, true);
+  assert.equal(titleEl.textContent, 'Ciao, User B!');
+  assert.equal(continueBtn.disabled, false);
+
+  // 4. User A's slow save resolves
+  resolveUserASave();
+  await new Promise(resolve => setTimeout(resolve, 10));
+
+  // User B's dialog MUST STILL BE OPEN!
+  assert.equal(dialog.open, true);
+  assert.equal(titleEl.textContent, 'Ciao, User B!');
+  assert.equal(errorEl.hidden, true);
+  assert.equal(continueBtn.disabled, false);
+});
+
+test('integration: complete failure leaves dialog open, shows error, preserves checkbox, and retry succeeds', async () => {
+  const records = new Map();
+  const userA = '00000000-0000-4000-8000-00000000000a';
+  records.set(userA, {
+    userId: userA,
+    rolloutVersion: 'welcome-v1',
+    isEligible: true,
+    eligibleAt: '2026-10-26T00:00:00.000Z',
+    completedAt: null,
+    skippedAt: null,
+  });
+
+  let writeFails = true;
+  const onboardingRepo = {
+    read: async userId => ({ok: true, value: records.get(userId) ?? null}),
+    recordDecision: async (_userId, decision) => {
+      if (writeFails) throw new Error('Database write error');
+      return {ok: true, value: {outcome: decision}};
+    },
+  };
+
+  const fakeBridge = {
+    connectedUser: null,
+    controller: {
+      getState: () => ({status: 'ready', preference: {enabled: true}}),
+      save: async () => {},
+      retry: async () => {},
+    },
+    connect: async userId => {
+      fakeBridge.connectedUser = userId;
+    },
+  };
+
+  const dialog = createMockElement('dialog');
+  const titleEl = createMockElement('h2');
+  const introEl = createMockElement('p');
+  const syncStatusEl = createMockElement('p');
+  const errorEl = createMockElement('p');
+  const reminderCheckbox = createMockElement('input', {type: 'checkbox'});
+  const continueBtn = createMockElement('button');
+  const skipBtn = createMockElement('button');
+
+  dialog.continueBtn = continueBtn;
+  dialog.skipBtn = skipBtn;
+  dialog.reminderCheckbox = reminderCheckbox;
+
+  const elements = {dialog, titleEl, introEl, syncStatusEl, errorEl, reminderCheckbox, continueBtn, skipBtn};
+
+  let binding;
+  const coordinator = createPostLoginCoordinator({
+    onboardingRepo,
+    rolloutVersion: 'welcome-v1',
+    onStateChange: state => binding?.render(state),
+  });
+
+  const actions = createWelcomeActions({
+    coordinator,
+    service: {bearerFor: async () => ({ok: true, value: 'token'})},
+    preferences: {endpoint: 'https://auth.invalid/functions/v1/wishlist-email-preferences', timeoutMs: 5000, maxResponseBytes: 4096},
+    locale: 'it',
+    createBridge: () => fakeBridge,
+  });
+
+  binding = bindWelcomeDialog(elements, messages, actions);
+
+  // Connect user A
+  await coordinator.connectUser(userA, {displayName: 'User A'});
+  assert.equal(dialog.open, true);
+
+  // User checks the reminder checkbox
+  reminderCheckbox.checked = true;
+
+  // Click continue -> recordDecision fails
+  continueBtn.dispatchEvent({type: 'click'});
+  await new Promise(resolve => setTimeout(resolve, 10));
+
+  // Dialog must REMAIN open! Error displayed! Checkbox preserved! Buttons re-enabled!
+  assert.equal(dialog.open, true);
+  assert.equal(errorEl.hidden, false);
+  assert.equal(errorEl.textContent, messages.failed);
+  assert.equal(reminderCheckbox.checked, true);
+  assert.equal(continueBtn.disabled, false);
+  assert.equal(skipBtn.disabled, false);
+  assert.equal(coordinator.getState().status, 'prompt');
+
+  // Server write recovers
+  writeFails = false;
+
+  // Retry: click continue again
+  continueBtn.dispatchEvent({type: 'click'});
+  await new Promise(resolve => setTimeout(resolve, 10));
+
+  // Succeeded: dialog is now closed! Coordinator is completed!
+  assert.equal(dialog.open, false);
+  assert.equal(coordinator.getState().status, 'completed');
+});
+

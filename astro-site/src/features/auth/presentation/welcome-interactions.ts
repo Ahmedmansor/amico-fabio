@@ -16,24 +16,40 @@ export interface WelcomeDialogElements {
   skipBtn: HTMLButtonElement;
 }
 
+export type WelcomeActionResult =
+  | { ok: true; stale?: false; error?: never }
+  | { ok: false; stale: true; error?: string }
+  | { ok: false; stale?: false; error: string };
+
 export function bindWelcomeDialog(
   elements: WelcomeDialogElements,
   messages: ReturnType<typeof getAuthMessages>,
   actions: {
-    onContinue: (reminderOptIn: boolean) => Promise<void>;
-    onSkip: () => Promise<void>;
+    onContinue: (reminderOptIn: boolean) => Promise<WelcomeActionResult>;
+    onSkip: () => Promise<WelcomeActionResult>;
     onDismiss: () => void;
   }
 ) {
   const {dialog, titleEl, introEl, syncStatusEl, errorEl, reminderCheckbox, continueBtn, skipBtn} = elements;
 
   let busy = false;
+  let currentDialogGen = 0;
+  let currentPromptUser: string | null = null;
 
   function render(state: PostLoginCoordinatorState) {
     if (state.status !== 'prompt') {
+      currentPromptUser = null;
+      currentDialogGen++;
+      busy = false;
       if (dialog.open) dialog.close();
       return;
     }
+
+    currentPromptUser = state.userId;
+    currentDialogGen++;
+    busy = false;
+    continueBtn.disabled = false;
+    skipBtn.disabled = false;
 
     introEl.textContent = messages.welcomeIntro;
     errorEl.textContent = '';
@@ -105,38 +121,83 @@ export function bindWelcomeDialog(
 
   continueBtn.addEventListener('click', async () => {
     if (busy) return;
+    const clickGen = currentDialogGen;
+    const clickUser = currentPromptUser;
+    if (!clickUser) return;
+
     busy = true;
     continueBtn.disabled = true;
     skipBtn.disabled = true;
     errorEl.hidden = true;
     errorEl.textContent = '';
+
     try {
-      await actions.onContinue(reminderCheckbox.checked);
+      const result = await actions.onContinue(reminderCheckbox.checked);
+
+      if (currentDialogGen !== clickGen || currentPromptUser !== clickUser) {
+        return;
+      }
+
+      if (!result.ok) {
+        if (result.stale) return;
+        errorEl.textContent = messages.failed;
+        errorEl.hidden = false;
+        return;
+      }
+
       if (dialog.open) dialog.close();
     } catch {
-      errorEl.textContent = messages.failed;
-      errorEl.hidden = false;
+      if (currentDialogGen === clickGen && currentPromptUser === clickUser) {
+        errorEl.textContent = messages.failed;
+        errorEl.hidden = false;
+      }
     } finally {
-      busy = false;
-      continueBtn.disabled = false;
-      skipBtn.disabled = false;
+      if (currentDialogGen === clickGen && currentPromptUser === clickUser) {
+        busy = false;
+        continueBtn.disabled = false;
+        skipBtn.disabled = false;
+      }
     }
   });
 
   skipBtn.addEventListener('click', async () => {
     if (busy) return;
+    const clickGen = currentDialogGen;
+    const clickUser = currentPromptUser;
+    if (!clickUser) return;
+
     busy = true;
     continueBtn.disabled = true;
     skipBtn.disabled = true;
     errorEl.hidden = true;
     errorEl.textContent = '';
+
     try {
-      await actions.onSkip();
-    } finally {
-      busy = false;
-      continueBtn.disabled = false;
-      skipBtn.disabled = false;
+      const result = await actions.onSkip();
+
+      if (currentDialogGen !== clickGen || currentPromptUser !== clickUser) {
+        return;
+      }
+
+      if (!result.ok) {
+        if (result.stale) return;
+        errorEl.textContent = messages.failed;
+        errorEl.hidden = false;
+        return;
+      }
+
       if (dialog.open) dialog.close();
+    } catch {
+      if (currentDialogGen === clickGen && currentPromptUser === clickUser) {
+        errorEl.textContent = messages.failed;
+        errorEl.hidden = false;
+      }
+    } finally {
+      if (currentDialogGen === clickGen && currentPromptUser === clickUser) {
+        busy = false;
+        continueBtn.disabled = false;
+        skipBtn.disabled = false;
+      }
     }
   });
 
@@ -164,11 +225,11 @@ export function createWelcomeActions(options: {
       activeOperationEpoch++;
       activeBridge = null;
     },
-    async onContinue(reminderOptIn: boolean) {
+    async onContinue(reminderOptIn: boolean): Promise<WelcomeActionResult> {
       const capturedUser = options.coordinator.getState().userId;
       const capturedEpoch = ++activeOperationEpoch;
       if (!capturedUser) {
-        throw new Error('No authenticated user for onboarding.');
+        return { ok: false, error: 'No authenticated user for onboarding.' };
       }
 
       const isCurrent = () =>
@@ -177,7 +238,7 @@ export function createWelcomeActions(options: {
 
       if (reminderOptIn) {
         if (!options.preferences) {
-          throw new Error('Reminder preferences are not configured.');
+          return { ok: false, error: 'Reminder preferences are not configured.' };
         }
 
         if (!activeBridge || activeBridge.userId !== capturedUser) {
@@ -185,7 +246,7 @@ export function createWelcomeActions(options: {
             await import('../../reminders/data/preferences-browser-controller.ts')
           ).createBrowserPreferenceController;
 
-          if (!isCurrent()) return;
+          if (!isCurrent()) return { ok: false, stale: true };
 
           const bridge = createBridge({
             service: options.service,
@@ -203,7 +264,7 @@ export function createWelcomeActions(options: {
           await activeBridge.connect(capturedUser);
         }
 
-        if (!isCurrent()) return;
+        if (!isCurrent()) return { ok: false, stale: true };
 
         const controller = activeBridge.controller;
         const currentState = controller.getState();
@@ -211,32 +272,51 @@ export function createWelcomeActions(options: {
         if (currentState.status === 'error' && currentState.retryable) {
           await controller.retry();
         } else if (currentState.status === 'ready') {
-          await controller.save(true, options.locale, options.locale);
+          if (currentState.preference?.enabled !== true) {
+            await controller.save(true, options.locale, options.locale);
+          }
         } else {
-          throw new Error('Reminder preference controller is not in a valid state to save.');
+          return { ok: false, error: 'Reminder preference controller is not in a valid state to save.' };
         }
 
-        if (!isCurrent()) return;
+        if (!isCurrent()) return { ok: false, stale: true };
 
         const savedState = controller.getState();
         if (savedState.status !== 'ready' || savedState.preference?.enabled !== true) {
-          throw new Error('Failed to confirm reminder preference opt-in.');
+          return { ok: false, error: 'Failed to confirm reminder preference opt-in.' };
         }
       }
 
-      if (!isCurrent()) return;
+      if (!isCurrent()) return { ok: false, stale: true };
 
       const completeResult = await options.coordinator.complete(capturedUser);
+      if (!isCurrent()) return { ok: false, stale: true };
+
       if (!completeResult.ok) {
-        throw new Error('Failed to record onboarding completion.');
+        return { ok: false, error: completeResult.error || 'Failed to record onboarding completion.' };
       }
+
+      return { ok: true };
     },
-    async onSkip() {
+    async onSkip(): Promise<WelcomeActionResult> {
       const capturedUser = options.coordinator.getState().userId;
-      const skipResult = await options.coordinator.skip(capturedUser ?? undefined);
-      if (!skipResult.ok) {
-        throw new Error('Failed to record onboarding skip.');
+      const capturedEpoch = ++activeOperationEpoch;
+      if (!capturedUser) {
+        return { ok: false, error: 'No authenticated user for onboarding.' };
       }
+
+      const isCurrent = () =>
+        activeOperationEpoch === capturedEpoch &&
+        options.coordinator.getState().userId === capturedUser;
+
+      const skipResult = await options.coordinator.skip(capturedUser);
+      if (!isCurrent()) return { ok: false, stale: true };
+
+      if (!skipResult.ok) {
+        return { ok: false, error: skipResult.error || 'Failed to record onboarding skip.' };
+      }
+
+      return { ok: true };
     },
     onDismiss() {
       options.coordinator.dismiss();

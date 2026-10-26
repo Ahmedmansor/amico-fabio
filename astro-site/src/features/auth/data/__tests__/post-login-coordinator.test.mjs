@@ -276,7 +276,7 @@ test('dismiss records skip asynchronously and suppresses repeat prompt', async (
   assert.equal(f.sessionStore.has(userA), true);
 });
 
-test('decision write failure does not trap user; suppresses locally for session', async () => {
+test('complete write failure leaves prompt open for retry and does not suppress session', async () => {
   const f = createFixture();
   f.records.set(userA, {
     userId: userA,
@@ -294,7 +294,39 @@ test('decision write failure does not trap user; suppresses locally for session'
 
   const result = await coordinator.complete();
   assert.equal(result.ok, false);
-  // Status locally resolved to avoid infinite trapping
+  // Status remains in prompt so user can retry, and session is not suppressed
+  assert.equal(coordinator.getState().status, 'prompt');
+  assert.equal(f.sessionStore.has(userA), false);
+
+  // Subsequent retry succeeds when write failure clears
+  f.setWriteFailure(false);
+  const retryResult = await coordinator.complete();
+  assert.equal(retryResult.ok, true);
   assert.equal(coordinator.getState().status, 'completed');
   assert.equal(f.sessionStore.has(userA), true);
 });
+
+test('skip write failure falls back to local skip and suppresses session', async () => {
+  const f = createFixture();
+  f.records.set(userA, {
+    userId: userA,
+    rolloutVersion: 'welcome-v1',
+    isEligible: true,
+    eligibleAt: '2026-10-26T00:00:00.000Z',
+    completedAt: null,
+    skippedAt: null,
+  });
+  f.setWriteFailure(true);
+
+  const coordinator = f.createCoordinator();
+  await coordinator.connectUser(userA, {displayName: 'Mario'});
+  assert.equal(coordinator.getState().status, 'prompt');
+
+  const result = await coordinator.skip();
+  assert.equal(result.ok, true);
+  assert.equal(result.outcome, 'skipped-locally');
+  assert.equal(coordinator.getState().status, 'skipped');
+  assert.equal(coordinator.getState().decisionReason, 'skipped-locally');
+  assert.equal(f.sessionStore.has(userA), true);
+});
+

@@ -186,19 +186,12 @@ export function createPostLoginCoordinator(options: PostLoginCoordinatorOptions)
         return { ok: false, error: 'stale' };
       }
 
-      sessionStore.add(targetUser);
-
       let result;
       try {
         result = await onboardingRepo.recordDecision(targetUser, 'complete', rolloutVersion);
       } catch (err) {
-        if (isCurrent(targetUser, opGen)) {
-          state = {
-            ...state,
-            status: 'completed',
-            decisionReason: 'decision-write-failed',
-          };
-          emit();
+        if (!isCurrent(targetUser, opGen)) {
+          return { ok: false, error: 'stale' };
         }
         return { ok: false, error: String(err) };
       }
@@ -208,6 +201,7 @@ export function createPostLoginCoordinator(options: PostLoginCoordinatorOptions)
       }
 
       if (result.ok) {
+        sessionStore.add(targetUser);
         state = {
           ...state,
           status: 'completed',
@@ -216,12 +210,6 @@ export function createPostLoginCoordinator(options: PostLoginCoordinatorOptions)
         emit();
         return { ok: true, outcome: result.value.outcome };
       } else {
-        state = {
-          ...state,
-          status: 'completed',
-          decisionReason: result.reason,
-        };
-        emit();
         return { ok: false, error: result.reason };
       }
     },
@@ -246,11 +234,11 @@ export function createPostLoginCoordinator(options: PostLoginCoordinatorOptions)
           state = {
             ...state,
             status: 'skipped',
-            decisionReason: 'decision-write-failed',
+            decisionReason: 'skipped-locally',
           };
           emit();
         }
-        return { ok: false, error: String(err) };
+        return { ok: true, outcome: 'skipped-locally' };
       }
 
       if (!isCurrent(targetUser, opGen)) {
@@ -269,10 +257,10 @@ export function createPostLoginCoordinator(options: PostLoginCoordinatorOptions)
         state = {
           ...state,
           status: 'skipped',
-          decisionReason: result.reason,
+          decisionReason: 'skipped-locally',
         };
         emit();
-        return { ok: false, error: result.reason };
+        return { ok: true, outcome: 'skipped-locally' };
       }
     },
 
