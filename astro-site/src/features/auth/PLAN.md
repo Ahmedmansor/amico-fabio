@@ -9,7 +9,60 @@ queue and ownership assertions passed with ROLLBACK. Cron runs every 15 minutes;
 Brevo webhook setup now returns 200/configured and webhook_ready=true. Restricted
 activation is ready for user testing; actual email delivery is not yet verified.
 
-## Approved next task and handoff — 2026-10-26
+## Current closure scope and verified checkpoint — 2026-10-26
+
+This is the current priority over older handoffs below. The user reaffirmed that
+Magic Link is essential; Google-only authentication does NOT complete this scope.
+No offers/newsletter are included. The approved scope remains Auth, tour/package
+favorites and one optional favorites reminder.
+
+**Verified no-consent journey:** the user re-registered the same Google test email,
+continued with the reminder checkbox unchecked, then saved one tour. A live read
+confirmed one saved tour, zero packages, no reminder-preference row, zero consent
+grants and zero automatic reminder jobs. Onboarding was completed. This closes
+registration + favorite save without optional email consent. An absent preference
+row is the expected no-consent state, not a missing mandatory registration field.
+
+**Current implementation:** Google and account wishlist synchronization are active;
+welcome onboarding and SQL/RLS are applied locally/remote as previously verified.
+The test recipient was deleted and recreated only under explicit user authorization.
+Cache/SDK/UI edits are currently uncommitted work from the ongoing session; review
+and verify them before treating their behavior as complete. Preserve unrelated edits.
+
+**Required next tasks to close the agreed scope:**
+1. Review and finish existing cache changes, test account isolation, refresh/expiry
+   and confirmed consent writes, then run required checks and focused commits.
+2. Complete Magic Link for legitimate non-Google addresses, including Italian
+   providers and private domains. Reuse the existing callback foundations and the
+   cross-device behavior in section 4.1. Enable the email entry only after actual
+   backend sending protection/settings are ready. No password or user-entered OTP.
+3. Enforce email syntax/length/domain validation and known disposable-domain
+   blocking on the actual Auth sending path, not only in the UI or a bypassable
+   wrapper. Follow sections 7.1/7.2: maintained list, legitimate-domain support,
+   temporary DNS failure recovery, resend/rate limits, and explicit typo correction.
+   No claim can guarantee all disposable domains are detected or mailbox existence;
+   successful Magic Link verification proves control. Test new/existing users,
+   unsupported malformed addresses, known disposable domains, same/cross-device,
+   used/expired links and bypass attempts. External Auth/hooks/provider/settings,
+   new dependencies and test email sending retain their separate authorization gates.
+4. Implement/document administrative account-erasure requests using the existing
+   public contact info@fabioegypt.com, linked clearly from IT/EN privacy/account
+   information. The user approved manual handling instead of a self-service Delete
+   Account button in this phase. Document ownership verification, stopping queued
+   optional mail, sessions/account and related-data removal, retention exceptions
+   and confirmation; access/export requests also use the documented contact process.
+   This is an operational process to implement, not an already published guarantee.
+5. Complete real reminder delivery QA and agree the intended eligible-account
+   sending scope. Logic/unit success and the user's expectation that it will work
+   are not evidence of provider acceptance, inbox receipt, working withdrawal or
+   no duplicates. Keep existing restricted account/recipient settings until a
+   separately authorized activation; do not silently broaden sending. Then perform
+   the authorized final test/deployment review without modifying legacy main/domain.
+
+Self-service account deletion is deferred. Magic Link is required now, not deferred.
+A new visitor can always register/save favorites without enabling reminders.
+
+## Historical onboarding implementation handoff — 2026-10-26
 
 **Goal:** make saving and synchronizing tour/package favorites the main value of
 registration. Keep Google sign-in simple; offer one optional favorites reminder
@@ -208,7 +261,8 @@ in the handoff until section 4.2 is implemented and verified.
 
 1. Guests save tour/package stable IDs locally with immediate honest feedback.
    Preserve the existing progressive sign-in invitation and seven-day dismissal;
-   manual sign-in remains available. Google is active; Magic Link remains deferred.
+   manual sign-in remains available. Google is active; Magic Link is required for
+   scope completion and remains disabled pending its protection/activation work.
 2. The sign-in dialog has no reminder checkbox. Beneath the sign-in controls show
    the standard registration acknowledgement of the Terms of Use and Privacy
    Policy, linking to the site's actual legal content. Match IT/EN dictionary keys.
@@ -327,8 +381,9 @@ next-task order; full delivery QA follows the onboarding change.
    24h from max(consent,last actual addition), no duplicates, empty-list cancellation,
    no-login management/withdrawal and provider delivery/bounce events. No artificial
    clock change or reset of a real allowance/consent to speed up testing. Record
-   actual outputs and distinguish provider acceptance from mailbox receipt. Magic
-   Link, account deletion/export and public launch remain later work.
+   actual outputs and distinguish provider acceptance from mailbox receipt. Follow
+   the Current closure scope for required Magic Link and administrative deletion
+   work. Public launch and self-service account deletion remain separate.
 
 ## 5. Consent and privacy
 
@@ -504,7 +559,7 @@ Correspondence policy:
    locale overrides are not sending inputs and do not consume the real allowance.
 
 Use only the shared supportedLocales/Locale configuration. Keep Astro static and
-Brevo as the provider. Magic Link activation remains deferred. Existing
+Brevo as the provider. Magic Link is required; activation awaits verified protection. Existing
 locale_source/follow_site/explicit schema and RPCs are implementation history,
 not competing product policies. Adapt them with the smallest safe change; preserve
 verified ownership, atomic updates, idempotency and late-command protection.

@@ -1,5 +1,21 @@
 # Auth activation and remaining setup
 
+## Current closure checkpoint — 2026-10-26
+
+PLAN.md's Current closure scope supersedes the historical next-task handoffs below.
+The real Google no-consent registration + favorite-save test passed: one tour,
+no preference row, zero consent grants and zero reminder jobs. Magic Link for
+non-Google email is required to finish the scope, with server-enforced syntax/domain
+and known disposable-email validation and sending protection on the real Auth path.
+It is not activated or verified merely because callback/client code exists.
+
+The user approved administrative deletion requests through the existing public
+contact info@fabioegypt.com; a self-service account deletion button is deferred.
+Document and implement IT/EN request instructions and the verified admin process.
+Review the ongoing uncommitted cache changes separately. Final real reminder
+email/withdrawal testing is still outstanding; no sending scope was expanded by
+this plan update, and the user's confidence in the logic is not delivery evidence.
+
 ## Current next task — post-login welcome (2026-10-26)
 
 Follow PLAN.md's Approved next task and handoff, section 4 (approved flow), and
