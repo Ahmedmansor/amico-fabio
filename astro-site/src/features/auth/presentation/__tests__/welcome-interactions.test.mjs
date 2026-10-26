@@ -574,14 +574,18 @@ test('integration: account switch while save is pending preserves and leaves ope
   };
 
   let resolveUserASave;
+  let userASaveStarted = false;
+  let userAPreferenceEnabled = false;
   const userASavePromise = new Promise(resolve => (resolveUserASave = resolve));
 
   const fakeBridge = {
     connectedUser: null,
     controller: {
-      getState: () => ({status: 'ready', preference: {enabled: true}}),
+      getState: () => ({status: 'ready', preference: {enabled: userAPreferenceEnabled}}),
       save: async () => {
+        userASaveStarted = true;
         await userASavePromise;
+        userAPreferenceEnabled = true;
       },
       retry: async () => {},
     },
@@ -631,6 +635,8 @@ test('integration: account switch while save is pending preserves and leaves ope
   reminderCheckbox.checked = true;
   continueBtn.dispatchEvent({type: 'click'});
   await new Promise(resolve => setTimeout(resolve, 0));
+  assert.equal(userASaveStarted, true);
+  assert.equal(userAPreferenceEnabled, false);
   assert.equal(continueBtn.disabled, true);
 
   // 3. While save is in-flight, auth switches to User B!
@@ -647,10 +653,117 @@ test('integration: account switch while save is pending preserves and leaves ope
   await new Promise(resolve => setTimeout(resolve, 10));
 
   // User B's dialog MUST STILL BE OPEN!
+  assert.equal(userAPreferenceEnabled, true);
   assert.equal(dialog.open, true);
   assert.equal(titleEl.textContent, 'Ciao, User B!');
   assert.equal(errorEl.hidden, true);
   assert.equal(continueBtn.disabled, false);
+});
+
+test('integration: wishlist sync update while save is pending preserves currentDialogGen, busy state, and displays error on failure', async () => {
+  const records = new Map();
+  const userA = '00000000-0000-4000-8000-00000000000a';
+  records.set(userA, {
+    userId: userA,
+    rolloutVersion: 'welcome-v1',
+    isEligible: true,
+    eligibleAt: '2026-10-26T00:00:00.000Z',
+    completedAt: null,
+    skippedAt: null,
+  });
+
+  const onboardingRepo = {
+    read: async userId => ({ok: true, value: records.get(userId) ?? null}),
+    recordDecision: async () => {
+      return {ok: true, value: {outcome: 'complete'}};
+    },
+  };
+
+  let rejectSave;
+  let saveStarted = false;
+  const savePromise = new Promise((_resolve, reject) => {
+    rejectSave = reject;
+  });
+
+  const fakeBridge = {
+    connectedUser: null,
+    controller: {
+      getState: () => ({status: 'ready', preference: {enabled: false}}),
+      save: async () => {
+        saveStarted = true;
+        await savePromise;
+      },
+      retry: async () => {},
+    },
+    connect: async userId => {
+      fakeBridge.connectedUser = userId;
+    },
+  };
+
+  const dialog = createMockElement('dialog');
+  const titleEl = createMockElement('h2');
+  const introEl = createMockElement('p');
+  const syncStatusEl = createMockElement('p');
+  const errorEl = createMockElement('p');
+  const reminderCheckbox = createMockElement('input', {type: 'checkbox'});
+  const continueBtn = createMockElement('button');
+  const skipBtn = createMockElement('button');
+
+  dialog.continueBtn = continueBtn;
+  dialog.skipBtn = skipBtn;
+  dialog.reminderCheckbox = reminderCheckbox;
+
+  const elements = {dialog, titleEl, introEl, syncStatusEl, errorEl, reminderCheckbox, continueBtn, skipBtn};
+
+  let binding;
+  const coordinator = createPostLoginCoordinator({
+    onboardingRepo,
+    rolloutVersion: 'welcome-v1',
+    onStateChange: state => binding?.render(state),
+  });
+
+  const actions = createWelcomeActions({
+    coordinator,
+    service: {bearerFor: async () => ({ok: true, value: 'token'})},
+    preferences: {endpoint: 'https://auth.invalid/functions/v1/wishlist-email-preferences', timeoutMs: 5000, maxResponseBytes: 4096},
+    locale: 'it',
+    createBridge: () => fakeBridge,
+  });
+
+  binding = bindWelcomeDialog(elements, messages, actions);
+
+  // 1. Connect user
+  await coordinator.connectUser(userA, {displayName: 'User A'});
+  assert.equal(dialog.open, true);
+
+  // 2. User checks checkbox and clicks continue
+  reminderCheckbox.checked = true;
+  continueBtn.dispatchEvent({type: 'click'});
+  await new Promise(resolve => setTimeout(resolve, 0));
+  assert.equal(saveStarted, true);
+  assert.equal(continueBtn.disabled, true);
+  assert.equal(skipBtn.disabled, true);
+
+  // 3. While save is in-flight, a wishlist sync update arrives!
+  coordinator.updateWishlistSync({status: 'synced', count: 4});
+
+  // Busy state and button disabling MUST BE PRESERVED!
+  assert.equal(continueBtn.disabled, true);
+  assert.equal(skipBtn.disabled, true);
+  assert.equal(syncStatusEl.hidden, false);
+  assert.equal(syncStatusEl.textContent, messages.welcomeFavoritesSynced);
+
+  // 4. The pending save fails
+  rejectSave(new Error('Network disconnected'));
+  await new Promise(resolve => setTimeout(resolve, 10));
+
+  // The error MUST be displayed and buttons re-enabled for retry (not treated as stale)!
+  assert.equal(dialog.open, true);
+  assert.equal(errorEl.hidden, false);
+  assert.equal(errorEl.textContent, messages.failed);
+  assert.equal(reminderCheckbox.checked, true);
+  assert.equal(continueBtn.disabled, false);
+  assert.equal(skipBtn.disabled, false);
 });
 
 test('integration: complete failure leaves dialog open, shows error, preserves checkbox, and retry succeeds', async () => {

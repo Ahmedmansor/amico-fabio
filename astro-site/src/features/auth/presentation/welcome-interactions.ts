@@ -45,15 +45,20 @@ export function bindWelcomeDialog(
       return;
     }
 
-    currentPromptUser = state.userId;
-    currentDialogGen++;
-    busy = false;
-    continueBtn.disabled = false;
-    skipBtn.disabled = false;
+    const isFreshOrUserChanged = !dialog.open || currentPromptUser !== state.userId;
+
+    if (isFreshOrUserChanged) {
+      currentPromptUser = state.userId;
+      currentDialogGen++;
+      busy = false;
+      continueBtn.disabled = false;
+      skipBtn.disabled = false;
+      reminderCheckbox.checked = false;
+      errorEl.textContent = '';
+      errorEl.hidden = true;
+    }
 
     introEl.textContent = messages.welcomeIntro;
-    errorEl.textContent = '';
-    errorEl.hidden = true;
 
     // Greet by display name when available, with neutral greeting otherwise
     if (state.displayName) {
@@ -79,9 +84,7 @@ export function bindWelcomeDialog(
       syncStatusEl.hidden = true;
     }
 
-    // Ensure unchecked by default only when opening fresh dialog
     if (!dialog.open) {
-      reminderCheckbox.checked = false;
       dialog.showModal();
       continueBtn.focus();
     }
