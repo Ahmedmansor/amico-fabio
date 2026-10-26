@@ -15,10 +15,15 @@ async function initialize() {
   const status = document.querySelector<HTMLElement>('[data-auth-callback-status]')!;
   const intro = document.querySelector<HTMLElement>('[data-auth-callback-intro]')!;
   const back = document.querySelector<HTMLAnchorElement>('[data-auth-back]')!;
+  const requestNew = document.querySelector<HTMLAnchorElement>('[data-auth-request-new]');
   back.href = destination;
   const service = await browserAuth(config);
   if (!service) { status.textContent = m.unavailable; return; }
-  if (input.kind === 'invalid') { status.textContent = m.invalidLink; return; }
+  if (input.kind === 'invalid') {
+    status.textContent = m.invalidLink;
+    if (requestNew) requestNew.hidden = false;
+    return;
+  }
   let pending = false;
   const complete = async () => {
     if (pending) return;
@@ -28,7 +33,8 @@ async function initialize() {
     if (result.ok) { window.location.replace(destination); return; }
     status.textContent = m.invalidLink;
     button.hidden = true;
-    back.focus();
+    if (requestNew) { requestNew.hidden = false; requestNew.focus(); }
+    else { back.focus(); }
   };
   if (input.kind === 'google') {
     // OAuth already follows an explicit sign-in action; exchange PKCE once on return.

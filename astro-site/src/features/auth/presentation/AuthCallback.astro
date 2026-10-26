@@ -14,7 +14,10 @@ const configuration = JSON.stringify({ config: authConfig, messages: m, locale }
   <p data-auth-callback-intro>{m.pending}</p>
   <button type="button" class="auth-button" data-auth-continue hidden>{m.continue}</button>
   <p data-auth-callback-status role="status" aria-live="polite">{authConfig ? '' : m.unavailable}</p>
-  <a href={`/${locale}/wishlist/`} data-auth-back>{m.back}</a>
+  <div class="auth-callback-actions">
+    <a href={`/${locale}/?auth=open`} class="auth-button auth-secondary" data-auth-request-new hidden>{m.requestNewLink}</a>
+    <a href={`/${locale}/wishlist/`} data-auth-back>{m.back}</a>
+  </div>
   <noscript><p>{m.javascript}</p></noscript>
 </main>
 <script>import './callback-interactions';</script>

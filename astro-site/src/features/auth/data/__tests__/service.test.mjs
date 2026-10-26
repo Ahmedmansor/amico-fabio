@@ -35,6 +35,7 @@ test('Auth is off by default; enabled config rejects secrets and missing operati
 test('invalid mail never reaches provider; valid private mail gets a safe callback and no consent metadata', async () => {
   const { service, calls } = setup();
   assert.deepEqual(await service.requestMagicLink('bad', 'it'), { ok: false, reason: 'invalid-email' });
+  assert.deepEqual(await service.requestMagicLink('spammer@mailinator.com', 'it'), { ok: false, reason: 'disposable-domain' });
   assert.equal(calls.length, 0);
   assert.equal((await service.requestMagicLink('Mario+Tour@LIBERO.IT', 'it', '//evil.test')).ok, true);
   assert.equal(calls[0].email, 'Mario+Tour@libero.it');
@@ -43,6 +44,10 @@ test('invalid mail never reaches provider; valid private mail gets a safe callba
   assert.equal('data' in calls[0].options, false);
   assert.deepEqual(await service.requestMagicLink('a@b.it', 'it'), { ok: false, reason: 'rate-limited' });
   assert.equal(calls.length, 1);
+});
+test('backend disposable domain rejection is mapped to disposable-domain failure', async () => {
+  const { service } = setup({ signInWithOtp: async () => ({ error: { message: 'Temporary email domain not allowed', status: 403 } }) });
+  assert.deepEqual(await service.requestMagicLink('someone@custom-unlisted-temp.com', 'it'), { ok: false, reason: 'disposable-domain' });
 });
 test('concurrent requests cannot double-send and failed requests do not start a success cooldown', async () => {
   let resolve;

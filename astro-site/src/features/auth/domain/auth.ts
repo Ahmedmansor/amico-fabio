@@ -1,8 +1,10 @@
-export type AuthFailure = 'unavailable' | 'invalid-email' | 'invalid-link' | 'rate-limited' | 'failed' | 'busy';
+export type AuthFailure = 'unavailable' | 'invalid-email' | 'disposable-domain' | 'invalid-link' | 'rate-limited' | 'failed' | 'busy';
 export type AuthResult<T> = { ok: true; value: T } | { ok: false; reason: AuthFailure };
 export interface AccountProfile { displayName: string | null; email: string | null; avatarUrl: string | null }
 export interface AccountSession { userId: string; profile: AccountProfile }
 export type CallbackInput = { kind: 'email'; tokenHash: string } | { kind: 'google'; code: string } | { kind: 'invalid' };
+
+export { validateEmailAddress, isDisposableDomain, suggestEmailCorrection, type EmailTypoSuggestion, type EmailValidationOutcome } from './email-validation.ts';
 
 /** Preserve mailbox identity, including dots, case and +tags; normalize the domain only. */
 export function normalizeEmail(input: string): string | null {

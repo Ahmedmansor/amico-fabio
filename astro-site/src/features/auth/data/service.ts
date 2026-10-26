@@ -1,11 +1,11 @@
 import type { SupabaseClient, Session } from '@supabase/supabase-js';
 import type { Locale } from '../../../shared/config/languages.ts';
-import { normalizeEmail, safeReturnPath, cooldownRemaining, type AuthResult, type AccountSession, type CallbackInput } from '../domain/auth.ts';
+import { validateEmailAddress, safeReturnPath, cooldownRemaining, type AuthFailure, type AuthResult, type AccountSession, type CallbackInput } from '../domain/auth.ts';
 import { authReturnPaths, defaultAuthReturn, type AuthConfig } from './config.ts';
 import { accountSession } from './profile.ts';
 
 type Client = Pick<SupabaseClient, 'auth'>;
-const failure = (reason: 'unavailable' | 'invalid-email' | 'invalid-link' | 'rate-limited' | 'failed' | 'busy'): AuthResult<never> => ({ ok: false, reason });
+const failure = (reason: AuthFailure): AuthResult<never> => ({ ok: false, reason });
 const success = <T>(value: T): AuthResult<T> => ({ ok: true, value });
 function sessionView(session: Session | null): AccountSession | null {
   return session?.user?.id ? accountSession(session.user) : null;
@@ -53,8 +53,11 @@ export function createAuthService(client: Client, config: AuthConfig, now: () =>
     },
     async requestMagicLink(input: string, locale: Locale, requestedReturn?: unknown, captchaToken?: string): Promise<AuthResult<void>> {
       if (!config.emailEnabled) return failure('unavailable');
-      const email = normalizeEmail(input);
-      if (!email) return failure('invalid-email');
+      const validation = validateEmailAddress(input);
+      if (!validation.ok) {
+        return failure(validation.reason === 'disposable-domain' ? 'disposable-domain' : 'invalid-email');
+      }
+      const email = validation.normalizedEmail;
       if (busy) return failure('busy');
       if (cooldownRemaining(sentAt, now(), config.resendSeconds)) return failure('rate-limited');
       busy = true;
@@ -63,7 +66,14 @@ export function createAuthService(client: Client, config: AuthConfig, now: () =>
           shouldCreateUser: true, emailRedirectTo: callbackUrl(locale, requestedReturn),
           ...(captchaToken ? { captchaToken } : {}),
         } });
-        if (error) return failure(rateLimited(error) ? 'rate-limited' : 'failed');
+        if (error) {
+          if (rateLimited(error)) return failure('rate-limited');
+          const msg = typeof error === 'object' && error && 'message' in error ? String(error.message).toLowerCase() : '';
+          if (msg.includes('disposable') || msg.includes('temporary email') || msg.includes('domain not allowed')) {
+            return failure('disposable-domain');
+          }
+          return failure('failed');
+        }
         sentAt = now();
         return success(undefined);
       } catch { return failure('failed'); } finally { busy = false; }

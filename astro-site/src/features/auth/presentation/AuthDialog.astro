@@ -4,7 +4,6 @@ import { getAuthMessages } from '../data/messages';
 import type { Locale } from '../../../shared/config/languages';
 import './auth.css';
 import AccountSummary from './AccountSummary.astro';
-import EmailLocaleSettings from './EmailLocaleSettings.astro';
 import {getLocaleMessages} from '../data/locale-messages';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -31,8 +30,12 @@ const configuration = JSON.stringify({ config: authConfig, messages: m, locale, 
         </button>}
         {authConfig.emailEnabled && <form data-auth-form novalidate>
           <label for="auth-email">{m.email}</label>
-          <input id="auth-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" required aria-describedby="auth-input-error auth-guidance"/>
-          <p id="auth-input-error" class="auth-error" data-auth-input-error role="alert" hidden></p>
+          <input id="auth-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" required aria-describedby="auth-input-error auth-email-suggestion auth-guidance"/>
+          <div id="auth-email-suggestion" class="auth-suggestion" data-auth-email-suggestion role="status" aria-live="polite" hidden>
+            <span data-auth-suggestion-text></span>
+            <button type="button" class="auth-suggestion-button" data-auth-apply-suggestion>{m.useSuggestion}</button>
+          </div>
+          <p id="auth-input-error" class="auth-error" data-auth-input-error role="alert" aria-live="assertive" hidden></p>
           <button type="submit" class="auth-button" data-auth-send>{m.send}</button>
           <p id="auth-guidance">{m.guidance}</p>
           <p data-auth-countdown role="timer" aria-live="off" hidden></p>
@@ -46,7 +49,7 @@ const configuration = JSON.stringify({ config: authConfig, messages: m, locale, 
         </p>
         <p class="auth-mode-switch"><span data-auth-mode-prompt>{m.noAccount}</span> <button type="button" data-auth-mode-switch>{m.signUp}</button></p>
       </div>
-      <div data-auth-account hidden><p>{m.signedIn}</p><AccountSummary locale={locale}/>{localeSettings && <EmailLocaleSettings locale={locale}/>}<button type="button" class="auth-button auth-secondary" data-auth-signout>{m.signOut}</button></div>
+      <div data-auth-account hidden><p>{m.signedIn}</p><AccountSummary locale={locale}/><button type="button" class="auth-button auth-secondary" data-auth-signout>{m.signOut}</button></div>
       <p data-auth-status role="status" aria-live="polite" hidden></p>
       <button type="button" class="auth-close" data-auth-close>{m.notNow}</button>
     </div>

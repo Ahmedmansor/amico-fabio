@@ -2,13 +2,14 @@ import { browserAuth } from '../data/browser';
 import { getAuthMessages } from '../data/messages';
 import type { AuthConfig } from '../data/config';
 import type { Locale } from '../../../shared/config/languages';
-import type { AccountSession } from '../domain/auth';
+import { suggestEmailCorrection, type AccountSession } from '../domain/auth';
 import type {LocaleBrowserConfig} from '../data/locale-browser-config';
 import type {getLocaleMessages} from '../data/locale-messages';
 import type {bindAccountLocale} from './locale-interactions';
 import {getAccountState} from '../data/account-state';
 import { readCachedAuthProfile, saveCachedAuthProfile, clearCachedAuthProfile, hasCachedAuthSession } from '../data/auth-cache';
 import { clearAccountWishlistCache } from '../../wishlist/data/wishlist-cache';
+import { clearAllCachedPreferences } from '../../reminders/data/preferences-cache';
 import { recordPendingReminderOptIn, clearPendingReminderOptIn } from './pending-optin';
 
 async function initialize() {
@@ -25,6 +26,9 @@ async function initialize() {
   const form = dialog.querySelector<HTMLFormElement>('[data-auth-form]');
   const email = dialog.querySelector<HTMLInputElement>('#auth-email');
   const inputError = dialog.querySelector<HTMLElement>('[data-auth-input-error]');
+  const suggestion = dialog.querySelector<HTMLElement>('[data-auth-email-suggestion]');
+  const suggestionText = dialog.querySelector<HTMLElement>('[data-auth-suggestion-text]');
+  const suggestionApply = dialog.querySelector<HTMLButtonElement>('[data-auth-apply-suggestion]');
   const countdown = dialog.querySelector<HTMLElement>('[data-auth-countdown]');
   const send = dialog.querySelector<HTMLButtonElement>('[data-auth-send]');
   const google = dialog.querySelector<HTMLButtonElement>('[data-auth-google]');
@@ -134,10 +138,47 @@ async function initialize() {
     dialog.setAttribute('aria-busy', String(pending));
     document.getElementById('global-header')?.setAttribute('data-session-pending', String(!ready));
   }
+  let activeSuggestion: string | null = null;
+  const updateSuggestion = (val: string) => {
+    if (!suggestion || !suggestionText) return;
+    const typo = suggestEmailCorrection(val);
+    if (typo) {
+      activeSuggestion = typo.suggested;
+      suggestionText.textContent = m.didYouMean.replace('{suggestion}', typo.suggested);
+      suggestion.hidden = false;
+    } else {
+      activeSuggestion = null;
+      suggestion.hidden = true;
+    }
+  };
+  const clearSuggestion = () => {
+    activeSuggestion = null;
+    if (suggestion) suggestion.hidden = true;
+  };
+  email?.addEventListener('input', () => {
+    if (inputError && !inputError.hidden) {
+      inputError.hidden = true;
+      email.removeAttribute('aria-invalid');
+    }
+    updateSuggestion(email.value);
+  });
+  email?.addEventListener('blur', () => {
+    updateSuggestion(email.value);
+  });
+  suggestionApply?.addEventListener('click', () => {
+    if (activeSuggestion && email) {
+      email.value = activeSuggestion;
+      clearSuggestion();
+      if (inputError) inputError.hidden = true;
+      email.removeAttribute('aria-invalid');
+      email.focus();
+    }
+  });
   for (const trigger of triggers) {
     trigger.addEventListener('click', () => {
       opener = trigger;
       signingUp = false;
+      clearSuggestion();
       show(service ? '' : m.unavailable);
       render();
       dialog.showModal();
@@ -148,6 +189,7 @@ async function initialize() {
   modeSwitch.addEventListener('click', () => {
     if (pending) return;
     signingUp = !signingUp;
+    clearSuggestion();
     show('');
     if (inputError) inputError.hidden = true;
     email?.removeAttribute('aria-invalid');
@@ -165,22 +207,45 @@ async function initialize() {
     }
   });
   dialog.addEventListener('close', () => {
+    clearSuggestion();
     (opener?.getClientRects().length ? opener : document.querySelector<HTMLButtonElement>('#global-header [data-auth-open]'))?.focus();
   });
   form?.addEventListener('submit', async event => {
     event.preventDefault();
-    if (!service || pending) return;
+    if (!service || pending || !email) return;
     recordPendingOptIn();
-    pending = true; inputError!.hidden = true; email!.removeAttribute('aria-invalid'); show(m.pending); render();
-    const result = await service.requestMagicLink(email!.value, locale);
-    pending = false;
-    if (result.ok) show(m.sent);
-    else if (result.reason === 'invalid-email') {
-      show(''); inputError!.textContent = m.invalidEmail; inputError!.hidden = false;
-      email!.setAttribute('aria-invalid', 'true');
-    } else show(result.reason === 'rate-limited' ? m.rateLimited : m.failed);
+    pending = true;
+    if (inputError) inputError.hidden = true;
+    email.removeAttribute('aria-invalid');
+    show(m.pending);
     render();
-    if (!result.ok && result.reason === 'invalid-email') email!.focus();
+    const result = await service.requestMagicLink(email.value, locale);
+    pending = false;
+    if (result.ok) {
+      show(m.sent);
+      clearSuggestion();
+    } else if (result.reason === 'invalid-email') {
+      show('');
+      if (inputError) {
+        inputError.textContent = m.invalidEmail;
+        inputError.hidden = false;
+      }
+      email.setAttribute('aria-invalid', 'true');
+      updateSuggestion(email.value);
+      email.focus();
+    } else if (result.reason === 'disposable-domain') {
+      show('');
+      if (inputError) {
+        inputError.textContent = m.disposableEmail;
+        inputError.hidden = false;
+      }
+      email.setAttribute('aria-invalid', 'true');
+      clearSuggestion();
+      email.focus();
+    } else {
+      show(result.reason === 'rate-limited' ? m.rateLimited : m.failed);
+    }
+    render();
   });
   google?.addEventListener('click', async () => {
     if (!service || pending) return;
@@ -198,6 +263,7 @@ async function initialize() {
     if (result.ok) {
       clearCachedAuthProfile();
       clearAccountWishlistCache();
+      clearAllCachedPreferences();
       clearPendingReminderOptIn(sessionStorage);
       session = null; show(''); render(); dialog.close();
       window.location.replace(`/${locale}/`);
@@ -206,6 +272,21 @@ async function initialize() {
     render();
   });
   render();
+  try {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('auth') === 'open' && !session) {
+      opener = document.querySelector<HTMLButtonElement>('#global-header [data-auth-open]');
+      signingUp = false;
+      clearSuggestion();
+      show(service ? '' : m.unavailable);
+      render();
+      dialog.showModal();
+      (session ? signout : email ?? google)?.focus();
+      const cleanUrl = new URL(window.location.href);
+      cleanUrl.searchParams.delete('auth');
+      window.history.replaceState(null, '', cleanUrl.pathname + (cleanUrl.search ? cleanUrl.search : '') + cleanUrl.hash);
+    }
+  } catch {}
   if (service) {
     getAccountState(service).subscribe(state => {
       ready = state.status !== 'loading';
