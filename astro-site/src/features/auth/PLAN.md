@@ -9,6 +9,34 @@ queue and ownership assertions passed with ROLLBACK. Cron runs every 15 minutes;
 Brevo webhook setup now returns 200/configured and webhook_ready=true. Restricted
 activation is ready for user testing; actual email delivery is not yet verified.
 
+## Approved next task and handoff — 2026-10-26
+
+**Goal:** make saving and synchronizing tour/package favorites the main value of
+registration. Keep Google sign-in simple; offer one optional favorites reminder
+in a welcome dialog after successful first registration, rather than before login.
+No offers, discounts, newsletter or marketing-list enrollment is included.
+
+**Starting point:** migration branch try-to-refactoring-to-astro, latest reviewed
+commit 1b8f7aa. Google Auth, guest/account tour and package favorites, wishlist
+banner, reminder settings and IT/EN account language exist. The pre-login checkbox
+and pending-intent bridge still exist; the welcome dialog is NOT implemented.
+Earlier defects were fixed through c29b16d and 1b8f7aa: confirmed initial read,
+account binding, withdrawal preservation, fail-closed binding storage and
+attempt/account-matched cleanup. Preserve those guarantees during replacement.
+
+Verification evidence from this chat: 1b8f7aa passed 282 Node and 169 Vitest tests.
+The previous c29b16d revision passed Astro check (396 files, zero diagnostics)
+and built 96 pages; the later commit's check/build results were reported by the
+user, not rerun by the reviewing agent. A live read confirmed the unified-language
+SQL update and restricted EXECUTE grants. Full real reminder delivery remains
+unverified. These are historical results, not checks of the new onboarding.
+
+**Immediate next action:** prepare the account-owned onboarding state/domain and
+reviewable SQL proposal in section 4.2, then implement the local gated flow in
+focused tasks. Do not rebuild Auth or account synchronization from scratch.
+Existing approvals for old account/reminder SQL do not cover a new onboarding
+schema, external email test window or deployment. Prepare local work first.
+
 ## Decision autonomy — current instruction (2026-10-25)
 
 Continue the agreed Auth/wishlist/reminder work autonomously. Choose routine
@@ -172,53 +200,56 @@ src/features/
   rules. Backend secrets must never enter the website bundle.
 - Do not create empty implementation files merely to represent the planned structure.
 
-## 4. User journey
+## 4. User journey — approved update 2026-10-26
 
-1. A guest clicks a heart. Save the tour or package ID locally in `localStorage`
-   and reflect successful storage immediately without prompts or interruptions.
-   This is a core functional service, strictly necessary, and requires no marketing
-   consent or cookies banner.
-2. Progressive engagement threshold: do NOT show an invitation on the very first
-   heart click (the user has not experienced sufficient value yet). Only after
-   the visitor saves 2–3 items, or on a returning visit with existing saved items,
-   display a lightweight, non-intrusive prompt:
-   - Header: "Save your favorites so you don't lose them" (IT: "Salva i tuoi preferiti per non perderli", EN: "Save your favorites so you don't lose them").
-   - Action controls: Sign in with Google button and manual Email entry (Magic Link).
-3. Choosing "Not now" suppresses automatic invitations for seven days. Manual
-   sign-in remains accessible at any time from navigation/wishlist.
-4. Confirmed sign-in methods: Google OAuth and a manually entered email address
-   receiving a Magic Link. No password or user-entered OTP in the agreed UX.
-5. Optional reminder opt-in checkbox: Display an unchecked-by-default checkbox
-   on the prompt screen (positioned above the action buttons or alongside the email field):
-   - IT: "Inviami un promemoria con i miei preferiti (opzionale)"
-   - EN: "Send me a reminder with my favorites (optional)"
-6. Strictly optional consent: Leaving the reminder checkbox unchecked is never
-   an error (no validation warning, disabled registration, or blocked wishlist).
-   Registration and account synchronization succeed regardless of checkbox state.
-   - If UNCHECKED: The account is created/authenticated, guest favorites synchronize
-     to the database, and `reminder_consent = false` is recorded. No reminder emails
-     are scheduled or sent.
-   - If CHECKED: The account is created/authenticated, favorites synchronize,
-     `reminder_consent = true` is recorded, and the correspondence language is
-     initialized from the active browsing language (`it` or `en`) at the moment
-     of consent.
-7. After establishing the authenticated session, merge guest favorites without
-   duplicates. Clear only guest items whose synchronization succeeded. Never
-   announce successful synchronization after a failed request.
-8. Signed-in users can add/remove favorites, change site language (also used for future emails), and stop reminders.
-   - For signed-in users who have NOT enabled reminders: do NOT display modal popups
-     or interrupt their browsing on tour/package pages. Instead, when they view their
-     Wishlist page (`/wishlist/`), display a quiet, non-blocking inline banner:
-     - IT: "Vuoi ricevere un promemoria per queste escursioni? [Attiva promemoria]"
-     - EN: "Want to receive a reminder for these tours? [Enable reminder]"
-     - Activating it enables reminders immediately, initializing correspondence language
-       from the active site language (`it` or `en`) chosen by the user on the site.
-9. No immediate email-send button in the public customer journey. Restricted QA
-   sending must never implicitly enable reminders.
+This section supersedes the pre-login reminder checkbox and its pending-intent
+conversion flow. It changes the target UX; current runtime remains as described
+in the handoff until section 4.2 is implemented and verified.
 
-Optimistic UI needs rollback and translated errors on failure. If localStorage
-is unavailable, do not claim persistence succeeded. Repeated clicks and multiple
-tabs must not create duplicates or unexpectedly reverse the intended state.
+1. Guests save tour/package stable IDs locally with immediate honest feedback.
+   Preserve the existing progressive sign-in invitation and seven-day dismissal;
+   manual sign-in remains available. Google is active; Magic Link remains deferred.
+2. The sign-in dialog has no reminder checkbox. Beneath the sign-in controls show
+   the standard registration acknowledgement of the Terms of Use and Privacy
+   Policy, linking to the site's actual legal content. Match IT/EN dictionary keys.
+   Do not display the awkward explanatory sentence about login not subscribing
+   users to optional emails. Terms acknowledgement never acts as reminder consent.
+3. After Google callback, establish the account identity and start lossless guest
+   favorites synchronization. Clear only remotely confirmed guest revisions.
+   Authentication and favorites remain usable independently of onboarding.
+4. Show a small welcome dialog once for a newly registered eligible account after
+   identity is confirmed. Eligibility/completion is durable account state, not
+   browser storage, absence of reminder preferences, OAuth profile metadata or an
+   assumption that every login is a new registration. Existing accounts are not
+   automatically enrolled in this new onboarding rollout; see section 4.2.
+5. Greet by display name when available, with a neutral greeting otherwise. Confirm
+   registration only when known, and claim favorites were saved only after the
+   wishlist coordinator confirms it. With no favorites, omit that sentence. On
+   sync failure show honest status/retry while retaining unsynchronized favorites.
+6. The welcome dialog offers one unchecked-by-default favorites-reminder checkbox
+   and Continue (Continua in Italian), with an accessible close/Not now action.
+   Reuse existing approved reminder wording, with matching IT/EN content. No offers
+   or discounts. Continue works unchecked; account access is never conditional.
+7. Checked Continue explicitly saves auditable reminder consent through the existing
+   service and waits for confirmed success. Unchecked Continue, Not now or close
+   completes/skips onboarding without granting consent or changing existing consent.
+   A failed consent save offers translated retry or skip; do not claim success or
+   auto-subscribe later from stale state. Keep the same identity on uncertain retries.
+8. Persist completion separately from reminder consent. A completed/skipped welcome
+   dialog does not reappear on later login/refresh/another device. A failed completion
+   write is not proof of durable completion: suppress repeat display locally for
+   this visit and provide bounded reconciliation without repeating consent grants.
+9. Returning users manage reminder activation/withdrawal on the wishlist page.
+   Keep the quiet inline invitation only for eligible non-subscribers; do not show
+   a second reminder invitation while the welcome dialog is active. Existing users
+   who withdrew are not automatically prompted again. A fresh manual settings
+   action can enable reminders; stale intent cannot override withdrawal.
+10. Future emails use the latest persisted site language per section 6.1. Preserve
+    the one-reminder timing/allowance rules. Customer UI has no immediate-send button.
+
+All dialogs support keyboard focus containment/restoration, Escape/close, mobile
+layouts and translated IT/EN status/errors. Repeated actions, account switches
+and late replies must not duplicate consent or complete another account's flow.
 
 ### 4.1. Manual email and Magic Links across devices
 
@@ -244,6 +275,60 @@ tabs must not create duplicates or unexpectedly reverse the intended state.
   that synchronization. Synced favorites then follow the account across devices.
 - Handle expired/used links and email-provider link scanners without false
   success messages or automatic resend loops.
+
+### 4.2. Execution steps and acceptance gates
+
+Implement one focused task at a time, run its relevant tests plus Astro check/build,
+review its diff and commit it before continuing. Preserve the established static
+Astro architecture and feature dependency direction. This list is the current
+next-task order; full delivery QA follows the onboarding change.
+
+1. **Prepare durable onboarding state.** Auth owns an account-scoped welcome state
+   with a rollout version, eligibility and completed/skipped timestamp; reminder
+   consent remains in reminders. Prepare pure domain rules/tests and least-privilege
+   SQL/RLS in astro-site/supabase/account-onboarding/. Establish a trusted rollout
+   boundary for genuinely new accounts; grandfather existing accounts as ineligible
+   without inferring eligibility from a missing row. Use server-owned state for
+   eligibility/completion and reject cross-account access. Remote schema/test writes
+   require their separate authorization; this step initially produces local proposals.
+   Acceptance: tests cover new/returning/legacy accounts, completed/skipped state,
+   absent/unknown state, outages and account changes. Unknown eligibility never
+   triggers unsolicited prompting or a consent write.
+2. **Prepare the post-login coordinator.** Reuse Auth identity and the wishlist's
+   confirmed sync status. Resolve onboarding independently of guest favorites and
+   support users with no favorites. Keep captured user/operation identity, a single
+   active dialog, deduplication and late-response isolation. Add local transport
+   tests with synthetic services. Acceptance: successful login is not misreported
+   as sync success; failures preserve favorites and account access.
+3. **Build the welcome dialog and clean sign-in.** Add feature-scoped presentation
+   with existing site styles, IT/EN dictionaries, unchecked reminder choice,
+   Continue/Not now/close and honest sync/consent status. Replace the pre-login
+   checkbox when switching to the new flow. Add the standard linked Terms/Privacy
+   acknowledgement beneath sign-in controls. Acceptance: IT/EN at 375/1440px,
+   keyboard/Escape/focus behavior, existing-account login without welcome, and no
+   duplicate prompt from the wishlist banner. Keep the unfinished flow gated.
+4. **Wire consent, completion and retirement.** Submit consent only on explicit
+   checked Continue, using the existing authenticated/audited endpoint. Persist
+   onboarding completion separately; skip never creates a grant or withdraws existing
+   consent. Reuse stable retry IDs and ownership/attempt checks. Retire pre-login
+   pending-optin recording/reconciliation as an active path; old stored intents must
+   not silently execute alongside the welcome flow. Keep old protections/tests until
+   their replacements pass. Acceptance: unchecked choice makes zero consent grants;
+   withdrawal wins over stale retries; failed writes show retry/skip; late account A
+   replies cannot alter account B state or newer intent; refresh cannot duplicate a grant.
+5. **Verify and activate the approved test flow.** Run all relevant domain/browser
+   tests, npx astro check and npm run build; review the diff and commit. After the
+   specifically authorized schema activation and actual role tests, verify a new
+   account sees one dialog and an existing/completed/skipped account does not,
+   including a second browser. Test-environment deployment remains separately gated.
+   Do not claim a synthetic success verifies the real account integration.
+6. **Resume end-to-end reminder QA.** Within an authorized active recipient/window,
+   verify final saved language, email content and links, one automatic reminder after
+   24h from max(consent,last actual addition), no duplicates, empty-list cancellation,
+   no-login management/withdrawal and provider delivery/bounce events. No artificial
+   clock change or reset of a real allowance/consent to speed up testing. Record
+   actual outputs and distinguish provider acceptance from mailbox receipt. Magic
+   Link, account deletion/export and public launch remain later work.
 
 ## 5. Consent and privacy
 
@@ -750,7 +835,7 @@ test recipients; never use real customers as test data.
 
 Additional acceptance scenarios:
 
-- Registration and favorites work with reminder opt-in unchecked, without warnings.
+- Registration has no reminder checkbox; favorites work when the post-login reminder choice is unchecked/skipped, without warnings.
 - Valid Italian-provider/private-domain emails, malformed addresses, and known disposable domains.
 - User accepts or declines a typo suggestion; no silent address rewriting.
 - Temporary DNS failure, concurrent requests, rapid resends, and direct requests bypassing browser validation.

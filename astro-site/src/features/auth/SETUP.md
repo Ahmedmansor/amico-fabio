@@ -1,5 +1,22 @@
 # Auth activation and remaining setup
 
+## Current next task — post-login welcome (2026-10-26)
+
+Follow PLAN.md's Approved next task and handoff, section 4 (approved flow), and
+section 4.2 (numbered implementation tasks). The user approved favorites-reminder
+onboarding after first registration, no pre-login checkbox and no offers/newsletter.
+Sign-in shows standard linked Terms of Use/Privacy acknowledgement; do not display
+an explanatory sentence about login not subscribing users to emails.
+
+Starting revision: 1b8f7aa. Existing Google, guest/account tour/package favorites,
+consent safeguards and unified-language SQL are the baseline. Welcome state/dialog
+are not implemented by this documentation update. First prepare durable account
+onboarding eligibility/completion and local domain tests/SQL proposal; implement
+local flow behind a gate. Existing accounts must not be treated as new because a
+new onboarding record is absent. New remote schema, fixture writes and deployment
+retain their separate gates. Retire the old pending-optin execution path when
+switching flows, preserving account isolation, retry and withdrawal protections.
+
 ## Current language and autonomy contract — 2026-10-25
 
 The latest user instruction makes the customer's last supported site language
