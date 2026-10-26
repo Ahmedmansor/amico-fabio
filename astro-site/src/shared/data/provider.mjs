@@ -9,7 +9,7 @@ export function createConfiguredProvider(settings,fetchImpl=fetch){
   const name=settings.CATALOG_PROVIDER||'supabase';
   if(name==='sheets')return googleSheetsProvider;
   if(name!=='supabase')throw new Error('[catalog] CATALOG_PROVIDER must be supabase or sheets.');
-  return createSupabaseProvider({url:settings.CATALOG_SUPABASE_URL,publishableKey:settings.CATALOG_SUPABASE_PUBLISHABLE_KEY,fetchImpl});
+  return createSupabaseProvider({url:settings.CATALOG_SUPABASE_URL,publishableKey:settings.CATALOG_SUPABASE_PUBLISHABLE_KEY,fetchImpl,timeoutMs:Number(settings.CATALOG_TIMEOUT_MS)||30000});
 }
 let selected;
 export function readCatalogSettings(){

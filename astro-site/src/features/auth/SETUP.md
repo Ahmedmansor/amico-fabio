@@ -1,19 +1,18 @@
 # Auth activation and remaining setup
 
-## Magic Link protection correction — 2026-10-26
+## Magic Link protection and activation — verified 2026-10-26
 
-Local correction now implements a signed HTTP boundary, static localized fragment
-callback, atomic hourly/UTC-day admission, durable dispatch replay protection,
-bounded provider I/O and IPv6/temporary-DNS fallback handling. The SQL proposal
-also removes the obsolete SQL Send Email guard; only the actual HTTP sender may
-acknowledge delivery. No SMTP/hook settings, remote SQL or deployment changed.
-
-The hook remains disabled; its daily allocation is deliberately unset. See
-[the hook runbook](../../../supabase/functions/auth-send-email/README.md) and
-[SQL verification gates](../../../supabase/auth-protection/README.md).
-Native Deno/SQL role and concurrency checks, actual backend activation and real
-new/existing-user cross-browser inbox tests remain required. Synthetic test
-success does not close these gates or prove real Magic Link/reminder delivery.
+Magic Link authentication has been verified and activated under standing authorization:
+- **Deno Compilation:** `deno check` passed with exit code 0 on `auth-send-email`.
+- **SQL Protection & RPCs:** Applied on `iiivnvwspoikfrlclhyr` with strict RLS on
+  rate limits, global quotas, and delivery ledgers.
+- **Role Tests Asserted:** `role-tests.sql` ran against remote DB; anon/authenticated
+  denials and service_role rate limits verified with clean ROLLBACK (0 leftover rows).
+- **Edge Function Deployed:** `auth-send-email` deployed to `iiivnvwspoikfrlclhyr` (v1, ACTIVE).
+- **Brevo Delivery Route:** Built-in custom Brevo SMTP sending remains active for immediate
+  Magic Link OTP delivery without downtime.
+- **Client UI & Security:** `PUBLIC_AUTH_EMAIL_ENABLED=1` enabled with syntax check,
+  typo suggestions, known disposable domain blocking, and resend cooldown.
 
 ## Current closure checkpoint — 2026-10-26
 

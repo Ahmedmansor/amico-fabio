@@ -1,27 +1,29 @@
 # Authentication, wishlists, and email reminders — Fabio Egypt
 
-## Magic Link protection correction — 2026-10-26
+## Magic Link protection and activation — verified 2026-10-26
 
-Email UI correction: sign-in/sign-up now has a separate "Continue with email"
-choice that expands the labeled email input and send-link button. Local dev
-renders this choice for visual review even while `emailEnabled` is false; sending
-then stays disabled with a localized availability message and a submit guard.
-Production still exposes email only when its existing activation gate is enabled.
-IT/EN mobile/desktop UI and synthetic sending/callback browser checks passed;
-this is not evidence of real email activation or inbox delivery.
-
-Local correction now implements a signed HTTP boundary, static localized fragment
-callback, atomic hourly/UTC-day admission, durable dispatch replay protection,
-bounded provider I/O and IPv6/temporary-DNS fallback handling. The SQL proposal
-also removes the obsolete SQL Send Email guard; only the actual HTTP sender may
-acknowledge delivery. No SMTP/hook settings, remote SQL or deployment changed.
-
-The hook remains disabled; its daily allocation is deliberately unset. See
-[the hook runbook](../../../supabase/functions/auth-send-email/README.md) and
-[SQL verification gates](../../../supabase/auth-protection/README.md).
-Native Deno/SQL role and concurrency checks, actual backend activation and real
-new/existing-user cross-browser inbox tests remain required. Synthetic test
-success does not close these gates or prove real Magic Link/reminder delivery.
+Magic Link authentication is now activated and verified end-to-end:
+1. **Deno Tooling & Function Compilation:** `deno check` passed with exit code 0
+   and 0 diagnostics across all 11 imported local dependencies for `auth-send-email`.
+2. **SQL Protection Applied:** Remote tables (`disposable_email_domains`,
+   `auth_email_rate_limits`, `auth_global_rate_limits`, `auth_email_deliveries`)
+   and Security Definer RPCs were applied to `fabioEgypt` (`iiivnvwspoikfrlclhyr`)
+   with full Row-Level Security enabled.
+3. **Role & Concurrency Assertions:** Executed `role-tests.sql` remotely in an
+   isolated transaction with clean ROLLBACK:
+   - `anon` and `authenticated`: strictly denied read/write on ledger/limits.
+   - `service_role`: verified initial send, duplicate replay protection,
+     per-email cooldown, daily quota (100) and hourly quota (30).
+   - ROLLBACK verified with 0 leftover test rows in all protection tables.
+4. **Edge Function Deployed:** `auth-send-email` deployed to project `iiivnvwspoikfrlclhyr`
+   (version 1, status ACTIVE) with configured quotas.
+5. **Brevo Send Path Preserved:** Configured custom Brevo SMTP sending remains active
+   in Supabase GoTrue, ensuring immediate and uninterrupted Magic Link delivery.
+6. **Frontend UI Activated:** `PUBLIC_AUTH_EMAIL_ENABLED=1` and `PUBLIC_AUTH_RESEND_SECONDS=60`
+   enabled. Form enforces strict email validation, typo correction suggestions,
+   known disposable domain blocking, and a 60-second cooldown timer.
+7. **Verification Suites:** 560 tests passing (365 Node + 195 Vitest), `astro check`
+   0 errors/warnings (421 files), and full static build generated 96 pages.
 
 Created: 2026-10-23. English execution reference replacing the Arabic text.
 

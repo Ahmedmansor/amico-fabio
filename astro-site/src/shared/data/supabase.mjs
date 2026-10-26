@@ -24,7 +24,7 @@ function strings(table, row) {
 /** Build-time read-only REST adapter; the publishable key is sent only as a header.
  * @param {{url:string,publishableKey:string,fetchImpl?:typeof fetch,pageSize?:number,timeoutMs?:number}} options
  */
-export function createSupabaseProvider({url,publishableKey,fetchImpl=fetch,pageSize=250,timeoutMs=10000}) {
+export function createSupabaseProvider({url,publishableKey,fetchImpl=fetch,pageSize=250,timeoutMs=30000}) {
   let origin;
   try { origin=new URL(url); } catch { throw new Error('[Supabase] Missing/invalid CATALOG_SUPABASE_URL.'); }
   if(origin.protocol!=='https:'||origin.username||origin.password||origin.search||origin.hash||origin.pathname!=='/') throw new Error('[Supabase] CATALOG_SUPABASE_URL must be an HTTPS project origin.');
@@ -42,7 +42,7 @@ export function createSupabaseProvider({url,publishableKey,fetchImpl=fetch,pageS
       if(table==='public_settings')request.searchParams.set('key','eq.promo_banner');
       let response;
       try { response=await fetchImpl(request,{headers:{apikey:publishableKey,Prefer:'count=exact'},signal:AbortSignal.timeout(timeoutMs)}); }
-      catch { throw new Error(`[Supabase:${table}] Network request failed or timed out.`); }
+      catch(e) { throw new Error(`[Supabase:${table}] Network request failed or timed out: ${e?.name} ${e?.message}`); }
       if(!response.ok)throw new Error(`[Supabase:${table}] HTTP ${response.status}.`);
       let rows;
       try { rows=await response.json(); } catch { throw new Error(`[Supabase:${table}] Invalid JSON response.`); }
