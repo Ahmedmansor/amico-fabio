@@ -1,5 +1,20 @@
 # Auth activation and remaining setup
 
+## Magic Link protection correction — 2026-10-26
+
+Local correction now implements a signed HTTP boundary, static localized fragment
+callback, atomic hourly/UTC-day admission, durable dispatch replay protection,
+bounded provider I/O and IPv6/temporary-DNS fallback handling. The SQL proposal
+also removes the obsolete SQL Send Email guard; only the actual HTTP sender may
+acknowledge delivery. No SMTP/hook settings, remote SQL or deployment changed.
+
+The hook remains disabled; its daily allocation is deliberately unset. See
+[the hook runbook](../../../supabase/functions/auth-send-email/README.md) and
+[SQL verification gates](../../../supabase/auth-protection/README.md).
+Native Deno/SQL role and concurrency checks, actual backend activation and real
+new/existing-user cross-browser inbox tests remain required. Synthetic test
+success does not close these gates or prove real Magic Link/reminder delivery.
+
 ## Current closure checkpoint — 2026-10-26
 
 PLAN.md's Current closure scope supersedes the historical next-task handoffs below.

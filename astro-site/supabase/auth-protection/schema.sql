@@ -1,9 +1,5 @@
--- Auth Sending Path Protection Schema — Fabio Egypt
--- Step 2: Protection against disposable domains, malformed input, and abuse on the real Auth sending path.
--- Local review artifact. DO NOT RUN REMOTELY WITHOUT SEPARATE AUTHORIZATION.
-
+-- Local proposal only. Requires separate remote-write authorization and real role tests.
 begin;
-
 -- 1. Maintainable catalog of known temporary / disposable email domains
 create table if not exists public.disposable_email_domains (
   domain text primary key,
@@ -55,45 +51,32 @@ insert into public.disposable_email_domains (domain, reason) values
   ('tmailor.com', 'TMailor service')
 on conflict (domain) do nothing;
 
--- 2. Email rate limiting table on the actual Auth sending path (per-email hash)
--- Prevents repeated resends to the same address
+
 create table if not exists public.auth_email_rate_limits (
-  email_hash text primary key,
-  last_sent_at timestamptz not null default now(),
-  send_count int not null default 1,
-  window_start timestamptz not null default now(),
-  check (send_count >= 1)
+  email_hash text primary key, last_sent_at timestamptz not null,
+  send_count int not null check(send_count >= 1), window_start timestamptz not null
 );
-
--- 3. Global rate limiting table for Auth emails
--- Protects the shared daily Brevo allowance (300 emails/day) against distributed attacks
--- rotating through different email addresses to exhaust the daily sending quota
 create table if not exists public.auth_global_rate_limits (
-  bucket text primary key,
-  window_start timestamptz not null default now(),
-  send_count int not null default 1,
-  max_per_window int not null default 30
+  bucket text primary key, window_start timestamptz not null,
+  send_count int not null check(send_count >= 1), max_per_window int not null
 );
-
--- Enable Row Level Security on all protection tables
+-- No recipient, token, URL, or message body retained in the delivery ledger.
+create table if not exists public.auth_email_deliveries (
+  delivery_key text primary key check(delivery_key ~ '^[a-f0-9]{64}$'),
+  attempt_id uuid not null, state text not null check(state in ('sending','accepted','unknown','retryable','rejected')),
+  updated_at timestamptz not null default now(), message_id text,
+  check(message_id is null or length(message_id) between 1 and 512)
+);
 alter table public.disposable_email_domains enable row level security;
 alter table public.auth_email_rate_limits enable row level security;
 alter table public.auth_global_rate_limits enable row level security;
-
--- Revoke all table-level access from client/browser roles
-revoke all on public.disposable_email_domains from public, anon, authenticated;
-revoke all on public.auth_email_rate_limits from public, anon, authenticated;
-revoke all on public.auth_global_rate_limits from public, anon, authenticated;
-
--- Allow only supabase_auth_admin and service_role to access these tables
-grant all on public.disposable_email_domains to supabase_auth_admin, service_role;
-grant all on public.auth_email_rate_limits to supabase_auth_admin, service_role;
-grant all on public.auth_global_rate_limits to supabase_auth_admin, service_role;
-
--- 4. Pure domain verification helper function
+alter table public.auth_email_deliveries enable row level security;
+revoke all on public.disposable_email_domains, public.auth_email_rate_limits,
+  public.auth_global_rate_limits, public.auth_email_deliveries from public, anon, authenticated, supabase_auth_admin, service_role;
+-- Writes go through the two definer RPCs only. Catalog maintenance is administrative.
 create or replace function public.validate_auth_email_domain(p_email text)
 returns text
-language plpgsql immutable security definer set search_path=''
+language plpgsql stable security definer set search_path=''
 as $$
 declare
   v_trimmed text;
@@ -145,107 +128,88 @@ begin
 end;
 $$;
 
--- 5. Atomic check and consume rate limiting function (Global + Per-Email)
--- Uses extensions.digest for secure anonymized hashing under search_path=''
-create or replace function public.check_and_consume_auth_rate_limit(
-  p_email text,
-  p_max_global int default 30,
-  p_max_per_email int default 5,
-  p_cooldown_seconds int default 60
-)
-returns jsonb
-language plpgsql security definer set search_path=''
-as $$
+
+create or replace function public.reserve_auth_email(
+  p_email text, p_delivery_key text, p_max_hourly int, p_max_daily int,
+  p_max_per_email int default 5, p_cooldown_seconds int default 60
+) returns jsonb language plpgsql security definer set search_path='' as $$
 declare
+  v_now timestamptz := clock_timestamp();
   v_email_hash text;
-  v_now timestamptz := now();
-  v_global_rec record;
-  v_rate_rec record;
-  v_retry_after int;
+  v_delivery public.auth_email_deliveries%rowtype;
+  v_rate public.auth_email_rate_limits%rowtype;
+  v_hour public.auth_global_rate_limits%rowtype;
+  v_day public.auth_global_rate_limits%rowtype;
+  v_day_start timestamptz;
+  v_attempt uuid := gen_random_uuid();
 begin
-  if p_email is null or trim(p_email) = '' then
-    return jsonb_build_object('allowed', false, 'reason', 'invalid_email');
+  if p_delivery_key is null or p_delivery_key !~ '^[a-f0-9]{64}$'
+    or p_max_hourly is null or p_max_hourly not between 1 and 300
+    or p_max_daily is null or p_max_daily not between 1 and 300
+    or p_max_per_email is null or p_max_per_email not between 1 and 20
+    or p_cooldown_seconds is null or p_cooldown_seconds not between 60 and 3600 then
+    return jsonb_build_object('outcome','blocked');
   end if;
-
-  -- Anonymized hash of recipient email
+  if public.validate_auth_email_domain(p_email) <> 'ok' then
+    return jsonb_build_object('outcome','blocked');
+  end if;
+  -- One lock covers first insertion, all checks, quota updates, and ledger admission.
+  -- finish_auth_email uses the same lock. No partial quota consumption on rejection.
+  perform pg_advisory_xact_lock(72610, 1);
+  v_now := clock_timestamp();
+  v_day_start := date_trunc('day', v_now at time zone 'UTC') at time zone 'UTC';
+  select * into v_delivery from public.auth_email_deliveries where delivery_key=p_delivery_key;
+  if found then
+    if v_delivery.state='accepted' then return jsonb_build_object('outcome','accepted'); end if;
+    if v_delivery.state in ('sending','unknown') then return jsonb_build_object('outcome','uncertain'); end if;
+    if v_delivery.state='rejected' or v_delivery.updated_at > v_now - interval '60 seconds' then
+      return jsonb_build_object('outcome','blocked');
+    end if;
+  end if;
   v_email_hash := encode(extensions.digest(lower(trim(p_email)), 'sha256'), 'hex');
-
-  -- Step 5A: Global rate limit check (protects overall daily Brevo quota)
-  select * into v_global_rec
-  from public.auth_global_rate_limits
-  where bucket = 'auth_email_global'
-  for update;
-
-  if found then
-    if (v_now - v_global_rec.window_start) > interval '1 hour' then
-      update public.auth_global_rate_limits
-      set window_start = v_now, send_count = 1, max_per_window = p_max_global
-      where bucket = 'auth_email_global';
-    else
-      if v_global_rec.send_count >= p_max_global then
-        v_retry_after := greatest(1, extract(epoch from (v_global_rec.window_start + interval '1 hour' - v_now))::int);
-        return jsonb_build_object(
-          'allowed', false,
-          'reason', 'global_limit_exceeded',
-          'retry_after_seconds', v_retry_after
-        );
-      end if;
-      update public.auth_global_rate_limits
-      set send_count = send_count + 1
-      where bucket = 'auth_email_global';
-    end if;
-  else
-    insert into public.auth_global_rate_limits (bucket, window_start, send_count, max_per_window)
-    values ('auth_email_global', v_now, 1, p_max_global);
+  select * into v_rate from public.auth_email_rate_limits where email_hash=v_email_hash;
+  select * into v_hour from public.auth_global_rate_limits where bucket='auth_hour';
+  select * into v_day from public.auth_global_rate_limits where bucket='auth_day';
+  if v_rate.last_sent_at > v_now - make_interval(secs => p_cooldown_seconds)
+    or (v_rate.window_start > v_now - interval '1 hour' and v_rate.send_count >= p_max_per_email)
+    or (v_hour.window_start > v_now - interval '1 hour' and v_hour.send_count >= p_max_hourly)
+    or (v_day.window_start = v_day_start and v_day.send_count >= p_max_daily) then
+    return jsonb_build_object('outcome','blocked');
   end if;
-
-  -- Step 5B: Per-email rate limit check (cooldown + hourly cap)
-  select * into v_rate_rec
-  from public.auth_email_rate_limits
-  where email_hash = v_email_hash
-  for update;
-
-  if found then
-    -- Check minimum cooldown
-    if (v_now - v_rate_rec.last_sent_at) < (p_cooldown_seconds || ' seconds')::interval then
-      v_retry_after := greatest(1, extract(epoch from (v_rate_rec.last_sent_at + (p_cooldown_seconds || ' seconds')::interval - v_now))::int);
-      return jsonb_build_object(
-        'allowed', false,
-        'reason', 'cooldown_active',
-        'retry_after_seconds', v_retry_after
-      );
-    end if;
-
-    -- Check per-email 1-hour window
-    if (v_now - v_rate_rec.window_start) > interval '1 hour' then
-      update public.auth_email_rate_limits
-      set window_start = v_now, send_count = 1, last_sent_at = v_now
-      where email_hash = v_email_hash;
-    else
-      if v_rate_rec.send_count >= p_max_per_email then
-        v_retry_after := greatest(1, extract(epoch from (v_rate_rec.window_start + interval '1 hour' - v_now))::int);
-        return jsonb_build_object(
-          'allowed', false,
-          'reason', 'per_email_limit_exceeded',
-          'retry_after_seconds', v_retry_after
-        );
-      end if;
-      update public.auth_email_rate_limits
-      set send_count = send_count + 1, last_sent_at = v_now
-      where email_hash = v_email_hash;
-    end if;
-  else
-    insert into public.auth_email_rate_limits (email_hash, last_sent_at, send_count, window_start)
-    values (v_email_hash, v_now, 1, v_now);
-  end if;
-
-  return jsonb_build_object('allowed', true);
+  insert into public.auth_global_rate_limits as g(bucket,window_start,send_count,max_per_window)
+    values('auth_hour',v_now,1,p_max_hourly)
+    on conflict(bucket) do update set
+      send_count=case when g.window_start <= v_now-interval '1 hour' then 1 else g.send_count+1 end,
+      window_start=case when g.window_start <= v_now-interval '1 hour' then v_now else g.window_start end,
+      max_per_window=p_max_hourly;
+  insert into public.auth_global_rate_limits as g(bucket,window_start,send_count,max_per_window)
+    values('auth_day',v_day_start,1,p_max_daily)
+    on conflict(bucket) do update set
+      send_count=case when g.window_start=v_day_start then g.send_count+1 else 1 end,
+      window_start=v_day_start,max_per_window=p_max_daily;
+  insert into public.auth_email_rate_limits as e(email_hash,last_sent_at,send_count,window_start)
+    values(v_email_hash,v_now,1,v_now)
+    on conflict(email_hash) do update set last_sent_at=v_now,
+      send_count=case when e.window_start <= v_now-interval '1 hour' then 1 else e.send_count+1 end,
+      window_start=case when e.window_start <= v_now-interval '1 hour' then v_now else e.window_start end;
+  insert into public.auth_email_deliveries(delivery_key,attempt_id,state,updated_at)
+    values(p_delivery_key,v_attempt,'sending',v_now)
+    on conflict(delivery_key) do update set attempt_id=v_attempt,state='sending',updated_at=v_now;
+  return jsonb_build_object('outcome','send','attemptId',v_attempt);
 end;
 $$;
 
--- 6. Before User Created Hook (PostgreSQL Function)
--- Fires before inserting a new user row into auth.users.
--- Note: Does NOT replace SMTP. Validates input and aborts registration for disposable/malformed emails.
+create or replace function public.finish_auth_email(p_delivery_key text,p_attempt_id uuid,p_state text,p_message_id text default null)
+returns boolean language plpgsql security definer set search_path='' as $$
+begin
+  if p_state is null or p_state not in ('accepted','unknown','retryable','rejected')
+    or (p_state='accepted' and (p_message_id is null or length(p_message_id) not between 1 and 512)) then return false; end if;
+  perform pg_advisory_xact_lock(72610, 1);
+  update public.auth_email_deliveries set state=p_state,message_id=p_message_id,updated_at=clock_timestamp()
+    where delivery_key=p_delivery_key and attempt_id=p_attempt_id and state='sending';
+  return found;
+end;
+$$;
 create or replace function public.hook_before_user_created(event jsonb)
 returns jsonb
 language plpgsql security definer set search_path=''
@@ -277,75 +241,14 @@ begin
 end;
 $$;
 
--- 7. Send Email Hook Guard & Validation Function
--- CRITICAL ARCHITECTURAL NOTICE:
--- In Supabase Auth, when a Send Email Hook is activated, Supabase DOES NOT use built-in SMTP.
--- The hook is responsible for dispatching the email.
--- Returning {} tells Supabase the email was sent; if no dispatch occurred, the user will NEVER receive their link!
--- For real dispatch via Brevo REST API with DNS MX verification and localized templates,
--- configure Send Email Hook as an HTTP Hook pointing to the 'auth-send-email' Edge Function.
-create or replace function public.hook_auth_send_email(event jsonb)
-returns jsonb
-language plpgsql security definer set search_path=''
-as $$
-declare
-  v_email text;
-  v_status text;
-  v_rate_res jsonb;
-begin
-  v_email := event->'user'->>'email';
-  if v_email is null or length(v_email) = 0 then
-    return jsonb_build_object(
-      'error', jsonb_build_object(
-        'message', 'Missing recipient email address.',
-        'http_code', 400
-      )
-    );
-  end if;
 
-  -- Validate syntax and disposable domain
-  v_status := public.validate_auth_email_domain(v_email);
-  if v_status = 'invalid-format' then
-    return jsonb_build_object(
-      'error', jsonb_build_object(
-        'message', 'Invalid email address format.',
-        'http_code', 400
-      )
-    );
-  elsif v_status = 'disposable-domain' then
-    return jsonb_build_object(
-      'error', jsonb_build_object(
-        'message', 'Temporary or disposable email domains are not allowed.',
-        'http_code', 403
-      )
-    );
-  end if;
-
-  -- Atomic rate limits
-  v_rate_res := public.check_and_consume_auth_rate_limit(v_email);
-  if (v_rate_res->>'allowed')::boolean is not true then
-    return jsonb_build_object(
-      'error', jsonb_build_object(
-        'message', 'Too many requests. Please wait before requesting another sign-in link.',
-        'http_code', 429
-      )
-    );
-  end if;
-
-  return '{}'::jsonb;
-end;
-$$;
-
--- Grants: allow supabase_auth_admin and service_role to execute functions
-grant execute on function public.validate_auth_email_domain(text) to supabase_auth_admin, service_role;
-grant execute on function public.check_and_consume_auth_rate_limit(text, int, int, int) to supabase_auth_admin, service_role;
-grant execute on function public.hook_before_user_created(jsonb) to supabase_auth_admin, service_role;
-grant execute on function public.hook_auth_send_email(jsonb) to supabase_auth_admin, service_role;
-
--- Revocations: strictly revoke execute from public, anon, and authenticated
-revoke execute on function public.validate_auth_email_domain(text) from authenticated, anon, public;
-revoke execute on function public.check_and_consume_auth_rate_limit(text, int, int, int) from authenticated, anon, public;
-revoke execute on function public.hook_before_user_created(jsonb) from authenticated, anon, public;
-revoke execute on function public.hook_auth_send_email(jsonb) from authenticated, anon, public;
-
+-- Retire the old guard that could acknowledge mail without actually sending it.
+drop function if exists public.hook_auth_send_email(jsonb);
+drop function if exists public.check_and_consume_auth_rate_limit(text,int,int,int);
+revoke all on function public.validate_auth_email_domain(text), public.hook_before_user_created(jsonb),
+  public.reserve_auth_email(text,text,int,int,int,int), public.finish_auth_email(text,uuid,text,text)
+  from public, anon, authenticated, supabase_auth_admin, service_role;
+grant execute on function public.hook_before_user_created(jsonb) to supabase_auth_admin;
+grant execute on function public.reserve_auth_email(text,text,int,int,int,int),
+  public.finish_auth_email(text,uuid,text,text) to service_role;
 commit;

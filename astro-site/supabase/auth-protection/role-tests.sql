@@ -1,254 +1,72 @@
--- Role & Permission Assertions for Auth Sending Protection — Fabio Egypt
--- Tests role switching between anon, authenticated, service_role, and supabase_auth_admin.
--- All assertions run inside an explicit transaction that ALWAYS terminates in ROLLBACK.
--- DO NOT RUN WITHOUT SEPARATE AUTHORIZATION.
-
+-- Local proposal. Run only after explicit authorization, on a reviewed isolated test DB.
+-- ROLLBACK also restores pre-existing counters/ledger. No Auth users or external mail.
 begin;
+select pg_advisory_xact_lock(72610,1);
+delete from public.auth_email_deliveries;
+delete from public.auth_email_rate_limits;
+delete from public.auth_global_rate_limits;
+insert into public.disposable_email_domains(domain) values('runtime-blocked.example') on conflict do nothing;
 
--- Pre-flight sanity checks
-do $$ begin
-  if to_regclass('public.disposable_email_domains') is null
-     or to_regclass('public.auth_email_rate_limits') is null
-     or to_regclass('public.auth_global_rate_limits') is null then
-    raise exception 'Required auth protection tables not found. Apply schema.sql first.';
-  end if;
-end $$;
-
--- =========================================================================
--- Phase 1: Test Anonymous Role (anon) — Zero Access
--- =========================================================================
 set local role anon;
-
-do $$
-begin
-  -- 1A: Table reads denied for anon
-  begin
-    perform 1 from public.disposable_email_domains limit 1;
-    raise exception 'VULNERABILITY: anon can read public.disposable_email_domains';
-  exception when insufficient_privilege then null;
-  end;
-
-  begin
-    perform 1 from public.auth_email_rate_limits limit 1;
-    raise exception 'VULNERABILITY: anon can read public.auth_email_rate_limits';
-  exception when insufficient_privilege then null;
-  end;
-
-  begin
-    perform 1 from public.auth_global_rate_limits limit 1;
-    raise exception 'VULNERABILITY: anon can read public.auth_global_rate_limits';
-  exception when insufficient_privilege then null;
-  end;
-
-  -- 1B: Table writes denied for anon
-  begin
-    insert into public.disposable_email_domains(domain) values ('leak.test');
-    raise exception 'VULNERABILITY: anon can insert into public.disposable_email_domains';
-  exception when insufficient_privilege then null;
-  end;
-
-  -- 1C: Function executions denied for anon
-  begin
-    perform public.validate_auth_email_domain('test@example.com');
-    raise exception 'VULNERABILITY: anon can execute validate_auth_email_domain';
-  exception when insufficient_privilege then null;
-  end;
-
-  begin
-    perform public.check_and_consume_auth_rate_limit('test@example.com');
-    raise exception 'VULNERABILITY: anon can execute check_and_consume_auth_rate_limit';
-  exception when insufficient_privilege then null;
-  end;
-
-  begin
-    perform public.hook_before_user_created('{"user":{"email":"test@example.com"}}'::jsonb);
-    raise exception 'VULNERABILITY: anon can execute hook_before_user_created';
-  exception when insufficient_privilege then null;
-  end;
-
-  begin
-    perform public.hook_auth_send_email('{"user":{"email":"test@example.com"}}'::jsonb);
-    raise exception 'VULNERABILITY: anon can execute hook_auth_send_email';
-  exception when insufficient_privilege then null;
-  end;
+do $$ begin
+  begin perform public.reserve_auth_email('a@libero.it',repeat('a',64),30,100,5,60); raise exception 'anon reserve allowed'; exception when insufficient_privilege then null; end;
+  begin perform 1 from public.auth_email_deliveries; raise exception 'anon ledger read allowed'; exception when insufficient_privilege then null; end;
 end $$;
-
-reset role;
-
--- =========================================================================
--- Phase 2: Test Authenticated Role (authenticated) — Zero Access
--- =========================================================================
 set local role authenticated;
-
-do $$
-begin
-  -- 2A: Table reads denied for authenticated
-  begin
-    perform 1 from public.disposable_email_domains limit 1;
-    raise exception 'VULNERABILITY: authenticated can read public.disposable_email_domains';
-  exception when insufficient_privilege then null;
-  end;
-
-  begin
-    perform 1 from public.auth_email_rate_limits limit 1;
-    raise exception 'VULNERABILITY: authenticated can read public.auth_email_rate_limits';
-  exception when insufficient_privilege then null;
-  end;
-
-  begin
-    perform 1 from public.auth_global_rate_limits limit 1;
-    raise exception 'VULNERABILITY: authenticated can read public.auth_global_rate_limits';
-  exception when insufficient_privilege then null;
-  end;
-
-  -- 2B: Function executions denied for authenticated
-  begin
-    perform public.validate_auth_email_domain('test@example.com');
-    raise exception 'VULNERABILITY: authenticated can execute validate_auth_email_domain';
-  exception when insufficient_privilege then null;
-  end;
-
-  begin
-    perform public.check_and_consume_auth_rate_limit('test@example.com');
-    raise exception 'VULNERABILITY: authenticated can execute check_and_consume_auth_rate_limit';
-  exception when insufficient_privilege then null;
-  end;
-
-  begin
-    perform public.hook_before_user_created('{"user":{"email":"test@example.com"}}'::jsonb);
-    raise exception 'VULNERABILITY: authenticated can execute hook_before_user_created';
-  exception when insufficient_privilege then null;
-  end;
-
-  begin
-    perform public.hook_auth_send_email('{"user":{"email":"test@example.com"}}'::jsonb);
-    raise exception 'VULNERABILITY: authenticated can execute hook_auth_send_email';
-  exception when insufficient_privilege then null;
-  end;
+do $$ begin
+  begin perform public.reserve_auth_email('a@libero.it',repeat('a',64),30,100,5,60); raise exception 'client reserve allowed'; exception when insufficient_privilege then null; end;
+  begin perform public.finish_auth_email(repeat('a',64),gen_random_uuid(),'accepted','id'); raise exception 'client finish allowed'; exception when insufficient_privilege then null; end;
+  begin perform public.hook_before_user_created('{"user":{"email":"a@libero.it"}}'); raise exception 'client hook allowed'; exception when insufficient_privilege then null; end;
+  begin update public.auth_email_deliveries set state='accepted'; raise exception 'client ledger write allowed'; exception when insufficient_privilege then null; end;
 end $$;
-
-reset role;
-
--- =========================================================================
--- Phase 3: Test service_role / supabase_auth_admin — Full Protection Logic
--- =========================================================================
+set local role supabase_auth_admin;
+do $$ begin
+  if public.hook_before_user_created('{"user":{"email":"a@libero.it"}}') <> '{}'::jsonb then raise exception 'valid signup denied'; end if;
+  if not public.hook_before_user_created('{"user":{"email":"a@runtime-blocked.example"}}') ? 'error' then raise exception 'maintained catalog bypass'; end if;
+  begin perform public.reserve_auth_email('a@libero.it',repeat('a',64),30,100,5,60); raise exception 'auth admin dispatch allowed'; exception when insufficient_privilege then null; end;
+end $$;
 set local role service_role;
-
-do $$
-declare
-  v_res text;
-  v_rate jsonb;
-  v_hook_res jsonb;
-begin
-  -- 3A: Domain Validation: Italian & Corporate Providers MUST be accepted
-  if public.validate_auth_email_domain('mario.rossi@libero.it') <> 'ok' then
-    raise exception 'Italian provider libero.it rejected!';
-  end if;
-  if public.validate_auth_email_domain('giovanni@virgilio.it') <> 'ok' then
-    raise exception 'Italian provider virgilio.it rejected!';
-  end if;
-  if public.validate_auth_email_domain('elena@alice.it') <> 'ok' then
-    raise exception 'Italian provider alice.it rejected!';
-  end if;
-  if public.validate_auth_email_domain('paolo@tim.it') <> 'ok' then
-    raise exception 'Italian provider tim.it rejected!';
-  end if;
-  if public.validate_auth_email_domain('francesca@poste.it') <> 'ok' then
-    raise exception 'Italian provider poste.it rejected!';
-  end if;
-  if public.validate_auth_email_domain('marco@fastwebnet.it') <> 'ok' then
-    raise exception 'Italian provider fastwebnet.it rejected!';
-  end if;
-  if public.validate_auth_email_domain('chiara@tiscali.it') <> 'ok' then
-    raise exception 'Italian provider tiscali.it rejected!';
-  end if;
-  if public.validate_auth_email_domain('info@fabioegypt.com') <> 'ok' then
-    raise exception 'Private brand domain fabioegypt.com rejected!';
-  end if;
-  if public.validate_auth_email_domain('partner@corporate-agency.de') <> 'ok' then
-    raise exception 'Corporate private domain corporate-agency.de rejected!';
-  end if;
-
-  -- 3B: Domain Validation: Disposable Domains MUST be rejected
-  if public.validate_auth_email_domain('test@mailinator.com') <> 'disposable-domain' then
-    raise exception 'Disposable domain mailinator.com not rejected!';
-  end if;
-  if public.validate_auth_email_domain('user@tempmail.com') <> 'disposable-domain' then
-    raise exception 'Disposable domain tempmail.com not rejected!';
-  end if;
-  if public.validate_auth_email_domain('bot@sub.guerrillamail.com') <> 'disposable-domain' then
-    raise exception 'Disposable subdomain sub.guerrillamail.com not rejected!';
-  end if;
-
-  -- 3C: Domain Validation: Malformed Addresses MUST be rejected
-  if public.validate_auth_email_domain('invalid-email') <> 'invalid-format' then
-    raise exception 'Missing @ not rejected as invalid-format!';
-  end if;
-  if public.validate_auth_email_domain('user with spaces@domain.com') <> 'invalid-format' then
-    raise exception 'Spaces not rejected as invalid-format!';
-  end if;
-  if public.validate_auth_email_domain('@nodomain.com') <> 'invalid-format' then
-    raise exception 'Empty local-part not rejected as invalid-format!';
-  end if;
-  if public.validate_auth_email_domain('user@domain-without-tld') <> 'invalid-format' then
-    raise exception 'Domain without dot not rejected as invalid-format!';
-  end if;
-
-  -- 3D: Rate Limiting: Per-Email Cooldown
-  -- First request: allowed
-  v_rate := public.check_and_consume_auth_rate_limit('qa-user-1@fabioegypt.test', 10, 3, 60);
-  if (v_rate->>'allowed')::boolean is not true then
-    raise exception 'First request unexpectedly rejected by rate limiter: %', v_rate;
-  end if;
-
-  -- Immediate second request: rejected with cooldown_active
-  v_rate := public.check_and_consume_auth_rate_limit('qa-user-1@fabioegypt.test', 10, 3, 60);
-  if (v_rate->>'allowed')::boolean is true or v_rate->>'reason' <> 'cooldown_active' then
-    raise exception 'Immediate repeat request was not rejected with cooldown_active: %', v_rate;
-  end if;
-  if (v_rate->>'retry_after_seconds')::int < 1 then
-    raise exception 'Invalid retry_after_seconds in cooldown response: %', v_rate;
-  end if;
-
-  -- 3E: Rate Limiting: Global Capacity Cap
-  -- Consume remaining global allowance up to test cap of 3
-  v_rate := public.check_and_consume_auth_rate_limit('qa-user-2@fabioegypt.test', 3, 5, 0);
-  if (v_rate->>'allowed')::boolean is not true then
-    raise exception 'Global request 2 unexpectedly rejected: %', v_rate;
-  end if;
-
-  v_rate := public.check_and_consume_auth_rate_limit('qa-user-3@fabioegypt.test', 3, 5, 0);
-  if (v_rate->>'allowed')::boolean is not true then
-    raise exception 'Global request 3 unexpectedly rejected: %', v_rate;
-  end if;
-
-  -- Global cap is 3; 4th request from a completely new email MUST be rejected with global_limit_exceeded
-  v_rate := public.check_and_consume_auth_rate_limit('qa-user-4@fabioegypt.test', 3, 5, 0);
-  if (v_rate->>'allowed')::boolean is true or v_rate->>'reason' <> 'global_limit_exceeded' then
-    raise exception 'Request exceeding global limit was not rejected with global_limit_exceeded: %', v_rate;
-  end if;
-
-  -- 3F: Hook before_user_created verification
-  -- Legitimate email -> returns {}
-  v_hook_res := public.hook_before_user_created('{"user":{"email":"legit.customer@libero.it"}}'::jsonb);
-  if v_hook_res <> '{}'::jsonb then
-    raise exception 'hook_before_user_created rejected legitimate Italian email: %', v_hook_res;
-  end if;
-
-  -- Disposable email -> returns error with http_code 403
-  v_hook_res := public.hook_before_user_created('{"user":{"email":"abuser@mailinator.com"}}'::jsonb);
-  if v_hook_res->'error'->>'http_code' <> '403' then
-    raise exception 'hook_before_user_created did not return 403 for disposable email: %', v_hook_res;
-  end if;
-
-  -- Invalid syntax email -> returns error with http_code 400
-  v_hook_res := public.hook_before_user_created('{"user":{"email":"bad-email"}}'::jsonb);
-  if v_hook_res->'error'->>'http_code' <> '400' then
-    raise exception 'hook_before_user_created did not return 400 for bad email: %', v_hook_res;
-  end if;
+do $$ declare v jsonb; v_attempt uuid; begin
+  if public.reserve_auth_email('a@runtime-blocked.example',repeat('b',64),30,100,5,60)->>'outcome' <> 'blocked' then raise exception 'runtime catalog bypass'; end if;
+  if public.reserve_auth_email('a@libero.it',repeat('b',64),30,null,5,60)->>'outcome' <> 'blocked' then raise exception 'missing daily allowed'; end if;
+  v := public.reserve_auth_email('a@libero.it',repeat('a',64),30,100,5,60);
+  if v->>'outcome' <> 'send' then raise exception 'first send denied'; end if;
+  v_attempt := (v->>'attemptId')::uuid;
+  if public.reserve_auth_email('a@libero.it',repeat('a',64),30,100,5,60)->>'outcome' <> 'uncertain' then raise exception 'in-flight replay sent'; end if;
+  if public.finish_auth_email(repeat('a',64),gen_random_uuid(),'accepted','id') then raise exception 'wrong attempt settled'; end if;
+  if not public.finish_auth_email(repeat('a',64),v_attempt,'accepted','synthetic') then raise exception 'settlement failed'; end if;
+  if public.reserve_auth_email('a@libero.it',repeat('a',64),30,100,5,60)->>'outcome' <> 'accepted' then raise exception 'accepted replay sent'; end if;
+  if public.reserve_auth_email('a@libero.it',repeat('c',64),30,100,5,60)->>'outcome' <> 'blocked' then raise exception 'cooldown bypass'; end if;
+end $$;
+reset role;
+do $$ begin
+  if (select send_count from public.auth_global_rate_limits where bucket='auth_day') <> 1 then raise exception 'rejected request consumed day quota'; end if;
+  if (select send_count from public.auth_global_rate_limits where bucket='auth_hour') <> 1 then raise exception 'rejected request consumed hour quota'; end if;
 end $$;
 
+-- Daily capacity must still hold when the hourly window rolls over.
+update public.auth_global_rate_limits set window_start=now()-interval '2 hours' where bucket='auth_hour';
+set local role service_role;
+do $$ declare v jsonb; begin
+  if public.reserve_auth_email('b@virgilio.it',repeat('d',64),30,1,5,60)->>'outcome' <> 'blocked' then raise exception 'daily ceiling bypass'; end if;
+  v := public.reserve_auth_email('b@virgilio.it',repeat('d',64),30,100,5,60);
+  if v->>'outcome' <> 'send' then raise exception 'new hourly window blocked'; end if;
+  if not public.finish_auth_email(repeat('d',64),(v->>'attemptId')::uuid,'unknown') then raise exception 'unknown settlement failed'; end if;
+  if public.reserve_auth_email('b@virgilio.it',repeat('d',64),30,100,5,60)->>'outcome' <> 'uncertain' then raise exception 'unknown delivery replayed'; end if;
+end $$;
 reset role;
-
--- Always ROLLBACK so that no test data or state is retained
+-- Explicit 429 may retry after cooldown; uncertain states never expire into a resend.
+insert into public.auth_email_deliveries(delivery_key,attempt_id,state,updated_at)
+  values(repeat('e',64),gen_random_uuid(),'retryable',now()-interval '2 minutes');
+set local role service_role;
+do $$ declare v jsonb; begin
+  v := public.reserve_auth_email('c@private-brand.example',repeat('e',64),30,100,5,60);
+  if v->>'outcome' <> 'send' then raise exception 'explicit rejection cannot retry'; end if;
+  if not public.finish_auth_email(repeat('e',64),(v->>'attemptId')::uuid,'accepted','retry-id') then raise exception 'retry finish failed'; end if;
+end $$;
+reset role;
 rollback;
+-- Concurrency gate (separate sessions on an isolated test DB): submit simultaneous
+-- reserve_auth_email calls with the same fresh delivery key. Exactly one may return
+-- send; the other returns uncertain (or accepted after settlement). A single-session
+-- transaction cannot prove concurrency. Record both real session outputs before activation.

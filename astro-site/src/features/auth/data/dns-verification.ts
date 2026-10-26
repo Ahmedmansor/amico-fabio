@@ -1,3 +1,4 @@
+import {readBoundedBody, withDeadline} from './hook-transport.ts';
 /**
  * DNS-based email domain verification.
  * Resolves MX records via DNS-over-HTTPS (DoH) with RFC 5321 fallback to A/AAAA records.
@@ -51,26 +52,22 @@ export async function verifyEmailDomainDns(
   const timeoutMs = options?.timeoutMs ?? DEFAULT_TIMEOUT_MS;
   const fetcher = options?.fetcher ?? fetch;
 
-  async function queryDoh(type: 'MX' | 'A'): Promise<{ status: number; answers: DohResponse['Answer'] }> {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), timeoutMs);
-    try {
+  async function queryDoh(type: 'MX' | 'A' | 'AAAA'): Promise<{ status: number; answers: DohResponse['Answer'] }> {
+    return withDeadline(async signal => {
       const url = `${dohEndpoint}?name=${encodeURIComponent(normalizedDomain)}&type=${type}`;
       const response = await fetcher(url, {
         method: 'GET',
         headers: { Accept: 'application/dns-json' },
-        signal: controller.signal,
+        signal,
       });
 
       if (!response.ok) {
         throw new Error(`DoH server error: HTTP ${response.status}`);
       }
 
-      const json = (await response.json()) as DohResponse;
+      const json = JSON.parse(await readBoundedBody(response.body, 32768, signal)) as DohResponse;
       return { status: json.Status ?? -1, answers: json.Answer ?? [] };
-    } finally {
-      clearTimeout(timeout);
-    }
+    }, timeoutMs);
   }
 
   try {
@@ -94,12 +91,13 @@ export async function verifyEmailDomainDns(
       }
 
       // RFC 5321 fallback: If no MX record exists, query address records (A / AAAA)
-      const aResult = await queryDoh('A');
-      if (aResult.status === RCODE_NOERROR) {
-        const aAnswers = aResult.answers?.filter((a) => a.type === TYPE_A || a.type === TYPE_AAAA) ?? [];
-        if (aAnswers.length > 0) {
-          return { status: 'valid', retryable: false, mxHosts: [normalizedDomain] };
-        }
+      const results = await Promise.allSettled([queryDoh('A'), queryDoh('AAAA')]);
+      if (results.some(result => result.status === 'fulfilled' && result.value.status === RCODE_NOERROR
+        && result.value.answers?.some(answer => answer.type === TYPE_A || answer.type === TYPE_AAAA))) {
+        return {status: 'valid', retryable: false, mxHosts: [normalizedDomain]};
+      }
+      if (results.some(result => result.status === 'rejected' || (result.value.status !== RCODE_NOERROR && result.value.status !== RCODE_NXDOMAIN))) {
+        return {status: 'temporary-dns-failure', retryable: true};
       }
 
       return { status: 'no-mail-exchange', retryable: false, errorDetail: 'No MX or address records found for domain' };

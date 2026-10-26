@@ -87,3 +87,22 @@ describe('verifyEmailDomainDns', () => {
     assert.equal(result.retryable, true);
   });
 });
+
+for (const [name,aStatus,aaaaStatus,aaaaAnswers,expected] of [
+  ['IPv6-only implicit MX',0,0,[{type:28,data:'2001:db8::1'}],'valid'],
+  ['fallback SERVFAIL',2,0,[],'temporary-dns-failure'],
+  ['fallback AAAA REFUSED',0,5,[],'temporary-dns-failure'],
+  ['no addresses',0,0,[],'no-mail-exchange'],
+]) it(name,async()=>{
+  const types=[];
+  const result=await verifyEmailDomainDns('private.example',{fetcher:async input=>{
+    const type=new URL(input).searchParams.get('type'); types.push(type);
+    return Response.json({Status:type==='A'?aStatus:type==='AAAA'?aaaaStatus:0,Answer:type==='AAAA'?aaaaAnswers:[]});
+  }});
+  assert.equal(result.status,expected); assert.deepEqual(types,['MX','A','AAAA']);
+});
+it('bounds DNS response size and body-read time',async()=>{
+  for(const fetcher of [async()=>new Response('x'.repeat(40000)),async()=>new Response(new ReadableStream({start(){}}))]) {
+    assert.equal((await verifyEmailDomainDns('private.example',{timeoutMs:10,fetcher})).status,'temporary-dns-failure');
+  }
+});

@@ -1,84 +1,33 @@
-// Auth Send Email Hook Entry — Fabio Egypt
-// Dispatches Magic Link authentication emails through Brevo REST API
-// with email validation, disposable domain rejection, DNS verification, and rate limits.
-// Disabled by default. Requires explicit deployment and webhook activation.
-
+// Disabled proposal; activation needs separate approval and real verification.
 import {createClient} from '@supabase/supabase-js';
 import configuration from './configuration.json' with {type: 'json'};
 import {createAuthSendEmailHandler} from '../../../src/features/auth/data/auth-send-email-handler.ts';
+import {createAuthHookHttpHandler} from '../../../src/features/auth/data/auth-hook-http.ts';
+import {createAuthDeliveryRepository} from '../../../src/features/auth/data/auth-delivery-repository.ts';
 
-let handler;
+let handler = async () => Response.json({error: {http_code: 503, message: 'Email hook unavailable'}}, {status: 503, headers: {'Cache-Control': 'no-store'}});
 try {
-  if (configuration.enabled !== true) {
-    throw new Error('Send email hook not enabled.');
-  }
-
-  const supabaseUrl = Deno.env.get('SUPABASE_URL');
-  const backendKey = JSON.parse(Deno.env.get('SUPABASE_SECRET_KEYS') || '{}').default;
-  const brevoApiKey = Deno.env.get('BREVO_API_KEY');
-
-  if (!supabaseUrl || !backendKey?.startsWith('sb_secret_') || !brevoApiKey) {
-    throw new Error('Required backend runtime credentials unavailable.');
-  }
-
-  const backend = createClient(supabaseUrl, backendKey, {
+  if (configuration.enabled !== true) throw new Error('Disabled');
+  const url = Deno.env.get('SUPABASE_URL');
+  const key = JSON.parse(Deno.env.get('SUPABASE_SECRET_KEYS') || '{}').default;
+  const apiKey = Deno.env.get('BREVO_API_KEY');
+  const signingSecret = Deno.env.get('SEND_EMAIL_HOOK_SECRET');
+  if (!url || !key?.startsWith('sb_secret_') || !apiKey || !signingSecret) throw new Error('Missing configuration');
+  if (!Array.isArray(configuration.allowedOrigins) || !configuration.allowedOrigins.length
+    || configuration.allowedOrigins.some(value => {
+      const origin = new URL(value);
+      return origin.origin !== value || (origin.protocol !== 'https:' && !(origin.protocol === 'http:' && ['127.0.0.1', 'localhost'].includes(origin.hostname)));
+    })) throw new Error('Invalid origins');
+  const repository = createAuthDeliveryRepository(createClient(url, key, {
     auth: {persistSession: false, autoRefreshToken: false, detectSessionInUrl: false},
+  }), configuration.limits);
+  handler = createAuthHookHttpHandler({
+    secrets: [signingSecret],
+    dispatch: createAuthSendEmailHandler({
+      apiKey, sender: {email: configuration.senderEmail, name: configuration.senderName},
+      allowedOrigins: configuration.allowedOrigins, timeoutMs: configuration.timeoutMs,
+      ...repository,
+    }),
   });
-
-  const checkRateLimit = async (email) => {
-    try {
-      const {data, error} = await backend.rpc('check_and_consume_auth_rate_limit', {
-        p_email: email,
-      });
-      if (error) {
-        // Fail-closed on database error
-        return {allowed: false, reason: 'database_error'};
-      }
-      return data ?? {allowed: true};
-    } catch {
-      return {allowed: false, reason: 'database_unreachable'};
-    }
-  };
-
-  const internalHandler = createAuthSendEmailHandler({
-    apiKey: brevoApiKey,
-    sender: {
-      email: configuration.senderEmail,
-      name: configuration.senderName,
-    },
-    checkRateLimit,
-    defaultSiteUrl: configuration.defaultSiteUrl,
-  });
-
-  handler = async (req) => {
-    if (req.method !== 'POST') {
-      return new Response(JSON.stringify({error: {message: 'Method not allowed'}}), {
-        status: 405,
-        headers: {'Content-Type': 'application/json'},
-      });
-    }
-
-    try {
-      const event = await req.json();
-      const result = await internalHandler(event);
-      return new Response(JSON.stringify(result.body), {
-        status: result.status,
-        headers: {'Content-Type': 'application/json'},
-      });
-    } catch (error) {
-      const detail = error instanceof Error ? error.message : String(error);
-      return new Response(JSON.stringify({error: {message: detail}}), {
-        status: 500,
-        headers: {'Content-Type': 'application/json'},
-      });
-    }
-  };
-} catch {
-  handler = async () =>
-    new Response(JSON.stringify({error: 'unavailable'}), {
-      status: 503,
-      headers: {'Content-Type': 'application/json', 'Cache-Control': 'no-store'},
-    });
-}
-
+} catch { /* Fail closed without logging credentials, payloads, or provider diagnostics. */ }
 Deno.serve(handler);

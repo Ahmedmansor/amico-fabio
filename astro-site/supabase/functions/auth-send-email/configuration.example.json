@@ -2,6 +2,15 @@
   "enabled": false,
   "senderEmail": "info@fabioegypt.com",
   "senderName": "Fabio Egypt",
-  "timeoutMs": 8000,
-  "defaultSiteUrl": "https://fabioegypt.com"
+  "timeoutMs": 1500,
+  "allowedOrigins": [
+    "http://127.0.0.1:4322",
+    "https://amico-fabio-iyzo.vercel.app"
+  ],
+  "limits": {
+    "hourly": 30,
+    "daily": null,
+    "perEmail": 5,
+    "cooldownSeconds": 60
+  }
 }

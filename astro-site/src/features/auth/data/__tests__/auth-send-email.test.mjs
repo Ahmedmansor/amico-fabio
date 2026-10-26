@@ -1,163 +1,177 @@
 import {describe, it} from 'node:test';
 import assert from 'node:assert/strict';
-import {createAuthSendEmailHandler, buildMagicLinkEmailContent} from '../auth-send-email-handler.ts';
+import {createAuthSendEmailHandler} from '../auth-send-email-handler.ts';
+import {createAuthHookHttpHandler} from '../auth-hook-http.ts';
+import {createAuthDeliveryRepository} from '../auth-delivery-repository.ts';
+import {parseCallback} from '../../domain/auth.ts';
 
-describe('auth-send-email-handler', () => {
-  const defaultSender = {name: 'Fabio Egypt', email: 'info@fabioegypt.com'};
-  const validDns = async () => ({status: 'valid', retryable: false});
+const origin = 'https://test.example.com';
+const attemptId = '10000000-0000-4000-8000-000000000001';
+const event = () => ({user: {id: attemptId, email: 'person@libero.it'}, email_data: {
+  token_hash: 'synthetic-token-hash', email_action_type: 'magiclink',
+  redirect_to: `${origin}/en/auth/callback/?next=%2Fen%2Fwishlist%2F`, site_url: 'https://ignored.example.com',
+}});
+const signingBytes = new Uint8Array(32).fill(7);
+const secret = `v1,whsec_${Buffer.from(signingBytes).toString('base64')}`;
+async function signedRequest(body, overrides = {}) {
+  const timestamp = String(Math.floor(Date.now()/1000));
+  const id = overrides['webhook-id'] ?? 'msg_synthetic';
+  const key = await crypto.subtle.importKey('raw', signingBytes, {name: 'HMAC', hash: 'SHA-256'}, false, ['sign']);
+  const signature = Buffer.from(await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`${id}.${timestamp}.${body}`))).toString('base64');
+  return new Request('https://hook.example.com', {method: 'POST', body, headers: {
+    'webhook-id': id, 'webhook-timestamp': timestamp, 'webhook-signature': `v1,${signature}`, ...overrides,
+  }});
+}
+function setup(overrides = {}) {
+  let sends = 0;
+  let body;
+  const ledger = new Map();
+  const deps = {
+    apiKey: 'synthetic-key', sender: {name: 'Fabio Egypt', email: 'info@fabioegypt.com'}, allowedOrigins: [origin],
+    verifyDns: async () => ({status: 'valid', retryable: false}),
+    reserve: async ({deliveryKey}) => {
+      const state = ledger.get(deliveryKey);
+      if (state) return {outcome: state === 'accepted' ? 'accepted' : 'uncertain'};
+      ledger.set(deliveryKey, 'sending'); return {outcome: 'send', attemptId};
+    },
+    settle: async ({deliveryKey, state}) => { ledger.set(deliveryKey, state); return true; },
+    fetcher: async (_, options) => { sends++; body = JSON.parse(options.body); return Response.json({messageId: 'synthetic-message'}, {status: 201}); },
+    ...overrides,
+  };
+  const dispatch = createAuthSendEmailHandler(deps);
+  return {dispatch, http: createAuthHookHttpHandler({secrets: [secret], dispatch}), ledger, sends: () => sends, body: () => body};
+}
 
-  it('builds localized email content in Italian by default', () => {
-    const itContent = buildMagicLinkEmailContent({
-      recipient: 'user@libero.it',
-      confirmationUrl: 'https://fabioegypt.com/auth/v1/verify?token=123',
-      locale: 'it'
-    });
-    assert.equal(itContent.subject, 'Il tuo link di accesso - Fabio Egypt');
-    assert.ok(itContent.html.includes('Accedi ora'));
-    assert.ok(itContent.text.includes('Accedi a Fabio Egypt'));
+describe('signed Auth hook and durable delivery contract', () => {
+  it('verifies the real HTTP boundary and emits the static cross-device email callback', async () => {
+    const app = setup();
+    assert.equal((await app.http(await signedRequest(JSON.stringify(event())))).status, 200);
+    const mail = app.body();
+    assert.equal(mail.subject, 'Your sign-in link - Fabio Egypt');
+    const url = new URL(mail.textContent.match(/https:\/\/[^\s]+/)[0]);
+    assert.equal(url.pathname, '/en/auth/callback/');
+    assert.equal(url.origin, origin);
+    assert.equal(url.searchParams.get('next'), '/en/wishlist/');
+    assert.deepEqual(parseCallback(url.search, url.hash), {kind: 'email', tokenHash: 'synthetic-token-hash'});
+    assert.ok(!url.search.includes('token'));
+    assert.ok(mail.htmlContent.includes('&amp;type=email'));
   });
-
-  it('builds localized email content in English when locale is en', () => {
-    const enContent = buildMagicLinkEmailContent({
-      recipient: 'user@example.com',
-      confirmationUrl: 'https://fabioegypt.com/auth/v1/verify?token=123',
-      locale: 'en'
-    });
-    assert.equal(enContent.subject, 'Your sign-in link - Fabio Egypt');
-    assert.ok(enContent.html.includes('Sign in now'));
-    assert.ok(enContent.text.includes('Sign in to Fabio Egypt'));
+  it('uses Italian callback language for a signup despite old English metadata', async () => {
+    const app = setup(); const input = event();
+    input.user.user_metadata = {site_locale: 'en'};
+    input.email_data.email_action_type = 'signup'; input.email_data.redirect_to = `${origin}/it/auth/callback/`;
+    assert.equal((await app.dispatch(input)).status, 200);
+    assert.equal(app.body().subject, 'Il tuo link di accesso - Fabio Egypt');
   });
-
-  it('successfully dispatches magic link via Brevo when all checks pass', async () => {
-    let capturedBrevoBody = null;
-    const mockFetcher = async (url, options) => {
-      if (url.includes('api.brevo.com')) {
-        capturedBrevoBody = JSON.parse(options.body);
-        return new Response(JSON.stringify({messageId: 'msg-12345'}), {status: 201});
-      }
-      return new Response('Not found', {status: 404});
-    };
-
-    const handler = createAuthSendEmailHandler({
-      apiKey: 'test-brevo-key',
-      sender: defaultSender,
-      verifyDns: validDns,
-      checkRateLimit: async () => ({allowed: true}),
-      fetcher: mockFetcher
-    });
-
-    const response = await handler({
-      user: {email: 'mario.rossi@libero.it', user_metadata: {site_locale: 'it'}},
-      email_data: {token_hash: 'hash-abc', email_action_type: 'magiclink', redirect_to: 'https://fabioegypt.com/auth/callback'}
-    });
-
-    assert.equal(response.status, 200);
-    assert.deepEqual(response.body, {});
-    assert.ok(capturedBrevoBody);
-    assert.equal(capturedBrevoBody.to[0].email, 'mario.rossi@libero.it');
-    assert.equal(capturedBrevoBody.subject, 'Il tuo link di accesso - Fabio Egypt');
+  it('rejects missing, wrong, expired, future and tampered signatures before dispatch', async () => {
+    const app = setup(); const raw = JSON.stringify(event());
+    for (const headers of [
+      {'webhook-signature': ''}, {'webhook-signature': 'v1,' + Buffer.alloc(32).toString('base64')},
+      {'webhook-timestamp': '1'}, {'webhook-timestamp': String(Math.floor(Date.now()/1000)+600)},
+    ]) assert.equal((await app.http(await signedRequest(raw, headers))).status, 401);
+    const request = await signedRequest(raw);
+    assert.equal((await app.http(new Request(request.url, {method: 'POST', headers: request.headers, body: raw+' '}))).status, 401);
+    assert.equal((await app.http(new Request(request.url, {method: 'POST', headers: request.headers, body: '\uFEFF'+raw}))).status, 401);
+    assert.equal(app.sends(), 0);
   });
-
-  it('rejects disposable domains without making any DNS or Brevo calls', async () => {
-    let dnsCalled = false;
-    let brevoCalled = false;
-
-    const handler = createAuthSendEmailHandler({
-      apiKey: 'test-brevo-key',
-      sender: defaultSender,
-      verifyDns: async () => { dnsCalled = true; return {status: 'valid', retryable: false}; },
-      fetcher: async () => { brevoCalled = true; return new Response('', {status: 201}); }
-    });
-
-    const response = await handler({
-      user: {email: 'spammer@mailinator.com'},
-      email_data: {token_hash: 'hash-abc'}
-    });
-
-    assert.equal(response.status, 403);
-    assert.ok(response.body.error.message.includes('disposable'));
-    assert.equal(dnsCalled, false);
-    assert.equal(brevoCalled, false);
+  it('supports signing key rotation and rejects invalid configuration', async () => {
+    const app = setup();
+    const http = createAuthHookHttpHandler({secrets: ['v1,whsec_'+Buffer.alloc(32).toString('base64'), secret], dispatch: app.dispatch});
+    assert.equal((await http(await signedRequest(JSON.stringify(event())))).status, 200);
+    assert.throws(() => createAuthHookHttpHandler({secrets: [], dispatch: app.dispatch}));
   });
-
-  it('rejects nonexistent domains based on DNS NXDOMAIN without calling Brevo', async () => {
-    let brevoCalled = false;
-
-    const handler = createAuthSendEmailHandler({
-      apiKey: 'test-brevo-key',
-      sender: defaultSender,
-      verifyDns: async () => ({status: 'nonexistent-domain', retryable: false}),
-      fetcher: async () => { brevoCalled = true; return new Response('', {status: 201}); }
-    });
-
-    const response = await handler({
-      user: {email: 'user@nonexistent-domain-404.xyz'},
-      email_data: {token_hash: 'hash-abc'}
-    });
-
-    assert.equal(response.status, 400);
-    assert.ok(response.body.error.message.includes('does not accept'));
-    assert.equal(brevoCalled, false);
+  it('bounds bodies, rejects invalid JSON and methods without sending', async () => {
+    const app = setup();
+    assert.equal((await app.http(new Request('https://hook.example.com'))).status, 405);
+    assert.equal((await app.http(await signedRequest('x'.repeat(40000)))).status, 503);
+    assert.equal((await app.http(await signedRequest('{'))).status, 503);
+    assert.equal(app.sends(), 0);
   });
-
-  it('treats temporary DNS failures as retryable 503 error without calling Brevo', async () => {
-    let brevoCalled = false;
-
-    const handler = createAuthSendEmailHandler({
-      apiKey: 'test-brevo-key',
-      sender: defaultSender,
-      verifyDns: async () => ({status: 'temporary-dns-failure', retryable: true}),
-      fetcher: async () => { brevoCalled = true; return new Response('', {status: 201}); }
-    });
-
-    const response = await handler({
-      user: {email: 'user@unstable-dns.test'},
-      email_data: {token_hash: 'hash-abc'}
-    });
-
-    assert.equal(response.status, 503);
-    assert.ok(response.body.error.message.includes('temporarily unavailable'));
-    assert.equal(brevoCalled, false);
+  it('blocks unsupported actions, missing fields and unapproved callbacks before quota or DNS', async () => {
+    let checks = 0;
+    const app = setup({verifyDns: async () => { checks++; throw Error(); }});
+    const invalid = [
+      {...event(), user: {email: 'person@libero.it'}},
+      {...event(), email_data: {...event().email_data, token_hash: ''}},
+      ...['recovery','invite','email_change'].map(email_action_type => ({...event(), email_data: {...event().email_data,email_action_type}})),
+      ...['https://evil.example.com/en/auth/callback/', `${origin}/auth/v1/verify`, `${origin}/en/auth/callback/?next=https://evil.example.com`, `${origin}/en/auth/callback/#token=x`, `${origin}/en/auth/callback/?next=/en/&next=/it/`].map(redirect_to => ({...event(), email_data: {...event().email_data,redirect_to}})),
+    ];
+    for (const input of invalid) assert.equal((await app.dispatch(input)).status, 400);
+    assert.equal(checks, 0); assert.equal(app.sends(), 0);
   });
-
-  it('enforces rate limits and returns 429 with retry_after_seconds without calling Brevo', async () => {
-    let brevoCalled = false;
-
-    const handler = createAuthSendEmailHandler({
-      apiKey: 'test-brevo-key',
-      sender: defaultSender,
-      verifyDns: validDns,
-      checkRateLimit: async () => ({allowed: false, reason: 'cooldown_active', retry_after_seconds: 45}),
-      fetcher: async () => { brevoCalled = true; return new Response('', {status: 201}); }
-    });
-
-    const response = await handler({
-      user: {email: 'user@libero.it'},
-      email_data: {token_hash: 'hash-abc'}
-    });
-
-    assert.equal(response.status, 429);
-    assert.equal(response.body.error.retry_after_seconds, 45);
-    assert.equal(brevoCalled, false);
+  it('replay returns success without a second send, including a new signed webhook id', async () => {
+    const app = setup(); const raw = JSON.stringify(event());
+    assert.equal((await app.http(await signedRequest(raw))).status, 200);
+    assert.equal((await app.http(await signedRequest(raw, {'webhook-id':'msg_different'}))).status, 200);
+    assert.equal(app.sends(), 1);
+    assert.ok([...app.ledger.keys()].every(key => /^[a-f0-9]{64}$/.test(key)));
   });
-
-  it('maps Brevo 429 provider rate limit correctly', async () => {
-    const mockFetcher = async () => new Response('Too many requests', {status: 429});
-
-    const handler = createAuthSendEmailHandler({
-      apiKey: 'test-brevo-key',
-      sender: defaultSender,
-      verifyDns: validDns,
-      checkRateLimit: async () => ({allowed: true}),
-      fetcher: mockFetcher
-    });
-
-    const response = await handler({
-      user: {email: 'user@libero.it'},
-      email_data: {token_hash: 'hash-abc'}
-    });
-
-    assert.equal(response.status, 429);
-    assert.ok(response.body.error.message.includes('rate limit'));
+  it('concurrent requests cannot send twice while the first provider request waits', async () => {
+    let release; let sends = 0;
+    const app = setup({fetcher: async () => { sends++; await new Promise(resolve => {release=resolve;}); return Response.json({messageId:'ok'},{status:201}); }});
+    const pending = app.dispatch(event());
+    while (!release) await new Promise(resolve => setTimeout(resolve, 1));
+    assert.equal((await app.dispatch(event())).status, 503);
+    release(); assert.equal((await pending).status, 200); assert.equal(sends, 1);
   });
+  it('quarantines network failures, 5xx, malformed acceptance and timeout without blind replay', async () => {
+    for (const fetcher of [async () => {throw Error('private-provider-diagnostic');}, async () => new Response('',{status:500}), async () => Response.json({}, {status:201}), async () => new Response(new ReadableStream({start(){}}),{status:201}), async () => new Promise(() => {})]) {
+      let sends = 0;
+      const app = setup({timeoutMs: 10, fetcher: (...args) => {sends++; return fetcher(...args);}});
+      const result = await app.dispatch(event());
+      assert.equal(result.status, 503); assert.ok(!JSON.stringify(result).includes('private-provider'));
+      assert.equal((await app.dispatch(event())).status, 503); assert.equal(sends, 1);
+      assert.deepEqual([...app.ledger.values()], ['unknown']);
+    }
+  });
+  it('keeps accepted-but-unsettled delivery quarantined if the database write failed', async () => {
+    const app = setup({settle: async () => false});
+    assert.equal((await app.dispatch(event())).status,503);
+    assert.equal((await app.dispatch(event())).status,503); assert.equal(app.sends(),1);
+  });
+  it('records explicit provider 429 as retryable, permanent 4xx as rejected', async () => {
+    for (const [code,state] of [[429,'retryable'],[400,'rejected']]) {
+      const app=setup({fetcher:async()=>new Response('',{status:code})});
+      assert.equal((await app.dispatch(event())).status,code===429?429:503);
+      assert.deepEqual([...app.ledger.values()],[state]);
+    }
+  });
+  it('fails closed on quota rejection, unavailable DB, disposable or temporary DNS', async () => {
+    for (const [overrides,status] of [
+      [{reserve:async()=>({outcome:'blocked'})},429], [{reserve:async()=>{throw Error();}},503],
+      [{verifyDns:async()=>({status:'temporary-dns-failure'})},503], [{verifyDns:async()=>({status:'nonexistent-domain'})},400],
+    ]) { const app=setup(overrides); assert.equal((await app.dispatch(event())).status,status); assert.equal(app.sends(),0); }
+    const app=setup(); assert.equal((await app.dispatch({...event(),user:{...event().user,email:'x@mailinator.com'}})).status,403);
+  });
+});
+
+describe('delivery RPC adapter fails closed', () => {
+  const limits={hourly:30,daily:100,perEmail:5,cooldownSeconds:60};
+  const input={email:'synthetic@libero.it',deliveryKey:'a'.repeat(64)};
+  function repo(result) {return createAuthDeliveryRepository({rpc:()=>({abortSignal:async()=>result})},limits);}
+  it('requires explicit daily capacity and validates admission response', async () => {
+    assert.throws(()=>createAuthDeliveryRepository({}, {...limits,daily:null}));
+    for (const data of [null,{}, {outcome:'send'}, {outcome:'send',attemptId:'invalid'}, {allowed:true}]) await assert.rejects(repo({data,error:null}).reserve(input));
+    assert.deepEqual(await repo({data:{outcome:'send',attemptId},error:null}).reserve(input),{outcome:'send',attemptId});
+  });
+  it('rejects DB errors and does not interpret truthy settlement objects as success', async () => {
+    await assert.rejects(repo({data:{outcome:'accepted'},error:{message:'error'}}).reserve(input));
+    assert.equal(await repo({data:{ok:true},error:null}).settle({...input,attemptId,state:'accepted'}),false);
+  });
+});
+
+it('actual disabled Edge entry stays unavailable without reading runtime secrets',async()=>{
+  let handler; const previous=globalThis.Deno;
+  globalThis.Deno={env:{get(){throw Error('Secret access is forbidden in this test');}},serve(value){handler=value;}};
+  try {
+    await import('../../../../../supabase/functions/auth-send-email/index.mjs');
+    assert.equal((await handler(new Request('https://hook.example.com'))).status,503);
+  } finally {if(previous===undefined)delete globalThis.Deno;else globalThis.Deno=previous;}
+});
+
+it('RPC deadline aborts the request and cannot turn an uncertain reservation into a send', async()=>{
+  let signal;
+  const repo=createAuthDeliveryRepository({rpc:()=>({abortSignal(value){signal=value;return new Promise(()=>{});}})}, {hourly:30,daily:100,perEmail:5,cooldownSeconds:60});
+  await assert.rejects(repo.reserve({email:'synthetic@libero.it',deliveryKey:'a'.repeat(64)}));
+  assert.equal(signal.aborted,true);
 });
