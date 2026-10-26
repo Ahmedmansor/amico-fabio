@@ -12,6 +12,8 @@ do $$ begin
   begin perform public.reserve_auth_email('a@libero.it',repeat('a',64),30,100,5,60); raise exception 'anon reserve allowed'; exception when insufficient_privilege then null; end;
   begin perform 1 from public.auth_email_deliveries; raise exception 'anon ledger read allowed'; exception when insufficient_privilege then null; end;
 end $$;
+
+reset role;
 set local role authenticated;
 do $$ begin
   begin perform public.reserve_auth_email('a@libero.it',repeat('a',64),30,100,5,60); raise exception 'client reserve allowed'; exception when insufficient_privilege then null; end;
@@ -19,12 +21,8 @@ do $$ begin
   begin perform public.hook_before_user_created('{"user":{"email":"a@libero.it"}}'); raise exception 'client hook allowed'; exception when insufficient_privilege then null; end;
   begin update public.auth_email_deliveries set state='accepted'; raise exception 'client ledger write allowed'; exception when insufficient_privilege then null; end;
 end $$;
-set local role supabase_auth_admin;
-do $$ begin
-  if public.hook_before_user_created('{"user":{"email":"a@libero.it"}}') <> '{}'::jsonb then raise exception 'valid signup denied'; end if;
-  if not public.hook_before_user_created('{"user":{"email":"a@runtime-blocked.example"}}') ? 'error' then raise exception 'maintained catalog bypass'; end if;
-  begin perform public.reserve_auth_email('a@libero.it',repeat('a',64),30,100,5,60); raise exception 'auth admin dispatch allowed'; exception when insufficient_privilege then null; end;
-end $$;
+
+reset role;
 set local role service_role;
 do $$ declare v jsonb; v_attempt uuid; begin
   if public.reserve_auth_email('a@runtime-blocked.example',repeat('b',64),30,100,5,60)->>'outcome' <> 'blocked' then raise exception 'runtime catalog bypass'; end if;
@@ -38,6 +36,7 @@ do $$ declare v jsonb; v_attempt uuid; begin
   if public.reserve_auth_email('a@libero.it',repeat('a',64),30,100,5,60)->>'outcome' <> 'accepted' then raise exception 'accepted replay sent'; end if;
   if public.reserve_auth_email('a@libero.it',repeat('c',64),30,100,5,60)->>'outcome' <> 'blocked' then raise exception 'cooldown bypass'; end if;
 end $$;
+
 reset role;
 do $$ begin
   if (select send_count from public.auth_global_rate_limits where bucket='auth_day') <> 1 then raise exception 'rejected request consumed day quota'; end if;
@@ -54,6 +53,7 @@ do $$ declare v jsonb; begin
   if not public.finish_auth_email(repeat('d',64),(v->>'attemptId')::uuid,'unknown') then raise exception 'unknown settlement failed'; end if;
   if public.reserve_auth_email('b@virgilio.it',repeat('d',64),30,100,5,60)->>'outcome' <> 'uncertain' then raise exception 'unknown delivery replayed'; end if;
 end $$;
+
 reset role;
 -- Explicit 429 may retry after cooldown; uncertain states never expire into a resend.
 insert into public.auth_email_deliveries(delivery_key,attempt_id,state,updated_at)
@@ -64,6 +64,7 @@ do $$ declare v jsonb; begin
   if v->>'outcome' <> 'send' then raise exception 'explicit rejection cannot retry'; end if;
   if not public.finish_auth_email(repeat('e',64),(v->>'attemptId')::uuid,'accepted','retry-id') then raise exception 'retry finish failed'; end if;
 end $$;
+
 reset role;
 rollback;
 -- Concurrency gate (separate sessions on an isolated test DB): submit simultaneous

@@ -1,5 +1,5 @@
 {
-  "enabled": false,
+  "enabled": true,
   "senderEmail": "info@fabioegypt.com",
   "senderName": "Fabio Egypt",
   "timeoutMs": 1500,
@@ -9,7 +9,7 @@
   ],
   "limits": {
     "hourly": 30,
-    "daily": null,
+    "daily": 100,
     "perEmail": 5,
     "cooldownSeconds": 60
   }
