@@ -1,0 +1,7 @@
+{
+  "enabled": false,
+  "senderEmail": "info@fabioegypt.com",
+  "senderName": "Fabio Egypt",
+  "timeoutMs": 8000,
+  "defaultSiteUrl": "https://fabioegypt.com"
+}
