@@ -58,28 +58,27 @@ begin
 end;
 $$;
 
--- Cannot update is_eligible directly (only completed_at, skipped_at, updated_at granted)
+-- Direct UPDATE is completely denied for authenticated (enforcing RPC mediation and server timestamps)
 do $$
 begin
   begin
-    update public.account_onboarding set is_eligible = false where user_id = '00000000-0000-4000-8000-0000000000a1';
-    raise exception 'Authenticated user must not update is_eligible directly';
+    update public.account_onboarding set completed_at = now() where user_id = '00000000-0000-4000-8000-0000000000a1';
+    raise exception 'Authenticated user must not update account_onboarding directly';
   exception when insufficient_privilege then
-    -- Expected: is_eligible column update is not granted to authenticated
+    -- Expected: direct table UPDATE is not granted
   end;
 end;
 $$;
 
--- Cannot update User B record directly (RLS enforces own user_id)
+-- Direct DELETE is completely denied for authenticated
 do $$
-declare
-  rows_updated int;
 begin
-  update public.account_onboarding set skipped_at = now() where user_id = '00000000-0000-4000-8000-0000000000b1';
-  get diagnostics rows_updated = row_count;
-  if rows_updated <> 0 then
-    raise exception 'User A must not update User B onboarding record directly';
-  end if;
+  begin
+    delete from public.account_onboarding where user_id = '00000000-0000-4000-8000-0000000000a1';
+    raise exception 'Authenticated user must not delete from account_onboarding directly';
+  exception when insufficient_privilege then
+    -- Expected: direct table DELETE is not granted
+  end;
 end;
 $$;
 

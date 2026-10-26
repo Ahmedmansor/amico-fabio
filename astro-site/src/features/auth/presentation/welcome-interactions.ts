@@ -3,6 +3,7 @@ import type {getAuthMessages} from '../data/messages.ts';
 import type {Locale} from '../../../shared/config/languages.ts';
 import type {OnboardingBrowserConfig} from '../data/onboarding-browser-config.ts';
 import type {PostLoginCoordinatorState} from '../data/post-login-coordinator.ts';
+import type {AuthService} from '../data/service.ts';
 
 export interface WelcomeDialogElements {
   dialog: HTMLDialogElement;
@@ -62,10 +63,9 @@ export function bindWelcomeDialog(
       syncStatusEl.hidden = true;
     }
 
-    // Ensure unchecked by default
-    reminderCheckbox.checked = false;
-
+    // Ensure unchecked by default only when opening fresh dialog
     if (!dialog.open) {
+      reminderCheckbox.checked = false;
       dialog.showModal();
       continueBtn.focus();
     }
@@ -145,6 +145,105 @@ export function bindWelcomeDialog(
   };
 }
 
+export function createWelcomeActions(options: {
+  coordinator: Pick<ReturnType<typeof import('../data/post-login-coordinator.ts').createPostLoginCoordinator>, 'getState' | 'complete' | 'skip' | 'dismiss'>;
+  service: Pick<AuthService, 'bearerFor'>;
+  preferences: import('../../reminders/data/preferences-browser-config.ts').PreferenceBrowserConfig | null;
+  locale: Locale;
+  createBridge?: typeof import('../../reminders/data/preferences-browser-controller.ts').createBrowserPreferenceController;
+}) {
+  let activeBridge: {
+    userId: string;
+    controller: ReturnType<typeof import('../../reminders/data/preferences-browser-controller.ts').createBrowserPreferenceController>['controller'];
+    connect: (id: string | null) => Promise<void>;
+  } | null = null;
+  let activeOperationEpoch = 0;
+
+  return {
+    resetBridge() {
+      activeOperationEpoch++;
+      activeBridge = null;
+    },
+    async onContinue(reminderOptIn: boolean) {
+      const capturedUser = options.coordinator.getState().userId;
+      const capturedEpoch = ++activeOperationEpoch;
+      if (!capturedUser) {
+        throw new Error('No authenticated user for onboarding.');
+      }
+
+      const isCurrent = () =>
+        activeOperationEpoch === capturedEpoch &&
+        options.coordinator.getState().userId === capturedUser;
+
+      if (reminderOptIn) {
+        if (!options.preferences) {
+          throw new Error('Reminder preferences are not configured.');
+        }
+
+        if (!activeBridge || activeBridge.userId !== capturedUser) {
+          const createBridge = options.createBridge ?? (
+            await import('../../reminders/data/preferences-browser-controller.ts')
+          ).createBrowserPreferenceController;
+
+          if (!isCurrent()) return;
+
+          const bridge = createBridge({
+            service: options.service,
+            config: options.preferences,
+            requestId: () => crypto.randomUUID(),
+            fetcher: (input, init) => fetch(input, init),
+          });
+
+          activeBridge = {
+            userId: capturedUser,
+            controller: bridge.controller,
+            connect: id => bridge.connect(id),
+          };
+
+          await activeBridge.connect(capturedUser);
+        }
+
+        if (!isCurrent()) return;
+
+        const controller = activeBridge.controller;
+        const currentState = controller.getState();
+
+        if (currentState.status === 'error' && currentState.retryable) {
+          await controller.retry();
+        } else if (currentState.status === 'ready') {
+          await controller.save(true, options.locale, options.locale);
+        } else {
+          throw new Error('Reminder preference controller is not in a valid state to save.');
+        }
+
+        if (!isCurrent()) return;
+
+        const savedState = controller.getState();
+        if (savedState.status !== 'ready' || savedState.preference?.enabled !== true) {
+          throw new Error('Failed to confirm reminder preference opt-in.');
+        }
+      }
+
+      if (!isCurrent()) return;
+
+      const completeResult = await options.coordinator.complete(capturedUser);
+      if (!completeResult.ok) {
+        throw new Error('Failed to record onboarding completion.');
+      }
+    },
+    async onSkip() {
+      const capturedUser = options.coordinator.getState().userId;
+      const skipResult = await options.coordinator.skip(capturedUser ?? undefined);
+      if (!skipResult.ok) {
+        throw new Error('Failed to record onboarding skip.');
+      }
+    },
+    onDismiss() {
+      options.coordinator.dismiss();
+    },
+  };
+}
+
 async function initialize() {
   const configNode = document.getElementById('welcome-config');
   if (!configNode) return;
@@ -177,12 +276,26 @@ async function initialize() {
   const [service, client] = await Promise.all([browserAuth(config), browserSupabase(config)]);
   if (!service || !client) return;
 
+  let binding: ReturnType<typeof bindWelcomeDialog>;
   const onboardingRepo = createOnboardingRepository(client);
   const coordinator = createPostLoginCoordinator({
     onboardingRepo,
     rolloutVersion: onboarding.rolloutVersion,
-    onStateChange: state => binding.render(state),
+    onStateChange: state => binding?.render(state),
   });
+
+  const actions = createWelcomeActions({
+    coordinator,
+    service,
+    preferences,
+    locale,
+  });
+
+  binding = bindWelcomeDialog(
+    {dialog, titleEl, introEl, syncStatusEl, errorEl, reminderCheckbox, continueBtn, skipBtn},
+    messages,
+    actions
+  );
 
   if (typeof window !== 'undefined') {
     const existingSync = (window as unknown as {__fabio_wishlist_sync?: import('../data/post-login-coordinator.ts').WishlistSyncReport}).__fabio_wishlist_sync;
@@ -196,64 +309,11 @@ async function initialize() {
     }) as EventListener);
   }
 
-  const binding = bindWelcomeDialog(
-    {dialog, titleEl, introEl, syncStatusEl, errorEl, reminderCheckbox, continueBtn, skipBtn},
-    messages,
-    {
-      onContinue: async (reminderOptIn: boolean) => {
-        const userId = coordinator.getState().userId;
-        if (!userId) {
-          throw new Error('No authenticated user for onboarding.');
-        }
-
-        if (reminderOptIn) {
-          if (!preferences) {
-            throw new Error('Reminder preferences are not configured.');
-          }
-          const {createBrowserPreferenceController} = await import(
-            '../../reminders/data/preferences-browser-controller.ts'
-          );
-          const bridge = createBrowserPreferenceController({
-            service,
-            config: preferences,
-            requestId: () => crypto.randomUUID(),
-            fetcher: (input, init) => fetch(input, init),
-          });
-
-          await bridge.connect(userId);
-          const prefState = bridge.controller.getState();
-          if (prefState.status !== 'ready') {
-            throw new Error('Reminder preference controller failed to ready.');
-          }
-
-          await bridge.controller.save(true, locale, locale);
-          const savedState = bridge.controller.getState();
-          if (savedState.status !== 'ready' || savedState.preference?.enabled !== true) {
-            throw new Error('Failed to confirm reminder preference opt-in.');
-          }
-        }
-
-        const completeResult = await coordinator.complete();
-        if (!completeResult.ok) {
-          throw new Error('Failed to record onboarding completion.');
-        }
-      },
-      onSkip: async () => {
-        const skipResult = await coordinator.skip();
-        if (!skipResult.ok) {
-          throw new Error('Failed to record onboarding skip.');
-        }
-      },
-      onDismiss: () => {
-        coordinator.dismiss();
-      },
-    }
-  );
-
   getAccountState(service).subscribe(state => {
     if (state.status === 'ready' && state.session) {
       void coordinator.connectUser(state.session.userId, state.session.profile);
     } else if (state.status !== 'loading') {
+      actions.resetBridge();
       void coordinator.connectUser(null);
     }
   });

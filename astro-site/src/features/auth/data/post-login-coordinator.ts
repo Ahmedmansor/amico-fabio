@@ -176,11 +176,14 @@ export function createPostLoginCoordinator(options: PostLoginCoordinatorOptions)
       emit();
     },
 
-    async complete(): Promise<{ ok: boolean; outcome?: string; error?: string }> {
+    async complete(expectedUserId?: string): Promise<{ ok: boolean; outcome?: string; error?: string }> {
       const opGen = currentGeneration;
       const targetUser = activeUserId;
       if (!targetUser || state.status !== 'prompt') {
         return { ok: false, error: 'not-prompted' };
+      }
+      if (expectedUserId && expectedUserId !== targetUser) {
+        return { ok: false, error: 'stale' };
       }
 
       sessionStore.add(targetUser);
@@ -223,11 +226,14 @@ export function createPostLoginCoordinator(options: PostLoginCoordinatorOptions)
       }
     },
 
-    async skip(): Promise<{ ok: boolean; outcome?: string; error?: string }> {
+    async skip(expectedUserId?: string): Promise<{ ok: boolean; outcome?: string; error?: string }> {
       const opGen = currentGeneration;
       const targetUser = activeUserId;
       if (!targetUser || state.status !== 'prompt') {
         return { ok: false, error: 'not-prompted' };
+      }
+      if (expectedUserId && expectedUserId !== targetUser) {
+        return { ok: false, error: 'stale' };
       }
 
       sessionStore.add(targetUser);
