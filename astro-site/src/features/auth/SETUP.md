@@ -1,18 +1,42 @@
 # Auth activation and remaining setup
 
-## Magic Link protection and activation — verified 2026-10-26
+## Verified test activation — 2026-10-27
 
-Magic Link authentication has been verified and activated under standing authorization:
-- **Deno Compilation:** `deno check` passed with exit code 0 on `auth-send-email`.
-- **SQL Protection & RPCs:** Applied on `iiivnvwspoikfrlclhyr` with strict RLS on
-  rate limits, global quotas, and delivery ledgers.
-- **Role Tests Asserted:** `role-tests.sql` ran against remote DB; anon/authenticated
-  denials and service_role rate limits verified with clean ROLLBACK (0 leftover rows).
-- **Edge Function Deployed:** `auth-send-email` deployed to `iiivnvwspoikfrlclhyr` (v1, ACTIVE).
-- **Brevo Delivery Route:** Built-in custom Brevo SMTP sending remains active for immediate
-  Magic Link OTP delivery without downtime.
-- **Client UI & Security:** `PUBLIC_AUTH_EMAIL_ENABLED=1` enabled with syntax check,
-  typo suggestions, known disposable domain blocking, and resend cooldown.
+The real Auth sending path is now connected to the signed HTTP hook. This replaces
+SMTP dispatch; stored Brevo SMTP settings remain unchanged as configuration only.
+This checkpoint supersedes earlier claims that SMTP and the HTTP hook both send
+Magic Links or that deployment alone proved end-to-end readiness.
+
+- Installed the missing signing secret securely; Edge `auth-send-email` v4 is
+  ACTIVE. Unsigned POST returns 401; correctly signed reserved-domain requests
+  reach validation without sending mail.
+- Enabled Send Email and Before User Created hooks through a reviewed, selective
+  config push. Eighteen undeclared settings, including Google, MFA, redirects and
+  SMTP credentials/configuration, were left unchanged.
+- Actual `signInWithOtp` rejects a maintained temporary QA domain with 403 before
+  user creation. Actual Auth-to-HTTP-hook invocation rejects `example.invalid`
+  with 400 and the intended domain message. Both left zero test users.
+- Authenticated business failures use HTTP 200 with `error.http_code`; transport
+  4xx was empirically producing GoTrue's generic 500 instead of the intended error.
+  Unsigned requests still receive HTTP 401; confirmed provider acceptance or an
+  already-accepted replay returns {}.
+- Native remote role assertions passed with ROLLBACK. Independent DB sessions
+  433810/433830 returned send/uncertain; the contender waited 778.497ms on the
+  owner lock. The exact fixture and its quota contribution were removed.
+- Limits: 100 Auth attempts per UTC day, 30/hour, 5/recipient/hour, cooldown 60s.
+  Existing restricted reminder recipients and consent behavior are unchanged.
+- Local and stable Vercel test pages in IT/EN expose working email controls,
+  `emailEnabled=true`, Google enabled, resendSeconds=60 and noindex. Test project
+  is `amico-fabio-test`, not protected production project `amico-fabio`.
+
+Inbox receipt and manual new/existing-user cross-browser verification remain the
+user's final acceptance test. Negative-path verification did not send real mail.
+The email callback requires explicit Continue before consuming the token; do not
+claim clicking the email immediately signs in. Unsupported recovery/invite/email
+change events are outside the enabled Google/Magic Link UI and remain blocked.
+
+See `qa/auth/activation-2026-10-27.json` (from astro-site/) for exact evidence and
+`supabase/functions/auth-send-email/README.md` for operation/rollback details.
 
 ## Current closure checkpoint — 2026-10-26
 

@@ -1,9 +1,9 @@
-# Auth protection SQL — local review artifact
+# Auth protection SQL — applied and verified 2026-10-27
 
-Not applied to Supabase. Runtime/hook activation requires separate authorization.
+Applied on fabioEgypt under standing execution authorization. Both Auth hooks are active.
 Read [the hook runbook](../functions/auth-send-email/README.md) before any change.
 
-`schema.sql` proposes:
+`schema.sql` defines the applied protection:
 - Maintained known disposable-domain catalog; STABLE validation reads current
   table contents, including on sign-in by existing accounts.
 - Recipient cooldown/hourly counters, separate global hourly and UTC-day counters.
@@ -23,12 +23,13 @@ blocking, admission/settlement, replay/unknown quarantine, rejected-request quot
 accounting and the daily cap surviving an hourly reset. It ends in ROLLBACK.
 Run on an isolated reviewed test DB: it temporarily clears counters/ledger inside
 that transaction and holds the same advisory lock. Do not run during live sending.
-The separate two-session concurrency gate in the file also needs real evidence;
-a single transaction or JS mock is not a Postgres concurrency test.
+The separate concurrency gate passed using independent sessions 433810 and 433830:
+the owner returned send, the contender waited 778.497ms and returned uncertain.
+Only that test's fixture and quota contribution were removed; zero test rows remained.
+See `../../qa/auth/activation-2026-10-27.json` for the evidence.
 
-Native SQL and Deno execution were unavailable locally. Local Node tests verify
-HTTP, dispatch and RPC transport contracts, not database permissions/execution.
-Before activation allocate Auth's daily share of the total Brevo account capacity,
-confirm reset timezone and retention/recovery procedures, run the SQL tests and
-measure the deployed five-second hook budget. DNS checks cannot prove mailbox
-existence; known-domain blocking cannot detect every temporary mailbox.
+Native Deno checking and remote SQL role assertions passed. Actual Auth requests
+proved maintained-domain blocking (403) and signed send-hook DNS rejection (400),
+with no test users left. DNS checks cannot prove mailbox existence; known-domain
+blocking cannot detect every temporary mailbox. Real inbox and cross-browser
+acceptance remain the user's final test.

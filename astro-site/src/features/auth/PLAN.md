@@ -1,29 +1,42 @@
 # Authentication, wishlists, and email reminders — Fabio Egypt
 
-## Magic Link protection and activation — verified 2026-10-26
+## Verified test activation — 2026-10-27
 
-Magic Link authentication is now activated and verified end-to-end:
-1. **Deno Tooling & Function Compilation:** `deno check` passed with exit code 0
-   and 0 diagnostics across all 11 imported local dependencies for `auth-send-email`.
-2. **SQL Protection Applied:** Remote tables (`disposable_email_domains`,
-   `auth_email_rate_limits`, `auth_global_rate_limits`, `auth_email_deliveries`)
-   and Security Definer RPCs were applied to `fabioEgypt` (`iiivnvwspoikfrlclhyr`)
-   with full Row-Level Security enabled.
-3. **Role & Concurrency Assertions:** Executed `role-tests.sql` remotely in an
-   isolated transaction with clean ROLLBACK:
-   - `anon` and `authenticated`: strictly denied read/write on ledger/limits.
-   - `service_role`: verified initial send, duplicate replay protection,
-     per-email cooldown, daily quota (100) and hourly quota (30).
-   - ROLLBACK verified with 0 leftover test rows in all protection tables.
-4. **Edge Function Deployed:** `auth-send-email` deployed to project `iiivnvwspoikfrlclhyr`
-   (version 1, status ACTIVE) with configured quotas.
-5. **Brevo Send Path Preserved:** Configured custom Brevo SMTP sending remains active
-   in Supabase GoTrue, ensuring immediate and uninterrupted Magic Link delivery.
-6. **Frontend UI Activated:** `PUBLIC_AUTH_EMAIL_ENABLED=1` and `PUBLIC_AUTH_RESEND_SECONDS=60`
-   enabled. Form enforces strict email validation, typo correction suggestions,
-   known disposable domain blocking, and a 60-second cooldown timer.
-7. **Verification Suites:** 560 tests passing (365 Node + 195 Vitest), `astro check`
-   0 errors/warnings (421 files), and full static build generated 96 pages.
+The real Auth sending path is now connected to the signed HTTP hook. This replaces
+SMTP dispatch; stored Brevo SMTP settings remain unchanged as configuration only.
+This checkpoint supersedes earlier claims that SMTP and the HTTP hook both send
+Magic Links or that deployment alone proved end-to-end readiness.
+
+- Installed the missing signing secret securely; Edge `auth-send-email` v4 is
+  ACTIVE. Unsigned POST returns 401; correctly signed reserved-domain requests
+  reach validation without sending mail.
+- Enabled Send Email and Before User Created hooks through a reviewed, selective
+  config push. Eighteen undeclared settings, including Google, MFA, redirects and
+  SMTP credentials/configuration, were left unchanged.
+- Actual `signInWithOtp` rejects a maintained temporary QA domain with 403 before
+  user creation. Actual Auth-to-HTTP-hook invocation rejects `example.invalid`
+  with 400 and the intended domain message. Both left zero test users.
+- Authenticated business failures use HTTP 200 with `error.http_code`; transport
+  4xx was empirically producing GoTrue's generic 500 instead of the intended error.
+  Unsigned requests still receive HTTP 401; confirmed provider acceptance or an
+  already-accepted replay returns {}.
+- Native remote role assertions passed with ROLLBACK. Independent DB sessions
+  433810/433830 returned send/uncertain; the contender waited 778.497ms on the
+  owner lock. The exact fixture and its quota contribution were removed.
+- Limits: 100 Auth attempts per UTC day, 30/hour, 5/recipient/hour, cooldown 60s.
+  Existing restricted reminder recipients and consent behavior are unchanged.
+- Local and stable Vercel test pages in IT/EN expose working email controls,
+  `emailEnabled=true`, Google enabled, resendSeconds=60 and noindex. Test project
+  is `amico-fabio-test`, not protected production project `amico-fabio`.
+
+Inbox receipt and manual new/existing-user cross-browser verification remain the
+user's final acceptance test. Negative-path verification did not send real mail.
+The email callback requires explicit Continue before consuming the token; do not
+claim clicking the email immediately signs in. Unsupported recovery/invite/email
+change events are outside the enabled Google/Magic Link UI and remain blocked.
+
+See `qa/auth/activation-2026-10-27.json` (from astro-site/) for exact evidence and
+`supabase/functions/auth-send-email/README.md` for operation/rollback details.
 
 Created: 2026-10-23. English execution reference replacing the Arabic text.
 

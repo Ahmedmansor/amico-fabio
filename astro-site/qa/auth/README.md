@@ -1,5 +1,19 @@
 # Auth local implementation checks
 
+## Actual backend/test-site activation — 2026-10-27
+
+See [activation evidence](activation-2026-10-27.json). Signed HTTP sending and
+Before User Created are active; the missing signing secret was securely provisioned.
+Both deployed language pages expose email and Google with a 60-second cooldown.
+Actual Auth negative-path tests passed without sending mail or leaving users.
+Native role assertions and the separate two-backend-session concurrency test passed.
+
+Final checks: 366 Node + 195 Vitest tests, zero failures; Astro check 421 files,
+zero errors/warnings/hints; static build 96 pages in 14.05s. Native Deno check
+exited 0. Browser observation of the live test alias confirmed the expanded email
+field and enabled send button. Inbox receipt and manual cross-browser acceptance
+remain user checks. Older disabled-preview reports below are historical snapshots.
+
 ## Email choice visibility correction — 2026-10-26
 
 The previous email delivery gate also removed the form from local visual review.

@@ -1,11 +1,11 @@
-# Auth email hook — disabled local proposal
+# Auth email hook — activated test project (2026-10-27)
 
 The HTTP hook replaces SMTP; it does not run before SMTP. Only signed `signup`
 and `magiclink` events are supported. Invite/recovery/email-change events fail
 closed; do not activate if those flows are required without implementing their
 separate templates and contracts. Google and reminders are unchanged.
 
-## Implemented locally
+## Runtime behavior
 
 - Standard Webhooks HMAC-SHA256 verification over exact raw bytes, timestamp
   tolerance 300 seconds, bounded bodies, verification before parsing/DNS/RPC.
@@ -23,7 +23,9 @@ separate templates and contracts. Google and reminders are unchanged.
   not increment quota. Reservations count attempted provider sends conservatively,
   including rejected/uncertain sends, and commit before contacting Brevo.
 - Success requires Brevo 201, a bounded nonempty messageId, and durable settlement.
-  Accepted replays return 200 without sending. In-flight/crashed/unknown outcomes
+  Accepted replays return 200 without sending. Authenticated failures return a
+  200 JSON envelope with error.http_code, so GoTrue preserves the intended status.
+  Unsigned requests still return HTTP 401. In-flight/crashed/unknown outcomes
   stay quarantined indefinitely; an expired lease never causes an automatic resend.
   Only an explicit 429 is retryable after cooldown and a new atomic reservation.
 - Fetch/body deadlines: HTTP body 500ms, DNS each query 500ms (MX then parallel
@@ -33,24 +35,29 @@ separate templates and contracts. Google and reminders are unchanged.
 
 ## Configuration and activation gates
 
-`configuration.json` stays `enabled:false`. `limits.daily:null` deliberately
-prevents activation until the shared Brevo budget is allocated. Hourly 30,
-perEmail 5 and cooldownSeconds 60 are local proposals, not applied settings.
+`configuration.json` is enabled on the approved test project with hourly 30,
+daily 100, perEmail 5 and cooldownSeconds 60. The example configuration stays off
+with no daily allocation for a new, unconfigured project. Signing-secret values
+are provisioned through the authenticated CLI and never committed or printed.
+Startup diagnostics emit only fixed codes; no payloads or secret values are logged.
+
 Choose daily Auth capacity accounting for reminders, SMTP, campaigns and all other
 Brevo usage; this ledger only counts this hook. A UTC-day Auth limit is not a
 provider-wide quota guarantee. Align the reset boundary with the approved budget.
 Sync the browser resend interval with the chosen backend cooldown.
 
-1. Review the SQL and rollback role tests in `../../auth-protection/`. Native SQL
-   execution and concurrent-session evidence are required under separate approval.
-2. Run native `deno check --config deno.json index.mjs` and a signed local HTTP
-   smoke test; Node tests cannot prove Deno packaging or deployed permissions.
+1. Review the SQL and rollback role tests in `../../auth-protection/`. Native role
+   assertions and separate-session concurrency were verified on 2026-10-27; repeat
+   them for changes to admission/settlement. Standing authorization covers this work.
+2. Native `deno check --config deno.json index.mjs` passed. Signed deployed and
+   actual Auth endpoint rejection tests passed; Node mocks alone are insufficient.
 3. Review the exact test origin and Supabase redirect allowlist. No production
-   fallback is configured. Approve provider/hook changes and recipient test scope.
+   fallback is configured. Standing authorization covers the agreed test scope;
+   real acceptance mail is requested by the user, not sent to arbitrary recipients.
 4. Provision runtime secrets through approved secret management without printing
    them. The entry reads Supabase runtime backend credentials, Brevo API key and
    `SEND_EMAIL_HOOK_SECRET`; no secret belongs in configuration/source/commits.
-5. Only after approval deploy with `supabase functions deploy auth-send-email
+5. Under standing authorization deploy with `supabase functions deploy auth-send-email
    --no-verify-jwt`. JWT gateway checking is replaced by mandatory internal HMAC
    checking; a public publishable key must never authorize this hook.
 6. Perform real new/existing user and different-browser inbox tests, used/expired
@@ -70,3 +77,21 @@ Define cleanup/retention before activation; do not delete unresolved ledger rows
 References: [Supabase Send Email Hook](https://supabase.com/docs/guides/auth/auth-hooks/send-email-hook),
 [hook deadlines](https://supabase.com/docs/guides/auth/auth-hooks),
 [Standard Webhooks](https://github.com/standard-webhooks/standard-webhooks/blob/main/spec/standard-webhooks.md).
+
+## Verified activation and rollback
+
+The initial v1 deployment returned 503 because SEND_EMAIL_HOOK_SECRET was absent.
+It was securely provisioned; v4 and both Auth hooks are active. Selective config
+push preserved all undeclared Google/MFA/SMTP/redirect settings. SMTP settings
+remaining stored do not mean SMTP sends while the HTTP hook is enabled.
+
+The maintained-domain rejection was tested through the real Auth endpoint (403);
+the actual Auth-to-send-hook signed path returned the expected 400 for a reserved
+.invalid domain. No account was left and no external email was sent. Real inbox
+receipt and new/existing user acceptance remain manual tests.
+
+If rollback is needed, first disable the email UI/redeploy the test site. Keep the
+HTTP hook connected and fail closed until a reviewed protected sender is ready;
+do not silently fall back to unprotected SMTP. Google remains a separate flow.
+The only active web project changed is the approved test project. Main, the real
+production project/domain and reminder recipient scope were not changed.

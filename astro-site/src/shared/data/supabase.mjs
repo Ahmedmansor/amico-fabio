@@ -42,7 +42,7 @@ export function createSupabaseProvider({url,publishableKey,fetchImpl=fetch,pageS
       if(table==='public_settings')request.searchParams.set('key','eq.promo_banner');
       let response;
       try { response=await fetchImpl(request,{headers:{apikey:publishableKey,Prefer:'count=exact'},signal:AbortSignal.timeout(timeoutMs)}); }
-      catch(e) { throw new Error(`[Supabase:${table}] Network request failed or timed out: ${e?.name} ${e?.message}`); }
+      catch { throw new Error(`[Supabase:${table}] Network request failed or timed out.`); }
       if(!response.ok)throw new Error(`[Supabase:${table}] HTTP ${response.status}.`);
       let rows;
       try { rows=await response.json(); } catch { throw new Error(`[Supabase:${table}] Invalid JSON response.`); }

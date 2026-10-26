@@ -80,6 +80,19 @@ describe('signed Auth hook and durable delivery contract', () => {
     assert.equal((await http(await signedRequest(JSON.stringify(event())))).status, 200);
     assert.throws(() => createAuthHookHttpHandler({secrets: [], dispatch: app.dispatch}));
   });
+  it('returns authenticated business errors inside a 200 envelope for Supabase Auth', async () => {
+    for (const [overrides,status] of [
+      [{verifyDns:async()=>({status:'nonexistent-domain'})},400],
+      [{reserve:async()=>({outcome:'blocked'})},429],
+      [{reserve:async()=>({outcome:'uncertain'})},503],
+    ]) {
+      const app=setup(overrides);
+      const response=await app.http(await signedRequest(JSON.stringify(event())));
+      assert.equal(response.status,200);
+      assert.equal((await response.json()).error.http_code,status);
+      assert.equal(app.sends(),0);
+    }
+  });
   it('bounds bodies, rejects invalid JSON and methods without sending', async () => {
     const app = setup();
     assert.equal((await app.http(new Request('https://hook.example.com'))).status, 405);
@@ -160,13 +173,27 @@ describe('delivery RPC adapter fails closed', () => {
   });
 });
 
-it('actual disabled Edge entry stays unavailable without reading runtime secrets',async()=>{
-  let handler; const previous=globalThis.Deno;
-  globalThis.Deno={env:{get(){throw Error('Secret access is forbidden in this test');}},serve(value){handler=value;}};
+it('actual Edge entry diagnoses missing secrets without disclosing values and authenticates when ready',async()=>{
+  const previous=globalThis.Deno, previousError=console.error, previousFetch=globalThis.fetch;
+  const complete={SUPABASE_URL:'https://synthetic.invalid',SUPABASE_SECRET_KEYS:JSON.stringify({default:'sb_secret_synthetic'}),BREVO_API_KEY:'synthetic-brevo-key',SEND_EMAIL_HOOK_SECRET:secret};
   try {
-    await import('../../../../../supabase/functions/auth-send-email/index.mjs');
-    assert.equal((await handler(new Request('https://hook.example.com'))).status,503);
-  } finally {if(previous===undefined)delete globalThis.Deno;else globalThis.Deno=previous;}
+    for (const [env,expectedCode,expectedStatus] of [
+      [{...complete,SEND_EMAIL_HOOK_SECRET:''},'HOOK_SIGNING_SECRET_MISSING',503],
+      [{...complete,BREVO_API_KEY:''},'BREVO_KEY_MISSING',503],
+      [{...complete,SUPABASE_SECRET_KEYS:'malformed-private-value'},'BACKEND_ENV_INVALID',503],
+      [{...complete,SEND_EMAIL_HOOK_SECRET:'private-invalid-signature'},'HOOK_CONFIGURATION_INVALID',503],
+      [complete,null,401],
+    ]) {
+      let handler; const logs=[];
+      console.error=(...args)=>logs.push(args.join(' '));
+      globalThis.fetch=()=>{throw Error('No network allowed');};
+      globalThis.Deno={env:{get(name){return env[name];}},serve(value){handler=value;}};
+      await import(`../../../../../supabase/functions/auth-send-email/index.mjs?bootstrap=${Math.random()}`);
+      assert.equal((await handler(new Request('https://hook.example.com',{method:'POST',body:'{}'}))).status,expectedStatus);
+      assert.deepEqual(logs,expectedCode?[`[auth-send-email] startup:${expectedCode}`]:[]);
+      assert.ok(!JSON.stringify(logs).includes('private-'));
+    }
+  } finally {console.error=previousError;globalThis.fetch=previousFetch;if(previous===undefined)delete globalThis.Deno;else globalThis.Deno=previous;}
 });
 
 it('RPC deadline aborts the request and cannot turn an uncertain reservation into a send', async()=>{

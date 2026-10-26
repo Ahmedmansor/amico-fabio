@@ -36,7 +36,9 @@ export function createAuthHookHttpHandler(options: {
       const event: unknown = JSON.parse(raw);
       if (!event || typeof event !== 'object' || Array.isArray(event)) return respond(400, {error: {http_code: 400, message: 'Invalid event'}});
       const result = await options.dispatch(event as AuthSendEmailEvent);
-      return respond(result.status, result.body);
+      // Auth reads business failures from error.http_code inside a 200 envelope.
+      // Transport 4xx instead becomes "Invalid payload sent to hook" in GoTrue.
+      return respond(200, result.body);
     } catch { return respond(503, {error: {http_code: 503, message: 'Email hook unavailable'}}); }
   };
 }
