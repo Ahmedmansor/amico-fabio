@@ -9,6 +9,7 @@ export interface WelcomeDialogElements {
   titleEl: HTMLElement;
   introEl: HTMLElement;
   syncStatusEl: HTMLElement;
+  errorEl: HTMLElement;
   reminderCheckbox: HTMLInputElement;
   continueBtn: HTMLButtonElement;
   skipBtn: HTMLButtonElement;
@@ -23,7 +24,7 @@ export function bindWelcomeDialog(
     onDismiss: () => void;
   }
 ) {
-  const {dialog, titleEl, introEl, syncStatusEl, reminderCheckbox, continueBtn, skipBtn} = elements;
+  const {dialog, titleEl, introEl, syncStatusEl, errorEl, reminderCheckbox, continueBtn, skipBtn} = elements;
 
   let busy = false;
 
@@ -34,6 +35,8 @@ export function bindWelcomeDialog(
     }
 
     introEl.textContent = messages.welcomeIntro;
+    errorEl.textContent = '';
+    errorEl.hidden = true;
 
     // Greet by display name when available, with neutral greeting otherwise
     if (state.displayName) {
@@ -105,13 +108,18 @@ export function bindWelcomeDialog(
     busy = true;
     continueBtn.disabled = true;
     skipBtn.disabled = true;
+    errorEl.hidden = true;
+    errorEl.textContent = '';
     try {
       await actions.onContinue(reminderCheckbox.checked);
+      if (dialog.open) dialog.close();
+    } catch {
+      errorEl.textContent = messages.failed;
+      errorEl.hidden = false;
     } finally {
       busy = false;
       continueBtn.disabled = false;
       skipBtn.disabled = false;
-      if (dialog.open) dialog.close();
     }
   });
 
@@ -120,6 +128,8 @@ export function bindWelcomeDialog(
     busy = true;
     continueBtn.disabled = true;
     skipBtn.disabled = true;
+    errorEl.hidden = true;
+    errorEl.textContent = '';
     try {
       await actions.onSkip();
     } finally {
@@ -139,7 +149,7 @@ async function initialize() {
   const configNode = document.getElementById('welcome-config');
   if (!configNode) return;
 
-  const {messages} = JSON.parse(configNode.textContent!) as {
+  const {config, onboarding, messages, locale} = JSON.parse(configNode.textContent!) as {
     config: AuthConfig | null;
     onboarding: OnboardingBrowserConfig | null;
     messages: ReturnType<typeof getAuthMessages>;
@@ -147,24 +157,76 @@ async function initialize() {
   };
 
   const dialog = document.querySelector<HTMLDialogElement>('[data-welcome-dialog]');
-  if (!dialog) return;
+  if (!dialog || !onboarding) return;
 
   const titleEl = dialog.querySelector<HTMLElement>('[data-welcome-title]')!;
   const introEl = dialog.querySelector<HTMLElement>('[data-welcome-intro]')!;
   const syncStatusEl = dialog.querySelector<HTMLElement>('[data-welcome-sync-status]')!;
+  const errorEl = dialog.querySelector<HTMLElement>('[data-welcome-error]')!;
   const reminderCheckbox = dialog.querySelector<HTMLInputElement>('[data-welcome-reminder-optin]')!;
   const continueBtn = dialog.querySelector<HTMLButtonElement>('[data-welcome-continue]')!;
   const skipBtn = dialog.querySelector<HTMLButtonElement>('[data-welcome-skip]')!;
 
-  bindWelcomeDialog(
-    {dialog, titleEl, introEl, syncStatusEl, reminderCheckbox, continueBtn, skipBtn},
+  const {browserAuth} = await import('../data/browser.ts');
+  const {browserSupabase} = await import('../../../shared/data/browser-client.ts');
+  const {getAccountState} = await import('../data/account-state.ts');
+  const {createOnboardingRepository} = await import('../data/onboarding-repository.ts');
+  const {createPostLoginCoordinator} = await import('../data/post-login-coordinator.ts');
+
+  const [service, client] = await Promise.all([browserAuth(config), browserSupabase(config)]);
+  if (!service || !client) return;
+
+  const onboardingRepo = createOnboardingRepository(client);
+  const coordinator = createPostLoginCoordinator({
+    onboardingRepo,
+    rolloutVersion: onboarding.rolloutVersion,
+    onStateChange: state => binding.render(state),
+  });
+
+  const binding = bindWelcomeDialog(
+    {dialog, titleEl, introEl, syncStatusEl, errorEl, reminderCheckbox, continueBtn, skipBtn},
     messages,
     {
-      onContinue: async () => {},
-      onSkip: async () => {},
-      onDismiss: () => {},
+      onContinue: async (reminderOptIn: boolean) => {
+        if (reminderOptIn) {
+          const preferenceNode = document.getElementById('reminder-preference-config');
+          if (preferenceNode) {
+            const {config: prefConfig} = JSON.parse(preferenceNode.textContent!) as {
+              config: import('../../reminders/data/preferences-browser-config.ts').PreferenceBrowserConfig;
+            };
+            const {createBrowserPreferenceController} = await import(
+              '../../reminders/data/preferences-browser-controller.ts'
+            );
+            const bridge = createBrowserPreferenceController({
+              service,
+              config: prefConfig,
+              requestId: () => crypto.randomUUID(),
+              fetcher: (input, init) => fetch(input, init),
+            });
+            await bridge.controller.save(true, locale, locale);
+          }
+        }
+        await coordinator.complete();
+      },
+      onSkip: async () => {
+        await coordinator.skip();
+      },
+      onDismiss: () => {
+        coordinator.dismiss();
+      },
     }
   );
+
+  getAccountState(service).subscribe(state => {
+    if (state.status === 'ready' && state.session) {
+      void coordinator.connectUser(state.session.userId, state.session.profile);
+    } else if (state.status !== 'loading') {
+      void coordinator.connectUser(null);
+    }
+  });
 }
 
-void initialize();
+if (typeof document !== 'undefined') {
+  void initialize();
+}
+

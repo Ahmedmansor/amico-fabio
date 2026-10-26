@@ -6,7 +6,7 @@ import type {PreferenceBrowserConfig} from '../data/preferences-browser-config';
 import type {getPreferenceMessages} from '../data/preference-messages';
 import {createBrowserPreferenceController} from '../data/preferences-browser-controller';
 import {bindPreferenceView} from './preferences-view';
-import {reconcilePendingOptIn} from './preferences-optin.ts';
+import {clearPendingReminderOptIn} from '../../auth/presentation/pending-optin.ts';
 
 async function initialize() {
   const node = document.getElementById('reminder-preference-config');
@@ -33,32 +33,15 @@ async function initialize() {
     }
   });
 
-  let reconciling = false;
-  const reconcile = async (userId: string, prefState: ReturnType<typeof bridge.controller.getState>) => {
-    if (reconciling) return;
-    reconciling = true;
-    try {
-      await reconcilePendingOptIn({
-        storage: sessionStorage,
-        userId,
-        prefState,
-        activeLocale: locale,
-        save: (enabled, loc, consentLoc) => bridge.controller.save(enabled, loc, consentLoc),
-        getState: () => bridge.controller.getState(),
-      });
-    } finally {
-      reconciling = false;
-    }
-  };
+  // Retire pre-login pending opt-in reconciliation as an active path;
+  // purge any stale intent from storage so it cannot silently execute alongside welcome flow.
+  clearPendingReminderOptIn(sessionStorage);
 
   bridge.controller.subscribe(prefState => {
     if (inlineReminder) {
       const isSubscribed = prefState.preference?.enabled === true;
       inlineReminder.dataset.subscribed = String(isSubscribed);
       inlineReminder.hidden = !prefState.userId || isSubscribed;
-    }
-    if (prefState.userId) {
-      void reconcile(prefState.userId, prefState);
     }
   });
 
