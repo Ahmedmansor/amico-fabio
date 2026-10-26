@@ -20,10 +20,6 @@ const configuration = JSON.stringify({ config: authConfig, messages: m, locale, 
       <h2 id="auth-title">{m.title}</h2>
       <div data-auth-guest>
         <p id="auth-intro">{intro}</p>
-        <label class="auth-reminder-optin" for="auth-reminder-optin">
-          <input type="checkbox" id="auth-reminder-optin" data-auth-reminder-optin />
-          <span>{m.reminderOptIn}</span>
-        </label>
         {authConfig.googleEnabled && <button type="button" class="auth-button auth-secondary auth-google" data-auth-google>
           <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
             <path fill="#4285F4" d="M43.61 24.46c0-1.36-.12-2.66-.35-3.91H24v7.4h11a9.4 9.4 0 0 1-4.08 6.18v5.14h6.61c3.87-3.56 6.08-8.81 6.08-14.81Z"/>
@@ -41,11 +37,17 @@ const configuration = JSON.stringify({ config: authConfig, messages: m, locale, 
           <p id="auth-guidance">{m.guidance}</p>
           <p data-auth-countdown role="timer" aria-live="off" hidden></p>
         </form>}
+        <p class="auth-legal-acknowledgement">
+          {locale === 'it' ? (
+            <>Continuando, accetti i <a href={`/${locale}/legal/#liability`} target="_blank" rel="noopener">{m.terms}</a> e l’<a href={`/${locale}/legal/#intro`} target="_blank" rel="noopener">{m.privacy}</a>.</>
+          ) : (
+            <>By continuing, you agree to the <a href={`/${locale}/legal/#liability`} target="_blank" rel="noopener">{m.terms}</a> and <a href={`/${locale}/legal/#intro`} target="_blank" rel="noopener">{m.privacy}</a>.</>
+          )}
+        </p>
         <p class="auth-mode-switch"><span data-auth-mode-prompt>{m.noAccount}</span> <button type="button" data-auth-mode-switch>{m.signUp}</button></p>
       </div>
       <div data-auth-account hidden><p>{m.signedIn}</p><AccountSummary locale={locale}/>{localeSettings && <EmailLocaleSettings locale={locale}/>}<button type="button" class="auth-button auth-secondary" data-auth-signout>{m.signOut}</button></div>
       <p data-auth-status role="status" aria-live="polite" hidden></p>
-      <a class="auth-privacy" href={`/${locale}/legal/`}>{m.privacy}</a>
       <button type="button" class="auth-close" data-auth-close>{m.notNow}</button>
     </div>
   </dialog>

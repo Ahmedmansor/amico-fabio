@@ -34,5 +34,14 @@
   "continue": "Continue",
   "invalidLink": "The link is invalid, expired or already used. Reopen the original link or request a new one.",
   "back": "Back to favorites",
-  "javascript": "Enable JavaScript to sign in."
+  "javascript": "Enable JavaScript to sign in.",
+  "terms": "Terms of Service",
+  "welcomeTitle": "Welcome to Fabio Egypt",
+  "welcomeGreetingNamed": "Hi, {name}!",
+  "welcomeGreetingNeutral": "Welcome!",
+  "welcomeIntro": "Your account is ready.",
+  "welcomeFavoritesSynced": "Your favorites have been saved to your account.",
+  "welcomeFavoritesSyncing": "Saving your favorites to your account…",
+  "welcomeFavoritesFailed": "Your favorites remain safe on this device.",
+  "close": "Close"
 }

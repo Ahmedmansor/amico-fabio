@@ -9,6 +9,7 @@ import DocumentShell from './DocumentShell.astro';
 import type { Locale } from '../config/languages';
 import type {ShareImage} from '../seo/share-image';
 import AuthDialog from '../../features/auth/presentation/AuthDialog.astro';
+import WelcomeDialog from '../../features/auth/presentation/WelcomeDialog.astro';
 import WishlistInvitation from '../../features/wishlist/presentation/WishlistInvitation.astro';
 interface Props { locale: Locale; route: string; title: string; description: string; bodyClass?: string; shareImage?:ShareImage;keywords?:string;noindex?:boolean }
 const { locale, route, title, description, bodyClass,shareImage,keywords,noindex=false } = Astro.props;
@@ -17,4 +18,5 @@ const { locale, route, title, description, bodyClass,shareImage,keywords,noindex
   <Fragment slot="head"><slot name="head-start"/><PageHead locale={locale} route={route} title={title} description={description} shareImage={shareImage} keywords={keywords} noindexOverride={noindex}/></Fragment>
   <Header locale={locale} route={route}/><WishlistInvitation locale={locale}/><slot/><Footer locale={locale}/><WhatsAppFloat locale={locale}/>
   <AuthDialog locale={locale}/>
+  <WelcomeDialog locale={locale}/>
 </DocumentShell>

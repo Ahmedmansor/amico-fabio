@@ -60,3 +60,12 @@
 @media(prefers-reduced-motion:reduce) { .auth-button { transition:none; } }
 .auth-reminder-optin { display:flex; align-items:flex-start; gap:12px; margin:16px 0; cursor:pointer; font-size:.9rem; line-height:1.4; color:var(--color-text-light); text-align:start; }
 .auth-reminder-optin input[type="checkbox"] { width:20px; height:20px; min-height:20px; margin-top:2px; accent-color:var(--color-gold); flex-shrink:0; cursor:pointer; }
+.auth-legal-acknowledgement { font-size:.85rem; line-height:1.5; color:var(--color-text-muted); text-align:center; margin:16px 0 8px; }
+.auth-legal-acknowledgement a { color:var(--color-gold-soft); text-decoration:underline; text-underline-offset:3px; }
+.welcome-dialog { width:min(440px,calc(100vw - 32px)); }
+.welcome-dialog .auth-content { padding:28px 24px; text-align:center; }
+.welcome-dialog h2 { margin-bottom:8px; font-size:clamp(1.5rem,3.5vw,1.85rem); }
+.welcome-dialog .welcome-sync-status { margin:8px 0 16px; font-size:.95rem; color:var(--color-text-light); }
+.welcome-dialog .welcome-actions { display:flex; flex-direction:column; gap:8px; margin-top:20px; }
+.welcome-dialog .welcome-actions .auth-button { margin:0; }
+

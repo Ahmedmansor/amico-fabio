@@ -1,0 +1,35 @@
+---
+import { authConfig, onboardingBrowserConfig } from '../data/build-config';
+import { getAuthMessages } from '../data/messages';
+import type { Locale } from '../../../shared/config/languages';
+import './auth.css';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const m = getAuthMessages(locale);
+const configuration = JSON.stringify({
+  config: authConfig,
+  onboarding: onboardingBrowserConfig,
+  messages: m,
+  locale
+}).replace(/</g, '\\u003c');
+---
+{onboardingBrowserConfig && <>
+  <script type="application/json" id="welcome-config" set:html={configuration}/>
+  <dialog class="auth-dialog welcome-dialog" data-welcome-dialog aria-labelledby="welcome-title" aria-describedby="welcome-intro">
+    <div class="auth-content">
+      <h2 id="welcome-title" data-welcome-title>{m.welcomeGreetingNeutral}</h2>
+      <p id="welcome-intro" data-welcome-intro>{m.welcomeIntro}</p>
+      <p class="welcome-sync-status" data-welcome-sync-status hidden></p>
+      <label class="auth-reminder-optin" for="welcome-reminder-optin">
+        <input type="checkbox" id="welcome-reminder-optin" data-welcome-reminder-optin />
+        <span>{m.reminderOptIn}</span>
+      </label>
+      <div class="welcome-actions">
+        <button type="button" class="auth-button" data-welcome-continue>{m.continue}</button>
+        <button type="button" class="auth-close" data-welcome-skip>{m.notNow}</button>
+      </div>
+    </div>
+  </dialog>
+  <script>import './welcome-interactions';</script>
+</>}

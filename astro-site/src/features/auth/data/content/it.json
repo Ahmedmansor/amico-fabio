@@ -34,5 +34,14 @@
   "continue": "Continua",
   "invalidLink": "Il link non è valido, è scaduto o è già stato utilizzato. Apri nuovamente il link originale oppure richiedine uno nuovo.",
   "back": "Torna ai preferiti",
-  "javascript": "Attiva JavaScript per accedere."
+  "javascript": "Attiva JavaScript per accedere.",
+  "terms": "Termini di servizio",
+  "welcomeTitle": "Benvenuto in Fabio Egypt",
+  "welcomeGreetingNamed": "Ciao, {name}!",
+  "welcomeGreetingNeutral": "Benvenuto!",
+  "welcomeIntro": "Il tuo account è pronto.",
+  "welcomeFavoritesSynced": "I tuoi preferiti sono stati salvati nel tuo account.",
+  "welcomeFavoritesSyncing": "Salvataggio dei tuoi preferiti in corso…",
+  "welcomeFavoritesFailed": "I tuoi preferiti restano al sicuro su questo dispositivo.",
+  "close": "Chiudi"
 }
