@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-27",
+  "confirmedDomain": "playfine.com",
+  "manualServerBlockApplied": true,
+  "nativeAuthStatus": 403,
+  "existingSendAdmission": "blocked",
+  "italianProvider": "ok",
+  "privateFabioDomain": "ok",
+  "existingAccountsDeleted": false,
+  "reminderConsentChanged": false,
+  "onboardingNoConsent": "user-reported",
+  "catalogProposal": {
+    "domains": 9927,
+    "revision": "e4f0910adf5ab418dc998a1d8e6c15906ca04864",
+    "sha256": "acb14963f88689009907aee11e2c9fab0df8355b6721859a0cc813ae03cdecb8",
+    "license": "CC0-1.0",
+    "applied": false,
+    "reason": "Bulk policy impact requires explicit user choice after automatic approval rejection"
+  },
+  "callback": {
+    "confirmationRetained": true,
+    "buttonLabels": {
+      "it": "Accedi",
+      "en": "Sign in"
+    },
+    "defaultDestination": "localized homepage",
+    "explicitAllowedNextPreserved": true,
+    "errorBackLink": "localized homepage"
+  },
+  "vercelOriginVerified": "https://amico-fabio-iyzo.vercel.app",
+  "verification": {
+    "nodeTestsPassed": 370,
+    "vitestTestsPassed": 195,
+    "astroCheck": "424 files; 0 errors, 0 warnings, 0 hints",
+    "staticPagesBuilt": 96,
+    "buildSeconds": 32.49,
+    "browser": "IT/EN at 375px and 1440px; explicit email confirmation, home return, disposable rejection, Google PKCE, restored session and expired callback home link",
+    "upstreamCatalogInBrowserBundle": false,
+    "externalEmailsSentByAgent": false
+  }
+}

@@ -142,6 +142,7 @@ const DISPOSABLE_DOMAINS: ReadonlySet<string> = new Set([
   'temp-mail.io',
   'minuteinbox.com',
   'tmailor.com',
+  'playfine.com',
   'internxt.com',
 ]);
 
@@ -187,6 +188,9 @@ const LEGITIMATE_WHITELIST: ReadonlySet<string> = new Set([
   'gmx.de',
   'mail.com',
 ]);
+
+/** Shared protected providers for reviewed server-list imports; never expose a mutable Set. */
+export const legitimateEmailDomains: readonly string[] = Object.freeze([...LEGITIMATE_WHITELIST]);
 
 /**
  * Check if domain or any of its parent domain segments belongs to the disposable list.

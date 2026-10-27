@@ -48,7 +48,8 @@ insert into public.disposable_email_domains (domain, reason) values
   ('getnada.com', 'GetNada service'),
   ('temp-mail.io', 'TempMail IO service'),
   ('minuteinbox.com', 'MinuteInbox service'),
-  ('tmailor.com', 'TMailor service')
+  ('tmailor.com', 'TMailor service'),
+  ('playfine.com', 'User-confirmed disposable provider, 2026-10-27')
 on conflict (domain) do nothing;
 
 

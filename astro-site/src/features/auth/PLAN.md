@@ -1,5 +1,21 @@
 # Authentication, wishlists, and email reminders — Fabio Egypt
 
+## Disposable-domain incident and catalog proposal — 2026-10-27
+
+The user confirmed playfine.com was the temporary provider used in a successful
+real signup, with optional reminders unchecked. It was absent from the old server
+seed. A manual playfine.com block is now applied, included in the browser domain
+rules, and enforced for new signup and existing-account send admission. A native
+Auth request returned 403; service_role reservation rejected it as blocked. No
+account deletion, subscription grant or reminder sending was performed.
+
+A maintained upstream snapshot (9,927 validated domains, immutable revision and
+CC0 license in supabase/auth-protection/data/) and an explicit SQL-generation
+script are prepared. The snapshot is NOT imported or loaded in browser bundles.
+Automatic approval review rejected the bulk import because its wider signup
+impact/false-positive risk needs an explicit user choice. Do not apply it until
+that choice arrives. Manual blocks are preserved by the generated reconciliation.
+
 ## Login return and confirmation UX — 2026-10-27
 
 The user reported successful real Magic Link receipt, account entry and welcome

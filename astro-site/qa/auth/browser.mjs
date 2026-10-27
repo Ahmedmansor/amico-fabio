@@ -86,6 +86,11 @@ try {
     await page.locator('[data-auth-send]').click();
     await page.locator('[data-auth-input-error]').waitFor({ state: 'visible' });
     assert.equal(calls.sends, 0);
+    await page.locator('#auth-email').fill('qa@playfine.com');
+    await page.locator('[data-auth-send]').click();
+    await page.locator('[data-auth-input-error]').waitFor({ state: 'visible' });
+    assert.match(await page.locator('[data-auth-input-error]').innerText(), locale === 'it' ? /temporane/i : /temporary/i);
+    assert.equal(calls.sends, 0);
     await page.locator('#auth-email').fill('qa+test@example.test');
     await page.locator('[data-auth-send]').click();
     await page.locator('[data-auth-countdown]').waitFor({ state: 'visible' });
@@ -143,11 +148,12 @@ try {
   const expired = await browser.newContext();
   const expiredCalls = await mock(expired, true);
   const expiredPage = await expired.newPage();
-  await expiredPage.goto(`${origin}/en/auth/callback/#token_hash=synthetic_email_hash&type=email`, {waitUntil: 'domcontentloaded'});
+  await expiredPage.goto(`${origin}/en/auth/callback/?next=/en/wishlist/#token_hash=synthetic_email_hash&type=email`, {waitUntil: 'domcontentloaded'});
   await consent(expiredPage, 'en');
   await expiredPage.locator('[data-auth-continue]').click();
   await expiredPage.locator('[data-auth-continue]').waitFor({ state: 'hidden' });
   assert.match(await expiredPage.locator('[data-auth-callback-status]').innerText(), /invalid, expired or already used/);
+  assert.equal(await expiredPage.locator('[data-auth-back]').getAttribute('href'), '/en/');
   assert.equal(expiredCalls.verifies, 1);
   await expired.close();
   const googleContext = await browser.newContext();

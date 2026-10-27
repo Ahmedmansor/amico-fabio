@@ -33,3 +33,31 @@ proved maintained-domain blocking (403) and signed send-hook DNS rejection (400)
 with no test users left. DNS checks cannot prove mailbox existence; known-domain
 blocking cannot detect every temporary mailbox. Real inbox and cross-browser
 acceptance remain the user's final test.
+
+## Confirmed provider block and maintained-catalog proposal
+
+`block-playfine.sql` was applied after the user confirmed that temporary provider.
+The matching seed is included in schema.sql for fresh setup. A real Auth request
+was rejected with 403, and existing-send admission rejected it under service_role.
+Legitimate Libero and the Fabio private domain were checked and remained allowed.
+
+`data/` contains an immutable upstream snapshot, checksum and CC0 license from
+https://github.com/disposable-email-domains/disposable-email-domains. It is not
+served publicly or bundled into browser code. The backend SQL catalog is the
+source of truth; the short browser list provides immediate feedback for known
+providers, including playfine.com.
+
+The 9,927-domain bulk import is prepared but NOT executed. Automatic approval
+review rejected its broader signup impact without an explicit user decision.
+Do not treat standing technical authorization or a successful local generator as
+approval to apply this proposed bulk policy. The pending user choice controls it.
+
+To reproduce the reviewed artifact offline from astro-site/:
+`node scripts/update-disposable-domains.mjs`
+This checks the pinned snapshot's checksum and writes only ignored generated SQL
+to `.astro/auth-protection/disposable-domains.sql`; it never executes SQL.
+`--refresh` fetches a new immutable revision for review, or `--revision <full SHA>`
+pins a chosen revision. Syntax, size, trusted provider exclusions and CC0 license
+are checked. Manual blocks remain separate from source-managed rows. Review the
+diff and false-positive risk before any future approved import; neither a list
+nor DNS can guarantee detection of every newly created temporary mailbox.

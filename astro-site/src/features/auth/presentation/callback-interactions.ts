@@ -16,7 +16,7 @@ async function initialize() {
   const intro = document.querySelector<HTMLElement>('[data-auth-callback-intro]')!;
   const back = document.querySelector<HTMLAnchorElement>('[data-auth-back]')!;
   const requestNew = document.querySelector<HTMLAnchorElement>('[data-auth-request-new]');
-  back.href = destination;
+  back.href = defaultAuthReturn(locale);
   const service = await browserAuth(config);
   if (!service) { status.textContent = m.unavailable; return; }
   if (input.kind === 'invalid') {
