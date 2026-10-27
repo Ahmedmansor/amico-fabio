@@ -47,10 +47,10 @@ served publicly or bundled into browser code. The backend SQL catalog is the
 source of truth; the short browser list provides immediate feedback for known
 providers, including playfine.com.
 
-The 9,927-domain bulk import is prepared but NOT executed. Automatic approval
-review rejected its broader signup impact without an explicit user decision.
-Do not treat standing technical authorization or a successful local generator as
-approval to apply this proposed bulk policy. The pending user choice controls it.
+The 9,927-domain bulk import is prepared but NOT executed. Following automatic
+approval review's rejection of the broader signup impact, the user explicitly
+chose on 2026-10-27 to keep only confirmed blocking. Do not import or activate this
+catalog. It remains an offline reference, separate from active confirmed blocks.
 
 To reproduce the reviewed artifact offline from astro-site/:
 `node scripts/update-disposable-domains.mjs`

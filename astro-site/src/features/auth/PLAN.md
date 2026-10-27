@@ -12,9 +12,10 @@ account deletion, subscription grant or reminder sending was performed.
 A maintained upstream snapshot (9,927 validated domains, immutable revision and
 CC0 license in supabase/auth-protection/data/) and an explicit SQL-generation
 script are prepared. The snapshot is NOT imported or loaded in browser bundles.
-Automatic approval review rejected the bulk import because its wider signup
-impact/false-positive risk needs an explicit user choice. Do not apply it until
-that choice arrives. Manual blocks are preserved by the generated reconciliation.
+After automatic approval review rejected the wider signup impact/false-positive
+risk, the user explicitly chose on 2026-10-27 to keep only confirmed blocking.
+Do not import or activate the proposed bulk catalog. It remains an offline
+reference; existing confirmed blocks, including playfine.com, remain active.
 
 ## Login return and confirmation UX — 2026-10-27
 

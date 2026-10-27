@@ -15,7 +15,7 @@
     "sha256": "acb14963f88689009907aee11e2c9fab0df8355b6721859a0cc813ae03cdecb8",
     "license": "CC0-1.0",
     "applied": false,
-    "reason": "Bulk policy impact requires explicit user choice after automatic approval rejection"
+    "reason": "User explicitly chose confirmed blocking only on 2026-10-27; bulk catalog import is not authorized"
   },
   "callback": {
     "confirmationRetained": true,
