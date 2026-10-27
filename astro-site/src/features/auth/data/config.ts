@@ -10,7 +10,7 @@ export interface AuthConfig {
 export function authReturnPaths(): string[] {
   return supportedLocales.flatMap(locale => [`/${locale}/`, `/${locale}/wishlist/`, `/${locale}/explore/`]);
 }
-export function defaultAuthReturn(locale: Locale): string { return `/${locale}/wishlist/`; }
+export function defaultAuthReturn(locale: Locale): string { return `/${locale}/`; }
 
 export function readAuthConfig(env: Record<string, unknown>): AuthConfig | null {
   if (env.PUBLIC_AUTH_ENABLED === undefined || env.PUBLIC_AUTH_ENABLED === '' || env.PUBLIC_AUTH_ENABLED === '0') return null;

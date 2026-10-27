@@ -39,7 +39,7 @@ test('invalid mail never reaches provider; valid private mail gets a safe callba
   assert.equal(calls.length, 0);
   assert.equal((await service.requestMagicLink('Mario+Tour@LIBERO.IT', 'it', '//evil.test')).ok, true);
   assert.equal(calls[0].email, 'Mario+Tour@libero.it');
-  assert.equal(calls[0].options.emailRedirectTo, 'http://127.0.0.1:4322/it/auth/callback/?next=%2Fit%2Fwishlist%2F');
+  assert.equal(calls[0].options.emailRedirectTo, 'http://127.0.0.1:4322/it/auth/callback/?next=%2Fit%2F');
   assert.equal(calls[0].options.shouldCreateUser, true);
   assert.equal('data' in calls[0].options, false);
   assert.deepEqual(await service.requestMagicLink('a@b.it', 'it'), { ok: false, reason: 'rate-limited' });

@@ -123,7 +123,7 @@ try {
     await callback.evaluate(() => localStorage.setItem('fabio:wishlist:v1:trip:ras_mohammed_bus_half_day', '1'));
     await shot(callback, `${locale}-${width}-callback.png`);
     await callback.locator('[data-auth-continue]').click();
-    await callback.waitForURL(`${origin}/${locale}/wishlist/`);
+    await callback.waitForURL(`${origin}/${locale}/`);
     assert.equal(freshCalls.verifies, 1);
     await openDialog(callback, width);
     await callback.locator('[data-auth-account]').waitFor({ state: 'visible' });

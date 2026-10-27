@@ -1,5 +1,18 @@
 # Authentication, wishlists, and email reminders — Fabio Egypt
 
+## Login return and confirmation UX — 2026-10-27
+
+The user reported successful real Magic Link receipt, account entry and welcome
+onboarding without opting into reminders. This is user acceptance evidence, not
+an agent inbox test. After reviewing the email-prefetch tradeoff, retain one
+explicit confirmation before consuming an email token. Label it Accedi / Sign in.
+Default sign-in returns to the localized homepage; explicit safe return paths
+still work. Previously issued links keep their encoded next destination.
+
+The current Vercel config was verified to use its own HTTPS origin in both
+languages. The user's screenshot contains a localhost callback, so a fresh
+request from Vercel is required to test Vercel-to-Vercel behavior.
+
 ## Verified test activation — 2026-10-27
 
 The real Auth sending path is now connected to the signed HTTP hook. This replaces
