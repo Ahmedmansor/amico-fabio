@@ -79,7 +79,8 @@ export async function initializeAccountWishlist(){
       invitation.hidden=!(allowed.ok && allowed.value && canShowGuestInvitation(count, null, Date.now()));
     }
     const inlineReminder=view.page?.querySelector<HTMLElement>('[data-wishlist-inline-reminder]');
-    if(inlineReminder)inlineReminder.hidden=!state.userId || inlineReminder.dataset.subscribed==='true';
+    if(inlineReminder)inlineReminder.hidden=!state.userId || inlineReminder.dataset.subscribed==='true'
+      || !['ready','error','saving'].includes(inlineReminder.dataset.preferenceStatus ?? '');
     const ids=state.ids?new Set(state.ids):initial.ids;
     view.render(ids,state.busy,state.busy || (state.status==='error' && !ids));
     if(storageMessage)storageMessage.textContent=state.userId?(state.busy?m.syncing:!ids?'':m.account):m.local;
@@ -110,14 +111,6 @@ export async function initializeAccountWishlist(){
     dismissSignInInvitation(browserGuestStorage(),Date.now());
   });
   document.querySelector('[data-wishlist-invite-signin]')?.addEventListener('click',()=>{invitationClosed=true;if(invitation)invitation.hidden=true;});
-  view.page?.querySelector('[data-wishlist-inline-reminder-enable]')?.addEventListener('click',()=>{
-    const reminderPrefs=document.querySelector<HTMLElement>('[data-reminder-preferences]');
-    if(reminderPrefs){
-      reminderPrefs.hidden=false;
-      reminderPrefs.scrollIntoView({behavior:'smooth'});
-      reminderPrefs.querySelector<HTMLInputElement>('[data-reminder-choice]')?.focus();
-    }
-  });
   retry?.addEventListener('click',()=>{void coordinator.merge().then(result=>{if(result.ok)announce();});});
   let currentUser:string|null|undefined;
   function connect(userId:string|null){

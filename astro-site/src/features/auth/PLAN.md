@@ -1,5 +1,30 @@
 # Authentication, wishlists, and email reminders — Fabio Egypt
 
+## Welcome visibility and wishlist simplification — 2026-10-27
+
+The published test artifact omitted welcome-config and the welcome dialog because
+PUBLIC_ACCOUNT_ONBOARDING_ENABLED was disabled. The existing database table, read
+and decision RPCs, and registration trigger were verified present and active.
+The test project's Production/Preview flag is now enabled; a rebuilt artifact is
+required. Eligible unresolved new registrations see the unchecked reminder choice
+after sign-in. Legacy/ineligible and already-completed/skipped accounts remain
+excluded; first login on a device alone does not reset onboarding.
+
+The full wishlist Email reminder card, language selector and Save preference UI
+are removed from the rendered page. The small optional enable invitation remains
+for non-subscribers with inline failure/retry feedback. It saves the current site
+locale; there is no independent email-language choice. Existing consent, one-time
+welcome decisions, email unsubscribe/management links and delivery scope remain
+unchanged. No account records or reminder consents were edited for this fix.
+
+Verification: 370 Node and 195 Vitest tests passed; Astro check covered 425 files
+with zero errors, warnings or hints; the static build generated 96 pages in
+16.39 seconds. qa/auth/welcome-browser.mjs exercises IT/EN at 375/1440px with
+intercepted synthetic Auth/onboarding/preference requests, including unchecked
+zero-write continuation, checked current-language consent, no repeated welcome,
+absence of the old card and the inline invitation's retry path. Screenshots stay
+local and ignored. This does not claim a new real inbox delivery test.
+
 ## Disposable-domain incident and catalog proposal — 2026-10-27
 
 The user confirmed playfine.com was the temporary provider used in a successful

@@ -35,6 +35,7 @@
   "callbackTitle": "Completa l’accesso",
   "callbackIntro": "Conferma l’accesso in questo browser.",
   "continue": "Accedi",
+  "welcomeContinue": "Continua",
   "invalidLink": "Il link non è valido, è scaduto o è già stato utilizzato. Apri nuovamente il link originale oppure richiedine uno nuovo.",
   "expiredLink": "Il link è scaduto o è già stato utilizzato. Richiedine uno nuovo.",
   "requestNewLink": "Richiedi un nuovo link",

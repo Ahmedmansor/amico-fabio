@@ -1,0 +1,49 @@
+{
+  "mode": "synthetic-network; no real account writes or emails",
+  "cases": [
+    {
+      "locale": "it",
+      "width": 375,
+      "onboardingInitiallyUnchecked": true,
+      "optedIn": false,
+      "zeroConsentWritesWhenUnchecked": true,
+      "noRepeatedWelcome": true,
+      "legacySettingsAbsent": true,
+      "inlineEnableAndRetryWork": true,
+      "pageErrors": []
+    },
+    {
+      "locale": "it",
+      "width": 1440,
+      "onboardingInitiallyUnchecked": true,
+      "optedIn": true,
+      "zeroConsentWritesWhenUnchecked": false,
+      "noRepeatedWelcome": true,
+      "legacySettingsAbsent": true,
+      "inlineEnableAndRetryWork": false,
+      "pageErrors": []
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "onboardingInitiallyUnchecked": true,
+      "optedIn": false,
+      "zeroConsentWritesWhenUnchecked": true,
+      "noRepeatedWelcome": true,
+      "legacySettingsAbsent": true,
+      "inlineEnableAndRetryWork": true,
+      "pageErrors": []
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "onboardingInitiallyUnchecked": true,
+      "optedIn": true,
+      "zeroConsentWritesWhenUnchecked": false,
+      "noRepeatedWelcome": true,
+      "legacySettingsAbsent": true,
+      "inlineEnableAndRetryWork": false,
+      "pageErrors": []
+    }
+  ]
+}

@@ -35,6 +35,7 @@
   "callbackTitle": "Complete sign-in",
   "callbackIntro": "Confirm to sign in to this browser.",
   "continue": "Sign in",
+  "welcomeContinue": "Continue",
   "invalidLink": "The link is invalid, expired or already used. Reopen the original link or request a new one.",
   "expiredLink": "The link has expired or has already been used. Please request a new one.",
   "requestNewLink": "Request a new link",

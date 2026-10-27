@@ -3,11 +3,11 @@ import {authConfig} from '../../auth/data/build-config';
 import type {PreferenceBrowserConfig} from '../data/preferences-browser-config';
 import type {Locale} from '../../../shared/config/languages';
 import {getPreferenceMessages} from '../data/preference-messages';
-import ReminderPreferences from './ReminderPreferences.astro';
 interface Props {locale: Locale; config: PreferenceBrowserConfig}
 const {locale, config} = Astro.props;
-const configuration = JSON.stringify({auth: authConfig, config, locale, messages: getPreferenceMessages(locale)}).replace(/</g, '\\u003c');
+const {error, outdated, retry} = getPreferenceMessages(locale);
+const configuration = JSON.stringify({auth: authConfig, config, locale, messages: {error, outdated, retry}}).replace(/</g, '\\u003c');
 ---
-<ReminderPreferences locale={locale}/>
+<p class="wishlist-notice" data-wishlist-reminder-status role="status" hidden></p>
 <script type="application/json" id="reminder-preference-config" set:html={configuration}/>
 <script>import './preferences-interactions';</script>
