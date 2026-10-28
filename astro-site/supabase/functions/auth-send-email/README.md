@@ -96,7 +96,7 @@ do not silently fall back to unprotected SMTP. Google remains a separate flow.
 The only active web project changed is the approved test project. Main, the real
 production project/domain and reminder recipient scope were not changed.
 
-## Prepared login revision — 2026-10-28 (not deployed)
+## Login hook revision — deployed 2026-10-28
 
 Local hook source now sends distinct IT/EN signup-confirmation wording while
 retaining the same fragment callback, explicit verification action, durable quota
@@ -108,6 +108,14 @@ remain unchanged. Browser validation does not replace this backend boundary.
 Verification: Deno check of the Edge entry passed; npm test passed 379 Node and
 198 Vitest tests; Astro check covered 434 files with zero diagnostics; static
 build generated 99 pages in 13.95 seconds. Tests were synthetic and sent no mail.
-The existing deployed v4 remains the old artifact. Redeploy the reviewed source
-with existing secure credentials during coordinated test activation; no new
-secret is needed by this code change. Preserve rollback and existing quota.
+The previous actual remote artifact was v5. It was captured before deployment;
+only handler wording/typo checks, the safe-return config and the reviewed typo map
+differed. V6 is now ACTIVE and its downloaded dependency sources match the reviewed
+local files. Sender, allowed origins, limits, transport, HMAC and runtime secret
+mechanisms are unchanged. An actual unsigned POST returned 401 / Invalid signature.
+This verifies deployment/source identity and authentication rejection, not a new
+signed remote dispatch or inbox receipt. No mail was sent. See
+`../../../qa/auth/hook-revision-2026-10-28.json`. Roll back with captured v5 source
+and the same secure runtime configuration if needed; never disable HMAC or fall
+back to unprotected SMTP. Password/Microsoft/Turnstile test-site activation still
+waits for the user's provider/key setup. No schema/provider/hosting settings changed.

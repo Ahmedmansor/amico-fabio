@@ -1,0 +1,18 @@
+{
+  "project": "iiivnvwspoikfrlclhyr",
+  "function": "auth-send-email",
+  "previousVersion": 5,
+  "version": 6,
+  "status": "ACTIVE",
+  "sha256": "b977f9cdbc4970dbca7763836e51fbd5703d86e0d652da8821101abc67ae52b1",
+  "remoteSourceMatchesReviewedLocalDependencies": true,
+  "senderLimitsOriginsAndHmacUnchanged": true,
+  "gatewayVerifyJwt": false,
+  "internalAuthentication": "Standard Webhooks HMAC-SHA256",
+  "unsignedPost": {"status": 401, "message": "Invalid signature"},
+  "newSignedRemoteDispatchTest": false,
+  "realEmailsSentForThisVerification": 0,
+  "marketingSchemaApplied": false,
+  "hostingOrAuthProviderSettingsChanged": false,
+  "rollback": "Redeploy the captured prior v5 files with identical secure runtime configuration; do not disable HMAC or fall back to unprotected SMTP."
+}
