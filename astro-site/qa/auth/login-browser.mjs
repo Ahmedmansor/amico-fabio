@@ -79,7 +79,7 @@ try{
     await page.locator('[data-login-password-settings] summary').click();
     await page.locator('#account-password').fill('new synthetic password');
     await page.locator('#account-password-confirm').fill('new synthetic password');
-    await page.locator('[data-login-set-password] button').click();
+    await page.locator('[data-login-set-password] button[type="submit"]').click();
     await page.waitForFunction(()=>document.querySelector('#account-password').value==='');
     assert.equal(calls.filter(c=>c.path.endsWith('/user')&&c.body?.password==='new synthetic password').length,1);
     await page.locator('.auth-trigger[aria-busy="false"]').click();

@@ -25,3 +25,12 @@ instruction. Existing login/marketing fixtures were adapted but not rerun here.
 The user's earlier real six-digit OTP success is user-reported acceptance, not an
 agent mail test. The separately confirmed disposable block and explicitly requested
 test-account deletion are documented in TANPONY.md.
+
+Password visibility follow-up: all four password fields share an eye toggle with
+IT/EN show/hide labels and aria-pressed state. It switches input type without
+changing the value or submitting. Mode changes and completed submissions re-mask
+the fields. Submit selectors explicitly target type=submit so eye buttons cannot
+be mistaken for Save password. A focused IT/EN mocked browser run passed toggling
+all four fields and the existing confirmation/save flow. The first run exposed
+the ambiguous old generic-button selector; it was corrected before the passing
+rerun. No broad suite or real-email test was performed.

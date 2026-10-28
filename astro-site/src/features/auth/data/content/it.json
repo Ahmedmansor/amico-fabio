@@ -84,5 +84,7 @@
   "lastNameRequired": "Inserisci il cognome (massimo 80 caratteri).",
   "nameRequired": "Inserisci nome e cognome.",
   "confirmPassword": "Conferma password",
-  "passwordMismatch": "Le password non coincidono."
+  "passwordMismatch": "Le password non coincidono.",
+  "showPassword": "Mostra password",
+  "hidePassword": "Nascondi password"
 }

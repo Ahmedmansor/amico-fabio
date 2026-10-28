@@ -12,6 +12,11 @@ try{
   const {config}=JSON.parse(html.match(/id="login-config"[^>]*>(.*?)<\/script>/s)[1]);
   const context=await browser.newContext({viewport:{width:375,height:900},reducedMotion:'reduce'});
   const page=await context.newPage(),calls=[],errors=[];page.on('pageerror',e=>errors.push(e.message));
+  async function checkEye(id){
+    const input=page.locator(`#${id}`),toggle=page.locator(`[data-password-target="${id}"]`);
+    const value=await input.inputValue();await toggle.click();assert.equal(await input.getAttribute('type'),'text');assert.equal(await toggle.getAttribute('aria-pressed'),'true');assert.equal(await input.inputValue(),value);
+    await toggle.click();assert.equal(await input.getAttribute('type'),'password');assert.equal(await toggle.getAttribute('aria-pressed'),'false');
+  }
   const user={id:'00000000-0000-4000-8000-000000000091',email:'qa@libero.it',aud:'authenticated',role:'authenticated',app_metadata:{provider:'email'},user_metadata:{first_name:'Mario',last_name:'Rossi',full_name:'Mario Rossi'}};
   const jwt=`${Buffer.from('{"alg":"HS256","typ":"JWT"}').toString('base64url')}.${Buffer.from(JSON.stringify({sub:user.id,aud:'authenticated',exp:Math.floor(Date.now()/1000)+3600})).toString('base64url')}.synthetic`;
   await context.route(config.url+'/**',async route=>{
@@ -36,6 +41,7 @@ try{
   await page.locator('#login-email').fill('probe@tanpony.com');await page.locator('#login-password').fill('synthetic password');await page.locator('#login-password-confirm').fill('wrong password');
   await page.locator('#login-password-match-error:visible').waitFor();assert.equal(await page.locator('[data-login-submit]').isDisabled(),true);assert.equal(calls.length,0);
   await page.locator('#login-password-confirm').fill('synthetic password');assert.equal(await page.locator('[data-login-submit]').isDisabled(),true);assert.equal(calls.length,0);
+  await checkEye('login-password');await checkEye('login-password-confirm');
   await page.locator('#login-email').fill('qa@libero.it');
   await page.locator('[data-login-submit]:enabled').waitFor();await page.locator('[data-login-submit]').click();
   await page.locator('[data-login-check-email]:visible').waitFor();assert.equal(await page.locator('[data-login-controls]').isVisible(),false);
@@ -54,9 +60,9 @@ try{
   await page.locator('.auth-trigger[aria-busy="false"]').waitFor();assert.ok((await page.locator('.auth-trigger-label').textContent()).includes('Mario'));
   await page.goto(`${origin}/${locale}/login/?settings=password`);await page.locator('[data-login-account]:visible').waitFor();
   await page.locator('#account-password').fill('new synthetic password');await page.locator('#account-password-confirm').fill('different password');
-  await page.locator('#account-password-match-error:visible').waitFor();assert.equal(await page.locator('[data-login-set-password] button').isDisabled(),true);
+  await page.locator('#account-password-match-error:visible').waitFor();assert.equal(await page.locator('[data-login-set-password] button[type="submit"]').isDisabled(),true);
   assert.equal(calls.filter(c=>c.input?.password==='new synthetic password').length,0);
-  await page.locator('#account-password-confirm').fill('new synthetic password');await page.locator('[data-login-set-password] button').click();
+  await page.locator('#account-password-confirm').fill('new synthetic password');await checkEye('account-password');await checkEye('account-password-confirm');await page.locator('[data-login-set-password] button[type="submit"]').click();
   await page.waitForFunction(()=>document.querySelector('#account-password').value==='');assert.equal(calls.filter(c=>c.input?.password==='new synthetic password').length,1);
   assert.equal(calls.filter(c=>c.path.endsWith('/signup')).length,1);
   assert.equal(calls.filter(c=>c.path.endsWith('/verify')).length,2);

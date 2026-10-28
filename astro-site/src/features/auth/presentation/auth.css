@@ -83,6 +83,10 @@
 .auth-login .auth-reminder-optin { display:flex; }
 .auth-password-settings { margin-top:24px; }
 .auth-password-settings summary { min-height:44px; padding:12px 0; color:var(--color-gold-soft); cursor:pointer; }
+.auth-password-field { position:relative; }
+.auth-content .auth-password-field input { padding-inline-end:56px; }
+.auth-password-toggle { position:absolute; inset-inline-end:4px; top:50%; transform:translateY(-50%); display:grid; place-items:center; width:44px; height:44px; border:0; background:transparent; color:var(--color-gold-soft); cursor:pointer; }
+.auth-password-toggle [hidden] { display:none; }
 .auth-code-widget { position:relative; width:100%; max-width:384px; margin:12px 0 24px; }
 .auth-code-cells { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:8px; }
 .auth-code-cell { display:grid; place-items:center; height:56px; border:1px solid var(--color-gold); border-radius:8px; color:var(--color-text-light); font-size:26px; font-weight:600; }

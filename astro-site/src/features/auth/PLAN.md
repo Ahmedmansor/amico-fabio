@@ -4,6 +4,15 @@
 
 ## Current target and handoff — 2026-10-28
 
+Local Auth closure checkpoint: the user reports successful real six-digit email
+verification and working signup details. Eye toggles are implemented and checked
+with synthetic browser interactions. A separate native read confirmed the new
+test account's welcome favorites-reminder consent: enabled, en, one grant and no
+withdrawals; no reminder job existed. See `../../../qa/auth/CONSENT_CHECK.md`.
+These are local Auth/consent-storage results. Actual reminder dispatch, broader
+recipient eligibility, promotional-consent activation and the newly changed
+page's test-host deployment are not closed by this checkpoint.
+
 Latest same-day user clarification: OTP code entry is now the primary email
 confirmation/recovery UX, with the existing link as an alternative in the same
 message. This supersedes historical statements below excluding user-entered OTP.

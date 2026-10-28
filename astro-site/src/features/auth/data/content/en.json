@@ -84,5 +84,7 @@
   "lastNameRequired": "Enter a last name (up to 80 characters).",
   "nameRequired": "Enter your first and last name.",
   "confirmPassword": "Confirm password",
-  "passwordMismatch": "The passwords do not match."
+  "passwordMismatch": "The passwords do not match.",
+  "showPassword": "Show password",
+  "hidePassword": "Hide password"
 }

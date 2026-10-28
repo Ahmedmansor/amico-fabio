@@ -52,6 +52,20 @@ async function initialize(){
   let pending=false,token='',signedIn=false,ready=false,awaitingEmail=false;
   let captcha:Awaited<ReturnType<typeof mountTurnstile>>|undefined;
   let captchaStarted=false;
+  const passwordToggles=[...root.querySelectorAll<HTMLButtonElement>('[data-password-toggle]')];
+  function hidePasswords(){
+    for(const button of passwordToggles){
+      const input=document.getElementById(button.dataset.passwordTarget!) as HTMLInputElement;
+      input.type='password';button.setAttribute('aria-pressed','false');button.setAttribute('aria-label',button.dataset.showLabel!);
+      button.querySelector('[data-password-eye-slash]')!.setAttribute('hidden','');
+    }
+  }
+  for(const button of passwordToggles)button.addEventListener('click',()=>{
+    const input=document.getElementById(button.dataset.passwordTarget!) as HTMLInputElement;
+    const reveal=input.type==='password';input.type=reveal?'text':'password';
+    button.setAttribute('aria-pressed',String(reveal));button.setAttribute('aria-label',reveal?button.dataset.hideLabel!:button.dataset.showLabel!);
+    button.querySelector('[data-password-eye-slash]')!.toggleAttribute('hidden',!reveal);
+  });
   const message=(reason:AuthFailure)=>reason==='password-mismatch'?m.passwordMismatch:reason==='invalid-name'?m.nameRequired:reason==='invalid-code'?m.invalidCode:reason==='invalid-email'?m.invalidEmail:reason==='disposable-domain'?m.disposableEmail:reason==='email-typo'?m.checkTypo:reason==='captcha-required'?m.captchaRequired:reason==='invalid-password'?m.passwordGuidance:reason==='rate-limited'?m.rateLimited:m.failed;
   function render(){
     root!.querySelector<HTMLElement>('[data-login-controls]')!.hidden=awaitingEmail;
@@ -92,7 +106,7 @@ async function initialize(){
     const accountMismatch=!!accountConfirmation?.value&&!passwordsMatch(accountPassword?.value??'',accountConfirmation.value);
     const accountError=root!.querySelector<HTMLElement>('#account-password-match-error');if(accountError)accountError.hidden=!accountMismatch;
     accountConfirmation?.setAttribute('aria-invalid',String(accountMismatch));
-    const savePassword=root!.querySelector<HTMLButtonElement>('[data-login-set-password] button');
+    const savePassword=root!.querySelector<HTMLButtonElement>('[data-login-set-password] button[type="submit"]');
     if(savePassword)savePassword.disabled=pending||!signedIn||!validNewPassword(accountPassword?.value??'')||!passwordsMatch(accountPassword?.value??'',accountConfirmation?.value??'');
     const marketingRow=root!.querySelector<HTMLElement>('[data-login-marketing-row]');if(marketingRow)marketingRow.hidden=mode!=='signup';
     if(submit){submit.textContent=mode==='signup'?m.signUp:mode==='signin'?m.signIn:m.send;
@@ -116,7 +130,7 @@ async function initialize(){
     input.addEventListener('blur',()=>{touchedNames.add(input);render();});
   }
   root.querySelector('[data-login-correct]')?.addEventListener('click',()=>{const typo=suggestEmailCorrection(email!.value);if(typo){email!.value=typo.suggested;render();email!.focus();}});
-  function changeMode(next:typeof mode){if(pending)return;mode=next;status.textContent='';if(password)password.value='';if(confirmation)confirmation.value='';touchedNames.clear();captcha?.reset();render();}
+  function changeMode(next:typeof mode){if(pending)return;mode=next;hidePasswords();status.textContent='';if(password)password.value='';if(confirmation)confirmation.value='';touchedNames.clear();captcha?.reset();render();}
   for(const button of modes)button.addEventListener('click',()=>changeMode(button.dataset.loginMode as 'signin'|'signup'));
   recovery?.addEventListener('click',()=>changeMode(mode==='recovery'?'signin':'recovery'));
   root.querySelector('[data-login-back-to-signin]')?.addEventListener('click',()=>{
@@ -140,7 +154,7 @@ async function initialize(){
     }
     pending=true;status.textContent=m.pending;render();
     const result=attempted==='signup'?await service.signUp(submittedEmail,password!.value,locale,destination,token,marketingIntent?.checked===true,details):attempted==='signin'?await service.signInWithPassword(submittedEmail,password!.value,token):await service.requestMagicLink(submittedEmail,locale,destination,token);
-    pending=false;if(password)password.value='';if(confirmation)confirmation.value='';
+    pending=false;hidePasswords();if(password)password.value='';if(confirmation)confirmation.value='';
     if(result.ok&&attempted==='signin'){location.assign(destination);return;}
     if(result.ok){
       awaitingEmail=true;status.textContent='';
@@ -187,8 +201,8 @@ async function initialize(){
     event.preventDefault();if(pending||!signedIn)return;
     const input=accountPassword!;
     if(!passwordsMatch(input.value,accountConfirmation!.value)){status.textContent=m.passwordMismatch;render();return;}
-    pending=true;const button=setForm.querySelector('button')!;button.disabled=true;
-    const result=await service.setPassword(input.value,accountConfirmation!.value);input.value='';accountConfirmation!.value='';pending=false;
+    pending=true;const button=setForm.querySelector<HTMLButtonElement>('button[type="submit"]')!;button.disabled=true;
+    const result=await service.setPassword(input.value,accountConfirmation!.value);hidePasswords();input.value='';accountConfirmation!.value='';pending=false;
     status.textContent=result.ok?m.passwordSaved:message(result.reason);render();
   });
   getAccountState(service).subscribe(state=>{

@@ -7,6 +7,7 @@ import {marketingConsentEnabled} from '../../marketing/data/config';
 import {getMarketingMessages} from '../../marketing/data/messages';
 import MarketingConsent from '../../marketing/presentation/MarketingConsent.astro';
 import EmailCodeInput from './EmailCodeInput.astro';
+import PasswordInput from './PasswordInput.astro';
 interface Props {locale:Locale}
 const {locale}=Astro.props;
 const m=getAuthMessages(locale);
@@ -42,11 +43,11 @@ const configuration=JSON.stringify({config:authConfig,messages:m,locale,marketin
           </div>
           {authConfig.passwordEnabled && <div data-login-password-row>
             <label for="login-password">{m.password}</label>
-            <input id="login-password" name="password" type="password" autocomplete="current-password" maxlength="128" required aria-describedby="password-guidance"/>
+            <PasswordInput id="login-password" name="password" autocomplete="current-password" required describedBy="password-guidance" showLabel={m.showPassword} hideLabel={m.hidePassword}/>
             <p id="password-guidance" data-login-password-hint hidden>{m.passwordGuidance}</p>
             <div data-login-confirm-row hidden>
               <label for="login-password-confirm">{m.confirmPassword}</label>
-              <input id="login-password-confirm" name="password_confirmation" type="password" autocomplete="new-password" maxlength="128" aria-describedby="login-password-match-error"/>
+              <PasswordInput id="login-password-confirm" name="password_confirmation" describedBy="login-password-match-error" showLabel={m.showPassword} hideLabel={m.hidePassword}/>
               <p id="login-password-match-error" class="auth-error" role="alert" hidden>{m.passwordMismatch}</p>
             </div>
           </div>}
@@ -83,10 +84,10 @@ const configuration=JSON.stringify({config:authConfig,messages:m,locale,marketin
         <summary>{m.optionalPassword}</summary>
         <form data-login-set-password novalidate>
         <label for="account-password">{m.setPassword}</label>
-        <input id="account-password" type="password" autocomplete="new-password" minlength="12" maxlength="128" required aria-describedby="account-password-guidance"/>
+        <PasswordInput id="account-password" minlength={12} required describedBy="account-password-guidance" showLabel={m.showPassword} hideLabel={m.hidePassword}/>
         <p id="account-password-guidance">{m.passwordGuidance}</p>
         <label for="account-password-confirm">{m.confirmPassword}</label>
-        <input id="account-password-confirm" type="password" autocomplete="new-password" maxlength="128" required aria-describedby="account-password-match-error"/>
+        <PasswordInput id="account-password-confirm" required describedBy="account-password-match-error" showLabel={m.showPassword} hideLabel={m.hidePassword}/>
         <p id="account-password-match-error" class="auth-error" role="alert" hidden>{m.passwordMismatch}</p>
         <button type="submit" class="auth-button auth-secondary" disabled>{m.savePassword}</button>
         </form>
