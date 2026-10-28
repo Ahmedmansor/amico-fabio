@@ -28,3 +28,12 @@ allow owner replacement; hashed output URLs change on rebuild.
 Before real publication: replace/approve temporary imagery, confirm rights,
 check descriptive alt/caption accuracy and remove any fixture association only
 after the corresponding content is real and reviewed.
+
+Editorial expansion: the twelve natural article folders each contain hero.webp,
+detail-1.webp and detail-2.webp. The eighteen localized place-guide folders each
+contain hero.webp and detail.webp. These are copies of the same seven temporary
+illustrations above, selected by the checked-in preview generators under
+scripts/editorial/. No new generation or external-image download was needed.
+Replace the colocated files (and update alt/caption for the replacement), rather
+than editing hashed output URLs. Existing catalog photos used by guide product
+cards are owned by the tours/packages feature and are not demo place photography.
