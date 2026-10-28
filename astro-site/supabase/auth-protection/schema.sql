@@ -49,7 +49,8 @@ insert into public.disposable_email_domains (domain, reason) values
   ('temp-mail.io', 'TempMail IO service'),
   ('minuteinbox.com', 'MinuteInbox service'),
   ('tmailor.com', 'TMailor service'),
-  ('playfine.com', 'User-confirmed disposable provider, 2026-10-27')
+  ('playfine.com', 'User-confirmed disposable provider, 2026-10-27'),
+  ('tanpony.com', 'User-confirmed disposable provider, 2026-10-28')
 on conflict (domain) do nothing;
 
 

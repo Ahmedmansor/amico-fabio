@@ -19,5 +19,5 @@ test('generated SQL only reconciles source-owned classifications and preserves m
   assert.ok(!/auth\.users|grant |revoke /i.test(sql));
 });
 test('user-reported disposable domain is rejected immediately including subdomains',()=>{
-  for(const domain of ['playfine.com','sub.playfine.com']) assert.deepEqual(validateEmailAddress(`probe@${domain}`),{ok:false,reason:'disposable-domain',suggestion:null});
+  for(const domain of ['playfine.com','sub.playfine.com','tanpony.com','sub.tanpony.com']) assert.deepEqual(validateEmailAddress(`probe@${domain}`),{ok:false,reason:'disposable-domain',suggestion:null});
 });

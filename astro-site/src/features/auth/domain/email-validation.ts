@@ -140,6 +140,7 @@ const DISPOSABLE_DOMAINS: ReadonlySet<string> = new Set([
   'minuteinbox.com',
   'tmailor.com',
   'playfine.com',
+  'tanpony.com',
   'internxt.com',
 ]);
 
