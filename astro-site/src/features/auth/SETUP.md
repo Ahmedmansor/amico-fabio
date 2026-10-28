@@ -2,6 +2,23 @@
 
 # Auth activation and remaining setup
 
+## Current login revision — 2026-10-28
+
+Use [LOGIN_REVISION.md](LOGIN_REVISION.md) and
+[KEYS_SETUP_AR.md](../../../qa/auth/KEYS_SETUP_AR.md) for the current activation.
+The local password/Google/Turnstile page and separate optional offers-consent
+foundations pass synthetic checks but their hosting flags remain off. New consent
+schema and native SQL tests remain unapplied/unexecuted. The existing signed
+Send Email hook alone is updated to ACTIVE v6; actual unsigned POST returned 401.
+No new inbox test or promotional sending is implied.
+
+Do not enable native CAPTCHA on the old hosted artifact before the matching login
+page with token forwarding is deployed. Actual test hostname is
+`amico-fabio-iyzo.vercel.app`, project `amico-fabio-test`. Preserve Google and
+existing limits, hook signing, source snapshots, and restricted reminder scope.
+Rollback source for hook v5 is ignored locally at
+`.astro/auth-send-email-v5-rollback.json`; no secret values are stored there.
+
 ## Verified test activation — 2026-10-27
 
 The real Auth sending path is now connected to the signed HTTP hook. This replaces

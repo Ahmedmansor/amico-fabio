@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {createAuthService} from '../service.ts';
 import {readAuthConfig,authReturnPaths} from '../config.ts';
 import {safeReturnPath} from '../../domain/auth.ts';
-const config = {url:'https://auth.example.test',publishableKey:'sb_publishable_test',siteOrigin:'https://test.example.test',emailEnabled:true,googleEnabled:true,microsoftEnabled:true,passwordEnabled:true,turnstileSiteKey:'synthetic-key',resendSeconds:60};
+const config = {url:'https://auth.example.test',publishableKey:'sb_publishable_test',siteOrigin:'https://test.example.test',emailEnabled:true,googleEnabled:true,passwordEnabled:true,turnstileSiteKey:'synthetic-key',resendSeconds:60};
 function setup(overrides={}) {
   const calls=[];
   const session={user:{id:'account'}};
@@ -11,7 +11,7 @@ function setup(overrides={}) {
     signUp:async input=>{calls.push(['signup',input]);return {data:{session:null},error:null};},
     signInWithPassword:async input=>{calls.push(['password',input]);return {data:{session},error:null};},
     signInWithOtp:async input=>{calls.push(['otp',input]);return {error:null};},
-    signInWithOAuth:async input=>{calls.push(['oauth',input]);return {data:{url:config.url+'/auth/v1/authorize?provider=azure'},error:null};},
+    signInWithOAuth:async input=>{calls.push(['oauth',input]);return {data:{url:config.url+'/auth/v1/authorize?provider=google'},error:null};},
     exchangeCodeForSession:async()=>({data:{session},error:null}),
     getUser:async()=>({data:{user:session.user},error:null}),
     updateUser:async input=>{calls.push(['update',input]);return {error:null};},...overrides,
@@ -46,11 +46,10 @@ test('Magic Link recovery cannot create another account and forwards token',asyn
   assert.equal(calls[0][1].options.shouldCreateUser,false);
   assert.equal(calls[0][1].options.captchaToken,'token');
 });
-test('Microsoft requests email scope and accepts the shared PKCE callback',async()=>{
+test('Google remains the only OAuth provider and keeps the PKCE callback',async()=>{
   const {service,calls}=setup();
-  assert.equal((await service.googleUrl('en','/en/wishlist/','azure')).ok,true);
-  assert.equal(calls[0][1].provider,'azure');
-  assert.equal(calls[0][1].options.scopes,'email');
+  assert.equal((await service.googleUrl('en','/en/wishlist/')).ok,true);
+  assert.equal(calls[0][1].provider,'google');
   assert.equal((await service.completeCallback({kind:'google',code:'synthetic-code'})).ok,true);
 });
 test('password setting needs a verified account, never signup',async()=>{
@@ -64,7 +63,6 @@ test('password setting needs a verified account, never signup',async()=>{
 test('flags remain off by default and password activation requires Turnstile',()=>{
   const env={PUBLIC_AUTH_ENABLED:'1',PUBLIC_AUTH_SUPABASE_URL:config.url,PUBLIC_AUTH_SUPABASE_PUBLISHABLE_KEY:config.publishableKey,PUBLIC_AUTH_SITE_URL:config.siteOrigin,PUBLIC_AUTH_GOOGLE_ENABLED:'1'};
   assert.equal(readAuthConfig(env).passwordEnabled,false);
-  assert.equal(readAuthConfig(env).microsoftEnabled,false);
   assert.throws(()=>readAuthConfig({...env,PUBLIC_AUTH_PASSWORD_ENABLED:'1'}),/Turnstile/);
 });
 test('return path preserves catalog detail destinations without opening redirect or login loops',()=>{

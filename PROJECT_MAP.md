@@ -2,6 +2,18 @@
 
 Inspection date: October 13, 2026. This file documents the local version before any changes to the site's functionality or design.
 
+## Auth login revision reference — October 28, 2026
+
+The latest user master plan replaces the guest login popup with static IT/EN
+login pages and adds password signup/signin, Google, Turnstile and separate
+optional offers consent. Current scope, actual local checks and key dependencies
+are in `astro-site/src/features/auth/LOGIN_REVISION.md` and the top of PLAN.md.
+Local foundations are committed; new page/provider/marketing hosting activation
+is pending. Marketing SQL is prepared, not applied or native-role verified.
+Only the existing signed Auth email hook is updated remotely to ACTIVE v6 with
+source match and a real unsigned-request 401 check. No new real email was sent.
+Legacy main/production stay unchanged; dated descriptions below are historical.
+
 ## Current Auth/wishlist continuation reference — October 25, 2026
 
 The historical inspection below describes the legacy site. The later approved

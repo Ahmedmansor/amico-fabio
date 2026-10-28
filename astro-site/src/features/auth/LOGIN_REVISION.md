@@ -12,7 +12,7 @@ branch, in the static Astro application; production/legacy remain unchanged.
    `/it/login/` and `/en/login/`; `/login/` is the Italian entry alias. Header and
    wishlist entries navigate there with a validated return path. Retain the
    signed-in account dialog and signout; remove the guest login popup.
-2. Add gated password sign-in and signup, plus Microsoft (`azure`, email scope).
+2. Add gated password sign-in and signup alongside Google. Microsoft/Azure was deferred by the user later on 2026-10-28 and is outside the current feature.
    Existing passwordless accounts use Google/Magic Link; they do not acquire a
    password merely by signing in. Provide an authenticated password-setting path
    before claiming those accounts can return using a password. Never overwrite
@@ -69,14 +69,9 @@ branch, in the static Astro application; production/legacy remain unchanged.
   Attack Protection; never paste/store it in source or public build variables.
 - Do not enable native CAPTCHA on the current remote artifact before the new
   login token forwarding is deployed: otherwise existing email controls break.
-- Azure app: organizational + personal accounts, Web callback
-  `https://iiivnvwspoikfrlclhyr.supabase.co/auth/v1/callback`, client ID and secret
-  VALUE in Supabase Azure provider only. Request `email` scope; follow Supabase's
-  recommendation for `xms_edov`/email optional claims. Record secret expiry without
-  recording its value. Keep common tenant for the approved account types.
+- Microsoft/Azure is deferred; no Azure credentials or provider setup are required.
 - Keep Confirm email ON. Configure native password policy and CAPTCHA/rates.
-  Public `PUBLIC_AUTH_PASSWORD_ENABLED` and `PUBLIC_AUTH_MICROSOFT_ENABLED` stay
-  off until matching provider/hook settings are verified. Google remains usable.
+  PUBLIC_AUTH_PASSWORD_ENABLED requires matching provider/hook settings. Google remains usable. TURNSTILE_SITE_KEY is accepted as a local build-time alias for the public widget key.
 - No client secret, Turnstile secret, service-role key or access token is needed
   in this chat. User configures secrets through provider dashboards/secure existing
   tooling. Real email tests use only the user's requested recipient.
@@ -91,10 +86,10 @@ branch, in the static Astro application; production/legacy remain unchanged.
 
 ## Progress
 
-Plan reconciled with repository evidence. New password/Microsoft/CAPTCHA and
+Plan reconciled with repository evidence. New password/Google/CAPTCHA and
 promotional consent are targets, not claims about the currently deployed flow.
 
-Standalone login/password/Microsoft/Turnstile local implementation now passes
+The initial standalone login implementation passed
 377 Node tests, 197 Vitest tests, Astro check (434 files, no diagnostics), static
 build (99 pages), and four IT/EN mobile/desktop synthetic browser scenarios.
 See `../../../qa/auth/LOGIN_REVISION.md` for evidence and remaining activation.
@@ -106,3 +101,12 @@ test proposal are also prepared. Current checks: 385 Node, 200 Vitest, Astro che
 445 files without diagnostics, static build 99 pages; four marketing and four
 login synthetic browser scenarios pass. SQL has NOT been applied or role-tested;
 PUBLIC_MARKETING_CONSENT_ENABLED stays off. See `../../../qa/auth/MARKETING_CONSENT.md`.
+
+Later same-day update: user deferred Microsoft/Azure; its provider flag, button
+and SDK branch are removed. The user saved TURNSTILE_SITE_KEY in ignored local
+.env.local and reported configuring the secret in Supabase Attack Protection.
+The public site key is accepted through that build-time alias; local password
+mode is enabled. At the user's request, the full checks above were not repeated
+for these later edits. A synthetic remote signup check was rejected by automatic
+approval review before execution; do not report it as a Supabase/CAPTCHA rejection.
+No real signup/email/CAPTCHA completion has been verified in this update.

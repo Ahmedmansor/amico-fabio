@@ -19,7 +19,6 @@ const configuration=JSON.stringify({config:authConfig,messages:m,locale}).replac
   {authConfig ? <>
     <section data-login-guest>
       {authConfig.googleEnabled && <button type="button" class="auth-button auth-secondary" data-login-oauth="google">{m.google}</button>}
-      {authConfig.microsoftEnabled && <button type="button" class="auth-button auth-secondary" data-login-oauth="azure">{m.microsoft}</button>}
       {authConfig.emailEnabled && <>
         {authConfig.passwordEnabled && <div class="auth-tabs" role="group" aria-label={m.loginMethod}>
           <button type="button" data-login-mode="signin" aria-pressed="true">{m.signIn}</button>

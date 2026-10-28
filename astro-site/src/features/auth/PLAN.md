@@ -2,6 +2,34 @@
 
 # Authentication, wishlists, and email reminders — Fabio Egypt
 
+## Current target and handoff — 2026-10-28
+
+The user's new master plan supersedes earlier no-password, login-popup and
+reminder-only consent targets. Follow [LOGIN_REVISION.md](LOGIN_REVISION.md):
+standalone IT/EN login, password signup/signin, Google, protected
+existing-account Magic Link recovery and separate optional promotional consent.
+Promotional dispatch and expanding the existing restricted reminder scope are
+not included. Keep the static architecture and lossless guest/account merge.
+
+Local implementation is committed and verified: 385 Node + 200 Vitest tests,
+Astro check 445 files without diagnostics, static build 99 pages. Four login and
+four marketing synthetic browser scenarios passed at 375/1440px in IT/EN.
+Password/marketing flags remain off outside the isolated QA fixture.
+Marketing SQL and disposable role tests are prepared but NOT executed/applied.
+The existing signed auth-send-email hook was deployed as ACTIVE v6; remote source
+matches, unsigned POST returns 401. No new real email was sent or inbox tested.
+
+Owner setup is the current coordinated activation dependency: real public
+Turnstile site key and native CAPTCHA secret. Microsoft/Azure is deferred by the user.
+Follow [the Arabic key checklist](../../../qa/auth/KEYS_SETUP_AR.md). The actual
+test alias is `https://amico-fabio-iyzo.vercel.app`; its Vercel project is
+`amico-fabio-test`. No new login pages or provider flags have been deployed there.
+After setup: verify/apply the reviewed consent schema with native role/concurrency
+tests, align password/confirmation/CAPTCHA settings, then rebuild and verify the
+test deployment and user-requested acceptance. Never call disabled UI, mocked
+requests or prepared SQL a working live flow. Historical checkpoints below remain
+evidence only for their dated artifacts.
+
 ## Welcome visibility and wishlist simplification — 2026-10-27
 
 The published test artifact omitted welcome-config and the welcome dialog because

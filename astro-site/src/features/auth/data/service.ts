@@ -127,14 +127,13 @@ export function createAuthService(client: Client, config: AuthConfig, now: () =>
         return error ? failure(rateLimited(error) ? 'rate-limited' : 'failed') : success(undefined);
       } catch { return failure('failed'); } finally { busy = false; }
     },
-    async googleUrl(locale: Locale, requestedReturn?: unknown, provider: 'google' | 'azure' = 'google'): Promise<AuthResult<string>> {
-      if (provider === 'azure' ? !config.microsoftEnabled : !config.googleEnabled) return failure('unavailable');
+    async googleUrl(locale: Locale, requestedReturn?: unknown): Promise<AuthResult<string>> {
+      if (!config.googleEnabled) return failure('unavailable');
       if (busy) return failure('busy');
       busy = true;
       try {
-        const { data, error } = await client.auth.signInWithOAuth({ provider, options: {
+        const { data, error } = await client.auth.signInWithOAuth({ provider: 'google', options: {
           redirectTo: callbackUrl(locale, requestedReturn), skipBrowserRedirect: true,
-          ...(provider === 'azure' ? { scopes: 'email' } : {}),
         } });
         if (error || !data.url) return failure('failed');
         const target = new URL(data.url);
@@ -144,7 +143,7 @@ export function createAuthService(client: Client, config: AuthConfig, now: () =>
     },
     async completeCallback(input: CallbackInput): Promise<AuthResult<AccountSession>> {
       if (input.kind === 'invalid') return failure('invalid-link');
-      if ((input.kind === 'email' && !config.emailEnabled) || (input.kind === 'google' && !config.googleEnabled && !config.microsoftEnabled)) return failure('unavailable');
+      if ((input.kind === 'email' && !config.emailEnabled) || (input.kind === 'google' && !config.googleEnabled)) return failure('unavailable');
       if (busy) return failure('busy');
       busy = true;
       try {

@@ -84,7 +84,7 @@ async function initialize(){
   });
   for(const button of oauth)button.addEventListener('click',async()=>{
     if(pending||!ready)return;pending=true;status.textContent=m.pending;render();
-    const result=await service.googleUrl(locale,destination,button.dataset.loginOauth as 'google'|'azure');
+    const result=await service.googleUrl(locale,destination);
     if(result.ok){location.assign(result.value);return;}
     pending=false;status.textContent=message(result.reason);render();
   });
