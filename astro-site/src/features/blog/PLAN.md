@@ -3,6 +3,11 @@
 Status: planning only; no blog runtime, routes, content collection or UI implemented.
 Updated: 2026-10-28.
 
+Planning package: see README.md for the documentation map and EXECUTION.md for
+the ordered, unchecked implementation checklist. Empty layer directories are
+scaffolding only. The owner explicitly requested preparing this package without
+starting feature implementation; wait for a later implementation instruction.
+
 ## 1. Purpose and authority
 
 Build a static Italian/English blog for Fabio Egypt, using the application's
@@ -402,6 +407,12 @@ Documentation-only tasks use diff/format review; do not claim runtime checks.
 | 10 | WhatsApp form, review UI, message generation and analytics | Validation and encoding tests; browser handoff URL verified without sending a real message |
 | 11 | Authoring scaffold/template and documentation | New draft created safely; useful error output; no invented approved content |
 | 12 | Final QA and readiness report | Full checks, measured performance, accessibility and fixture isolation evidence |
+
+Dependency note: the minimal shared alternate-path and SEO-validation support
+needed for asymmetric blog routes must land before those routes in phase 5/6.
+Treat it as an early prerequisite slice of phase 8, with its own verification and
+focused commit. Do not knowingly introduce a failing build while waiting for a
+later phase. Full article metadata/sitemap/regression acceptance remains phase 8.
 
 For phases 5–6, 8 and 10, capture changed screens at 375, 768 and 1280px.
 Screenshots remain local and Git-ignored; commit scripts, comparison JSON and
