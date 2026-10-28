@@ -1,6 +1,6 @@
 # Blog system — implementation plan
 
-Status: implementation authorized; phase 1 technical validation in progress.
+Status: phase 1 technical validation passed; domain implementation is next.
 Updated: 2026-10-28.
 
 Planning package: see README.md for the documentation map and EXECUTION.md for
@@ -421,11 +421,13 @@ production and proving draft/future/fixture targets cannot leak through links.
 
 ## 13. Execution sequence and acceptance
 
-No phase below is complete until its real checks are recorded. After each
-implementation task run relevant focused tests, `npx astro check` and
-`npm run build` from astro-site/, review the diff, stage explicit task files and
-create one focused English commit. Preserve the combined existing test runner.
-Do not rerun broad checks repeatedly without a new change or unresolved concern.
+No phase below is complete until its real checks are recorded. Latest owner
+instruction: use focused verification for the changed blog behavior and batch
+full Astro check/build at coherent integration milestones. Do not rebuild the
+whole site after each small task or retest unrelated working features routinely.
+This supersedes the earlier per-task broad-check cadence for this work. Review
+the diff, stage explicit task files and create focused English commits. Preserve
+the combined existing test runner; record which checks actually ran.
 Documentation-only tasks use diff/format review; do not claim runtime checks.
 
 | Phase | Deliverable | Acceptance |

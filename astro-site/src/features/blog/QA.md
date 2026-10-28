@@ -1,14 +1,17 @@
 # Blog verification plan and evidence ledger
 
-Status: planned cases only. None of the feature checks below has been run.
+Status: phase 1 isolated pipeline checks passed; remaining feature cases below
+are planned and unexecuted. See qa/blog/PHASE_1.md for exact scope/output.
 Documentation scaffolding is not runtime verification.
 
 ## Evidence rules
 
 - Record command, working directory, exact relevant output, exit code and tested
   revision. Do not call an unrun, mocked or older result a current pass.
-- Every implementation task requires focused tests, `npx astro check` and
-  `npm run build` from astro-site/. Resolve failures before committing the task.
+- Latest owner instruction: focused tests for changed blog behavior; run broad
+  Astro check/build at coherent integration milestones, not after every small
+  change. Do not repeat unrelated feature checks without a concrete reason.
+  Resolve failures in required scoped checks before committing the task.
 - Preserve the existing npm test runner. Final QA includes the full suite plus
   the content/link/fixture scripts after they have been implemented.
 - Negative cases pass only when the intended check rejects the intended problem
@@ -105,6 +108,7 @@ Next task:
 
 ## Current evidence
 
-Only documentation/scaffold review applies at preparation time. Runtime test
-rows and browser checkboxes remain unexecuted. Use Git history for preparation
-commits; add phase reports only after their implementation checks actually run.
+Preparation commits: 0e78f0a and cd152fa. Phase 1's isolated native-pipeline test
+passed; it does not verify production blog functionality. Remaining browser and
+feature cases are unexecuted. See qa/blog/PHASE_1.md and add later reports only
+after their scoped checks actually run.

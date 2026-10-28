@@ -26,6 +26,7 @@ Updated: 2026-10-28. These are design decisions, not implementation evidence.
 | B18 | Use ui-ux-pro-max for a fresh blog design, unconstrained by the old site's styling | Latest explicit owner correction supersedes earlier visual-preservation guidance for this feature |
 | B19 | Generate temporary article/city/interest visuals and use WebP at stable source paths | Owner's approved image workflow; assets can be replaced later |
 | B20 | Use the owner's shared theme.css palette for blog and future site work | Explicit owner palette; ui-ux-pro-max guides layout/usability within these colors |
+| B21 | Focused blog checks per task; batch broad builds/checks at integration milestones | Owner explicitly rejected repeated broad checks and unrelated feature testing |
 
 B18 applies to the blog. It does not authorize restyling the legacy site or all
 other Astro pages. Preserve shared behavior and keep new visual CSS scoped.
@@ -38,8 +39,8 @@ These are preferred approaches, not proven compatibility claims.
 
 | ID | Preferred approach | Required proof before relying on it |
 | --- | --- | --- |
-| H01 | Native Astro 7 Sätteri transforms | Optimized local images survive figure/link/CTA transforms |
-| H02 | One validated publication snapshot/index | Supported collection/render ordering, no cycle, correct dev invalidation |
+| H01 | Verified: native Astro 7 Sätteri transforms | Colocated images produce WebP/srcset/dimensions after figure/link/CTA transforms; see qa/blog/PHASE_1.md |
+| H02 | Verified prototype: metadata-first, then rendered-store pass | glob collects validated entries; supported renderMarkdown creates final HTML; derived HTML must participate in digest for dev updates |
 | H03 | Extend alternate-path props through shared layout/header | Existing routes unchanged; translated and missing equivalents work |
 | H04 | Shared or public country-data interface | No presentation-to-presentation dependency or duplicated business data |
 | H05 | Two inquiry mount points with shared in-memory draft | Unique IDs, resize/dialog continuity and no duplicate handlers |
@@ -48,6 +49,14 @@ If H01 fails, record the minimal failing case and evaluate the supported unified
 processor. Pin/document any required dependency. Do not change Astro versions as
 a routine workaround. If other hypotheses fail, choose the simplest compatible
 solution within PLAN.md and record the resulting decision/evidence.
+
+Phase 1 decision: retain native Sätteri; pin `@astrojs/markdown-satteri` 0.4.3 as
+a direct dev dependency (already installed transitively by Astro 7.3.8). Do not
+use manual Vite graph manipulation for the index. The verified prototype stores
+rendered HTML after all metadata exists, with digest including derived output;
+Astro then owns data-store invalidation. Its current full rerender-on-metadata
+change is a correctness baseline for development, not a production optimization
+claim. Full publication validation/filtering remains phase 3/4 work.
 
 ## Pending only for affected publication work
 

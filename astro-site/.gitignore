@@ -13,3 +13,6 @@ dist/
 /qa/**/*.jpeg
 /qa/**/*.webp
 /qa/**/*.avif
+
+# Disposable blog pipeline verification projects (removed by the runner).
+/qa/blog/.pipeline/

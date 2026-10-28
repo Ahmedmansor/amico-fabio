@@ -1,6 +1,6 @@
 # Blog feature
 
-Status: implementation authorized; phase 1 technical validation in progress.
+Status: phase 1 technical prototype verified; application blog routes/UI pending.
 Updated 2026-10-28.
 
 A static IT/EN editorial blog with city/interest browsing, translation-aware
@@ -25,7 +25,8 @@ DECISIONS.md and update affected requirements before reporting completion.
 
 - Planning documents and empty layer/subdirectory placeholders.
 - No collection registration, Markdown entries, generated routes or scripts.
-- No package/configuration/environment/hosting changes.
+- A pinned dev-only native Markdown adapter and isolated verification runner;
+  no application collection/routes/environment/hosting changes.
 - No database, API, email or persisted inquiry data.
 
 The owner subsequently authorized execution. Runtime acceptance remains pending
@@ -49,7 +50,7 @@ their implementation phase. Empty directories contain only `.gitkeep` files.
 
 ## First implementation task
 
-Follow EXECUTION.md phase 1: prove the installed Astro 7 Markdown/image pipeline
-in isolation before building the full collection or pages. The inquiry must
+Phase 1's isolated prototype passed; continue with EXECUTION.md phase 2's pure
+domain foundation before building the full collection or pages. The inquiry must
 remain a WhatsApp handoff using shared public configuration; no Supabase work
 belongs to this feature.
