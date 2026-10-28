@@ -1,6 +1,7 @@
 import { satteri, type SatteriProcessorOptions } from '@astrojs/markdown-satteri';
 import { getMarkdownContext } from '../../data/markdown-context';
 import { ctaCardTree } from './cta';
+import { autoLinkPlugin } from './auto-links';
 
 export function blogMarkdownPlugins(readContext = getMarkdownContext): NonNullable<SatteriProcessorOptions['hastPlugins']> {
   return [
@@ -36,6 +37,7 @@ export function blogMarkdownPlugins(readContext = getMarkdownContext): NonNullab
         ],
       };
     },
+    autoLinkPlugin(readContext),
     ({ fileURL }) => {
       const context = readContext(fileURL);
       if (!context) return null;

@@ -134,12 +134,12 @@ request was sent. Keep any incomplete form state clearly nonfunctional.
 
 ## Phase 7 — Internal linking and output checks
 
-- [ ] Implement normalized longest-first keyword selection and exclusion rules.
-- [ ] Apply automatic linking to eligible article AST nodes only.
-- [ ] Respect manual target links, self-exclusion, one/target and five-link cap.
-- [ ] Build internal-path/fragment/language/alt/heading checks with correct scope.
-- [ ] Prove both valid output and intentional broken-link/language-leak rejection.
-- [ ] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+- [x] Implement normalized longest-first keyword selection and exclusion rules.
+- [x] Apply automatic linking to eligible article AST nodes only.
+- [x] Respect manual target links, self-exclusion, one/target and five-link cap.
+- [x] Build internal-path/fragment/language/alt/heading checks with correct scope.
+- [x] Prove both valid output and intentional broken-link/language-leak rejection.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
 
 **Done when:** all QA.md link cases have rendered-output evidence, not just pure
 algorithm tests.

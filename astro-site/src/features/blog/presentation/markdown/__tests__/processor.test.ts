@@ -15,6 +15,17 @@ async function render(body: string, article = true) {
   return processor.render(body, { fileURL: new URL('file:///proof/src/content/blog/en/demo/index.md') });
 }
 
+async function linked(body: string) {
+  const current = context.current;
+  const target = { ...current, id: 'target', slug: 'target', fixture: false, linkKeywords: ['Red Sea diving'], sourcePath: 'en/target/index.md' };
+  const other = { ...current, id: 'other', slug: 'other', fixture: false, linkKeywords: ['Red Sea'], sourcePath: 'en/other/index.md' };
+  const foreign = { ...target, id: 'foreign', lang: 'it' as const, linkKeywords: ['keyword italiano'] };
+  const draft = { ...target, id: 'draft', slug: 'draft', draft: true, linkKeywords: ['secret keyword'] };
+  const processor = await createSatteriMarkdownProcessor({ syntaxHighlight: false,
+    hastPlugins: blogMarkdownPlugins(() => ({ ...context, records: [current, target, other, foreign, draft] })) });
+  return (await processor.render(body)).code;
+}
+
 describe('native blog figures and CTA placement', () => {
   it('keeps local image metadata and safely moves title into a caption', async () => {
     const result = await render('![Meaningful image](./image.webp "<cairo> & elsewhere")');
@@ -52,5 +63,32 @@ describe('native blog figures and CTA placement', () => {
     expect(ctaCardHtml('it')).toContain('Pianifica il tuo viaggio');
     expect(ctaCardHtml('en', true)).toContain('blog-cta-compact');
     expect(ctaCardHtml('en')).toContain('rel="noopener noreferrer"');
+  });
+});
+
+describe('native article automatic links', () => {
+  it('links first eligible text only and never drafts or another language', async () => {
+    const code = await linked('Red Sea diving, Red Sea diving. keyword italiano; secret keyword.');
+    expect(code.match(/href="\/en\/blog\/target\/"/g)).toHaveLength(1);
+    expect(code).not.toMatch(/href="[^\"]*(?:foreign|draft)/);
+  });
+  it('excludes headings, existing links and code while linking ordinary text', async () => {
+    const code = await linked('## Red Sea diving\n\n`Red Sea diving`\n\n```text\nRed Sea diving\n```\n\nRed Sea diving.');
+    expect(code.match(/href="\/en\/blog\/target\/"/g)).toHaveLength(1);
+    expect(code).toMatch(/<h2[^>]*>Red Sea diving<\/h2>/);
+    expect(code).toContain('<code>Red Sea diving</code>');
+  });
+  it('suppresses any target manually linked later in the article', async () => {
+    const code = await linked('Red Sea diving.\n\n[Manual destination](/en/blog/target/)');
+    expect(code.match(/href="\/en\/blog\/target\/"/g)).toHaveLength(1);
+    expect(code).toContain('>Manual destination</a>');
+  });
+  it('excludes captions, inline raw no-autolink markup and raw anchors', async () => {
+    const code = await linked('![Image alt](./hero.webp "Red Sea diving")\n\n<span data-no-autolink>Red Sea diving</span>\n\nRed Sea diving.');
+    expect(code).toContain('<figcaption>Red Sea diving</figcaption>');
+    expect(code).toContain('<span data-no-autolink>Red Sea diving</span>');
+    expect(code.match(/href="\/en\/blog\/target\/"/g)).toHaveLength(1);
+    const manual = await linked('Red Sea diving. <a href="/en/blog/target/">Manual link</a>');
+    expect(manual.match(/href="\/en\/blog\/target\/"/g)).toHaveLength(1);
   });
 });
