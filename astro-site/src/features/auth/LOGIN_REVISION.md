@@ -93,3 +93,10 @@ branch, in the static Astro application; production/legacy remain unchanged.
 
 Plan reconciled with repository evidence. New password/Microsoft/CAPTCHA and
 promotional consent are targets, not claims about the currently deployed flow.
+
+Standalone login/password/Microsoft/Turnstile local implementation now passes
+377 Node tests, 197 Vitest tests, Astro check (434 files, no diagnostics), static
+build (99 pages), and four IT/EN mobile/desktop synthetic browser scenarios.
+See `../../../qa/auth/LOGIN_REVISION.md` for evidence and remaining activation.
+The existing hook already handles signup with reservation/replay protection;
+only its confirmation wording and new callback allowlist deployment need updating.

@@ -10,7 +10,7 @@ const m=getWishlistMessages(Astro.props.locale),auth=getAuthMessages(Astro.props
   <h2 id="wishlist-invitation-title">{m.invitationTitle}</h2>
   <p role="status">{m.invitationBody}</p>
   <div class="wishlist-invitation-actions">
-    <button type="button" class="wishlist-sync-button" data-auth-open data-wishlist-invite-signin aria-haspopup="dialog" hidden>{auth.signIn}</button>
+    <a href={`/${Astro.props.locale}/login/?redirect=${encodeURIComponent(`/${Astro.props.locale}/wishlist/`)}`} class="wishlist-sync-button" data-auth-open data-wishlist-invite-signin hidden>{auth.signIn}</a>
     <button type="button" class="wishlist-invitation-dismiss" data-wishlist-invite-dismiss>{auth.notNow}</button>
   </div>
 </aside>}

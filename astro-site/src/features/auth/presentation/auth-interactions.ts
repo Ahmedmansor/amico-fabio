@@ -1,327 +1,82 @@
-import { browserAuth } from '../data/browser';
-import { getAuthMessages } from '../data/messages';
-import type { AuthConfig } from '../data/config';
-import type { Locale } from '../../../shared/config/languages';
-import { suggestEmailCorrection, type AccountSession } from '../domain/auth';
+import {browserAuth} from '../data/browser';
+import {getAccountState} from '../data/account-state';
+import {authReturnPaths,defaultAuthReturn,type AuthConfig} from '../data/config';
+import {safeReturnPath,type AccountSession} from '../domain/auth';
+import type {getAuthMessages} from '../data/messages';
+import type {Locale} from '../../../shared/config/languages';
 import type {LocaleBrowserConfig} from '../data/locale-browser-config';
 import type {getLocaleMessages} from '../data/locale-messages';
-import type {bindAccountLocale} from './locale-interactions';
-import {getAccountState} from '../data/account-state';
-import { readCachedAuthProfile, saveCachedAuthProfile, clearCachedAuthProfile, hasCachedAuthSession } from '../data/auth-cache';
-import { clearAccountWishlistCache } from '../../wishlist/data/wishlist-cache';
-import { clearAllCachedPreferences } from '../../reminders/data/preferences-cache';
-import { recordPendingReminderOptIn, clearPendingReminderOptIn } from './pending-optin';
+import {saveCachedAuthProfile,clearCachedAuthProfile} from '../data/auth-cache';
+import {clearAccountWishlistCache} from '../../wishlist/data/wishlist-cache';
+import {clearAllCachedPreferences} from '../../reminders/data/preferences-cache';
 
-async function initialize() {
-  const configNode = document.getElementById('auth-config');
-  if (!configNode) return;
-  const { config, messages: m, locale, localeSettings } = JSON.parse(configNode.textContent!) as {
-    config: AuthConfig; messages: ReturnType<typeof getAuthMessages>; locale: Locale;
-    localeSettings?: {config: LocaleBrowserConfig; messages: ReturnType<typeof getLocaleMessages>} | null;
-  };
-  const dialog = document.querySelector<HTMLDialogElement>('[data-auth-dialog]')!;
-  const guest = dialog.querySelector<HTMLElement>('[data-auth-guest]')!;
-  const account = dialog.querySelector<HTMLElement>('[data-auth-account]')!;
-  const status = dialog.querySelector<HTMLElement>('[data-auth-status]')!;
-  const form = dialog.querySelector<HTMLFormElement>('[data-auth-form]');
-  const emailToggle = dialog.querySelector<HTMLButtonElement>('[data-auth-email-toggle]');
-  const email = dialog.querySelector<HTMLInputElement>('#auth-email');
-  const inputError = dialog.querySelector<HTMLElement>('[data-auth-input-error]');
-  const suggestion = dialog.querySelector<HTMLElement>('[data-auth-email-suggestion]');
-  const suggestionText = dialog.querySelector<HTMLElement>('[data-auth-suggestion-text]');
-  const suggestionApply = dialog.querySelector<HTMLButtonElement>('[data-auth-apply-suggestion]');
-  const countdown = dialog.querySelector<HTMLElement>('[data-auth-countdown]');
-  const send = dialog.querySelector<HTMLButtonElement>('[data-auth-send]');
-  const google = dialog.querySelector<HTMLButtonElement>('[data-auth-google]');
-  const signout = dialog.querySelector<HTMLButtonElement>('[data-auth-signout]')!;
-  const modeSwitch = dialog.querySelector<HTMLButtonElement>('[data-auth-mode-switch]')!;
-  const reminderCheckbox = dialog.querySelector<HTMLInputElement>('[data-auth-reminder-optin]');
-  const recordPendingOptIn = () => {
-    if (reminderCheckbox?.checked) recordPendingReminderOptIn(sessionStorage, locale);
-    else clearPendingReminderOptIn(sessionStorage);
-  };
-  reminderCheckbox?.addEventListener('change', () => {
-    if (!reminderCheckbox.checked) clearPendingReminderOptIn(sessionStorage);
-  });
-  let signingUp = false;
-  const triggers = [...document.querySelectorAll<HTMLButtonElement>('[data-auth-open]')];
-  let opener: HTMLElement | null = null;
-  let pending = false;
-  let session: AccountSession | null = null;
-  let ready = false;
-  const cachedProfile = readCachedAuthProfile();
-  if (cachedProfile) {
-    session = { userId: cachedProfile.userId, profile: cachedProfile.profile };
-    ready = true;
-  } else if (!hasCachedAuthSession()) {
-    session = null;
-    ready = true;
+/** Shared session/profile and signed-in account controls only. Login-specific
+ * validation and CAPTCHA have their own page entry. */
+async function initialize(){
+  const node=document.getElementById('auth-config');if(!node)return;
+  const {config,messages:m,locale,localeSettings}=JSON.parse(node.textContent!) as {config:AuthConfig;messages:ReturnType<typeof getAuthMessages>;locale:Locale;localeSettings?:{config:LocaleBrowserConfig;messages:ReturnType<typeof getLocaleMessages>}|null};
+  const dialog=document.querySelector<HTMLDialogElement>('[data-auth-dialog]')!;
+  const triggers=[...document.querySelectorAll<HTMLAnchorElement>('[data-auth-open]')];
+  const status=dialog.querySelector<HTMLElement>('[data-auth-status]')!;
+  const signout=dialog.querySelector<HTMLButtonElement>('[data-auth-signout]')!;
+  const returnPath=safeReturnPath(location.pathname,authReturnPaths(location.pathname),defaultAuthReturn(locale));
+  const login=`/${locale}/login/?redirect=${encodeURIComponent(returnPath)}`;
+  let session:AccountSession|null=null,ready=false,pending=false,opener:HTMLElement|null=null;
+  const service=await browserAuth(config);
+  const localeRoot=dialog.querySelector<HTMLElement>('[data-locale-settings]');
+  const localeBinding=service&&localeSettings&&localeRoot?(await import('./locale-interactions')).bindAccountLocale({root:localeRoot,service,activeLocale:locale,...localeSettings}):null;
+  function render(){
+    if(ready)localeBinding?.setAccount(session?.userId??null);
+    for(const entry of document.querySelectorAll<HTMLElement>('[data-auth-entry-guest]'))entry.hidden=!ready||!!session;
+    for(const profile of document.querySelectorAll<HTMLElement>('[data-auth-profile]')){
+      profile.hidden=!session;
+      profile.querySelector('[data-auth-name]')!.textContent=session?.profile.displayName??'';
+      profile.querySelector<HTMLElement>('[data-auth-name-row]')!.hidden=!session?.profile.displayName;
+      profile.querySelector('[data-auth-email]')!.textContent=session?.profile.email??'';
+      profile.querySelector<HTMLElement>('[data-auth-email-row]')!.hidden=!session?.profile.email;
+    }
+    for(const image of document.querySelectorAll<HTMLImageElement>('[data-auth-avatar]')){
+      const fallback=image.parentElement!.querySelector<HTMLElement>('[data-auth-avatar-fallback]')!;
+      const url=session?.profile.avatarUrl;
+      if(url){if(image.getAttribute('src')!==url)image.src=url;image.hidden=false;fallback.hidden=true;}
+      else{image.removeAttribute('src');image.hidden=true;fallback.hidden=false;}
+      image.parentElement!.dataset.avatarLoading=String(!ready);
+    }
+    for(const trigger of triggers){
+      trigger.href=login;
+      const first=session?.profile.displayName?.trim().split(/\s+/u)[0];
+      const label=session?(first?m.greeting.replace('{name}',first):m.accountTitle):m.signIn;
+      const labelNode=trigger.querySelector('.auth-trigger-label');
+      if(labelNode)labelNode.textContent=label;else trigger.textContent=label;
+      trigger.setAttribute('aria-label',label);trigger.setAttribute('aria-busy',String(!ready));
+      if(session)trigger.setAttribute('aria-haspopup','dialog');else trigger.removeAttribute('aria-haspopup');
+      if(!trigger.classList.contains('auth-trigger'))trigger.hidden=!ready;
+    }
+    signout.disabled=!ready||!service||pending;
+    document.getElementById('global-header')?.setAttribute('data-session-pending',String(!ready));
+    if(!session&&dialog.open)dialog.close();
   }
-  const service = await browserAuth(config);
-  let localeBinding: ReturnType<typeof bindAccountLocale> | null = null;
-  const localeRoot = dialog.querySelector<HTMLElement>('[data-locale-settings]');
-  if (service && localeSettings && localeRoot) {
-    const {bindAccountLocale} = await import('./locale-interactions');
-    localeBinding = bindAccountLocale({root: localeRoot, service, activeLocale: locale, ...localeSettings});
-  }
-  const profiles = [...document.querySelectorAll<HTMLElement>('[data-auth-profile]')];
-  const avatars = [...document.querySelectorAll<HTMLImageElement>('[data-auth-avatar]')];
-  for (const image of avatars) {
-    const wrapper = image.parentElement!;
-    const fallback = wrapper.querySelector<HTMLElement>('[data-auth-avatar-fallback]')!;
-    image.addEventListener('load', () => {
-      if (!image.getAttribute('src')) return;
-      image.hidden = false; fallback.hidden = true; wrapper.dataset.avatarLoading = String(!ready);
-    });
-    image.addEventListener('error', () => {
-      image.dataset.failedSrc = image.getAttribute('src') ?? '';
-      image.hidden = true; fallback.hidden = false; wrapper.dataset.avatarLoading = String(!ready);
-    });
-  }
-  const show = (text: string) => { status.textContent = text; status.hidden = !text; };
-  function render() {
-    if (ready) localeBinding?.setAccount(session?.userId ?? null);
-    guest.hidden = !!session;
-    account.hidden = !session;
-    dialog.toggleAttribute('aria-describedby', !session);
-    if (!session) dialog.setAttribute('aria-describedby', 'auth-intro');
-    for (const text of document.querySelectorAll<HTMLElement>('[data-auth-entry-guest]')) text.hidden = !ready || !!session;
-    for (const profile of profiles) {
-      profile.hidden = !session;
-      const values = session?.profile;
-      profile.querySelector('[data-auth-name]')!.textContent = values?.displayName ?? '';
-      profile.querySelector<HTMLElement>('[data-auth-name-row]')!.hidden = !values?.displayName;
-      profile.querySelector('[data-auth-email]')!.textContent = values?.email ?? '';
-      profile.querySelector<HTMLElement>('[data-auth-email-row]')!.hidden = !values?.email;
-    }
-    for (const image of avatars) {
-      const values = session?.profile;
-      const wrapper = image.parentElement!;
-      const fallback = wrapper.querySelector<HTMLElement>('[data-auth-avatar-fallback]')!;
-      if (!values?.avatarUrl) {
-        image.removeAttribute('src'); image.hidden = true; fallback.hidden = false; delete image.dataset.failedSrc;
-        wrapper.dataset.avatarLoading = String(!ready);
-      } else if (image.getAttribute('src') !== values.avatarUrl) {
-        image.hidden = true; fallback.hidden = false; delete image.dataset.failedSrc; image.src = values.avatarUrl;
-        wrapper.dataset.avatarLoading = 'true';
-      } else {
-        wrapper.dataset.avatarLoading = String(!ready || (!image.complete && image.dataset.failedSrc !== values.avatarUrl));
-      }
-    }
-    dialog.querySelector('#auth-title')!.textContent = session ? m.accountTitle : signingUp ? m.signUpTitle : m.title;
-    dialog.querySelector('[data-auth-mode-prompt]')!.textContent = signingUp ? m.alreadyRegistered : m.noAccount;
-    modeSwitch.textContent = signingUp ? m.signIn : m.signUp;
-    modeSwitch.disabled = pending;
-    const googleLabel = dialog.querySelector('[data-auth-google-label]');
-    if (googleLabel) googleLabel.textContent = signingUp ? m.signUpGoogle : m.google;
-    for (const trigger of triggers) {
-      if (trigger.classList.contains('auth-trigger')) {
-        const firstName = session?.profile.displayName?.trim().split(/\s+/u)[0];
-        const label = session ? (firstName ? m.greeting.replace('{name}', firstName) : m.accountTitle) : m.signIn;
-        trigger.querySelector('.auth-trigger-label')!.textContent = label;
-        trigger.setAttribute('aria-label', label);
-        trigger.disabled = !ready;
-        trigger.setAttribute('aria-busy', String(!ready));
-      } else {
-        trigger.textContent = session ? m.accountTitle : m.signIn;
-        trigger.hidden = !ready;
-      }
-    }
-    const remaining = service?.remainingCooldown() ?? 0;
-    if (send) send.disabled = !config.emailEnabled || pending || !service || remaining > 0;
-    if (emailToggle) emailToggle.disabled = pending;
-    if (google) google.disabled = pending || !service;
-    if (email) email.disabled = pending || !service;
-    signout.disabled = pending || !service;
-    if (countdown) {
-      countdown.hidden = !remaining;
-      countdown.textContent = remaining ? m.resend.replace('{seconds}', String(remaining)) : '';
-    }
-    dialog.setAttribute('aria-busy', String(pending));
-    document.getElementById('global-header')?.setAttribute('data-session-pending', String(!ready));
-  }
-  let activeSuggestion: string | null = null;
-  const updateSuggestion = (val: string) => {
-    if (!suggestion || !suggestionText) return;
-    const typo = suggestEmailCorrection(val);
-    if (typo) {
-      activeSuggestion = typo.suggested;
-      suggestionText.textContent = m.didYouMean.replace('{suggestion}', typo.suggested);
-      suggestion.hidden = false;
-    } else {
-      activeSuggestion = null;
-      suggestion.hidden = true;
-    }
-  };
-  const clearSuggestion = () => {
-    activeSuggestion = null;
-    if (suggestion) suggestion.hidden = true;
-  };
-  email?.addEventListener('input', () => {
-    if (inputError && !inputError.hidden) {
-      inputError.hidden = true;
-      email.removeAttribute('aria-invalid');
-    }
-    updateSuggestion(email.value);
+  for(const image of document.querySelectorAll<HTMLImageElement>('[data-auth-avatar]'))image.addEventListener('error',()=>{image.hidden=true;image.parentElement!.querySelector<HTMLElement>('[data-auth-avatar-fallback]')!.hidden=false;});
+  for(const trigger of triggers)trigger.addEventListener('click',event=>{
+    if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+    if(!ready){event.preventDefault();return;}
+    if(!session)return;
+    event.preventDefault();opener=trigger;status.hidden=true;dialog.showModal();localeBinding?.refresh();signout.focus();
   });
-  email?.addEventListener('blur', () => {
-    updateSuggestion(email.value);
-  });
-  suggestionApply?.addEventListener('click', () => {
-    if (activeSuggestion && email) {
-      email.value = activeSuggestion;
-      clearSuggestion();
-      if (inputError) inputError.hidden = true;
-      email.removeAttribute('aria-invalid');
-      email.focus();
-    }
-  });
-  for (const trigger of triggers) {
-    trigger.addEventListener('click', () => {
-      opener = trigger;
-      signingUp = false;
-      clearSuggestion();
-      show(service ? '' : m.unavailable);
-      render();
-      dialog.showModal();
-      if (session) localeBinding?.refresh();
-      (session ? signout : google ?? emailToggle ?? email)?.focus();
-    });
-  }
-  modeSwitch.addEventListener('click', () => {
-    if (pending) return;
-    signingUp = !signingUp;
-    clearSuggestion();
-    show('');
-    if (inputError) inputError.hidden = true;
-    email?.removeAttribute('aria-invalid');
-    render();
-  });
-  emailToggle?.addEventListener('click', () => {
-    if (!form || pending) return;
-    form.hidden = !form.hidden;
-    emailToggle.setAttribute('aria-expanded', String(!form.hidden));
-    if (!form.hidden) email?.focus();
-  });
-  dialog.querySelector('[data-auth-close]')!.addEventListener('click', () => dialog.close());
-  dialog.addEventListener('keydown', event => {
-    if (event.key !== 'Tab') return;
-    const focusable = [...dialog.querySelectorAll<HTMLElement>('button:not(:disabled),input:not(:disabled),select:not(:disabled),a[href]')]
-      .filter(element => element.getClientRects().length > 0);
-    const first = focusable[0], last = focusable.at(-1);
-    if (first && last && ((event.shiftKey && document.activeElement === first) || (!event.shiftKey && document.activeElement === last))) {
-      event.preventDefault();
-      (event.shiftKey ? last : first).focus();
-    }
-  });
-  dialog.addEventListener('close', () => {
-    clearSuggestion();
-    (opener?.getClientRects().length ? opener : document.querySelector<HTMLButtonElement>('#global-header [data-auth-open]'))?.focus();
-  });
-  form?.addEventListener('submit', async event => {
-    event.preventDefault();
-    if (!config.emailEnabled || !service || pending || !email) return;
-    recordPendingOptIn();
-    pending = true;
-    if (inputError) inputError.hidden = true;
-    email.removeAttribute('aria-invalid');
-    show(m.pending);
-    render();
-    const result = await service.requestMagicLink(email.value, locale);
-    pending = false;
-    if (result.ok) {
-      show(m.sent);
-      clearSuggestion();
-    } else if (result.reason === 'invalid-email') {
-      show('');
-      if (inputError) {
-        inputError.textContent = m.invalidEmail;
-        inputError.hidden = false;
-      }
-      email.setAttribute('aria-invalid', 'true');
-      updateSuggestion(email.value);
-      email.focus();
-    } else if (result.reason === 'disposable-domain') {
-      show('');
-      if (inputError) {
-        inputError.textContent = m.disposableEmail;
-        inputError.hidden = false;
-      }
-      email.setAttribute('aria-invalid', 'true');
-      clearSuggestion();
-      email.focus();
-    } else {
-      show(result.reason === 'rate-limited' ? m.rateLimited : m.failed);
-    }
-    render();
-  });
-  google?.addEventListener('click', async () => {
-    if (!service || pending) return;
-    recordPendingOptIn();
-    pending = true; show(m.pending); render();
-    const result = await service.googleUrl(locale);
-    if (result.ok) { window.location.assign(result.value); return; }
-    pending = false; show(m.failed); render();
-  });
-  signout.addEventListener('click', async () => {
-    if (!service || pending) return;
-    pending = true; render();
-    const result = await service.signOut();
-    pending = false;
-    if (result.ok) {
-      clearCachedAuthProfile();
-      clearAccountWishlistCache();
-      clearAllCachedPreferences();
-      clearPendingReminderOptIn(sessionStorage);
-      session = null; show(''); render(); dialog.close();
-      window.location.replace(`/${locale}/`);
-      return;
-    } else show(m.failed);
-    render();
+  dialog.querySelector('[data-auth-close]')!.addEventListener('click',()=>dialog.close());
+  dialog.addEventListener('close',()=>opener?.focus());
+  signout.addEventListener('click',async()=>{
+    if(!service||pending)return;pending=true;render();const result=await service.signOut();pending=false;
+    if(result.ok){clearCachedAuthProfile();clearAccountWishlistCache();clearAllCachedPreferences();location.replace(`/${locale}/`);return;}
+    status.textContent=m.failed;status.hidden=false;render();
   });
   render();
-  try {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('auth') === 'open' && !session) {
-      opener = document.querySelector<HTMLButtonElement>('#global-header [data-auth-open]');
-      signingUp = false;
-      clearSuggestion();
-      show(service ? '' : m.unavailable);
-      render();
-      dialog.showModal();
-      (session ? signout : google ?? emailToggle ?? email)?.focus();
-      const cleanUrl = new URL(window.location.href);
-      cleanUrl.searchParams.delete('auth');
-      window.history.replaceState(null, '', cleanUrl.pathname + (cleanUrl.search ? cleanUrl.search : '') + cleanUrl.hash);
-    }
-  } catch {}
-  if (service) {
-    getAccountState(service).subscribe(state => {
-      ready = state.status !== 'loading';
-      session = state.session;
-      if (state.status === 'ready') {
-        if (state.session) saveCachedAuthProfile(state.session);
-        else clearCachedAuthProfile();
-      } else if (state.status === 'failed') {
-        clearCachedAuthProfile();
-        show(m.failed);
-      }
-      render();
-    });
-  } else {ready = true; render();}
-  window.addEventListener('storage', event => {
-    if (event.key === 'fabio:auth:profile:v1' || (event.key && event.key.startsWith('sb-') && event.key.endsWith('-auth-token'))) {
-      const freshCached = readCachedAuthProfile();
-      if (freshCached) {
-        session = { userId: freshCached.userId, profile: freshCached.profile };
-        ready = true;
-      } else if (!hasCachedAuthSession()) {
-        session = null;
-        ready = true;
-      }
-      render();
-    }
-  });
-  window.setInterval(() => { if (dialog.open) render(); }, 1000);
+  if(service)getAccountState(service).subscribe(state=>{
+    ready=state.status!=='loading';session=state.session;
+    if(state.status==='ready'){if(session)saveCachedAuthProfile(session);else clearCachedAuthProfile();}
+    if(state.status==='failed'){clearCachedAuthProfile();status.textContent=m.failed;status.hidden=false;}
+    render();
+  });else{ready=true;render();}
+  if(new URLSearchParams(location.search).get('auth')==='open')location.replace(login);
 }
 void initialize();

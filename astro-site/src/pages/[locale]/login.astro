@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../shared/layouts/BaseLayout.astro';
+import {supportedLocales} from '../../shared/config/languages';
+import {getAuthMessages} from '../../features/auth/data/messages';
+import LoginPage from '../../features/auth/presentation/LoginPage.astro';
+export function getStaticPaths(){return supportedLocales.map(locale=>({params:{locale},props:{locale}}));}
+const {locale}=Astro.props;
+const m=getAuthMessages(locale);
+---
+<BaseLayout locale={locale} route="login" title={`${m.title} | Fabio Egypt`} description={m.loginIntro} noindex={true} bodyClass="bg-black font-sans text-gray-200">
+  <LoginPage locale={locale}/>
+</BaseLayout>

@@ -1,0 +1,81 @@
+{
+  "synthetic": true,
+  "results": [
+    {
+      "locale": "it",
+      "width": 375,
+      "passed": true,
+      "checks": [
+        "guest navigation",
+        "no home CAPTCHA",
+        "typo/disposable/syntax preflight",
+        "explicit correction",
+        "expired CAPTCHA",
+        "signup unconfirmed",
+        "existing-only Magic Link",
+        "password login without email",
+        "safe return",
+        "authenticated password setting",
+        "account dialog and signout"
+      ],
+      "externalEmailSent": false
+    },
+    {
+      "locale": "it",
+      "width": 1440,
+      "passed": true,
+      "checks": [
+        "guest navigation",
+        "no home CAPTCHA",
+        "typo/disposable/syntax preflight",
+        "explicit correction",
+        "expired CAPTCHA",
+        "signup unconfirmed",
+        "existing-only Magic Link",
+        "password login without email",
+        "safe return",
+        "authenticated password setting",
+        "account dialog and signout"
+      ],
+      "externalEmailSent": false
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "passed": true,
+      "checks": [
+        "guest navigation",
+        "no home CAPTCHA",
+        "typo/disposable/syntax preflight",
+        "explicit correction",
+        "expired CAPTCHA",
+        "signup unconfirmed",
+        "existing-only Magic Link",
+        "password login without email",
+        "safe return",
+        "authenticated password setting",
+        "account dialog and signout"
+      ],
+      "externalEmailSent": false
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "passed": true,
+      "checks": [
+        "guest navigation",
+        "no home CAPTCHA",
+        "typo/disposable/syntax preflight",
+        "explicit correction",
+        "expired CAPTCHA",
+        "signup unconfirmed",
+        "existing-only Magic Link",
+        "password login without email",
+        "safe return",
+        "authenticated password setting",
+        "account dialog and signout"
+      ],
+      "externalEmailSent": false
+    }
+  ]
+}

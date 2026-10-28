@@ -159,7 +159,7 @@ export function createAuthSendEmailHandler(deps: AuthSendEmailDependencies) {
       if (!deps.allowedOrigins.includes(callback.origin) || callback.username || callback.password || callback.hash
         || !isLocale(segment) || callback.pathname !== `/${segment}/auth/callback/`
         || [...callback.searchParams.keys()].some(key => key !== 'next') || callback.searchParams.getAll('next').length > 1
-        || (callback.searchParams.has('next') && !authReturnPaths().includes(callback.searchParams.get('next')!))) throw new Error('Invalid callback');
+        || (callback.searchParams.has('next') && !authReturnPaths(callback.searchParams.get('next')).includes(callback.searchParams.get('next')!))) throw new Error('Invalid callback');
       locale = segment;
     } catch { return fail(400, 'Invalid callback URL.'); }
     if (!deps.apiKey?.trim()) return fail(503, 'Email service unavailable.');

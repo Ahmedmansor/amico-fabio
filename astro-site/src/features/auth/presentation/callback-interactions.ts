@@ -10,7 +10,8 @@ async function initialize() {
   delete globals.__fabioAuthCallback;
   const { config, messages: m, locale } = JSON.parse(document.getElementById('auth-callback-config')!.textContent!) as { config: AuthConfig | null; messages: ReturnType<typeof getAuthMessages>; locale: Locale };
   let input = parseCallback(handoff?.search ?? '', handoff?.hash ?? '');
-  const destination = safeReturnPath(new URLSearchParams(handoff?.search).get('next'), authReturnPaths(), defaultAuthReturn(locale));
+  const requested = new URLSearchParams(handoff?.search).get('next');
+  const destination = safeReturnPath(requested, authReturnPaths(requested), defaultAuthReturn(locale));
   const button = document.querySelector<HTMLButtonElement>('[data-auth-continue]')!;
   const status = document.querySelector<HTMLElement>('[data-auth-callback-status]')!;
   const intro = document.querySelector<HTMLElement>('[data-auth-callback-intro]')!;

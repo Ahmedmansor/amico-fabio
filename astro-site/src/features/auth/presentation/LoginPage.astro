@@ -1,0 +1,58 @@
+---
+import {authConfig} from '../data/build-config';
+import {getAuthMessages} from '../data/messages';
+import type {Locale} from '../../../shared/config/languages';
+import './auth.css';
+interface Props {locale:Locale}
+const {locale}=Astro.props;
+const m=getAuthMessages(locale);
+const configuration=JSON.stringify({config:authConfig,messages:m,locale}).replace(/</g,'\\u003c');
+---
+<main class="auth-login auth-content" data-login-page>
+  <h1>{m.title}</h1>
+  <p>{m.loginIntro}</p>
+  <script type="application/json" id="login-config" set:html={configuration}/>
+  {authConfig ? <>
+    <section data-login-guest>
+      {authConfig.googleEnabled && <button type="button" class="auth-button auth-secondary" data-login-oauth="google">{m.google}</button>}
+      {authConfig.microsoftEnabled && <button type="button" class="auth-button auth-secondary" data-login-oauth="azure">{m.microsoft}</button>}
+      {authConfig.emailEnabled && <>
+        {authConfig.passwordEnabled && <div class="auth-tabs" role="group" aria-label={m.loginMethod}>
+          <button type="button" data-login-mode="signin" aria-pressed="true">{m.signIn}</button>
+          <button type="button" data-login-mode="signup" aria-pressed="false">{m.signUp}</button>
+        </div>}
+        <form data-login-form novalidate>
+          <label for="login-email">{m.email}</label>
+          <input id="login-email" type="email" name="email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="login-error login-suggestion"/>
+          <div id="login-suggestion" class="auth-suggestion" data-login-suggestion hidden>
+            <span></span><button type="button" class="auth-suggestion-button" data-login-correct>{m.useSuggestion}</button>
+          </div>
+          {authConfig.passwordEnabled && <div data-login-password-row>
+            <label for="login-password">{m.password}</label>
+            <input id="login-password" name="password" type="password" autocomplete="current-password" maxlength="128" required aria-describedby="password-guidance"/>
+            <p id="password-guidance" data-login-password-hint hidden>{m.passwordGuidance}</p>
+          </div>}
+          {authConfig.turnstileSiteKey && <div data-login-captcha></div>}
+          <p id="login-error" class="auth-error" role="alert" data-login-error hidden></p>
+          <button type="submit" class="auth-button" data-login-submit disabled>{authConfig.passwordEnabled?m.signIn:m.send}</button>
+          {authConfig.passwordEnabled && <button type="button" class="auth-close" data-login-recovery>{m.forgotPassword}</button>}
+        </form>
+      </>}
+      <p class="auth-legal-acknowledgement">{m.legalBefore} <a href={`/${locale}/legal/#liability`}>{m.terms}</a> {m.legalAnd} <a href={`/${locale}/legal/#intro`}>{m.privacy}</a>.</p>
+    </section>
+    <section data-login-account hidden>
+      <p>{m.signedIn}</p>
+      <a class="auth-button" href={`/${locale}/wishlist/`} data-login-return>{m.viewFavorites}</a>
+      {authConfig.passwordEnabled && <form data-login-set-password novalidate>
+        <label for="account-password">{m.setPassword}</label>
+        <input id="account-password" type="password" autocomplete="new-password" minlength="12" maxlength="128" required aria-describedby="account-password-guidance"/>
+        <p id="account-password-guidance">{m.passwordGuidance}</p>
+        <button type="submit" class="auth-button auth-secondary">{m.savePassword}</button>
+      </form>}
+    </section>
+  </> : <p>{m.unavailable}</p>}
+  <p data-login-status role="status" aria-live="polite"></p>
+  <p data-login-cooldown role="timer" aria-live="off" hidden></p>
+  <noscript><p>{m.javascript}</p></noscript>
+</main>
+<script>import './login-interactions';</script>

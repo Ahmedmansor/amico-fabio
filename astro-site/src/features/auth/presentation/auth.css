@@ -77,4 +77,13 @@
 .welcome-dialog .welcome-sync-status { margin:8px 0 16px; font-size:.95rem; color:var(--color-text-light); }
 .welcome-dialog .welcome-actions { display:flex; flex-direction:column; gap:8px; margin-top:20px; }
 .welcome-dialog .welcome-actions .auth-button { margin:0; }
+.auth-login { max-width:520px; min-height:70vh; margin:auto; padding:140px 24px 64px; }
+.auth-login h1 { font-family:'Playfair Display',serif; color:var(--color-gold-soft); font-size:clamp(1.7rem,4vw,2.2rem); line-height:1.25; margin-bottom:24px; }
+.auth-login [hidden] { display:none!important; }
+.auth-tabs { display:flex; gap:12px; margin-top:24px; }
+.auth-tabs button { flex:1; min-height:44px; padding:8px; font:inherit; color:var(--color-gold-soft); background:black; border:1px solid var(--color-gold); border-radius:8px; cursor:pointer; }
+.auth-tabs button[aria-pressed="true"] { background:var(--color-gold); color:black; }
+.auth-trigger { text-decoration:none; }
+.auth-trigger[aria-busy="true"] { cursor:wait; }
+@media(max-width:639px) { .auth-login { padding:120px 16px 48px; } }
 

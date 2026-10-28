@@ -52,5 +52,22 @@
   "close": "Chiudi",
   "continueEmail": "Continua con email",
   "or": "oppure",
-  "emailUnavailable": "L’accesso via email non è al momento disponibile. Usa Google."
+  "emailUnavailable": "L’accesso via email non è al momento disponibile. Usa Google.",
+  "loginIntro": "Accedi per salvare e gestire i tuoi preferiti su più dispositivi.",
+  "microsoft": "Continua con Microsoft",
+  "loginMethod": "Metodo di accesso via email",
+  "password": "Password",
+  "passwordGuidance": "Usa da 12 a 128 caratteri. Puoi incollare una password dal tuo gestore di password.",
+  "forgotPassword": "Password dimenticata? Inviami un link di accesso",
+  "backToSignIn": "Torna all’accesso con password",
+  "checkTypo": "Controlla il dominio email e applica la correzione suggerita prima di continuare.",
+  "captchaRequired": "Completa il controllo di sicurezza prima di continuare.",
+  "captchaUnavailable": "Impossibile caricare il controllo di sicurezza. Ricarica la pagina oppure usa Google o Microsoft, se disponibili.",
+  "signupSent": "Se la richiesta può essere elaborata, riceverai un link di conferma. Aprilo per verificare l’email e accedere.",
+  "legalBefore": "Continuando, accetti i",
+  "legalAnd": "e l’",
+  "viewFavorites": "Continua sul sito",
+  "setPassword": "Imposta o modifica la password",
+  "savePassword": "Salva password",
+  "passwordSaved": "La password è stata salvata. Puoi usarla al prossimo accesso."
 }

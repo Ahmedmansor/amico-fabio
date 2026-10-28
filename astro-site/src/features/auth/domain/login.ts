@@ -1,0 +1,17 @@
+import { validateEmailAddress } from './email-validation.ts';
+import type { AuthResult } from './auth.ts';
+
+/** Signup/recovery admission only; password login must still work for existing
+ * accounts whose provider was subsequently blocked. Never rewrite identity. */
+export function emailSendingGate(email: string, captchaRequired: boolean, token?: string): AuthResult<string> {
+  const check = validateEmailAddress(email);
+  if (!check.ok) return { ok: false, reason: check.reason === 'disposable-domain' ? 'disposable-domain' : 'invalid-email' };
+  if (check.suggestion) return { ok: false, reason: 'email-typo' };
+  if (captchaRequired && (!token?.trim() || token.length > 2048)) return { ok: false, reason: 'captcha-required' };
+  return { ok: true, value: check.normalizedEmail };
+}
+
+/** Match the activation password policy; don't trim or otherwise alter passwords. */
+export function validNewPassword(password: string): boolean {
+  return typeof password === 'string' && password.length >= 12 && password.length <= 128;
+}

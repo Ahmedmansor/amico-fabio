@@ -1,0 +1,11 @@
+---
+import {getAuthMessages} from '../../features/auth/data/messages';
+const m=getAuthMessages('it');
+---
+<!doctype html><html lang="it"><head><meta charset="utf-8"/><meta name="robots" content="noindex, follow"/><meta http-equiv="refresh" content="0;url=/it/login/"/><title>{m.title}</title></head><body><a href="/it/login/">{m.signIn}</a><script>
+// Alias keeps only an explicit return-path input; the login page validates it.
+const destination=new URL('/it/login/',location.origin);
+const requested=new URLSearchParams(location.search).get('redirect');
+if(requested)destination.searchParams.set('redirect',requested);
+location.replace(destination.href);
+</script></body></html>
