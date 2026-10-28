@@ -57,14 +57,14 @@ async function initialize(){
     for(const button of passwordToggles){
       const input=document.getElementById(button.dataset.passwordTarget!) as HTMLInputElement;
       input.type='password';button.setAttribute('aria-pressed','false');button.setAttribute('aria-label',button.dataset.showLabel!);
-      button.querySelector('[data-password-eye-slash]')!.setAttribute('hidden','');
+      button.querySelector('[data-password-eye-slash]')!.setAttribute('visibility','hidden');
     }
   }
   for(const button of passwordToggles)button.addEventListener('click',()=>{
     const input=document.getElementById(button.dataset.passwordTarget!) as HTMLInputElement;
     const reveal=input.type==='password';input.type=reveal?'text':'password';
     button.setAttribute('aria-pressed',String(reveal));button.setAttribute('aria-label',reveal?button.dataset.hideLabel!:button.dataset.showLabel!);
-    button.querySelector('[data-password-eye-slash]')!.toggleAttribute('hidden',!reveal);
+    button.querySelector('[data-password-eye-slash]')!.setAttribute('visibility',reveal?'visible':'hidden');
   });
   const message=(reason:AuthFailure)=>reason==='password-mismatch'?m.passwordMismatch:reason==='invalid-name'?m.nameRequired:reason==='invalid-code'?m.invalidCode:reason==='invalid-email'?m.invalidEmail:reason==='disposable-domain'?m.disposableEmail:reason==='email-typo'?m.checkTypo:reason==='captcha-required'?m.captchaRequired:reason==='invalid-password'?m.passwordGuidance:reason==='rate-limited'?m.rateLimited:m.failed;
   function render(){
