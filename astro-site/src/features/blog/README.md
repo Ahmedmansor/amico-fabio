@@ -60,6 +60,10 @@ The new guide hub is /it/egypt/ or /en/egypt/. Start the natural article review
 at /en/blog/common-tourist-traps-egypt/ or /it/blog/pianificare-viaggio-egitto-2027/.
 The latest expansion evidence is qa/blog/EDITORIAL_IMPLEMENTATION.md; older
 performance reports describe their own earlier revision.
+The later standalone Egypt planner is available at /it/tailor-your-trip/ and
+/en/tailor-your-trip/, linked from the shared headers and article contact cards.
+Its scope and verification live in ../trip-planner/PLAN.md and
+qa/trip-planner/IMPLEMENTATION.md. Content links now open new tabs.
 Use AUTHORING.md to prepare approved articles and add a real author to
 data/authors.ts before publication. Fixture articles cannot enter a production
 artifact. Replace the temporary artwork using ASSETS.md. No hosting or deployment

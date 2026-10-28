@@ -1,5 +1,10 @@
 # Editorial system expansion — owner review, 2026-10-28
 
+Later scope update, 2026-10-29: the owner authorized the standalone Egypt planner
+and new-tab content links. See ../trip-planner/PLAN.md. Its implementation
+supersedes the planner deferral / temporary contact-card action below; newsletter
+and WhatsApp-channel subscriptions remain deferred.
+
 Status: implemented locally after the owner's execution authorization. This
 document records the agreed expansion requirements; progress and actual evidence
 are in EDITORIAL_EXECUTION.md and qa/blog/EDITORIAL_IMPLEMENTATION.md. It supersedes

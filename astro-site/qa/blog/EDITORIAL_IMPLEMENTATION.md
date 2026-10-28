@@ -1,5 +1,10 @@
 # Editorial expansion — implementation evidence
 
+Later change, 2026-10-29: planner cards now open the implemented standalone
+planner, and reading links/cards open new tabs. The older contact/navigation
+results below describe this report's original revision. Latest evidence is
+qa/trip-planner/IMPLEMENTATION.md; the reusable scripts reflect the newer flow.
+
 2026-10-28; existing Astro migration branch. No legacy/main, hosting, remote
 catalog or Auth settings were changed. This extends the previous technical blog
 handoff; the earlier Lighthouse scores do not measure this new revision.

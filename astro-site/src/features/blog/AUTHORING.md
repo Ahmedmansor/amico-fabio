@@ -164,6 +164,12 @@ documentation. No hosting deployment is performed by these commands.
 
 ## Editorial links, reading index and FAQ
 
+2026-10-29 update: content hyperlinks/cards now open a new tab with
+noopener/noreferrer; local TOC anchors stay in the article. The shared contact
+card opens /{locale}/tailor-your-trip/ in a new tab. The standalone Egypt planner
+is implemented (../trip-planner/PLAN.md); it replaces the card's temporary dialog
+action. The short article inquiry form remains available separately.
+
 The shared registry now includes articles, places, tours and packages. Run
 `blog:references` for validated IDs/aliases from the current snapshot. Durable
 Markdown references resolve automatically to the article's language:

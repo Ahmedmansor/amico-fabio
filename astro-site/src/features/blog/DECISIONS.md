@@ -32,6 +32,7 @@ Updated: 2026-10-28. These are design decisions, not implementation evidence.
 | B24 | Use independent EN/IT editorial topics, a separate places feature and a shared four-kind target registry | Owner's approved reference design connects articles, city/landmark guides and existing bookable products |
 | B25 | Generate the reading index from native authored heading IDs; use optional per-article FAQ and one second-image contact card | Owner requested a consistent reading structure without compulsory tables/FAQ or premature planner/subscription UI |
 | B26 | Keep realistic design articles fixture-protected while preserving old technical routes | Owner authorized natural demo prose only; build guards must not depend on artificial-looking titles |
+| B27 | Open editorial reading links/cards in secure new tabs; contact cards now link to the standalone Egypt planner | Owner's 2026-10-29 instruction supersedes same-tab reading links and the temporary planner-card inquiry-dialog action; local TOC anchors stay in-page |
 
 B18 applies to the blog. It does not authorize restyling the legacy site or all
 other Astro pages. Preserve shared behavior and keep new visual CSS scoped.
