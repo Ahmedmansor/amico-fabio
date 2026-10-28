@@ -1,3 +1,5 @@
+<!-- Current target: LOGIN_REVISION.md, approved 2026-10-28. Historical checkpoints below describe earlier artifacts. -->
+
 # Auth activation and remaining setup
 
 ## Verified test activation — 2026-10-27

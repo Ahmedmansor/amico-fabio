@@ -1,3 +1,5 @@
+<!-- Current target: LOGIN_REVISION.md, approved 2026-10-28. Historical checkpoints below describe earlier artifacts. -->
+
 # Authentication, wishlists, and email reminders — Fabio Egypt
 
 ## Welcome visibility and wishlist simplification — 2026-10-27
