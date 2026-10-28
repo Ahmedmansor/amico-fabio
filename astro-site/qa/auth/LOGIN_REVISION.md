@@ -58,3 +58,11 @@ Azure provider setup, password policy, confirmed-email behavior, existing hook
 deployment, matched test build, and user-requested real acceptance. Marketing
 consent is a separate implementation; signup metadata currently defaults false
 and is not a durable permission grant. No promotional sending is enabled.
+
+Follow-up: `/login/` alias runs its safe handoff inline, before meta refresh can
+drop the requested return path. Its browser assertion passed, alongside all four
+login scenarios. Astro check covered 445 files without diagnostics and static
+build generated 99 pages in 12.31s. Optional marketing local foundations are now
+documented in MARKETING_CONSENT.md; their flag remains off. The signed Auth hook
+was separately deployed as v6 (see hook-revision-2026-10-28.json); page hosting
+and new provider flags are not updated by that Edge deployment.

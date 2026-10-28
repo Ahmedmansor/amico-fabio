@@ -34,6 +34,11 @@ try{
     assert.equal(await page.locator('script[src*="challenges.cloudflare.com"]').count(),0);
     await page.screenshot({path:new URL(`login-home-${locale}-${width}.png`,output).pathname.replace(/^\/(.:)/,'$1'),fullPage:false});
     await page.locator('.auth-trigger').click();await page.waitForURL(`**/${locale}/login/**`);
+    if(locale==='it'&&width===375){
+      await page.goto(`${origin}/login/?redirect=%2Fit%2Fwishlist%2F`);
+      await page.waitForURL('**/it/login/?redirect=%2Fit%2Fwishlist%2F');
+      assert.equal(new URL(page.url()).searchParams.get('redirect'),'/it/wishlist/');
+    }
     await page.locator('[data-login-mode="signup"]').click();
     await page.locator('#login-password').fill('synthetic password');
     for(const email of ['broken','person@gamil.com','person@playfine.com']){
