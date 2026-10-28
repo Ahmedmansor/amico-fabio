@@ -1,0 +1,7 @@
+---
+import type {Locale} from '../config/languages';
+import {getSharedMessages} from '../i18n/shared';
+interface Props {locale:Locale;class?:string}
+const {locale}=Astro.props,m=getSharedMessages(locale).planner;
+---
+<a class:list={['editorial-tailor-link',Astro.props.class]} href={`/${locale}/tailor-your-trip/`} aria-label={m.nav} data-planner-nav><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m3 4 6 2 6-2 6 2v14l-6-2-6 2-6-2V4Zm6 2v14m6-16v14"/></svg><span>{m.nav}</span></a>

@@ -18,3 +18,9 @@ export function trackBlogInquiry(articleId: string | undefined, locale: string) 
     ...(articleId?{article_id:articleId}:{}),
   });
 }
+/** Only the explicit handoff, never contact values, dates, route or budget. */
+export function trackPlannerInquiry(locale:string){
+ if(!acceptedCategory('analytics'))return;
+ const gtag=(window as unknown as {gtag?:(...args:unknown[])=>void}).gtag;
+ if(typeof gtag==='function')gtag('event','generate_lead',{event_category:'TripPlanner',channel:'whatsapp',site_language:locale});
+}

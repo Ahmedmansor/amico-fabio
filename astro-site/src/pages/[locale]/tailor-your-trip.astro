@@ -1,0 +1,6 @@
+---
+import {supportedLocales} from '../../shared/config/languages';
+import PlannerPage from '../../features/trip-planner/presentation/PlannerPage.astro';
+export function getStaticPaths(){return supportedLocales.map(locale=>({params:{locale},props:{locale}}));}
+---
+<PlannerPage locale={Astro.props.locale}/>

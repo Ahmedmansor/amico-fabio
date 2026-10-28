@@ -5,6 +5,9 @@
     "../../src/features/blog/**/*.astro",
     "../../src/features/places/**/*.ts",
     "../../src/features/places/**/*.astro",
+    "../../src/features/trip-planner/**/*.ts",
+    "../../src/features/trip-planner/**/*.astro",
+    "../../src/shared/components/PlannerLink.astro",
     "../../src/shared/components/editorial/**/*.astro",
     "../../src/shared/layouts/EditorialLayout.astro",
     "../../src/shared/data/editorial-loaders.ts",
@@ -12,6 +15,7 @@
     "../../src/shared/domain/editorial-targets.ts",
     "../../src/pages/*/blog/**/*.astro",
     "../../src/pages/*/egypt/**/*.astro",
+    "../../src/pages/*/tailor-your-trip.astro",
     "../../src/content.config.ts",
     "../../.astro/types.d.ts"
   ],

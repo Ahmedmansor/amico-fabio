@@ -6,6 +6,8 @@ import { getSharedMessages } from '../i18n/shared';
 import WishlistLink from '../../features/wishlist/presentation/WishlistLink.astro';
 import AuthTrigger from '../../features/auth/presentation/AuthTrigger.astro';
 import { authConfig } from '../../features/auth/data/build-config';
+import PlannerLink from './PlannerLink.astro';
+import '../styles/editorial-navigation.css';
 interface Props { locale: Locale; route: string }
 const { locale, route } = Astro.props;
 const messages = getSharedMessages(locale);
@@ -121,7 +123,7 @@ const nav = [
         <svg class="gh-menu-fallback" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="5" width="18" height="2" fill="#fff"/><rect x="3" y="11" width="18" height="2" fill="#fff"/><rect x="3" y="17" width="18" height="2" fill="#fff"/></svg>
       </button>
       <div class="gh-dynamic-hook" id="gh-dynamic-hook"></div>
-      <div class="gh-menu-dropdown" id="gh-menu-dropdown">{nav.map(item => <a href={item.href} data-nav={item.key}>{item.label}</a>)}</div>
+      <div class="gh-menu-dropdown" id="gh-menu-dropdown">{nav.map(item => <a href={item.href} data-nav={item.key}>{item.label}</a>)}<a href={`/${locale}/tailor-your-trip/`} data-nav="planner">{messages.planner.nav}</a></div>
     </div>
     <div class="gh-center" id="gh-center">
       <div class="gh-brand-wrap-center">
@@ -140,6 +142,7 @@ const nav = [
           <img src={`/assets/images/icons/languages/${language}.svg`} class="gh-flag-svg" alt=""/><span>{languages[language].label}</span>
         </a>
       )}</div>
+      <PlannerLink locale={locale} class="gh-tailor-link"/>
     </div>
   </div>
 </header>

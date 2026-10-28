@@ -16,7 +16,9 @@ import type {Destination} from '../../features/blog/domain/taxonomy';
 import {getPlaceNavigation} from '../../features/places/data/navigation';
 import '../styles/global.css';
 import '../../features/blog/presentation/styles/blog.css';
-interface Props {locale:Locale;title:string;description:string;path:string;alternates:BlogAlternates;navigation:BlogAlternates;fixture?:boolean;article?:boolean;articleId?:string;destination?:Destination;shareImage?:ShareImage;section?:'blog'|'places'}
+import '../styles/editorial-navigation.css';
+import PlannerLink from '../components/PlannerLink.astro';
+interface Props {locale:Locale;title:string;description:string;path:string;alternates:BlogAlternates;navigation:BlogAlternates;fixture?:boolean;article?:boolean;articleId?:string;destination?:Destination;shareImage?:ShareImage;section?:'blog'|'places'|'planner'}
 const {locale,title,description,path,alternates,navigation,fixture=false,article=false,articleId,destination,shareImage}=Astro.props;
 const m=getSharedMessages(locale).blog;
 const section=Astro.props.section??'blog',guideUrl=await getPlaceNavigation(locale);
@@ -38,6 +40,7 @@ const section=Astro.props.section??'blog',guideUrl=await getPlaceNavigation(loca
       </nav>
       <div class="blog-header-actions">
         <WishlistLink locale={locale} active={false}/><AuthTrigger locale={locale}/>
+        <PlannerLink locale={locale}/>
         <nav class="blog-languages" aria-label={m.language}>{Object.entries(navigation).map(([lang,url])=><a href={url} data-lang-switch hreflang={lang} aria-label={`${lang.toUpperCase()} — ${languages[lang as Locale].label}`} aria-current={lang===locale?'true':undefined}>{lang.toUpperCase()}</a>)}</nav>
         <details class="blog-mobile-nav"><summary aria-label={m.menu}><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></summary><nav aria-label={m.navigation}><a href={`/${locale}/`}>{m.home}</a><a href={`/${locale}/explore/`}>{m.trips}</a><a href={`/${locale}/blog/`}>{m.journal}</a>{guideUrl&&<a href={guideUrl}>{m.egyptGuide}</a>}</nav></details>
       </div>
@@ -48,5 +51,5 @@ const section=Astro.props.section??'blog',guideUrl=await getPlaceNavigation(loca
   <slot/>
   <footer class="blog-footer"><div class="blog-container blog-footer-inner"><div><a class="blog-brand" href={`/${locale}/`}>Fabio <strong>Egypt</strong></a><p>{m.footerText}</p></div><nav aria-label={m.contact}><a href={`/${locale}/legal/`}>{m.privacy}</a><a href={`mailto:${siteConfig.email}`}>{m.contact}</a><a href={siteConfig.social.instagram}>Instagram</a></nav><small>© {new Date().getUTCFullYear()} {m.copyright}</small></div></footer>
   <AuthDialog locale={locale}/><WelcomeDialog locale={locale}/>
-  <InquiryDialog locale={locale} source={{articleId,title,url:new URL(path,siteConfig.url).href,destination}}/>
+  {section!=='planner'&&<InquiryDialog locale={locale} source={{articleId,title,url:new URL(path,siteConfig.url).href,destination}}/>}
 </DocumentShell>

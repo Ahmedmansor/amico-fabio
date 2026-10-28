@@ -1,6 +1,5 @@
 import type { Locale } from '../../../../shared/config/languages';
 import { getSharedMessages } from '../../../../shared/i18n/shared';
-import { siteConfig } from '../../../../shared/config/site';
 
 interface TextNode { type: 'text'; value: string }
 export interface ElementNode { type: 'element'; tagName: string; properties: Record<string, string | boolean | string[]>; children: (ElementNode | TextNode)[] }
@@ -14,8 +13,8 @@ export function ctaCardTree(locale: Locale, compact = false): ElementNode {
     element('div', [element('p', [text('Fabio Egypt')], { className: ['blog-kicker'] }),
       element('h2', [text(m.ctaTitle)]), element('p', [text(m.ctaText)])]),
     element('a', [text(m.ctaButton), element('span', [text('↗')], { 'aria-hidden': 'true' })], {
-      className: ['blog-button'], href: `https://wa.me/${siteConfig.whatsapp.number}`,
-      'data-open-lead': true, target: '_blank', rel: 'noopener noreferrer',
+      className: ['blog-button'], href: `/${locale}/tailor-your-trip/`,
+      target: '_blank', rel: 'noopener noreferrer',
     }),
   ], { className: compact ? ['blog-cta', 'blog-cta-compact'] : ['blog-cta'], 'data-no-autolink': true });
 }
