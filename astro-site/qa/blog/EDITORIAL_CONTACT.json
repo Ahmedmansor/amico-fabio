@@ -1,0 +1,19 @@
+{
+  "origin": "http://127.0.0.1:4327",
+  "results": [
+    {
+      "route": "/en/egypt/giza-pyramids/",
+      "width": 1280,
+      "dialogOpened": true,
+      "escapeAndFocusRestored": true,
+      "externalAttempts": 0
+    },
+    {
+      "route": "/en/blog/common-tourist-traps-egypt/",
+      "width": 375,
+      "dialogOpened": true,
+      "escapeAndFocusRestored": true,
+      "externalAttempts": 0
+    }
+  ]
+}

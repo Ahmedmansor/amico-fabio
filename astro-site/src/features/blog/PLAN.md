@@ -2,7 +2,8 @@
 
 Status: original technical implementation is complete locally, including the
 title-link correction. The owner's subsequent editorial/places design expansion
-is specified in EDITORIAL_REVISION.md; those new targets are not implemented yet.
+is implemented locally; see EDITORIAL_REVISION.md and EDITORIAL_EXECUTION.md for
+the requirements and tested deliverables. Real publication remains separate.
 Updated: 2026-10-28.
 
 Planning package: see README.md for the documentation map and EXECUTION.md for

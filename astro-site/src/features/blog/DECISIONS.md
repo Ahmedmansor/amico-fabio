@@ -29,6 +29,9 @@ Updated: 2026-10-28. These are design decisions, not implementation evidence.
 | B21 | Focused blog checks per task; batch broad builds/checks at integration milestones | Owner explicitly rejected repeated broad checks and unrelated feature testing |
 | B22 | Finish article layout and WhatsApp interaction together before their browser acceptance, then complete linking/SEO/catalog polish | Avoid recapturing incomplete dialog/form UI; keep independent pure tests focused and record actual delivered scope |
 | B23 | Match full visible titles automatically, with linkKeywords as additional aliases; show an explicit fixture demonstration and clearer orange underlines | Owner's post-handoff visual review expected mentioned article titles to become visible links; the opened diving fixture had no matching mentions |
+| B24 | Use independent EN/IT editorial topics, a separate places feature and a shared four-kind target registry | Owner's approved reference design connects articles, city/landmark guides and existing bookable products |
+| B25 | Generate the reading index from native authored heading IDs; use optional per-article FAQ and one second-image contact card | Owner requested a consistent reading structure without compulsory tables/FAQ or premature planner/subscription UI |
+| B26 | Keep realistic design articles fixture-protected while preserving old technical routes | Owner authorized natural demo prose only; build guards must not depend on artificial-looking titles |
 
 B18 applies to the blog. It does not authorize restyling the legacy site or all
 other Astro pages. Preserve shared behavior and keep new visual CSS scoped.

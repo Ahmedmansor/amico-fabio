@@ -1,10 +1,10 @@
 # Editorial system expansion — owner review, 2026-10-28
 
-Status: concrete revision proposal based on the owner's screenshots, links and
-instructions. Existing implementation is described in qa/blog/FINAL.md and
-TITLE_LINKS.md; the additions below are not claims of implemented behavior.
-This document supersedes conflicting targets in the original PLAN.md for the
-next expansion. No runtime, content, database or deployment changes accompany it.
+Status: implemented locally after the owner's execution authorization. This
+document records the agreed expansion requirements; progress and actual evidence
+are in EDITORIAL_EXECUTION.md and qa/blog/EDITORIAL_IMPLEMENTATION.md. It supersedes
+conflicting targets in the original PLAN.md. No database or deployment change
+belongs to this expansion; realistic design content remains guarded/noindex.
 
 ## 1. Three content/product roles
 

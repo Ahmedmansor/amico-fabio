@@ -161,3 +161,37 @@ After an implementation/content milestone, use `npm run check:links` on the
 built artifact. Link and fixture guards also run automatically during builds.
 Rebuilds are necessary for changed published content/assets, not every edit to
 documentation. No hosting deployment is performed by these commands.
+
+## Editorial links, reading index and FAQ
+
+The shared registry now includes articles, places, tours and packages. Run
+`blog:references` for validated IDs/aliases from the current snapshot. Durable
+Markdown references resolve automatically to the article's language:
+
+```md
+[Pyramids](place:giza-pyramids)
+[An existing tour](tour:cairo_plane_flexible_museum)
+[An existing package](package:cairo_piramidi_saqqara_vip)
+[Another article](post:en-demo-exploring-cairo-beyond-giza)
+```
+
+Do not use an EN-only article ID from an IT article. A missing/hidden/foreign
+reference fails with the source file. Place aliases and full article titles
+share automatic ownership; explicit references are useful when author intent
+needs to be unambiguous. Existing ordinary valid Markdown links still work.
+
+Every article gets a reading index from its actual authored H2/H3 IDs; injected
+contact-card headings are excluded. Use descriptive sections and keep one H1
+supplied by the page. The contact card appears once after the first body image
+(the hero is image one); short/no-image content uses the natural fallback.
+
+Optional FAQ frontmatter is a list of `{question, answer}` objects. Write useful
+questions for this article only; leave `faq: []` when unnecessary. Answers are
+plain text rendered as accessible native details/summary, not a required block
+or a promise of search-engine FAQ results.
+
+The owner's realistic design previews use `fixture: true` and `demo: true`.
+Schema rejects `demo: true` without fixture protection. Normal discovery prefers
+that natural preview set, while old technical fixtures keep their direct routes.
+The production policy excludes both kinds, regardless of their realistic titles.
+For place authoring and hierarchy fields, see ../places/README.md.

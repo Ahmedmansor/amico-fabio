@@ -30,6 +30,8 @@ DECISIONS.md and update affected requirements before reporting completion.
 - Automatic internal links, translated-route SEO, article JSON-LD and build guards.
 - 22 guarded technical fixtures and replaceable generated WebP illustrations.
 - Local draft scaffold/reference report and measured browser/performance evidence.
+- Separate Egypt/place guides with real tour/package sidebars and four-kind
+  content references; natural independent IT/EN previews and per-article TOC/FAQ.
 - No database, API, email or persisted inquiry data.
 
 The owner subsequently authorized execution. See qa/blog/FINAL.md for exact
@@ -54,6 +56,10 @@ scripts/blog. Build guards run after the shared sitemap generator.
 ## Review and next editorial step
 
 Local guarded preview: http://127.0.0.1:4327/it/blog/ (English also available).
+The new guide hub is /it/egypt/ or /en/egypt/. Start the natural article review
+at /en/blog/common-tourist-traps-egypt/ or /it/blog/pianificare-viaggio-egitto-2027/.
+The latest expansion evidence is qa/blog/EDITORIAL_IMPLEMENTATION.md; older
+performance reports describe their own earlier revision.
 Use AUTHORING.md to prepare approved articles and add a real author to
 data/authors.ts before publication. Fixture articles cannot enter a production
 artifact. Replace the temporary artwork using ASSETS.md. No hosting or deployment

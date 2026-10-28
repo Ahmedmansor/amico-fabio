@@ -1,7 +1,8 @@
 # Blog verification plan and evidence ledger
 
-Status: technical verification complete locally. See qa/blog/FINAL.md for the
-tested revisions, measured results, noindex SEO exception and publication gates.
+Status: technical verification complete locally, including the editorial/places
+expansion in qa/blog/EDITORIAL_IMPLEMENTATION.md. Earlier reports retain their
+tested revisions and measurements; no later performance result is implied.
 
 ## Evidence rules
 
