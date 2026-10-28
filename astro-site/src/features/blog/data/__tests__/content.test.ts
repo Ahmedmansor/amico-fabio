@@ -14,7 +14,7 @@ const input = {
 const policy = { evaluatedAt: Date.parse('2026-10-28T00:00:00Z'), includeFixtures: false };
 const references = { authorIds: new Set(['approved']), tripIds: new Set(['known-trip']) };
 function record(id: string, changes: Partial<BlogIndexRecord> = {}): BlogIndexRecord {
-  return { id, slug: id, lang: 'it', pubDate: '2026-10-01', draft: false, fixture: false,
+  return { id, title: `Test article ${id}`, slug: id, lang: 'it', pubDate: '2026-10-01', draft: false, fixture: false,
     linkKeywords: [], relatedTripIds: [], sourcePath: `it/${id}/index.md`, ...changes };
 }
 
@@ -46,6 +46,11 @@ describe('frontmatter schema', () => {
 });
 
 describe('file identity and cross-record checks', () => {
+  it('rejects title/alias ambiguity with both owners and permits the same title alias on its own article', () => {
+    expect(()=>validatePostIndex([record('old',{title:'Guida del Cairo'}),record('new',{linkKeywords:[' guida  del cairo ']})],policy,references))
+      .toThrow(/new\/index.md.*title\/linkKeywords.*old\/index.md/);
+    expect(()=>validatePostIndex([record('old',{title:'Guida del Cairo',linkKeywords:['Guida del Cairo']})],policy,references)).not.toThrow();
+  });
   it('supports colocated Windows paths and rejects wrong/reserved paths', () => {
     expect(articlePathParts('it\\guida-al-cairo\\index.md')).toEqual({ lang: 'it', slug: 'guida-al-cairo' });
     for (const path of ['fr/article/index.md', 'it/page/index.md', 'it/interests/index.md', 'it/bad_slug/index.md', 'it/a.md', 'it/a/b/index.md']) {

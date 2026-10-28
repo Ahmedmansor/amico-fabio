@@ -76,14 +76,18 @@ a real publication. `fixture: true` is reserved for technical tests.
 | translationKey | Same key only for actual equivalents; unique per language |
 | destination | Optional: cairo, luxor, aswan or sharm |
 | interests | One or two distinct values: history, diving, desert, food, tips, stories |
-| linkKeywords | Own-language phrases of at least four characters, claiming this article as link target |
+| linkKeywords | Optional alternative phrases of at least four characters; the full title is already matched automatically |
 | heroImage | Relative path to a real local image beside the article |
 | heroAlt | Descriptive, at least five characters; no fabricated image description |
 | relatedTripIds | Existing published stable catalog trip IDs; use blog:references, not guessed slugs |
 | draft | true while preparing content; false only for intended publication |
 
-Keywords may appear in any article's prose. Only ownership of an automatic-link
-phrase is exclusive within a language. Matching ignores case/extra whitespace,
+Titles and keywords may appear in any article's prose. A mention of another
+published article's full title automatically becomes a link; there is no need
+to copy that title into linkKeywords. Add shorter/alternative phrases there when
+useful. A title or alias cannot identify two different published targets within
+one language; collisions name both files. A title repeated in its own alias list
+is safely deduplicated. Matching ignores case/extra whitespace,
 retains accents, and prefers longer overlapping phrases. A conflict must report
 both article files. Never rename an old claim blindly to silence the checker;
 choose the correct intended destination.

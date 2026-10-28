@@ -185,12 +185,16 @@ folder/lang mismatch, reserved slugs (`page`, `destinations`, `interests`),
 invalid author/tour references, duplicate interests and invalid image alt text.
 IDs are globally unique across entries; translated entries use distinct IDs.
 
-`linkKeywords` identify targets for automatic internal linking. They are not
-exclusive SEO topics and do not prohibit repeating words in article text.
+The full visible article title automatically identifies its target when mentioned
+in eligible body text. `linkKeywords` add alternative phrases for the same target;
+they are not exclusive SEO topics and do not prohibit repeating words in text.
 Normalize Unicode consistently, trim/collapse whitespace and match case
 insensitively while keeping accents significant. Reject duplicate claims within
 a language among published articles, including equivalent spellings after that
-normalization. Diagnostics name the keyword, language and both source files.
+normalization, including title-versus-keyword collisions. A phrase shared by the
+title and keywords of the same article is deduplicated. Diagnostics name the
+phrase, language and both source files. This title behavior was clarified by the
+owner during visual review after the first technical handoff.
 
 Keep publication filtering identical for page generation, related content,
 translation maps and automatic links. Validate structural integrity for all
@@ -376,6 +380,7 @@ One card initially; record a deterministic frontmatter-order selection rule.
 Automatic links run at build time on article body only:
 
 - Own-language published targets only; no draft/future/excluded fixture targets.
+- Match full titles automatically; keywords supply additional matching aliases.
 - First eligible occurrence; one automatic link per target; maximum five.
 - Prefer the longest overlapping keyword with deterministic tie-breaking.
 - Preserve displayed casing and accents, with Unicode-aware word boundaries.

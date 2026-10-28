@@ -5,7 +5,7 @@ import { ctaCardHtml } from '../cta';
 import type { MarkdownContext } from '../../../data/markdown-context';
 
 const context: MarkdownContext = {
-  current: { id: 'demo', slug: 'demo', lang: 'en', pubDate: '2026-01-01', draft: false, fixture: true,
+  current: { id: 'demo', title: 'Demo current article', slug: 'demo', lang: 'en', pubDate: '2026-01-01', draft: false, fixture: true,
     linkKeywords: [], relatedTripIds: [], sourcePath: 'en/demo/index.md' }, records: [],
   policy: { evaluatedAt: Date.parse('2026-10-28'), includeFixtures: true },
 };
@@ -17,7 +17,7 @@ async function render(body: string, article = true) {
 
 async function linked(body: string) {
   const current = context.current;
-  const target = { ...current, id: 'target', slug: 'target', fixture: false, linkKeywords: ['Red Sea diving'], sourcePath: 'en/target/index.md' };
+  const target = { ...current, id: 'target', title: 'Diving article title', slug: 'target', fixture: false, linkKeywords: ['Red Sea diving'], sourcePath: 'en/target/index.md' };
   const other = { ...current, id: 'other', slug: 'other', fixture: false, linkKeywords: ['Red Sea'], sourcePath: 'en/other/index.md' };
   const foreign = { ...target, id: 'foreign', lang: 'it' as const, linkKeywords: ['keyword italiano'] };
   const draft = { ...target, id: 'draft', slug: 'draft', draft: true, linkKeywords: ['secret keyword'] };
@@ -67,6 +67,11 @@ describe('native blog figures and CTA placement', () => {
 });
 
 describe('native article automatic links', () => {
+  it('turns a mentioned title into an anchor without requiring a keyword alias', async () => {
+    const code = await linked('Diving article title. Diving article title.');
+    expect(code.match(/href="\/en\/blog\/target\/"/g)).toHaveLength(1);
+    expect(code).toContain('>Diving article title</a>');
+  });
   it('links first eligible text only and never drafts or another language', async () => {
     const code = await linked('Red Sea diving, Red Sea diving. keyword italiano; secret keyword.');
     expect(code.match(/href="\/en\/blog\/target\/"/g)).toHaveLength(1);

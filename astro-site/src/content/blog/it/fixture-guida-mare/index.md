@@ -20,6 +20,8 @@ fixture: true
 
 ## [FIXTURE] Prima sezione
 
+[FIXTURE] Per provare i collegamenti tra articoli di test, leggi [FIXTURE] fixture guida cairo e [FIXTURE] fixture panoramica mare. Questi esempi non sono consigli di viaggio.
+
 [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio. [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio. [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio. [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio. [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio. [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio.
 
 ![Illustrazione IA di una barriera corallina e un sub in lontananza](./hero.webp "[FIXTURE] Didascalia di prova")

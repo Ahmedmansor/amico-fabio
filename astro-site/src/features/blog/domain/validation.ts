@@ -3,11 +3,16 @@ import type { BlogPost, PublicationPolicy } from './models';
 import { isPublished } from './publication.ts';
 import { reservedSlugs } from './taxonomy.ts';
 
-export type BlogIndexRecord = Pick<BlogPost, 'id' | 'slug' | 'lang' | 'translationKey' | 'pubDate' |
+export type BlogIndexRecord = Pick<BlogPost, 'id' | 'title' | 'slug' | 'lang' | 'translationKey' | 'pubDate' |
   'draft' | 'fixture' | 'linkKeywords' | 'authorId' | 'relatedTripIds' | 'sourcePath'>;
 
 export function normalizeLinkKeyword(keyword: string): string {
   return keyword.normalize('NFC').trim().replace(/\s+/gu, ' ').toLocaleLowerCase('en');
+}
+
+/** The visible title is a built-in phrase; keywords provide additional aliases. */
+export function getAutomaticLinkPhrases(record: Pick<BlogIndexRecord, 'title' | 'linkKeywords'>): string[] {
+  return [...new Set([record.title, ...record.linkKeywords].map(normalizeLinkKeyword))];
 }
 
 export function articlePathParts(relativeEntry: string): { lang: BlogPost['lang']; slug: string } {
@@ -41,8 +46,8 @@ export function validatePostIndex(records: readonly BlogIndexRecord[], policy: P
     for (const id of record.relatedTripIds) if (!references.tripIds.has(id)) {
       throw new Error(`[blog:${record.sourcePath}] Unknown relatedTripIds entry: ${id}.`);
     }
-    if (isPublished(record, policy)) for (const keyword of record.linkKeywords) {
-      claim(keywords, `${record.lang}/${normalizeLinkKeyword(keyword)}`, record, 'linkKeywords');
+    if (isPublished(record, policy)) for (const keyword of getAutomaticLinkPhrases(record)) {
+      claim(keywords, `${record.lang}/${keyword}`, record, 'automatic link phrase (title/linkKeywords)');
     }
   }
 }

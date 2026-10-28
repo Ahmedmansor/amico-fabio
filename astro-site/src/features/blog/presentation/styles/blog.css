@@ -126,7 +126,7 @@
 .blog-prose ul,.blog-prose ol{padding-left:1.5em;margin-block:1.25em;list-style:revert}
 .blog-prose li{margin-bottom:.4em}
 .blog-prose blockquote{border-left:3px solid var(--color-accent-orange);padding:12px 24px;background:var(--bg-tinted);margin-block:24px}
-.blog-prose a:not(.blog-button){color:var(--color-primary);text-decoration:underline;text-underline-offset:3px}
+.blog-prose a:not(.blog-button){color:var(--color-primary);font-weight:600;text-decoration:underline;text-decoration-color:var(--color-accent-orange);text-decoration-thickness:2px;text-underline-offset:4px}.blog-prose a:not(.blog-button):hover{color:var(--color-primary-muted);text-decoration-color:currentColor}
 .blog-prose figure{margin-block:30px}
 .blog-prose figure img{width:100%;height:auto;border-radius:10px}
 .blog-prose figcaption{font-size:.75rem;color:var(--text-secondary);text-align:center;margin-top:10px;line-height:1.6}

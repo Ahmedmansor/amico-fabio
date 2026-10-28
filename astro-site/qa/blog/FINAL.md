@@ -1,5 +1,10 @@
 # Blog technical handoff — 2026-10-28
 
+Post-handoff owner review: title-based automatic matching and an explicit diving
+fixture demonstration were added after this report's grouped build. See
+TITLE_LINKS.md for the newer focused results. Earlier build/performance numbers
+below describe their original revision, not this subsequent source change.
+
 Implementation is complete locally on the existing migration branch. Legacy
 source/main, hosting, public domain and remote database settings were unchanged.
 No deployment or push occurred. The new blog uses data/domain/presentation,

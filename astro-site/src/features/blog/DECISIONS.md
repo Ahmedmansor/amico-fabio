@@ -28,6 +28,7 @@ Updated: 2026-10-28. These are design decisions, not implementation evidence.
 | B20 | Use the owner's shared theme.css palette for blog and future site work | Explicit owner palette; ui-ux-pro-max guides layout/usability within these colors |
 | B21 | Focused blog checks per task; batch broad builds/checks at integration milestones | Owner explicitly rejected repeated broad checks and unrelated feature testing |
 | B22 | Finish article layout and WhatsApp interaction together before their browser acceptance, then complete linking/SEO/catalog polish | Avoid recapturing incomplete dialog/form UI; keep independent pure tests focused and record actual delivered scope |
+| B23 | Match full visible titles automatically, with linkKeywords as additional aliases; show an explicit fixture demonstration and clearer orange underlines | Owner's post-handoff visual review expected mentioned article titles to become visible links; the opened diving fixture had no matching mentions |
 
 B18 applies to the blog. It does not authorize restyling the legacy site or all
 other Astro pages. Preserve shared behavior and keep new visual CSS scoped.

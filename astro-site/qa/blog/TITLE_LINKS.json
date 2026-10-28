@@ -1,0 +1,43 @@
+{
+  "origin": "http://127.0.0.1:4327",
+  "results": [
+    {
+      "lang": "en",
+      "source": "/en/blog/fixture-diving-guide/",
+      "links": [
+        {
+          "text": "[FIXTURE] fixture cairo guide",
+          "href": "/en/blog/fixture-cairo-guide/",
+          "decoration": "underline",
+          "thickness": "2px"
+        },
+        {
+          "text": "[FIXTURE] fixture sea overview",
+          "href": "/en/blog/fixture-sea-overview/",
+          "decoration": "underline",
+          "thickness": "2px"
+        }
+      ],
+      "navigatedTo": "/en/blog/fixture-cairo-guide/"
+    },
+    {
+      "lang": "it",
+      "source": "/it/blog/fixture-guida-mare/",
+      "links": [
+        {
+          "text": "[FIXTURE] fixture guida cairo",
+          "href": "/it/blog/fixture-guida-cairo/",
+          "decoration": "underline",
+          "thickness": "2px"
+        },
+        {
+          "text": "[FIXTURE] fixture panoramica mare",
+          "href": "/it/blog/fixture-panoramica-mare/",
+          "decoration": "underline",
+          "thickness": "2px"
+        }
+      ],
+      "navigatedTo": "/it/blog/fixture-guida-cairo/"
+    }
+  ]
+}

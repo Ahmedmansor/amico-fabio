@@ -15,7 +15,7 @@ const feature = new URL('../../src/features/blog/data/', import.meta.url);
 function content(id, keyword = 'fixture keyword', interest = 'tips', alt = true) {
   return `---
 id: ${id}
-title: "[FIXTURE] Content schema check"
+title: "[FIXTURE] Content schema check ${id}"
 description: "This artificial description exists only for isolated content validation."
 pubDate: 2026-01-01
 lang: en

@@ -35,12 +35,21 @@ describe('automatic internal-link selection', () => {
     expect(result.parts.map(part => part.text).join('')).toBe(text);
   });
   it('creates maps only from same-language published non-self records', () => {
-    const record = (id: string, changes: Partial<BlogIndexRecord> = {}): BlogIndexRecord => ({ id, lang: 'en', slug: id,
+    const record = (id: string, changes: Partial<BlogIndexRecord> = {}): BlogIndexRecord => ({ id, title: `Title for ${id}`, lang: 'en', slug: id,
       pubDate: '2026-01-01', sourcePath: `en/${id}/index.md`, linkKeywords: ['some keyword'], relatedTripIds: [], draft: false, fixture: false, ...changes });
     const current = record('current');
     const map = getInternalLinkTargets([current, record('visible'), record('it', { lang: 'it' }), record('draft', { draft: true }),
       record('future', { pubDate: '2099-01-01' }), record('fixture', { fixture: true })], current,
       { evaluatedAt: Date.parse('2026-10-28'), includeFixtures: false });
-    expect(map.map(target => target.id)).toEqual(['visible']);
+    expect([...new Set(map.map(target => target.id))]).toEqual(['visible']);
+    expect(map.map(target => target.keyword)).toContain('title for visible');
+  });
+  it('uses a title without keywords and deduplicates a matching keyword alias', () => {
+    const post = {id:'target',title:'A Cairo travel guide',slug:'target',lang:'en',pubDate:'2026-01-01',sourcePath:'en/target/index.md',linkKeywords:[],relatedTripIds:[],draft:false,fixture:false} as BlogIndexRecord;
+    const current = {...post,id:'current'};
+    const policy={evaluatedAt:Date.parse('2026-10-28'),includeFixtures:false};
+    const targets=getInternalLinkTargets([post,current],current,policy);
+    expect(linkText('Read A Cairo travel guide.',targets).parts.find(part=>part.url)?.url).toBe('/en/blog/target/');
+    expect(getInternalLinkTargets([{...post,linkKeywords:[' A  Cairo travel guide ']}],current,policy)).toHaveLength(1);
   });
 });

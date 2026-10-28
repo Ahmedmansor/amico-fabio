@@ -20,6 +20,8 @@ fixture: true
 
 ## [FIXTURE] First section
 
+[FIXTURE] To try the links between test articles, read [FIXTURE] fixture cairo guide and [FIXTURE] fixture sea overview. These examples are not travel advice.
+
 [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice.
 
 ![AI-generated illustration of a coral reef and a distant diver](./hero.webp "[FIXTURE] Test caption")

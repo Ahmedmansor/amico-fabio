@@ -1,7 +1,7 @@
 import type { PublicationPolicy } from './models';
 import { isPublished } from './publication';
 import { articleUrl } from './translations';
-import { normalizeLinkKeyword, type BlogIndexRecord } from './validation';
+import { getAutomaticLinkPhrases, normalizeLinkKeyword, type BlogIndexRecord } from './validation';
 
 export const autoLinkLimit = 5;
 export interface InternalLinkTarget { id: string; keyword: string; url: string }
@@ -11,7 +11,7 @@ const compareTargets = (a: InternalLinkTarget, b: InternalLinkTarget) => b.keywo
 
 export function getInternalLinkTargets(records: readonly BlogIndexRecord[], current: BlogIndexRecord, policy: PublicationPolicy): InternalLinkTarget[] {
   return records.filter(record => record.id !== current.id && record.lang === current.lang && isPublished(record, policy))
-    .flatMap(record => record.linkKeywords.map(keyword => ({ id: record.id, keyword: normalizeLinkKeyword(keyword), url: articleUrl(record) })))
+    .flatMap(record => getAutomaticLinkPhrases(record).map(keyword => ({ id: record.id, keyword, url: articleUrl(record) })))
     .sort(compareTargets);
 }
 

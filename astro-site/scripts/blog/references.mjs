@@ -3,13 +3,14 @@ import { getTrips } from '../../src/features/tours/data/trips.mjs';
 import { authors } from '../../src/features/blog/data/authors.ts';
 import { isPublished } from '../../src/features/blog/domain/publication.ts';
 import { supportedLocales } from '../../src/shared/config/languages.ts';
+import { getAutomaticLinkPhrases } from '../../src/features/blog/domain/validation.ts';
 
 const { records, policy } = JSON.parse(await readFile(new URL('../../.astro/blog/index.json', import.meta.url), 'utf8'));
 console.log(`Validated article snapshot — ${new Date(policy.evaluatedAt).toISOString()}`);
 for (const lang of supportedLocales) {
   console.log(`\n${lang.toUpperCase()} — claimed automatic-link phrases`);
   for (const record of records.filter(record => record.lang === lang && isPublished(record, policy))) {
-    for (const keyword of record.linkKeywords) console.log(`${JSON.stringify(keyword)} -> ${record.sourcePath}`);
+    for (const keyword of getAutomaticLinkPhrases(record)) console.log(`${JSON.stringify(keyword)} -> ${record.sourcePath}`);
   }
 }
 console.log('\nApproved author IDs');

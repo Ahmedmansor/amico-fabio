@@ -51,6 +51,8 @@ for (const [index, entry] of entries.entries()) {
   body += `${intro} `.repeat(index < 2 ? 55 : 6).trim() + '\n\n';
   if (slug === 'fixture-cairo-guide') body += 'fixture diving guide, fixture diving guide, fixture sea, fixture secret keyword.\n\n';
   if (slug === 'fixture-guida-cairo') body += 'fixture guida mare, fixture guida mare, fixture mare. English phrase: fixture diving guide.\n\n';
+  if (slug === 'fixture-diving-guide') body += '[FIXTURE] To try the links between test articles, read [FIXTURE] fixture cairo guide and [FIXTURE] fixture sea overview. These examples are not travel advice.\n\n';
+  if (slug === 'fixture-guida-mare') body += '[FIXTURE] Per provare i collegamenti tra articoli di test, leggi [FIXTURE] fixture guida cairo e [FIXTURE] fixture panoramica mare. Questi esempi non sono consigli di viaggio.\n\n';
   for (let number = 0; number < bodyImages; number++) {
     body += `![${lang === 'it' ? 'Immagine illustrativa di prova' : 'Illustrative test image'}](./hero.webp "[FIXTURE] ${lang === 'it' ? 'Didascalia di prova' : 'Test caption'}")\n\n`;
   }
