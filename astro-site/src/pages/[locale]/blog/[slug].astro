@@ -1,0 +1,12 @@
+---
+import type {GetStaticPaths} from 'astro';
+import {getArticleViews,getBlogAssets} from '../../../features/blog/data/views';
+import {renderPost} from '../../../features/blog/data/posts';
+import PostPage from '../../../features/blog/presentation/pages/PostPage.astro';
+export const getStaticPaths=(async()=>{
+  const views=await getArticleViews(),images=await getBlogAssets();
+  return views.map(view=>({params:{locale:view.post.lang,slug:view.post.slug},props:{view,images}}));
+}) satisfies GetStaticPaths;
+const {Content}=await renderPost(Astro.props.view.post.id);
+---
+<PostPage {...Astro.props}><Content/></PostPage>

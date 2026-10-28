@@ -1,6 +1,8 @@
 # Blog execution checklist
 
-Status: listing UI implemented and browser-checked; article pages next.
+Status: listing/article/WhatsApp milestone implemented and browser-checked;
+phases 7–9 polish and authoring/final integration next. Phase 10 was completed
+with phase 6 to avoid duplicate browser work (DECISIONS.md B22).
 Updated: 2026-10-28. Preparation-only instruction was superseded by the owner's
 subsequent implementation request. New blog UI uses ui-ux-pro-max and a fresh
 visual direction; generated temporary WebP imagery is approved.
@@ -94,24 +96,24 @@ artifact through a forgotten environment flag.
 
 ## Phase 5 — Index and taxonomy pages
 
-- [ ] Use imagegen for replaceable illustrative article/city/interest images;
+- [x] Use imagegen for replaceable illustrative article/city/interest images;
       convert to WebP, use stable source paths and record generated/temporary
       status, dimensions and replacement notes in ASSETS.md.
-- [ ] Apply ui-ux-pro-max: generate/review a blog-specific design direction,
+- [x] Apply ui-ux-pro-max: generate/review a blog-specific design direction,
       record selected tokens and Astro/Tailwind guidance, and build a fresh
       scoped visual shell without inheriting current site styling. Preserve
       shared navigation/Auth/wishlist behavior without redesigning other pages.
-- [ ] Before introducing asymmetric routes, land the minimal tested shared
+- [x] Before introducing asymmetric routes, land the minimal tested shared
       alternate-path/SEO-validation support needed for them (a prerequisite
       slice of phase 8). Preserve existing-route assertions. Never leave this
       until phase 8 if it would make the required phase 5/6 build fail; record
       the earlier slice in both phase reports. Full metadata QA remains phase 8.
-- [ ] Build reusable cards, featured selection and localized empty states.
-- [ ] Add home sections, hide empty taxonomy/fact sections and use reviewed copy.
-- [ ] Generate home/city/interest routes with nine-item pagination.
-- [ ] Ensure page one has one URL; omit empty and overflow pages.
-- [ ] Capture 375/768/1280px IT/EN screenshots and inspect generated routes.
-- [ ] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+- [x] Build reusable cards, featured selection and localized empty states.
+- [x] Add home sections, hide empty taxonomy/fact sections and use reviewed copy.
+- [x] Generate home/city/interest routes with nine-item pagination.
+- [x] Ensure page one has one URL; omit empty and overflow pages.
+- [x] Capture 375/768/1280px IT/EN screenshots and inspect generated routes.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
 
 **Done when:** listing routes render full static content using the new blog shell
 and shared document/SEO/functionality integrations.
@@ -119,13 +121,13 @@ Do not activate placeholder Blog navigation before valid routes exist.
 
 ## Phase 6 — Article layout and inquiry entry points
 
-- [ ] Build breadcrumbs/chips/byline/hero/body/related-article composition.
-- [ ] Add verified figure/caption and inline CTA insertion transforms.
-- [ ] Implement sticky desktop aside and mobile action/dialog with focus handling.
-- [ ] Keep inquiry controls explicitly preparatory until phase 10; no fake submit.
-- [ ] Check short/no-image/nested-image cases and existing floating-control overlap.
-- [ ] Capture all three widths; run keyboard/dialog walkthroughs.
-- [ ] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+- [x] Build breadcrumbs/chips/byline/hero/body/related-article composition.
+- [x] Add verified figure/caption and inline CTA insertion transforms.
+- [x] Implement sticky desktop aside and mobile action/dialog with focus handling.
+- [x] Integrate the real WhatsApp controls with phase 10; never show fake submission success.
+- [x] Check short/no-image/nested-image cases and existing floating-control overlap.
+- [x] Capture all three widths; run keyboard/dialog walkthroughs.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
 
 **Done when:** article structure/CTAs/dialog work and no placeholder claims a
 request was sent. Keep any incomplete form state clearly nonfunctional.
@@ -169,16 +171,16 @@ data interface and cards lead to the proper booking page.
 
 ## Phase 10 — WhatsApp inquiry
 
-- [ ] Implement pure validation and localized message generation from PLAN.md.
-- [ ] Reuse approved country/label data through an acyclic shared/public interface.
-- [ ] Add unique labeled form IDs, localized errors and in-memory draft continuity.
-- [ ] Add review/cancel/confirm flow and clean article context in the message.
-- [ ] Open the encoded shared-number link from an explicit user action, with
+- [x] Implement pure validation and localized message generation from PLAN.md.
+- [x] Reuse approved country/label data through an acyclic shared/public interface.
+- [x] Add unique labeled form IDs, localized errors and in-memory draft continuity.
+- [x] Add review/cancel/confirm flow and clean article context in the message.
+- [x] Open the encoded shared-number link from an explicit user action, with
       usable fallback; never add a request-received or delivered success state.
-- [ ] Add consent-gated shared analytics without personal values.
-- [ ] Test text/encoding and intercept navigation without sending a real message.
-- [ ] Capture both mount points/all widths; run focused tests and Astro check/build.
-- [ ] Review diff and commit.
+- [x] Add consent-gated shared analytics without personal values.
+- [x] Test text/encoding and intercept navigation without sending a real message.
+- [x] Capture both mount points/all widths; run focused tests and Astro check/build.
+- [x] Review diff and commit.
 
 **Done when:** the visitor can review a valid inquiry and open WhatsApp to send it
 themselves. No Supabase, persistence, email or backend acceptance exists here.

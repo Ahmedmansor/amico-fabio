@@ -11,10 +11,12 @@ import AuthDialog from '../../../auth/presentation/AuthDialog.astro';
 import WelcomeDialog from '../../../auth/presentation/WelcomeDialog.astro';
 import WishlistLink from '../../../wishlist/presentation/WishlistLink.astro';
 import WishlistInvitation from '../../../wishlist/presentation/WishlistInvitation.astro';
+import InquiryDialog from './InquiryDialog.astro';
+import type {Destination} from '../../domain/taxonomy';
 import '../../../../shared/styles/global.css';
 import '../styles/blog.css';
-interface Props {locale:Locale;title:string;description:string;path:string;alternates:BlogAlternates;navigation:BlogAlternates;fixture?:boolean;article?:boolean;shareImage?:ShareImage}
-const {locale,title,description,path,alternates,navigation,fixture=false,article=false,shareImage}=Astro.props;
+interface Props {locale:Locale;title:string;description:string;path:string;alternates:BlogAlternates;navigation:BlogAlternates;fixture?:boolean;article?:boolean;articleId?:string;destination?:Destination;shareImage?:ShareImage}
+const {locale,title,description,path,alternates,navigation,fixture=false,article=false,articleId,destination,shareImage}=Astro.props;
 const m=getSharedMessages(locale).blog;
 ---
 <DocumentShell locale={locale} bodyClass="blog-site">
@@ -44,4 +46,5 @@ const m=getSharedMessages(locale).blog;
   <slot/>
   <footer class="blog-footer"><div class="blog-container blog-footer-inner"><div><a class="blog-brand" href={`/${locale}/`}>Fabio <strong>Egypt</strong></a><p>{m.footerText}</p></div><nav aria-label={m.contact}><a href={`/${locale}/legal/`}>{m.privacy}</a><a href={`mailto:${siteConfig.email}`}>{m.contact}</a><a href={siteConfig.social.instagram}>Instagram</a></nav><small>© {new Date().getUTCFullYear()} {m.copyright}</small></div></footer>
   <AuthDialog locale={locale}/><WelcomeDialog locale={locale}/>
+  <InquiryDialog locale={locale} source={{articleId,title,url:new URL(path,siteConfig.url).href,destination}}/>
 </DocumentShell>

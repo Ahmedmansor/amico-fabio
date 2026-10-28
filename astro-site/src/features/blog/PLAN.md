@@ -1,6 +1,6 @@
 # Blog system — implementation plan
 
-Status: technical foundations and listing UI implemented; article pages next.
+Status: listings, articles and WhatsApp inquiry implemented; linking/SEO/catalog polish next.
 Updated: 2026-10-28.
 
 Planning package: see README.md for the documentation map and EXECUTION.md for

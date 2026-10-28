@@ -1,0 +1,49 @@
+{
+  "origin": "http://127.0.0.1:4327",
+  "records": [
+    {
+      "route": "/it/blog/fixture-guida-cairo/",
+      "width": 375,
+      "h1Count": 1,
+      "overflow": false,
+      "aside": "none",
+      "sticky": "sticky",
+      "bar": "flex",
+      "figures": 2,
+      "inlineCtas": 1,
+      "canonical": "https://fabioegypt.com/it/blog/fixture-guida-cairo/",
+      "alternates": [
+        "https://fabioegypt.com/it/blog/fixture-guida-cairo/",
+        "https://fabioegypt.com/en/blog/fixture-cairo-guide/"
+      ],
+      "duplicateIds": [],
+      "brokenImages": [],
+      "errors": [],
+      "formFlowVerified": true,
+      "handoffIntercepted": 1,
+      "screenshot": "qa/blog/screenshots/it-blog-fixture-guida-cairo-375.png"
+    },
+    {
+      "route": "/en/blog/fixture-cairo-guide/",
+      "width": 1280,
+      "h1Count": 1,
+      "overflow": false,
+      "aside": "block",
+      "sticky": "sticky",
+      "bar": "none",
+      "figures": 2,
+      "inlineCtas": 1,
+      "canonical": "https://fabioegypt.com/en/blog/fixture-cairo-guide/",
+      "alternates": [
+        "https://fabioegypt.com/it/blog/fixture-guida-cairo/",
+        "https://fabioegypt.com/en/blog/fixture-cairo-guide/"
+      ],
+      "duplicateIds": [],
+      "brokenImages": [],
+      "errors": [],
+      "formFlowVerified": true,
+      "handoffIntercepted": 1,
+      "screenshot": "qa/blog/screenshots/en-blog-fixture-cairo-guide-1280.png"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ import { getActiveTaxonomy, getFeaturedPost, getPublishedPosts } from '../domain
 import { getRelatedPosts } from '../domain/related-posts';
 import { getTranslations } from '../domain/translations';
 import { getListingAlternates, type ListingKind } from '../domain/listings';
-import type { BlogPost, BlogAlternates } from '../domain/models';
+import type { BlogPost } from '../domain/models';
 import { authors } from './authors';
 
 export interface BlogListing {

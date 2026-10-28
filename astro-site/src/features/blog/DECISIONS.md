@@ -27,6 +27,7 @@ Updated: 2026-10-28. These are design decisions, not implementation evidence.
 | B19 | Generate temporary article/city/interest visuals and use WebP at stable source paths | Owner's approved image workflow; assets can be replaced later |
 | B20 | Use the owner's shared theme.css palette for blog and future site work | Explicit owner palette; ui-ux-pro-max guides layout/usability within these colors |
 | B21 | Focused blog checks per task; batch broad builds/checks at integration milestones | Owner explicitly rejected repeated broad checks and unrelated feature testing |
+| B22 | Finish article layout and WhatsApp interaction together before their browser acceptance, then complete linking/SEO/catalog polish | Avoid recapturing incomplete dialog/form UI; keep independent pure tests focused and record actual delivered scope |
 
 B18 applies to the blog. It does not authorize restyling the legacy site or all
 other Astro pages. Preserve shared behavior and keep new visual CSS scoped.

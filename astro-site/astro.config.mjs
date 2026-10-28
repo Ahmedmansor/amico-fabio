@@ -7,6 +7,7 @@ import {loadEnv} from 'vite';
 import {preventIndexing,assertIndexingHost} from './src/shared/seo/indexing.ts';
 import {resolveAssetOrigin} from './src/shared/seo/asset-origin.ts';
 import {blogBuildGuards} from './src/features/blog/data/build-guard.mjs';
+import {createBlogMarkdownProcessor} from './src/features/blog/presentation/markdown/processor.ts';
 const publicEnv=loadEnv('production',process.cwd(),'PUBLIC_');
 const noindexValue=process.env.PUBLIC_NOINDEX??publicEnv.PUBLIC_NOINDEX;
 const noindex=preventIndexing(noindexValue);
@@ -17,6 +18,7 @@ export default defineConfig({
   site: siteConfig.url,
   output: 'static',
   trailingSlash: 'always',
+  markdown: {processor: createBlogMarkdownProcessor()},
   devToolbar: { enabled: false },
   integrations: [catalogValidation(),seoFiles({noindex,assetOrigin}),blogBuildGuards({noindex})],
   vite: {

@@ -1,6 +1,6 @@
 # Blog feature
 
-Status: technical foundations, visual assets and listing UI implemented; article pages next.
+Status: listings/articles/WhatsApp flow implemented; linking/SEO/catalog polish next.
 Updated 2026-10-28.
 
 A static IT/EN editorial blog with city/interest browsing, translation-aware
@@ -52,7 +52,7 @@ their implementation phase. Empty directories contain only `.gitkeep` files.
 
 ## First implementation task
 
-Continue with phase 6's article routes/layout, then the scoped linking/SEO and
-WhatsApp work. Listing browser evidence is in qa/blog/PHASE_5.md. The inquiry must
+Continue with phases 7–9 linking/SEO/catalog polish. Article/inquiry evidence is
+in qa/blog/PHASE_6_10.md. The inquiry must
 remain a WhatsApp handoff using shared public configuration; no Supabase work
 belongs to this feature.
