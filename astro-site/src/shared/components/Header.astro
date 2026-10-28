@@ -14,7 +14,7 @@ const nav = [
   { key: 'trips', label: messages.menu.trips, href: `/${locale}/#trips-grid` },
   { key: 'reviews', label: messages.menu.reviews, href: `/${locale}/#reviews-section` },
   { key: 'secrets', label: messages.menu.commandments, href: `/${locale}/sharm-secrets/` },
-  { key: 'blog', label: messages.menu.blog, href: '#' },
+  { key: 'blog', label: messages.menu.blog, href: `/${locale}/blog/` },
 ];
 ---
 <header id="global-header" class="fixed w-full top-0 z-50" data-session-pending={authConfig ? 'true' : undefined}>
@@ -136,7 +136,7 @@ const nav = [
         <img src={`/assets/images/icons/languages/${locale}.svg`} class="gh-flag-svg" alt=""/><span class="gh-chevron">▼</span>
       </button>
       <div class="gh-lang-dropdown" id="gh-lang-dropdown">{supportedLocales.map(language =>
-        <a class:list={['gh-lang-item', { active: language === locale }]} data-lang={language} href={`/${language}/${route ? `${route}/` : ''}`} hreflang={language}>
+        <a class:list={['gh-lang-item', { active: language === locale }]} data-lang={language} data-lang-switch href={`/${language}/${route ? `${route}/` : ''}`} hreflang={language}>
           <img src={`/assets/images/icons/languages/${language}.svg`} class="gh-flag-svg" alt=""/><span>{languages[language].label}</span>
         </a>
       )}</div>

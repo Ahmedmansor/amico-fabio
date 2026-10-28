@@ -48,10 +48,13 @@ export async function getBlogDiscovery(lang: Locale) {
 
 export async function getArticleViews() {
   const posts = await getPosts(), policy = await getBlogPublicationPolicy();
-  return supportedLocales.flatMap(lang => getPublishedPosts(posts, lang, policy).map(post => ({
-    post, alternates: getTranslations(post, posts, policy),
-    navigation: Object.keys(getTranslations(post, posts, policy)).length ? getTranslations(post, posts, policy) : { [lang]: `/${lang}/blog/${post.slug}/` },
+  return supportedLocales.flatMap(lang => getPublishedPosts(posts, lang, policy).map(post => {
+    const alternates = getTranslations(post, posts, policy);
+    return {
+    post, alternates,
+    navigation: Object.keys(alternates).length ? alternates : { [lang]: `/${lang}/blog/${post.slug}/` },
     related: getRelatedPosts(post, posts, policy),
     author: post.fixture ? getSharedMessages(lang).blog.fixtureAuthor : authors[post.authorId!].name,
-  })));
+    authorIdentity: post.fixture ? { name: getSharedMessages(lang).blog.fixtureAuthor, type: 'Organization' as const } : authors[post.authorId!],
+  }; }));
 }

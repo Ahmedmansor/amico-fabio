@@ -12,13 +12,20 @@ import BlogLayout from '../components/BlogLayout.astro';
 import CtaCard from '../components/CtaCard.astro';
 import PostCard from '../components/PostCard.astro';
 import InquiryForm from '../components/InquiryForm.astro';
+import {articleStructuredData,serializeStructuredData} from '../seo';
 interface Props {view:Awaited<ReturnType<typeof getArticleViews>>[number];images:Record<string,ImageMetadata>}
 const {view,images}=Astro.props,{post,author,alternates,navigation,related}=view;
 const m=getSharedMessages(post.lang).blog;
 const shareImage=await getShareImage(images[post.id],post.hero.alt);
+const structuredData=articleStructuredData(post,view.authorIdentity,{site:siteConfig.url,assetOrigin:import.meta.env.PUBLIC_ASSET_ORIGIN,image:shareImage,home:m.home,journal:m.journal,destination:post.destination?m.destinationLabels[post.destination]:undefined});
 const date=(value:string)=>new Intl.DateTimeFormat(post.lang,{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(value));
 ---
 <BlogLayout locale={post.lang} title={post.title} description={post.description} path={articleUrl(post)} alternates={alternates} navigation={navigation} fixture={post.fixture} article articleId={post.id} destination={post.destination} shareImage={shareImage}>
+  <Fragment slot="head">
+    <meta property="article:published_time" content={new Date(post.pubDate).toISOString()}/>
+    {post.updatedDate&&<meta property="article:modified_time" content={new Date(post.updatedDate).toISOString()}/>}
+    <script is:inline type="application/ld+json" set:html={serializeStructuredData(structuredData)}/>
+  </Fragment>
   <main id="blog-main" class="blog-article-page">
     <div class="blog-container"><nav class="blog-breadcrumbs" aria-label={m.navigation}><a href={`/${post.lang}/`}>{m.home}</a><span aria-hidden="true">/</span><a href={listingUrl(post.lang)}>{m.journal}</a>{post.destination&&<><span aria-hidden="true">/</span><a href={listingUrl(post.lang,'destinations',post.destination)}>{m.destinationLabels[post.destination]}</a></>}<span aria-hidden="true">/</span><span>{post.title}</span></nav></div>
     <header class="blog-container blog-article-heading"><div class="blog-chips">{post.destination&&<a href={listingUrl(post.lang,'destinations',post.destination)}>{m.destinationLabels[post.destination]}</a>}{post.interests.map(interest=><a href={listingUrl(post.lang,'interests',interest)}>{m.interestLabels[interest]}</a>)}</div><h1>{post.title}</h1><p class="blog-article-description">{post.description}</p><div class="blog-meta"><span>{m.by} {author}</span><span aria-hidden="true">·</span><time datetime={post.pubDate}>{date(post.pubDate)}</time><span aria-hidden="true">·</span><span>{m.readingTime.replace('{n}',String(readingTimeMinutes(post.body)))}</span>{post.updatedDate&&<span>{m.updated}: <time datetime={post.updatedDate}>{date(post.updatedDate)}</time></span>}</div></header>
