@@ -1,6 +1,6 @@
 # Blog execution checklist
 
-Status: phases 1–3 verified; phase 4 fixture guards next.
+Status: phases 1–4 technical foundations verified; visual assets/pages next.
 Updated: 2026-10-28. Preparation-only instruction was superseded by the owner's
 subsequent implementation request. New blog UI uses ui-ux-pro-max and a fresh
 visual direction; generated temporary WebP imagery is approved.
@@ -80,21 +80,23 @@ inputs fail with useful record/field information.
 
 ## Phase 4 — Fixtures and production guards
 
-- [ ] At the visual asset phase, use imagegen for replaceable illustrative
-      article/city/interest images; convert to WebP, use stable source paths and
-      record dimensions/generated status/replacement notes in an asset inventory.
-- [ ] Add visibly artificial, colocated test articles/images covering QA.md.
-- [ ] Include translated/untranslated, long/short, draft/future and pagination cases.
-- [ ] Implement dev/approved-noindex-preview opt-in and production refusal.
-- [ ] Connect output guards to the build path and scan derived public outputs.
-- [ ] Prove forced opt-in is rejected in production and normal output is clean.
-- [ ] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+- [x] Prepare deterministic technical WebP fixtures and the asset inventory;
+      illustrative imagegen assets/replacements move to phase 5's visual work.
+- [x] Add visibly artificial, colocated test articles/images covering QA.md.
+- [x] Include translated/untranslated, long/short, draft/future and pagination cases.
+- [x] Implement dev/approved-noindex-preview opt-in and production refusal.
+- [x] Connect output guards to the build path and scan derived public outputs.
+- [x] Prove forced opt-in is rejected in production and normal output is clean.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
 
 **Done when:** test articles can be reviewed safely and cannot enter a production
 artifact through a forgotten environment flag.
 
 ## Phase 5 — Index and taxonomy pages
 
+- [ ] Use imagegen for replaceable illustrative article/city/interest images;
+      convert to WebP, use stable source paths and record generated/temporary
+      status, dimensions and replacement notes in ASSETS.md.
 - [ ] Apply ui-ux-pro-max: generate/review a blog-specific design direction,
       record selected tokens and Astro/Tailwind guidance, and build a fresh
       scoped visual shell without inheriting current site styling. Preserve

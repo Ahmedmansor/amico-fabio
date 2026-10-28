@@ -6,6 +6,7 @@ import { seoFiles } from './src/shared/seo/build-seo.mjs';
 import {loadEnv} from 'vite';
 import {preventIndexing,assertIndexingHost} from './src/shared/seo/indexing.ts';
 import {resolveAssetOrigin} from './src/shared/seo/asset-origin.ts';
+import {blogBuildGuards} from './src/features/blog/data/build-guard.mjs';
 const publicEnv=loadEnv('production',process.cwd(),'PUBLIC_');
 const noindexValue=process.env.PUBLIC_NOINDEX??publicEnv.PUBLIC_NOINDEX;
 const noindex=preventIndexing(noindexValue);
@@ -17,7 +18,7 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   devToolbar: { enabled: false },
-  integrations: [catalogValidation(),seoFiles({noindex,assetOrigin})],
+  integrations: [catalogValidation(),seoFiles({noindex,assetOrigin}),blogBuildGuards({noindex})],
   vite: {
     define: {'import.meta.env.PUBLIC_NOINDEX':JSON.stringify(noindexValue||''),'import.meta.env.PUBLIC_ASSET_ORIGIN':JSON.stringify(assetOrigin)},
     plugins: [tailwindcss()],
