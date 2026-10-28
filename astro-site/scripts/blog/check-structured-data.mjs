@@ -21,20 +21,22 @@ export async function checkBlogStructuredData(directory) {
       const data=JSON.parse(text(json[0]));
       assert.equal(data['@context'],'https://schema.org');
       const article=data['@graph'].find(n=>n['@type']==='BlogPosting');
+      const page=article??data['@graph'].find(n=>n['@type']==='WebPage');
+      assert.ok(page,`${file.pathname}: expected BlogPosting or WebPage`);
       const crumbs=data['@graph'].find(n=>n['@type']==='BreadcrumbList');
       const canonical=nodes.find(n=>n.tagName==='link'&&n.properties.rel?.includes('canonical')).properties.href;
-      assert.equal(article.url,canonical);assert.equal(article.mainEntityOfPage['@id'],canonical);
-      assert.equal(article.headline,text(nodes.find(n=>n.tagName==='h1')));
-      assert.equal(article.description,nodes.find(n=>n.tagName==='meta'&&n.properties.name==='description').properties.content);
-      assert.equal(article.inLanguage,nodes.find(n=>n.tagName==='html').properties.lang);
-      assert.ok(['Person','Organization'].includes(article.author['@type'])&&article.author.name.trim());
-      assert.ok(nodes.some(n=>n.type==='text'&&n.value.includes(article.author.name)));
-      assert.ok(nodes.some(n=>n.tagName==='time'&&Date.parse(n.properties.dateTime)===Date.parse(article.datePublished)));
-      assert.ok(Number.isFinite(Date.parse(article.datePublished)));
-      if(article.dateModified)assert.ok(Date.parse(article.dateModified)>=Date.parse(article.datePublished));
-      assert.ok(article.image.width>0&&article.image.height>0);
-      await access(new URL('.'+new URL(article.image.url).pathname,directory));
-      assert.ok(crumbs.itemListElement.length>=3);
+      assert.equal(page.url,canonical);
+      if(article)assert.equal(article.mainEntityOfPage['@id'],canonical);
+      assert.equal(article?article.headline:page.name,text(nodes.find(n=>n.tagName==='h1')));
+      assert.equal(page.description,nodes.find(n=>n.tagName==='meta'&&n.properties.name==='description').properties.content);
+      assert.equal(page.inLanguage,nodes.find(n=>n.tagName==='html').properties.lang);
+      if(page.author){assert.ok(['Person','Organization'].includes(page.author['@type'])&&page.author.name.trim());assert.ok(nodes.some(n=>n.type==='text'&&n.value.includes(page.author.name)));}
+      if(article)assert.ok(nodes.some(n=>n.tagName==='time'&&Date.parse(n.properties.dateTime)===Date.parse(article.datePublished)));
+      assert.ok(Number.isFinite(Date.parse(page.datePublished)));
+      if(page.dateModified)assert.ok(Date.parse(page.dateModified)>=Date.parse(page.datePublished));
+      const image=page.image??page.primaryImageOfPage;assert.ok(image.width>0&&image.height>0);
+      await access(new URL('.'+new URL(image.url).pathname,directory));
+      assert.ok(crumbs.itemListElement.length>=(article?3:2));
       crumbs.itemListElement.forEach((item,index)=>{assert.equal(item['@type'],'ListItem');assert.equal(item.position,index+1);assert.ok(item.name.trim());assert.equal(new URL(item.item).protocol,'https:');});
       assert.equal(crumbs.itemListElement.at(-1).item,canonical);
       checked++;
@@ -44,5 +46,5 @@ export async function checkBlogStructuredData(directory) {
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
   const count=await checkBlogStructuredData(new URL('../../dist/',import.meta.url));
-  console.log(`PASS: Blog JSON-LD contract validator checked ${count} article graphs, visible metadata, dates, authors, local images and breadcrumbs.`);
+  console.log(`PASS: Editorial JSON-LD contract validator checked ${count} page graphs, visible metadata, dates, authors, local images and breadcrumbs.`);
 }

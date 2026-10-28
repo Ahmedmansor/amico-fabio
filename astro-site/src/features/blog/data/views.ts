@@ -9,6 +9,9 @@ import { getListingAlternates, type ListingKind } from '../domain/listings';
 import type { BlogPost } from '../domain/models';
 import { authors } from './authors';
 import { getRelatedTrips } from './related-trips';
+import {readingOutline} from '../../../shared/data/reading-outline';
+
+function discoveryPosts(posts:BlogPost[]){return posts.some(post=>post.demo)?posts.filter(post=>!post.fixture||post.demo):posts;}
 
 export interface BlogListing {
   lang: Locale;
@@ -25,11 +28,11 @@ export async function getBlogListings(): Promise<BlogListing[]> {
     const published = getPublishedPosts(posts, lang, policy), active = getActiveTaxonomy(posts, lang, policy);
     const m = getSharedMessages(lang).blog;
     return [
-      { lang, kind: 'home' as const, title: m.title, description: m.intro, posts: published },
+      { lang, kind: 'home' as const, title: m.title, description: m.intro, posts: discoveryPosts(published) },
       ...active.destinations.map(({ slug }) => ({ lang, kind: 'destinations' as const, slug,
-        title: m.destinationLabels[slug], description: m.destinationDescriptions[slug], posts: published.filter(post => post.destination === slug) })),
+        title: m.destinationLabels[slug], description: m.destinationDescriptions[slug], posts: discoveryPosts(published.filter(post => post.destination === slug)) })),
       ...active.interests.map(({ slug }) => ({ lang, kind: 'interests' as const, slug,
-        title: m.interestLabels[slug], description: m.interestDescriptions[slug], posts: published.filter(post => post.interests.includes(slug)) })),
+        title: m.interestLabels[slug], description: m.interestDescriptions[slug], posts: discoveryPosts(published.filter(post => post.interests.includes(slug))) })),
     ];
   });
 }
@@ -43,21 +46,26 @@ export async function getBlogAssets() {
 }
 
 export async function getBlogDiscovery(lang: Locale) {
-  const posts = await getPosts(), policy = await getBlogPublicationPolicy();
+  const posts = discoveryPosts(await getPosts()), policy = await getBlogPublicationPolicy();
   return { featured: getFeaturedPost(posts, lang, policy), taxonomy: getActiveTaxonomy(posts, lang, policy) };
 }
 
 export async function getArticleViews() {
   const posts = await getPosts(), policy = await getBlogPublicationPolicy();
   const relatedTrips = await getRelatedTrips(posts);
+  const entries=await getCollection('blog');
+  const outlines=new Map(entries.map(entry=>[entry.id,readingOutline(entry.rendered?.html??'')]));
+  const inlineCtaIds=new Set(entries.filter(entry=>entry.rendered?.html.includes('blog-cta-compact')).map(entry=>entry.id));
   return supportedLocales.flatMap(lang => getPublishedPosts(posts, lang, policy).map(post => {
     const alternates = getTranslations(post, posts, policy);
     return {
     post, alternates,
-    navigation: Object.keys(alternates).length ? alternates : { [lang]: `/${lang}/blog/${post.slug}/` },
-    related: getRelatedPosts(post, posts, policy),
+    navigation: Object.keys(alternates).length ? alternates : Object.fromEntries(supportedLocales.map(other=>[other,other===lang?`/${lang}/blog/${post.slug}/`:`/${other}/blog/`])),
+    related: getRelatedPosts(post, post.demo?discoveryPosts(posts):posts, policy),
     author: post.fixture ? getSharedMessages(lang).blog.fixtureAuthor : authors[post.authorId!].name,
     authorIdentity: post.fixture ? { name: getSharedMessages(lang).blog.fixtureAuthor, type: 'Organization' as const } : authors[post.authorId!],
     relatedTrip: relatedTrips.get(post.id),
+    outline:outlines.get(post.id)??[],
+    hasInlineCta:inlineCtaIds.has(post.id),
   }; }));
 }

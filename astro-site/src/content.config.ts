@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { blogSchema } from './features/blog/data/content-schema';
-import { blogLoader } from './features/blog/data/loader';
+import { editorialLoaders } from './shared/data/editorial-loaders';
+import { placesSchema } from './features/places/data/content-schema';
 import { createPublicationPolicy } from './features/blog/data/publication-context';
 
 const policy = createPublicationPolicy({
@@ -10,4 +11,8 @@ const policy = createPublicationPolicy({
   githubActions: process.env.GITHUB_ACTIONS,
 });
 
-export const collections = { blog: defineCollection({ loader: blogLoader(policy), schema: blogSchema }) };
+const loaders=editorialLoaders(policy);
+export const collections = {
+  blog: defineCollection({ loader: loaders.blog, schema: blogSchema }),
+  places: defineCollection({loader:loaders.places,schema:placesSchema}),
+};

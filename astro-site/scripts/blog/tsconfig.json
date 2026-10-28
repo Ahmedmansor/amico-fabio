@@ -3,7 +3,15 @@
   "include": [
     "../../src/features/blog/**/*.ts",
     "../../src/features/blog/**/*.astro",
+    "../../src/features/places/**/*.ts",
+    "../../src/features/places/**/*.astro",
+    "../../src/shared/components/editorial/**/*.astro",
+    "../../src/shared/layouts/EditorialLayout.astro",
+    "../../src/shared/data/editorial-loaders.ts",
+    "../../src/shared/data/reading-outline.ts",
+    "../../src/shared/domain/editorial-targets.ts",
     "../../src/pages/*/blog/**/*.astro",
+    "../../src/pages/*/egypt/**/*.astro",
     "../../src/content.config.ts",
     "../../.astro/types.d.ts"
   ],

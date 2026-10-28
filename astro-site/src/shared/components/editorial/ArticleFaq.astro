@@ -1,0 +1,7 @@
+---
+import type {Locale} from '../../config/languages';
+import {getSharedMessages} from '../../i18n/shared';
+interface Props {locale:Locale;items:readonly {question:string;answer:string}[]}
+const {locale,items}=Astro.props;
+---
+{items.length>0&&<section class="editorial-faq" aria-labelledby="editorial-faq-title"><p class="blog-kicker">Fabio Egypt</p><h2 id="editorial-faq-title">{getSharedMessages(locale).blog.faqTitle}</h2>{items.map(item=><details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</section>}

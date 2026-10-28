@@ -19,6 +19,11 @@ function record(id: string, changes: Partial<BlogIndexRecord> = {}): BlogIndexRe
 }
 
 describe('frontmatter schema', () => {
+  it('never permits an unprotected design demo and validates optional FAQ content',()=>{
+    expect(schema.safeParse({...input,demo:true,fixture:false}).success).toBe(false);
+    expect(schema.safeParse({...input,demo:true,fixture:true,faq:[{question:'Useful question?',answer:'A complete and useful answer.'}]}).success).toBe(true);
+    expect(schema.safeParse({...input,faq:[{question:'Why?',answer:''}]}).success).toBe(false);
+  });
   it('normalizes keywords and supplies safe empty/default fields', () => {
     const parsed = schema.parse({ ...input, linkKeywords: ['  Guida   DEL Cairo  '] });
     expect(parsed.linkKeywords).toEqual(['guida del cairo']);

@@ -60,7 +60,7 @@ describe('native blog figures and CTA placement', () => {
     expect(code).not.toContain('blog-cta');
   });
   it('uses the same localized safe CTA source as the component', () => {
-    expect(ctaCardHtml('it')).toContain('Pianifica il tuo viaggio');
+    expect(ctaCardHtml('it')).toContain('Crea la tua vacanza da sogno!');
     expect(ctaCardHtml('en', true)).toContain('blog-cta-compact');
     expect(ctaCardHtml('en')).toContain('rel="noopener noreferrer"');
   });

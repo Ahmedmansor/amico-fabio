@@ -6,7 +6,7 @@ import { checkBlogStructuredData } from '../../../../scripts/blog/check-structur
 export async function guardBlogOutput(directory, { records = [], allowFixtures = false, noindex = false } = {}) {
   if (allowFixtures && !noindex) throw new Error('[blog] Fixtures require a noindex build.');
   let checked = 0;
-  const fixturePaths = records.filter(record => record.fixture).map(record => `/${record.lang}/blog/${record.slug}/`);
+  const fixturePaths = records.filter(record => record.fixture).map(record => record.route??`/${record.lang}/blog/${record.slug}/`);
   async function visit(folder) {
     for (const item of await readdir(folder, { withFileTypes: true })) {
       const file = new URL(item.name + (item.isDirectory() ? '/' : ''), folder);
@@ -34,13 +34,14 @@ export function blogBuildGuards({ noindex }) {
     'astro:config:done': ({ config }) => { root = config.root; },
     'astro:build:done': async ({ dir, logger }) => {
       const snapshot = JSON.parse(await readFile(new URL('./.astro/blog/index.json', root), 'utf8'));
-      const checked = await guardBlogOutput(dir, { records: snapshot.records,
+      const places = JSON.parse(await readFile(new URL('./.astro/places/index.json', root), 'utf8'));
+      const checked = await guardBlogOutput(dir, { records: [...snapshot.records,...places.records],
         allowFixtures: snapshot.policy.includeFixtures, noindex });
       logger.info(`Checked ${checked} generated text files; fixture artifact policy verified.`);
       const pages = await checkBlogLinks(dir);
-      logger.info(`Checked links and metadata structure on ${pages} blog pages.`);
+      logger.info(`Checked links and metadata structure on ${pages} editorial pages.`);
       const articles = await checkBlogStructuredData(dir);
-      logger.info(`Verified visible-content JSON-LD contract on ${articles} blog articles.`);
+      logger.info(`Verified visible-content JSON-LD contract on ${articles} editorial pages.`);
     },
   } };
 }

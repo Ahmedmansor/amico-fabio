@@ -29,6 +29,8 @@ export interface BlogPost {
   featured: boolean;
   draft: boolean;
   fixture: boolean;
+  demo?:boolean;
+  faq?:readonly {question:string;answer:string}[];
   body: string;
   sourcePath: string;
 }

@@ -245,9 +245,9 @@
     "privacy": "Note legali e privacy",
     "contact": "Contattaci",
     "copyright": "Fabio Egypt",
-    "ctaTitle": "Il tuo viaggio inizia con una conversazione.",
-    "ctaText": "Raccontaci cosa hai in mente e continua la conversazione su WhatsApp.",
-    "ctaButton": "Pianifica il tuo viaggio",
+    "ctaTitle": "Crea la tua vacanza da sogno!",
+    "ctaText": "Contatta i nostri esperti locali per un viaggio indimenticabile.",
+    "ctaButton": "Organizza il tuo viaggio",
     "mobileButton": "Chiedi informazioni",
     "formTitle": "Organizziamo il tuo viaggio",
     "formHint": "Controlla i dettagli, poi apri WhatsApp con un messaggio pronto. Sarai tu a inviarlo.",
@@ -307,6 +307,18 @@
       "luxor": "Esplora le storie su Luxor.",
       "aswan": "Esplora le storie su Assuan.",
       "sharm": "Esplora le storie su Sharm El Sheikh."
-    }
+    },
+    "inThisArticle": "In questo articolo",
+    "readingGuide": "La tua guida alla lettura",
+    "overview": "Panoramica",
+    "faqTitle": "Domande e risposte",
+    "travelGuide": "La guida all’Egitto",
+    "explorePlaces": "Esplora la zona",
+    "egyptGuide": "Guida all’Egitto",
+    "suggestedExperiences": "Esperienze da scoprire",
+    "tourLabel": "Escursione",
+    "packageLabel": "Pacchetto di viaggio",
+    "viewDetails": "Scopri i dettagli",
+    "morePlaces": "Continua a esplorare l’Egitto"
   }
 }

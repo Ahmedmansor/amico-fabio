@@ -28,7 +28,10 @@ export function blogSchema({ image }: SchemaContext) {
     authorId: identifier.optional(),
     draft: z.boolean().default(false),
     fixture: z.boolean().default(false),
+    demo:z.boolean().default(false),
+    faq:z.array(z.object({question:z.string().trim().min(5),answer:z.string().trim().min(10)}).strict()).max(12).default([]),
   }).strict().superRefine((value, context) => {
+    if(value.demo&&!value.fixture)context.addIssue({code:'custom',path:['fixture'],message:'Design demo articles must remain protected fixtures.'});
     if (!value.draft && !value.fixture && !value.authorId) {
       context.addIssue({ code: 'custom', path: ['authorId'], message: 'A real publication requires an approved authorId; no author default is configured.' });
     }

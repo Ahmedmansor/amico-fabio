@@ -245,8 +245,8 @@
     "privacy": "Legal & Privacy",
     "contact": "Contact us",
     "copyright": "Fabio Egypt",
-    "ctaTitle": "Your journey starts with a conversation.",
-    "ctaText": "Tell us what you have in mind and continue the conversation on WhatsApp.",
+    "ctaTitle": "Customize Your Dream Vacation!",
+    "ctaText": "Get in touch with our local experts for an unforgettable journey.",
     "ctaButton": "Plan your trip",
     "mobileButton": "Ask about a trip",
     "formTitle": "Let's plan your journey",
@@ -307,6 +307,18 @@
       "luxor": "Browse stories about Luxor.",
       "aswan": "Browse stories about Aswan.",
       "sharm": "Browse stories about Sharm El Sheikh."
-    }
+    },
+    "inThisArticle": "In this article",
+    "readingGuide": "Your reading guide",
+    "overview": "Overview",
+    "faqTitle": "Questions, answered",
+    "travelGuide": "The Egypt guide",
+    "explorePlaces": "Explore the area",
+    "egyptGuide": "Egypt guide",
+    "suggestedExperiences": "Experiences worth a closer look",
+    "tourLabel": "Day trip",
+    "packageLabel": "Travel package",
+    "viewDetails": "View details",
+    "morePlaces": "Keep exploring Egypt"
   }
 }

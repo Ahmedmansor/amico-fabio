@@ -1,0 +1,37 @@
+---
+import {Image} from 'astro:assets';
+import type {getPlaceViews} from '../data/views';
+import {placeUrl} from '../domain/places';
+import BlogLayout from '../../../shared/layouts/EditorialLayout.astro';
+import TableOfContents from '../../../shared/components/editorial/TableOfContents.astro';
+import ProductCard from './ProductCard.astro';
+import {getSharedMessages} from '../../../shared/i18n/shared';
+import {siteConfig} from '../../../shared/config/site';
+import {getShareImage} from '../../../shared/seo/share-image';
+import {serializeStructuredData} from '../../blog/presentation/seo';
+import './places.css';
+interface Props {view:Awaited<ReturnType<typeof getPlaceViews>>[number]}
+const {view}=Astro.props,{place}=view,m=getSharedMessages(place.lang).blog;
+const shareImage=await getShareImage(view.hero,place.heroAlt);
+const absolute=(path:string)=>new URL(path,siteConfig.url).href;
+const crumbs=[{name:m.home,item:absolute(`/${place.lang}/`)},...view.ancestors.map(item=>({name:item.title,item:absolute(placeUrl(item))})),{name:place.title,item:absolute(view.url)}];
+const schema={'@context':'https://schema.org','@graph':[
+  {'@type':'WebPage','@id':absolute(view.url),url:absolute(view.url),name:place.title,description:place.description,inLanguage:place.lang,datePublished:place.pubDate,primaryImageOfPage:{'@type':'ImageObject',url:new URL(shareImage.src,import.meta.env.PUBLIC_ASSET_ORIGIN).href,width:shareImage.width,height:shareImage.height}},
+  {'@type':'BreadcrumbList',itemListElement:crumbs.map((item,index)=>({'@type':'ListItem',position:index+1,...item}))},
+]};
+---
+<BlogLayout locale={place.lang} title={place.title} description={place.description} path={view.url} alternates={view.alternates} navigation={view.navigation} fixture={place.fixture} section="places" shareImage={shareImage}>
+  <script slot="head" is:inline type="application/ld+json" set:html={serializeStructuredData(schema)}/>
+  <main id="blog-main" class="place-page">
+    <div class="blog-container"><nav class="blog-breadcrumbs" aria-label={m.navigation}><a href={`/${place.lang}/`}>{m.home}</a>{view.ancestors.map(item=><><span aria-hidden="true">/</span><a href={placeUrl(item)}>{item.title}</a></>)}<span aria-hidden="true">/</span><span>{place.title}</span></nav></div>
+    <header class="blog-container place-heading"><p class="blog-kicker">{m.travelGuide}</p><h1>{place.title}</h1><p>{place.description}</p></header>
+    <figure class="blog-container place-hero"><Image src={view.hero} alt={place.heroAlt} widths={[640,960,1280,1536]} sizes="(min-width:1280px) 1240px, 100vw" format="webp" loading="eager" fetchpriority="high"/>{place.heroCaption&&<figcaption>{place.heroCaption}</figcaption>}</figure>
+    <div class="blog-container place-grid"><div class="place-reading"><TableOfContents locale={place.lang} headings={view.outline}/><article class="blog-prose" id="editorial-introduction"><slot/></article></div>
+      <aside class="place-sidebar" aria-label={m.explorePlaces}>
+        <nav class="place-menu" aria-label={m.explorePlaces}><p class="blog-kicker">{m.explorePlaces}</p><a href={`/${place.lang}/egypt/`}>{m.egyptGuide}</a>{view.ancestors.filter(item=>item.kind!=='country').map(item=><a href={placeUrl(item)}>{item.title}</a>)}<span aria-current="page">{place.title}</span>{view.children.map(item=><a href={placeUrl(item)}>{item.title}<span aria-hidden="true">↗</span></a>)}</nav>
+        {view.products.length>0&&<section class="place-products"><h2>{m.suggestedExperiences}</h2>{view.products.slice(0,4).map(product=><ProductCard locale={place.lang} product={product}/>)}</section>}
+      </aside>
+    </div>
+    {view.related.length>0&&<section class="blog-container blog-section"><div class="blog-section-heading"><h2>{m.morePlaces}</h2></div><div class="blog-post-grid">{view.related.map(item=><a class="blog-card" href={item.url}><div class="blog-card-image"><Image src={item.image} alt="" widths={[400,640]} sizes="(min-width:1024px) 30vw, 100vw" loading="lazy" format="webp"/></div><div class="blog-card-content"><h3>{item.title}</h3><span class="blog-text-link">{m.read}<span aria-hidden="true">↗</span></span></div></a>)}</div></section>}
+  </main>
+</BlogLayout>

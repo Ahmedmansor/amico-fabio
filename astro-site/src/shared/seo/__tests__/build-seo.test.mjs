@@ -25,6 +25,10 @@ test('unpaired blog article and unmatched pagination need no invented equivalent
  await page(folder,'it/blog/page/2/index.html',blogHtml('/it/blog/page/2/'));
  await build(dir);assert.ok((await fs.readFile(new URL('sitemap.xml',dir),'utf8')).includes('/it/blog/page/2/'));
 }));
+test('place guide alternates describe actual guides without inventing an unapproved language',()=>scenario(async(folder,dir)=>{
+ await page(folder,'en/egypt/luxor/index.html',blogHtml('/en/egypt/luxor/'));
+ await build(dir);assert.ok((await fs.readFile(new URL('sitemap.xml',dir),'utf8')).includes('/en/egypt/luxor/'));
+}));
 test('blog alternates still reject missing target pages and missing self reference',()=>scenario(async(folder,dir)=>{
  await page(folder,'it/blog/guida/index.html',blogHtml('/it/blog/guida/',[['en','/en/blog/guide/']]));
  await assert.rejects(build(dir),/self-reference/);

@@ -23,7 +23,7 @@ export function seoFiles({noindex=false,assetOrigin=siteConfig.url}={}){return {
  const urls=new Map(entries.map(entry=>[entry.canonical,entry]));
  if(urls.size!==entries.length)throw new Error('[SEO] Duplicate canonical URL.');
  for(const entry of entries){const path=new URL(entry.canonical).pathname,locale=path.split('/')[1];
-  const blog=supportedLocales.includes(locale)&&path.startsWith(`/${locale}/blog/`);
+  const blog=supportedLocales.includes(locale)&&(path.startsWith(`/${locale}/blog/`)||path.startsWith(`/${locale}/egypt/`));
   if(supportedLocales.includes(locale)&&!blog)for(const language of supportedLocales){const expected=new URL(path.replace(/^\/[^/]+\//,`/${language}/`),siteConfig.url).href;if(!entry.alternates.some(a=>a.locale===language&&a.href===expected))throw new Error(`[SEO:${path}] Missing equivalent ${language} hreflang.`);}
   if(blog&&entry.alternates.length&&!entry.alternates.some(a=>a.locale===locale&&a.href===entry.canonical))throw new Error(`[SEO:${path}] Blog hreflang must include self-reference.`);
   for(const alternate of entry.alternates){const target=urls.get(alternate.href);if(!target||!target.alternates.some(a=>a.href===entry.canonical))throw new Error(`[SEO:${path}] Missing or nonreciprocal hreflang ${alternate.href}.`);}

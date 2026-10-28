@@ -1,0 +1,8 @@
+---
+import type {GetStaticPaths} from 'astro';
+import {getPlaceViews,renderPlace} from '../../../features/places/data/views';
+import PlacePage from '../../../features/places/presentation/PlacePage.astro';
+export const getStaticPaths=(async()=> (await getPlaceViews()).map(view=>({params:{locale:view.place.lang,slug:view.place.kind==='country'?undefined:view.place.slug},props:{view}}))) satisfies GetStaticPaths;
+const {Content}=await renderPlace(Astro.props.view.entry);
+---
+<PlacePage view={Astro.props.view}><Content/></PlacePage>

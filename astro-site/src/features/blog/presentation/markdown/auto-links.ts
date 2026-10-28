@@ -3,6 +3,7 @@ import { getMarkdownContext } from '../../data/markdown-context';
 import { autoLinkLimit, getInternalLinkTargets, linkText } from '../../domain/internal-links';
 import { articleUrl } from '../../domain/translations';
 import { siteConfig } from '../../../../shared/config/site';
+import {automaticTargets,resolveEditorialReference} from '../../../../shared/domain/editorial-targets';
 
 interface ReadableNode { type: string; tagName?: string; properties?: Record<string, unknown>; value?: unknown; children?: readonly ReadableNode[] }
 function walk(node: ReadableNode, visit: (node: ReadableNode) => void) {
@@ -18,7 +19,7 @@ export function autoLinkPlugin(readContext = getMarkdownContext): HastPluginEntr
   return ({ fileURL }) => {
     const context = readContext(fileURL);
     if (!context) return null;
-    const targets = getInternalLinkTargets(context.records, context.current, context.policy);
+    const targets = context.targets?automaticTargets(context.targets,{kind:context.kind??'post',id:context.placeId??context.current.id,lang:context.current.lang}):getInternalLinkTargets(context.records, context.current, context.policy);
     const used = new Set<string>();
     const rawStack: { tag: string; skip: boolean }[] = [];
     let count = 0;
@@ -26,7 +27,8 @@ export function autoLinkPlugin(readContext = getMarkdownContext): HastPluginEntr
       if (node.type === 'raw' && typeof node.value === 'string') { walk(htmlToHast(node.value, { fragment: true }), manual); return; }
       const href = node.properties?.href;
       if (node.tagName !== 'a' || typeof href !== 'string') return;
-      const url = new URL(href, new URL(articleUrl(context.current), siteConfig.url));
+      const resolved=context.targets?resolveEditorialReference(href,context.targets,context.current.lang):href;
+      const url = new URL(resolved, new URL(articleUrl(context.current), siteConfig.url));
       if (url.origin !== new URL(siteConfig.url).origin) return;
       const target = targets.find(target => target.url === url.pathname.replace(/\/?$/, '/'));
       if (target) used.add(target.id);

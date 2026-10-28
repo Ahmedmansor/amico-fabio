@@ -1,23 +1,25 @@
 ---
-import DocumentShell from '../../../../shared/layouts/DocumentShell.astro';
-import PageHead from '../../../../shared/seo/PageHead.astro';
-import { getSharedMessages } from '../../../../shared/i18n/shared';
-import { languages, type Locale } from '../../../../shared/config/languages';
-import { siteConfig } from '../../../../shared/config/site';
-import type { ShareImage } from '../../../../shared/seo/share-image';
-import type { BlogAlternates } from '../../domain/models';
-import AuthTrigger from '../../../auth/presentation/AuthTrigger.astro';
-import AuthDialog from '../../../auth/presentation/AuthDialog.astro';
-import WelcomeDialog from '../../../auth/presentation/WelcomeDialog.astro';
-import WishlistLink from '../../../wishlist/presentation/WishlistLink.astro';
-import WishlistInvitation from '../../../wishlist/presentation/WishlistInvitation.astro';
-import InquiryDialog from './InquiryDialog.astro';
-import type {Destination} from '../../domain/taxonomy';
-import '../../../../shared/styles/global.css';
-import '../styles/blog.css';
-interface Props {locale:Locale;title:string;description:string;path:string;alternates:BlogAlternates;navigation:BlogAlternates;fixture?:boolean;article?:boolean;articleId?:string;destination?:Destination;shareImage?:ShareImage}
+import DocumentShell from './DocumentShell.astro';
+import PageHead from '../seo/PageHead.astro';
+import { getSharedMessages } from '../i18n/shared';
+import { languages, type Locale } from '../config/languages';
+import { siteConfig } from '../config/site';
+import type { ShareImage } from '../seo/share-image';
+import type { BlogAlternates } from '../../features/blog/domain/models';
+import AuthTrigger from '../../features/auth/presentation/AuthTrigger.astro';
+import AuthDialog from '../../features/auth/presentation/AuthDialog.astro';
+import WelcomeDialog from '../../features/auth/presentation/WelcomeDialog.astro';
+import WishlistLink from '../../features/wishlist/presentation/WishlistLink.astro';
+import WishlistInvitation from '../../features/wishlist/presentation/WishlistInvitation.astro';
+import InquiryDialog from '../../features/blog/presentation/components/InquiryDialog.astro';
+import type {Destination} from '../../features/blog/domain/taxonomy';
+import {getPlaceNavigation} from '../../features/places/data/navigation';
+import '../styles/global.css';
+import '../../features/blog/presentation/styles/blog.css';
+interface Props {locale:Locale;title:string;description:string;path:string;alternates:BlogAlternates;navigation:BlogAlternates;fixture?:boolean;article?:boolean;articleId?:string;destination?:Destination;shareImage?:ShareImage;section?:'blog'|'places'}
 const {locale,title,description,path,alternates,navigation,fixture=false,article=false,articleId,destination,shareImage}=Astro.props;
 const m=getSharedMessages(locale).blog;
+const section=Astro.props.section??'blog',guideUrl=await getPlaceNavigation(locale);
 ---
 <DocumentShell locale={locale} bodyClass="blog-site">
   <Fragment slot="head">
@@ -32,12 +34,12 @@ const m=getSharedMessages(locale).blog;
         <span>Fabio <strong>Egypt</strong></span>
       </a>
       <nav class="blog-desktop-nav" aria-label={m.navigation}>
-        <a href={`/${locale}/`}>{m.home}</a><a href={`/${locale}/explore/`}>{m.trips}</a><a href={`/${locale}/blog/`} aria-current="page">{m.journal}</a>
+        <a href={`/${locale}/`}>{m.home}</a><a href={`/${locale}/explore/`}>{m.trips}</a><a href={`/${locale}/blog/`} aria-current={section==='blog'?'page':undefined}>{m.journal}</a>{guideUrl&&<a href={guideUrl} aria-current={section==='places'?'page':undefined}>{m.egyptGuide}</a>}
       </nav>
       <div class="blog-header-actions">
         <WishlistLink locale={locale} active={false}/><AuthTrigger locale={locale}/>
         <nav class="blog-languages" aria-label={m.language}>{Object.entries(navigation).map(([lang,url])=><a href={url} data-lang-switch hreflang={lang} aria-label={`${lang.toUpperCase()} — ${languages[lang as Locale].label}`} aria-current={lang===locale?'true':undefined}>{lang.toUpperCase()}</a>)}</nav>
-        <details class="blog-mobile-nav"><summary aria-label={m.menu}><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></summary><nav aria-label={m.navigation}><a href={`/${locale}/`}>{m.home}</a><a href={`/${locale}/explore/`}>{m.trips}</a><a href={`/${locale}/blog/`}>{m.journal}</a></nav></details>
+        <details class="blog-mobile-nav"><summary aria-label={m.menu}><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></summary><nav aria-label={m.navigation}><a href={`/${locale}/`}>{m.home}</a><a href={`/${locale}/explore/`}>{m.trips}</a><a href={`/${locale}/blog/`}>{m.journal}</a>{guideUrl&&<a href={guideUrl}>{m.egyptGuide}</a>}</nav></details>
       </div>
     </div>
   </header>

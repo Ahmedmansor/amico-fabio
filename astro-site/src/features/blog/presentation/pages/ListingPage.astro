@@ -9,7 +9,7 @@ import {listingUrl} from '../../domain/listings';
 import {articleUrl} from '../../domain/translations';
 import {readingTimeMinutes} from '../../domain/reading-time';
 import {getSharedMessages} from '../../../../shared/i18n/shared';
-import BlogLayout from '../components/BlogLayout.astro';
+import BlogLayout from '../../../../shared/layouts/EditorialLayout.astro';
 import PostCard from '../components/PostCard.astro';
 import CtaCard from '../components/CtaCard.astro';
 interface Props {group:BlogListing;posts:BlogPost[];currentPage:number;lastPage:number;alternates:BlogAlternates;navigation:BlogAlternates;images:Record<string,ImageMetadata>;discovery:Awaited<ReturnType<typeof getBlogDiscovery>>}

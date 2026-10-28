@@ -41,7 +41,7 @@ export async function checkBlogLinks(directory, { origin = 'https://fabioegypt.c
   };
   let checked = 0;
   for (const [route, page] of pages) {
-    const lang = route.match(/^\/(it|en)\/blog\//)?.[1];
+    const lang = route.match(/^\/(it|en)\/(?:blog|egypt)\//)?.[1];
     if (!lang) continue;
     checked++;
     const fail = message => errors.push(`${route}: ${message}`);
@@ -58,6 +58,7 @@ export async function checkBlogLinks(directory, { origin = 'https://fabioegypt.c
       const alternate = node.tagName === 'link' && relHas(node, 'alternate') && p.hrefLang;
       if (node.tagName !== 'a' && !alternate) continue;
       if (typeof p.href !== 'string') continue;
+      if(/^(post|place|tour|package):/.test(p.href)){fail(`unresolved editorial reference ${p.href}`);continue;}
       const target = resolveLink(p.href, route);
       if (target.error) { fail(target.error); continue; }
       if (!target.url) continue;
@@ -77,5 +78,5 @@ export async function checkBlogLinks(directory, { origin = 'https://fabioegypt.c
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const count = await checkBlogLinks(new URL('../../dist/', import.meta.url));
-  console.log(`PASS: ${count} blog pages checked for paths, fragments, languages, headings, alt and reciprocal alternates.`);
+  console.log(`PASS: ${count} editorial pages checked for paths, fragments, languages, headings, alt and reciprocal alternates.`);
 }

@@ -25,6 +25,9 @@ test('production rejects a fixture route reference even without visible markers'
     records: [{ fixture: true, lang: 'it', slug: 'fixture-guide' }],
   }), /Fixture content/));
 });
+test('production rejects natural-looking demo article and place URLs without relying on fixture names',async()=>{
+  for(const route of ['/en/blog/common-tourist-traps-egypt/','/it/egypt/luxor/'])await artifact(`<a href="${route}">Read</a>`,'html',dir=>assert.rejects(()=>guardBlogOutput(dir,{records:[{fixture:true,route}]}),/Fixture content/));
+});
 test('preview requires noindex at both build and fixture HTML level', async () => {
   await artifact('<h1>[FIXTURE]</h1>', 'html', async dir => {
     await assert.rejects(() => guardBlogOutput(dir, { allowFixtures: true }), /noindex build/);
