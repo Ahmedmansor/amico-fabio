@@ -1,6 +1,6 @@
 # Blog execution checklist
 
-Status: phase 1 verified; phase 2 domain implementation next.
+Status: phases 1–2 verified; phase 3 collection/data implementation next.
 Updated: 2026-10-28. Preparation-only instruction was superseded by the owner's
 subsequent implementation request. New blog UI uses ui-ux-pro-max and a fresh
 visual direction; generated temporary WebP imagery is approved.
@@ -54,12 +54,12 @@ does not require guessing about image transforms or circular content loading.
 
 ## Phase 2 — Pure domain foundation
 
-- [ ] Define article/version IDs, taxonomy, publication context and inquiry types.
-- [ ] Implement publication filtering with explicit time/policy arguments.
-- [ ] Implement translation resolution, reading time and active taxonomy.
-- [ ] Implement related scoring and deterministic tie-breaks.
-- [ ] Test identity, filtering/time boundaries, language isolation and empty sets.
-- [ ] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+- [x] Define article/version IDs, taxonomy, publication context and inquiry types.
+- [x] Implement publication filtering with explicit time/policy arguments.
+- [x] Implement translation resolution, reading time and active taxonomy.
+- [x] Implement related scoring and deterministic tie-breaks.
+- [x] Test identity, filtering/time boundaries, language isolation and empty sets.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
 
 **Done when:** pure rules have meaningful tests and no environment/Astro/data/DOM
 dependency enters domain. Inquiry behavior is implemented in phase 10.

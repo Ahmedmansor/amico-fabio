@@ -1,7 +1,7 @@
 # Blog verification plan and evidence ledger
 
-Status: phase 1 isolated pipeline checks passed; remaining feature cases below
-are planned and unexecuted. See qa/blog/PHASE_1.md for exact scope/output.
+Status: phase 1 isolated pipeline and phase 2 domain checks passed; remaining
+feature cases below are planned. See qa/blog/PHASE_1.md and PHASE_2.md for output.
 Documentation scaffolding is not runtime verification.
 
 ## Evidence rules

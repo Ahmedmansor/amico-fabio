@@ -1,6 +1,6 @@
 # Blog system — implementation plan
 
-Status: phase 1 technical validation passed; domain implementation is next.
+Status: phases 1–2 verified; collection/data implementation is next.
 Updated: 2026-10-28.
 
 Planning package: see README.md for the documentation map and EXECUTION.md for
