@@ -8,6 +8,7 @@ import { getTranslations } from '../domain/translations';
 import { getListingAlternates, type ListingKind } from '../domain/listings';
 import type { BlogPost } from '../domain/models';
 import { authors } from './authors';
+import { getRelatedTrips } from './related-trips';
 
 export interface BlogListing {
   lang: Locale;
@@ -48,6 +49,7 @@ export async function getBlogDiscovery(lang: Locale) {
 
 export async function getArticleViews() {
   const posts = await getPosts(), policy = await getBlogPublicationPolicy();
+  const relatedTrips = await getRelatedTrips(posts);
   return supportedLocales.flatMap(lang => getPublishedPosts(posts, lang, policy).map(post => {
     const alternates = getTranslations(post, posts, policy);
     return {
@@ -56,5 +58,6 @@ export async function getArticleViews() {
     related: getRelatedPosts(post, posts, policy),
     author: post.fixture ? getSharedMessages(lang).blog.fixtureAuthor : authors[post.authorId!].name,
     authorIdentity: post.fixture ? { name: getSharedMessages(lang).blog.fixtureAuthor, type: 'Organization' as const } : authors[post.authorId!],
+    relatedTrip: relatedTrips.get(post.id),
   }; }));
 }

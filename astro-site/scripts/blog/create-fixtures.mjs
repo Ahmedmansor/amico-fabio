@@ -59,7 +59,8 @@ for (const [index, entry] of entries.entries()) {
     description: intro, pubDate, lang, ...(translationKey ? { translationKey } : {}),
     ...(destination ? { destination } : {}), interests, heroImage: './hero.webp',
     heroAlt: lang === 'it' ? 'Segnaposto blu per test tecnici' : 'Navy placeholder for technical testing',
-    linkKeywords, featured, draft, fixture: true };
+    linkKeywords, featured, draft, fixture: true,
+    ...(translationKey === 'fixture-diving' ? { relatedTripIds: ['ras_mohammed_white_island_vip'] } : {}) };
   const yaml = Object.entries(frontmatter).map(([key, value]) => `${key}: ${JSON.stringify(value)}`).join('\n');
   await writeFile(new URL('index.md', folder), `---\n${yaml}\n---\n\n${body.trimEnd()}\n`);
 }

@@ -11,6 +11,7 @@ heroImage: "./hero.webp"
 heroAlt: "AI-generated illustration of a coral reef and a distant diver"
 linkKeywords: ["fixture diving guide"]
 featured: false
+relatedTripIds: ["ras_mohammed_white_island_vip"]
 draft: false
 fixture: true
 ---

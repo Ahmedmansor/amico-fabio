@@ -11,6 +11,7 @@ heroImage: "./hero.webp"
 heroAlt: "Illustrazione IA di una barriera corallina e un sub in lontananza"
 linkKeywords: ["fixture guida mare"]
 featured: false
+relatedTripIds: ["ras_mohammed_white_island_vip"]
 draft: false
 fixture: true
 ---
