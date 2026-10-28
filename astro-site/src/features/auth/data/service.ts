@@ -18,6 +18,7 @@ function rateLimited(error: unknown): boolean {
 export function createAuthService(client: Client, config: AuthConfig, now: () => number = Date.now) {
   let busy = false;
   let sentAt: number | null = null;
+  let verificationRetryAt = 0;
   function callbackUrl(locale: Locale, requestedReturn: unknown): string {
     const callback = new URL(`/${locale}/auth/callback/`, config.siteOrigin);
     callback.searchParams.set('next', safeReturnPath(requestedReturn, authReturnPaths(requestedReturn), defaultAuthReturn(locale)));
@@ -25,6 +26,39 @@ export function createAuthService(client: Client, config: AuthConfig, now: () =>
   }
   return {
     remainingCooldown() { return cooldownRemaining(sentAt, now(), config.resendSeconds); },
+    async resendSignupCode(input:string,locale:Locale,requestedReturn?:unknown,captchaToken?:string):Promise<AuthResult<void>>{
+      if(!config.passwordEnabled||!config.emailEnabled)return failure('unavailable');
+      const {emailSendingGate}=await import('../domain/login.ts');
+      const gate=emailSendingGate(input,!!config.turnstileSiteKey,captchaToken);
+      if(!gate.ok)return gate;
+      if(busy)return failure('busy');
+      if(cooldownRemaining(sentAt,now(),config.resendSeconds))return failure('rate-limited');
+      busy=true;
+      try{
+        const {error}=await client.auth.resend({type:'signup',email:gate.value,options:{captchaToken,emailRedirectTo:callbackUrl(locale,requestedReturn)}});
+        if(error)return failure(rateLimited(error)?'rate-limited':'failed');
+        sentAt=now();return success(undefined);
+      }catch{return failure('failed');}finally{busy=false;}
+    },
+    async verifyEmailCode(email:string,input:string):Promise<AuthResult<AccountSession>>{
+      if(!config.emailEnabled)return failure('unavailable');
+      const normalized=normalizeEmail(email);
+      const {normalizeEmailCode}=await import('../domain/login.ts');
+      const code=normalizeEmailCode(input);
+      if(!normalized)return failure('invalid-email');
+      if(!code)return failure('invalid-code');
+      if(busy)return failure('busy');
+      if(now()<verificationRetryAt)return failure('rate-limited');
+      busy=true;
+      try{
+        // The email is the captured submitted identity, not a newly edited field.
+        // Supabase verifies expiry, single-use and native verification rate limits.
+        const {data,error}=await client.auth.verifyOtp({email:normalized,token:code,type:'email'});
+        const view=sessionView(data.session);
+        if(error||!view){verificationRetryAt=now()+3000;return failure(rateLimited(error)?'rate-limited':'invalid-code');}
+        return success(view);
+      }catch{verificationRetryAt=now()+3000;return failure('failed');}finally{busy=false;}
+    },
     /** Internal feature transport only. Never render, persist again or log this
      * bearer. The receiving backend must remotely verify the token itself. */
     async bearerFor(userId:string):Promise<AuthResult<string>>{

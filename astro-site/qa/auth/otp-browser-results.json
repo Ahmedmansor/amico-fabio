@@ -1,0 +1,31 @@
+{
+  "results": [
+    {
+      "locale": "it",
+      "passed": true,
+      "synthetic": true,
+      "checks": [
+        "check-email screen replaces signup",
+        "invalid format blocked",
+        "wrong/used code stays signed out",
+        "numeric code preserves leading zero",
+        "same-browser sign-in without PKCE verifier",
+        "no second email"
+      ]
+    },
+    {
+      "locale": "en",
+      "passed": true,
+      "synthetic": true,
+      "checks": [
+        "check-email screen replaces signup",
+        "invalid format blocked",
+        "wrong/used code stays signed out",
+        "numeric code preserves leading zero",
+        "same-browser sign-in without PKCE verifier",
+        "no second email"
+      ]
+    }
+  ],
+  "realEmailsSent": 0
+}

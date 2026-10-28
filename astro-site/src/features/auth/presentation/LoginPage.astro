@@ -10,7 +10,7 @@ interface Props {locale:Locale}
 const {locale}=Astro.props;
 const m=getAuthMessages(locale);
 const marketingEnabled=marketingConsentEnabled(import.meta.env),marketing=getMarketingMessages(locale);
-const configuration=JSON.stringify({config:authConfig,messages:m,locale}).replace(/</g,'\\u003c');
+const configuration=JSON.stringify({config:authConfig,messages:m,locale,marketingEnabled}).replace(/</g,'\\u003c');
 ---
 <main class="auth-login auth-content" data-login-page>
   <h1 data-login-title>{m.title}</h1>
@@ -18,6 +18,7 @@ const configuration=JSON.stringify({config:authConfig,messages:m,locale}).replac
   <script type="application/json" id="login-config" set:html={configuration}/>
   {authConfig ? <>
     <section data-login-guest>
+      <div data-login-controls>
       {authConfig.googleEnabled && <button type="button" class="auth-button auth-secondary" data-login-oauth="google">{m.google}</button>}
       {authConfig.emailEnabled && <>
         {authConfig.passwordEnabled && <div class="auth-tabs" role="group" aria-label={m.loginMethod}>
@@ -43,6 +44,25 @@ const configuration=JSON.stringify({config:authConfig,messages:m,locale}).replac
         </form>
       </>}
       <p class="auth-legal-acknowledgement">{m.legalBefore} <a href={`/${locale}/legal/#liability`}>{m.terms}</a> {m.legalAnd} <a href={`/${locale}/legal/#intro`}>{m.privacy}</a>.</p>
+      </div>
+      <section data-login-check-email hidden aria-labelledby="check-email-title">
+        <h2 id="check-email-title" tabindex="-1">{m.checkInbox}</h2>
+        <p data-login-delivery-message></p>
+        <p data-login-sent-to></p>
+        <form data-login-code-form novalidate>
+          <label for="login-code">{m.emailCode}</label>
+          <input id="login-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="10" required aria-describedby="login-code-error"/>
+          <p id="login-code-error" class="auth-error" data-login-code-error role="alert" hidden></p>
+          <button type="submit" class="auth-button" data-login-verify-code disabled>{m.verifyCode}</button>
+        </form>
+        <p>{m.otherBrowserGuidance}</p>
+        <details data-login-resend-options>
+          <summary>{m.requestNewCode}</summary>
+          {authConfig.turnstileSiteKey && <div data-login-resend-captcha></div>}
+          <button type="button" class="auth-button auth-secondary" data-login-resend-code disabled>{m.resendCode}</button>
+        </details>
+        <button type="button" class="auth-button auth-secondary" data-login-back-to-signin>{m.backToSignIn}</button>
+      </section>
     </section>
     <section data-login-account hidden>
       <a class="auth-button" href={`/${locale}/wishlist/`} data-login-return>{m.viewFavorites}</a>

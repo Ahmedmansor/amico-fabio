@@ -8,7 +8,7 @@ import {parseCallback} from '../../domain/auth.ts';
 const origin = 'https://test.example.com';
 const attemptId = '10000000-0000-4000-8000-000000000001';
 const event = () => ({user: {id: attemptId, email: 'person@libero.it'}, email_data: {
-  token_hash: 'synthetic-token-hash', email_action_type: 'magiclink',
+  token_hash: 'synthetic-token-hash', token:'123456', email_action_type: 'magiclink',
   redirect_to: `${origin}/en/auth/callback/?next=%2Fen%2Fwishlist%2F`, site_url: 'https://ignored.example.com',
 }});
 const signingBytes = new Uint8Array(32).fill(7);
@@ -47,7 +47,9 @@ describe('signed Auth hook and durable delivery contract', () => {
     const app = setup();
     assert.equal((await app.http(await signedRequest(JSON.stringify(event())))).status, 200);
     const mail = app.body();
-    assert.equal(mail.subject, 'Your sign-in link - Fabio Egypt');
+    assert.equal(mail.subject, 'Your sign-in code - Fabio Egypt');
+    assert.ok(mail.textContent.includes('Your one-time code: 123456'));
+    assert.ok(mail.htmlContent.includes('123456'));
     const url = new URL(mail.textContent.match(/https:\/\/[^\s]+/)[0]);
     assert.equal(url.pathname, '/en/auth/callback/');
     assert.equal(url.origin, origin);
@@ -69,6 +71,15 @@ describe('signed Auth hook and durable delivery contract', () => {
     const input=event();input.user.email='person@gamil.com';
     assert.equal((await app.dispatch(input)).status,400);
     assert.equal(dns,0);assert.equal(reservations,0);assert.equal(app.sends(),0);
+  });
+  it('requires a numeric code before DNS/quota and never returns the secret code to the hook caller',async()=>{
+    let reservations=0;const app=setup({reserve:async()=>{reservations++;return {outcome:'send',attemptId};}});
+    for(const token of [undefined,'<script>','123','12345678901']){
+      const input=event();input.email_data.token=token;assert.equal((await app.dispatch(input)).status,400);
+    }
+    assert.equal(reservations,0);assert.equal(app.sends(),0);
+    const accepted=await app.dispatch(event());assert.deepEqual(accepted.body,{});
+    assert.ok(app.body().textContent.includes('123456'));assert.equal(reservations,1);
   });
   it('signup confirms identity without embedding marketing claims or opt-in metadata',async()=>{
     const app=setup();const input=event();input.user.user_metadata={marketing_consent:true};

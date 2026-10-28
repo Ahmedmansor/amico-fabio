@@ -4,19 +4,21 @@ import {createAuthService} from '../service.ts';
 import {readAuthConfig,authReturnPaths} from '../config.ts';
 import {safeReturnPath} from '../../domain/auth.ts';
 const config = {url:'https://auth.example.test',publishableKey:'sb_publishable_test',siteOrigin:'https://test.example.test',emailEnabled:true,googleEnabled:true,passwordEnabled:true,turnstileSiteKey:'synthetic-key',resendSeconds:60};
-function setup(overrides={}) {
+function setup(overrides={},now=()=>1000) {
   const calls=[];
   const session={user:{id:'account'}};
   const auth={
     signUp:async input=>{calls.push(['signup',input]);return {data:{session:null},error:null};},
     signInWithPassword:async input=>{calls.push(['password',input]);return {data:{session},error:null};},
     signInWithOtp:async input=>{calls.push(['otp',input]);return {error:null};},
+    verifyOtp:async input=>{calls.push(['verify',input]);return {data:{session},error:null};},
+    resend:async input=>{calls.push(['resend',input]);return {error:null};},
     signInWithOAuth:async input=>{calls.push(['oauth',input]);return {data:{url:config.url+'/auth/v1/authorize?provider=google'},error:null};},
     exchangeCodeForSession:async()=>({data:{session},error:null}),
     getUser:async()=>({data:{user:session.user},error:null}),
     updateUser:async input=>{calls.push(['update',input]);return {error:null};},...overrides,
   };
-  return {service:createAuthService({auth},config,()=>1000),calls};
+  return {service:createAuthService({auth},config,now),calls};
 }
 test('sending gates stop SDK calls; signup carries CAPTCHA and intent but creates no consent write',async()=>{
   const {service,calls}=setup();
@@ -68,4 +70,28 @@ test('flags remain off by default and password activation requires Turnstile',()
 test('return path preserves catalog detail destinations without opening redirect or login loops',()=>{
   for(const path of ['/it/tours/boat-trip/','/en/packages/sharm_2026/'])assert.equal(safeReturnPath(path,authReturnPaths(path),'/it/'),path);
   for(const path of ['//evil.test','/it/login/','/it/tours/../login/','/it/tours/%2e%2e/','/it/tours/boat/?next=evil','/ar/tours/boat/','/it/unknown/'])assert.equal(safeReturnPath(path,authReturnPaths(path),'/it/'),'/it/');
+});
+test('email OTP is verified against the captured email without verifier storage or extra mail',async()=>{
+  const {service,calls}=setup();
+  for(const code of ['','123','abcdef','12345678901'])assert.deepEqual(await service.verifyEmailCode('qa@libero.it',code),{ok:false,reason:'invalid-code'});
+  assert.equal(calls.length,0);
+  assert.equal((await service.verifyEmailCode('QA@LIBERO.IT','000 123')).ok,true);
+  assert.deepEqual(calls,[['verify',{email:'QA@libero.it',token:'000123',type:'email'}]]);
+});
+test('wrong, expired and used OTP responses stay failures with a short retry guard',async()=>{
+  let now=1000,calls=0;
+  const {service}=setup({verifyOtp:async()=>{calls++;return {data:{session:null},error:{code:'otp_expired'}};}},()=>now);
+  assert.deepEqual(await service.verifyEmailCode('qa@libero.it','123456'),{ok:false,reason:'invalid-code'});
+  assert.deepEqual(await service.verifyEmailCode('qa@libero.it','123456'),{ok:false,reason:'rate-limited'});
+  assert.equal(calls,1);now+=3001;
+  assert.equal((await service.verifyEmailCode('qa@libero.it','123456')).ok,false);assert.equal(calls,2);
+});
+test('resend confirmation needs a fresh CAPTCHA and shares signup cooldown without retaining password',async()=>{
+  let now=1000;const {service,calls}=setup({},()=>now);
+  await service.signUp('qa@libero.it','long password','en',undefined,'token');
+  assert.deepEqual(await service.resendSignupCode('qa@libero.it','en',undefined,'token'),{ok:false,reason:'rate-limited'});
+  now+=61000;
+  assert.deepEqual(await service.resendSignupCode('qa@libero.it','en'),{ok:false,reason:'captcha-required'});
+  assert.equal((await service.resendSignupCode('qa@libero.it','en',undefined,'fresh-token')).ok,true);
+  assert.deepEqual(calls[1],['resend',{type:'signup',email:'qa@libero.it',options:{captchaToken:'fresh-token',emailRedirectTo:'https://test.example.test/en/auth/callback/?next=%2Fen%2F'}}]);
 });

@@ -15,3 +15,9 @@ export function emailSendingGate(email: string, captchaRequired: boolean, token?
 export function validNewPassword(password: string): boolean {
   return typeof password === 'string' && password.length >= 12 && password.length <= 128;
 }
+
+export function normalizeEmailCode(input:string):string|null{
+  if(typeof input!=='string'||input.length>32)return null;
+  const code=input.replace(/\s/g,'');
+  return /^\d{6,10}$/.test(code)?code:null;
+}

@@ -1,5 +1,11 @@
 # Login revision — approved 2026-10-28
 
+Latest same-day clarification: email code entry is primary, with an alternative
+link in the same email. User can read the mail on a phone and enter the code on
+the laptop to keep the session and guest favorites there. Code/link share one
+single-use confirmation. See `../../../qa/auth/OTP.md`; old no-code descriptions
+are historical and superseded. Google and password signin remain unchanged.
+
 This is the current execution target supplied by the user, superseding the older
 Google/Magic-Link-only and login-dialog target in PLAN.md. Historical verification
 there remains evidence for the old artifact only. Work stays on the migration

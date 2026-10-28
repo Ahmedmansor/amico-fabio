@@ -46,13 +46,14 @@ export function buildMagicLinkEmailContent(params: {
   readonly confirmationUrl: string;
   readonly locale: 'it' | 'en';
   readonly action?: 'signup' | 'magiclink';
+  readonly otp: string;
 }): { readonly subject: string; readonly html: string; readonly text: string } {
   const isIt = params.locale === 'it';
 
   const confirming = params.action === 'signup';
   const subject = confirming ? (isIt ? 'Conferma il tuo account - Fabio Egypt' : 'Confirm your account - Fabio Egypt') : isIt
-    ? 'Il tuo link di accesso - Fabio Egypt'
-    : 'Your sign-in link - Fabio Egypt';
+    ? 'Il tuo codice di accesso - Fabio Egypt'
+    : 'Your sign-in code - Fabio Egypt';
 
   const title = confirming ? (isIt ? 'Conferma il tuo indirizzo email' : 'Confirm your email address') : isIt
     ? 'Accedi a Fabio Egypt'
@@ -73,8 +74,14 @@ export function buildMagicLinkEmailContent(params: {
     : 'Sign in now';
 
   const validityNotice = isIt
-    ? 'Questo link è valido per una sola volta e scade a breve.'
-    : 'This link is single-use and expires shortly.';
+    ? 'Il codice e il link alternativo sono validi una sola volta e scadono a breve. Usando uno, l’altro non sarà più valido.'
+    : 'The code and alternative link are single-use and expire shortly. Using either consumes this confirmation.';
+
+  const codeLabel=isIt?'Il tuo codice monouso':'Your one-time code';
+  const codeHelp=isIt
+    ? 'Inserisci questo codice nella pagina in cui hai richiesto l’email. Puoi leggere il messaggio da un altro dispositivo. Non condividere il codice.'
+    : 'Enter this code on the page where you requested the email. You can read this message on another device. Do not share the code.';
+  const alternative=isIt?'In alternativa, questo link effettua l’accesso nel browser in cui lo apri:':'Alternatively, this link signs in the browser where you open it:';
 
   const ignoreNotice = isIt
     ? 'Se non hai richiesto questo link, puoi ignorare questa email in tutta sicurezza.'
@@ -104,6 +111,10 @@ export function buildMagicLinkEmailContent(params: {
         <h2 style="margin: 0 0 16px; font-size: 20px; font-weight: 600; color: #0f172a;">${title}</h2>
         <p style="margin: 0 0 12px; font-size: 15px; line-height: 1.6; color: #334155;">${greeting}</p>
         <p style="margin: 0 0 24px; font-size: 15px; line-height: 1.6; color: #334155;">${intro}</p>
+        <p style="margin: 0 0 8px; font-size: 15px; color: #334155;">${codeLabel}</p>
+        <p style="margin: 8px 0 16px; font-family: monospace; font-size: 32px; font-weight: 700; letter-spacing: 4px; color: #0f172a;">${params.otp}</p>
+        <p style="font-size: 15px; line-height: 1.6; color: #334155;">${codeHelp}</p>
+        <p style="font-size: 13px; line-height: 1.5; color: #64748b;">${alternative}</p>
         <div style="text-align: center; margin: 32px 0;">
           <a href="${htmlUrl}" style="display: inline-block; background-color: #d97706; color: #ffffff; font-size: 15px; font-weight: 600; text-decoration: none; padding: 12px 28px; border-radius: 8px; box-shadow: 0 2px 4px rgba(217, 119, 6, 0.2);">${buttonText}</a>
         </div>
@@ -128,6 +139,10 @@ export function buildMagicLinkEmailContent(params: {
 ${greeting}
 ${intro}
 
+${codeLabel}: ${params.otp}
+${codeHelp}
+
+${alternative}
 ${buttonText}: ${params.confirmationUrl}
 
 ${validityNotice}
@@ -154,8 +169,10 @@ export function createAuthSendEmailHandler(deps: AuthSendEmailDependencies) {
     const userId = event.user?.id;
     const data = event.email_data;
     const tokenHash = data?.token_hash;
+    const otp=data?.token;
     if (typeof userId !== 'string' || !/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(userId)
       || typeof tokenHash !== 'string' || !/^[a-zA-Z0-9_-]{1,512}$/.test(tokenHash)
+      || typeof otp !== 'string' || !/^\d{6,10}$/.test(otp)
       || !['magiclink', 'signup'].includes(data?.email_action_type ?? '')) return fail(400, 'Unsupported email event.');
     let callback: URL;
     let locale: 'it' | 'en';
@@ -180,7 +197,7 @@ export function createAuthSendEmailHandler(deps: AuthSendEmailDependencies) {
       if (admission.outcome === 'blocked') return fail(429, 'Email request blocked or rate limited.');
       if (admission.outcome !== 'send') return fail(503, 'Delivery requires reconciliation.');
       callback.hash = new URLSearchParams({token_hash: tokenHash, type: 'email'}).toString();
-      const content = buildMagicLinkEmailContent({recipient: email, confirmationUrl: callback.href, locale, action: data!.email_action_type as 'signup' | 'magiclink'});
+      const content = buildMagicLinkEmailContent({recipient: email, confirmationUrl: callback.href, locale, action: data!.email_action_type as 'signup' | 'magiclink',otp});
       let delivery: {state: 'accepted' | 'unknown' | 'retryable' | 'rejected'; messageId?: string} = {state: 'unknown'};
       try {
         delivery = await withDeadline(async signal => {

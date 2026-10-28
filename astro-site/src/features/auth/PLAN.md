@@ -4,6 +4,12 @@
 
 ## Current target and handoff — 2026-10-28
 
+Latest same-day user clarification: OTP code entry is now the primary email
+confirmation/recovery UX, with the existing link as an alternative in the same
+message. This supersedes historical statements below excluding user-entered OTP.
+The first successful code/link use consumes the confirmation; it cannot sign in
+two browsers. See `../../../qa/auth/OTP.md` for implementation and focused checks.
+
 The user's new master plan supersedes earlier no-password, login-popup and
 reminder-only consent targets. Follow [LOGIN_REVISION.md](LOGIN_REVISION.md):
 standalone IT/EN login, password signup/signin, Google, protected
