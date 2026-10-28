@@ -1,6 +1,8 @@
 # Blog system — implementation plan
 
-Status: listings, articles and WhatsApp inquiry implemented; linking/SEO/catalog polish next.
+Status: original technical implementation is complete locally, including the
+title-link correction. The owner's subsequent editorial/places design expansion
+is specified in EDITORIAL_REVISION.md; those new targets are not implemented yet.
 Updated: 2026-10-28.
 
 Planning package: see README.md for the documentation map and EXECUTION.md for

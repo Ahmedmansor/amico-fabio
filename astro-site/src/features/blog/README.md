@@ -12,6 +12,7 @@ the existing data / pure domain / presentation architecture.
 | Document | Purpose |
 | --- | --- |
 | [PLAN.md](./PLAN.md) | Scope, goals, architecture, behavior and acceptance contract |
+| [EDITORIAL_REVISION.md](./EDITORIAL_REVISION.md) | New owner-requested reading layout, independent audiences, place guides and cross-content links |
 | [EXECUTION.md](./EXECUTION.md) | Ordered implementation tasks and progress/evidence ledger |
 | [DECISIONS.md](./DECISIONS.md) | Fixed decisions, implementation hypotheses and publication dependencies |
 | [AUTHORING.md](./AUTHORING.md) | Actual authoring commands, format and publication checklist |
