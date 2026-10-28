@@ -16,7 +16,7 @@ const configuration=JSON.stringify({config:authConfig,messages:m,locale,localeSe
     <div class="auth-content">
       <h2 id="auth-title">{m.accountTitle}</h2>
       <p>{m.signedIn}</p><AccountSummary locale={locale}/>
-      {authConfig.passwordEnabled && <a class="auth-button auth-secondary" href={`/${locale}/login/`}>{m.setPassword}</a>}
+      {authConfig.passwordEnabled && <a class="auth-button auth-secondary" href={`/${locale}/login/?settings=password`}>{m.optionalPassword}</a>}
       <button type="button" class="auth-button auth-secondary" data-auth-signout>{m.signOut}</button>
       <p data-auth-status role="status" aria-live="polite" hidden></p>
       <button type="button" class="auth-close" data-auth-close>{m.close}</button>

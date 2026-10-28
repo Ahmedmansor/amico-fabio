@@ -73,6 +73,8 @@ try{
     assert.equal(calls.filter(c=>c.path.endsWith('/otp')).length,1,'Password login sends no extra email');
     await page.goto(`${origin}/${locale}/login/`);
     await page.locator('[data-login-account]:visible').waitFor();
+    assert.equal(await page.locator('[data-login-password-settings]').getAttribute('open'),null);
+    await page.locator('[data-login-password-settings] summary').click();
     await page.locator('#account-password').fill('new synthetic password');
     await page.locator('[data-login-set-password] button').click();
     await page.waitForFunction(()=>document.querySelector('#account-password').value==='');

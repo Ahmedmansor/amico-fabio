@@ -36,6 +36,7 @@ async function initialize(){
   let mode:'signin'|'signup'|'recovery'=config.passwordEnabled?'signin':'recovery';
   let pending=false,token='',signedIn=false,ready=false;
   let captcha:Awaited<ReturnType<typeof mountTurnstile>>|undefined;
+  let captchaStarted=false;
   const message=(reason:AuthFailure)=>reason==='invalid-email'?m.invalidEmail:reason==='disposable-domain'?m.disposableEmail:reason==='email-typo'?m.checkTypo:reason==='captcha-required'?m.captchaRequired:reason==='invalid-password'?m.passwordGuidance:reason==='rate-limited'?m.rateLimited:m.failed;
   function render(){
     const sending=mode!=='signin';
@@ -60,9 +61,11 @@ async function initialize(){
     const remaining=service!.remainingCooldown();cooldown.hidden=!remaining;cooldown.textContent=remaining?m.resend.replace('{seconds}',String(remaining)):'';
     form?.setAttribute('aria-busy',String(pending));
   }
-  if(config.turnstileSiteKey){
-    void mountTurnstile(root.querySelector('[data-login-captcha]')!,config.turnstileSiteKey,locale,value=>{token=value;render();})
-      .then(value=>{captcha=value;}).catch(()=>{status.textContent=m.captchaUnavailable;});
+  function ensureCaptcha(){
+    if(!config!.turnstileSiteKey||captchaStarted)return;
+    captchaStarted=true;
+    void mountTurnstile(root!.querySelector('[data-login-captcha]')!,config!.turnstileSiteKey,locale,value=>{token=value;render();})
+      .then(value=>{captcha=value;if(signedIn){captcha.remove();captcha=undefined;captchaStarted=false;}}).catch(()=>{captchaStarted=false;if(!signedIn)status.textContent=m.captchaUnavailable;});
   }
   email?.addEventListener('input',render);password?.addEventListener('input',render);
   root.querySelector('[data-login-correct]')?.addEventListener('click',()=>{const typo=suggestEmailCorrection(email!.value);if(typo){email!.value=typo.suggested;render();email!.focus();}});
@@ -89,6 +92,7 @@ async function initialize(){
     pending=false;status.textContent=message(result.reason);render();
   });
   const setForm=root.querySelector<HTMLFormElement>('[data-login-set-password]');
+  const passwordSettings=root.querySelector<HTMLDetailsElement>('[data-login-password-settings]');
   setForm?.addEventListener('submit',async event=>{
     event.preventDefault();if(pending||!signedIn)return;
     const input=setForm.querySelector<HTMLInputElement>('input')!;
@@ -99,6 +103,15 @@ async function initialize(){
   getAccountState(service).subscribe(state=>{
     ready=state.status==='ready';signedIn=!!state.session;
     guest.hidden=signedIn;account.hidden=!signedIn;
+    root.querySelector('[data-login-title]')!.textContent=signedIn?m.accountTitle:m.title;
+    root.querySelector('[data-login-intro]')!.textContent=signedIn?m.signedIn:m.loginIntro;
+    if(signedIn){
+      if(captcha){captcha.remove();captcha=undefined;captchaStarted=false;}
+      if(passwordSettings&&new URLSearchParams(location.search).get('settings')==='password')passwordSettings.open=true;
+    }else{
+      if(passwordSettings)passwordSettings.open=false;
+      if(ready)ensureCaptcha();
+    }
     if(state.status==='failed')status.textContent=m.failed;
     render();
   });

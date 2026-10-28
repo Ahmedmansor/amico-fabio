@@ -67,6 +67,7 @@
   "legalAnd": "e l’",
   "viewFavorites": "Continua sul sito",
   "setPassword": "Imposta o modifica la password",
+  "optionalPassword": "Aggiungi o modifica una password email (facoltativo)",
   "savePassword": "Salva password",
   "passwordSaved": "La password è stata salvata. Puoi usarla al prossimo accesso."
 }

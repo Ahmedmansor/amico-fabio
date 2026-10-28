@@ -13,8 +13,8 @@ const marketingEnabled=marketingConsentEnabled(import.meta.env),marketing=getMar
 const configuration=JSON.stringify({config:authConfig,messages:m,locale}).replace(/</g,'\\u003c');
 ---
 <main class="auth-login auth-content" data-login-page>
-  <h1>{m.title}</h1>
-  <p>{m.loginIntro}</p>
+  <h1 data-login-title>{m.title}</h1>
+  <p data-login-intro>{m.loginIntro}</p>
   <script type="application/json" id="login-config" set:html={configuration}/>
   {authConfig ? <>
     <section data-login-guest>
@@ -45,14 +45,16 @@ const configuration=JSON.stringify({config:authConfig,messages:m,locale}).replac
       <p class="auth-legal-acknowledgement">{m.legalBefore} <a href={`/${locale}/legal/#liability`}>{m.terms}</a> {m.legalAnd} <a href={`/${locale}/legal/#intro`}>{m.privacy}</a>.</p>
     </section>
     <section data-login-account hidden>
-      <p>{m.signedIn}</p>
       <a class="auth-button" href={`/${locale}/wishlist/`} data-login-return>{m.viewFavorites}</a>
-      {authConfig.passwordEnabled && <form data-login-set-password novalidate>
+      {authConfig.passwordEnabled && <details class="auth-password-settings" data-login-password-settings>
+        <summary>{m.optionalPassword}</summary>
+        <form data-login-set-password novalidate>
         <label for="account-password">{m.setPassword}</label>
         <input id="account-password" type="password" autocomplete="new-password" minlength="12" maxlength="128" required aria-describedby="account-password-guidance"/>
         <p id="account-password-guidance">{m.passwordGuidance}</p>
         <button type="submit" class="auth-button auth-secondary">{m.savePassword}</button>
-      </form>}
+        </form>
+      </details>}
       <MarketingConsent locale={locale}/>
     </section>
   </> : <p>{m.unavailable}</p>}

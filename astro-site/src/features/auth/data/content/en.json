@@ -67,6 +67,7 @@
   "legalAnd": "and",
   "viewFavorites": "Continue to the website",
   "setPassword": "Set or change your password",
+  "optionalPassword": "Add or change an email password (optional)",
   "savePassword": "Save password",
   "passwordSaved": "Your password has been saved. You can use it next time you sign in."
 }

@@ -110,3 +110,11 @@ mode is enabled. At the user's request, the full checks above were not repeated
 for these later edits. A synthetic remote signup check was rejected by automatic
 approval review before execution; do not report it as a Supabase/CAPTCHA rejection.
 No real signup/email/CAPTCHA completion has been verified in this update.
+
+Signed-in page follow-up: show Your account / signed-in status, keep password
+settings collapsed and explicitly optional, and load CAPTCHA only for a confirmed
+guest. The account-dialog password link opens those settings by explicit choice.
+One targeted browser check with a synthetic Google session passed: account title,
+collapsed password field, explicit expansion and zero CAPTCHA loads. All Supabase
+requests were intercepted; no email or real Auth request. Broad checks were not
+repeated, following the user's instruction.
