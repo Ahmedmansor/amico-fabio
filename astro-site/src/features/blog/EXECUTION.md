@@ -1,8 +1,8 @@
 # Blog execution checklist
 
-Status: listing/article/WhatsApp milestone implemented and browser-checked;
-phases 7–9 polish and authoring/final integration next. Phase 10 was completed
-with phase 6 to avoid duplicate browser work (DECISIONS.md B22).
+Status: technical implementation and grouped integration complete locally.
+Real editorial publication still needs approved articles/author/photos. See
+qa/blog/FINAL.md for verification and the intentional noindex SEO-score exception.
 Updated: 2026-10-28. Preparation-only instruction was superseded by the owner's
 subsequent implementation request. New blog UI uses ui-ux-pro-max and a fresh
 visual direction; generated temporary WebP imagery is approved.
@@ -146,13 +146,13 @@ algorithm tests.
 
 ## Phase 8 — Shared navigation and SEO integration
 
-- [ ] Forward page-specific navigation and head alternate maps separately.
-- [ ] Extend the existing SEO generator/validator for actual translated routes.
-- [ ] Add article OG/social/JSON-LD and accurate author/date metadata.
-- [ ] Verify unpaired articles and unequal paginated listings without fake hreflang.
-- [ ] Activate the existing Blog nav item once routes are ready and verified.
-- [ ] Regression-check current shared-shell routes and noindex behavior.
-- [ ] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+- [x] Forward page-specific navigation and head alternate maps separately.
+- [x] Extend the existing SEO generator/validator for actual translated routes.
+- [x] Add article OG/social/JSON-LD and accurate author/date metadata.
+- [x] Verify unpaired articles and unequal paginated listings without fake hreflang.
+- [x] Activate the existing Blog nav item once routes are ready and verified.
+- [x] Regression-check current shared-shell routes and noindex behavior.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
 
 **Done when:** one sitemap/head system describes real pages and shared navigation
 preserves existing site behavior. Real author details may block only publication
@@ -160,11 +160,11 @@ of real articles; fixtures must remain visibly artificial.
 
 ## Phase 9 — Related tour references
 
-- [ ] Resolve explicit stable trip IDs through getTrips(), respecting visibility.
-- [ ] Select the first eligible configured tour deterministically.
-- [ ] Render approved locale title/image/link; do not calculate article prices.
-- [ ] Reject unknown references and test hidden/missing-locale cases explicitly.
-- [ ] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+- [x] Resolve explicit stable trip IDs through getTrips(), respecting visibility.
+- [x] Select the first eligible configured tour deterministically.
+- [x] Render approved locale title/image/link; do not calculate article prices.
+- [x] Reject unknown references and test hidden/missing-locale cases explicitly.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
 
 **Done when:** references are validated through the owning feature's public
 data interface and cards lead to the proper booking page.
@@ -187,23 +187,25 @@ themselves. No Supabase, persistence, email or backend acceptance exists here.
 
 ## Phase 11 — Authoring tools
 
-- [ ] Implement the safe local draft scaffold and reference/keyword report.
-- [ ] Test invalid names/locales and existing-directory refusal using temp inputs.
-- [ ] Replace proposed command descriptions in AUTHORING.md with actual syntax.
-- [ ] Check the template against the implemented schema and route rules.
-- [ ] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+- [x] Implement the safe local draft scaffold and reference/keyword report.
+- [x] Test invalid names/locales and existing-directory refusal using temp inputs.
+- [x] Replace proposed command descriptions in AUTHORING.md with actual syntax.
+- [x] Check the template against the implemented schema and route rules.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
 
 **Done when:** the owner can prepare a new draft without guessing metadata paths
 or overwriting an existing article.
 
 ## Phase 12 — Final QA and handoff
 
-- [ ] Run the full existing test suite and implemented content/link/fixture guards.
-- [ ] Run Astro check and final static build; record actual outputs.
-- [ ] Complete QA.md browser/translation/negative-test matrix.
-- [ ] Measure performance/CLS and validate structured data with named tools.
-- [ ] Record outstanding editorial inputs and specific limitations honestly.
-- [ ] Produce final report and focused commit for any final fixes/evidence.
+- [x] Run the focused blog suite and implemented content/link/fixture guards;
+      preserve the existing runner and avoid unrelated retests per owner instruction.
+- [x] Run Astro check and final static build; record actual outputs.
+- [x] Record the implemented browser/translation/negative-test matrix and
+      distinguish the remaining real-content release checks in FINAL.md.
+- [x] Measure performance/CLS and validate structured data with named tools.
+- [x] Record outstanding editorial inputs and specific limitations honestly.
+- [x] Produce final report and focused commit for any final fixes/evidence.
 
 **Done when:** acceptance is backed by the tested revision and remaining real
 publication dependencies are explicit. A deploy/push is a separate applicable

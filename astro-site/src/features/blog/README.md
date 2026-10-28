@@ -1,6 +1,6 @@
 # Blog feature
 
-Status: listings/articles/WhatsApp flow implemented; linking/SEO/catalog polish next.
+Status: technical implementation complete locally; real editorial publication pending.
 Updated 2026-10-28.
 
 A static IT/EN editorial blog with city/interest browsing, translation-aware
@@ -14,7 +14,7 @@ the existing data / pure domain / presentation architecture.
 | [PLAN.md](./PLAN.md) | Scope, goals, architecture, behavior and acceptance contract |
 | [EXECUTION.md](./EXECUTION.md) | Ordered implementation tasks and progress/evidence ledger |
 | [DECISIONS.md](./DECISIONS.md) | Fixed decisions, implementation hypotheses and publication dependencies |
-| [AUTHORING.md](./AUTHORING.md) | Planned article format, template and editorial checklist |
+| [AUTHORING.md](./AUTHORING.md) | Actual authoring commands, format and publication checklist |
 | [QA.md](./QA.md) | Verification cases, browser checks and evidence requirements |
 
 PLAN.md owns requirements. EXECUTION.md tracks work. QA.md defines evidence;
@@ -23,16 +23,16 @@ DECISIONS.md and update affected requirements before reporting completion.
 
 ## Current deliverables
 
-- Planning documents, pure domain helpers/tests and remaining layer placeholders.
-- Registered collection/schema/loader, 22 guarded technical fixture articles,
-  generated WebP illustrations and focused verification scripts; index/taxonomy
-  routes are implemented, article routes are next.
-- A pinned dev-only native Markdown adapter and isolated verification runner;
-  no application collection/routes/environment/hosting changes.
+- Registered content collection with colocated optimized images and strict validation.
+- IT/EN blog home, destination/interest pagination, article pages, related articles
+  and explicit published-tour references in a new scoped editorial design.
+- Automatic internal links, translated-route SEO, article JSON-LD and build guards.
+- 22 guarded technical fixtures and replaceable generated WebP illustrations.
+- Local draft scaffold/reference report and measured browser/performance evidence.
 - No database, API, email or persisted inquiry data.
 
-The owner subsequently authorized execution. Runtime acceptance remains pending
-until actual checks are recorded. Use ui-ux-pro-max for a new blog design, free
+The owner subsequently authorized execution. See qa/blog/FINAL.md for exact
+verification and limitations. The design uses ui-ux-pro-max, free
 from the current site's visual styling; keep unrelated pages unchanged. Temporary
 AI-generated WebP article/taxonomy assets are approved for later replacement.
 
@@ -47,12 +47,13 @@ AI-generated WebP article/taxonomy assets are approved for later replacement.
 - `presentation/scripts/`: scoped browser interactions only.
 - `presentation/styles/`: scoped blog tokens/styles for the new design direction.
 
-Content/config/routes/scripts outside the feature remain planned paths until
-their implementation phase. Empty directories contain only `.gitkeep` files.
+Thin routes live under src/pages/[locale]/blog; authoring/check tools live under
+scripts/blog. Build guards run after the shared sitemap generator.
 
-## First implementation task
+## Review and next editorial step
 
-Continue with phases 7–9 linking/SEO/catalog polish. Article/inquiry evidence is
-in qa/blog/PHASE_6_10.md. The inquiry must
-remain a WhatsApp handoff using shared public configuration; no Supabase work
-belongs to this feature.
+Local guarded preview: http://127.0.0.1:4327/it/blog/ (English also available).
+Use AUTHORING.md to prepare approved articles and add a real author to
+data/authors.ts before publication. Fixture articles cannot enter a production
+artifact. Replace the temporary artwork using ASSETS.md. No hosting or deployment
+was changed. The inquiry stays a WhatsApp handoff, with no Supabase backend.

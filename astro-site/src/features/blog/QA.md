@@ -1,8 +1,7 @@
 # Blog verification plan and evidence ledger
 
-Status: phase 1 isolated pipeline and phase 2 domain checks passed; remaining
-feature cases below are planned. See qa/blog/PHASE_1.md and PHASE_2.md for output.
-Documentation scaffolding is not runtime verification.
+Status: technical verification complete locally. See qa/blog/FINAL.md for the
+tested revisions, measured results, noindex SEO exception and publication gates.
 
 ## Evidence rules
 
@@ -12,8 +11,9 @@ Documentation scaffolding is not runtime verification.
   Astro check/build at coherent integration milestones, not after every small
   change. Do not repeat unrelated feature checks without a concrete reason.
   Resolve failures in required scoped checks before committing the task.
-- Preserve the existing npm test runner. Final QA includes the full suite plus
-  the content/link/fixture scripts after they have been implemented.
+- Preserve the existing npm test runner. The owner's latest instruction scopes
+  this task's final run to blog behavior and changed integrations; no unrelated
+  Auth/catalog/reminder suite is rerun merely to complete a checklist.
 - Negative cases pass only when the intended check rejects the intended problem
   with a useful diagnostic; a random build failure is not proof.
 - Keep screenshots local and Git-ignored; commit scripts, sanitized JSON and
@@ -55,18 +55,18 @@ tests; exercise real build-time references through the normal build separately.
 
 At 375, 768 and 1280px, in IT and EN where published:
 
-- [ ] Blog home and populated listing: correct sections, cards and pagination.
-- [ ] Long and short article: complete text, images, captions and related links.
-- [ ] Desktop aside sticks without hiding fields or breaking the article column.
-- [ ] Mobile aside is display:none; floating action does not cover footer/content.
-- [ ] Dialog has accessible name, focus trap, Escape close and focus restoration.
-- [ ] Review/cancel retains values; resizing between mounts preserves the draft.
-- [ ] Labels/error associations/IDs are correct and unique across form instances.
-- [ ] Existing cookie, wishlist and WhatsApp controls do not collide with new UI.
-- [ ] Keyboard focus is visible; no horizontal overflow; tables scroll locally.
-- [ ] Actual WhatsApp destination/message verified by interception or link inspect.
-- [ ] No automated/real message sent and no UI claims that delivery occurred.
-- [ ] Shared-header changes preserve existing mobile/desktop IT/EN navigation.
+- [x] Blog home and populated listing: correct sections, cards and pagination.
+- [x] Long and short article: complete text, images, captions and related links.
+- [x] Desktop aside sticks without hiding fields or breaking the article column.
+- [x] Mobile aside is display:none; floating action does not cover footer/content.
+- [x] Dialog has accessible name, focus trap, Escape close and focus restoration.
+- [x] Review/cancel retains values; resizing between mounts preserves the draft.
+- [x] Labels/error associations/IDs are correct and unique across form instances.
+- [x] Existing cookie, wishlist and WhatsApp controls do not collide with new UI.
+- [x] Keyboard focus is visible; no horizontal overflow; tables scroll locally.
+- [x] Actual WhatsApp destination/message verified by interception or link inspect.
+- [x] No automated/real message sent and no UI claims that delivery occurred.
+- [x] Shared-header changes preserve existing mobile/desktop IT/EN navigation.
 
 Do not claim successful WhatsApp sending based on opening a URL. The visitor
 must send the prepared message themselves.
@@ -83,13 +83,14 @@ Use a named structured-data validator and distinguish JSON syntax/schema checks
 from rich-result eligibility. Preview remains noindex; production-mode artifact
 validation can be performed locally without publishing or making it indexable.
 
-## Future check integration
+## Build check integration
 
-Content, link and fixture guard script names are proposals until implemented.
-The guards must be connected to the applicable build path, not just listed here.
-The link checker must account for current campaign routes and the bilingual 404;
-do not impose blog-only assumptions on unrelated pages. Any discovered existing
-issue gets its own explicit finding rather than a silent exemption.
+Content validation runs in the collection loader; link, structured-data and
+fixture guards run after shared SEO generation in the build hook. The standalone
+check commands inspect an existing artifact. Blog-only assumptions are scoped
+to blog routes; campaign/404 pages can be link destinations without adopting
+the blog's heading/language conventions. See FINAL.md for actual invocation
+counts and explicit publication-only checks that remain unverified.
 
 ## Per-phase report template
 
@@ -108,7 +109,7 @@ Next task:
 
 ## Current evidence
 
-Preparation commits: 0e78f0a and cd152fa. Phase 1's isolated native-pipeline test
-passed; it does not verify production blog functionality. Remaining browser and
-feature cases are unexecuted. See qa/blog/PHASE_1.md and add later reports only
-after their scoped checks actually run.
+See qa/blog/PHASE_1.md through PHASE_11.md, the earlier SEO prerequisite report,
+FINAL.md, PERFORMANCE.json and browser comparison JSON. Historical phase reports
+describe their tested revision; final evidence does not retrospectively relabel
+older screenshots as checks of later edits. No real WhatsApp message was sent.

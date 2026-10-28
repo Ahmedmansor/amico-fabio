@@ -1,0 +1,249 @@
+{
+  "context": "Static Astro preview; noindex fixtures. Mobile simulated throttling. Measured before accessible-name prefix-only correction; not a later rerun.",
+  "rows": [
+    {
+      "page": "http://127.0.0.1:4327/it/blog/",
+      "version": "13.6.0",
+      "fetchTime": "2026-10-28T17:20:44.420Z",
+      "device": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "performance": 97,
+      "accessibility": 100,
+      "seo": 69,
+      "cls": 0,
+      "lcpMs": 2648.0409,
+      "seoAudits": [
+        {
+          "id": "is-crawlable",
+          "score": 0
+        },
+        {
+          "id": "document-title",
+          "score": 1
+        },
+        {
+          "id": "meta-description",
+          "score": 1
+        },
+        {
+          "id": "http-status-code",
+          "score": 1
+        },
+        {
+          "id": "link-text",
+          "score": 1
+        },
+        {
+          "id": "crawlable-anchors",
+          "score": 1
+        },
+        {
+          "id": "robots-txt",
+          "score": 1
+        },
+        {
+          "id": "image-alt",
+          "score": 1
+        },
+        {
+          "id": "hreflang",
+          "score": 1
+        },
+        {
+          "id": "canonical",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "page": "http://127.0.0.1:4327/it/blog/fixture-guida-cairo/",
+      "version": "13.6.0",
+      "fetchTime": "2026-10-28T17:22:26.475Z",
+      "device": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "performance": 93,
+      "accessibility": 100,
+      "seo": 69,
+      "cls": 0.0001281805272615148,
+      "lcpMs": 3168.7554,
+      "seoAudits": [
+        {
+          "id": "is-crawlable",
+          "score": 0
+        },
+        {
+          "id": "document-title",
+          "score": 1
+        },
+        {
+          "id": "meta-description",
+          "score": 1
+        },
+        {
+          "id": "http-status-code",
+          "score": 1
+        },
+        {
+          "id": "link-text",
+          "score": 1
+        },
+        {
+          "id": "crawlable-anchors",
+          "score": 1
+        },
+        {
+          "id": "robots-txt",
+          "score": 1
+        },
+        {
+          "id": "image-alt",
+          "score": 1
+        },
+        {
+          "id": "hreflang",
+          "score": 1
+        },
+        {
+          "id": "canonical",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "page": "http://127.0.0.1:4327/en/blog/fixture-practical-notes/",
+      "version": "13.6.0",
+      "fetchTime": "2026-10-28T17:22:40.653Z",
+      "device": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "performance": 94,
+      "accessibility": 100,
+      "seo": 69,
+      "cls": 0.00000982653171931605,
+      "lcpMs": 3124.9919999999993,
+      "seoAudits": [
+        {
+          "id": "is-crawlable",
+          "score": 0
+        },
+        {
+          "id": "document-title",
+          "score": 1
+        },
+        {
+          "id": "meta-description",
+          "score": 1
+        },
+        {
+          "id": "http-status-code",
+          "score": 1
+        },
+        {
+          "id": "link-text",
+          "score": 1
+        },
+        {
+          "id": "crawlable-anchors",
+          "score": 1
+        },
+        {
+          "id": "robots-txt",
+          "score": 1
+        },
+        {
+          "id": "image-alt",
+          "score": 1
+        },
+        {
+          "id": "hreflang",
+          "score": 1
+        },
+        {
+          "id": "canonical",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "page": "http://127.0.0.1:4327/en/blog/fixture-diving-guide/",
+      "version": "13.6.0",
+      "fetchTime": "2026-10-28T17:22:54.400Z",
+      "device": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "performance": 90,
+      "accessibility": 100,
+      "seo": 69,
+      "cls": 0.00007300749121832592,
+      "lcpMs": 3694.685399999999,
+      "seoAudits": [
+        {
+          "id": "is-crawlable",
+          "score": 0
+        },
+        {
+          "id": "document-title",
+          "score": 1
+        },
+        {
+          "id": "meta-description",
+          "score": 1
+        },
+        {
+          "id": "http-status-code",
+          "score": 1
+        },
+        {
+          "id": "link-text",
+          "score": 1
+        },
+        {
+          "id": "crawlable-anchors",
+          "score": 1
+        },
+        {
+          "id": "robots-txt",
+          "score": 1
+        },
+        {
+          "id": "image-alt",
+          "score": 1
+        },
+        {
+          "id": "hreflang",
+          "score": 1
+        },
+        {
+          "id": "canonical",
+          "score": 1
+        }
+      ]
+    }
+  ]
+}

@@ -36,7 +36,7 @@ const m=getSharedMessages(locale).blog;
       </nav>
       <div class="blog-header-actions">
         <WishlistLink locale={locale} active={false}/><AuthTrigger locale={locale}/>
-        <nav class="blog-languages" aria-label={m.language}>{Object.entries(navigation).map(([lang,url])=><a href={url} data-lang-switch hreflang={lang} aria-label={languages[lang as Locale].label} aria-current={lang===locale?'true':undefined}>{lang.toUpperCase()}</a>)}</nav>
+        <nav class="blog-languages" aria-label={m.language}>{Object.entries(navigation).map(([lang,url])=><a href={url} data-lang-switch hreflang={lang} aria-label={`${lang.toUpperCase()} — ${languages[lang as Locale].label}`} aria-current={lang===locale?'true':undefined}>{lang.toUpperCase()}</a>)}</nav>
         <details class="blog-mobile-nav"><summary aria-label={m.menu}><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></summary><nav aria-label={m.navigation}><a href={`/${locale}/`}>{m.home}</a><a href={`/${locale}/explore/`}>{m.trips}</a><a href={`/${locale}/blog/`}>{m.journal}</a></nav></details>
       </div>
     </div>

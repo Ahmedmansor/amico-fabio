@@ -1,5 +1,6 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { checkBlogLinks } from '../../../../scripts/blog/check-links.mjs';
+import { checkBlogStructuredData } from '../../../../scripts/blog/check-structured-data.mjs';
 
 /** Scan the final static artifact, including derived text, not just route HTML. */
 export async function guardBlogOutput(directory, { records = [], allowFixtures = false, noindex = false } = {}) {
@@ -38,6 +39,8 @@ export function blogBuildGuards({ noindex }) {
       logger.info(`Checked ${checked} generated text files; fixture artifact policy verified.`);
       const pages = await checkBlogLinks(dir);
       logger.info(`Checked links and metadata structure on ${pages} blog pages.`);
+      const articles = await checkBlogStructuredData(dir);
+      logger.info(`Verified visible-content JSON-LD contract on ${articles} blog articles.`);
     },
   } };
 }
