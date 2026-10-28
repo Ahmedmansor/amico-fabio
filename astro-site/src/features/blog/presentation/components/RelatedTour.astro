@@ -11,7 +11,7 @@ if(!image)throw new Error(`[blog:${trip.id}] Related trip poster is unavailable:
 ---
 <section class="blog-container blog-section" data-related-tour>
   <h2 class="blog-related-tour-heading">{getSharedMessages(locale).blog.relatedTour}</h2>
-  <a class="blog-related-tour" href={trip.url}>
+  <a class="blog-related-tour" href={trip.url} target="_blank" rel="noopener noreferrer">
     <Image src={image} alt="" widths={[400,640]} sizes="(min-width:768px) 360px, 100vw" loading="lazy" format="webp"/>
     <div><p class="blog-kicker">Fabio Egypt</p><h3>{trip.title}</h3><span class="blog-text-link">{getSharedMessages(locale).blog.relatedTour} <span aria-hidden="true">↗</span></span></div>
   </a>

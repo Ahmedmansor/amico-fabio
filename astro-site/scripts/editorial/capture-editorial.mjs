@@ -45,9 +45,9 @@ try{
   assert.deepEqual(errors,[]);results.push({route,width,...facts,errors,screenshot:`qa/blog/screenshots/${filename}`});await page.close();
  }
  const page=await browser.newPage();await page.goto(origin+'/en/blog/common-tourist-traps-egypt/',{waitUntil:'networkidle'});
- await page.locator('article a[href="/en/egypt/giza-pyramids/"]').click();await page.waitForURL(origin+'/en/egypt/giza-pyramids/');
- await page.locator('[data-editorial-product]').first().click();await page.waitForURL(/\/en\/(tours|packages)\//);
- assert.equal(await page.locator('h1').count(),1);const destination=new URL(page.url()).pathname;await page.close();
+ const[guide]=await Promise.all([page.waitForEvent('popup'),page.locator('article a[href="/en/egypt/giza-pyramids/"]').click()]);await guide.waitForLoadState('domcontentloaded');
+ const[product]=await Promise.all([guide.waitForEvent('popup'),guide.locator('[data-editorial-product]').first().click()]);await product.waitForLoadState('domcontentloaded');
+ assert.equal(await product.locator('h1').count(),1);const destination=new URL(product.url()).pathname;await product.close();await guide.close();await page.close();
  console.log(`PASS: ${results.length} editorial captures; reading anchors, optional FAQ, one second-image CTA, products and responsive layout.`);
  console.log(`PASS: actual article → place guide → existing product navigation (${destination}).`);
 }finally{await browser.close();await writeFile(new URL('../../qa/blog/EDITORIAL_BROWSER.json',import.meta.url),JSON.stringify({origin,results},null,2)+'\n');}

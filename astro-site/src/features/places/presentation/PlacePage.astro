@@ -32,6 +32,6 @@ const schema={'@context':'https://schema.org','@graph':[
         {view.products.length>0&&<section class="place-products"><h2>{m.suggestedExperiences}</h2>{view.products.slice(0,4).map(product=><ProductCard locale={place.lang} product={product}/>)}</section>}
       </aside>
     </div>
-    {view.related.length>0&&<section class="blog-container blog-section"><div class="blog-section-heading"><h2>{m.morePlaces}</h2></div><div class="blog-post-grid">{view.related.map(item=><a class="blog-card" href={item.url}><div class="blog-card-image"><Image src={item.image} alt="" widths={[400,640]} sizes="(min-width:1024px) 30vw, 100vw" loading="lazy" format="webp"/></div><div class="blog-card-content"><h3>{item.title}</h3><span class="blog-text-link">{m.read}<span aria-hidden="true">↗</span></span></div></a>)}</div></section>}
+    {view.related.length>0&&<section class="blog-container blog-section"><div class="blog-section-heading"><h2>{m.morePlaces}</h2></div><div class="blog-post-grid">{view.related.map(item=><a class="blog-card" href={item.url} target="_blank" rel="noopener noreferrer"><div class="blog-card-image"><Image src={item.image} alt="" widths={[400,640]} sizes="(min-width:1024px) 30vw, 100vw" loading="lazy" format="webp"/></div><div class="blog-card-content"><h3>{item.title}</h3><span class="blog-text-link">{m.read}<span aria-hidden="true">↗</span></span></div></a>)}</div></section>}
   </main>
 </BlogLayout>

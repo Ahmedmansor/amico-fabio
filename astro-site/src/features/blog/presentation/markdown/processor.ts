@@ -3,6 +3,7 @@ import { getMarkdownContext } from '../../data/markdown-context';
 import { ctaCardTree } from './cta';
 import { autoLinkPlugin } from './auto-links';
 import {referencePlugin} from './references';
+import {newTabPlugin} from './new-tabs';
 
 export function blogMarkdownPlugins(readContext = getMarkdownContext): NonNullable<SatteriProcessorOptions['hastPlugins']> {
   return [
@@ -60,6 +61,7 @@ export function blogMarkdownPlugins(readContext = getMarkdownContext): NonNullab
         },
       };
     },
+    newTabPlugin(readContext),
   ];
 }
 

@@ -67,6 +67,12 @@ describe('native blog figures and CTA placement', () => {
 });
 
 describe('native article automatic links', () => {
+  it('opens reading links in secure new tabs while retaining local section anchors',async()=>{
+    const {code}=await render('[Guide](/en/egypt/luxor/) [Source](https://example.com) [Section](#one) <a href="/en/blog/example/">Raw link</a>');
+    expect(code.match(/target="_blank"/g)).toHaveLength(3);
+    expect(code.match(/rel="noopener noreferrer"/g)).toHaveLength(3);
+    expect(code).toContain('<a href="#one">Section</a>');
+  });
   it('turns a mentioned title into an anchor without requiring a keyword alias', async () => {
     const code = await linked('Diving article title. Diving article title.');
     expect(code.match(/href="\/en\/blog\/target\/"/g)).toHaveLength(1);

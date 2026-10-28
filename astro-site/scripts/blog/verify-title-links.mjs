@@ -23,10 +23,10 @@ try {
     const paragraph=page.locator('.blog-prose p').filter({has:page.locator(`a[href="/${lang}/blog/${targets[0]}/"]`)});
     await paragraph.scrollIntoViewIfNeeded();
     await paragraph.screenshot({path:fileURLToPath(new URL(`automatic-title-links-${lang}.png`,output))});
-    await paragraph.locator('a').first().click();
-    await page.waitForURL(`${origin}/${lang}/blog/${targets[0]}/`);
-    assert.ok((await page.locator('h1').textContent()).includes('[FIXTURE]'));
-    results.push({lang,source:`/${lang}/blog/${slug}/`,links,navigatedTo:new URL(page.url()).pathname});
+    const[destination]=await Promise.all([page.waitForEvent('popup'),paragraph.locator('a').first().click()]);
+    await destination.waitForURL(`${origin}/${lang}/blog/${targets[0]}/`);
+    assert.ok((await destination.locator('h1').textContent()).includes('[FIXTURE]'));
+    results.push({lang,source:`/${lang}/blog/${slug}/`,links,navigatedTo:new URL(destination.url()).pathname});await destination.close();
     await page.close();
   }
   console.log('PASS: EN/IT diving articles show two automatically linked full titles, with visible underlines and working destination navigation.');

@@ -8,7 +8,7 @@ import {getSharedMessages} from '../../../../shared/i18n/shared';
 interface Props {post:BlogPost;image:ImageMetadata}
 const {post,image}=Astro.props,m=getSharedMessages(post.lang).blog;
 ---
-<a class="blog-card" href={articleUrl(post)}>
+<a class="blog-card" href={articleUrl(post)} target="_blank" rel="noopener noreferrer">
   <div class="blog-card-image"><Image src={image} alt={post.hero.alt} widths={[400,640,960]} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" format="webp" loading="lazy"/><span class="blog-image-arrow" aria-hidden="true">↗</span></div>
   <div class="blog-card-content"><p class="blog-kicker">{post.interests.map(interest=>m.interestLabels[interest]).join(' · ')}</p><h3>{post.title}</h3><p class="blog-card-description">{post.description}</p><div class="blog-meta"><time datetime={post.pubDate}>{new Intl.DateTimeFormat(post.lang,{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(post.pubDate))}</time><span aria-hidden="true">·</span><span>{m.readingTime.replace('{n}',String(readingTimeMinutes(post.body)))}</span></div></div>
 </a>
