@@ -25,4 +25,19 @@
   /* Status */
   --status-success: #3ED99D;
   --status-info: #0080FF;
+
+  /* Shared layout, derived shades and motion. No second brand palette. */
+  --surface-brand-soft: color-mix(in srgb, var(--color-primary) 5%, var(--bg-white));
+  --surface-action-soft: color-mix(in srgb, var(--color-accent-orange) 14%, var(--bg-white));
+  --on-brand-muted: color-mix(in srgb, var(--bg-white) 80%, var(--color-primary));
+  --shadow-color: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  --site-shadow: 0 12px 32px var(--shadow-color);
+  --site-container: 1240px;
+  --site-gutter: 32px;
+  --site-header-height: 80px;
+  --radius-control: 8px;
+  --radius-card: 14px;
+  --motion-fast: 180ms ease;
 }
+@media (max-width: 1199px) { :root { --site-gutter: 24px; } }
+@media (max-width: 767px) { :root { --site-gutter: 16px; --site-header-height: 64px; } }

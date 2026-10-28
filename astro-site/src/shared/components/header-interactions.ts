@@ -1,32 +1,13 @@
-const left = document.querySelector<HTMLElement>('#global-header .gh-left');
-const right = document.querySelector<HTMLElement>('#global-header .gh-right');
-const menuButton = document.getElementById('gh-menu-btn');
-const languageButton = document.getElementById('gh-lang-btn');
-function updateButtons() {
-  menuButton?.setAttribute('aria-expanded', String(left?.classList.contains('open') ?? false));
-  languageButton?.setAttribute('aria-expanded', String(right?.classList.contains('open') ?? false));
+// Native disclosures keep navigation usable without JavaScript.
+const header=document.getElementById('global-header');
+const disclosures=[...(header?.querySelectorAll<HTMLDetailsElement>('[data-header-disclosure]')??[])];
+function close(except?:HTMLDetailsElement){for(const item of disclosures)if(item!==except)item.open=false;}
+for(const item of disclosures){
+ item.addEventListener('toggle',()=>{if(item.open)close(item);});
+ item.addEventListener('keydown',event=>{if(event.key==='Escape'&&item.open){item.open=false;item.querySelector('summary')?.focus();event.stopPropagation();}});
+ item.addEventListener('focusout',event=>{if(!item.contains(event.relatedTarget as Node|null))item.open=false;});
 }
-menuButton?.addEventListener('click', event => {
-  event.stopPropagation(); left?.classList.toggle('open'); right?.classList.remove('open'); updateButtons();
-});
-languageButton?.addEventListener('click', event => {
-  event.stopPropagation(); right?.classList.toggle('open'); left?.classList.remove('open'); updateButtons();
-});
-document.addEventListener('click', () => { left?.classList.remove('open'); right?.classList.remove('open'); updateButtons(); });
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') { left?.classList.remove('open'); right?.classList.remove('open'); updateButtons(); }
-});
-document.querySelectorAll<HTMLAnchorElement>('[data-lang]').forEach(link => link.addEventListener('click', () => {
-  const locale = link.dataset.lang;
-  if (locale) try { localStorage.setItem('fabio_lang', locale); localStorage.setItem('preferredLanguage', locale); } catch { /* Navigation works without storage. */ }
-}));
-const progress = document.getElementById('scroll-progress');
-function updateProgress() {
-  if (!progress) return;
-  const max = document.body.scrollHeight - window.innerHeight;
-  progress.style.width = `${max > 0 ? Math.min(100, Math.max(0, window.scrollY / max * 100)) : 0}%`;
-}
-updateProgress();
-window.addEventListener('scroll', updateProgress, { passive: true });
-window.addEventListener('resize', updateProgress);
+document.addEventListener('click',event=>{const target=event.target as Element;if(!target.closest('[data-header-disclosure]')||target.closest('a'))close();});
+header?.querySelectorAll<HTMLAnchorElement>('[data-lang]').forEach(link=>link.addEventListener('click',()=>{const locale=link.dataset.lang;if(locale)try{localStorage.setItem('fabio_lang',locale);localStorage.setItem('preferredLanguage',locale);}catch{/* Navigation works without storage. */}}));
+window.matchMedia('(min-width:1200px)').addEventListener('change',()=>close());
 export {};

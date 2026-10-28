@@ -1,0 +1,23 @@
+{
+  "version": "13.6.0",
+  "environment": "Existing static dist before shell build; mobile simulated; local HTTP; single lab run.",
+  "fetchTime": "2026-10-28T23:16:54.191Z",
+  "scores": {
+    "performance": 71,
+    "accessibility": 95
+  },
+  "metrics": {
+    "largest-contentful-paint": {
+      "value": 7595.093999999997,
+      "display": "7.6\u00a0s"
+    },
+    "cumulative-layout-shift": {
+      "value": 0.03995454717428267,
+      "display": "0.04"
+    },
+    "total-blocking-time": {
+      "value": 4,
+      "display": "0\u00a0ms"
+    }
+  }
+}
