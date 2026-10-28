@@ -17,6 +17,7 @@ export function createWishlistCoordinator(repository:AccountWishlistRepository,g
   const publishedIds=new Set(published);
   const unavailable=(ids:readonly string[])=>ids.filter(id=>!publishedIds.has(id)).length;
   let tail:Promise<unknown>=Promise.resolve();
+  let refreshPending:{userId:string;revision:number;promise:Promise<WishlistResult<void>>}|null=null;
   const listeners=new Set<(state:WishlistState)=>void>();
   function emit(){for(const listener of listeners)listener({...state,ids:state.ids?[...state.ids]:null});}
   function guestCounts(){const result=guest.read();return {pendingGuest:result.ok?result.value.length:0,unavailableGuest:result.ok?unavailable(result.value):0};}
@@ -86,10 +87,22 @@ export function createWishlistCoordinator(repository:AccountWishlistRepository,g
     async refresh(force = false){
       const userId=state.userId,revision=generation;
       if(!userId){const local=guest.read();state={...state,ids:local.ok?local.value:null,unavailableGuest:local.ok?unavailable(local.value):0,error:local.ok?null:'storage'};emit();return good(undefined);}
-      if(!force && isAccountWishlistCacheFresh(userId)){
-        return good(undefined);
-      }
-      return enqueue(()=>load(userId,revision,false,false));
+      if(refreshPending?.userId===userId && refreshPending.revision===revision)return refreshPending.promise;
+      const promise=enqueue(async()=>{
+        if(!isCurrent(userId,revision))return stale();
+        // Recheck after queued writes: their confirmed read-back may already have refreshed the cache.
+        if(!force && isAccountWishlistCacheFresh(userId)){
+          const cached=readAccountWishlistCache(userId);
+          if(cached && state.status==='account'){
+            state={...state,ids:cached,...guestCounts()};emit();
+          }
+          return good(undefined);
+        }
+        return load(userId,revision,false,false);
+      });
+      const pending={userId,revision,promise};
+      refreshPending=pending;
+      try{return await promise;}finally{if(refreshPending===pending)refreshPending=null;}
     },
     async merge(){
       const userId=state.userId,revision=generation;if(!userId)return stale();

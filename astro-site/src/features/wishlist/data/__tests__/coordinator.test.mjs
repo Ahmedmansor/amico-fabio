@@ -1,6 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {createWishlistCoordinator} from '../coordinator.ts';
+import {saveAccountWishlistCache} from '../wishlist-cache.ts';
 const good=value=>({ok:true,value});
 function fixture(){
   let local=['guest'];let remote=['remote'];let account='a';const calls=[];
@@ -55,4 +56,49 @@ test('an unavailable-only stale claim does not offer an impossible transfer retr
   assert.equal(f.coordinator.getState().error,null);
   assert.equal(f.coordinator.getState().unavailableGuest,1);
   assert.deepEqual(f.local,['unpublished']);
+});
+
+test('overlapping focus refreshes share one read, including events arriving during the request',async()=>{
+  const f=fixture();f.local=[];await f.coordinator.connect('a');
+  let release;const gate=new Promise(resolve=>release=resolve);let reads=0;
+  f.repository.list=async()=>{reads++;await gate;return good(['remote']);};
+  const first=f.coordinator.refresh();
+  await new Promise(resolve=>setTimeout(resolve,0));
+  const second=f.coordinator.refresh();
+  const third=f.coordinator.refresh();
+  release();
+  assert.ok((await Promise.all([first,second,third])).every(result=>result.ok));
+  assert.equal(reads,1);
+  await f.coordinator.refresh();assert.equal(reads,2);
+});
+
+test('a pending refresh cannot suppress or overwrite the next account refresh',async()=>{
+  const f=fixture();f.local=[];await f.coordinator.connect('a');
+  let release;const gate=new Promise(resolve=>release=resolve);
+  f.repository.list=async user=>{if(user==='a')await gate;return good([user]);};
+  const old=f.coordinator.refresh();
+  await new Promise(resolve=>setTimeout(resolve,0));
+  await f.coordinator.connect('b');
+  assert.equal((await f.coordinator.refresh()).ok,true);
+  release();assert.equal((await old).reason,'stale');
+  assert.deepEqual(f.coordinator.getState().ids,['b']);
+});
+
+test('refresh queued behind a confirmed save uses its cache; fresh cross-tab updates need no HTTP',async(t)=>{
+  const values=new Map();
+  const original=Object.getOwnPropertyDescriptor(globalThis,'window');
+  t.after(()=>{if(original)Object.defineProperty(globalThis,'window',original);else delete globalThis.window;});
+  Object.defineProperty(globalThis,'window',{configurable:true,value:{localStorage:{
+    getItem:key=>values.get(key)??null,
+    setItem:(key,value)=>values.set(key,value),
+  }}});
+  const f=fixture();f.local=[];await f.coordinator.connect('a');
+  let reads=0;f.repository.list=async()=>{reads++;return good(['remote','new']);};
+  const saved=f.coordinator.save('new',true);
+  const refreshed=f.coordinator.refresh();
+  assert.equal((await saved).ok,true);assert.equal((await refreshed).ok,true);
+  assert.equal(reads,1);
+  saveAccountWishlistCache('a',['remote']);
+  await f.coordinator.refresh();
+  assert.equal(reads,1);assert.deepEqual(f.coordinator.getState().ids,['remote']);
 });

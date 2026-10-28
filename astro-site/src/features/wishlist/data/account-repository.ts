@@ -28,16 +28,20 @@ export function createAccountRepository(client:Pick<SupabaseClient,'from'>|null,
           let cursor:string|null=null;
           let complete=false;
           for (let page=0;page<1000;page++) {
-            let query=client.from(source.table).select(source.column).eq('user_id',userId).order(source.column).limit(200);
+            let query=client.from(source.table).select(source.column,{count:'exact'}).eq('user_id',userId).order(source.column).limit(200);
             if(cursor!==null)query=query.gt(source.column,cursor);
-            const {data,error}=await request(query);
+            const {data,error,count}=await request(query);
             if(error || !Array.isArray(data)) return failed();
+            // Count covers the remaining cursor-filtered rows, even when the server caps pages below 200.
+            if(count!=null && (!Number.isSafeInteger(count) || count<data.length))return failed();
+            if(!data.length && count!=null && count!==0)return failed();
             if(!data.length){complete=true;break;}
             const rows=data as Record<string,unknown>[];
             for(const row of rows) ids.push(favoriteKey(source.kind,row[source.column]));
             const next=tripId(rows[rows.length-1][source.column]);
             if(next===cursor)return failed();
             cursor=next;
+            if(count===data.length){complete=true;break;}
           }
           if(!complete)return failed(); // Never report a truncated list as complete.
         }

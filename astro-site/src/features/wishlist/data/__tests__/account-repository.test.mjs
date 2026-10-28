@@ -8,7 +8,7 @@ function fixture(responses=[]) {
   const client={from(table){
     const call={table,filters:[]}; calls.push(call);
     const query={
-      select(columns){call.columns=columns;return query;},
+      select(columns,options){call.columns=columns;call.selectOptions=options;return query;},
       eq(column,value){call.filters.push([column,value]);return query;},
       order(column){call.order=column;return query;},
       limit(size){call.limit=size;return query;},
@@ -34,6 +34,34 @@ test('short server-capped pages do not truncate the account list',async()=>{
   const {repository,calls}=fixture([{data:[{trip_id:'a'},{trip_id:'b'}],error:null},{data:[{trip_id:'c'}],error:null}]);
   assert.deepEqual(await repository.list(userId),{ok:true,value:['a','b','c']});
   assert.equal(calls.length,4);assert.ok(calls.every(call=>call.limit===200));
+});
+
+test('exact remaining counts avoid empty probes for both favorite types',async()=>{
+  const {repository,calls}=fixture([
+    {data:[{trip_id:'a'}],count:1,error:null},
+    {data:[{package_id:'b'}],count:1,error:null},
+  ]);
+  assert.deepEqual(await repository.list(userId),{ok:true,value:['a',favoriteKey('package','b')]});
+  assert.equal(calls.length,2);
+  assert.ok(calls.every(call=>call.selectOptions.count==='exact'));
+});
+
+test('exact counts still paginate server-capped responses without an empty final probe',async()=>{
+  const {repository,calls}=fixture([
+    {data:[{trip_id:'a'}],count:2,error:null},
+    {data:[{trip_id:'b'}],count:1,error:null},
+    {data:[],count:0,error:null},
+  ]);
+  assert.deepEqual(await repository.list(userId),{ok:true,value:['a','b']});
+  assert.equal(calls.length,3);
+});
+
+test('inconsistent counts cannot claim a complete account list',async()=>{
+  for(const response of [
+    {data:[{trip_id:'a'}],count:0,error:null},
+    {data:[],count:1,error:null},
+    {data:[],count:-1,error:null},
+  ])assert.deepEqual(await fixture([response]).repository.list(userId),{ok:false,reason:'failed'});
 });
 
 test('a nonadvancing cursor fails instead of looping or returning partial success',async()=>{
