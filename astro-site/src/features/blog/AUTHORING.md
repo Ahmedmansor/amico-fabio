@@ -1,8 +1,8 @@
-# Blog authoring guide — planned contract
+# Blog authoring guide
 
-Status: authoring specification only. No collection, scaffold command or content
-validator exists yet. Do not run the proposed commands or treat this template as
-a published article. PLAN.md owns the content contract.
+The collection, validator and local authoring commands are implemented. Run the
+commands below from astro-site/ with the pinned external Node runtime. Real
+publication still requires approved copy, author identity and image rights.
 
 ## Article location
 
@@ -60,9 +60,10 @@ draft: true
 <Approved article text and any sources relevant to factual claims.>
 ```
 
-Remove optional destination/translationKey when not applicable. Optional authorId
-must resolve to an approved author; omit only when an approved site default is
-configured. Optional updatedDate must not precede pubDate. Add optional heroCaption
+Remove optional destination/translationKey when not applicable. `authorId` is
+required for every real publication and must resolve to data/authors.ts; that
+registry is currently empty, with no default. Drafts may omit it while preparing.
+Optional updatedDate must not precede pubDate. Add optional heroCaption
 only when supplied. Do not make the title/description generic placeholder text in
 a real publication. `fixture: true` is reserved for technical tests.
 
@@ -78,7 +79,7 @@ a real publication. `fixture: true` is reserved for technical tests.
 | linkKeywords | Own-language phrases of at least four characters, claiming this article as link target |
 | heroImage | Relative path to a real local image beside the article |
 | heroAlt | Descriptive, at least five characters; no fabricated image description |
-| relatedTripIds | Existing stable catalog trip IDs; use the future reference report, not guessed slugs |
+| relatedTripIds | Existing published stable catalog trip IDs; use blog:references, not guessed slugs |
 | draft | true while preparing content; false only for intended publication |
 
 Keywords may appear in any article's prose. Only ownership of an automatic-link
@@ -116,15 +117,43 @@ choose the correct intended destination.
 - Ensure structured metadata will describe visible content accurately.
 - Technical markup does not guarantee indexing, rankings or AI citations.
 
-## Planned author workflow
+## Actual author workflow
 
-1. Use the future `blog:new` scaffold or copy this template into a new directory.
-2. Add approved text and images; keep draft:true during preparation.
-3. Run the future content/reference report and resolve exact diagnostics.
+1. Run `blog:new` with your supplied title, description, image, accurate alt and
+   interest (example below), or copy the documented template manually.
+2. Add approved body text and authorId; keep draft:true during preparation.
+3. Run `blog:references` to validate content and list claimed phrases/files,
+   approved author IDs and published trip IDs. Catalog access is read-only.
 4. Preview the article and actual translations at mobile and desktop widths.
 5. Test manual links, image descriptions and WhatsApp message review.
 6. Set the intended date/draft state and run required tests/check/build/guards.
 7. Review the generated artifact and commit explicit content files.
 
-Command names and invocation arguments will be documented after their scripts
-exist. No current command is claimed to scaffold or validate blog content.
+```powershell
+npm run blog:new -- it articolo-slug --title "<your approved title>" --description "<your approved description, 50–160 characters>" --image "C:/path/approved-photo.jpg" --alt "<accurate image description>" --interest tips
+npm run check:content
+npm run blog:references
+```
+
+Replace the example values with your content. The command creates a unique
+immutable ID, date and `draft: true`, and converts the supplied image into
+colocated hero.webp. It refuses an existing article directory and invalid
+locale/slug/metadata; it never invents an author or approved body. Other optional
+fields are edited in index.md. If a write fails, inspect the reported directory
+before retrying; an existing folder is never overwritten automatically.
+
+Drafts are validated but omitted from routes. For a local content review, supply
+an approved author and intended date before changing draft to false. Technical
+fixtures are available only through the separate dev/noindex-preview policy;
+do not mark real drafts as fixtures to bypass editorial approval.
+
+`blog:references` refreshes the native validated snapshot first. Its keyword list
+shows currently published claims for that command's policy; inactive/draft
+claims do not reserve automatic-link phrases. Dev fixture claims can differ
+from a production snapshot. Do not run sync concurrently with an active dev
+server; stop/restart dev when switching publication policy.
+
+After an implementation/content milestone, use `npm run check:links` on the
+built artifact. Link and fixture guards also run automatically during builds.
+Rebuilds are necessary for changed published content/assets, not every edit to
+documentation. No hosting deployment is performed by these commands.

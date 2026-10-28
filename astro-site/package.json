@@ -13,6 +13,8 @@
     "check:blog": "tsc --noEmit --project scripts/blog/tsconfig.json",
     "check:fixtures": "node scripts/blog/check-fixtures.mjs",
     "check:links": "node scripts/blog/check-links.mjs",
+    "blog:new": "node scripts/blog/new-post.mjs",
+    "blog:references": "astro sync && node scripts/blog/references.mjs",
     "test": "node scripts/run-tests.mjs",
     "build": "astro build",
     "preview": "astro preview",

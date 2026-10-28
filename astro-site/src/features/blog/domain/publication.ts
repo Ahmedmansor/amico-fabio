@@ -1,6 +1,6 @@
 import type { Locale } from '../../../shared/config/languages';
 import type { BlogPost, PublicationPolicy } from './models';
-import { destinations, interests, type Destination, type Interest } from './taxonomy';
+import { destinations, interests, type Destination, type Interest } from './taxonomy.ts';
 
 export function publicationTime(post: Pick<BlogPost, 'pubDate' | 'sourcePath'>): number {
   const timestamp = Date.parse(post.pubDate);

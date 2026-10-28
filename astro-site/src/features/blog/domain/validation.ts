@@ -1,7 +1,7 @@
-import { isLocale } from '../../../shared/config/languages';
+import { isLocale } from '../../../shared/config/languages.ts';
 import type { BlogPost, PublicationPolicy } from './models';
-import { isPublished } from './publication';
-import { reservedSlugs } from './taxonomy';
+import { isPublished } from './publication.ts';
+import { reservedSlugs } from './taxonomy.ts';
 
 export type BlogIndexRecord = Pick<BlogPost, 'id' | 'slug' | 'lang' | 'translationKey' | 'pubDate' |
   'draft' | 'fixture' | 'linkKeywords' | 'authorId' | 'relatedTripIds' | 'sourcePath'>;
