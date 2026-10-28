@@ -4,6 +4,7 @@ import { getActiveTaxonomy, getFeaturedPost, getPostsByDestination, getPostsByIn
 import { articleUrl, getTranslations } from '../translations';
 import { getRelatedPosts, relatedScore } from '../related-posts';
 import { readingTimeMinutes } from '../reading-time';
+import { getListingAlternates, listingPageCount, listingUrl } from '../listings';
 
 const policy = { evaluatedAt: Date.parse('2026-10-28T00:00:00Z'), includeFixtures: false };
 function post(id: string, changes: Partial<BlogPost> = {}): BlogPost {
@@ -120,5 +121,26 @@ describe('reading time', () => {
   it('counts Italian elisions and Unicode words without treating accents as separators', () => {
     expect(readingTimeMinutes("dell'Egitto città l’acqua ".repeat(66))).toBe(1);
     expect(readingTimeMinutes("dell'Egitto città l’acqua ".repeat(67))).toBe(2);
+  });
+});
+
+describe('listing routes and true equivalents', () => {
+  it('uses base URLs for page one and explicit page segments after it', () => {
+    expect(listingUrl('it')).toBe('/it/blog/');
+    expect(listingUrl('en', 'home', undefined, 2)).toBe('/en/blog/page/2/');
+    expect(listingUrl('it', 'interests', 'history', 2)).toBe('/it/blog/interests/history/page/2/');
+    expect([0, 1, 9, 10, 19].map(listingPageCount)).toEqual([1, 1, 1, 2, 3]);
+  });
+  it('keeps the empty-language home as a real equivalent', () => {
+    const groups = [{ lang: 'it' as const, kind: 'home' as const, total: 0 }, { lang: 'en' as const, kind: 'home' as const, total: 9 }];
+    expect(getListingAlternates(groups[0], groups, 1).head).toEqual({ it: '/it/blog/', en: '/en/blog/' });
+  });
+  it('uses missing taxonomy navigation fallback without claiming a translation', () => {
+    const group = { lang: 'en' as const, kind: 'destinations' as const, slug: 'luxor', total: 1 };
+    expect(getListingAlternates(group, [group], 1)).toEqual({ head: {}, navigation: { it: '/it/blog/', en: '/en/blog/destinations/luxor/' } });
+  });
+  it('does not invent a translated page number when pagination lengths differ', () => {
+    const groups = [{ lang: 'it' as const, kind: 'home' as const, total: 10 }, { lang: 'en' as const, kind: 'home' as const, total: 9 }];
+    expect(getListingAlternates(groups[0], groups, 2)).toEqual({ head: {}, navigation: { it: '/it/blog/page/2/', en: '/en/blog/' } });
   });
 });

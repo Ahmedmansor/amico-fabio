@@ -6,7 +6,7 @@ pubDate: "2026-01-14"
 lang: "it"
 interests: ["stories"]
 heroImage: "./hero.webp"
-heroAlt: "Segnaposto blu per test tecnici"
+heroAlt: "Illustrazione IA di due viaggiatori davanti a un fiume"
 linkKeywords: ["fixture racconti"]
 featured: false
 draft: false
@@ -19,7 +19,7 @@ fixture: true
 
 [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio. [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio. [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio. [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio. [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio. [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio.
 
-![Immagine illustrativa di prova](./hero.webp "[FIXTURE] Didascalia di prova")
+![Illustrazione IA di due viaggiatori davanti a un fiume](./hero.webp "[FIXTURE] Didascalia di prova")
 
 ## [FIXTURE] Seconda sezione
 

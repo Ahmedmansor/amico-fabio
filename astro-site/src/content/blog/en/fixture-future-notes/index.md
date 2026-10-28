@@ -6,7 +6,7 @@ pubDate: "2099-01-01"
 lang: "en"
 interests: ["tips"]
 heroImage: "./hero.webp"
-heroAlt: "Navy placeholder for technical testing"
+heroAlt: "AI-generated illustration of an open notebook, map and compass"
 linkKeywords: ["fixture future keyword"]
 featured: false
 draft: false

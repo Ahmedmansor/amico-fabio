@@ -1,6 +1,6 @@
 # Blog execution checklist
 
-Status: phases 1–4 technical foundations verified; visual assets/pages next.
+Status: listing UI implemented and browser-checked; article pages next.
 Updated: 2026-10-28. Preparation-only instruction was superseded by the owner's
 subsequent implementation request. New blog UI uses ui-ux-pro-max and a fresh
 visual direction; generated temporary WebP imagery is approved.

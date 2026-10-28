@@ -7,7 +7,7 @@ lang: "it"
 translationKey: "fixture-practical"
 interests: ["tips"]
 heroImage: "./hero.webp"
-heroAlt: "Segnaposto blu per test tecnici"
+heroAlt: "Illustrazione IA di un quaderno, una mappa e una bussola"
 linkKeywords: ["fixture note pratiche"]
 featured: false
 draft: false

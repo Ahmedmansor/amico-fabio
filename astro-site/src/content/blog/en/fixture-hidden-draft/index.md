@@ -7,7 +7,7 @@ lang: "en"
 destination: "cairo"
 interests: ["tips"]
 heroImage: "./hero.webp"
-heroAlt: "Navy placeholder for technical testing"
+heroAlt: "AI-generated illustration of an open notebook, map and compass"
 linkKeywords: ["fixture secret keyword"]
 featured: false
 draft: true
@@ -20,7 +20,7 @@ fixture: true
 
 [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice.
 
-![Illustrative test image](./hero.webp "[FIXTURE] Test caption")
+![AI-generated illustration of an open notebook, map and compass](./hero.webp "[FIXTURE] Test caption")
 
 ## [FIXTURE] Second section
 

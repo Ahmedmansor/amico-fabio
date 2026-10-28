@@ -113,6 +113,7 @@ export const collections={proof:defineCollection({
 import {getCollection,render} from 'astro:content';
 import {Image} from 'astro:assets';
 const entries=await getCollection('proof');
+if(entries.some(entry=>typeof entry.data.heroImage!=='object'))throw new Error('An article without body images lost its hero import');
 const entry=entries.find(entry=>entry.id==='proof-source-en');
 if(!entry)throw new Error('Missing proof article');
 const {Content}=await render(entry);

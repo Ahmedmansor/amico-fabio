@@ -8,7 +8,7 @@ translationKey: "fixture-cairo"
 destination: "cairo"
 interests: ["history","tips"]
 heroImage: "./hero.webp"
-heroAlt: "Segnaposto blu per test tecnici"
+heroAlt: "Illustrazione IA di colonne, una piramide e un fiume"
 linkKeywords: ["fixture guida Cairo"]
 featured: true
 draft: false
@@ -23,9 +23,9 @@ fixture: true
 
 fixture guida mare, fixture guida mare, fixture mare. English phrase: fixture diving guide.
 
-![Immagine illustrativa di prova](./hero.webp "[FIXTURE] Didascalia di prova")
+![Illustrazione IA di colonne, una piramide e un fiume](./hero.webp "[FIXTURE] Didascalia di prova")
 
-![Immagine illustrativa di prova](./hero.webp "[FIXTURE] Didascalia di prova")
+![Illustrazione IA di colonne, una piramide e un fiume](./hero.webp "[FIXTURE] Didascalia di prova")
 
 ## [FIXTURE] Seconda sezione
 

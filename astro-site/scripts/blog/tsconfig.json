@@ -2,6 +2,8 @@
   "extends": "../../tsconfig.json",
   "include": [
     "../../src/features/blog/**/*.ts",
+    "../../src/features/blog/**/*.astro",
+    "../../src/pages/*/blog/**/*.astro",
     "../../src/content.config.ts",
     "../../.astro/types.d.ts"
   ],

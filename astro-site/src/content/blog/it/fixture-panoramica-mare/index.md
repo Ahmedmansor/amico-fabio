@@ -8,7 +8,7 @@ translationKey: "fixture-sea"
 destination: "sharm"
 interests: ["diving","tips"]
 heroImage: "./hero.webp"
-heroAlt: "Segnaposto blu per test tecnici"
+heroAlt: "Illustrazione IA di una barriera corallina e un sub in lontananza"
 linkKeywords: ["fixture mare"]
 featured: false
 draft: false

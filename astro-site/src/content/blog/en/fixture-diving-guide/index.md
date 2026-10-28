@@ -8,7 +8,7 @@ translationKey: "fixture-diving"
 destination: "sharm"
 interests: ["diving"]
 heroImage: "./hero.webp"
-heroAlt: "Navy placeholder for technical testing"
+heroAlt: "AI-generated illustration of a coral reef and a distant diver"
 linkKeywords: ["fixture diving guide"]
 featured: false
 draft: false
@@ -21,7 +21,7 @@ fixture: true
 
 [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice.
 
-![Illustrative test image](./hero.webp "[FIXTURE] Test caption")
+![AI-generated illustration of a coral reef and a distant diver](./hero.webp "[FIXTURE] Test caption")
 
 ## [FIXTURE] Second section
 

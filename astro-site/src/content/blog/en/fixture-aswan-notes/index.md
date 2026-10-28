@@ -7,7 +7,7 @@ lang: "en"
 destination: "aswan"
 interests: ["stories","history"]
 heroImage: "./hero.webp"
-heroAlt: "Navy placeholder for technical testing"
+heroAlt: "AI-generated illustration of two travelers overlooking a river"
 linkKeywords: ["fixture Aswan notes"]
 featured: false
 draft: false
@@ -20,7 +20,7 @@ fixture: true
 
 [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice. [FIXTURE] Artificial text for system testing. This is not travel advice.
 
-![Illustrative test image](./hero.webp "[FIXTURE] Test caption")
+![AI-generated illustration of two travelers overlooking a river](./hero.webp "[FIXTURE] Test caption")
 
 ## [FIXTURE] Second section
 

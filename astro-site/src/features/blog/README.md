@@ -1,6 +1,6 @@
 # Blog feature
 
-Status: phases 1–4 technical foundations verified; visual assets/routes/UI pending.
+Status: technical foundations, visual assets and listing UI implemented; article pages next.
 Updated 2026-10-28.
 
 A static IT/EN editorial blog with city/interest browsing, translation-aware
@@ -25,7 +25,8 @@ DECISIONS.md and update affected requirements before reporting completion.
 
 - Planning documents, pure domain helpers/tests and remaining layer placeholders.
 - Registered collection/schema/loader, 22 guarded technical fixture articles,
-  WebP placeholders and focused verification scripts; no article routes yet.
+  generated WebP illustrations and focused verification scripts; index/taxonomy
+  routes are implemented, article routes are next.
 - A pinned dev-only native Markdown adapter and isolated verification runner;
   no application collection/routes/environment/hosting changes.
 - No database, API, email or persisted inquiry data.
@@ -51,7 +52,7 @@ their implementation phase. Empty directories contain only `.gitkeep` files.
 
 ## First implementation task
 
-Phases 1–4 technical foundations passed; continue with phase 5's new blog design
-and pages, replacing technical imagery during the visual asset work. The inquiry must
+Continue with phase 6's article routes/layout, then the scoped linking/SEO and
+WhatsApp work. Listing browser evidence is in qa/blog/PHASE_5.md. The inquiry must
 remain a WhatsApp handoff using shared public configuration; no Supabase work
 belongs to this feature.

@@ -7,7 +7,7 @@ lang: "en"
 translationKey: "fixture-practical"
 interests: ["tips"]
 heroImage: "./hero.webp"
-heroAlt: "Navy placeholder for technical testing"
+heroAlt: "AI-generated illustration of an open notebook, map and compass"
 linkKeywords: ["fixture practical notes"]
 featured: false
 draft: false

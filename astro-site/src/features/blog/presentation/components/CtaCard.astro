@@ -1,0 +1,11 @@
+---
+import type {Locale} from '../../../../shared/config/languages';
+import {getSharedMessages} from '../../../../shared/i18n/shared';
+import {siteConfig} from '../../../../shared/config/site';
+interface Props {locale:Locale;compact?:boolean}
+const {locale,compact=false}=Astro.props,m=getSharedMessages(locale).blog;
+---
+<section class:list={['blog-cta',{'blog-cta-compact':compact}]} data-no-autolink>
+  <div><p class="blog-kicker">Fabio Egypt</p><h2>{m.ctaTitle}</h2><p>{m.ctaText}</p></div>
+  <a class="blog-button" href={`https://wa.me/${siteConfig.whatsapp.number}`} data-open-lead target="_blank" rel="noopener noreferrer">{m.ctaButton}<span aria-hidden="true">↗</span></a>
+</section>

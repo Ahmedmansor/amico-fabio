@@ -1,0 +1,47 @@
+---
+import DocumentShell from '../../../../shared/layouts/DocumentShell.astro';
+import PageHead from '../../../../shared/seo/PageHead.astro';
+import { getSharedMessages } from '../../../../shared/i18n/shared';
+import { languages, type Locale } from '../../../../shared/config/languages';
+import { siteConfig } from '../../../../shared/config/site';
+import type { ShareImage } from '../../../../shared/seo/share-image';
+import type { BlogAlternates } from '../../domain/models';
+import AuthTrigger from '../../../auth/presentation/AuthTrigger.astro';
+import AuthDialog from '../../../auth/presentation/AuthDialog.astro';
+import WelcomeDialog from '../../../auth/presentation/WelcomeDialog.astro';
+import WishlistLink from '../../../wishlist/presentation/WishlistLink.astro';
+import WishlistInvitation from '../../../wishlist/presentation/WishlistInvitation.astro';
+import '../../../../shared/styles/global.css';
+import '../styles/blog.css';
+interface Props {locale:Locale;title:string;description:string;path:string;alternates:BlogAlternates;navigation:BlogAlternates;fixture?:boolean;article?:boolean;shareImage?:ShareImage}
+const {locale,title,description,path,alternates,navigation,fixture=false,article=false,shareImage}=Astro.props;
+const m=getSharedMessages(locale).blog;
+---
+<DocumentShell locale={locale} bodyClass="blog-site">
+  <Fragment slot="head">
+    <PageHead locale={locale} route="blog" title={`${title} | Fabio Egypt`} description={description} canonicalPath={path} alternatePaths={alternates} noindexOverride={fixture} ogType={article?'article':'website'} shareImage={shareImage} fontPreloads={['montserrat-v31-latin-regular.woff2','playfair-display-v40-latin-regular.woff2']}/>
+    <slot name="head"/>
+  </Fragment>
+  <a class="blog-skip" href="#blog-main">{m.skip}</a>
+  <header class="blog-header">
+    <div class="blog-container blog-header-inner">
+      <a class="blog-brand" href={`/${locale}/`} aria-label="Fabio Egypt">
+        <svg viewBox="0 0 40 40" width="36" height="36" fill="none" aria-hidden="true"><circle cx="29" cy="10" r="5" fill="var(--color-accent-orange)"/><path d="m3 32 14-23 15 23H3Zm16-9 7-11 11 20H26" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <span>Fabio <strong>Egypt</strong></span>
+      </a>
+      <nav class="blog-desktop-nav" aria-label={m.navigation}>
+        <a href={`/${locale}/`}>{m.home}</a><a href={`/${locale}/explore/`}>{m.trips}</a><a href={`/${locale}/blog/`} aria-current="page">{m.journal}</a>
+      </nav>
+      <div class="blog-header-actions">
+        <WishlistLink locale={locale} active={false}/><AuthTrigger locale={locale}/>
+        <nav class="blog-languages" aria-label={m.language}>{Object.entries(navigation).map(([lang,url])=><a href={url} data-lang-switch hreflang={lang} aria-label={languages[lang as Locale].label} aria-current={lang===locale?'true':undefined}>{lang.toUpperCase()}</a>)}</nav>
+        <details class="blog-mobile-nav"><summary aria-label={m.menu}><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></summary><nav aria-label={m.navigation}><a href={`/${locale}/`}>{m.home}</a><a href={`/${locale}/explore/`}>{m.trips}</a><a href={`/${locale}/blog/`}>{m.journal}</a></nav></details>
+      </div>
+    </div>
+  </header>
+  <WishlistInvitation locale={locale}/>
+  {fixture&&<div class="blog-fixture-notice blog-container" data-fixture><span>[FIXTURE]</span> {m.fixtureNotice}</div>}
+  <slot/>
+  <footer class="blog-footer"><div class="blog-container blog-footer-inner"><div><a class="blog-brand" href={`/${locale}/`}>Fabio <strong>Egypt</strong></a><p>{m.footerText}</p></div><nav aria-label={m.contact}><a href={`/${locale}/legal/`}>{m.privacy}</a><a href={`mailto:${siteConfig.email}`}>{m.contact}</a><a href={siteConfig.social.instagram}>Instagram</a></nav><small>© {new Date().getUTCFullYear()} {m.copyright}</small></div></footer>
+  <AuthDialog locale={locale}/><WelcomeDialog locale={locale}/>
+</DocumentShell>

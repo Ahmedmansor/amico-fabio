@@ -16,6 +16,7 @@ export async function getBlogPublicationPolicy(): Promise<PublicationPolicy> {
 export async function getPosts(): Promise<BlogPost[]> {
   return (await getCollection('blog')).map(entry => {
     const { heroImage, heroAlt, heroCaption, ...data } = entry.data;
+    if (!heroImage || typeof heroImage !== 'object') throw new Error(`[blog:${entry.filePath}] Unresolved heroImage import.`);
     const sourcePath = entry.filePath!.replaceAll('\\', '/').split('/content/blog/')[1];
     const { slug } = articlePathParts(sourcePath);
     return { ...data, id: entry.id, slug, body: entry.body ?? '', sourcePath,

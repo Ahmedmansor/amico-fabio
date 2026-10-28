@@ -33,7 +33,7 @@ export function prototypeLoader(snapshotFile) {
           // validated index. Store final HTML so Astro owns its cache updates.
           const { deferredRender: _deferred, ...metadata } = entry;
           context.store.set({
-            ...metadata, rendered, assetImports: rendered.metadata.imagePaths,
+            ...metadata, rendered, assetImports: [...new Set([...(entry.assetImports ?? []), ...(rendered.metadata.imagePaths ?? [])])],
             // Astro deliberately skips set() when digest is unchanged. Include
             // derived HTML so a target edit can update an unchanged source body.
             digest: context.generateDigest({ body: entry.body, html: rendered.html }),

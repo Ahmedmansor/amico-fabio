@@ -1,0 +1,23 @@
+---
+import type {GetStaticPaths} from 'astro';
+import {getBlogListings,getBlogAssets,getBlogDiscovery,listingAlternates} from '../../../features/blog/data/views';
+import {blogPageSize,listingUrl} from '../../../features/blog/domain/listings';
+import ListingPage from '../../../features/blog/presentation/pages/ListingPage.astro';
+
+export const getStaticPaths=(async({paginate})=>{
+  const groups=await getBlogListings(),images=await getBlogAssets();
+  const routes=[];
+  for(const group of groups){
+    const discovery=await getBlogDiscovery(group.lang);
+    const pages=group.posts.length?paginate(group.posts,{pageSize:blogPageSize,params:{locale:group.lang}}).map(item=>item.props.page):[{data:[],currentPage:1,lastPage:1}];
+    for(const page of pages){
+      const path=listingUrl(group.lang,group.kind,group.slug,page.currentPage);
+      const listing=path.slice(`/${group.lang}/blog/`.length).replace(/\/$/,'')||undefined;
+      const alternate=listingAlternates(group,groups,page.currentPage);
+      routes.push({params:{locale:group.lang,page:listing},props:{group,posts:page.data,currentPage:page.currentPage,lastPage:page.lastPage,alternates:alternate.head,navigation:alternate.navigation,images,discovery}});
+    }
+  }
+  return routes;
+}) satisfies GetStaticPaths;
+---
+<ListingPage {...Astro.props}/>

@@ -8,7 +8,7 @@ translationKey: "fixture-sea"
 destination: "sharm"
 interests: ["diving","tips"]
 heroImage: "./hero.webp"
-heroAlt: "Navy placeholder for technical testing"
+heroAlt: "AI-generated illustration of a coral reef and a distant diver"
 linkKeywords: ["fixture sea"]
 featured: false
 draft: false

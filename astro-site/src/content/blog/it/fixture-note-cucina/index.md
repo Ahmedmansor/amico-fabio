@@ -7,7 +7,7 @@ lang: "it"
 destination: "cairo"
 interests: ["food"]
 heroImage: "./hero.webp"
-heroAlt: "Segnaposto blu per test tecnici"
+heroAlt: "Illustrazione IA di un pasto con lenticchie, pasta e pane"
 linkKeywords: ["fixture note cucina"]
 featured: false
 draft: false
@@ -20,7 +20,7 @@ fixture: true
 
 [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio. [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio. [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio. [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio. [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio. [FIXTURE] Testo artificiale per verificare il sistema. Non contiene consigli di viaggio.
 
-![Immagine illustrativa di prova](./hero.webp "[FIXTURE] Didascalia di prova")
+![Illustrazione IA di un pasto con lenticchie, pasta e pane](./hero.webp "[FIXTURE] Didascalia di prova")
 
 ## [FIXTURE] Seconda sezione
 

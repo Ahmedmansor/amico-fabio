@@ -8,7 +8,7 @@ translationKey: "fixture-cairo"
 destination: "cairo"
 interests: ["history","tips"]
 heroImage: "./hero.webp"
-heroAlt: "Navy placeholder for technical testing"
+heroAlt: "AI-generated illustration of stone columns, a pyramid and a river"
 linkKeywords: ["fixture Cairo guide"]
 featured: true
 draft: false
@@ -23,9 +23,9 @@ fixture: true
 
 fixture diving guide, fixture diving guide, fixture sea, fixture secret keyword.
 
-![Illustrative test image](./hero.webp "[FIXTURE] Test caption")
+![AI-generated illustration of stone columns, a pyramid and a river](./hero.webp "[FIXTURE] Test caption")
 
-![Illustrative test image](./hero.webp "[FIXTURE] Test caption")
+![AI-generated illustration of stone columns, a pyramid and a river](./hero.webp "[FIXTURE] Test caption")
 
 ## [FIXTURE] Second section
 

@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { glob, type Loader } from 'astro/loaders';
 import { articlePathParts, validatePostIndex, type BlogIndexRecord } from '../domain/validation';
 import type { PublicationPolicy } from '../domain/models';
+import { isPublished } from '../domain/publication';
 import { authors } from './authors';
 
 /** Metadata is validated before rendering, using Astro's own parser/schema. */
@@ -58,9 +59,12 @@ export function blogLoader(policy: PublicationPolicy): Loader {
         try { previous = readFileSync(snapshot, 'utf8'); } catch { /* First sync. */ }
         if (serialized !== previous) writeFileSync(snapshot, serialized);
         for (const entry of context.store.values()) {
+          const record = records.find(record => record.id === entry.id)!;
+          if (!isPublished(record, policy)) { context.store.delete(entry.id); continue; }
           const rendered = await context.renderMarkdown(entry.body ?? '', { fileURL: new URL(entry.filePath!, context.config.root) });
           const { deferredRender: _deferred, ...metadata } = entry;
-          context.store.set({ ...metadata, rendered, assetImports: rendered.metadata?.imagePaths,
+          context.store.set({ ...metadata, rendered,
+            assetImports: [...new Set([...(entry.assetImports ?? []), ...(rendered.metadata?.imagePaths ?? [])])],
             digest: context.generateDigest({ body: entry.body, html: rendered.html }) });
         }
       };
