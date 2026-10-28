@@ -3,7 +3,7 @@ import { emailSendingGate, validNewPassword, normalizeEmailCode } from '../login
 describe('email sending admission', () => {
   it('accepts numeric email codes without dropping leading zeros and rejects malformed codes',()=>{
     expect(normalizeEmailCode('000 123')).toBe('000123');
-    for(const value of ['123','abcdef','12345678901','<123456>'])expect(normalizeEmailCode(value)).toBeNull();
+    for(const value of ['123','1234567','12345678','abcdef','12345678901','<123456>'])expect(normalizeEmailCode(value)).toBeNull();
   });
   it('orders syntax, explicit typo, disposable and CAPTCHA before admission', () => {
     expect(emailSendingGate('bad', true)).toEqual({ok:false,reason:'invalid-email'});

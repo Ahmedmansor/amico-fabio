@@ -2,7 +2,8 @@ import {browserAuth} from '../data/browser';
 import {getAccountState} from '../data/account-state';
 import {authReturnPaths,defaultAuthReturn,type AuthConfig} from '../data/config';
 import {safeReturnPath,suggestEmailCorrection,normalizeEmail,type AuthFailure} from '../domain/auth';
-import {emailSendingGate,validNewPassword,normalizeEmailCode} from '../domain/login';
+import {emailSendingGate,validNewPassword,normalizeEmailCode,emailCodeLength} from '../domain/login';
+import {bindEmailCodeInput} from './email-code-input';
 import type {Locale} from '../../../shared/config/languages';
 import type {getAuthMessages} from '../data/messages';
 import {mountTurnstile} from './turnstile';
@@ -34,6 +35,7 @@ async function initialize(){
   const modes=[...root.querySelectorAll<HTMLButtonElement>('[data-login-mode]')];
   const oauth=[...root.querySelectorAll<HTMLButtonElement>('[data-login-oauth]')];
   const codeInput=root.querySelector<HTMLInputElement>('#login-code')!;
+  const codeWidget=bindEmailCodeInput(codeInput,emailCodeLength);
   const verifyCode=root.querySelector<HTMLButtonElement>('[data-login-verify-code]')!;
   const codeError=root.querySelector<HTMLElement>('[data-login-code-error]')!;
   const resendOptions=root.querySelector<HTMLDetailsElement>('[data-login-resend-options]')!;
@@ -50,6 +52,9 @@ async function initialize(){
     verifyCode.disabled=pending||!awaitingEmail||!normalizeEmailCode(codeInput.value);
     codeInput.disabled=pending;
     codeInput.setAttribute('aria-invalid',String(!codeError.hidden));
+    codeWidget.refresh();
+    root!.querySelector('[data-login-title]')!.textContent=signedIn?m.accountTitle:awaitingEmail?m.checkInbox:m.title;
+    root!.querySelector<HTMLElement>('[data-login-intro]')!.hidden=awaitingEmail&&!signedIn;
     resendCode.disabled=pending||service!.remainingCooldown()>0||!!config!.turnstileSiteKey&&!token;
     root!.querySelector<HTMLButtonElement>('[data-login-back-to-signin]')!.disabled=pending;
     const sending=mode!=='signin';

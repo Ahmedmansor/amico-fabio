@@ -1,10 +1,11 @@
 import assert from 'node:assert/strict';
-import {writeFile} from 'node:fs/promises';
+import {writeFile,mkdir} from 'node:fs/promises';
 import {pathToFileURL} from 'node:url';
 const {chromium}=await import(pathToFileURL(process.env.PLAYWRIGHT_MODULE).href);
 const origin=process.env.QA_ORIGIN||'http://127.0.0.1:4322';
 const browser=await chromium.launch({headless:true,executablePath:process.env.QA_BROWSER});
 const results=[];
+await mkdir(new URL('./screenshots/',import.meta.url),{recursive:true});
 try{
  for(const locale of ['it','en']){
   const html=await(await fetch(`${origin}/${locale}/login/`)).text();
@@ -32,10 +33,18 @@ try{
   await page.locator('[data-login-mode="signup"]').click();await page.locator('#login-email').fill('qa@libero.it');await page.locator('#login-password').fill('synthetic password');
   await page.locator('[data-login-submit]:enabled').waitFor();await page.locator('[data-login-submit]').click();
   await page.locator('[data-login-check-email]:visible').waitFor();assert.equal(await page.locator('[data-login-controls]').isVisible(),false);
+  assert.equal(await page.locator('[data-code-cell]').count(),6);
+  await page.locator('#login-code').fill('12345');assert.equal(await page.locator('[data-login-verify-code]').isDisabled(),true);
+  assert.deepEqual(await page.locator('[data-code-cell]').allTextContents(),['1','2','3','4','5','']);
+  assert.equal(await page.locator('[data-login-intro]').isVisible(),false);
+  await page.screenshot({path:new URL(`./screenshots/otp-six-${locale}.png`,import.meta.url).pathname.replace(/^\/(.:)/,'$1'),fullPage:true});
   await page.locator('#login-code').fill('abc');assert.equal(await page.locator('[data-login-verify-code]').isDisabled(),true);
   await page.locator('#login-code').fill('999999');await page.locator('[data-login-verify-code]').click();await page.locator('[data-login-code-error]:visible').waitFor();
   await page.waitForTimeout(3100); // The narrow client retry guard after an invalid attempt.
-  await page.locator('#login-code').fill('012345');await page.locator('[data-login-verify-code]').click();await page.waitForURL(`**/${locale}/`);
+  await page.locator('#login-code').evaluate(input=>{const clipboardData=new DataTransfer();clipboardData.setData('text','012 345');input.dispatchEvent(new ClipboardEvent('paste',{clipboardData,bubbles:true,cancelable:true}));});
+  assert.equal(await page.locator('#login-code').inputValue(),'012345');
+  assert.deepEqual(await page.locator('[data-code-cell]').allTextContents(),['0','1','2','3','4','5']);
+  await page.locator('[data-login-verify-code]').click();await page.waitForURL(`**/${locale}/`);
   assert.equal(calls.filter(c=>c.path.endsWith('/signup')).length,1);
   assert.equal(calls.filter(c=>c.path.endsWith('/verify')).length,2);
   assert.equal(calls.some(c=>c.path.endsWith('/otp')||c.path.endsWith('/resend')),false);

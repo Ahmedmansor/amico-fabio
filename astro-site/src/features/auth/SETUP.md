@@ -4,6 +4,11 @@
 
 ## Current login revision — 2026-10-28
 
+Email OTP length is now 6 in Supabase and the local domain/UI. The six-cell
+widget requires the complete code; old eight-digit emails need a fresh request.
+Only auth.email.otp_length changed remotely; all 24 undeclared settings remained
+unchanged. See qa/auth/OTP.md for focused verification and the reviewed config.
+
 Use [LOGIN_REVISION.md](LOGIN_REVISION.md) and
 [KEYS_SETUP_AR.md](../../../qa/auth/KEYS_SETUP_AR.md) for the current activation.
 The local password/Google/Turnstile page and separate optional offers-consent

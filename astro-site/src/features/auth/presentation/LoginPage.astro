@@ -6,6 +6,7 @@ import './auth.css';
 import {marketingConsentEnabled} from '../../marketing/data/config';
 import {getMarketingMessages} from '../../marketing/data/messages';
 import MarketingConsent from '../../marketing/presentation/MarketingConsent.astro';
+import EmailCodeInput from './EmailCodeInput.astro';
 interface Props {locale:Locale}
 const {locale}=Astro.props;
 const m=getAuthMessages(locale);
@@ -46,12 +47,11 @@ const configuration=JSON.stringify({config:authConfig,messages:m,locale,marketin
       <p class="auth-legal-acknowledgement">{m.legalBefore} <a href={`/${locale}/legal/#liability`}>{m.terms}</a> {m.legalAnd} <a href={`/${locale}/legal/#intro`}>{m.privacy}</a>.</p>
       </div>
       <section data-login-check-email hidden aria-labelledby="check-email-title">
-        <h2 id="check-email-title" tabindex="-1">{m.checkInbox}</h2>
+        <h2 id="check-email-title" class="sr-only">{m.checkInbox}</h2>
         <p data-login-delivery-message></p>
         <p data-login-sent-to></p>
         <form data-login-code-form novalidate>
-          <label for="login-code">{m.emailCode}</label>
-          <input id="login-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="10" required aria-describedby="login-code-error"/>
+          <EmailCodeInput label={m.emailCode}/>
           <p id="login-code-error" class="auth-error" data-login-code-error role="alert" hidden></p>
           <button type="submit" class="auth-button" data-login-verify-code disabled>{m.verifyCode}</button>
         </form>

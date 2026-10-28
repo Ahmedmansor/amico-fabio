@@ -1,5 +1,20 @@
 # Email code with alternative link — 2026-10-28
 
+Latest user update: exactly six digits and a segmented widget. Native Supabase
+`auth.email.otp_length` was confirmed as 8, selectively changed to 6, then read
+back with zero declared differences; CLI preserved all 24 undeclared properties.
+Reviewed configuration is in `supabase/auth-protection/email-code-length.toml`.
+No email was sent for this configuration check. Previously issued eight-digit
+emails require a fresh request for the six-digit flow.
+
+UI uses one accessible autofill field with six visual cells, numeric paste with
+spaces, leading-zero preservation, visible focus and a disabled confirmation
+button until exactly six digits. Duplicate headings and long helper copy are
+removed. Focused checks passed: 11 service tests, 4 domain tests, and IT/EN browser
+assertions for six cells, incomplete-code blocking, pasted-code distribution and
+successful mocked confirmation. Mobile screenshots are local/ignored under
+`qa/auth/screenshots/otp-six-*`. Broad checks were not repeated at user request.
+
 User preference: read the email on a phone and enter its code in the requesting
 laptop/browser. OTP is primary; the same email retains the existing alternative
 link. Both consume the same one-time verification: the first successful use wins.
