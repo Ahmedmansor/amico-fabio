@@ -14,10 +14,14 @@ export function comparePublished(a: BlogPost, b: BlogPost): number {
   return publicationTime(b) - publicationTime(a) || compareText(a.title, b.title) || compareText(a.id, b.id);
 }
 
+export function isPublished(post: Pick<BlogPost, 'draft' | 'fixture' | 'pubDate' | 'sourcePath'>, policy: PublicationPolicy): boolean {
+  if (!Number.isFinite(policy.evaluatedAt)) throw new Error('[blog] evaluatedAt must be a finite timestamp.');
+  return !post.draft && (!post.fixture || policy.includeFixtures) && publicationTime(post) <= policy.evaluatedAt;
+}
+
 export function getPublishedPosts(posts: readonly BlogPost[], lang: Locale, policy: PublicationPolicy): BlogPost[] {
   if (!Number.isFinite(policy.evaluatedAt)) throw new Error('[blog] evaluatedAt must be a finite timestamp.');
-  return posts.filter(post => post.lang === lang && !post.draft &&
-    (!post.fixture || policy.includeFixtures) && publicationTime(post) <= policy.evaluatedAt)
+  return posts.filter(post => post.lang === lang && isPublished(post, policy))
     .sort(comparePublished);
 }
 

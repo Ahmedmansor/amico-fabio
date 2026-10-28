@@ -9,6 +9,8 @@
   "scripts": {
     "dev": "astro dev",
     "check": "astro check",
+    "check:content": "astro sync",
+    "check:blog": "tsc --noEmit --project scripts/blog/tsconfig.json",
     "test": "node scripts/run-tests.mjs",
     "build": "astro build",
     "preview": "astro preview",
@@ -23,6 +25,7 @@
     "@astrojs/check": "0.9.10",
     "@astrojs/markdown-satteri": "0.4.3",
     "@tailwindcss/vite": "4.3.3",
+    "@types/node": "24.10.1",
     "tailwindcss": "4.3.3",
     "typescript": "6.0.3",
     "vitest": "5.0.4"

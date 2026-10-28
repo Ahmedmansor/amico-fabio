@@ -1,6 +1,6 @@
 # Blog execution checklist
 
-Status: phases 1–2 verified; phase 3 collection/data implementation next.
+Status: phases 1–3 verified; phase 4 fixture guards next.
 Updated: 2026-10-28. Preparation-only instruction was superseded by the owner's
 subsequent implementation request. New blog UI uses ui-ux-pro-max and a fresh
 visual direction; generated temporary WebP imagery is approved.
@@ -66,14 +66,14 @@ dependency enters domain. Inquiry behavior is implemented in phase 10.
 
 ## Phase 3 — Collection and data layer
 
-- [ ] Register the collection through the feature-owned schema and supported glob.
-- [ ] Map directory, article ID and slug separately; validate folder language.
-- [ ] Implement content reading and one validated publication index.
-- [ ] Add metadata, date, taxonomy, image, author and duplicate checks.
-- [ ] Add keyword-claim diagnostics with both file names and normalized phrase.
-- [ ] Provide the content-check entry point without replacing existing tests.
-- [ ] Test intended invalid inputs in isolation with expected error messages.
-- [ ] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+- [x] Register the collection through the feature-owned schema and supported glob.
+- [x] Map directory, article ID and slug separately; validate folder language.
+- [x] Implement content reading and one validated publication index.
+- [x] Add metadata, date, taxonomy, image, author and duplicate checks.
+- [x] Add keyword-claim diagnostics with both file names and normalized phrase.
+- [x] Provide the content-check entry point without replacing existing tests.
+- [x] Test intended invalid inputs in isolation with expected error messages.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
 
 **Done when:** pages/plugins can obtain consistent validated models and bad
 inputs fail with useful record/field information.

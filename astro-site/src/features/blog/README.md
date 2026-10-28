@@ -1,6 +1,6 @@
 # Blog feature
 
-Status: pipeline prototype and pure domain verified; collection/routes/UI pending.
+Status: pipeline, domain and collection/data verified; fixture guards/routes/UI pending.
 Updated 2026-10-28.
 
 A static IT/EN editorial blog with city/interest browsing, translation-aware
@@ -24,7 +24,8 @@ DECISIONS.md and update affected requirements before reporting completion.
 ## Current deliverables
 
 - Planning documents, pure domain helpers/tests and remaining layer placeholders.
-- No collection registration, Markdown entries, generated routes or scripts.
+- Registered collection/schema/loader and focused verification scripts; no
+  Markdown entries or generated article routes yet.
 - A pinned dev-only native Markdown adapter and isolated verification runner;
   no application collection/routes/environment/hosting changes.
 - No database, API, email or persisted inquiry data.
@@ -50,7 +51,7 @@ their implementation phase. Empty directories contain only `.gitkeep` files.
 
 ## First implementation task
 
-Phases 1–2 passed; continue with EXECUTION.md phase 3's validated collection/data
-layer before building pages. The inquiry must
+Phases 1–3 passed; continue with EXECUTION.md phase 4's enforced fixture guards
+before building pages. The inquiry must
 remain a WhatsApp handoff using shared public configuration; no Supabase work
 belongs to this feature.

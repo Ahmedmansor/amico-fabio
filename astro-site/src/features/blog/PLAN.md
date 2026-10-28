@@ -1,6 +1,6 @@
 # Blog system — implementation plan
 
-Status: phases 1–2 verified; collection/data implementation is next.
+Status: phases 1–3 verified; fixture guards and pages are next.
 Updated: 2026-10-28.
 
 Planning package: see README.md for the documentation map and EXECUTION.md for
