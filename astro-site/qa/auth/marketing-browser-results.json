@@ -1,0 +1,70 @@
+{
+  "results": [
+    {
+      "locale": "it",
+      "width": 375,
+      "passed": true,
+      "checks": [
+        "default unchecked signup",
+        "versioned intent only",
+        "metadata cannot grant",
+        "verified preference read",
+        "failed write and retry",
+        "explicit opt-in",
+        "withdrawal",
+        "no reminder/email calls"
+      ],
+      "synthetic": true
+    },
+    {
+      "locale": "it",
+      "width": 1440,
+      "passed": true,
+      "checks": [
+        "default unchecked signup",
+        "versioned intent only",
+        "metadata cannot grant",
+        "verified preference read",
+        "failed write and retry",
+        "explicit opt-in",
+        "withdrawal",
+        "no reminder/email calls"
+      ],
+      "synthetic": true
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "passed": true,
+      "checks": [
+        "default unchecked signup",
+        "versioned intent only",
+        "metadata cannot grant",
+        "verified preference read",
+        "failed write and retry",
+        "explicit opt-in",
+        "withdrawal",
+        "no reminder/email calls"
+      ],
+      "synthetic": true
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "passed": true,
+      "checks": [
+        "default unchecked signup",
+        "versioned intent only",
+        "metadata cannot grant",
+        "verified preference read",
+        "failed write and retry",
+        "explicit opt-in",
+        "withdrawal",
+        "no reminder/email calls"
+      ],
+      "synthetic": true
+    }
+  ],
+  "sqlRoleTestsExecuted": false,
+  "externalEmailsSent": 0
+}

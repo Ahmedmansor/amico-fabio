@@ -8,7 +8,7 @@ async function initialize() {
   const globals = window as unknown as { __fabioAuthCallback?: { search: string; hash: string } };
   const handoff = globals.__fabioAuthCallback;
   delete globals.__fabioAuthCallback;
-  const { config, messages: m, locale } = JSON.parse(document.getElementById('auth-callback-config')!.textContent!) as { config: AuthConfig | null; messages: ReturnType<typeof getAuthMessages>; locale: Locale };
+  const { config, messages: m, locale,marketingEnabled } = JSON.parse(document.getElementById('auth-callback-config')!.textContent!) as { config: AuthConfig | null; messages: ReturnType<typeof getAuthMessages>; locale: Locale;marketingEnabled?:boolean };
   let input = parseCallback(handoff?.search ?? '', handoff?.hash ?? '');
   const requested = new URLSearchParams(handoff?.search).get('next');
   const destination = safeReturnPath(requested, authReturnPaths(requested), defaultAuthReturn(locale));
@@ -31,7 +31,14 @@ async function initialize() {
     pending = true; button.disabled = true; status.textContent = m.pending;
     const result = await service.completeCallback(input);
     input = { kind: 'invalid' };
-    if (result.ok) { window.location.replace(destination); return; }
+    if (result.ok) {
+      if(marketingEnabled&&config){
+        // Auth is already complete. Optional consent failure cannot block access;
+        // the account preference view retries the durable verified signup intent.
+        try{const {browserMarketing}=await import('../../marketing/data/browser');const repository=await browserMarketing(config);await repository?.activateSignup(result.value.userId);}catch{}
+      }
+      window.location.replace(destination); return;
+    }
     status.textContent = m.invalidLink;
     button.hidden = true;
     if (requestNew) { requestNew.hidden = false; requestNew.focus(); }

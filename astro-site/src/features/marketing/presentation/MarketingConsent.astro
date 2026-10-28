@@ -1,0 +1,23 @@
+---
+import type {Locale} from '../../../shared/config/languages';
+import {authConfig} from '../../auth/data/build-config';
+import {marketingConsentEnabled} from '../data/config';
+import {getMarketingMessages} from '../data/messages';
+import './marketing.css';
+interface Props {locale:Locale}
+const {locale}=Astro.props,m=getMarketingMessages(locale);
+const enabled=marketingConsentEnabled(import.meta.env);
+const configuration=JSON.stringify({config:authConfig,messages:m,locale}).replace(/</g,'\\u003c');
+---
+{enabled && authConfig && <section class="marketing-consent" data-marketing-consent aria-labelledby="marketing-title" hidden>
+  <script id="marketing-config" type="application/json" set:html={configuration}/>
+  <h2 id="marketing-title">{m.title}</h2>
+  <p>{m.description}</p>
+  <form data-marketing-form>
+    <label><input type="checkbox" data-marketing-choice disabled/>{m.label}</label>
+    <button type="submit" class="auth-button auth-secondary" data-marketing-save disabled>{m.save}</button>
+  </form>
+  <p data-marketing-status role="status" aria-live="polite">{m.loading}</p>
+  <button type="button" class="auth-button auth-secondary" data-marketing-retry hidden>{m.retry}</button>
+</section>}
+<script>import './marketing-interactions';</script>

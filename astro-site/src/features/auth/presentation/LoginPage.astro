@@ -3,9 +3,13 @@ import {authConfig} from '../data/build-config';
 import {getAuthMessages} from '../data/messages';
 import type {Locale} from '../../../shared/config/languages';
 import './auth.css';
+import {marketingConsentEnabled} from '../../marketing/data/config';
+import {getMarketingMessages} from '../../marketing/data/messages';
+import MarketingConsent from '../../marketing/presentation/MarketingConsent.astro';
 interface Props {locale:Locale}
 const {locale}=Astro.props;
 const m=getAuthMessages(locale);
+const marketingEnabled=marketingConsentEnabled(import.meta.env),marketing=getMarketingMessages(locale);
 const configuration=JSON.stringify({config:authConfig,messages:m,locale}).replace(/</g,'\\u003c');
 ---
 <main class="auth-login auth-content" data-login-page>
@@ -32,6 +36,7 @@ const configuration=JSON.stringify({config:authConfig,messages:m,locale}).replac
             <input id="login-password" name="password" type="password" autocomplete="current-password" maxlength="128" required aria-describedby="password-guidance"/>
             <p id="password-guidance" data-login-password-hint hidden>{m.passwordGuidance}</p>
           </div>}
+          {marketingEnabled && authConfig.passwordEnabled && <label class="auth-reminder-optin" data-login-marketing-row hidden><input type="checkbox" data-login-marketing-intent/>{marketing.label}</label>}
           {authConfig.turnstileSiteKey && <div data-login-captcha></div>}
           <p id="login-error" class="auth-error" role="alert" data-login-error hidden></p>
           <button type="submit" class="auth-button" data-login-submit disabled>{authConfig.passwordEnabled?m.signIn:m.send}</button>
@@ -49,6 +54,7 @@ const configuration=JSON.stringify({config:authConfig,messages:m,locale}).replac
         <p id="account-password-guidance">{m.passwordGuidance}</p>
         <button type="submit" class="auth-button auth-secondary">{m.savePassword}</button>
       </form>}
+      <MarketingConsent locale={locale}/>
     </section>
   </> : <p>{m.unavailable}</p>}
   <p data-login-status role="status" aria-live="polite"></p>

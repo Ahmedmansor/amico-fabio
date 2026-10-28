@@ -63,7 +63,7 @@ branch, in the static Astro application; production/legacy remain unchanged.
 ## Owner setup / actual key blockers
 
 - Cloudflare Managed Turnstile: allow `localhost`, `127.0.0.1` if used, and the
-  actual `amico-fabio-test.vercel.app` test hostname. Production hostname can be
+  actual `amico-fabio-iyzo.vercel.app` test hostname (project `amico-fabio-test`). Production hostname can be
   registered for later, but do not activate production. The site key is public;
   set it as `PUBLIC_AUTH_TURNSTILE_SITE_KEY`. The secret belongs only in Supabase
   Attack Protection; never paste/store it in source or public build variables.
@@ -100,3 +100,9 @@ build (99 pages), and four IT/EN mobile/desktop synthetic browser scenarios.
 See `../../../qa/auth/LOGIN_REVISION.md` for evidence and remaining activation.
 The existing hook already handles signup with reservation/replay protection;
 only its confirmation wording and new callback allowlist deployment need updating.
+
+The local optional promotional-consent feature and its separate SQL/rollback role
+test proposal are also prepared. Current checks: 385 Node, 200 Vitest, Astro check
+445 files without diagnostics, static build 99 pages; four marketing and four
+login synthetic browser scenarios pass. SQL has NOT been applied or role-tested;
+PUBLIC_MARKETING_CONSENT_ENABLED stays off. See `../../../qa/auth/MARKETING_CONSENT.md`.

@@ -29,6 +29,7 @@ async function initialize(){
   const error=root.querySelector<HTMLElement>('[data-login-error]');
   const suggestion=root.querySelector<HTMLElement>('[data-login-suggestion]');
   const recovery=root.querySelector<HTMLButtonElement>('[data-login-recovery]');
+  const marketingIntent=root.querySelector<HTMLInputElement>('[data-login-marketing-intent]');
   const cooldown=root.querySelector<HTMLElement>('[data-login-cooldown]')!;
   const modes=[...root.querySelectorAll<HTMLButtonElement>('[data-login-mode]')];
   const oauth=[...root.querySelectorAll<HTMLButtonElement>('[data-login-oauth]')];
@@ -50,6 +51,7 @@ async function initialize(){
     const passwordRow=root!.querySelector<HTMLElement>('[data-login-password-row]');
     if(passwordRow)passwordRow.hidden=mode==='recovery';
     const hint=root!.querySelector<HTMLElement>('[data-login-password-hint]');if(hint)hint.hidden=mode!=='signup';
+    const marketingRow=root!.querySelector<HTMLElement>('[data-login-marketing-row]');if(marketingRow)marketingRow.hidden=mode!=='signup';
     if(submit){submit.textContent=mode==='signup'?m.signUp:mode==='signin'?m.signIn:m.send;
       submit.disabled=!ready||pending||signedIn||(!sending&&(!email?.value||!password?.value))||(sending&&(!check?.ok||(mode==='signup'&&!validNewPassword(password?.value??''))))||!!config!.turnstileSiteKey&&!token||(sending&&service!.remainingCooldown()>0);}
     for(const button of modes){button.disabled=pending;button.setAttribute('aria-pressed',String(button.dataset.loginMode===mode));}
@@ -75,7 +77,7 @@ async function initialize(){
       if(!gate.ok){status.textContent=message(gate.reason);render();return;}
     }
     pending=true;status.textContent=m.pending;render();
-    const result=attempted==='signup'?await service.signUp(email.value,password!.value,locale,destination,token):attempted==='signin'?await service.signInWithPassword(email.value,password!.value,token):await service.requestMagicLink(email.value,locale,destination,token);
+    const result=attempted==='signup'?await service.signUp(email.value,password!.value,locale,destination,token,marketingIntent?.checked===true):attempted==='signin'?await service.signInWithPassword(email.value,password!.value,token):await service.requestMagicLink(email.value,locale,destination,token);
     pending=false;if(password)password.value='';captcha?.reset();
     if(result.ok&&attempted==='signin'){location.assign(destination);return;}
     status.textContent=result.ok?(attempted==='signup'?m.signupSent:m.sent):message(result.reason);render();

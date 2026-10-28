@@ -90,7 +90,9 @@ export function createAuthService(client: Client, config: AuthConfig, now: () =>
         const { error } = await client.auth.signUp({ email: gate.value, password, options: {
           captchaToken, emailRedirectTo: callbackUrl(locale, requestedReturn),
           // Intent only; never grant marketing permission or reminder consent from metadata.
-          data: { site_locale: locale, marketing_consent: marketingIntent === true },
+          data: { site_locale: locale, marketing_consent: marketingIntent === true,
+            ...(marketingIntent === true ? {marketing_notice_version: (await import('../../marketing/domain/consent.ts')).marketingNoticeVersion} : {}),
+          },
         } });
         if (error) return failure(rateLimited(error) ? 'rate-limited' : 'failed');
         sentAt = now();

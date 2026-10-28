@@ -34,6 +34,12 @@ test('password login returns session without sending and requires CAPTCHA',async
   assert.equal((await service.signInWithPassword('a@libero.it','long password','token')).ok,true);
   assert.deepEqual(calls.map(c=>c[0]),['password']);
 });
+test('checked signup intent carries a version but never performs a consent RPC',async()=>{
+  const {service,calls}=setup();
+  assert.equal((await service.signUp('qa@libero.it','long password','it',undefined,'token',true)).ok,true);
+  assert.deepEqual(calls[0][1].options.data,{site_locale:'it',marketing_consent:true,marketing_notice_version:'favorites-offers-v1'});
+  assert.equal(calls.length,1);
+});
 test('Magic Link recovery cannot create another account and forwards token',async()=>{
   const {service,calls}=setup();
   assert.equal((await service.requestMagicLink('a@libero.it','en','/en/wishlist/','token')).ok,true);

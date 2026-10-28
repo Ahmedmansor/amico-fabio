@@ -21,6 +21,7 @@ const m = getWishlistMessages(locale);
   <AuthEntry locale={locale}/>
   <slot name="email-test"/>
   <slot name="reminder-preferences"/>
+  <slot name="marketing-consent"/>
   <aside class="wishlist-inline-reminder" data-wishlist-inline-reminder hidden>
     <p>{m.inlineReminderPrompt}</p>
     <button type="button" class="wishlist-inline-reminder-btn" data-wishlist-inline-reminder-enable>

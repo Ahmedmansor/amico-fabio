@@ -1,0 +1,7 @@
+.marketing-consent { margin:24px 0; padding:20px; border:1px solid var(--color-gold); border-radius:var(--radius-card); }
+.marketing-consent h2 { color:var(--color-gold-soft); font-size:1.2rem; margin-bottom:12px; }
+.marketing-consent p { color:var(--color-text-muted); line-height:1.6; margin:12px 0; }
+.marketing-consent label { display:flex; gap:12px; align-items:flex-start; line-height:1.6; padding:12px 0; }
+.marketing-consent input { flex:none; width:20px; height:20px; margin-top:3px; accent-color:var(--color-gold); }
+.marketing-consent [hidden],.marketing-consent[hidden] { display:none!important; }
+.marketing-consent :focus-visible { outline:3px solid var(--color-gold-soft); outline-offset:4px; }

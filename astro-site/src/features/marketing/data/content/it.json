@@ -1,0 +1,11 @@
+{
+  "title": "Offerte per i tuoi preferiti",
+  "label": "Desidero ricevere via email offerte e sconti relativi ai miei preferiti (facoltativo).",
+  "description": "Questa scelta è separata dal promemoria dei preferiti. Puoi revocarla qui in qualsiasi momento. Account e preferiti funzionano anche senza consenso.",
+  "save": "Salva scelta",
+  "saved": "La tua scelta è stata salvata.",
+  "loading": "Caricamento della tua scelta…",
+  "failed": "Impossibile confermare la tua scelta. Ricaricala prima di riprovare.",
+  "retry": "Ricarica scelta",
+  "verify": "Verifica la tua email prima di salvare questa scelta."
+}

@@ -3,10 +3,11 @@ import { authConfig } from '../data/build-config';
 import { getAuthMessages } from '../data/messages';
 import type { Locale } from '../../../shared/config/languages';
 import './auth.css';
+import {marketingConsentEnabled} from '../../marketing/data/config';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const m = getAuthMessages(locale);
-const configuration = JSON.stringify({ config: authConfig, messages: m, locale }).replace(/</g, '\\u003c');
+const configuration = JSON.stringify({ config: authConfig, messages: m, locale,marketingEnabled:marketingConsentEnabled(import.meta.env) }).replace(/</g, '\\u003c');
 ---
 <script type="application/json" id="auth-callback-config" set:html={configuration}/>
 <main class="auth-callback" data-auth-callback>
