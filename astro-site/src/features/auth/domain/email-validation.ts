@@ -36,7 +36,6 @@ const DOMAIN_TYPO_MAP: Readonly<Record<string, string>> = Object.freeze({
   'gmai.com': 'gmail.com',
   'gmal.com': 'gmail.com',
   'gmail.con': 'gmail.com',
-  'gmail.co': 'gmail.com',
   'gmaik.com': 'gmail.com',
   'gemail.com': 'gmail.com',
   'gmaili.com': 'gmail.com',
@@ -73,17 +72,15 @@ const DOMAIN_TYPO_MAP: Readonly<Record<string, string>> = Object.freeze({
   // Italian providers typos (common mistypes from Italian users)
   'liberoo.it': 'libero.it',
   'liber.it': 'libero.it',
-  'libero.com': 'libero.it', // Libero uses .it; typing .com is a frequent error
   'libero.ti': 'libero.it',
   'livero.it': 'libero.it',
   'virgilioo.it': 'virgilio.it',
-  'virgilio.com': 'virgilio.it', // Virgilio uses .it
   'virgili.it': 'virgilio.it',
   'virgilo.it': 'virgilio.it',
   'tiscalii.it': 'tiscali.it',
-  'tiscali.com': 'tiscali.it',
 
   // iCloud typos
+  'icoud.com': 'icloud.com',
   'icpoud.com': 'icloud.com',
   'iclod.com': 'icloud.com',
   'icluod.com': 'icloud.com',

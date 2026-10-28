@@ -119,9 +119,7 @@ describe('Email validation and disposable domain rules', () => {
       ['mario@yaho.com', 'mario@yahoo.com'],
       ['mario@yaho.it', 'mario@yahoo.it'],
       ['mario@liberoo.it', 'mario@libero.it'],
-      ['mario@libero.com', 'mario@libero.it'],
       ['mario@virgilioo.it', 'mario@virgilio.it'],
-      ['mario@virgilio.com', 'mario@virgilio.it'],
       ['mario@icpoud.com', 'mario@icloud.com'],
     ];
 

@@ -61,7 +61,24 @@ describe('signed Auth hook and durable delivery contract', () => {
     input.user.user_metadata = {site_locale: 'en'};
     input.email_data.email_action_type = 'signup'; input.email_data.redirect_to = `${origin}/it/auth/callback/`;
     assert.equal((await app.dispatch(input)).status, 200);
-    assert.equal(app.body().subject, 'Il tuo link di accesso - Fabio Egypt');
+    assert.equal(app.body().subject, 'Conferma il tuo account - Fabio Egypt');
+  });
+  it('blocks a direct native known-typo send before DNS, quota or Brevo',async()=>{
+    let dns=0,reservations=0;
+    const app=setup({verifyDns:async()=>{dns++;return {status:'valid',retryable:false};},reserve:async()=>{reservations++;return {outcome:'send',attemptId};}});
+    const input=event();input.user.email='person@gamil.com';
+    assert.equal((await app.dispatch(input)).status,400);
+    assert.equal(dns,0);assert.equal(reservations,0);assert.equal(app.sends(),0);
+  });
+  it('signup confirms identity without embedding marketing claims or opt-in metadata',async()=>{
+    const app=setup();const input=event();input.user.user_metadata={marketing_consent:true};
+    input.email_data.email_action_type='signup';
+    assert.equal((await app.dispatch(input)).status,200);
+    assert.equal(app.body().subject,'Confirm your account - Fabio Egypt');
+    assert.ok(app.body().textContent.includes('Confirm email:'));
+    assert.ok(!app.body().htmlContent.includes('marketing_consent'));
+    assert.equal(app.sends(),1);
+    assert.equal((await app.dispatch(input)).status,200);assert.equal(app.sends(),1);
   });
   it('rejects missing, wrong, expired, future and tampered signatures before dispatch', async () => {
     const app = setup(); const raw = JSON.stringify(event());

@@ -95,3 +95,19 @@ HTTP hook connected and fail closed until a reviewed protected sender is ready;
 do not silently fall back to unprotected SMTP. Google remains a separate flow.
 The only active web project changed is the approved test project. Main, the real
 production project/domain and reminder recipient scope were not changed.
+
+## Prepared login revision — 2026-10-28 (not deployed)
+
+Local hook source now sends distinct IT/EN signup-confirmation wording while
+retaining the same fragment callback, explicit verification action, durable quota
+and replay protection. Direct known-typo requests fail before DNS/reservation or
+Brevo. Alternate provider domains such as libero.com/tiscali.com are not treated
+as proven typos. Confirmed disposable blocks and the offline bulk-list decision
+remain unchanged. Browser validation does not replace this backend boundary.
+
+Verification: Deno check of the Edge entry passed; npm test passed 379 Node and
+198 Vitest tests; Astro check covered 434 files with zero diagnostics; static
+build generated 99 pages in 13.95 seconds. Tests were synthetic and sent no mail.
+The existing deployed v4 remains the old artifact. Redeploy the reviewed source
+with existing secure credentials during coordinated test activation; no new
+secret is needed by this code change. Preserve rollback and existing quota.

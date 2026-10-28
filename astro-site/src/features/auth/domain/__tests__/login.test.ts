@@ -13,4 +13,8 @@ describe('email sending admission', () => {
     expect(validNewPassword('a'.repeat(129))).toBe(false);
     expect(validNewPassword(' a long password ')).toBe(true);
   });
+  it('does not treat alternate registered provider domains as proven typos',()=>{
+    for(const domain of ['libero.com','virgilio.com','tiscali.com','gmail.co'])expect(emailSendingGate(`person@${domain}`,true,'token').ok).toBe(true);
+    expect(emailSendingGate('person@icoud.com',true,'token')).toEqual({ok:false,reason:'email-typo'});
+  });
 });

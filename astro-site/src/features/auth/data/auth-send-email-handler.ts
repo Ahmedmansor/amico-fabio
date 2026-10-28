@@ -45,14 +45,16 @@ export function buildMagicLinkEmailContent(params: {
   readonly recipient: string;
   readonly confirmationUrl: string;
   readonly locale: 'it' | 'en';
+  readonly action?: 'signup' | 'magiclink';
 }): { readonly subject: string; readonly html: string; readonly text: string } {
   const isIt = params.locale === 'it';
 
-  const subject = isIt
+  const confirming = params.action === 'signup';
+  const subject = confirming ? (isIt ? 'Conferma il tuo account - Fabio Egypt' : 'Confirm your account - Fabio Egypt') : isIt
     ? 'Il tuo link di accesso - Fabio Egypt'
     : 'Your sign-in link - Fabio Egypt';
 
-  const title = isIt
+  const title = confirming ? (isIt ? 'Conferma il tuo indirizzo email' : 'Confirm your email address') : isIt
     ? 'Accedi a Fabio Egypt'
     : 'Sign in to Fabio Egypt';
 
@@ -60,11 +62,13 @@ export function buildMagicLinkEmailContent(params: {
     ? 'Ciao,'
     : 'Hello,';
 
-  const intro = isIt
+  const intro = confirming ? (isIt
+    ? 'Hai richiesto un account Fabio Egypt. Conferma il tuo indirizzo email per accedere e gestire i tuoi preferiti.'
+    : 'You requested a Fabio Egypt account. Confirm your email address to sign in and manage your favorites.') : isIt
     ? 'Abbiamo ricevuto una richiesta di accesso al tuo account Fabio Egypt per salvare e gestire i tuoi preferiti.'
     : 'We received a request to sign in to your Fabio Egypt account to save and manage your favorites.';
 
-  const buttonText = isIt
+  const buttonText = confirming ? (isIt ? 'Conferma email' : 'Confirm email') : isIt
     ? 'Accedi ora'
     : 'Sign in now';
 
@@ -143,6 +147,8 @@ export function createAuthSendEmailHandler(deps: AuthSendEmailDependencies) {
   return async function handleAuthSendEmail(event: AuthSendEmailEvent): Promise<AuthSendEmailResponse> {
     const validation = typeof event.user?.email === 'string' ? validateEmailAddress(event.user.email) : null;
     if (!validation?.ok) return fail(validation?.reason === 'disposable-domain' ? 403 : 400, 'Invalid or disposable email address.');
+    // Browser checks can be bypassed. Never send or silently rewrite known typos.
+    if (validation.suggestion) return fail(400, 'Check the spelling of your email domain.');
     if (isDisposableDomain(validation.domain)) return fail(403, 'Temporary or disposable email domains are not allowed.');
     const {normalizedEmail: email, domain} = validation;
     const userId = event.user?.id;
@@ -174,7 +180,7 @@ export function createAuthSendEmailHandler(deps: AuthSendEmailDependencies) {
       if (admission.outcome === 'blocked') return fail(429, 'Email request blocked or rate limited.');
       if (admission.outcome !== 'send') return fail(503, 'Delivery requires reconciliation.');
       callback.hash = new URLSearchParams({token_hash: tokenHash, type: 'email'}).toString();
-      const content = buildMagicLinkEmailContent({recipient: email, confirmationUrl: callback.href, locale});
+      const content = buildMagicLinkEmailContent({recipient: email, confirmationUrl: callback.href, locale, action: data!.email_action_type as 'signup' | 'magiclink'});
       let delivery: {state: 'accepted' | 'unknown' | 'retryable' | 'rejected'; messageId?: string} = {state: 'unknown'};
       try {
         delivery = await withDeadline(async signal => {
