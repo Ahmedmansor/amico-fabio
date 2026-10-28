@@ -118,3 +118,9 @@ One targeted browser check with a synthetic Google session passed: account title
 collapsed password field, explicit expansion and zero CAPTCHA loads. All Supabase
 requests were intercepted; no email or real Auth request. Broad checks were not
 repeated, following the user's instruction.
+
+Turnstile hostname fix: the actual local widget allowed localhost but not
+127.0.0.1, the hostname used by the local app. Added only 127.0.0.1 through the
+Cloudflare API; a subsequent widget listing confirmed it is allowed. Existing
+domains, Managed mode and other settings were preserved. No key rotation, Auth
+request or email sending occurred. Real challenge completion remains a user check.
