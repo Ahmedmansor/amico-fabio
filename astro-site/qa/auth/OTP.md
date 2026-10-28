@@ -52,6 +52,12 @@ Real inbox code and cross-device acceptance remain the user's test. Previously
 delivered emails cannot acquire a code after this update: request a fresh email.
 No production page/domain or marketing schema/sending scope is changed.
 
+Rollout: auth-send-email v7 is ACTIVE on the approved Supabase project. Downloaded
+dependency sources match the reviewed source; an actual unsigned POST returned
+401. Runtime sender/origins/quota/HMAC settings are unchanged. Prior v6 source is
+saved in ignored `.astro/auth-send-email-v6-rollback.json` for rollback. This is
+deployment/authentication evidence, not a real signed delivery or inbox-code test.
+
 Official references:
 - https://supabase.com/docs/guides/auth/auth-email-passwordless
 - https://supabase.com/docs/reference/javascript/auth-verifyotp
