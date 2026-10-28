@@ -40,7 +40,9 @@ try{
       assert.equal(new URL(page.url()).searchParams.get('redirect'),'/it/wishlist/');
     }
     await page.locator('[data-login-mode="signup"]').click();
+    await page.locator('#login-first-name').fill('Mario');await page.locator('#login-last-name').fill('Rossi');
     await page.locator('#login-password').fill('synthetic password');
+    await page.locator('#login-password-confirm').fill('synthetic password');
     for(const email of ['broken','person@gamil.com','person@playfine.com']){
       await page.locator('#login-email').fill(email);assert.equal(await page.locator('[data-login-submit]').isDisabled(),true);
     }
@@ -76,6 +78,7 @@ try{
     assert.equal(await page.locator('[data-login-password-settings]').getAttribute('open'),null);
     await page.locator('[data-login-password-settings] summary').click();
     await page.locator('#account-password').fill('new synthetic password');
+    await page.locator('#account-password-confirm').fill('new synthetic password');
     await page.locator('[data-login-set-password] button').click();
     await page.waitForFunction(()=>document.querySelector('#account-password').value==='');
     assert.equal(calls.filter(c=>c.path.endsWith('/user')&&c.body?.password==='new synthetic password').length,1);

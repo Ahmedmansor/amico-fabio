@@ -2,7 +2,7 @@ import {browserAuth} from '../data/browser';
 import {getAccountState} from '../data/account-state';
 import {authReturnPaths,defaultAuthReturn,type AuthConfig} from '../data/config';
 import {safeReturnPath,suggestEmailCorrection,normalizeEmail,type AuthFailure} from '../domain/auth';
-import {emailSendingGate,validNewPassword,normalizeEmailCode,emailCodeLength} from '../domain/login';
+import {emailSendingGate,validNewPassword,normalizeEmailCode,emailCodeLength,passwordsMatch,normalizePersonName} from '../domain/login';
 import {bindEmailCodeInput} from './email-code-input';
 import type {Locale} from '../../../shared/config/languages';
 import type {getAuthMessages} from '../data/messages';
@@ -26,6 +26,13 @@ async function initialize(){
   const form=root.querySelector<HTMLFormElement>('[data-login-form]');
   const email=root.querySelector<HTMLInputElement>('#login-email');
   const password=root.querySelector<HTMLInputElement>('#login-password');
+  const confirmation=root.querySelector<HTMLInputElement>('#login-password-confirm');
+  const firstName=root.querySelector<HTMLInputElement>('#login-first-name');
+  const lastName=root.querySelector<HTMLInputElement>('#login-last-name');
+  const nameInputs=[firstName,lastName].filter((input):input is HTMLInputElement=>!!input);
+  const accountPassword=root.querySelector<HTMLInputElement>('#account-password');
+  const accountConfirmation=root.querySelector<HTMLInputElement>('#account-password-confirm');
+  const touchedNames=new Set<HTMLInputElement>();
   const submit=root.querySelector<HTMLButtonElement>('[data-login-submit]');
   const error=root.querySelector<HTMLElement>('[data-login-error]');
   const suggestion=root.querySelector<HTMLElement>('[data-login-suggestion]');
@@ -45,7 +52,7 @@ async function initialize(){
   let pending=false,token='',signedIn=false,ready=false,awaitingEmail=false;
   let captcha:Awaited<ReturnType<typeof mountTurnstile>>|undefined;
   let captchaStarted=false;
-  const message=(reason:AuthFailure)=>reason==='invalid-code'?m.invalidCode:reason==='invalid-email'?m.invalidEmail:reason==='disposable-domain'?m.disposableEmail:reason==='email-typo'?m.checkTypo:reason==='captcha-required'?m.captchaRequired:reason==='invalid-password'?m.passwordGuidance:reason==='rate-limited'?m.rateLimited:m.failed;
+  const message=(reason:AuthFailure)=>reason==='password-mismatch'?m.passwordMismatch:reason==='invalid-name'?m.nameRequired:reason==='invalid-code'?m.invalidCode:reason==='invalid-email'?m.invalidEmail:reason==='disposable-domain'?m.disposableEmail:reason==='email-typo'?m.checkTypo:reason==='captcha-required'?m.captchaRequired:reason==='invalid-password'?m.passwordGuidance:reason==='rate-limited'?m.rateLimited:m.failed;
   function render(){
     root!.querySelector<HTMLElement>('[data-login-controls]')!.hidden=awaitingEmail;
     root!.querySelector<HTMLElement>('[data-login-check-email]')!.hidden=!awaitingEmail;
@@ -70,9 +77,26 @@ async function initialize(){
     const passwordRow=root!.querySelector<HTMLElement>('[data-login-password-row]');
     if(passwordRow)passwordRow.hidden=mode==='recovery';
     const hint=root!.querySelector<HTMLElement>('[data-login-password-hint]');if(hint)hint.hidden=mode!=='signup';
+    const nameRow=root!.querySelector<HTMLElement>('[data-login-name-row]');if(nameRow)nameRow.hidden=mode!=='signup';
+    const confirmRow=root!.querySelector<HTMLElement>('[data-login-confirm-row]');if(confirmRow)confirmRow.hidden=mode!=='signup';
+    if(confirmation)confirmation.required=mode==='signup';
+    for(const input of nameInputs){
+      input.required=mode==='signup';
+      const invalid=mode==='signup'&&touchedNames.has(input)&&!normalizePersonName(input.value);
+      input.setAttribute('aria-invalid',String(invalid));
+      root!.querySelector<HTMLElement>(`#${input.id}-error`)!.hidden=!invalid;
+    }
+    const mismatch=mode==='signup'&&!!confirmation?.value&&!passwordsMatch(password?.value??'',confirmation.value);
+    const mismatchError=root!.querySelector<HTMLElement>('#login-password-match-error');if(mismatchError)mismatchError.hidden=!mismatch;
+    confirmation?.setAttribute('aria-invalid',String(mismatch));
+    const accountMismatch=!!accountConfirmation?.value&&!passwordsMatch(accountPassword?.value??'',accountConfirmation.value);
+    const accountError=root!.querySelector<HTMLElement>('#account-password-match-error');if(accountError)accountError.hidden=!accountMismatch;
+    accountConfirmation?.setAttribute('aria-invalid',String(accountMismatch));
+    const savePassword=root!.querySelector<HTMLButtonElement>('[data-login-set-password] button');
+    if(savePassword)savePassword.disabled=pending||!signedIn||!validNewPassword(accountPassword?.value??'')||!passwordsMatch(accountPassword?.value??'',accountConfirmation?.value??'');
     const marketingRow=root!.querySelector<HTMLElement>('[data-login-marketing-row]');if(marketingRow)marketingRow.hidden=mode!=='signup';
     if(submit){submit.textContent=mode==='signup'?m.signUp:mode==='signin'?m.signIn:m.send;
-      submit.disabled=!ready||pending||signedIn||(!sending&&(!email?.value||!password?.value))||(sending&&(!check?.ok||(mode==='signup'&&!validNewPassword(password?.value??''))))||!!config!.turnstileSiteKey&&!token||(sending&&service!.remainingCooldown()>0);}
+      submit.disabled=!ready||pending||signedIn||(!sending&&(!email?.value||!password?.value))||(sending&&(!check?.ok||(mode==='signup'&&(!validNewPassword(password?.value??'')||!passwordsMatch(password?.value??'',confirmation?.value??'')||!normalizePersonName(firstName?.value)||!normalizePersonName(lastName?.value)))))||!!config!.turnstileSiteKey&&!token||(sending&&service!.remainingCooldown()>0);}
     for(const button of modes){button.disabled=pending;button.setAttribute('aria-pressed',String(button.dataset.loginMode===mode));}
     for(const button of oauth)button.disabled=pending||!ready;
     if(recovery){recovery.disabled=pending;recovery.hidden=mode==='signup';recovery.textContent=mode==='recovery'?m.backToSignIn:m.forgotPassword;}
@@ -86,8 +110,13 @@ async function initialize(){
       .then(value=>{captcha=value;if(signedIn){captcha.remove();captcha=undefined;captchaStarted=false;}}).catch(()=>{captchaStarted=false;if(!signedIn)status.textContent=m.captchaUnavailable;});
   }
   email?.addEventListener('input',render);password?.addEventListener('input',render);
+  for(const input of [confirmation,accountPassword,accountConfirmation])input?.addEventListener('input',render);
+  for(const input of nameInputs){
+    input.addEventListener('input',render);
+    input.addEventListener('blur',()=>{touchedNames.add(input);render();});
+  }
   root.querySelector('[data-login-correct]')?.addEventListener('click',()=>{const typo=suggestEmailCorrection(email!.value);if(typo){email!.value=typo.suggested;render();email!.focus();}});
-  function changeMode(next:typeof mode){if(pending)return;mode=next;status.textContent='';if(password)password.value='';captcha?.reset();render();}
+  function changeMode(next:typeof mode){if(pending)return;mode=next;status.textContent='';if(password)password.value='';if(confirmation)confirmation.value='';touchedNames.clear();captcha?.reset();render();}
   for(const button of modes)button.addEventListener('click',()=>changeMode(button.dataset.loginMode as 'signin'|'signup'));
   recovery?.addEventListener('click',()=>changeMode(mode==='recovery'?'signin':'recovery'));
   root.querySelector('[data-login-back-to-signin]')?.addEventListener('click',()=>{
@@ -100,13 +129,18 @@ async function initialize(){
     event.preventDefault();if(pending||!ready||signedIn||awaitingEmail||!email)return;
     const attempted=mode;
     const submittedEmail=email.value;
+    const details={firstName:firstName?.value??'',lastName:lastName?.value??'',passwordConfirmation:confirmation?.value??''};
+    if(attempted==='signup'){
+      if(!normalizePersonName(details.firstName)||!normalizePersonName(details.lastName)){for(const input of nameInputs)touchedNames.add(input);render();status.textContent=m.nameRequired;return;}
+      if(!passwordsMatch(password?.value??'',details.passwordConfirmation)){status.textContent=m.passwordMismatch;render();return;}
+    }
     if(attempted!=='signin'){
       const gate=emailSendingGate(email.value,!!config.turnstileSiteKey,token);
       if(!gate.ok){status.textContent=message(gate.reason);render();return;}
     }
     pending=true;status.textContent=m.pending;render();
-    const result=attempted==='signup'?await service.signUp(submittedEmail,password!.value,locale,destination,token,marketingIntent?.checked===true):attempted==='signin'?await service.signInWithPassword(submittedEmail,password!.value,token):await service.requestMagicLink(submittedEmail,locale,destination,token);
-    pending=false;if(password)password.value='';
+    const result=attempted==='signup'?await service.signUp(submittedEmail,password!.value,locale,destination,token,marketingIntent?.checked===true,details):attempted==='signin'?await service.signInWithPassword(submittedEmail,password!.value,token):await service.requestMagicLink(submittedEmail,locale,destination,token);
+    pending=false;if(password)password.value='';if(confirmation)confirmation.value='';
     if(result.ok&&attempted==='signin'){location.assign(destination);return;}
     if(result.ok){
       awaitingEmail=true;status.textContent='';
@@ -151,9 +185,10 @@ async function initialize(){
   const passwordSettings=root.querySelector<HTMLDetailsElement>('[data-login-password-settings]');
   setForm?.addEventListener('submit',async event=>{
     event.preventDefault();if(pending||!signedIn)return;
-    const input=setForm.querySelector<HTMLInputElement>('input')!;
+    const input=accountPassword!;
+    if(!passwordsMatch(input.value,accountConfirmation!.value)){status.textContent=m.passwordMismatch;render();return;}
     pending=true;const button=setForm.querySelector('button')!;button.disabled=true;
-    const result=await service.setPassword(input.value);input.value='';pending=false;button.disabled=false;
+    const result=await service.setPassword(input.value,accountConfirmation!.value);input.value='';accountConfirmation!.value='';pending=false;
     status.textContent=result.ok?m.passwordSaved:message(result.reason);render();
   });
   getAccountState(service).subscribe(state=>{

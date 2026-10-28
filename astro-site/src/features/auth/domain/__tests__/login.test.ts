@@ -1,6 +1,14 @@
 import { describe, it, expect } from 'vitest';
-import { emailSendingGate, validNewPassword, normalizeEmailCode } from '../login';
+import { emailSendingGate, validNewPassword, normalizeEmailCode,normalizePersonName,passwordsMatch } from '../login';
 describe('email sending admission', () => {
+  it('accepts international display names and requires an exact repeated password',()=>{
+    expect(normalizePersonName('  Abdel   Rahman ')).toBe('Abdel Rahman');
+    for(const name of ['أحمد','O’Connor','李'])expect(normalizePersonName(name)).toBe(name);
+    for(const name of ['', '  ', '<script>', 'x'.repeat(81)])expect(normalizePersonName(name)).toBeNull();
+    expect(passwordsMatch('long password','long password')).toBe(true);
+    expect(passwordsMatch('long password','long password ')).toBe(false);
+    expect(passwordsMatch('','')).toBe(false);
+  });
   it('accepts numeric email codes without dropping leading zeros and rejects malformed codes',()=>{
     expect(normalizeEmailCode('000 123')).toBe('000123');
     for(const value of ['123','1234567','12345678','abcdef','12345678901','<123456>'])expect(normalizeEmailCode(value)).toBeNull();

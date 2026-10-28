@@ -1,4 +1,4 @@
-export type AuthFailure = 'unavailable' | 'invalid-email' | 'disposable-domain' | 'email-typo' | 'captcha-required' | 'invalid-password' | 'invalid-code' | 'invalid-link' | 'rate-limited' | 'failed' | 'busy';
+export type AuthFailure = 'unavailable' | 'invalid-email' | 'disposable-domain' | 'email-typo' | 'captcha-required' | 'invalid-password' | 'password-mismatch' | 'invalid-name' | 'invalid-code' | 'invalid-link' | 'rate-limited' | 'failed' | 'busy';
 export type AuthResult<T> = { ok: true; value: T } | { ok: false; reason: AuthFailure };
 export interface AccountProfile { displayName: string | null; email: string | null; avatarUrl: string | null }
 export interface AccountSession { userId: string; profile: AccountProfile }

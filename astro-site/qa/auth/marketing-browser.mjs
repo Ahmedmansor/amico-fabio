@@ -34,8 +34,10 @@ try{
     await page.getByRole('button',{name:locale==='it'?'Rifiuta facoltativi':'Reject optional',exact:true}).first().click();
     await page.waitForTimeout(500);
     await page.locator('[data-login-mode="signup"]').click();
+    await page.locator('#login-first-name').fill('Mario');await page.locator('#login-last-name').fill('Rossi');
     assert.equal(await page.locator('[data-login-marketing-intent]').isChecked(),false);
     await page.locator('#login-email').fill('qa@libero.it');await page.locator('#login-password').fill('synthetic password');
+    await page.locator('#login-password-confirm').fill('synthetic password');
     await page.locator('[data-login-marketing-intent]').check();
     await page.locator('[data-login-submit]:enabled').waitFor();await page.locator('[data-login-submit]').click();
     await page.waitForFunction(()=>document.querySelector('#login-password').value==='');

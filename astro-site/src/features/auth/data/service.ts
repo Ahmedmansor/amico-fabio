@@ -3,6 +3,7 @@ import type { Locale } from '../../../shared/config/languages.ts';
 import { normalizeEmail, safeReturnPath, cooldownRemaining, type AuthFailure, type AuthResult, type AccountSession, type CallbackInput } from '../domain/auth.ts';
 import { authReturnPaths, defaultAuthReturn, type AuthConfig } from './config.ts';
 import { accountSession } from './profile.ts';
+import type {SignupDetails} from '../domain/login.ts';
 
 type Client = Pick<SupabaseClient, 'auth'>;
 const failure = (reason: AuthFailure): AuthResult<never> => ({ ok: false, reason });
@@ -111,12 +112,15 @@ export function createAuthService(client: Client, config: AuthConfig, now: () =>
         return success(undefined);
       } catch { return failure('failed'); } finally { busy = false; }
     },
-    async signUp(email: string, password: string, locale: Locale, requestedReturn?: unknown, captchaToken?: string, marketingIntent = false): Promise<AuthResult<void>> {
+    async signUp(email: string, password: string, locale: Locale, requestedReturn?: unknown, captchaToken?: string, marketingIntent = false,details?:SignupDetails): Promise<AuthResult<void>> {
       if (!config.passwordEnabled) return failure('unavailable');
-      const {emailSendingGate,validNewPassword} = await import('../domain/login.ts');
+      const {emailSendingGate,validNewPassword,passwordsMatch,normalizePersonName} = await import('../domain/login.ts');
       const gate = emailSendingGate(email, true, captchaToken);
       if (!gate.ok) return gate;
       if (!validNewPassword(password)) return failure('invalid-password');
+      const firstName=normalizePersonName(details?.firstName),lastName=normalizePersonName(details?.lastName);
+      if(!firstName||!lastName)return failure('invalid-name');
+      if(!passwordsMatch(password,details?.passwordConfirmation??''))return failure('password-mismatch');
       if (busy) return failure('busy');
       if (cooldownRemaining(sentAt, now(), config.resendSeconds)) return failure('rate-limited');
       busy = true;
@@ -125,6 +129,7 @@ export function createAuthService(client: Client, config: AuthConfig, now: () =>
           captchaToken, emailRedirectTo: callbackUrl(locale, requestedReturn),
           // Intent only; never grant marketing permission or reminder consent from metadata.
           data: { site_locale: locale, marketing_consent: marketingIntent === true,
+            first_name:firstName,last_name:lastName,full_name:`${firstName} ${lastName}`,
             ...(marketingIntent === true ? {marketing_notice_version: (await import('../../marketing/domain/consent.ts')).marketingNoticeVersion} : {}),
           },
         } });
@@ -147,10 +152,11 @@ export function createAuthService(client: Client, config: AuthConfig, now: () =>
         return error || !view ? failure(rateLimited(error) ? 'rate-limited' : 'failed') : success(view);
       } catch { return failure('failed'); } finally { busy = false; }
     },
-    async setPassword(password: string): Promise<AuthResult<void>> {
+    async setPassword(password: string,confirmation?:string): Promise<AuthResult<void>> {
       if (!config.passwordEnabled) return failure('unavailable');
-      const {validNewPassword} = await import('../domain/login.ts');
+      const {validNewPassword,passwordsMatch} = await import('../domain/login.ts');
       if (!validNewPassword(password)) return failure('invalid-password');
+      if(!passwordsMatch(password,confirmation??''))return failure('password-mismatch');
       if (busy) return failure('busy');
       busy = true;
       try {

@@ -16,6 +16,16 @@ export function validNewPassword(password: string): boolean {
   return typeof password === 'string' && password.length >= 12 && password.length <= 128;
 }
 
+export function passwordsMatch(password:string,confirmation:string):boolean{
+  return typeof password==='string'&&password.length>0&&password===confirmation;
+}
+export function normalizePersonName(input:unknown):string|null{
+  if(typeof input!=='string')return null;
+  const name=input.trim().replace(/\s+/g,' ');
+  return name.length>0&&name.length<=80&&!/[\u0000-\u001f\u007f-\u009f<>]/.test(name)?name:null;
+}
+export interface SignupDetails {firstName:string;lastName:string;passwordConfirmation:string}
+
 export const emailCodeLength=6;
 export function normalizeEmailCode(input:string):string|null{
   if(typeof input!=='string'||input.length>32)return null;

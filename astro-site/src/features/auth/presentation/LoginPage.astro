@@ -27,6 +27,14 @@ const configuration=JSON.stringify({config:authConfig,messages:m,locale,marketin
           <button type="button" data-login-mode="signup" aria-pressed="false">{m.signUp}</button>
         </div>}
         <form data-login-form novalidate>
+          <div data-login-name-row hidden>
+            <label for="login-first-name">{m.firstName}</label>
+            <input id="login-first-name" name="first_name" type="text" autocomplete="given-name" maxlength="80" aria-describedby="login-first-name-error"/>
+            <p id="login-first-name-error" class="auth-error" role="alert" hidden>{m.firstNameRequired}</p>
+            <label for="login-last-name">{m.lastName}</label>
+            <input id="login-last-name" name="last_name" type="text" autocomplete="family-name" maxlength="80" aria-describedby="login-last-name-error"/>
+            <p id="login-last-name-error" class="auth-error" role="alert" hidden>{m.lastNameRequired}</p>
+          </div>
           <label for="login-email">{m.email}</label>
           <input id="login-email" type="email" name="email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="login-error login-suggestion"/>
           <div id="login-suggestion" class="auth-suggestion" data-login-suggestion hidden>
@@ -36,6 +44,11 @@ const configuration=JSON.stringify({config:authConfig,messages:m,locale,marketin
             <label for="login-password">{m.password}</label>
             <input id="login-password" name="password" type="password" autocomplete="current-password" maxlength="128" required aria-describedby="password-guidance"/>
             <p id="password-guidance" data-login-password-hint hidden>{m.passwordGuidance}</p>
+            <div data-login-confirm-row hidden>
+              <label for="login-password-confirm">{m.confirmPassword}</label>
+              <input id="login-password-confirm" name="password_confirmation" type="password" autocomplete="new-password" maxlength="128" aria-describedby="login-password-match-error"/>
+              <p id="login-password-match-error" class="auth-error" role="alert" hidden>{m.passwordMismatch}</p>
+            </div>
           </div>}
           {marketingEnabled && authConfig.passwordEnabled && <label class="auth-reminder-optin" data-login-marketing-row hidden><input type="checkbox" data-login-marketing-intent/>{marketing.label}</label>}
           {authConfig.turnstileSiteKey && <div data-login-captcha></div>}
@@ -72,7 +85,10 @@ const configuration=JSON.stringify({config:authConfig,messages:m,locale,marketin
         <label for="account-password">{m.setPassword}</label>
         <input id="account-password" type="password" autocomplete="new-password" minlength="12" maxlength="128" required aria-describedby="account-password-guidance"/>
         <p id="account-password-guidance">{m.passwordGuidance}</p>
-        <button type="submit" class="auth-button auth-secondary">{m.savePassword}</button>
+        <label for="account-password-confirm">{m.confirmPassword}</label>
+        <input id="account-password-confirm" type="password" autocomplete="new-password" maxlength="128" required aria-describedby="account-password-match-error"/>
+        <p id="account-password-match-error" class="auth-error" role="alert" hidden>{m.passwordMismatch}</p>
+        <button type="submit" class="auth-button auth-secondary" disabled>{m.savePassword}</button>
         </form>
       </details>}
       <MarketingConsent locale={locale}/>
