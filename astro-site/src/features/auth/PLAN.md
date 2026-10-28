@@ -10,8 +10,12 @@ with synthetic browser interactions. A separate native read confirmed the new
 test account's welcome favorites-reminder consent: enabled, en, one grant and no
 withdrawals; no reminder job existed. See `../../../qa/auth/CONSENT_CHECK.md`.
 These are local Auth/consent-storage results. Actual reminder dispatch, broader
-recipient eligibility, promotional-consent activation and the newly changed
-page's test-host deployment are not closed by this checkpoint.
+recipient eligibility and promotional-consent activation are not closed by this
+checkpoint. The user subsequently authorized publishing the changes: test-host
+deployment is now Ready at https://amico-fabio-iyzo.vercel.app, with the public
+IT/EN artifacts checked. See ../../../DEPLOYMENT.md and
+../../../qa/auth/vercel-2026-10-28.json. New real inbox/OAuth/CAPTCHA acceptance on
+that hostname remains the user's check; the agent sent no test mail.
 
 Latest same-day user clarification: OTP code entry is now the primary email
 confirmation/recovery UX, with the existing link as an alternative in the same

@@ -1,5 +1,35 @@
 # Production and test flavors
 
+## Auth test deployment — 2026-10-28
+
+At the user's request, pushed application commit
+`581f4f375722ec5def9d69d2ffa6f8c65fbaae0e` from the existing migration branch.
+Verified project `amico-fabio-test` / `prj_wnFBSYAhpMxQy2ltJQIi8gvxqd6I`, root
+`astro-site`, scope `fabio-landing-pages`. Deployment
+`https://amico-fabio-test-5wx9ys11g-fabio-landing-pages.vercel.app` is Ready, with
+stable alias `https://amico-fabio-iyzo.vercel.app`.
+
+Added PUBLIC_AUTH_PASSWORD_ENABLED=1 and the public widget site key under
+PUBLIC_AUTH_TURNSTILE_SITE_KEY to this project's Production and Preview only.
+Existing Auth, catalog, locale, onboarding, consent, redirects and noindex settings
+were preserved. Added the stable test hostname to the matching Managed Turnstile
+widget while preserving existing domains and settings; no secrets were rotated.
+
+Actual Vercel output: 99 static pages built in 5.04s; Build Completed in 9s;
+Deployment completed; Ready. Public IT/EN login pages returned 200 and verified
+password/email/Google flags, configured CAPTCHA, stable Auth origin, six OTP cells,
+four visibility toggles, first/last name, repeated password, absent Azure,
+noindex and language-specific canonicals. Homepage has no guest login form;
+the login alias works and the noindex sitemap is empty. See
+`qa/auth/vercel-2026-10-28.json`. These are build/public-artifact checks, not a new
+live CAPTCHA, OAuth, inbox or account-creation test. No mail was sent by the agent.
+
+No legacy main/domain/production project changes. Optional promotional consent
+remains disabled and its SQL unapplied; reminder recipient scope is unchanged.
+CLI linking files were created only inside ignored `.astro/vercel-link/`; do not
+read or commit the CLI's downloaded environment file. Subsequent documentation-only
+commits may rebuild the same application source without changing this baseline.
+
 The repository uses the same Astro source with build-time configuration.
 Existing production remains legacy Vite on GitHub Pages, branch `main`, domain
 `fabioegypt.com`. The Astro migration branch is `try-to-refactoring-to-astro`.
