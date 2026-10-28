@@ -1,0 +1,28 @@
+/* Approved Fabio Egypt palette. Keep color values in this file only. */
+:root {
+  /* Brand */
+  --color-primary: #0A2B4B;
+  --color-primary-dark: #0D2446;
+  --color-primary-muted: #334E69;
+
+  /* Accents and actions */
+  --color-accent-orange: #F5A31B;
+  --color-accent-orange-hover: #F9A825;
+  --color-accent-red: #B3252B;
+  --color-accent-gold: #D4A437;
+
+  /* Typography */
+  --text-main: #212529;
+  --text-secondary: #595970;
+  --text-muted: #8F8FA6;
+
+  /* Surfaces and borders */
+  --bg-white: #FFFFFF;
+  --bg-light: #F5F5F7;
+  --bg-tinted: #FAFAFF;
+  --border-color: #D0D5DD;
+
+  /* Status */
+  --status-success: #3ED99D;
+  --status-info: #0080FF;
+}

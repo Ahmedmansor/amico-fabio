@@ -89,6 +89,11 @@ choose the correct intended destination.
 
 ## Links and images
 
+- Temporary AI-generated visuals may be used for guarded fixture articles and
+  city/interest cards. Store WebP assets at stable semantic source paths and
+  record them in the asset inventory for the owner's later replacement.
+- Replacing a source file requires a rebuild. Recheck alt/caption, crop and
+  rights; do not describe generated scenes as verified real photographs.
 - Use ordinary Markdown for body images so the Astro image pipeline can process
   local assets. Caption is the optional Markdown image title.
 - Every informative body image needs meaningful nonempty alt text.

@@ -1,6 +1,7 @@
 # Blog feature
 
-Status: documentation and empty directory scaffolding only. Updated 2026-10-28.
+Status: implementation authorized; phase 1 technical validation in progress.
+Updated 2026-10-28.
 
 A static IT/EN editorial blog with city/interest browsing, translation-aware
 links, optimized colocated images and a WhatsApp-only inquiry flow. It follows
@@ -27,8 +28,10 @@ DECISIONS.md and update affected requirements before reporting completion.
 - No package/configuration/environment/hosting changes.
 - No database, API, email or persisted inquiry data.
 
-The owner requested preparation only. Do not start phase 1 until a subsequent
-implementation instruction. No build/runtime acceptance is claimed here.
+The owner subsequently authorized execution. Runtime acceptance remains pending
+until actual checks are recorded. Use ui-ux-pro-max for a new blog design, free
+from the current site's visual styling; keep unrelated pages unchanged. Temporary
+AI-generated WebP article/taxonomy assets are approved for later replacement.
 
 ## Directory responsibilities
 
@@ -39,7 +42,7 @@ implementation instruction. No build/runtime acceptance is claimed here.
 - `presentation/pages/`: page composition used by thin Astro routes.
 - `presentation/markdown/`: processor-specific AST/rendering transforms.
 - `presentation/scripts/`: scoped browser interactions only.
-- `presentation/styles/`: blog styles using the existing site theme.
+- `presentation/styles/`: scoped blog tokens/styles for the new design direction.
 
 Content/config/routes/scripts outside the feature remain planned paths until
 their implementation phase. Empty directories contain only `.gitkeep` files.

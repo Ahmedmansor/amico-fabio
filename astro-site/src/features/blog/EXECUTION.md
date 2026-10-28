@@ -1,7 +1,9 @@
 # Blog execution checklist
 
-Status: ready for later implementation; implementation has not started.
-Updated: 2026-10-28. Owner instruction: prepare structure and planning files only.
+Status: execution authorized; phase 1 technical validation in progress.
+Updated: 2026-10-28. Preparation-only instruction was superseded by the owner's
+subsequent implementation request. New blog UI uses ui-ux-pro-max and a fresh
+visual direction; generated temporary WebP imagery is approved.
 
 Read README.md, PLAN.md, DECISIONS.md and applicable repository instructions first.
 An unchecked task is pending, not a claim of functionality. This checklist
@@ -9,7 +11,7 @@ expands PLAN.md's phase numbers; keep those numbers stable in future reports.
 
 ## Before the first implementation task
 
-- [ ] Receive the owner's subsequent instruction to start implementation.
+- [x] Receive the owner's subsequent instruction to start implementation.
 - [ ] Confirm the migration branch, inspect working-tree changes and preserve
       unrelated work. Never switch to main.
 - [ ] Activate the existing external pinned Node runtime per project setup;
@@ -17,8 +19,8 @@ expands PLAN.md's phase numbers; keep those numbers stable in future reports.
 - [ ] Recheck the documented APIs relevant to the phase being implemented.
 - [ ] Identify exact task files and acceptance evidence before editing.
 
-Do not install dependencies, run builds, add content, register collections or
-change shared behavior as part of this preparation-only task.
+Implement one focused task at a time. The former preparation-only boundary no
+longer blocks the authorized implementation; preserve all other scope boundaries.
 
 ## Phase 0 — Planning package
 
@@ -73,6 +75,9 @@ inputs fail with useful record/field information.
 
 ## Phase 4 — Fixtures and production guards
 
+- [ ] At the visual asset phase, use imagegen for replaceable illustrative
+      article/city/interest images; convert to WebP, use stable source paths and
+      record dimensions/generated status/replacement notes in an asset inventory.
 - [ ] Add visibly artificial, colocated test articles/images covering QA.md.
 - [ ] Include translated/untranslated, long/short, draft/future and pagination cases.
 - [ ] Implement dev/approved-noindex-preview opt-in and production refusal.
@@ -85,6 +90,10 @@ artifact through a forgotten environment flag.
 
 ## Phase 5 — Index and taxonomy pages
 
+- [ ] Apply ui-ux-pro-max: generate/review a blog-specific design direction,
+      record selected tokens and Astro/Tailwind guidance, and build a fresh
+      scoped visual shell without inheriting current site styling. Preserve
+      shared navigation/Auth/wishlist behavior without redesigning other pages.
 - [ ] Before introducing asymmetric routes, land the minimal tested shared
       alternate-path/SEO-validation support needed for them (a prerequisite
       slice of phase 8). Preserve existing-route assertions. Never leave this
@@ -97,7 +106,8 @@ artifact through a forgotten environment flag.
 - [ ] Capture 375/768/1280px IT/EN screenshots and inspect generated routes.
 - [ ] Run focused tests plus Astro check/build; review diff and commit.
 
-**Done when:** listing routes render full static content using the shared shell.
+**Done when:** listing routes render full static content using the new blog shell
+and shared document/SEO/functionality integrations.
 Do not activate placeholder Blog navigation before valid routes exist.
 
 ## Phase 6 — Article layout and inquiry entry points
@@ -202,5 +212,4 @@ After each future completed task, report in Egyptian Arabic:
 5. Next numbered task and its acceptance criterion.
 
 Do not send a checklist that implies unchecked implementation is finished.
-Routine choices within later authorized implementation do not need repeated
-permission; the current preparation-only boundary remains in force.
+Routine choices within authorized implementation do not need repeated permission.

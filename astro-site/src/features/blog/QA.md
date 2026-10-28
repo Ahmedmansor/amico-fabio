@@ -27,6 +27,8 @@ Documentation scaffolding is not runtime verification.
 | Related posts | nonempty shared city, shared interests, zero scores, self, ties, language | Deterministic unit results |
 | Reading time | empty text, short text, boundary counts, markup handling | Domain/unit tests |
 | Content pipeline | optimized images, dimensions, figures/captions, nested image, dev edit | Rendered HTML + changed-content rebuild |
+| Temporary visuals | WebP validity, dimensions, stable source path, generated/temporary inventory and replacement | Decoded assets + inventory + post-replacement rebuild |
+| Design direction | ui-ux-pro-max selected guidance, scoped fresh blog theme and shared behavior preserved | Recorded design decisions + responsive screenshots |
 | CTA insertion | first body image; nested block; no-image second-H2 fallback; short post | Exactly zero/one correct CTA |
 | Auto-links | first eligible match; longest overlap; one/target; cap five | Unit and rendered HTML assertions |
 | Auto-link exclusions | heading, link, code/pre, caption, button, script/style, no-autolink, CTA | No generated anchors in excluded nodes |

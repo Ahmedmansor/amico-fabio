@@ -1,12 +1,14 @@
 # Blog system — implementation plan
 
-Status: planning only; no blog runtime, routes, content collection or UI implemented.
+Status: implementation authorized; phase 1 technical validation in progress.
 Updated: 2026-10-28.
 
 Planning package: see README.md for the documentation map and EXECUTION.md for
-the ordered, unchecked implementation checklist. Empty layer directories are
-scaffolding only. The owner explicitly requested preparing this package without
-starting feature implementation; wait for a later implementation instruction.
+the ordered implementation checklist. The owner subsequently authorized execution.
+Latest same-day visual direction: use ui-ux-pro-max for a fresh blog design,
+using the owner's approved shared palette in `src/shared/styles/theme.css`,
+without inheriting the current site's visual design. Temporary AI-generated WebP
+article/taxonomy images are approved for replacement by the owner later.
 
 ## 1. Purpose and authority
 
@@ -20,11 +22,10 @@ WhatsApp conversation, like the existing tour booking flow. It has no Supabase
 integration.** The attachment is a design reference; current user instructions
 and repository AGENTS.md govern execution and authorization.
 
-This task creates the plan only. Do not interpret the phases below as an
-instruction to begin implementation during this documentation task. Future
-implementation follows the agreed scope, with a focused verified commit and
-progress report per completed task. Do not introduce repeated routine approval
-gates from the attachment.
+The initial documentation-only task is complete. The owner's later instruction
+authorizes implementation following these phases, with a focused verified commit
+and progress report per completed task. Do not introduce repeated routine
+approval gates from the attachment.
 
 ## 2. Goals and measurable outcomes
 
@@ -36,11 +37,13 @@ gates from the attachment.
 - Reject incomplete metadata, invalid references and ambiguous linking rules
   before publishing, identifying the record and field involved.
 - Offer a readable desktop/mobile article layout and a WhatsApp inquiry flow.
-- Reuse shared languages, contact configuration, dictionaries, shell and SEO.
+- Reuse shared languages, contact configuration, dictionaries and SEO; design a
+  new blog-specific visual shell using ui-ux-pro-max.
 - Keep test articles out of production artifacts through enforced build guards.
 - Support search discovery and machine understanding through accessible HTML,
   accurate metadata, structured data and trustworthy future editorial content.
-- Preserve the legacy site, current Auth/wishlist behavior and catalog behavior.
+- Preserve the legacy site, current Auth/wishlist behavior and catalog behavior;
+  the new visual direction applies to blog pages, not a site-wide redesign.
 
 ## 3. Confirmed repository baseline
 
@@ -52,7 +55,8 @@ Read-only inspection on 2026-10-28 found:
 - Node is pinned to `24.21.0`; use the external runtime per existing setup.
 - Shared locales/direction/OG locale: `src/shared/config/languages.ts`.
 - Shared public WhatsApp/contact information: `src/shared/config/site.ts`.
-- Existing shell: `BaseLayout.astro`, `Header.astro`, `Footer.astro`.
+- Existing shell: `BaseLayout.astro`, `Header.astro`, `Footer.astro`. These are
+  functional integration references, not the approved visual direction for blog.
 - Header already has a Blog item pointing to `#`; wire it when routes are ready.
 - `PageHead.astro` supports alternate paths, but BaseLayout and Header need to
   forward a page-specific alternate map.
@@ -84,6 +88,8 @@ Excluded: a blog CMS, remote article database, Supabase lead tables/adapters,
 Edge Functions for inquiries, email delivery, account requirements, marketing or
 reminder consent, comments, search, RSS, additional languages, a global redesign,
 production deployment and fabricated real travel facts/prices/author biographies.
+The blog itself has an approved fresh design; redesigning other site pages is
+outside this feature.
 Existing Supabase-backed tour catalog access remains owned by the tours feature;
 the blog does not introduce a new provider or direct catalog queries.
 
@@ -141,7 +147,9 @@ scripts/blog/...
   in domain; AST mutation and CTA markup belong here.
 - **Routes:** obtain data through the data layer and compose presentation only.
 - **Shared:** language configuration/direction, IT/EN UI dictionaries, public
-  contact number, shell, analytics and SEO remain shared single sources.
+  contact number, analytics and SEO remain shared single sources. Reuse neutral
+  document functionality while keeping the new blog theme/shell scoped; do not
+  automatically inherit old main-site visual CSS.
 - `src/content.config.ts` registers the collection using the feature's data
   schema. Do not let it become a second home for business rules.
 
@@ -274,10 +282,38 @@ H2s means no inline CTA. Protect valid HTML for nested images/lists. Share CTA
 markup/classes across generated content and Astro components without unsafe
 interpolation. CTA opens the mobile form or focuses the desktop form.
 
-Use existing visual tokens/fonts and shell, with scoped article styles. Do not
-redesign the rest of the site. Support keyboard use, labeled errors, visible
+Use ui-ux-pro-max to establish the blog's new visual direction and scoped design
+tokens derived from the owner's shared palette; do not inherit the old site's
+colors, typography or shell styling or invent a competing brand palette.
+Keep font loading local. Preserve shared functional integrations without forcing
+old visual components into the blog. Do not redesign other site pages as part of
+this feature. Support keyboard use, labeled errors, visible
 focus, readable tables and reduced motion. New UI copy lives in both shared
 IT/EN dictionaries and receives owner/native review before real publication.
+
+### Approved visual workflow and replaceable images
+
+Before implementing blog UI, read the ui-ux-pro-max skill, run its design-system
+workflow for a travel editorial blog, inspect the actual matches, and record the
+chosen direction and accessibility/responsive rules. Use Astro/Tailwind-specific
+guidance. Skill recommendations do not override the WhatsApp-only flow, static
+architecture or business behavior. No visual-design output is claimed yet.
+
+At the image phase, use the built-in imagegen workflow for temporary editorial,
+interest and city-card visuals. Generate first, then convert/copy workspace
+assets to WebP with verified dimensions/quality; never depend on a generator's
+external save location at build time. Keep stable semantic source paths such as
+`hero.webp` beside articles and taxonomy images in a feature-owned asset folder.
+Record asset purpose, source path, dimensions, generated/temporary status and
+replacement notes in an asset inventory. The owner can replace assets at the
+same source paths; a rebuild regenerates hashed optimized output URLs.
+
+AI-generated visuals are illustrative placeholders, not evidence of real places,
+travel experiences or approved production imagery. Keep them in guarded fixture
+contexts until reviewed/replaced; never silently label them as verified photos.
+After replacement, review alt/caption accuracy, crop, dimensions and rights.
+Small deterministic solid/gradient images remain appropriate for technical
+pipeline tests; image generation is for the later actual visual asset phase.
 
 ## 10. WhatsApp inquiry — no backend
 

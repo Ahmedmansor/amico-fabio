@@ -14,15 +14,23 @@ Updated: 2026-10-28. These are design decisions, not implementation evidence.
 | B06 | City/interest lists use stable slugs; article URLs are flat | Changing taxonomy must not change article URLs |
 | B07 | linkKeywords are target-ownership hints, not SEO keyword restrictions | Avoid ambiguous generated links without restricting editorial vocabulary |
 | B08 | Duplicate keyword diagnostics identify both files and language | Owner's authoring usability requirement |
-| B09 | Extend the existing shell, SEO validator and sitemap | Prevent duplicate generators and preserve current pages |
+| B09 | Reuse shared functional shell integrations, SEO validator and sitemap | Preserve one SEO system without inheriting old blog styling |
 | B10 | Navigation fallback and hreflang equivalence are separate | Blog-home fallback is not a translation of an article/listing |
 | B11 | Inquiry reviews details and opens WhatsApp only | Explicit latest owner instruction; follows the tour interaction pattern |
 | B12 | No inquiry database, email adapter, API, mock success or stored consent | WhatsApp-only scope replaces the attachment's leads proposal |
 | B13 | No invented article prices/totals or infant-age policy | Articles are general inquiries; actual tours own booking policies/prices |
 | B14 | Test posts stay visibly marked and blocked from production | Repository migration discipline and attachment fixture scope |
-| B15 | No real article facts, author identity or imagery invented | Owner supplies/approves real editorial material |
+| B15 | No real facts/author identity invented; generated imagery stays labeled temporary | Owner supplies/approves real editorial material |
 | B16 | Preserve existing combined Node/Vitest test runner | Do not replace project tests with a blog-only command |
-| B17 | Documentation/scaffolding now; implementation later | Latest owner instruction explicitly prohibits implementation now |
+| B17 | Implementation now authorized after the preparation commits | Owner subsequently said to execute |
+| B18 | Use ui-ux-pro-max for a fresh blog design, unconstrained by the old site's styling | Latest explicit owner correction supersedes earlier visual-preservation guidance for this feature |
+| B19 | Generate temporary article/city/interest visuals and use WebP at stable source paths | Owner's approved image workflow; assets can be replaced later |
+| B20 | Use the owner's shared theme.css palette for blog and future site work | Explicit owner palette; ui-ux-pro-max guides layout/usability within these colors |
+
+B18 applies to the blog. It does not authorize restyling the legacy site or all
+other Astro pages. Preserve shared behavior and keep new visual CSS scoped.
+B19 requires a temporary/generated asset inventory and guarded fixture usage;
+generated visuals are not proof of a real scene or approved publication imagery.
 
 ## Implementation hypotheses to verify
 

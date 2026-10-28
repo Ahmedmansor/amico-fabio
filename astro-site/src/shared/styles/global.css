@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+/* Tailwind aliases reference the shared palette instead of repeating values. */
+@theme inline {
+  --color-brand-primary: var(--color-primary);
+  --color-brand-dark: var(--color-primary-dark);
+  --color-brand-muted: var(--color-primary-muted);
+  --color-action: var(--color-accent-orange);
+  --color-action-hover: var(--color-accent-orange-hover);
+  --color-accent-danger: var(--color-accent-red);
+  --color-brand-gold: var(--color-accent-gold);
+  --color-content: var(--text-main);
+  --color-content-secondary: var(--text-secondary);
+  --color-content-muted: var(--text-muted);
+  --color-surface: var(--bg-white);
+  --color-surface-soft: var(--bg-light);
+  --color-surface-tinted: var(--bg-tinted);
+  --color-outline: var(--border-color);
+  --color-feedback-success: var(--status-success);
+  --color-feedback-info: var(--status-info);
+}
