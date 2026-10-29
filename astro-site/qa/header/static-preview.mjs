@@ -4,7 +4,7 @@ import {createServer} from 'node:http';
 import {readFile,stat} from 'node:fs/promises';
 import {resolve,extname,sep} from 'node:path';
 import {gzipSync} from 'node:zlib';
-const root=resolve('dist'),port=Number(process.env.QA_PORT||4333);
+const root=resolve(process.env.QA_ROOT||'dist'),port=Number(process.env.QA_PORT||4333);
 const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp','.avif':'image/avif','.woff2':'font/woff2','.png':'image/png','.txt':'text/plain','.xml':'application/xml'};
 createServer(async(req,res)=>{
  try{

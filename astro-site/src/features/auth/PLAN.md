@@ -4,6 +4,13 @@
 
 ## Current target and handoff — 2026-10-28
 
+UI follow-up, 2026-10-29: the separate offers-preference card now uses a shared
+Fabio portrait, explicit optional IT/EN copy and native checkbox/save/status/retry
+presentation. See `../../../qa/marketing-design/REVIEW.md`. The existing marketing
+activation gate stays off; no promotional schema/provider/consent writes or
+sending were activated by this visual task. The welcome favorites-reminder
+purpose and controls remain separate and unchanged.
+
 Local Auth closure checkpoint: the user reports successful real six-digit email
 verification and working signup details. Eye toggles are implemented and checked
 with synthetic browser interactions. A separate native read confirmed the new

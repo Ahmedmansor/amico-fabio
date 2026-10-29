@@ -76,6 +76,12 @@
       "choice": "Horizontal Facebook review rotator with manual arrows and pause",
       "reference": "https://news.21st.dev/blog/react-testimonial-section-components",
       "implementation": "Existing real reviews; auto only while visible, pause on hover/focus/user control; manual mobile."
+    },
+    {
+      "choice": "Optional offers preference card with Fabio portrait",
+      "reference": "https://contact_2a72bbaa.21st.dev/@f0rextasy/components/newsletter-signup-ticket",
+      "source": "https://raw.githubusercontent.com/F0Rextasy/bigbullui/main/src/components/blocks/block-newsletter.tsx",
+      "implementation": "Read public source, adapt card composition to existing Astro checkbox and confirmed save controller. Original portrait, theme tokens, no React or local-only success. Do not merge marketing and reminder consent."
     }
   ],
   "evidence": [
