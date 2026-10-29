@@ -1,0 +1,933 @@
+{
+  "phase": "after",
+  "results": [
+    {
+      "id": "home",
+      "path": "/en/",
+      "width": 375,
+      "bio": "Premium VIP experiences in Sharm El Sheikh led by your trusted local friend. Travel elegantly, safely, and with insider knowledge.",
+      "heritage": "Our heritage: Cross Roots – Same expertise, new identity.",
+      "copyright": "© 2025 - 2026",
+      "headings": [
+        "Links",
+        "Join our community"
+      ],
+      "links": [
+        {
+          "href": "/en/#reviews-section",
+          "label": "Reviews"
+        },
+        {
+          "href": "/en/blog/",
+          "label": "Blog"
+        },
+        {
+          "href": "/en/explore/",
+          "label": "Trips"
+        },
+        {
+          "href": "/en/legal/",
+          "label": "Legal & Privacy"
+        },
+        {
+          "href": "/en/sharm-secrets/",
+          "label": "10 Commandments"
+        },
+        {
+          "href": "/en/sharm-secrets/#page6",
+          "label": "Why Fabio?"
+        },
+        {
+          "href": "/en/tailor-your-trip/",
+          "label": "Tailor a Tour"
+        },
+        {
+          "href": "https://www.facebook.com/fabioEgyptVip/",
+          "label": "Facebook"
+        },
+        {
+          "href": "https://www.instagram.com/fabio_egypt_vip",
+          "label": "Instagram"
+        },
+        {
+          "href": "https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn",
+          "label": "TikTok"
+        },
+        {
+          "href": "https://www.youtube.com/@FabioEgyptItaly",
+          "label": "YouTube"
+        },
+        {
+          "href": "mailto:info@fabioegypt.com",
+          "label": "info@fabioegypt.com"
+        }
+      ],
+      "radius": 24,
+      "inset": 16,
+      "overflow": false,
+      "icons": [
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        }
+      ],
+      "targets": [
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "divider": "1px",
+      "errors": []
+    },
+    {
+      "id": "home",
+      "path": "/en/",
+      "width": 768,
+      "bio": "Premium VIP experiences in Sharm El Sheikh led by your trusted local friend. Travel elegantly, safely, and with insider knowledge.",
+      "heritage": "Our heritage: Cross Roots – Same expertise, new identity.",
+      "copyright": "© 2025 - 2026",
+      "headings": [
+        "Links",
+        "Join our community"
+      ],
+      "links": [
+        {
+          "href": "/en/#reviews-section",
+          "label": "Reviews"
+        },
+        {
+          "href": "/en/blog/",
+          "label": "Blog"
+        },
+        {
+          "href": "/en/explore/",
+          "label": "Trips"
+        },
+        {
+          "href": "/en/legal/",
+          "label": "Legal & Privacy"
+        },
+        {
+          "href": "/en/sharm-secrets/",
+          "label": "10 Commandments"
+        },
+        {
+          "href": "/en/sharm-secrets/#page6",
+          "label": "Why Fabio?"
+        },
+        {
+          "href": "/en/tailor-your-trip/",
+          "label": "Tailor a Tour"
+        },
+        {
+          "href": "https://www.facebook.com/fabioEgyptVip/",
+          "label": "Facebook"
+        },
+        {
+          "href": "https://www.instagram.com/fabio_egypt_vip",
+          "label": "Instagram"
+        },
+        {
+          "href": "https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn",
+          "label": "TikTok"
+        },
+        {
+          "href": "https://www.youtube.com/@FabioEgyptItaly",
+          "label": "YouTube"
+        },
+        {
+          "href": "mailto:info@fabioegypt.com",
+          "label": "info@fabioegypt.com"
+        }
+      ],
+      "radius": 24,
+      "inset": 24,
+      "overflow": false,
+      "icons": [
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        }
+      ],
+      "targets": [
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "divider": "1px",
+      "errors": []
+    },
+    {
+      "id": "home",
+      "path": "/en/",
+      "width": 1280,
+      "bio": "Premium VIP experiences in Sharm El Sheikh led by your trusted local friend. Travel elegantly, safely, and with insider knowledge.",
+      "heritage": "Our heritage: Cross Roots – Same expertise, new identity.",
+      "copyright": "© 2025 - 2026",
+      "headings": [
+        "Links",
+        "Join our community"
+      ],
+      "links": [
+        {
+          "href": "/en/#reviews-section",
+          "label": "Reviews"
+        },
+        {
+          "href": "/en/blog/",
+          "label": "Blog"
+        },
+        {
+          "href": "/en/explore/",
+          "label": "Trips"
+        },
+        {
+          "href": "/en/legal/",
+          "label": "Legal & Privacy"
+        },
+        {
+          "href": "/en/sharm-secrets/",
+          "label": "10 Commandments"
+        },
+        {
+          "href": "/en/sharm-secrets/#page6",
+          "label": "Why Fabio?"
+        },
+        {
+          "href": "/en/tailor-your-trip/",
+          "label": "Tailor a Tour"
+        },
+        {
+          "href": "https://www.facebook.com/fabioEgyptVip/",
+          "label": "Facebook"
+        },
+        {
+          "href": "https://www.instagram.com/fabio_egypt_vip",
+          "label": "Instagram"
+        },
+        {
+          "href": "https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn",
+          "label": "TikTok"
+        },
+        {
+          "href": "https://www.youtube.com/@FabioEgyptItaly",
+          "label": "YouTube"
+        },
+        {
+          "href": "mailto:info@fabioegypt.com",
+          "label": "info@fabioegypt.com"
+        }
+      ],
+      "radius": 38.4,
+      "inset": 32,
+      "overflow": false,
+      "icons": [
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        }
+      ],
+      "targets": [
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "divider": "1px",
+      "errors": []
+    },
+    {
+      "id": "article",
+      "path": "/it/blog/pianificare-viaggio-egitto-2027/",
+      "width": 375,
+      "bio": "Esperienze VIP a Sharm El Sheikh guidate dal tuo amico di fiducia. Viaggia con eleganza, sicurezza e vera conoscenza da insider.",
+      "heritage": "La nostra eredità: Cross Roots – Stessa esperienza, nuova identità.",
+      "copyright": "© 2025 - 2026",
+      "headings": [
+        "Links",
+        "Unisciti alla community"
+      ],
+      "links": [
+        {
+          "href": "/it/#reviews-section",
+          "label": "Recensioni"
+        },
+        {
+          "href": "/it/blog/",
+          "label": "Blog"
+        },
+        {
+          "href": "/it/explore/",
+          "label": "Escursioni"
+        },
+        {
+          "href": "/it/legal/",
+          "label": "Legale & Privacy"
+        },
+        {
+          "href": "/it/sharm-secrets/",
+          "label": "10 Comandamenti"
+        },
+        {
+          "href": "/it/sharm-secrets/#page6",
+          "label": "Perché Fabio?"
+        },
+        {
+          "href": "/it/tailor-your-trip/",
+          "label": "Viaggio su misura"
+        },
+        {
+          "href": "https://www.facebook.com/fabioEgyptVip/",
+          "label": "Facebook"
+        },
+        {
+          "href": "https://www.instagram.com/fabio_egypt_vip",
+          "label": "Instagram"
+        },
+        {
+          "href": "https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn",
+          "label": "TikTok"
+        },
+        {
+          "href": "https://www.youtube.com/@FabioEgyptItaly",
+          "label": "YouTube"
+        },
+        {
+          "href": "mailto:info@fabioegypt.com",
+          "label": "info@fabioegypt.com"
+        }
+      ],
+      "radius": 24,
+      "inset": 16,
+      "overflow": false,
+      "icons": [
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        }
+      ],
+      "targets": [
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "divider": "1px",
+      "errors": []
+    },
+    {
+      "id": "article",
+      "path": "/it/blog/pianificare-viaggio-egitto-2027/",
+      "width": 768,
+      "bio": "Esperienze VIP a Sharm El Sheikh guidate dal tuo amico di fiducia. Viaggia con eleganza, sicurezza e vera conoscenza da insider.",
+      "heritage": "La nostra eredità: Cross Roots – Stessa esperienza, nuova identità.",
+      "copyright": "© 2025 - 2026",
+      "headings": [
+        "Links",
+        "Unisciti alla community"
+      ],
+      "links": [
+        {
+          "href": "/it/#reviews-section",
+          "label": "Recensioni"
+        },
+        {
+          "href": "/it/blog/",
+          "label": "Blog"
+        },
+        {
+          "href": "/it/explore/",
+          "label": "Escursioni"
+        },
+        {
+          "href": "/it/legal/",
+          "label": "Legale & Privacy"
+        },
+        {
+          "href": "/it/sharm-secrets/",
+          "label": "10 Comandamenti"
+        },
+        {
+          "href": "/it/sharm-secrets/#page6",
+          "label": "Perché Fabio?"
+        },
+        {
+          "href": "/it/tailor-your-trip/",
+          "label": "Viaggio su misura"
+        },
+        {
+          "href": "https://www.facebook.com/fabioEgyptVip/",
+          "label": "Facebook"
+        },
+        {
+          "href": "https://www.instagram.com/fabio_egypt_vip",
+          "label": "Instagram"
+        },
+        {
+          "href": "https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn",
+          "label": "TikTok"
+        },
+        {
+          "href": "https://www.youtube.com/@FabioEgyptItaly",
+          "label": "YouTube"
+        },
+        {
+          "href": "mailto:info@fabioegypt.com",
+          "label": "info@fabioegypt.com"
+        }
+      ],
+      "radius": 24,
+      "inset": 24,
+      "overflow": false,
+      "icons": [
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        }
+      ],
+      "targets": [
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "divider": "1px",
+      "errors": []
+    },
+    {
+      "id": "article",
+      "path": "/it/blog/pianificare-viaggio-egitto-2027/",
+      "width": 1280,
+      "bio": "Esperienze VIP a Sharm El Sheikh guidate dal tuo amico di fiducia. Viaggia con eleganza, sicurezza e vera conoscenza da insider.",
+      "heritage": "La nostra eredità: Cross Roots – Stessa esperienza, nuova identità.",
+      "copyright": "© 2025 - 2026",
+      "headings": [
+        "Links",
+        "Unisciti alla community"
+      ],
+      "links": [
+        {
+          "href": "/it/#reviews-section",
+          "label": "Recensioni"
+        },
+        {
+          "href": "/it/blog/",
+          "label": "Blog"
+        },
+        {
+          "href": "/it/explore/",
+          "label": "Escursioni"
+        },
+        {
+          "href": "/it/legal/",
+          "label": "Legale & Privacy"
+        },
+        {
+          "href": "/it/sharm-secrets/",
+          "label": "10 Comandamenti"
+        },
+        {
+          "href": "/it/sharm-secrets/#page6",
+          "label": "Perché Fabio?"
+        },
+        {
+          "href": "/it/tailor-your-trip/",
+          "label": "Viaggio su misura"
+        },
+        {
+          "href": "https://www.facebook.com/fabioEgyptVip/",
+          "label": "Facebook"
+        },
+        {
+          "href": "https://www.instagram.com/fabio_egypt_vip",
+          "label": "Instagram"
+        },
+        {
+          "href": "https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn",
+          "label": "TikTok"
+        },
+        {
+          "href": "https://www.youtube.com/@FabioEgyptItaly",
+          "label": "YouTube"
+        },
+        {
+          "href": "mailto:info@fabioegypt.com",
+          "label": "info@fabioegypt.com"
+        }
+      ],
+      "radius": 38.4,
+      "inset": 32,
+      "overflow": false,
+      "icons": [
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        }
+      ],
+      "targets": [
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "divider": "1px",
+      "errors": []
+    },
+    {
+      "id": "tour",
+      "path": "/en/tours/ras_mohammed_white_island_vip/",
+      "width": 375,
+      "bio": "Premium VIP experiences in Sharm El Sheikh led by your trusted local friend. Travel elegantly, safely, and with insider knowledge.",
+      "heritage": "Our heritage: Cross Roots – Same expertise, new identity.",
+      "copyright": "© 2025 - 2026",
+      "headings": [
+        "Links",
+        "Join our community"
+      ],
+      "links": [
+        {
+          "href": "/en/#reviews-section",
+          "label": "Reviews"
+        },
+        {
+          "href": "/en/blog/",
+          "label": "Blog"
+        },
+        {
+          "href": "/en/explore/",
+          "label": "Trips"
+        },
+        {
+          "href": "/en/legal/",
+          "label": "Legal & Privacy"
+        },
+        {
+          "href": "/en/sharm-secrets/",
+          "label": "10 Commandments"
+        },
+        {
+          "href": "/en/sharm-secrets/#page6",
+          "label": "Why Fabio?"
+        },
+        {
+          "href": "/en/tailor-your-trip/",
+          "label": "Tailor a Tour"
+        },
+        {
+          "href": "https://www.facebook.com/fabioEgyptVip/",
+          "label": "Facebook"
+        },
+        {
+          "href": "https://www.instagram.com/fabio_egypt_vip",
+          "label": "Instagram"
+        },
+        {
+          "href": "https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn",
+          "label": "TikTok"
+        },
+        {
+          "href": "https://www.youtube.com/@FabioEgyptItaly",
+          "label": "YouTube"
+        },
+        {
+          "href": "mailto:info@fabioegypt.com",
+          "label": "info@fabioegypt.com"
+        }
+      ],
+      "radius": 24,
+      "inset": 16,
+      "overflow": false,
+      "icons": [
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        }
+      ],
+      "targets": [
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "divider": "1px",
+      "errors": []
+    },
+    {
+      "id": "tour",
+      "path": "/en/tours/ras_mohammed_white_island_vip/",
+      "width": 768,
+      "bio": "Premium VIP experiences in Sharm El Sheikh led by your trusted local friend. Travel elegantly, safely, and with insider knowledge.",
+      "heritage": "Our heritage: Cross Roots – Same expertise, new identity.",
+      "copyright": "© 2025 - 2026",
+      "headings": [
+        "Links",
+        "Join our community"
+      ],
+      "links": [
+        {
+          "href": "/en/#reviews-section",
+          "label": "Reviews"
+        },
+        {
+          "href": "/en/blog/",
+          "label": "Blog"
+        },
+        {
+          "href": "/en/explore/",
+          "label": "Trips"
+        },
+        {
+          "href": "/en/legal/",
+          "label": "Legal & Privacy"
+        },
+        {
+          "href": "/en/sharm-secrets/",
+          "label": "10 Commandments"
+        },
+        {
+          "href": "/en/sharm-secrets/#page6",
+          "label": "Why Fabio?"
+        },
+        {
+          "href": "/en/tailor-your-trip/",
+          "label": "Tailor a Tour"
+        },
+        {
+          "href": "https://www.facebook.com/fabioEgyptVip/",
+          "label": "Facebook"
+        },
+        {
+          "href": "https://www.instagram.com/fabio_egypt_vip",
+          "label": "Instagram"
+        },
+        {
+          "href": "https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn",
+          "label": "TikTok"
+        },
+        {
+          "href": "https://www.youtube.com/@FabioEgyptItaly",
+          "label": "YouTube"
+        },
+        {
+          "href": "mailto:info@fabioegypt.com",
+          "label": "info@fabioegypt.com"
+        }
+      ],
+      "radius": 24,
+      "inset": 24,
+      "overflow": false,
+      "icons": [
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        }
+      ],
+      "targets": [
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "divider": "1px",
+      "errors": []
+    },
+    {
+      "id": "tour",
+      "path": "/en/tours/ras_mohammed_white_island_vip/",
+      "width": 1280,
+      "bio": "Premium VIP experiences in Sharm El Sheikh led by your trusted local friend. Travel elegantly, safely, and with insider knowledge.",
+      "heritage": "Our heritage: Cross Roots – Same expertise, new identity.",
+      "copyright": "© 2025 - 2026",
+      "headings": [
+        "Links",
+        "Join our community"
+      ],
+      "links": [
+        {
+          "href": "/en/#reviews-section",
+          "label": "Reviews"
+        },
+        {
+          "href": "/en/blog/",
+          "label": "Blog"
+        },
+        {
+          "href": "/en/explore/",
+          "label": "Trips"
+        },
+        {
+          "href": "/en/legal/",
+          "label": "Legal & Privacy"
+        },
+        {
+          "href": "/en/sharm-secrets/",
+          "label": "10 Commandments"
+        },
+        {
+          "href": "/en/sharm-secrets/#page6",
+          "label": "Why Fabio?"
+        },
+        {
+          "href": "/en/tailor-your-trip/",
+          "label": "Tailor a Tour"
+        },
+        {
+          "href": "https://www.facebook.com/fabioEgyptVip/",
+          "label": "Facebook"
+        },
+        {
+          "href": "https://www.instagram.com/fabio_egypt_vip",
+          "label": "Instagram"
+        },
+        {
+          "href": "https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn",
+          "label": "TikTok"
+        },
+        {
+          "href": "https://www.youtube.com/@FabioEgyptItaly",
+          "label": "YouTube"
+        },
+        {
+          "href": "mailto:info@fabioegypt.com",
+          "label": "info@fabioegypt.com"
+        }
+      ],
+      "radius": 38.4,
+      "inset": 32,
+      "overflow": false,
+      "icons": [
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "width": 22
+        }
+      ],
+      "targets": [
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "divider": "1px",
+      "errors": []
+    }
+  ],
+  "preserved": true
+}
