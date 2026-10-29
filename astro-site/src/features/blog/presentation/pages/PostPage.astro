@@ -11,7 +11,8 @@ import {getShareImage} from '../../../../shared/seo/share-image';
 import BlogLayout from '../../../../shared/layouts/EditorialLayout.astro';
 import CtaCard from '../components/CtaCard.astro';
 import PostCard from '../components/PostCard.astro';
-import InquiryForm from '../components/InquiryForm.astro';
+import InquiryWidget from '../components/InquiryWidget.astro';
+import MobileFormCta from '../../../../shared/components/form-widgets/MobileFormCta.astro';
 import RelatedTour from '../components/RelatedTour.astro';
 import {articleStructuredData,serializeStructuredData} from '../seo';
 import TableOfContents from '../../../../shared/components/editorial/TableOfContents.astro';
@@ -33,10 +34,10 @@ const date=(value:string)=>new Intl.DateTimeFormat(post.lang,{day:'numeric',mont
     <div class="blog-container"><nav class="blog-breadcrumbs" aria-label={m.navigation}><a href={`/${post.lang}/`}>{m.home}</a><span aria-hidden="true">/</span><a href={listingUrl(post.lang)}>{m.journal}</a>{post.destination&&<><span aria-hidden="true">/</span><a href={listingUrl(post.lang,'destinations',post.destination)}>{m.destinationLabels[post.destination]}</a></>}<span aria-hidden="true">/</span><span>{post.title}</span></nav></div>
     <header class="blog-container blog-article-heading"><div class="blog-chips">{post.destination&&<a href={listingUrl(post.lang,'destinations',post.destination)}>{m.destinationLabels[post.destination]}</a>}{post.interests.map(interest=><a href={listingUrl(post.lang,'interests',interest)}>{m.interestLabels[interest]}</a>)}</div><h1>{post.title}</h1><p class="blog-article-description">{post.description}</p><div class="blog-meta"><span>{m.by} {author}</span><span aria-hidden="true">·</span><time datetime={post.pubDate}>{date(post.pubDate)}</time><span aria-hidden="true">·</span><span>{m.readingTime.replace('{n}',String(readingTimeMinutes(post.body)))}</span>{post.updatedDate&&<span>{m.updated}: <time datetime={post.updatedDate}>{date(post.updatedDate)}</time></span>}</div></header>
     <figure class="blog-container blog-article-hero"><Image src={images[post.id]} alt={post.hero.alt} widths={[640,960,1280,1536]} sizes="(min-width:1280px) 1240px, 100vw" format="webp" loading="eager" fetchpriority="high"/>{post.hero.caption&&<figcaption>{post.hero.caption}</figcaption>}</figure>
-    <div class="blog-container blog-article-grid"><div class="blog-reading"><TableOfContents locale={post.lang} headings={view.outline}/><article class="blog-prose" id="editorial-introduction"><slot/></article><ArticleFaq locale={post.lang} items={post.faq??[]}/></div><aside class="blog-aside" id="blog-inquiry"><div class="blog-inquiry-card"><p class="blog-kicker">Fabio Egypt</p><h2>{m.formTitle}</h2><p>{m.formHint}</p><InquiryForm locale={post.lang} prefix="desktop" destination={post.destination}/></div></aside></div>
+    <div class="blog-container blog-article-grid"><div class="blog-reading"><TableOfContents locale={post.lang} headings={view.outline}/><article class="blog-prose" id="editorial-introduction"><slot/></article><ArticleFaq locale={post.lang} items={post.faq??[]}/></div><aside class="blog-aside sticky-form-panel" id="blog-inquiry"><InquiryWidget locale={post.lang} prefix="article" destination={post.destination}/></aside></div>
     {view.relatedTrip&&<RelatedTour trip={view.relatedTrip} locale={post.lang}/>}
     {!view.hasInlineCta&&<div class="blog-container blog-section"><CtaCard locale={post.lang}/></div>}
     {related.length>0&&<section class="blog-container blog-section"><div class="blog-section-heading"><h2>{m.related}</h2><a class="blog-text-link" href={listingUrl(post.lang)}>{m.allStories}<span aria-hidden="true">↗</span></a></div><div class="blog-post-grid">{related.map(item=><PostCard post={item} image={images[item.id]}/>)}</div></section>}
   </main>
-  <div class="blog-mobile-bar"><a class="blog-button" href={`https://wa.me/${siteConfig.whatsapp.number}`} data-open-lead aria-controls="blog-inquiry-dialog" aria-haspopup="dialog">{m.mobileButton}<span aria-hidden="true">↗</span></a></div>
+<MobileFormCta target="blog-inquiry" label={m.mobileButton}/>
 </BlogLayout>

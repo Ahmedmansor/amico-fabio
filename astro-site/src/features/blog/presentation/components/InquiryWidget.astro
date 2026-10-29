@@ -1,0 +1,15 @@
+---
+import type {Locale} from '../../../../shared/config/languages';
+import type {Destination} from '../../domain/taxonomy';
+import {getSharedMessages} from '../../../../shared/i18n/shared';
+import InquiryForm from './InquiryForm.astro';
+import '../../../../shared/components/form-widgets/form-widgets.css';
+import './inquiry-widget.css';
+interface Props {locale:Locale;prefix:string;destination?:Destination}
+const {locale,prefix,destination}=Astro.props,m=getSharedMessages(locale).blog;
+---
+<div class="blog-inquiry-card inquiry-widget">
+  <div class="inquiry-widget-heading"><span class="inquiry-widget-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-1 1V11.5a8.5 8.5 0 1 1 18 0Z"/><path d="M8 9h8M8 13h5"/></svg></span><p class="blog-kicker">Fabio Egypt</p></div>
+  <h2>{m.formTitle}</h2><p>{m.formHint}</p>
+  <InquiryForm locale={locale} prefix={prefix} destination={destination}/>
+</div>
