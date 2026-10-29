@@ -66,7 +66,7 @@ if (host) {
     sortInput.addEventListener('change', () => { sort = validSort(sortInput.value); render(true); });
     previous.addEventListener('click', () => { page--; render(true); });
     next.addEventListener('click', () => { page++; render(true); });
-    elements.forEach(card => card.querySelector('[data-detail-link]')?.addEventListener('click', () => storage.set('fabio_nav_source','details')));
+    elements.forEach(card => card.querySelectorAll('[data-detail-link]').forEach(link=>link.addEventListener('click', () => storage.set('fabio_nav_source','details'))));
     render();
   }
 }

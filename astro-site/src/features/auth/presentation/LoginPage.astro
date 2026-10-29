@@ -8,6 +8,8 @@ import {getMarketingMessages} from '../../marketing/data/messages';
 import MarketingConsent from '../../marketing/presentation/MarketingConsent.astro';
 import EmailCodeInput from './EmailCodeInput.astro';
 import PasswordInput from './PasswordInput.astro';
+import GoogleIcon from '../../../shared/components/GoogleIcon.astro';
+import './login.css';
 interface Props {locale:Locale}
 const {locale}=Astro.props;
 const m=getAuthMessages(locale);
@@ -21,7 +23,7 @@ const configuration=JSON.stringify({config:authConfig,messages:m,locale,marketin
   {authConfig ? <>
     <section data-login-guest>
       <div data-login-controls>
-      {authConfig.googleEnabled && <button type="button" class="auth-button auth-secondary" data-login-oauth="google">{m.google}</button>}
+      {authConfig.googleEnabled && <button type="button" class="auth-button auth-secondary auth-google" data-login-oauth="google"><GoogleIcon/>{m.google}</button>}
       {authConfig.emailEnabled && <>
         {authConfig.passwordEnabled && <div class="auth-tabs" role="group" aria-label={m.loginMethod}>
           <button type="button" data-login-mode="signin" aria-pressed="true">{m.signIn}</button>

@@ -1,0 +1,105 @@
+{
+  "origin": "http://127.0.0.1:4333",
+  "results": [
+    {
+      "path": "/it/login/",
+      "width": 320,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "signupVisible": true,
+      "googleIcon": 1,
+      "passwordVisible": true
+    },
+    {
+      "path": "/it/login/",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "signupVisible": true,
+      "googleIcon": 1,
+      "passwordVisible": true
+    },
+    {
+      "path": "/it/login/",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "signupVisible": true,
+      "googleIcon": 1,
+      "passwordVisible": true
+    },
+    {
+      "path": "/it/login/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "signupVisible": true,
+      "googleIcon": 1,
+      "passwordVisible": true
+    },
+    {
+      "path": "/en/login/",
+      "width": 320,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "signupVisible": true,
+      "googleIcon": 1,
+      "passwordVisible": true
+    },
+    {
+      "path": "/en/login/",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "signupVisible": true,
+      "googleIcon": 1,
+      "passwordVisible": true
+    },
+    {
+      "path": "/en/login/",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "signupVisible": true,
+      "googleIcon": 1,
+      "passwordVisible": true
+    },
+    {
+      "path": "/en/login/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "signupVisible": true,
+      "googleIcon": 1,
+      "passwordVisible": true
+    },
+    {
+      "path": "/en/login/",
+      "width": 320,
+      "flags": [
+        {
+          "src": "/assets/images/icons/languages/en.svg",
+          "loaded": true
+        },
+        {
+          "src": "/assets/images/icons/languages/it.svg",
+          "loaded": true
+        },
+        {
+          "src": "/assets/images/icons/languages/en.svg",
+          "loaded": true
+        }
+      ],
+      "escapeClosed": true,
+      "overflow": false
+    }
+  ]
+}

@@ -12,6 +12,6 @@ const locale = Astro.params.locale as Locale;
 const content = getHomeContent(locale);
 const { promo } = Astro.props;
 ---
-<BaseLayout locale={locale} route="" title={content.seo.title} description={content.seo.description} bodyClass="bg-black font-sans text-gray-200">
+<BaseLayout locale={locale} route="" title={content.seo.title} description={content.seo.description} bodyClass="home-page">
   <HomePage locale={locale} content={content} promo={promo}/>
 </BaseLayout>

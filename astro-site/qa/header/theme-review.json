@@ -1,0 +1,692 @@
+{
+  "origin": "http://127.0.0.1:4333",
+  "results": [
+    {
+      "path": "/it/",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "biographyWorks": true,
+      "biographyFocusRestored": true
+    },
+    {
+      "path": "/it/explore/",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "cards": 9,
+      "prices": [
+        {
+          "id": "trip:ras_mohammed_bus_half_day",
+          "price": "30",
+          "label": "€30"
+        },
+        {
+          "id": "trip:ras_mohammed_white_island_vip",
+          "price": "40",
+          "label": "€40"
+        },
+        {
+          "id": "trip:super_safari_5_senses",
+          "price": "55",
+          "label": "€55"
+        },
+        {
+          "id": "trip:dolphin_show_family",
+          "price": "25",
+          "label": "€25"
+        },
+        {
+          "id": "trip:sharm_old_market_ultimate_shopping",
+          "price": "25",
+          "label": "€25"
+        },
+        {
+          "id": "trip:moto_safari_quad_echo",
+          "price": "30",
+          "label": "€30"
+        },
+        {
+          "id": "trip:dinner_cruise_night_show",
+          "price": "35",
+          "label": "€35"
+        },
+        {
+          "id": "trip:tiran_island_boat_vip",
+          "price": "40",
+          "label": "€40"
+        },
+        {
+          "id": "trip:dahab_blue_hole_super_safari",
+          "price": "40",
+          "label": "€40"
+        }
+      ],
+      "detailLinks": [
+        "/it/tours/ras_mohammed_bus_half_day/",
+        "/it/tours/ras_mohammed_bus_half_day/",
+        "/it/tours/ras_mohammed_white_island_vip/",
+        "/it/tours/ras_mohammed_white_island_vip/",
+        "/it/tours/super_safari_5_senses/",
+        "/it/tours/super_safari_5_senses/",
+        "/it/tours/dolphin_show_family/",
+        "/it/tours/dolphin_show_family/",
+        "/it/tours/sharm_old_market_ultimate_shopping/",
+        "/it/tours/sharm_old_market_ultimate_shopping/",
+        "/it/tours/moto_safari_quad_echo/",
+        "/it/tours/moto_safari_quad_echo/",
+        "/it/tours/dinner_cruise_night_show/",
+        "/it/tours/dinner_cruise_night_show/",
+        "/it/tours/tiran_island_boat_vip/",
+        "/it/tours/tiran_island_boat_vip/",
+        "/it/tours/dahab_blue_hole_super_safari/",
+        "/it/tours/dahab_blue_hole_super_safari/"
+      ],
+      "sortWorks": true,
+      "packagesFilterWorks": true,
+      "guestFavoriteCountWorks": true
+    },
+    {
+      "path": "/it/login/",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "signupVisible": true,
+      "googleIcon": 1,
+      "passwordVisible": true
+    },
+    {
+      "path": "/it/",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "biographyWorks": true,
+      "biographyFocusRestored": true
+    },
+    {
+      "path": "/it/explore/",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "cards": 9,
+      "prices": [
+        {
+          "id": "trip:ras_mohammed_bus_half_day",
+          "price": "30",
+          "label": "€30"
+        },
+        {
+          "id": "trip:ras_mohammed_white_island_vip",
+          "price": "40",
+          "label": "€40"
+        },
+        {
+          "id": "trip:super_safari_5_senses",
+          "price": "55",
+          "label": "€55"
+        },
+        {
+          "id": "trip:dolphin_show_family",
+          "price": "25",
+          "label": "€25"
+        },
+        {
+          "id": "trip:sharm_old_market_ultimate_shopping",
+          "price": "25",
+          "label": "€25"
+        },
+        {
+          "id": "trip:moto_safari_quad_echo",
+          "price": "30",
+          "label": "€30"
+        },
+        {
+          "id": "trip:dinner_cruise_night_show",
+          "price": "35",
+          "label": "€35"
+        },
+        {
+          "id": "trip:tiran_island_boat_vip",
+          "price": "40",
+          "label": "€40"
+        },
+        {
+          "id": "trip:dahab_blue_hole_super_safari",
+          "price": "40",
+          "label": "€40"
+        }
+      ],
+      "detailLinks": [
+        "/it/tours/ras_mohammed_bus_half_day/",
+        "/it/tours/ras_mohammed_bus_half_day/",
+        "/it/tours/ras_mohammed_white_island_vip/",
+        "/it/tours/ras_mohammed_white_island_vip/",
+        "/it/tours/super_safari_5_senses/",
+        "/it/tours/super_safari_5_senses/",
+        "/it/tours/dolphin_show_family/",
+        "/it/tours/dolphin_show_family/",
+        "/it/tours/sharm_old_market_ultimate_shopping/",
+        "/it/tours/sharm_old_market_ultimate_shopping/",
+        "/it/tours/moto_safari_quad_echo/",
+        "/it/tours/moto_safari_quad_echo/",
+        "/it/tours/dinner_cruise_night_show/",
+        "/it/tours/dinner_cruise_night_show/",
+        "/it/tours/tiran_island_boat_vip/",
+        "/it/tours/tiran_island_boat_vip/",
+        "/it/tours/dahab_blue_hole_super_safari/",
+        "/it/tours/dahab_blue_hole_super_safari/"
+      ],
+      "sortWorks": true,
+      "packagesFilterWorks": true,
+      "guestFavoriteCountWorks": true
+    },
+    {
+      "path": "/it/login/",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "signupVisible": true,
+      "googleIcon": 1,
+      "passwordVisible": true
+    },
+    {
+      "path": "/it/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "biographyWorks": true,
+      "biographyFocusRestored": true
+    },
+    {
+      "path": "/it/explore/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "cards": 9,
+      "prices": [
+        {
+          "id": "trip:ras_mohammed_bus_half_day",
+          "price": "30",
+          "label": "€30"
+        },
+        {
+          "id": "trip:ras_mohammed_white_island_vip",
+          "price": "40",
+          "label": "€40"
+        },
+        {
+          "id": "trip:super_safari_5_senses",
+          "price": "55",
+          "label": "€55"
+        },
+        {
+          "id": "trip:dolphin_show_family",
+          "price": "25",
+          "label": "€25"
+        },
+        {
+          "id": "trip:sharm_old_market_ultimate_shopping",
+          "price": "25",
+          "label": "€25"
+        },
+        {
+          "id": "trip:moto_safari_quad_echo",
+          "price": "30",
+          "label": "€30"
+        },
+        {
+          "id": "trip:dinner_cruise_night_show",
+          "price": "35",
+          "label": "€35"
+        },
+        {
+          "id": "trip:tiran_island_boat_vip",
+          "price": "40",
+          "label": "€40"
+        },
+        {
+          "id": "trip:dahab_blue_hole_super_safari",
+          "price": "40",
+          "label": "€40"
+        }
+      ],
+      "detailLinks": [
+        "/it/tours/ras_mohammed_bus_half_day/",
+        "/it/tours/ras_mohammed_bus_half_day/",
+        "/it/tours/ras_mohammed_white_island_vip/",
+        "/it/tours/ras_mohammed_white_island_vip/",
+        "/it/tours/super_safari_5_senses/",
+        "/it/tours/super_safari_5_senses/",
+        "/it/tours/dolphin_show_family/",
+        "/it/tours/dolphin_show_family/",
+        "/it/tours/sharm_old_market_ultimate_shopping/",
+        "/it/tours/sharm_old_market_ultimate_shopping/",
+        "/it/tours/moto_safari_quad_echo/",
+        "/it/tours/moto_safari_quad_echo/",
+        "/it/tours/dinner_cruise_night_show/",
+        "/it/tours/dinner_cruise_night_show/",
+        "/it/tours/tiran_island_boat_vip/",
+        "/it/tours/tiran_island_boat_vip/",
+        "/it/tours/dahab_blue_hole_super_safari/",
+        "/it/tours/dahab_blue_hole_super_safari/"
+      ],
+      "sortWorks": true,
+      "packagesFilterWorks": true,
+      "guestFavoriteCountWorks": true
+    },
+    {
+      "path": "/it/login/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "signupVisible": true,
+      "googleIcon": 1,
+      "passwordVisible": true
+    },
+    {
+      "path": "/en/",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "biographyWorks": true,
+      "biographyFocusRestored": true
+    },
+    {
+      "path": "/en/explore/",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "cards": 9,
+      "prices": [
+        {
+          "id": "trip:ras_mohammed_bus_half_day",
+          "price": "30",
+          "label": "€30"
+        },
+        {
+          "id": "trip:ras_mohammed_white_island_vip",
+          "price": "40",
+          "label": "€40"
+        },
+        {
+          "id": "trip:super_safari_5_senses",
+          "price": "55",
+          "label": "€55"
+        },
+        {
+          "id": "trip:dolphin_show_family",
+          "price": "25",
+          "label": "€25"
+        },
+        {
+          "id": "trip:sharm_old_market_ultimate_shopping",
+          "price": "25",
+          "label": "€25"
+        },
+        {
+          "id": "trip:moto_safari_quad_echo",
+          "price": "30",
+          "label": "€30"
+        },
+        {
+          "id": "trip:dinner_cruise_night_show",
+          "price": "35",
+          "label": "€35"
+        },
+        {
+          "id": "trip:tiran_island_boat_vip",
+          "price": "40",
+          "label": "€40"
+        },
+        {
+          "id": "trip:dahab_blue_hole_super_safari",
+          "price": "40",
+          "label": "€40"
+        }
+      ],
+      "detailLinks": [
+        "/en/tours/ras_mohammed_bus_half_day/",
+        "/en/tours/ras_mohammed_bus_half_day/",
+        "/en/tours/ras_mohammed_white_island_vip/",
+        "/en/tours/ras_mohammed_white_island_vip/",
+        "/en/tours/super_safari_5_senses/",
+        "/en/tours/super_safari_5_senses/",
+        "/en/tours/dolphin_show_family/",
+        "/en/tours/dolphin_show_family/",
+        "/en/tours/sharm_old_market_ultimate_shopping/",
+        "/en/tours/sharm_old_market_ultimate_shopping/",
+        "/en/tours/moto_safari_quad_echo/",
+        "/en/tours/moto_safari_quad_echo/",
+        "/en/tours/dinner_cruise_night_show/",
+        "/en/tours/dinner_cruise_night_show/",
+        "/en/tours/tiran_island_boat_vip/",
+        "/en/tours/tiran_island_boat_vip/",
+        "/en/tours/dahab_blue_hole_super_safari/",
+        "/en/tours/dahab_blue_hole_super_safari/"
+      ],
+      "sortWorks": true,
+      "packagesFilterWorks": true,
+      "guestFavoriteCountWorks": true
+    },
+    {
+      "path": "/en/login/",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "signupVisible": true,
+      "googleIcon": 1,
+      "passwordVisible": true
+    },
+    {
+      "path": "/en/",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "biographyWorks": true,
+      "biographyFocusRestored": true
+    },
+    {
+      "path": "/en/explore/",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "cards": 9,
+      "prices": [
+        {
+          "id": "trip:ras_mohammed_bus_half_day",
+          "price": "30",
+          "label": "€30"
+        },
+        {
+          "id": "trip:ras_mohammed_white_island_vip",
+          "price": "40",
+          "label": "€40"
+        },
+        {
+          "id": "trip:super_safari_5_senses",
+          "price": "55",
+          "label": "€55"
+        },
+        {
+          "id": "trip:dolphin_show_family",
+          "price": "25",
+          "label": "€25"
+        },
+        {
+          "id": "trip:sharm_old_market_ultimate_shopping",
+          "price": "25",
+          "label": "€25"
+        },
+        {
+          "id": "trip:moto_safari_quad_echo",
+          "price": "30",
+          "label": "€30"
+        },
+        {
+          "id": "trip:dinner_cruise_night_show",
+          "price": "35",
+          "label": "€35"
+        },
+        {
+          "id": "trip:tiran_island_boat_vip",
+          "price": "40",
+          "label": "€40"
+        },
+        {
+          "id": "trip:dahab_blue_hole_super_safari",
+          "price": "40",
+          "label": "€40"
+        }
+      ],
+      "detailLinks": [
+        "/en/tours/ras_mohammed_bus_half_day/",
+        "/en/tours/ras_mohammed_bus_half_day/",
+        "/en/tours/ras_mohammed_white_island_vip/",
+        "/en/tours/ras_mohammed_white_island_vip/",
+        "/en/tours/super_safari_5_senses/",
+        "/en/tours/super_safari_5_senses/",
+        "/en/tours/dolphin_show_family/",
+        "/en/tours/dolphin_show_family/",
+        "/en/tours/sharm_old_market_ultimate_shopping/",
+        "/en/tours/sharm_old_market_ultimate_shopping/",
+        "/en/tours/moto_safari_quad_echo/",
+        "/en/tours/moto_safari_quad_echo/",
+        "/en/tours/dinner_cruise_night_show/",
+        "/en/tours/dinner_cruise_night_show/",
+        "/en/tours/tiran_island_boat_vip/",
+        "/en/tours/tiran_island_boat_vip/",
+        "/en/tours/dahab_blue_hole_super_safari/",
+        "/en/tours/dahab_blue_hole_super_safari/"
+      ],
+      "sortWorks": true,
+      "packagesFilterWorks": true,
+      "guestFavoriteCountWorks": true
+    },
+    {
+      "path": "/en/login/",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "signupVisible": true,
+      "googleIcon": 1,
+      "passwordVisible": true
+    },
+    {
+      "path": "/en/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "biographyWorks": true,
+      "biographyFocusRestored": true
+    },
+    {
+      "path": "/en/explore/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "cards": 9,
+      "prices": [
+        {
+          "id": "trip:ras_mohammed_bus_half_day",
+          "price": "30",
+          "label": "€30"
+        },
+        {
+          "id": "trip:ras_mohammed_white_island_vip",
+          "price": "40",
+          "label": "€40"
+        },
+        {
+          "id": "trip:super_safari_5_senses",
+          "price": "55",
+          "label": "€55"
+        },
+        {
+          "id": "trip:dolphin_show_family",
+          "price": "25",
+          "label": "€25"
+        },
+        {
+          "id": "trip:sharm_old_market_ultimate_shopping",
+          "price": "25",
+          "label": "€25"
+        },
+        {
+          "id": "trip:moto_safari_quad_echo",
+          "price": "30",
+          "label": "€30"
+        },
+        {
+          "id": "trip:dinner_cruise_night_show",
+          "price": "35",
+          "label": "€35"
+        },
+        {
+          "id": "trip:tiran_island_boat_vip",
+          "price": "40",
+          "label": "€40"
+        },
+        {
+          "id": "trip:dahab_blue_hole_super_safari",
+          "price": "40",
+          "label": "€40"
+        }
+      ],
+      "detailLinks": [
+        "/en/tours/ras_mohammed_bus_half_day/",
+        "/en/tours/ras_mohammed_bus_half_day/",
+        "/en/tours/ras_mohammed_white_island_vip/",
+        "/en/tours/ras_mohammed_white_island_vip/",
+        "/en/tours/super_safari_5_senses/",
+        "/en/tours/super_safari_5_senses/",
+        "/en/tours/dolphin_show_family/",
+        "/en/tours/dolphin_show_family/",
+        "/en/tours/sharm_old_market_ultimate_shopping/",
+        "/en/tours/sharm_old_market_ultimate_shopping/",
+        "/en/tours/moto_safari_quad_echo/",
+        "/en/tours/moto_safari_quad_echo/",
+        "/en/tours/dinner_cruise_night_show/",
+        "/en/tours/dinner_cruise_night_show/",
+        "/en/tours/tiran_island_boat_vip/",
+        "/en/tours/tiran_island_boat_vip/",
+        "/en/tours/dahab_blue_hole_super_safari/",
+        "/en/tours/dahab_blue_hole_super_safari/"
+      ],
+      "sortWorks": true,
+      "packagesFilterWorks": true,
+      "guestFavoriteCountWorks": true
+    },
+    {
+      "path": "/en/login/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": [],
+      "signupVisible": true,
+      "googleIcon": 1,
+      "passwordVisible": true
+    },
+    {
+      "path": "/en/login/",
+      "width": 320,
+      "flags": [
+        {
+          "src": "/assets/images/icons/languages/en.svg",
+          "loaded": true
+        },
+        {
+          "src": "/assets/images/icons/languages/it.svg",
+          "loaded": true
+        },
+        {
+          "src": "/assets/images/icons/languages/en.svg",
+          "loaded": true
+        }
+      ],
+      "escapeClosed": true,
+      "overflow": false
+    },
+    {
+      "path": "it/blog/cosa-mangiare-egitto/",
+      "width": 375,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "path": "en/egypt/giza-pyramids/",
+      "width": 375,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "path": "/it/packages/cairo_mistico_copto_islamico/",
+      "width": 375,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "path": "en/wishlist/",
+      "width": 375,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "path": "it/legal/",
+      "width": 375,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "path": "offerta-sharm/",
+      "width": 375,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "path": "welcome/",
+      "width": 375,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "path": "it/blog/cosa-mangiare-egitto/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "path": "en/egypt/giza-pyramids/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "path": "/it/packages/cairo_mistico_copto_islamico/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "path": "en/wishlist/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "path": "it/legal/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "path": "offerta-sharm/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "path": "welcome/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false
+    }
+  ],
+  "note": "Auth rows updated by focused review after compact CAPTCHA correction; other rows retain the unchanged final-build review."
+}

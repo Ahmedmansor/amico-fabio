@@ -1,5 +1,5 @@
 interface Turnstile {
-  render(element:HTMLElement, options:{sitekey:string;language:string;callback:(token:string)=>void;'expired-callback':()=>void;'error-callback':()=>void}):string;
+  render(element:HTMLElement, options:{sitekey:string;language:string;size:'normal'|'compact';callback:(token:string)=>void;'expired-callback':()=>void;'error-callback':()=>void}):string;
   reset(id:string):void;
   remove(id:string):void;
 }
@@ -22,6 +22,7 @@ function load():Promise<Turnstile>{
 export async function mountTurnstile(element:HTMLElement,sitekey:string,language:string,onToken:(token:string)=>void){
   const api=await load();
   const clear=()=>onToken('');
-  const id=api.render(element,{sitekey,language,callback:onToken,'expired-callback':clear,'error-callback':clear});
+  const size=element.clientWidth<300?'compact':'normal';
+  const id=api.render(element,{sitekey,language,size,callback:onToken,'expired-callback':clear,'error-callback':clear});
   return {reset(){clear();api.reset(id);},remove(){clear();api.remove(id);}};
 }

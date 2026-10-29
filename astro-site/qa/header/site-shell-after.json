@@ -10,7 +10,7 @@
       "headers": 1,
       "footers": 1,
       "heading": [
-        "FABIO TOURS"
+        "Nota: I 10 Comandamenti di Fabio"
       ],
       "content": [
         "Salva i tuoi preferiti per non perderli",
@@ -31,6 +31,8 @@
         "Sharm El Sheikh",
         "Cairo",
         "Luxor e Aswan",
+        "Il tuo Egitto, a modo tuo",
+        "Raccontaci come desideri vivere l’Egitto. Indica date, viaggiatori e idee, poi controlla la richiesta prima di aprire WhatsApp.",
         "Dicono di Noi",
         "Le parole dei nostri ospiti su Facebook"
       ],
@@ -40,6 +42,7 @@
         "/it/explore/sharm/",
         "/it/explore/cairo/",
         "/it/explore/luxor_and_aswan/",
+        "/it/tailor-your-trip/",
         "https://www.facebook.com/CROSSROOTSTRAVEL/reviews/?id=100063543025466&sk=reviews",
         "https://wa.me/201063239261",
         "/it/login/?settings=password",
@@ -56,7 +59,7 @@
       "headers": 1,
       "footers": 1,
       "heading": [
-        "FABIO TOURS"
+        "Nota: I 10 Comandamenti di Fabio"
       ],
       "content": [
         "Salva i tuoi preferiti per non perderli",
@@ -77,6 +80,8 @@
         "Sharm El Sheikh",
         "Cairo",
         "Luxor e Aswan",
+        "Il tuo Egitto, a modo tuo",
+        "Raccontaci come desideri vivere l’Egitto. Indica date, viaggiatori e idee, poi controlla la richiesta prima di aprire WhatsApp.",
         "Dicono di Noi",
         "Le parole dei nostri ospiti su Facebook"
       ],
@@ -86,6 +91,7 @@
         "/it/explore/sharm/",
         "/it/explore/cairo/",
         "/it/explore/luxor_and_aswan/",
+        "/it/tailor-your-trip/",
         "https://www.facebook.com/CROSSROOTSTRAVEL/reviews/?id=100063543025466&sk=reviews",
         "https://wa.me/201063239261",
         "/it/login/?settings=password",
@@ -102,7 +108,7 @@
       "headers": 1,
       "footers": 1,
       "heading": [
-        "FABIO TOURS"
+        "Nota: I 10 Comandamenti di Fabio"
       ],
       "content": [
         "Salva i tuoi preferiti per non perderli",
@@ -123,6 +129,8 @@
         "Sharm El Sheikh",
         "Cairo",
         "Luxor e Aswan",
+        "Il tuo Egitto, a modo tuo",
+        "Raccontaci come desideri vivere l’Egitto. Indica date, viaggiatori e idee, poi controlla la richiesta prima di aprire WhatsApp.",
         "Dicono di Noi",
         "Le parole dei nostri ospiti su Facebook"
       ],
@@ -132,6 +140,7 @@
         "/it/explore/sharm/",
         "/it/explore/cairo/",
         "/it/explore/luxor_and_aswan/",
+        "/it/tailor-your-trip/",
         "https://www.facebook.com/CROSSROOTSTRAVEL/reviews/?id=100063543025466&sk=reviews",
         "https://wa.me/201063239261",
         "/it/login/?settings=password",
@@ -511,7 +520,7 @@
       "headers": 1,
       "footers": 1,
       "heading": [
-        "FABIO TOURS"
+        "Note: Fabio's 10 Commandments"
       ],
       "content": [
         "Save your favorites so you don't lose them",
@@ -532,6 +541,8 @@
         "Sharm El Sheikh",
         "Cairo",
         "Luxor & Aswan",
+        "Your Egypt trip, your way",
+        "Tell us how you would like to experience Egypt. Share your dates, travellers and ideas, then review your request before opening WhatsApp.",
         "Guest Reviews",
         "What our guests say on Facebook"
       ],
@@ -541,69 +552,24 @@
         "/en/explore/sharm/",
         "/en/explore/cairo/",
         "/en/explore/luxor_and_aswan/",
-        "https://www.facebook.com/CROSSROOTSTRAVEL/reviews/?id=100063543025466&sk=reviews",
-        "https://wa.me/201063239261",
-        "/en/login/?settings=password",
-        "/en/legal/"
-      ],
-      "headerHeight": 65,
-      "errors": []
-    },
-    {
-      "path": "/en/",
-      "width": 768,
-      "status": 200,
-      "overflow": false,
-      "headers": 1,
-      "footers": 1,
-      "heading": [
-        "FABIO TOURS"
-      ],
-      "content": [
-        "Save your favorites so you don't lose them",
-        "Sign in to synchronize your favorites. You can keep saving in this browser without an account.",
-        "Note: Fabio's 10 Commandments",
-        "The ultimate survival manual for Sharm. Avoid tourist traps and live the real insider vacation.",
-        "Dear Guests,",
-        "In Sharm El Sheikh, you will find hundreds of vendors offering you \"the lowest price.\" I have made a different choice: to offer you the highest quality.",
-        "My catalog does not contain everything, only the best. I have personally selected every boat, every guide, and every corner of the desert to guarantee you three things that are priceless: Safety, Privacy, and Magic.",
-        "Who is Fabio? More than a friend, an institution.",
-        "Entrusting your vacation to someone is a matter of trust. This is why I am different:",
-        "A graduate in Languages (Al-Alsun) and an Official Guide authorized by the Ministry. In Sharm, where unlicensed operators are common, choosing me means choosing certified competence.",
-        "My other office is \"the sky.\" As a Flight Attendant, I combine the warmth of Egyptian hospitality with the precision of international standards.",
-        "While others cram you into crowded buses, I choose substance: Private cars, total flexibility, and zero surprises.",
-        "Remember: an excursion ruined to save a few euros... ends up costing you very dearly.",
-        "FABIO TOURS",
-        "Sharm El Sheikh VIP Experiences",
-        "Sharm El Sheikh",
-        "Cairo",
-        "Luxor & Aswan",
-        "Guest Reviews",
-        "What our guests say on Facebook"
-      ],
-      "links": [
-        "/en/login/?redirect=%2Fen%2F",
-        "/en/sharm-secrets/",
-        "/en/explore/sharm/",
-        "/en/explore/cairo/",
-        "/en/explore/luxor_and_aswan/",
+        "/en/tailor-your-trip/",
         "https://www.facebook.com/CROSSROOTSTRAVEL/reviews/?id=100063543025466&sk=reviews",
         "https://wa.me/201063239261",
         "/en/login/?settings=password",
         "/en/legal/"
       ],
-      "headerHeight": 81,
+      "headerHeight": 65,
       "errors": []
     },
     {
       "path": "/en/",
-      "width": 1280,
+      "width": 768,
       "status": 200,
       "overflow": false,
       "headers": 1,
       "footers": 1,
       "heading": [
-        "FABIO TOURS"
+        "Note: Fabio's 10 Commandments"
       ],
       "content": [
         "Save your favorites so you don't lose them",
@@ -624,6 +590,8 @@
         "Sharm El Sheikh",
         "Cairo",
         "Luxor & Aswan",
+        "Your Egypt trip, your way",
+        "Tell us how you would like to experience Egypt. Share your dates, travellers and ideas, then review your request before opening WhatsApp.",
         "Guest Reviews",
         "What our guests say on Facebook"
       ],
@@ -633,6 +601,56 @@
         "/en/explore/sharm/",
         "/en/explore/cairo/",
         "/en/explore/luxor_and_aswan/",
+        "/en/tailor-your-trip/",
+        "https://www.facebook.com/CROSSROOTSTRAVEL/reviews/?id=100063543025466&sk=reviews",
+        "https://wa.me/201063239261",
+        "/en/login/?settings=password",
+        "/en/legal/"
+      ],
+      "headerHeight": 81,
+      "errors": []
+    },
+    {
+      "path": "/en/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "headers": 1,
+      "footers": 1,
+      "heading": [
+        "Note: Fabio's 10 Commandments"
+      ],
+      "content": [
+        "Save your favorites so you don't lose them",
+        "Sign in to synchronize your favorites. You can keep saving in this browser without an account.",
+        "Note: Fabio's 10 Commandments",
+        "The ultimate survival manual for Sharm. Avoid tourist traps and live the real insider vacation.",
+        "Dear Guests,",
+        "In Sharm El Sheikh, you will find hundreds of vendors offering you \"the lowest price.\" I have made a different choice: to offer you the highest quality.",
+        "My catalog does not contain everything, only the best. I have personally selected every boat, every guide, and every corner of the desert to guarantee you three things that are priceless: Safety, Privacy, and Magic.",
+        "Who is Fabio? More than a friend, an institution.",
+        "Entrusting your vacation to someone is a matter of trust. This is why I am different:",
+        "A graduate in Languages (Al-Alsun) and an Official Guide authorized by the Ministry. In Sharm, where unlicensed operators are common, choosing me means choosing certified competence.",
+        "My other office is \"the sky.\" As a Flight Attendant, I combine the warmth of Egyptian hospitality with the precision of international standards.",
+        "While others cram you into crowded buses, I choose substance: Private cars, total flexibility, and zero surprises.",
+        "Remember: an excursion ruined to save a few euros... ends up costing you very dearly.",
+        "FABIO TOURS",
+        "Sharm El Sheikh VIP Experiences",
+        "Sharm El Sheikh",
+        "Cairo",
+        "Luxor & Aswan",
+        "Your Egypt trip, your way",
+        "Tell us how you would like to experience Egypt. Share your dates, travellers and ideas, then review your request before opening WhatsApp.",
+        "Guest Reviews",
+        "What our guests say on Facebook"
+      ],
+      "links": [
+        "/en/login/?redirect=%2Fen%2F",
+        "/en/sharm-secrets/",
+        "/en/explore/sharm/",
+        "/en/explore/cairo/",
+        "/en/explore/luxor_and_aswan/",
+        "/en/tailor-your-trip/",
         "https://www.facebook.com/CROSSROOTSTRAVEL/reviews/?id=100063543025466&sk=reviews",
         "https://wa.me/201063239261",
         "/en/login/?settings=password",
@@ -1034,6 +1052,7 @@
       "path": "/it/",
       "width": 375,
       "contentPreserved": true,
+      "sequenceUnchanged": false,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1042,6 +1061,7 @@
       "path": "/it/",
       "width": 768,
       "contentPreserved": true,
+      "sequenceUnchanged": false,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1050,6 +1070,7 @@
       "path": "/it/",
       "width": 1280,
       "contentPreserved": true,
+      "sequenceUnchanged": false,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1058,6 +1079,7 @@
       "path": "/it/blog/",
       "width": 375,
       "contentPreserved": true,
+      "sequenceUnchanged": true,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1066,6 +1088,7 @@
       "path": "/it/blog/",
       "width": 768,
       "contentPreserved": true,
+      "sequenceUnchanged": true,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1074,6 +1097,7 @@
       "path": "/it/blog/",
       "width": 1280,
       "contentPreserved": true,
+      "sequenceUnchanged": true,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1082,6 +1106,7 @@
       "path": "/it/tours/albatros_aqua_park_full_day/",
       "width": 375,
       "contentPreserved": true,
+      "sequenceUnchanged": true,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1090,6 +1115,7 @@
       "path": "/it/tours/albatros_aqua_park_full_day/",
       "width": 768,
       "contentPreserved": true,
+      "sequenceUnchanged": true,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1098,6 +1124,7 @@
       "path": "/it/tours/albatros_aqua_park_full_day/",
       "width": 1280,
       "contentPreserved": true,
+      "sequenceUnchanged": true,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1106,6 +1133,7 @@
       "path": "/en/",
       "width": 375,
       "contentPreserved": true,
+      "sequenceUnchanged": false,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1114,6 +1142,7 @@
       "path": "/en/",
       "width": 768,
       "contentPreserved": true,
+      "sequenceUnchanged": false,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1122,6 +1151,7 @@
       "path": "/en/",
       "width": 1280,
       "contentPreserved": true,
+      "sequenceUnchanged": false,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1130,6 +1160,7 @@
       "path": "/en/blog/",
       "width": 375,
       "contentPreserved": true,
+      "sequenceUnchanged": true,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1138,6 +1169,7 @@
       "path": "/en/blog/",
       "width": 768,
       "contentPreserved": true,
+      "sequenceUnchanged": true,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1146,6 +1178,7 @@
       "path": "/en/blog/",
       "width": 1280,
       "contentPreserved": true,
+      "sequenceUnchanged": true,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1154,6 +1187,7 @@
       "path": "/en/tours/albatros_aqua_park_full_day/",
       "width": 375,
       "contentPreserved": true,
+      "sequenceUnchanged": true,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1162,6 +1196,7 @@
       "path": "/en/tours/albatros_aqua_park_full_day/",
       "width": 768,
       "contentPreserved": true,
+      "sequenceUnchanged": true,
       "linksPreserved": true,
       "overflow": false,
       "errors": []
@@ -1170,6 +1205,7 @@
       "path": "/en/tours/albatros_aqua_park_full_day/",
       "width": 1280,
       "contentPreserved": true,
+      "sequenceUnchanged": true,
       "linksPreserved": true,
       "overflow": false,
       "errors": []

@@ -6,7 +6,7 @@ import type {ShareImage} from './share-image';
 import {getImage} from 'astro:assets';
 import {preventIndexing} from './indexing';
 interface Props { locale: Locale; route: string; title: string; description: string; canonicalPath?:string; alternatePaths?:Partial<Record<Locale,string>>; keywords?:string; ogTitle?:string; ogDescription?:string; twitterDescription?:string;shareImage?:ShareImage;noindexOverride?:boolean;ogType?:'website'|'article';fontPreloads?:readonly string[] }
-const { locale, route, title, description,canonicalPath,alternatePaths,keywords,ogTitle=title,ogDescription=description,twitterDescription=description,shareImage,noindexOverride=false,ogType='website',fontPreloads=['montserrat-v31-latin-regular.woff2','montserrat-v31-latin-700.woff2','cinzel-v26-latin-700.woff2'] } = Astro.props;
+const { locale, route, title, description,canonicalPath,alternatePaths,keywords,ogTitle=title,ogDescription=description,twitterDescription=description,shareImage,noindexOverride=false,ogType='website',fontPreloads=['montserrat-v31-latin-regular.woff2','montserrat-v31-latin-700.woff2','playfair-display-v40-latin-regular.woff2'] } = Astro.props;
 const routePath = route ? `${route}/` : '';
 const canonical = new URL(canonicalPath||`/${locale}/${routePath}`, siteConfig.url).href;
 const alternates=alternatePaths||Object.fromEntries(supportedLocales.map(language=>[language,`/${language}/${routePath}`]));

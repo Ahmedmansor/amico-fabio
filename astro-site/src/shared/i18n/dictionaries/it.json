@@ -125,6 +125,7 @@
     }
   },
   "labels": {
+    "close": "Chiudi",
     "links": "Links",
     "closeIndex": "Close index",
     "menu": "Menu",

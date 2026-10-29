@@ -11,6 +11,6 @@ export async function getStaticPaths() {
 const { locale, location, cards, messages } = Astro.props;
 const route = `explore${location === 'all' ? '' : `/${location}`}`;
 ---
-<BaseLayout locale={locale} route={route} title={messages.seo.title} description={messages.seo.description} bodyClass="bg-black font-sans text-gray-200">
+<BaseLayout locale={locale} route={route} title={messages.seo.title} description={messages.seo.description} bodyClass="explore-page">
   <ExplorePage locale={locale} location={location} cards={cards} messages={messages}/>
 </BaseLayout>

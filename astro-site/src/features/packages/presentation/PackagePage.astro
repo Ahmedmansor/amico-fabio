@@ -23,8 +23,8 @@ const copy=(key:string)=>key.split('.').reduce((value:any,part)=>value[part],m);
 const badge=m.global.badges[editorialBadgeKey(trip.source.badge_key) as keyof typeof m.global.badges]||'';
 const initialTotal=calculateTotal({adults:trip.minPax,children:0,selectedAddons:[]},{...trip.prices,minPax:trip.minPax},addons);
 ---
-<main class="min-h-screen pt-20">
-        <section id="detail-hero" class="relative w-full lg:container lg:mx-auto lg:mt-28 lg:px-4 lg:mb-8">
+<main class="min-h-screen pt-8">
+        <section id="detail-hero" class="relative w-full lg:container lg:mx-auto lg:mt-4 lg:px-4 lg:mb-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-12 items-start">
                 <div class="flex flex-col gap-4">
                     <div

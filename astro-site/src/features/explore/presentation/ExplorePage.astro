@@ -13,7 +13,7 @@ const categories = exploreCategories(cards, location);
 ---
 <main class="pt-24 min-h-screen" data-explore data-location={location} data-locale={locale}>
   <section class="max-w-7xl mx-auto px-4">
-    <h1 class="sr-only">{m.title}</h1>
+    <h1 class="explore-title">{m.title}</h1>
     <div class="mb-8 flex flex-col md:flex-row items-center justify-between gap-4 animate-fade-up delay-100">
       <div id="filter-chips" class="flex flex-nowrap gap-3 min-h-[40px] items-center overflow-x-auto overflow-y-hidden whitespace-nowrap w-full md:w-auto pb-2 md:pb-0 hide-scrollbar">
         {categories.map(category => <button type="button" data-filter={category} aria-pressed={category === 'all'} class={filterClass(category, category === 'all')}>{categoryLabel(category,m)}</button>)}

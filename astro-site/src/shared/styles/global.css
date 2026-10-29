@@ -1,7 +1,26 @@
-@import "tailwindcss";
+/* Scan active source only, excluding archived HTML and QA fixtures. */
+@import "tailwindcss" source("../../");
 
 /* Tailwind aliases reference the shared palette instead of repeating values. */
 @theme inline {
+  /* Legacy utility names resolve to the approved palette during cleanup. */
+  --color-black: var(--color-primary-dark);
+  --color-white: var(--bg-white);
+  --color-gold: var(--color-accent-orange);
+  --color-gray-50: var(--bg-tinted);
+  --color-gray-100: var(--bg-light);
+  --color-gray-200: var(--on-brand-muted);
+  --color-gray-300: var(--on-brand-muted);
+  --color-gray-400: var(--on-brand-muted);
+  --color-gray-500: var(--text-secondary);
+  --color-gray-600: var(--color-primary-muted);
+  --color-gray-700: var(--color-primary-muted);
+  --color-gray-800: var(--color-primary);
+  --color-gray-900: var(--color-primary-dark);
+  --color-yellow-400: var(--color-accent-orange-hover);
+  --color-yellow-500: var(--color-accent-orange);
+  --color-red-500: var(--color-accent-red);
+  --color-green-500: var(--status-success);
   --color-brand-primary: var(--color-primary);
   --color-brand-dark: var(--color-primary-dark);
   --color-brand-muted: var(--color-primary-muted);
