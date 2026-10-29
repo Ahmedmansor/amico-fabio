@@ -17,6 +17,7 @@ dist/
 /qa/header/lighthouse-*.raw.json
 /qa/details/lighthouse-*.raw.json
 /qa/inquiry/lighthouse-*.raw.json
+/qa/home-refresh/lighthouse-*.raw.json
 
 # Disposable blog pipeline verification projects (removed by the runner).
 /qa/blog/.pipeline/

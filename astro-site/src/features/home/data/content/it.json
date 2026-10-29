@@ -117,5 +117,63 @@
         "source": "facebook"
       }
     ]
+  },
+  "journey": {
+    "whyTitle": "Perché scegliere Fabio Egypt?",
+    "why": [
+      {
+        "title": "Sede in Egitto",
+        "text": "Operativi sul territorio per offrirti i migliori servizi in Egitto."
+      },
+      {
+        "title": "Supporto in Italiano",
+        "text": "Assistenza dedicata durante il tuo viaggio in Egitto."
+      },
+      {
+        "title": "Tour su misura e prezzi trasparenti",
+        "text": "Esperienze personalizzate con cura per ogni dettaglio, senza costi nascosti."
+      }
+    ],
+    "stepsTitle": "Come prenotare il tuo viaggio",
+    "steps": [
+      {
+        "title": "Contattaci su WhatsApp",
+        "text": "Scrivici in qualsiasi momento, siamo qui per te!"
+      },
+      {
+        "title": "Scegli la destinazione",
+        "text": "Raccontaci dove vuoi andare e cosa desideri vivere."
+      },
+      {
+        "title": "Conferma la data di arrivo",
+        "text": "Organizziamo tutto in base ai tuoi voli e ai tuoi orari."
+      },
+      {
+        "title": "Ti aspettiamo al tuo arrivo",
+        "text": "Saremo lì per accoglierti e accompagnarti nel tuo viaggio."
+      }
+    ],
+    "videoTitle": "I nostri clienti in viaggio",
+    "videoIntro": "Voci e momenti dei nostri clienti in Egitto.",
+    "videoLanguage": "Video in italiano",
+    "playVideo": "Guarda il video",
+    "closeVideo": "Chiudi video",
+    "videoConsent": "Per guardare i video, abilita i contenuti esterni nelle preferenze privacy, poi seleziona il video.",
+    "manageVideoConsent": "Preferenze video",
+    "videoTitles": {
+      "1214756632": "Il Parco Marino di Ras Mohamed",
+      "1214757531": "Il Parco Marino di Ras Mohamed",
+      "1214758552": "Soho square",
+      "1214760129": "l’escursione del safari",
+      "1214757761": "la nostra macchina privata VIP",
+      "1214758307": "la città magica di Dahab"
+    },
+    "previousReview": "Recensione precedente",
+    "nextReview": "Recensione successiva",
+    "pauseReviews": "Pausa",
+    "resumeReviews": "Riprendi",
+    "reviewControls": "Controlli recensioni",
+    "posterIntro": "Il tuo viaggio in Egitto, con Fabio.",
+    "openOnVimeo": "Apri su Vimeo"
   }
 }

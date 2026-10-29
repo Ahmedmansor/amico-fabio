@@ -21,6 +21,8 @@ test('both home dictionaries preserve all original section text, biography and r
 test('missing section text and invalid reviews fail before rendering', () => {
   const missing = structuredClone(it); missing.global.who_is_fabio_content = '';
   assert.throws(() => validateHome(missing), /Missing required/);
+  const incomplete = structuredClone(it); delete incomplete.journey.videoConsent;
+  assert.throws(() => validateHome(incomplete), /Missing required journey/);
   const invalid = structuredClone(it); invalid.reviews.items[0].text = '';
   assert.throws(() => validateHome(invalid), /Invalid review/);
 });

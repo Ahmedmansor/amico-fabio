@@ -1,0 +1,12 @@
+---
+import type {Locale} from '../../../shared/config/languages';
+import {getSharedMessages} from '../../../shared/i18n/shared';
+import PlannerLink from '../../../shared/components/PlannerLink.astro';
+interface Props {locale:Locale;title:string;items:{title:string;text:string}[]}
+const {locale,title,items}=Astro.props,m=getSharedMessages(locale).planner;
+---
+<section class="home-booking-steps home-width" aria-labelledby="home-steps-title">
+  <div class="home-section-heading"><p class="home-eyebrow">Fabio Egypt</p><h2 id="home-steps-title">{title}</h2></div>
+  <ol class="home-steps">{items.map((item,index)=><li><span class="home-step-number" aria-hidden="true">{String(index+1).padStart(2,'0')}</span><h3>{item.title}</h3><p>{item.text}</p></li>)}</ol>
+  <div class="home-steps-cta"><div><h3>{m.title}</h3><p>{m.description}</p></div><PlannerLink locale={locale}/></div>
+</section>

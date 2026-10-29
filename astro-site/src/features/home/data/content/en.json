@@ -117,5 +117,63 @@
         "source": "facebook"
       }
     ]
+  },
+  "journey": {
+    "whyTitle": "Why choose Fabio Egypt?",
+    "why": [
+      {
+        "title": "Based in Egypt",
+        "text": "We work locally to offer you the best services in Egypt."
+      },
+      {
+        "title": "Italian-speaking support",
+        "text": "Dedicated assistance during your journey in Egypt."
+      },
+      {
+        "title": "Tailored tours, transparent prices",
+        "text": "Personalized experiences with care for every detail, without hidden costs."
+      }
+    ],
+    "stepsTitle": "How to book your journey",
+    "steps": [
+      {
+        "title": "Contact us on WhatsApp",
+        "text": "Message us whenever you like. We are here for you."
+      },
+      {
+        "title": "Choose your destination",
+        "text": "Tell us where you want to go and what you want to experience."
+      },
+      {
+        "title": "Confirm your arrival date",
+        "text": "We organize everything around your flights and schedule."
+      },
+      {
+        "title": "We welcome you on arrival",
+        "text": "We will be there to welcome you and accompany you on your journey."
+      }
+    ],
+    "videoTitle": "Our guests on their travels",
+    "videoIntro": "Voices and moments from our guests in Egypt.",
+    "videoLanguage": "Videos in Italian",
+    "playVideo": "Watch video",
+    "closeVideo": "Close video",
+    "videoConsent": "To watch videos, enable external media in your privacy preferences, then choose a video.",
+    "manageVideoConsent": "Video preferences",
+    "videoTitles": {
+      "1214756632": "Ras Mohamed Marine Park",
+      "1214757531": "Ras Mohamed Marine Park",
+      "1214758552": "Soho Square",
+      "1214760129": "The safari excursion",
+      "1214757761": "Our private VIP car",
+      "1214758307": "The magical town of Dahab"
+    },
+    "previousReview": "Previous review",
+    "nextReview": "Next review",
+    "pauseReviews": "Pause",
+    "resumeReviews": "Resume",
+    "reviewControls": "Review controls",
+    "posterIntro": "Your journey in Egypt, with Fabio.",
+    "openOnVimeo": "Open on Vimeo"
   }
 }

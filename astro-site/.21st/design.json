@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "project": {
+    "name": "fabio-egypt-astro",
+    "productType": "Egypt travel and private tours",
+    "stack": [
+      "astro",
+      "tailwind-v4"
+    ]
+  },
+  "sources": {
+    "tokens": [
+      "src/shared/styles/theme.css"
+    ],
+    "components": [
+      "src/shared/components",
+      "src/features/home/presentation"
+    ],
+    "assets": [
+      "src/features/home/presentation/assets",
+      "src/features/sharm-offer/presentation/assets"
+    ],
+    "instructions": [
+      "../AGENTS.md",
+      "UI_REFACTOR_PLAN.md"
+    ]
+  },
+  "design": {
+    "colorMode": "light with charcoal video section",
+    "colors": {
+      "brand": "var(--color-primary)",
+      "action": "var(--color-accent-orange)",
+      "surface": "var(--bg-white)",
+      "darkSurface": "var(--surface-detail)"
+    },
+    "typography": {
+      "body": "Local Montserrat",
+      "heading": "Local Playfair Display"
+    },
+    "spacing": {},
+    "radius": {},
+    "shadows": {},
+    "motion": {
+      "scope": "Desktop and iPad widths >=768px, prefers-reduced-motion:no-preference",
+      "mobile": "Static layered poster; manual swipe carousels; no motion chunk fetched"
+    },
+    "density": "unknown"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": [],
+    "patterns": []
+  },
+  "constraints": {
+    "must": [
+      "Astro static HTML, Tailwind and Vanilla JS",
+      "Use theme.css palette and existing real assets/copy",
+      "IT/EN keys match",
+      "Gate Vimeo embedding behind external-media consent and explicit play",
+      "Use existing data access functions"
+    ],
+    "avoid": [
+      "React, Framer Motion, WebGL, device sensors",
+      "Mobile motion dependencies or animation timers",
+      "Fake review counts, guest faces, claims or videos",
+      "Changes to the campaign design or lead flow"
+    ]
+  },
+  "decisions": [
+    {
+      "choice": "Layered pointer tilt for the existing transparent Fabio portrait",
+      "reference": "https://mcp.21st.dev/@tom_ui/components/tilt-card/evade",
+      "implementation": "Own Vanilla JS with CSS perspective/translateZ; public 21st reference, no component source copied."
+    },
+    {
+      "choice": "Horizontal Facebook review rotator with manual arrows and pause",
+      "reference": "https://news.21st.dev/blog/react-testimonial-section-components",
+      "implementation": "Existing real reviews; auto only while visible, pause on hover/focus/user control; manual mobile."
+    }
+  ],
+  "evidence": [
+    {
+      "fact": "project.stack:astro",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:tailwind-v4",
+      "source": "package.json"
+    }
+  ],
+  "generatedAt": "2026-10-29T03:24:38.899Z"
+}
