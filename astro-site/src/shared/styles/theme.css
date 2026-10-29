@@ -46,6 +46,9 @@
   --section-padding: clamp(1.5rem, 4vh, 3.5rem);
   --content-max-width: var(--site-container);
   --transition-fast: var(--motion-fast);
+  --surface-detail: hsl(from var(--color-primary-dark) h calc(s * .1) calc(l * .42));
+  --surface-detail-raised: color-mix(in srgb, var(--surface-detail) 92%, var(--bg-white));
+  --border-on-dark: color-mix(in srgb, var(--bg-white) 16%, transparent);
 }
 @media (max-width: 1199px) { :root { --site-gutter: 24px; } }
 @media (max-width: 767px) { :root { --site-gutter: 16px; --site-header-height: 64px; } }

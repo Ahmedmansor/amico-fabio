@@ -10,11 +10,11 @@ interface Props {included:TourPage[];locale:Locale}
 const {included,locale}=Astro.props,m=getSharedMessages(locale);
 const copy=(key:string)=>key.split('.').reduce((value:any,part)=>value[part],m);
 ---
-<div id="included-trip-modal"
+<div id="included-trip-modal" role="dialog" aria-modal="true" aria-label={m.global.included_trips}
         class="fixed inset-0 z-[90] hidden bg-black/95 backdrop-blur-sm flex items-center justify-center p-4">
         <div
             class="bg-gray-900 border border-gold rounded-2xl w-full max-w-5xl lg:max-w-4xl h-auto max-h-[90vh] overflow-y-auto relative shadow-[0_0_40px_color-mix(in srgb, var(--color-accent-orange) 30%, transparent)] flex flex-col">
-            <button id="included-trip-modal-close" type="button"
+            <button id="included-trip-modal-close" type="button" aria-label={m.labels.close}
                 class="fixed top-4 right-4 z-[100] bg-black/50 text-white rounded-full p-2 hover:bg-gold hover:text-black transition backdrop-blur-md">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">

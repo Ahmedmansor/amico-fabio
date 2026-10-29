@@ -2,12 +2,12 @@ function _renderTextFields(txt, g, lang) {
     return `
       <div class="grid grid-cols-1 gap-3">
         <div>
-          <label class="block text-xs text-gray-400 mb-1">${txt.name} <span class="text-gold">*</span></label>
+          <label for="inp-name" class="block text-xs text-gray-400 mb-1">${txt.name} <span class="text-gold">*</span></label>
           <input type="text" id="inp-name" class="w-full bg-black/50 border border-gray-700 rounded p-2 text-white focus:border-gold outline-none transition-colors" placeholder="${g.placeholders && g.placeholders.full_name ? g.placeholders.full_name : (lang === 'en' ? 'John Doe' : 'Fabio Mansour')}">
           <div id="err-name" class="text-red-500 text-xs mt-1 hidden"></div>
         </div>
         <div class="relative">
-          <label class="block text-xs text-gray-400 mb-1">${txt.nation} <span class="text-gold">*</span></label>
+          <label for="nation-picker" class="block text-xs text-gray-400 mb-1">${txt.nation} <span class="text-gold">*</span></label>
           <input type="hidden" id="inp-nation" value="">
           <button type="button" id="nation-picker" class="w-full bg-black/50 border border-gray-700 rounded p-2 text-white focus:border-gold outline-none flex items-center justify-between">
             <span id="nation-selected" class="flex items-center gap-2 text-gray-400">${txt.select_country}</span>
@@ -18,7 +18,7 @@ function _renderTextFields(txt, g, lang) {
         </div>
       </div>
       <div>
-        <label class="block text-xs text-gray-400 mb-1">${txt.date} <span class="text-gold">*</span></label>
+        <label for="inp-date" class="block text-xs text-gray-400 mb-1">${txt.date} <span class="text-gold">*</span></label>
         <input type="date" id="inp-date" class="w-full bg-black/50 border border-gray-700 rounded p-2 text-white focus:border-gold outline-none" min="${new Date().toISOString().split('T')[0]}">
         <div id="err-date" class="text-red-500 text-xs mt-1 hidden"></div>
       </div>

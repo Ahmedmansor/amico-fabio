@@ -1,4 +1,15 @@
 {
+  "productDetail": {
+      "previousPhoto": "Previous photo",
+      "nextPhoto": "Next photo",
+      "breadcrumb": "Breadcrumb",
+      "sections": "Trip sections",
+      "duration": "Duration",
+      "gallery": "Trip photos",
+      "showAllPhotos": "Show all photos",
+      "closeGallery": "Close photos",
+      "photo": "Photo {index} of {total}"
+  },
   "notFound": {
     "home": "Back to home",
     "description": "The page you are looking for does not exist. You can return home or explore the tours.",

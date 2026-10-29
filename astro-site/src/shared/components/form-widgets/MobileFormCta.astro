@@ -1,0 +1,7 @@
+---
+import './form-widgets.css';
+interface Props {target:string;label:string}
+const {target,label}=Astro.props;
+---
+<div class="form-mobile-cta" data-form-mobile-bar data-form-target={target}><a href={`#${target}`}>{label}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m5 12 7 7 7-7M12 5v14"/></svg></a></div>
+<script>import './mobile-form-cta';</script>

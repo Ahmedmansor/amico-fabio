@@ -1,4 +1,15 @@
 {
+  "productDetail": {
+      "previousPhoto": "Foto precedente",
+      "nextPhoto": "Foto successiva",
+      "breadcrumb": "Percorso di navigazione",
+      "sections": "Sezioni del viaggio",
+      "duration": "Durata",
+      "gallery": "Foto del viaggio",
+      "showAllPhotos": "Mostra tutte le foto",
+      "closeGallery": "Chiudi le foto",
+      "photo": "Foto {index} di {total}"
+  },
   "notFound": {
     "home": "Torna alla home",
     "description": "La pagina che cerchi non esiste. Puoi tornare alla home o esplorare le escursioni.",
