@@ -1,5 +1,12 @@
 # Fabio Egypt design context
 
+Registration offers follow-up (2026-11-01): reuse the shared Fabio portrait and
+newsletter composition already documented in marketing-design/REVIEW.md inside
+the existing optional signup intent control. Keep it separate from favorites
+reminders and preserve the marketing activation gate. No mobile motion or new
+runtime dependency. Wishlist page surfaces use the existing light editorial
+palette; detail navigation retains the dark palette and a clear orange active state.
+
 The approved tokens are in `src/shared/styles/theme.css`. Astro builds static HTML; small Vanilla JS modules own interactions. Local Montserrat and Playfair Display, existing brand assets, and IT/EN content are required. No React or motion framework.
 
 The home keeps its original hero, biography, destinations and Facebook review records. Selected `offerta-sharm` content supplies three service benefits, the existing four booking steps and six real Vimeo video/thumbnail associations. Campaign layout and lead flow remain independent.

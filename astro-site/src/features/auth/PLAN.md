@@ -4,6 +4,15 @@
 
 ## Current target and handoff — 2026-10-28
 
+UI clarification, 2026-11-01: the requested promotional choice belongs to account
+registration for saving favorites. `SignupOffers.astro` replaces the existing
+plain optional signup checkbox with Fabio's shared portrait and bilingual copy.
+It retains the original signup-intent selector, unchecked/non-required default,
+signup-only visibility and existing marketing activation gate. It does not
+repurpose the separate welcome favorites-reminder checkbox. The gate remains
+off in the normal build; no promotional backend activation or sending is claimed.
+See `../../../qa/marketing-design/SIGNUP.md` for the isolated visual evidence.
+
 UI follow-up, 2026-10-29: the separate offers-preference card now uses a shared
 Fabio portrait, explicit optional IT/EN copy and native checkbox/save/status/retry
 presentation. See `../../../qa/marketing-design/REVIEW.md`. The existing marketing

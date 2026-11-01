@@ -1,5 +1,9 @@
 ---
 import MarketingConsentCard from '../../src/features/marketing/presentation/MarketingConsentCard.astro';
+import SignupOffers from '../../src/features/marketing/presentation/SignupOffers.astro';
+import {getAuthMessages} from '../../src/features/auth/data/messages';
+import '../../src/features/auth/presentation/auth.css';
+import '../../src/features/auth/presentation/login.css';
 import {getMarketingMessages} from '../../src/features/marketing/data/messages';
 import type {Locale} from '../../src/shared/config/languages';
 import {supportedLocales} from '../../src/shared/config/languages';
@@ -8,13 +12,15 @@ import '../../src/shared/styles/global.css';
 import '../../src/shared/styles/theme.css';
 import '../../src/shared/styles/typography.css';
 interface Props {locale:Locale}
-const {locale}=Astro.props,m=getMarketingMessages(locale);
+const {locale}=Astro.props,m=getMarketingMessages(locale),auth=getAuthMessages(locale);
 const labels=locale==='it'?{title:'Anteprima delle preferenze email',note:'Solo anteprima del design. Nessun account, consenso o invio email viene creato.',ready:'Non selezionato',checked:'Selezionato',loading:'Caricamento',failed:'Errore',verify:'Email da verificare',submit:'Solo anteprima: nessuna preferenza è stata salvata.'}:{title:'Email preferences preview',note:'Design preview only. No account, consent or email is created.',ready:'Unchecked',checked:'Checked',loading:'Loading',failed:'Error',verify:'Unverified email',submit:'Preview only: no preference has been saved.'};
 ---
 <!doctype html><html lang={locale}><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width"/><meta name="robots" content="noindex,nofollow"/><title>{labels.title}</title><meta name="description" content={labels.note}/><link rel="canonical" href={new URL(`/${locale}/qa-marketing-card/`,siteConfig.url).href}/>{supportedLocales.map(code=><link rel="alternate" hreflang={code} href={new URL(`/${code}/qa-marketing-card/`,siteConfig.url).href}/>)}</head>
-<body class="marketing-preview"><main><h1>{labels.title}</h1><p class="qa-note">{labels.note}</p><nav class="qa-states" aria-label={labels.title}>{(['ready','checked','loading','failed','verify'] as const).map(state=><button type="button" data-qa-state={state}>{labels[state]}</button>)}</nav><MarketingConsentCard locale={locale}/></main>
+<body class="marketing-preview"><main><h1>{labels.title}</h1><p class="qa-note">{labels.note}</p><section class="auth-login auth-content" aria-label={auth.signUp}><h2>{auth.signUp}</h2><form data-qa-signup><SignupOffers locale={locale}/></form></section><nav class="qa-states" aria-label={labels.title}>{(['ready','checked','loading','failed','verify'] as const).map(state=><button type="button" data-qa-state={state}>{labels[state]}</button>)}</nav><MarketingConsentCard locale={locale}/></main>
 <script id="qa-design-copy" type="application/json" set:html={JSON.stringify({m,labels}).replaceAll('<','\u003c')}/>
 <script>
+ document.querySelector<HTMLElement>('[data-login-marketing-row]')!.hidden=false;
+ document.querySelector('[data-qa-signup]')!.addEventListener('submit',event=>event.preventDefault());
  const root=document.querySelector<HTMLElement>('[data-marketing-consent]')!,choice=root.querySelector<HTMLInputElement>('[data-marketing-choice]')!,save=root.querySelector<HTMLButtonElement>('[data-marketing-save]')!,status=root.querySelector<HTMLElement>('[data-marketing-status]')!,retry=root.querySelector<HTMLButtonElement>('[data-marketing-retry]')!;
  const {m,labels}=JSON.parse(document.getElementById('qa-design-copy')!.textContent!);
  root.hidden=false;choice.disabled=false;save.disabled=false;status.textContent='';

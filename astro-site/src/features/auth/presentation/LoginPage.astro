@@ -4,7 +4,7 @@ import {getAuthMessages} from '../data/messages';
 import type {Locale} from '../../../shared/config/languages';
 import './auth.css';
 import {marketingConsentEnabled} from '../../marketing/data/config';
-import {getMarketingMessages} from '../../marketing/data/messages';
+import SignupOffers from '../../marketing/presentation/SignupOffers.astro';
 import MarketingConsent from '../../marketing/presentation/MarketingConsent.astro';
 import EmailCodeInput from './EmailCodeInput.astro';
 import PasswordInput from './PasswordInput.astro';
@@ -13,7 +13,7 @@ import './login.css';
 interface Props {locale:Locale}
 const {locale}=Astro.props;
 const m=getAuthMessages(locale);
-const marketingEnabled=marketingConsentEnabled(import.meta.env),marketing=getMarketingMessages(locale);
+const marketingEnabled=marketingConsentEnabled(import.meta.env);
 const configuration=JSON.stringify({config:authConfig,messages:m,locale,marketingEnabled}).replace(/</g,'\\u003c');
 ---
 <main class="auth-login auth-content" data-login-page>
@@ -53,7 +53,7 @@ const configuration=JSON.stringify({config:authConfig,messages:m,locale,marketin
               <p id="login-password-match-error" class="auth-error" role="alert" hidden>{m.passwordMismatch}</p>
             </div>
           </div>}
-          {marketingEnabled && authConfig.passwordEnabled && <label class="auth-reminder-optin" data-login-marketing-row hidden><input type="checkbox" data-login-marketing-intent/>{marketing.label}</label>}
+          {marketingEnabled && authConfig.passwordEnabled && <SignupOffers locale={locale}/>}
           {authConfig.turnstileSiteKey && <div data-login-captcha></div>}
           <p id="login-error" class="auth-error" role="alert" data-login-error hidden></p>
           <button type="submit" class="auth-button" data-login-submit disabled>{authConfig.passwordEnabled?m.signIn:m.send}</button>

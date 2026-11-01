@@ -1,0 +1,17 @@
+---
+import type {Locale} from '../../../shared/config/languages';
+import {getMarketingMessages} from '../data/messages';
+import FabioPortrait from '../../../shared/components/FabioPortrait.astro';
+import './signup-offers.css';
+interface Props {locale:Locale}
+const {locale}=Astro.props,m=getMarketingMessages(locale);
+---
+<section class="signup-offers" data-login-marketing-row aria-labelledby="signup-offers-title" hidden>
+  <header class="signup-offers-heading">
+    <div><span class="signup-offers-optional">{m.optional}</span><h2 id="signup-offers-title">{m.title}</h2><p>{m.intro}</p></div>
+    <FabioPortrait/>
+  </header>
+  <label class="signup-offers-choice" for="signup-offers-choice"><input id="signup-offers-choice" type="checkbox" data-login-marketing-intent aria-describedby="signup-offers-description"/><span>{m.label}</span></label>
+  <p id="signup-offers-description" class="signup-offers-description">{m.signupDescription}</p>
+  <a class="signup-offers-privacy" href={`/${locale}/legal/`}>{m.privacy}</a>
+</section>

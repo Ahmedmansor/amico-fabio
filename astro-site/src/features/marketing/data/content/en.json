@@ -10,5 +10,6 @@
   "verify": "Verify your email before saving this choice.",
   "intro": "Would you like an email from Fabio when there is a special offer for your saved trips?",
   "optional": "Optional",
-  "privacy": "Privacy notice"
+  "privacy": "Privacy notice",
+  "signupDescription": "You can create an account and save trips without accepting offers. This choice is separate from the favorites reminder. You can withdraw your consent in your account."
 }
