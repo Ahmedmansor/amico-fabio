@@ -5,6 +5,7 @@ import {destinations} from '../../domain/taxonomy';
 import {getSharedMessages} from '../../../../shared/i18n/shared';
 import {getNationalityOptions} from '../../data/inquiry-options';
 import {siteConfig} from '../../../../shared/config/site';
+import NationalitySelect from '../../../../shared/components/forms/NationalitySelect.astro';
 interface Props {locale:Locale;prefix:string;destination?:Destination}
 const {locale,prefix,destination}=Astro.props,m=getSharedMessages(locale).blog;
 const id=(field:string)=>`blog-${prefix}-${field}`;
@@ -12,7 +13,7 @@ const id=(field:string)=>`blog-${prefix}-${field}`;
 <div class="blog-inquiry-instance">
   <form class="blog-inquiry-form" data-blog-inquiry method="dialog" novalidate>
     <div class="blog-field"><label for={id('name')}>{m.name}</label><input id={id('name')} name="name" type="text" maxlength="120" autocomplete="name" placeholder={m.namePlaceholder} aria-describedby={id('name-error')} required/><span class="blog-field-error" id={id('name-error')} data-error="name" hidden></span></div>
-    <div class="blog-field"><label for={id('nationality')}>{m.nationality}</label><select id={id('nationality')} name="nationality" aria-describedby={id('nationality-error')} required><option value="">{m.nationalityPlaceholder}</option>{getNationalityOptions(locale).map(option=><option value={option.value}>{option.label}</option>)}</select><span class="blog-field-error" id={id('nationality-error')} data-error="nationality" hidden></span></div>
+    <div class="blog-field"><label for={id('nationality')}>{m.nationality}</label><NationalitySelect id={id('nationality')} label={m.nationality} placeholder={m.nationalityPlaceholder} describedBy={id('nationality-error')} options={getNationalityOptions(locale)}/><span class="blog-field-error" id={id('nationality-error')} data-error="nationality" hidden></span></div>
     <div class="blog-field"><label for={id('date')}>{m.date}</label><input id={id('date')} name="date" type="date" aria-describedby={id('date-error')} required/><span class="blog-field-error" id={id('date-error')} data-error="date" hidden></span></div>
     <div class="blog-pax-grid">{(['adults','children'] as const).map(field=><div class="blog-field"><label for={id(field)}>{m[field]}</label><div class="blog-stepper"><button type="button" data-step={field} data-change="-1" aria-label={m.decrease.replace('{label}',m[field])}>−</button><input id={id(field)} name={field} type="number" min={field==='adults'?1:0} step="1" value={field==='adults'?1:0} inputmode="numeric" aria-describedby={id(`${field}-error`)} required/><button type="button" data-step={field} data-change="1" aria-label={m.increase.replace('{label}',m[field])}>+</button></div><span class="blog-field-error" id={id(`${field}-error`)} data-error={field} hidden></span></div>)}</div>
     <div class="blog-field"><label for={id('destination')}>{m.destination}</label><select id={id('destination')} name="destination" aria-describedby={id('destination-error')}><option value="">{m.undecided}</option>{destinations.map(slug=><option value={slug} selected={slug===destination}>{m.destinationLabels[slug]}</option>)}</select><span class="blog-field-error" id={id('destination-error')} data-error="destination" hidden></span></div>

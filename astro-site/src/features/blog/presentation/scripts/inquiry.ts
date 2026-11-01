@@ -26,7 +26,7 @@ if (configElement) {
   const sync = (active?: HTMLFormElement) => {
     for (const form of forms) if (form !== active) for (const [key, value] of Object.entries(draft)) {
       const field = form.elements.namedItem(key) as Field | null;
-      if (field) field.value = value === undefined ? '' : String(value);
+      if (field) {field.value = value === undefined ? '' : String(value);if(key==='nationality')field.dispatchEvent(new Event('nationality-sync'));}
     }
   };
   const invalidateOtherReviews = (active: HTMLFormElement) => {
