@@ -1,3 +1,4 @@
+import './product-section-nav';
 const root=document.querySelector<HTMLElement>('.product-detail');
 if(root){
  const dialog=document.querySelector<HTMLDialogElement>('[data-product-gallery-dialog]')!;
