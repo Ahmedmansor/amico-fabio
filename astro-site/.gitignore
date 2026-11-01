@@ -23,3 +23,5 @@ dist/
 
 # Disposable blog pipeline verification projects (removed by the runner).
 /qa/blog/.pipeline/
+
+/qa/wishlist/design-lighthouse.raw.json

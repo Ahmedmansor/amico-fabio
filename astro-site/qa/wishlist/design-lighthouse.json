@@ -1,0 +1,14 @@
+{
+  "url": "http://127.0.0.1:4334/en/wishlist/",
+  "scores": {
+    "performance": 0.91,
+    "accessibility": 1
+  },
+  "metrics": {
+    "first-contentful-paint": "1.3\u00a0s",
+    "largest-contentful-paint": "3.5\u00a0s",
+    "total-blocking-time": "50\u00a0ms",
+    "cumulative-layout-shift": "0.042"
+  },
+  "failedAccessibility": []
+}

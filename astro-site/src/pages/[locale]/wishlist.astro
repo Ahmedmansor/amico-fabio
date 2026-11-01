@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 const { locale, trips, packages } = Astro.props;
 const m = getWishlistMessages(locale);
 ---
-<BaseLayout locale={locale} route="wishlist" title={`${m.title} | Fabio Egypt`} description={m.local} bodyClass="bg-black font-sans text-gray-200">
+<BaseLayout locale={locale} route="wishlist" title={`${m.title} | Fabio Egypt`} description={m.local} bodyClass="wishlist-site font-sans">
   <WishlistPage locale={locale} trips={trips} packages={packages}>
     <SummaryEmailTest slot="email-test" locale={locale}/>
     <MarketingConsent slot="marketing-consent" locale={locale}/>

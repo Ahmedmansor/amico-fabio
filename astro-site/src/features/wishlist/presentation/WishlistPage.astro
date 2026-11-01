@@ -7,6 +7,7 @@ import Heart from './Heart.astro';
 import AuthEntry from '../../auth/presentation/AuthEntry.astro';
 import WishlistSyncStatus from './WishlistSyncStatus.astro';
 import './wishlist.css';
+import './wishlist-page.css';
 import { favoriteKey } from '../domain/wishlist';
 interface Props { locale: Locale; trips: Offer[]; packages: Offer[] }
 const { locale, trips, packages } = Astro.props;
@@ -14,8 +15,8 @@ const m = getWishlistMessages(locale);
 ---
 <main class="wishlist-page" data-wishlist-page data-unavailable={m.unavailable}>
   <section class="wishlist-heading">
-    <h1>{m.title}</h1>
-    <p data-wishlist-storage-message>{m.local}</p>
+    <div><span class="wishlist-heading-icon" aria-hidden="true"><Heart/></span><h1>{m.title}</h1>
+    <p data-wishlist-storage-message>{m.local}</p></div>
     <a href={`/${locale}/explore/`} class="wishlist-browse">{m.browse}<span aria-hidden="true"> →</span></a>
   </section>
   <AuthEntry locale={locale}/>
@@ -33,6 +34,7 @@ const m = getWishlistMessages(locale);
   <p data-wishlist-error class="wishlist-notice" role="alert" hidden></p>
   <section data-wishlist-empty class="wishlist-empty" hidden>
     <Heart/><p>{m.empty}</p>
+    <a href={`/${locale}/explore/`} class="wishlist-browse">{m.browse}<span aria-hidden="true"> →</span></a>
   </section>
   <section class="wishlist-section" data-wishlist-section hidden aria-labelledby="wishlist-tours-title">
     <h2 id="wishlist-tours-title">{m.tours}</h2>

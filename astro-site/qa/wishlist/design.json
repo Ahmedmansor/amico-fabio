@@ -1,0 +1,36 @@
+{
+  "results": [
+    {
+      "locale": "en",
+      "width": 375,
+      "empty": true,
+      "tripAndPackage": true,
+      "removeAndFocus": true,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "empty": true,
+      "tripAndPackage": true,
+      "removeAndFocus": true,
+      "errors": []
+    },
+    {
+      "locale": "it",
+      "width": 375,
+      "empty": true,
+      "tripAndPackage": true,
+      "removeAndFocus": true,
+      "errors": []
+    },
+    {
+      "locale": "it",
+      "width": 1280,
+      "empty": true,
+      "tripAndPackage": true,
+      "removeAndFocus": true,
+      "errors": []
+    }
+  ]
+}
