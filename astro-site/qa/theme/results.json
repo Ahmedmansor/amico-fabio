@@ -1,0 +1,85 @@
+{
+  "origin": "http://127.0.0.1:4334",
+  "results": [
+    {
+      "locale": "en",
+      "width": 320,
+      "selection": true,
+      "reload": true,
+      "systemChanges": true,
+      "explicitOverride": true,
+      "contentPreserved": true,
+      "contrast": {
+        "card": 15.71,
+        "description": 10.29,
+        "header": 15.71
+      },
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "selection": true,
+      "reload": true,
+      "systemChanges": true,
+      "explicitOverride": true,
+      "contentPreserved": true,
+      "contrast": {
+        "card": 15.71,
+        "description": 10.29,
+        "header": 15.71
+      },
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "selection": true,
+      "reload": true,
+      "systemChanges": true,
+      "explicitOverride": true,
+      "contentPreserved": true,
+      "contrast": {
+        "card": 15.71,
+        "description": 10.29,
+        "header": 15.71
+      },
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "it",
+      "width": 375,
+      "route": "",
+      "lightDarkContentParity": true
+    },
+    {
+      "locale": "it",
+      "width": 375,
+      "route": "login/",
+      "lightDarkContentParity": true
+    },
+    {
+      "locale": "it",
+      "width": 375,
+      "route": "tours/ras_mohammed_bus_half_day/",
+      "lightDarkContentParity": true
+    },
+    {
+      "route": "welcome/",
+      "campaignIsolated": true
+    },
+    {
+      "route": "offerta-sharm/",
+      "campaignIsolated": true
+    },
+    {
+      "crossTab": true,
+      "invalidPreference": true,
+      "storageDenied": true,
+      "noJavaScriptContent": true
+    }
+  ]
+}

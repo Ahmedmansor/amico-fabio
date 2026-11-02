@@ -2,11 +2,12 @@
 import '../styles/theme.css';
 import {languages,type Locale} from '../config/languages';
 import CookieConsent from '../components/CookieConsent.astro';
+import ThemeBootstrap from '../../features/theme/presentation/ThemeBootstrap.astro';
 interface Props {locale:Locale;bodyClass?:string;campaign?:string}
 const {locale,bodyClass,campaign}=Astro.props;
 ---
 <!doctype html>
 <html lang={locale} dir={languages[locale].direction} data-campaign={campaign}>
-  <head><slot name="head"/></head>
+  <head>{!campaign&&<ThemeBootstrap/>}<slot name="head"/></head>
   <body class={bodyClass} data-campaign={campaign}><slot/><CookieConsent locale={locale}/></body>
 </html>

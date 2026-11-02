@@ -2,11 +2,11 @@
 /* Remaining common document and floating-contact styles; retired palettes removed. */
 html{margin:0;min-height:100%;scroll-padding-top:calc(var(--site-header-height) + 20px);font-family:Montserrat,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
 body{margin:0;min-height:100vh;background:var(--color-primary-dark);color:var(--bg-white)}
-body.home-page,body.explore-page,body.auth-page{background:var(--bg-light);color:var(--text-main)}
+body.home-page,body.explore-page,body.auth-page{background:var(--surface-soft);color:var(--text-main)}
 h1,h2,h3,.hero-title,.main-brand-title,.section-title{font-family:'Playfair Display',Georgia,serif}
 .fab-wrap{position:fixed;display:flex;flex-direction:column;align-items:center;gap:6px;z-index:25;bottom:24px}
 .wa-wrap{right:24px}.gh-wrap{left:24px}
-.fab-base{display:flex;align-items:center;justify-content:center;width:48px;height:48px;min-width:44px;min-height:44px;border-radius:50%;border:1px solid var(--border-color);background:var(--color-accent-orange);color:var(--color-primary);box-shadow:var(--site-shadow);cursor:pointer;text-decoration:none}
+.fab-base{display:flex;align-items:center;justify-content:center;width:48px;height:48px;min-width:44px;min-height:44px;border-radius:50%;border:1px solid var(--border-color);background:var(--color-accent-orange);color:var(--on-accent);box-shadow:var(--site-shadow);cursor:pointer;text-decoration:none}
 .floating-whatsapp-icon{display:grid;place-items:center}.floating-whatsapp-svg{width:27px;height:27px;fill:currentColor}
 .wa-fab-label,.gh-fab-label{font-size:10px;font-weight:600;padding:3px 8px;background:var(--color-primary);color:var(--bg-white);border-radius:6px}
 .fab-hidden,body.hide-floating-widgets .fab-wrap{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
@@ -18,11 +18,11 @@ body.details-page #whatsapp-wrapper,body.package-details-page #whatsapp-wrapper{
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 /* One cohesive contact control, with a brief icon nudge rather than a moving label. */
-.floating-whatsapp{width:auto;min-height:56px;height:auto;gap:10px;padding:7px 18px 7px 7px;border-radius:999px;background:var(--bg-white);border:1px solid var(--border-color);color:var(--color-primary);box-shadow:var(--site-shadow)}
-.floating-whatsapp .floating-whatsapp-icon{width:40px;height:40px;flex-shrink:0;border-radius:50%;background:var(--color-accent-orange);color:var(--color-primary)}
+.floating-whatsapp{width:auto;min-height:56px;height:auto;gap:10px;padding:7px 18px 7px 7px;border-radius:999px;background:var(--surface-card);border:1px solid var(--border-color);color:var(--text-heading);box-shadow:var(--site-shadow)}
+.floating-whatsapp .floating-whatsapp-icon{width:40px;height:40px;flex-shrink:0;border-radius:50%;background:var(--color-accent-orange);color:var(--on-accent)}
 .floating-whatsapp .floating-whatsapp-svg{width:26px;height:26px}
 .wa-contact-text{font:600 12px/1.5 Montserrat,Arial,sans-serif;white-space:nowrap}
-.floating-whatsapp:focus-visible{outline:3px solid var(--color-primary);outline-offset:4px}
+.floating-whatsapp:focus-visible{outline:3px solid var(--focus-ring);outline-offset:4px}
 @media(max-width:767px){.wa-wrap{right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom))}.floating-whatsapp{min-height:52px;padding:6px 14px 6px 6px;gap:8px}.floating-whatsapp .floating-whatsapp-icon{width:38px;height:38px}.wa-contact-text{font-size:11px}}
 @media(prefers-reduced-motion:no-preference){.wa-wrap[data-contact-motion="true"] .floating-whatsapp-icon{animation:wa-contact-nudge 8s ease-in-out infinite}.floating-whatsapp:is(:hover,:focus-visible) .floating-whatsapp-icon,.wa-wrap.fab-hidden .floating-whatsapp-icon,body.hide-floating-widgets .wa-wrap .floating-whatsapp-icon,body:has(dialog[open]) .wa-wrap .floating-whatsapp-icon{animation-play-state:paused}}
 html:is(.show--consent,.show--preferences) .wa-wrap .floating-whatsapp-icon{animation-play-state:paused}

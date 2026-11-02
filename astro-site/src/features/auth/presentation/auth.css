@@ -39,8 +39,8 @@
 .auth-content p,.auth-callback p { font-size:1rem; line-height:1.6; margin:16px 0; color:var(--on-brand-muted); }
 .auth-content label { display:block; margin:24px 0 8px; }
 .auth-content input { display:block; width:100%; min-height:48px; padding:12px; font:inherit; font-size:16px; color:var(--bg-white); background:var(--overlay-darker); border:1px solid var(--color-accent-orange); border-radius:8px; }
-.auth-content input[aria-invalid="true"] { border-width:2px; border-color:var(--color-accent-red); }
-.auth-error { color:var(--color-accent-red); font-size:.875rem; margin:6px 0; line-height:1.4; }
+.auth-content input[aria-invalid="true"] { border-width:2px; border-color:var(--text-danger); }
+.auth-error { color:var(--text-danger); font-size:.875rem; margin:6px 0; line-height:1.4; }
 .auth-suggestion { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; margin:8px 0; padding:10px 14px; background:color-mix(in srgb, var(--color-accent-orange) 10%, transparent); border:1px solid color-mix(in srgb, var(--color-accent-orange) 30%, transparent); border-radius:8px; font-size:.9rem; color:var(--bg-white); }
 .auth-suggestion-button { background:transparent; border:1px solid var(--color-accent-orange); border-radius:var(--radius-pill); color:var(--color-accent-orange-hover); font:inherit; font-size:.85rem; font-weight:600; padding:4px 12px; cursor:pointer; }
 .auth-suggestion-button:hover { background:var(--color-accent-orange); color:var(--color-primary-dark); }
@@ -91,7 +91,7 @@
 .auth-code-cells { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:8px; }
 .auth-code-cell { display:grid; place-items:center; height:56px; border:1px solid var(--color-accent-orange); border-radius:8px; color:var(--bg-white); font-size:26px; font-weight:600; }
 .auth-code-cell.is-active { outline:2px solid var(--color-accent-orange-hover); outline-offset:2px; }
-.auth-code-widget.is-invalid .auth-code-cell { border-color:var(--color-accent-red); }
+.auth-code-widget.is-invalid .auth-code-cell { border-color:var(--text-danger); }
 .auth-code-widget.is-disabled { opacity:.65; }
 .auth-content .auth-code-widget input { position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:text; }
 @media(max-width:399px) { .auth-code-cells { gap:6px; } .auth-code-cell { height:48px; } }

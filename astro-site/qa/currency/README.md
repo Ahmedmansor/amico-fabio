@@ -37,8 +37,9 @@ reload, price sorting, guest wishlist, tour/package details, changed traveler
 counts, invoice and intercepted WhatsApp content. Additional cross-tab,
 invalid saved preference and denied storage cases passed. All recorded page
 errors were empty. Screenshots are local and ignored; `results.json` is evidence.
-At narrow mobile widths the brand image remains, while brand text is hidden to
-keep the language, currency and navigation controls within the viewport.
+The initial currency commit hid brand text at narrow widths. The owner's later
+same-day correction restores the Fabio Egypt wordmark with smaller mobile
+icons; current header/theme verification is recorded in `qa/theme/`.
 
 The first sandboxed check could not reach Supabase. Re-running with network
 access passed. Existing Browserslist age notice remains. The first preview was

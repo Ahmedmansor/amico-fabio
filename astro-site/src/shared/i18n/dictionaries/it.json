@@ -1,4 +1,5 @@
 {
+  "theme":{"choose":"Aspetto","system":"Automatico","light":"Chiaro","dark":"Scuro"},
   "currency": {"choose":"Scegli valuta","notice":"Conversione indicativa. Il prezzo di riferimento è in EUR.","quote":"Totale indicativo","base":"Prezzo di riferimento in EUR"},
   "productDetail": {
       "previousPhoto": "Foto precedente",

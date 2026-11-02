@@ -1,0 +1,18 @@
+---
+import {getSharedMessages} from '../../../shared/i18n/shared';
+import type {Locale} from '../../../shared/config/languages';
+interface Props {locale:Locale}
+const m=getSharedMessages(Astro.props.locale).theme;
+---
+<fieldset class="theme-options">
+  <legend>{m.choose}</legend>
+  {(['system','light','dark'] as const).map(value=><button type="button" data-theme-option={value} aria-pressed={value==='system'}>{m[value]}</button>)}
+</fieldset>
+<style>
+  fieldset{margin:0;padding:8px;border:0;display:grid;gap:4px;min-width:0}
+  legend{font-size:12px;font-weight:600;color:var(--text-secondary);padding:8px 14px 0}
+  button{display:flex;align-items:center;min-height:44px;padding:10px 14px;border:1px solid transparent;border-radius:var(--radius-control);color:var(--text-heading);background:transparent;font:inherit;font-size:13px;text-align:start;cursor:pointer}
+  button[aria-pressed="true"]{background:var(--surface-brand-soft);border-color:var(--border-color);font-weight:600}
+  button:hover{background:var(--surface-brand-soft)}
+  button:focus-visible{outline:3px solid var(--color-accent-orange);outline-offset:2px}
+</style>

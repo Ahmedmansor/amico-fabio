@@ -1,0 +1,13 @@
+---
+import ThemeOptions from './ThemeOptions.astro';
+import {getSharedMessages} from '../../../shared/i18n/shared';
+import type {Locale} from '../../../shared/config/languages';
+interface Props {locale:Locale}
+const {locale}=Astro.props;
+---
+<details class="site-theme" data-header-disclosure>
+  <summary aria-label={getSharedMessages(locale).theme.choose}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></summary>
+  <div class="site-popover"><ThemeOptions locale={locale}/></div>
+</details>
+<script>import './browser';</script>
+<style>@media(max-width:1199px){.site-theme{display:none}}</style>
