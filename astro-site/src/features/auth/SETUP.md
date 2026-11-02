@@ -9,6 +9,14 @@ Preview; committed defaults stay off. See marketing-consent/VERIFICATION.md and
 qa/auth/marketing-activation-deployment.json. Earlier unapplied/off statements
 below are historical. No promotional sender or broader reminder scope is active.
 
+Verified Ready deployment: commit 78b6ca5, stable test URL
+https://amico-fabio-iyzo.vercel.app/en/login/ (Italian equivalent available).
+Guest UI/optional unchecked signup portrait passed on both languages/sizes;
+anonymous API denied 401. Final owner test: register/sign in normally, visit
+wishlist, explicitly save the offers choice, reload to confirm, then uncheck/save
+and reload to confirm withdrawal. Existing reminder choice is independent.
+This user checklist is not a claim that the agent created a real browser account.
+
 ## Current login revision — 2026-10-28
 
 Email OTP length is now 6 in Supabase and the local domain/UI. The six-cell

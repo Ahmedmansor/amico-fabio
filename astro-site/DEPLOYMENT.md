@@ -1,5 +1,31 @@
 # Production and test flavors
 
+## Offers-consent activation — 2026-11-02
+
+User explicitly approved the temporary native overlap test. Real lock contention
+passed (12.284765s wait then stale revision rejection), one write/audit event,
+and cleanup restored all fixture counts to baseline. Public marketing consent
+flag set to 1 only in Production/Preview of `amico-fabio-test`
+(`prj_wnFBSYAhpMxQy2ltJQIi8gvxqd6I`). No other hosting variables or providers changed.
+
+Pushed `78b6ca5ad00eb740f9ef7b3828da33e4f2218c8e`; deployment
+`https://amico-fabio-test-k3ifdifpg-fabio-landing-pages.vercel.app` is Ready
+(16s build), with stable alias `https://amico-fabio-iyzo.vercel.app`.
+IT/EN login and wishlist returned 200/noindex with enabled consent markup,
+preserved Google/password flags and the correct Auth origin. Four real deployed
+guest-browser cases (375/1280px, both languages) passed: signup card/portrait,
+unchecked optional input, native keyboard toggling, no horizontal overflow,
+zero Auth-send POSTs. Anonymous live RPC returned 401. See
+`qa/auth/marketing-activation-deployment.json`.
+
+Authenticated native SQL grant/withdrawal/concurrency and synthetic browser
+grant/withdrawal are verified separately. Real-user Google/email registration,
+account-browser saving/withdrawal and inbox acceptance remain the user's final
+check. No real mail, promotional sender or reminder-recipient expansion was
+introduced. Committed defaults and ignored local env files remain unchanged.
+Rollback: set only this test project's marketing flag back to 0 and rebuild;
+preserve consent/audit evidence. Legacy main/domain/production project unchanged.
+
 ## UI refactor test deployment — 2026-11-02
 
 Pushed migration commit `83a3123deb11960d60c7757c7e87bdf4bedcf330` on

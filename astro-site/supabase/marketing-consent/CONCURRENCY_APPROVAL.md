@@ -1,5 +1,11 @@
 # Proposed native overlap check — approval required
 
+Historical proposal, now approved and executed on 2026-11-02. The user replied
+`كمل` to the approval question. Actual overlap passed with 12.284765s lock wait;
+all test accounts/jobs were cleaned. See VERIFICATION.md and
+native-overlap-2026-11-02.json for the executed method and evidence. The text
+below records the pre-approval proposal, not a current blocker or permission request.
+
 Not executed. Automatic approval review rejected this method. No workaround is
 authorized by this document. The schema and rollback role checks are already
 applied/passed; public activation is OFF.
