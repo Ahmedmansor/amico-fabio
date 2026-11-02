@@ -93,6 +93,16 @@
       "choice": "Premium desktop and iPad home composition requested 2026-11-02",
       "reference": "https://21st.dev/@felipemenezes098/components/hero-07",
       "implementation": "Authenticated 21st CLI search and get 19077 succeeded. Original Astro/CSS adaptation: framed split hero on desktop, landscape image above editorial copy on portrait tablets, existing palette/assets/copy, aligned destination/review cards and quiet hover feedback. No React, Motion or new dependency."
+    },
+    {
+      "choice": "Extend premium light home design to explore, tours, packages and included-trip previews without content changes",
+      "date": "2026-11-02",
+      "references": [
+        "https://21st.dev/@patrick-xin/components/unsplash-gallery-dialog",
+        "https://21st.dev/@kavikatiyar/components/product-detail-page",
+        "https://21st.dev/@ravikatiyar162/components/card-22"
+      ],
+      "implementation": "Contextual catalog searches succeeded; own Astro/CSS/native dialog with existing real assets and IT/EN dictionaries. Light product reading surfaces, fixed modal toolbar, full included-trip cards, tablet two-column listing and wrapping filters. Original pricing, ordering, booking config and content preserved against browser baselines. No React, new dependency, fabricated ratings or cloud source upload."
     }
   ],
   "evidence": [

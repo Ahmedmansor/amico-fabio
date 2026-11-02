@@ -1,5 +1,15 @@
 # Fabio Egypt design context
 
+Latest catalog direction, 2026-11-02: user approved extending the premium home
+treatment to explore, tours and packages without content changes, specifically
+replacing the blue included-trip overlay. Detail pages/header and galleries now
+use light editorial surfaces; included-trip previews use a light native dialog
+with fixed toolbar, responsive photo/copy columns and complete original details.
+This supersedes older dark detail-page guidance below. Browse pages retain all
+records/ordering with responsive filter toolbar and two tablet columns. 21st
+contextual search supplied public gallery/product/travel-card references; own
+Astro/CSS/Vanilla implementation. See qa/details/CATALOG_PREMIUM.md.
+
 Latest home direction, 2026-11-02: premium desktop/iPad refinement. 21st login,
 contextual search and public component retrieval (Editorial Image Hero, 19077)
 succeeded in this session. Use its separate image/copy editorial composition

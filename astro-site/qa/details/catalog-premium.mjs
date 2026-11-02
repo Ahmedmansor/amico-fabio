@@ -71,7 +71,14 @@ try{
    }else if(phase==='after'){
     await page.locator('#price-sort').selectOption('price_asc');
     const prices=await page.locator('[data-explore-card]:visible').evaluateAll(nodes=>nodes.map(n=>Number(n.dataset.price)));assert.deepEqual(prices,[...prices].sort((a,b)=>a-b));
-    const filter=page.locator('[data-filter="package"]');if(await filter.count()){await filter.click();assert.equal(await filter.getAttribute('aria-pressed'),'true');assert.ok(await page.locator('[data-explore-card]:visible').evaluateAll(nodes=>nodes.every(n=>n.dataset.cardKey.startsWith('package:'))));}
+    await page.locator('#price-sort').selectOption('price_desc');
+    const descending=await page.locator('[data-explore-card]:visible').evaluateAll(nodes=>nodes.map(n=>Number(n.dataset.price)));assert.deepEqual(descending,[...descending].sort((a,b)=>b-a));
+    const next=page.locator('[data-next]');if(await next.isVisible()&&await next.isEnabled()){await next.click();assert.equal(await page.locator('[data-page]').textContent(),'2');await page.locator('[data-previous]').click();assert.equal(await page.locator('[data-page]').textContent(),'1');}
+    const filter=page.locator('[data-filter="bundles"]');if(await filter.count()){await filter.click();assert.equal(await filter.getAttribute('aria-pressed'),'true');assert.ok(await page.locator('[data-explore-card]:visible').evaluateAll(nodes=>nodes.every(n=>n.dataset.cardKey.startsWith('package:'))));}
+    const favorite=page.locator('[data-explore-card]:visible .favorite-button').first();await favorite.click();
+    await page.waitForFunction(()=>document.querySelector('[data-explore-card]:not([hidden]) .favorite-button')?.getAttribute('aria-pressed')==='true');
+    await favorite.click();await page.waitForFunction(()=>document.querySelector('[data-explore-card]:not([hidden]) .favorite-button')?.getAttribute('aria-pressed')==='false');
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
    }
    assert.deepEqual(errors,[]);results.push({kind,locale,width,content,modalCases,errors,overflow:false});
    console.log(`${phase} ${kind} ${locale} ${width}: PASS (${modalCases} included trips)`);await page.close();

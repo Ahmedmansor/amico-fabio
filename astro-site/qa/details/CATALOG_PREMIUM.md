@@ -60,3 +60,28 @@ navigation, total updates, country selection, FAQ expansion, sticky desktop
 booking boundaries, light color scheme and visible price text passed, with no
 page errors/overflow. Top/content/booking screenshots inspected. Evidence:
 catalog-premium-after-details.json. Pure booking/data logic is unchanged.
+
+## 3. Explore listing
+
+Refined the heading, filter/sort toolbar, card typography/spacing, image rhythm,
+package accent border and pagination. Two columns at tablet widths replace the
+cramped three-column layout; filter chips wrap on tablets and scroll on phones.
+The existing sort label is visible. All records, descriptions, prices, editorial
+badges, recommendation scores/order and destination/detail links remain.
+21st contextual search `travel listing filter cards` succeeded; public Place
+Card (7734) supplies an image/content/action composition reference. No ratings,
+fake copy, carousel, motion library or external code were introduced.
+
+Actual checks: Astro check 597 files, no diagnostics; static noindex/demo build
+171 pages, 70 editorial checks and 50 structured-data checks. `after explore`:
+8 cases passed, IT/EN at 375/820/1180/1440. Full initial catalog records/text,
+prices, scores and links match baseline. Both sorts, next/previous pages,
+package-only filtering and guest favorite add/remove passed, with no overflow or
+page errors. The first favorite probe read before async save completion; using
+observable pressed-state waits fixed the probe without product changes.
+Desktop and iPad/phone screenshots inspected. Evidence:
+catalog-premium-after-explore.json. No catalog/domain/controller changes.
+
+Each implementation task passed Astro check/build and had its own reviewed
+focused commit. Screenshots remain ignored/local. Remote publication is verified
+separately below when deployed; local checks alone do not establish deployment.
