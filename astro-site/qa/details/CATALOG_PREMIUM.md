@@ -106,3 +106,12 @@ matching static build: 171 pages, 70 editorial checks, 50 JSON-LD checks.
 actual placeholder color. See catalog-focus.json. Earlier 24-case deployment
 evidence covers the preceding application source; final focused deployment
 verification is recorded separately.
+
+Final application source 55b8c51784657fda717fc6c406ebb9b7d36ae63b is Ready at
+deployment jbg9oi2r0 (21s build); inspect confirmed the established test alias.
+All four focused keyboard/placeholder cases passed on that deployed host, and
+all six target route/language responses returned 200/noindex. See
+catalog-focus-deployed.json and catalog-final-deployment.json. No hosting
+variables, catalog source, Auth settings, campaigns, legacy main or live domain
+were changed. The full 24-case preceding-source probe and focused final CSS
+probe are separate evidence, not a claim that old tests tested new edits.

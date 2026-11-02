@@ -1,5 +1,21 @@
 # Production and test flavors
 
+## Light catalog and package trip previews — 2026-11-02
+
+Application source 55b8c51784657fda717fc6c406ebb9b7d36ae63b is Ready on existing
+amico-fabio-test, deployment
+https://amico-fabio-test-jbg9oi2r0-fabio-landing-pages.vercel.app (21s build).
+Public test alias https://amico-fabio-iyzo.vercel.app is confirmed by inspect.
+Explore, tour and package targets in both languages returned 200/noindex.
+The preceding catalog source 8831cd9 passed all 24 deployed responsive/content/
+interaction cases; the final three-line focus/placeholder correction passed four
+focused deployed cases. Every implementation task passed Astro check (597 files,
+no diagnostics) and the matching static build (171 pages). Existing texts,
+images, editorial badges, prices, ordering and booking configuration match the
+browser baseline. No hosting variables/publication/provider settings changed;
+legacy main/live site and campaign sources remain unchanged. See
+qa/details/CATALOG_PREMIUM.md and catalog-final-deployment.json.
+
 ## Premium desktop/iPad home — 2026-11-02
 
 Source b4d83984764802e7085f82457d125208c41cd28a is Ready on existing test project
