@@ -4,6 +4,13 @@
 
 ## Current target and handoff — 2026-10-28
 
+2026-11-02 continuation: marketing backend schema is now APPLIED to fabioEgypt;
+native ownership/verification/withdrawal/replay assertions passed with rollback.
+The public activation gate stays OFF: actual concurrent transaction overlap is
+not verified. Auto-review rejected a temporary pg_cron fixture; no job was created.
+See `../../../supabase/marketing-consent/VERIFICATION.md`. Historical statements
+below that marketing SQL is unapplied are superseded by this dated checkpoint.
+
 UI clarification, 2026-11-01: the requested promotional choice belongs to account
 registration for saving favorites. `SignupOffers.astro` replaces the existing
 plain optional signup checkbox with Fabio's shared portrait and bilingual copy.

@@ -1,4 +1,4 @@
--- LOCAL PROPOSAL. Not executed or verified against real roles.
+-- Applied to fabioEgypt on 2026-11-02. See VERIFICATION.md before activation.
 -- No email sending, reminder enrollment or existing-account backfill.
 begin;
 create schema if not exists account_marketing_private;

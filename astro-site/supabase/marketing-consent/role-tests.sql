@@ -1,4 +1,4 @@
--- UNEXECUTED disposable native-role test proposal. Review Auth triggers first.
+-- Disposable native-role assertions. Review Auth triggers before each run.
 -- Run after schema.sql in an approved isolated test database. No mail API calls.
 -- Entire script is one transaction; never replace ROLLBACK with COMMIT.
 begin;
@@ -17,11 +17,16 @@ insert into auth.users(id,email,email_confirmed_at,raw_app_meta_data,raw_user_me
 select a,'qa-'||a::text||'@example.invalid',null,'{"provider":"email"}'::jsonb,
   '{"marketing_consent":true,"marketing_notice_version":"favorites-offers-v1","site_locale":"it"}'::jsonb from qa_marketing_ids
 union all select b,'qa-'||b::text||'@example.invalid',now(),'{}'::jsonb,'{}'::jsonb from qa_marketing_ids
-union all select c,'qa-'||c::text||'@example.invalid',now(),'{}'::jsonb,'{}'::jsonb from qa_marketing_ids;
+union all select c,'qa-'||c::text||'@example.invalid',now(),'{"provider":"email"}'::jsonb,
+  '{"marketing_consent":true,"marketing_notice_version":"favorites-offers-v1","site_locale":"en"}'::jsonb from qa_marketing_ids;
 
 set local role anon;
 do $$ begin
   begin perform public.read_account_marketing_consent((select a from qa_marketing_ids));raise exception 'Anonymous RPC allowed';
+  exception when insufficient_privilege then null;end;
+  begin perform public.activate_signup_marketing_intent((select a from qa_marketing_ids));raise exception 'Anonymous activation allowed';
+  exception when insufficient_privilege then null;end;
+  begin perform public.set_account_marketing_consent((select a from qa_marketing_ids),0,true,'en','favorites-offers-v1');raise exception 'Anonymous write allowed';
   exception when insufficient_privilege then null;end;
 end $$;
 reset role;
@@ -31,9 +36,26 @@ select set_config('request.jwt.claims',jsonb_build_object('sub',(select a from q
 do $$ declare a uuid;b uuid;begin
   select q.a,q.b into a,b from qa_marketing_ids q;
   begin perform public.read_account_marketing_consent(b);raise exception 'Cross-account read allowed';exception when invalid_authorization_specification then null;end;
+  begin perform public.set_account_marketing_consent(b,0,true,'it','favorites-offers-v1');raise exception 'Cross-account write allowed';exception when invalid_authorization_specification then null;end;
+  begin perform public.activate_signup_marketing_intent(b);raise exception 'Cross-account activation allowed';exception when invalid_authorization_specification then null;end;
   begin perform public.set_account_marketing_consent(a,0,true,'it','favorites-offers-v1');raise exception 'Unverified grant allowed';exception when invalid_authorization_specification then null;end;
   begin perform public.activate_signup_marketing_intent(a);raise exception 'Unverified activation allowed';exception when invalid_authorization_specification then null;end;
   begin perform 1 from public.account_marketing_preferences;raise exception 'Direct table access allowed';exception when insufficient_privilege then null;end;
+  begin insert into public.account_marketing_preferences(user_id,marketing_consent,notice_version,locale) values(a,true,'favorites-offers-v1','it');raise exception 'Direct insert allowed';exception when insufficient_privilege then null;end;
+  begin perform 1 from account_marketing_private.signup_intents;raise exception 'Private intent access allowed';exception when insufficient_privilege then null;end;
+end $$;
+reset role;
+
+set local role authenticated;
+select set_config('request.jwt.claim.sub',(select c::text from qa_marketing_ids),true);
+select set_config('request.jwt.claims',jsonb_build_object('sub',(select c from qa_marketing_ids),'role','authenticated')::text,true);
+do $$ declare c uuid;begin
+  select q.c into c from qa_marketing_ids q;
+  begin perform public.set_account_marketing_consent(c,0,true,'xx','favorites-offers-v1');raise exception 'Invalid locale accepted';exception when invalid_parameter_value then null;end;
+  begin perform public.set_account_marketing_consent(c,0,true,'en','wrong');raise exception 'Invalid notice accepted';exception when invalid_parameter_value then null;end;
+  perform public.set_account_marketing_consent(c,0,false,'en','favorites-offers-v1');
+  perform public.activate_signup_marketing_intent(c);
+  if (select p.marketing_consent or p.pending_signup or p.revision<>1 from public.read_account_marketing_consent(c) p) then raise exception 'Explicit decline lost to signup activation';end if;
 end $$;
 reset role;
 update auth.users set email_confirmed_at=now() where id=(select a from qa_marketing_ids);
@@ -41,6 +63,8 @@ update auth.users set email_confirmed_at=now() where id=(select a from qa_market
 update auth.users set raw_user_meta_data='{"marketing_consent":true,"marketing_notice_version":"favorites-offers-v1","site_locale":"en"}'::jsonb
 where id=(select b from qa_marketing_ids);
 set local role authenticated;
+select set_config('request.jwt.claim.sub',(select a::text from qa_marketing_ids),true);
+select set_config('request.jwt.claims',jsonb_build_object('sub',(select a from qa_marketing_ids),'role','authenticated')::text,true);
 do $$ declare a uuid;b uuid;current_revision bigint;begin
   select q.a,q.b into a,b from qa_marketing_ids q;
   perform public.activate_signup_marketing_intent(a);
@@ -68,5 +92,6 @@ do $$ begin
   if (select count(*) from account_marketing_private.consent_events where user_id=(select a from qa_marketing_ids))<>2 then raise exception 'Audit count mismatch';end if;
 end $$;
 rollback;
+select 'marketing native role/verification/withdrawal/replay assertions passed; fixtures rolled back' as result;
 -- Concurrent opposite writes need a separately reviewed two-session fixture;
 -- this single-session script is not concurrency evidence.

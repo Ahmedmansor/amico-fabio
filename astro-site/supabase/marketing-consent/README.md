@@ -1,10 +1,15 @@
-# Optional offers consent — local proposal, 2026-10-28
+# Optional offers consent — applied backend, activation pending
+
+2026-11-02: schema applied to fabioEgypt; native role/verification/withdrawal/
+replay assertions passed and rolled back. Actual simultaneous transaction
+contention is not verified. Public activation remains OFF pending this gate.
+See VERIFICATION.md. Earlier proposal instructions below describe the original plan.
 
 The latest user plan adds optional favorites offers/discounts consent. It is a
 separate default-false permission; existing reminder consent is never reused.
 No promotional mail sender or expanded recipient scope is included.
 
-`schema.sql` is prepared locally, NOT applied. Keep
+`schema.sql` is applied. Keep
 `PUBLIC_MARKETING_CONSENT_ENABLED=0` until schema review, native role/isolation
 and concurrency assertions, signup confirmation, withdrawal and callback tests
 pass. No production or hosting setting was changed. Apply only to the approved
@@ -21,7 +26,7 @@ No profile/user_metadata claim authorizes writes. There is no access by anon.
 An INSERT-only Auth trigger snapshots a new email signup's checked optional
 intent and notice/locale. Subsequent editable metadata cannot create a grant.
 The protected activation RPC consumes it once after real verification; it never
-overwrites an existing preference. Google/Microsoft accounts default to false
+overwrites an existing preference. Google accounts default to false
 and opt in explicitly from account settings. Revision checks and a shared
 per-account transaction lock prevent stale opt-in overwriting withdrawal.
 Same-value requests are idempotent. Client failures never imply confirmed consent.
