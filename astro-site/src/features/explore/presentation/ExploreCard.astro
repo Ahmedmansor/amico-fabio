@@ -15,7 +15,7 @@ const text = card.offer.text[locale];
 const badge = cardBadge(card, locale, m);
 const href = `/${locale}/${isPackage?'packages':'tours'}/${card.offer.slug}/`;
 ---
-<article class:list={['catalog-card','trip-card',{'premium-package-card':isPackage}]} data-explore-card data-card-key={`${card.kind}:${card.id}`} data-trip-id={card.id} data-location={card.location} data-category={card.category} data-price={card.displayPrice} data-score={card.score} data-source-index={card.sourceIndex} hidden={hidden}>
+<article data-desktop-reveal class:list={['catalog-card','trip-card',{'premium-package-card':isPackage}]} data-explore-card data-card-key={`${card.kind}:${card.id}`} data-trip-id={card.id} data-location={card.location} data-category={card.category} data-price={card.displayPrice} data-score={card.score} data-source-index={card.sourceIndex} hidden={hidden}>
   <div class="catalog-card-image">
     <a href={href} class="catalog-image-link" data-detail-link><Image src={image} alt={text.title} class="catalog-card-img" loading="lazy" widths={[400,800]} sizes="(min-width:1024px) 400px, (min-width:768px) 50vw, 100vw"/></a>
     <div class="card-badges">

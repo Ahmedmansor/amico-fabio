@@ -1,4 +1,11 @@
 import './who-fabio.js';
+import {mountPosterMotion} from './poster-motion';
+
+const poster=document.querySelector<HTMLElement>('.wf-container');
+const posterMedia=matchMedia('(prefers-reduced-motion:no-preference)');
+let cleanupPoster:(()=>void)|undefined;
+function synchronizePoster(){if(posterMedia.matches&&poster&&!cleanupPoster)cleanupPoster=mountPosterMotion(poster);else if(!posterMedia.matches){cleanupPoster?.();cleanupPoster=undefined;}}
+synchronizePoster();posterMedia.addEventListener('change',synchronizePoster);
 
 const hero=document.querySelector<HTMLElement>('.hero-slider-bg');
 function hydrateHero(){

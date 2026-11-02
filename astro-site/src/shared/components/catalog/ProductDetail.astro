@@ -14,9 +14,9 @@ const m=getSharedMessages(locale),p=m.productDetail;
   </header>
   <div class="product-width"><slot name="gallery"/>
     <dl class="product-facts">
-      <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>{p.duration}</dt><dd id="detail-duration" set:html={duration}></dd></div>
-      <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 5a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v2"/></svg>{m.global.pricing.min_pax}</dt><dd>{minPax}</dd></div>
-      <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5a7 7 0 1 0 0 14M3 10h12M3 14h11"/></svg>{m.global.price_from}</dt><dd>€{adultPrice}<small>{m.global.per_person}</small></dd></div>
+      <div data-desktop-reveal><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>{p.duration}</dt><dd id="detail-duration" set:html={duration}></dd></div>
+      <div data-desktop-reveal><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 5a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v2"/></svg>{m.global.pricing.min_pax}</dt><dd>{minPax}</dd></div>
+      <div data-desktop-reveal><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5a7 7 0 1 0 0 14M3 10h12M3 14h11"/></svg>{m.global.price_from}</dt><dd>€{adultPrice}<small>{m.global.per_person}</small></dd></div>
     </dl>
     <div class="product-layout">
       <div class="product-content">

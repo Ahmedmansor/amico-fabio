@@ -13,6 +13,7 @@ import WelcomeDialog from '../../features/auth/presentation/WelcomeDialog.astro'
 import WishlistInvitation from '../../features/wishlist/presentation/WishlistInvitation.astro';
 import InquiryDialog from '../../features/blog/presentation/components/InquiryDialog.astro';
 import type {Destination} from '../../features/blog/domain/taxonomy';
+import DesktopPolish from '../components/DesktopPolish.astro';
 import '../styles/global.css';
 import '../../features/blog/presentation/styles/blog.css';
 import '../styles/typography.css';
@@ -33,5 +34,6 @@ const section=Astro.props.section??'blog';
   <slot/>
   <Footer locale={locale}/>
   <AuthDialog locale={locale}/><WelcomeDialog locale={locale}/>
+  <DesktopPolish/>
   {section!=='planner'&&<InquiryDialog locale={locale} source={{articleId,title,url:new URL(path,siteConfig.url).href,destination}}/>}
 </DocumentShell>

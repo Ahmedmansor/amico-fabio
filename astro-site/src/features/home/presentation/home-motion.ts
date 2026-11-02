@@ -1,27 +1,5 @@
 // 21st-inspired layered tilt and an accessible review rotator, adapted to Vanilla JS.
 // Loaded only for >=768px with no reduced-motion preference; no device sensors.
-function mountPoster(){
-  const poster=document.querySelector<HTMLElement>('.wf-container');
-  if(!poster)return ()=>{};
-  let visible=false,frame=0,x=0,y=0;
-  const reset=()=>{cancelAnimationFrame(frame);frame=0;poster.style.removeProperty('--wf-rx');poster.style.removeProperty('--wf-ry');};
-  const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(!visible)reset();});
-  observer.observe(poster);
-  const move=(event:PointerEvent)=>{
-    if(!visible||document.hidden)return;
-    const rect=poster.getBoundingClientRect();
-    x=Math.max(-.5,Math.min(.5,(event.clientX-rect.left)/rect.width-.5));
-    y=Math.max(-.5,Math.min(.5,(event.clientY-rect.top)/rect.height-.5));
-    if(!frame)frame=requestAnimationFrame(()=>{frame=0;poster.style.setProperty('--wf-rx',`${-y*6}deg`);poster.style.setProperty('--wf-ry',`${x*10}deg`);});
-  };
-  const pointerMove=(event:PointerEvent)=>{if(event.pointerType!=='touch')move(event);};
-  const touch=(event:PointerEvent)=>{if(event.pointerType==='touch')move(event);};
-  poster.addEventListener('pointermove',pointerMove,{passive:true});
-  poster.addEventListener('pointerdown',touch,{passive:true});
-  poster.addEventListener('pointerleave',reset);poster.addEventListener('pointerup',reset);poster.addEventListener('pointercancel',reset);
-  return ()=>{observer.disconnect();reset();poster.removeEventListener('pointermove',pointerMove);poster.removeEventListener('pointerdown',touch);poster.removeEventListener('pointerleave',reset);poster.removeEventListener('pointerup',reset);poster.removeEventListener('pointercancel',reset);};
-}
-
 function mountReviews(){
   const track=document.getElementById('reviewsTrack'),pause=document.querySelector<HTMLButtonElement>('[data-review-pause]');
   if(!track||!pause)return ()=>{};
@@ -64,6 +42,6 @@ function mountHero(){
 }
 
 export function mountHomeMotion(){
-  const cleanups=[mountPoster(),mountReviews(),mountHero()];
+  const cleanups=[mountReviews(),mountHero()];
   return ()=>cleanups.forEach(cleanup=>cleanup());
 }

@@ -1,0 +1,17 @@
+---
+import {Image} from 'astro:assets';
+import portrait from '../../../shared/assets/people/fabio.webp';
+import './biography-dialog.css';
+interface Props {title:string;intro:string;content:string;closeLabel:string}
+const {title,intro,content,closeLabel}=Astro.props;
+---
+<dialog id="fabio-biography" class="wf-overlay-bio" aria-labelledby="fabio-biography-title">
+  <header class="wf-bio-header"><div><p class="home-eyebrow">Fabio Egypt</p><h2 id="fabio-biography-title" tabindex="-1">{title}</h2></div><button type="button" class="wf-overlay-close" data-close-fabio aria-label={closeLabel}><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></header>
+  <div class="wf-bio-scroll" tabindex="0" aria-label={title}>
+    <div class="wf-bio-layout">
+      <aside class="wf-bio-profile"><div class="wf-bio-portrait"><Image src={portrait} alt="Fabio" widths={[240,480]} sizes="(min-width:768px) 220px, 96px" loading="lazy" quality={75}/></div><p>{intro}</p></aside>
+      <div class="wf-overlay-text" set:html={content}></div>
+    </div>
+    <footer class="wf-bio-footer"><button type="button" data-close-fabio>{closeLabel}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></footer>
+  </div>
+</dialog>

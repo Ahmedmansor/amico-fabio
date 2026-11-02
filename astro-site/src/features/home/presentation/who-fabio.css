@@ -13,5 +13,11 @@
 .wf-copy .wf-bio-btn{position:static;transform:none;pointer-events:auto;gap:12px;white-space:normal}
 @media(min-width:768px) and (prefers-reduced-motion:no-preference){.wf-container:hover{box-shadow:var(--site-shadow)}}
 @media(min-width:768px) and (max-width:1023px){.wf-container{height:440px}.wf-copy{padding:32px;max-width:52%}.wf-foreground{left:44%}.wf-figure{height:110%}}
-@media(max-width:767px){.who-fabio-section{margin-bottom:40px}.wf-container{height:560px;border-radius:24px;perspective:none}.wf-scene{transform:none;transform-style:flat;transition:none}.wf-bg{object-position:center;transform:none}.wf-shade{background:linear-gradient(180deg,var(--color-primary-dark) 10%,color-mix(in srgb,var(--color-primary-dark) 70%,transparent) 40%,transparent 75%)}.wf-foreground{inset:140px 0 0;transform:none}.wf-figure{height:115%}.wf-copy{height:auto;max-width:100%;padding:28px 24px}.wf-copy h2{font-size:2rem;margin-bottom:12px}.wf-copy>p:not(.home-eyebrow){font-size:13px;margin-bottom:18px}.wf-copy .home-eyebrow{margin-bottom:10px}}
+@media(max-width:767px){.who-fabio-section{margin-bottom:40px}.wf-container{height:560px;border-radius:24px;perspective:900px}.wf-scene{transition:transform 160ms ease-out}.wf-bg{object-position:center;transform:none}.wf-shade{background:linear-gradient(180deg,var(--color-primary-dark) 10%,color-mix(in srgb,var(--color-primary-dark) 70%,transparent) 40%,transparent 75%)}.wf-foreground{inset:140px 0 0;transform:translateZ(28px)}.wf-figure{height:115%}.wf-copy{height:auto;max-width:100%;padding:28px 24px}.wf-copy h2{font-size:2rem;margin-bottom:12px}.wf-copy>p:not(.home-eyebrow){font-size:13px;margin-bottom:18px}.wf-copy .home-eyebrow{margin-bottom:10px}}
 @media(prefers-reduced-motion:reduce){.wf-scene{transform:none;transition:none}.wf-foreground,.wf-bg{transform:none}}
+
+@media(max-width:767px) and (prefers-reduced-motion:no-preference){
+ .wf-container[data-poster-visible="true"]:not([data-poster-touch]) .wf-scene{animation:fabio-mobile-drift 7s ease-in-out infinite}
+ body:has(dialog[open]) .wf-scene{animation-play-state:paused}
+}
+@keyframes fabio-mobile-drift{0%,100%{transform:rotateX(-1.5deg) rotateY(-3deg) scale(1.025)}50%{transform:rotateX(1.5deg) rotateY(3deg) scale(1.025)}}

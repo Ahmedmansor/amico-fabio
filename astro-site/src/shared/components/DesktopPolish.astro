@@ -1,0 +1,10 @@
+<script>
+ const media=matchMedia('(min-width:768px) and (prefers-reduced-motion:no-preference)');
+ let cleanup:(()=>void)|undefined;
+ async function synchronize(){
+  if(!media.matches){cleanup?.();cleanup=undefined;return;}
+  const {mountDesktopReveal}=await import('../presentation/desktop-reveal');
+  if(media.matches&&!cleanup)cleanup=mountDesktopReveal();
+ }
+ void synchronize();media.addEventListener('change',()=>void synchronize());
+</script>

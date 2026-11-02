@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import HeroSlide from './HeroSlide.astro';
+import BiographyDialog from './BiographyDialog.astro';
 import type { Locale } from '../../../shared/config/languages';
 import type { HomeContent } from '../domain/home';
 import { reviewRating } from '../domain/home';
@@ -56,14 +57,11 @@ const facebookPath = 'M22 12a10 10 0 1 0-11.563 9.874v-6.987H7.898V12h2.539V9.79
   </div>
   <div class="wf-copy"><p class="home-eyebrow">Fabio Egypt</p><h2 id="who-fabio-title">{m.global.who_is_fabio_btn}</h2><p>{m.journey.posterIntro}</p><button type="button" class="wf-bio-btn" aria-haspopup="dialog" aria-controls="fabio-biography">{m.global.who_is_fabio_btn}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button></div>
 </div></section>
-<dialog id="fabio-biography" class="wf-overlay-bio" aria-label={m.global.who_is_fabio_btn}><div class="wf-overlay-content">
-  <button type="button" class="wf-overlay-close" aria-label={shared.labels.close}>×</button>
-  <div class="wf-overlay-text" data-i18n="global.who_is_fabio_content" set:html={m.global.who_is_fabio_content}></div>
-</div></dialog>
+<BiographyDialog title={m.global.who_is_fabio_btn} intro={m.journey.posterIntro} content={m.global.who_is_fabio_content} closeLabel={shared.labels.close}/>
 <TravelBenefits title={evidence.whyTitle} items={evidence.why}/>
 <div id="trips-grid" class="text-center mt-12 mb-8 scroll-mt-32"><h2 class="main-brand-title" data-i18n="global.brand_title">{m.global.brand_title}</h2><p class="text-gray-400 uppercase tracking-widest text-sm md:text-base" data-i18n="global.vip_experiences">{m.global.vip_experiences}</p></div>
 <div class="home-destinations">
-  {locations.map(location => <a class="lux-entry-card" href={`/${locale}/explore/${location.id}/`}>
+  {locations.map(location => <a class="lux-entry-card" data-desktop-reveal href={`/${locale}/explore/${location.id}/`}>
     <div class="lux-entry-image"><Image src={location.image} alt={location.name} loading="lazy" widths={[480,800]} sizes="(min-width: 1024px) 400px, (min-width: 768px) 33vw, 100vw" /><div class="lux-entry-overlay"></div></div>
     <div class="lux-entry-content"><h3 class="lux-entry-title">{location.name}</h3><span class="lux-entry-cta">{m.global.discover}</span></div>
   </a>)}
