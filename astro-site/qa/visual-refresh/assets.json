@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Dolce Vita",
+    "source": "exec-e584443b-c6c5-4471-95a3-8a94d79b524a.png",
+    "target": "src/shared/assets/catalog/packages/sharm/dolce_vita_family/poster.webp",
+    "width": 1200,
+    "sourceBytes": 2425304,
+    "previousBytes": 51702,
+    "webpBytes": 98844,
+    "height": 800,
+    "quality": 78,
+    "format": "webp",
+    "sha256": "82c975989753b6d4747b6bdeed0b306d065bdc5723a6524bb4b64d53d9590046"
+  },
+  {
+    "name": "Indiana Jones",
+    "source": "exec-ee6eff57-ded1-4db5-a93e-20c5c756ad0b.png",
+    "target": "src/shared/assets/catalog/packages/sharm/indiana_jones_adventure/poster.webp",
+    "width": 1200,
+    "sourceBytes": 2747090,
+    "previousBytes": 30538,
+    "webpBytes": 153218,
+    "height": 800,
+    "quality": 78,
+    "format": "webp",
+    "sha256": "05c78f9dead4abf95e01ef555237a3328617ae98735f11eaa431b512093126da"
+  },
+  {
+    "name": "One Thousand and One Nights",
+    "source": "exec-fc913a20-bbad-4ef3-8c62-bb2ed82fcca8.png",
+    "target": "src/shared/assets/catalog/packages/sharm/mille_e_una_notte/poster.webp",
+    "width": 1200,
+    "sourceBytes": 2349536,
+    "previousBytes": 32198,
+    "webpBytes": 103228,
+    "height": 800,
+    "quality": 78,
+    "format": "webp",
+    "sha256": "22194c3b9d06c3058f85351e51ef8d6eeb067e26d86c3963af4671e0aac71706"
+  },
+  {
+    "name": "Homepage — Red Sea",
+    "source": "exec-3cb8a257-0c60-4d1a-8497-9d23b674ef3e.png",
+    "target": "src/features/home/presentation/assets/comandamenti-images/1.webp",
+    "width": 1440,
+    "sourceBytes": 3323971,
+    "previousBytes": 38700,
+    "webpBytes": 271522,
+    "height": 960,
+    "quality": 78,
+    "format": "webp",
+    "sha256": "6e9d72b0546a1c03095f64d494bff701cd9c4a529f8c1911c776ceb19d5539b1"
+  },
+  {
+    "name": "Homepage — Giza",
+    "source": "exec-c433c91d-c3b4-4d3a-8a16-5000b6de3877.png",
+    "target": "src/features/home/presentation/assets/comandamenti-images/2.webp",
+    "width": 1440,
+    "sourceBytes": 2992113,
+    "previousBytes": 42684,
+    "webpBytes": 220728,
+    "height": 960,
+    "quality": 78,
+    "format": "webp",
+    "sha256": "2b6e6bf35eecbaea25fc29c419cbca287d56908d933e95e95e14df4a2101bad9"
+  },
+  {
+    "name": "Homepage — Sinai",
+    "source": "exec-b8b05db1-23d2-450a-924f-1811e6928822.png",
+    "target": "src/features/home/presentation/assets/comandamenti-images/3.webp",
+    "width": 1440,
+    "sourceBytes": 3385861,
+    "previousBytes": 51702,
+    "webpBytes": 267056,
+    "height": 960,
+    "quality": 78,
+    "format": "webp",
+    "sha256": "1354ce1093230003f576ea38c4519a3b6ccbb4d960cea4388e101d2cd0527ae1"
+  }
+]

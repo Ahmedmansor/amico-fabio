@@ -1,8 +1,10 @@
 .favorite-control { display:inline-flex; max-width:100%; position:relative; }
 .favorite-button,.wishlist-link { display:inline-flex; align-items:center; justify-content:center; gap:.65rem; min-width:44px; min-height:44px; border:1px solid var(--color-accent-orange); border-radius:var(--radius-pill,999px); color:var(--color-accent-orange-hover); background:var(--color-primary-dark); cursor:pointer; text-decoration:none; transition:background-color 150ms,color 150ms; }
-.favorite-button { padding:.6rem .9rem; font:inherit; font-size:.9rem; }
+.favorite-button { padding:.6rem .9rem; font:inherit; font-size:.9rem; -webkit-tap-highlight-color:transparent; }
 .favorite-compact .favorite-button { width:44px; padding:0; }
-.favorite-button:hover,.wishlist-link:hover { background:var(--color-accent-orange); color:var(--color-primary-dark); }
+@media(hover:hover) and (pointer:fine) {
+  .favorite-button:hover,.wishlist-link:hover { background:var(--surface-brand-soft); color:var(--text-heading); }
+}
 .favorite-button[aria-pressed="true"] svg { fill:currentColor; }
 .favorite-button:focus-visible,.wishlist-link:focus-visible,.wishlist-browse:focus-visible { outline:3px solid var(--color-accent-orange-hover); outline-offset:4px; }
 .favorite-button[hidden],.favorite-error[hidden],[data-wishlist-item][hidden],[data-wishlist-empty][hidden],[data-wishlist-error][hidden] { display:none!important; }

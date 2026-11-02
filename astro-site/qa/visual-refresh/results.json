@@ -1,0 +1,50 @@
+{
+  "results": [
+    {
+      "favoriteTouch": true,
+      "backgroundStable": true,
+      "selectedHeartVisible": true,
+      "background": "rgb(25, 25, 25)",
+      "color": "rgb(245, 163, 27)",
+      "fill": "rgb(245, 163, 27)",
+      "coarse": true
+    },
+    {
+      "facebookVisible": true,
+      "fill": "rgb(242, 242, 242)",
+      "hero": [
+        {
+          "loaded": true,
+          "width": 374,
+          "src": "http://127.0.0.1:4334/_astro/1.C8qvIUaZ_Z2tH198.avif"
+        },
+        {
+          "loaded": true,
+          "width": 374,
+          "src": "http://127.0.0.1:4334/_astro/2.DDO69UPw_Z1k6wML.avif"
+        },
+        {
+          "loaded": true,
+          "width": 374,
+          "src": "http://127.0.0.1:4334/_astro/3.CPRAQtDn_128cgN.avif"
+        }
+      ]
+    },
+    {
+      "slug": "dolce_vita_family",
+      "posterLoaded": true
+    },
+    {
+      "slug": "indiana_jones_adventure",
+      "posterLoaded": true
+    },
+    {
+      "slug": "mille_e_una_notte",
+      "posterLoaded": true
+    },
+    {
+      "desktopHero": true
+    }
+  ],
+  "errors": []
+}
