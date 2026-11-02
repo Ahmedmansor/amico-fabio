@@ -1,0 +1,117 @@
+{
+  "origin": "https://amico-fabio-iyzo.vercel.app",
+  "results": [
+    {
+      "locale": "it",
+      "width": 375,
+      "content": {
+        "title": "Chi è Fabio",
+        "intro": "Il tuo viaggio in Egitto, con Fabio.",
+        "cta": "Chi è Fabio",
+        "image": "/_astro/fabio.CbXPrCS9_1r8f0G.webp",
+        "contact": "Contatti",
+        "href": "https://wa.me/201063239261"
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "locale": "it",
+      "width": 430,
+      "content": {
+        "title": "Chi è Fabio",
+        "intro": "Il tuo viaggio in Egitto, con Fabio.",
+        "cta": "Chi è Fabio",
+        "image": "/_astro/fabio.CbXPrCS9_1r8f0G.webp",
+        "contact": "Contatti",
+        "href": "https://wa.me/201063239261"
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "locale": "it",
+      "width": 820,
+      "content": {
+        "title": "Chi è Fabio",
+        "intro": "Il tuo viaggio in Egitto, con Fabio.",
+        "cta": "Chi è Fabio",
+        "image": "/_astro/fabio.CbXPrCS9_1r8f0G.webp",
+        "contact": "Contatti",
+        "href": "https://wa.me/201063239261"
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "locale": "it",
+      "width": 1280,
+      "content": {
+        "title": "Chi è Fabio",
+        "intro": "Il tuo viaggio in Egitto, con Fabio.",
+        "cta": "Chi è Fabio",
+        "image": "/_astro/fabio.CbXPrCS9_1r8f0G.webp",
+        "contact": "Contatti",
+        "href": "https://wa.me/201063239261"
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "content": {
+        "title": "Who is Fabio",
+        "intro": "Your journey in Egypt, with Fabio.",
+        "cta": "Who is Fabio",
+        "image": "/_astro/fabio.CbXPrCS9_1r8f0G.webp",
+        "contact": "Contact",
+        "href": "https://wa.me/201063239261"
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "locale": "en",
+      "width": 430,
+      "content": {
+        "title": "Who is Fabio",
+        "intro": "Your journey in Egypt, with Fabio.",
+        "cta": "Who is Fabio",
+        "image": "/_astro/fabio.CbXPrCS9_1r8f0G.webp",
+        "contact": "Contact",
+        "href": "https://wa.me/201063239261"
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "locale": "en",
+      "width": 820,
+      "content": {
+        "title": "Who is Fabio",
+        "intro": "Your journey in Egypt, with Fabio.",
+        "cta": "Who is Fabio",
+        "image": "/_astro/fabio.CbXPrCS9_1r8f0G.webp",
+        "contact": "Contact",
+        "href": "https://wa.me/201063239261"
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "content": {
+        "title": "Who is Fabio",
+        "intro": "Your journey in Egypt, with Fabio.",
+        "cta": "Who is Fabio",
+        "image": "/_astro/fabio.CbXPrCS9_1r8f0G.webp",
+        "contact": "Contact",
+        "href": "https://wa.me/201063239261"
+      },
+      "errors": [],
+      "pass": true
+    }
+  ]
+}

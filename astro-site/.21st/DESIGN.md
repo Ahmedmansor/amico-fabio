@@ -1,5 +1,12 @@
 # Fabio Egypt design context
 
+Latest portrait/contact direction, 2026-11-02: stronger layered hover/touch depth,
+with mobile copy/biography button in a separate row above a clipped portrait.
+WhatsApp uses one white/orange pill and the existing contact label/link, with a
+brief periodic icon-only shake across widths. Respect reduced motion and pause
+when hidden, in dialogs/consent or at the footer. See
+qa/home-refresh/PORTRAIT_CONTACT.md.
+
 Latest mobile motion direction, 2026-11-02: user explicitly supersedes manual-only
 mobile carousels and desktop-only reveals. Enable visible-only hero (5s), Facebook
 reviews (6s), video-card list (7s, mobile only) and short once-only card entrances

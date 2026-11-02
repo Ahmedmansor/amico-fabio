@@ -108,6 +108,10 @@
       "choice": "User explicitly enabled mobile autoplay and shared card entrances, 2026-11-02",
       "reference": "https://21st.dev/@bundui/components/carousel4",
       "implementation": "Contextual search succeeded. Original native scroll/Web Animations and visible-only timeout scheduling; no Embla/React/motion dependency. Pause on touch/focus/dialog/tab hiding/reduced motion; manually controllable, deferred hero neighbours, no pre-play Vimeo access. Supersedes earlier mobile-static and desktop-only loading decisions."
+    },
+    {
+      "choice": "Deeper portrait and unified animated WhatsApp contact control, 2026-11-02",
+      "implementation": "User requested stronger desktop hover/mobile depth. Independently clipped portrait viewport, mobile copy/CTA in their own grid row, 110px desktop/70px mobile foreground depth, stronger pointer rotation and layered shift. Existing contact text/link inside one white/orange pill; brief 8s icon nudge, pause on dialog/consent/hidden tab/footer state and reduced-motion fallback. No sensors, frame loop, new copy or dependencies."
     }
   ],
   "evidence": [

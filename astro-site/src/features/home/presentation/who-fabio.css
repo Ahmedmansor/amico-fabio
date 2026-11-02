@@ -20,4 +20,19 @@
  .wf-container[data-poster-visible="true"]:not([data-poster-touch]) .wf-scene{animation:fabio-mobile-drift 7s ease-in-out infinite}
  body:has(dialog[open]) .wf-scene{animation-play-state:paused}
 }
-@keyframes fabio-mobile-drift{0%,100%{transform:rotateX(-1.5deg) rotateY(-3deg) scale(1.025)}50%{transform:rotateX(1.5deg) rotateY(3deg) scale(1.025)}}
+@keyframes fabio-mobile-drift{0%,100%{transform:rotateX(-3deg) rotateY(-6deg) scale(1.045)}50%{transform:rotateX(3deg) rotateY(6deg) scale(1.045)}}
+
+/* Clip the portrait independently so depth never intrudes into mobile copy/CTA. */
+.wf-portrait-viewport{position:absolute;inset:0;overflow:hidden;perspective:850px}
+.wf-bg{inset:-8%;width:116%;height:116%;transform:translate3d(calc(var(--wf-shift-x,0px)*-.35),calc(var(--wf-shift-y,0px)*-.35),-26px) scale(1.08)}
+.wf-foreground{transform:translate3d(var(--wf-shift-x,0px),var(--wf-shift-y,0px),110px)}
+.wf-figure{height:104%}
+@media(max-width:767px){
+ .wf-container{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto clamp(350px,105vw,460px);height:auto}
+ .wf-portrait-viewport{position:relative;inset:auto;grid-column:1;grid-row:2;min-height:0;perspective:720px}
+ .wf-copy{grid-column:1;grid-row:1;max-width:100%;height:auto;background:var(--color-primary-dark);border-bottom:1px solid var(--border-on-dark)}
+ .wf-shade{background:linear-gradient(180deg,color-mix(in srgb,var(--color-primary-dark) 35%,transparent),transparent 65%)}
+ .wf-foreground{inset:0;transform:translate3d(var(--wf-shift-x,0px),var(--wf-shift-y,0px),70px)}
+ .wf-figure{height:112%}
+}
+@media(prefers-reduced-motion:reduce){.wf-bg,.wf-foreground{transform:none}}
