@@ -60,6 +60,14 @@ try{
     await page.locator('#product-itinerary').scrollIntoViewIfNeeded();await page.screenshot({path:`${shots}/${kind}-${locale}-${width}-content.png`,animations:'disabled'});
     await page.locator('[data-gallery-open]').first().click();const dialog=page.locator('[data-product-gallery-dialog]');assert.equal(await dialog.evaluate(n=>n.open),true);await dialog.locator('[data-gallery-next]').click();assert.equal(await dialog.locator('[data-gallery-select="1"]').getAttribute('aria-pressed'),'true');await page.keyboard.press('Escape');
     const booking=content.booking;await page.locator('[data-pax="adults"][data-change="1"]').click();assert.equal(Number((await page.locator('#live-total-price').textContent()).replace('€','')),booking.prices.adult*(booking.prices.minPax+1));
+    if(phase==='after'&&part!=='modal'){
+     assert.equal(await page.locator('.product-detail').evaluate(n=>getComputedStyle(n).colorScheme),'light');
+     await page.locator('#nation-picker').click();const country=page.locator('#nation-list [data-nationality="Italian"]');await country.click();assert.equal(await page.locator('#inp-nation').inputValue(),'Italian');
+     assert.equal(await page.locator('#card-price-breakdown .text-white').first().evaluate(n=>getComputedStyle(n).color),'rgb(10, 43, 75)');
+     await page.locator('#booking-card-container').scrollIntoViewIfNeeded();await page.screenshot({path:`${shots}/${kind}-${locale}-${width}-booking.png`,animations:'disabled'});
+     if(width>=1024)assert.equal(await page.locator('.product-booking-column').evaluate(n=>{const r=n.getBoundingClientRect();return getComputedStyle(n).position==='sticky'&&r.top>=80&&r.bottom<=innerHeight+1;}),true);
+     const faq=page.locator('.faq-toggle').first();await faq.click();assert.equal(await faq.locator('..').evaluate(n=>n.classList.contains('is-open')),true);
+    }
    }else if(phase==='after'){
     await page.locator('#price-sort').selectOption('price_asc');
     const prices=await page.locator('[data-explore-card]:visible').evaluateAll(nodes=>nodes.map(n=>Number(n.dataset.price)));assert.deepEqual(prices,[...prices].sort((a,b)=>a-b));

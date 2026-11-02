@@ -38,3 +38,25 @@ touch/viewport emulation, not a physical iPad/Safari claim. No external submissi
 Reproduce with external PLAYWRIGHT_MODULE/QA_BROWSER, static dist on port 4341:
 `node qa/details/catalog-premium.mjs after modal`. JSON evidence is alongside
 the script. QA_ORIGIN and QA_REPORT select a deployed host and separate report.
+
+## 2. Shared tour/package detail pages
+
+Extended the approved home light editorial palette to product pages and their
+header/gallery. Original page sections, itinerary accordions, editorial badges,
+photos, booking fields and pricing remain. White surfaces, serif product titles,
+a single divided facts strip and clearly separated booking form replace dark
+surfaces. Package member cards show complete titles with image, duration,
+description and a disclosure arrow. Legacy generated form/FAQ text utilities are
+explicitly mapped to legible light-surface colors, including country options,
+selected nationality, prices, labels and validation errors. Existing 21st search
+Product Detail Page (8557) is a compositional reference; project primitives and
+native controls are reused. No third-party code or new dependencies.
+
+Actual checks: Astro check 597 files, no diagnostics; static noindex/demo build
+171 pages, 70 editorial checks and 50 structured-data checks. `after details`:
+16 cases passed (both routes/languages, four widths). All baseline content and
+booking config/prices match. Every package member still opens correctly; gallery
+navigation, total updates, country selection, FAQ expansion, sticky desktop
+booking boundaries, light color scheme and visible price text passed, with no
+page errors/overflow. Top/content/booking screenshots inspected. Evidence:
+catalog-premium-after-details.json. Pure booking/data logic is unchanged.
