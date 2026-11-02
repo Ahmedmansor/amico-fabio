@@ -1,5 +1,6 @@
-import { favoriteIdentity, favoriteKey, normalizeWishlist } from '../domain/wishlist.ts';
+import { favoriteIdentity, normalizeWishlist } from '../domain/wishlist.ts';
 import type { GuestEntry } from '../domain/merge.ts';
+import {parseGuestWishlistRecord} from '../domain/guest-record.ts';
 
 export const guestWishlistPrefix = 'fabio:wishlist:v1:trip:';
 export const guestPackagePrefix = 'fabio:wishlist:v1:package:';
@@ -41,18 +42,13 @@ export function readGuestSnapshot(storage: GuestStorage | null): StorageResult<G
   try {
     for (let index = 0; index < storage.length; index++) {
       const key = storage.key(index);
-      const kind = key?.startsWith(guestWishlistPrefix) ? 'trip' : key?.startsWith(guestPackagePrefix) ? 'package' : null;
-      if (!key || !kind) continue;
+      if (!key || (!key.startsWith(guestWishlistPrefix)&&!key.startsWith(guestPackagePrefix))) continue;
       const value = storage.getItem(key);
       // A different tab can remove a key while this snapshot is being read.
       if (value === null) continue;
-      if (!validRevision(value)) return { ok: false, reason: 'invalid-data' };
       try {
-        const prefix = kind === 'trip' ? guestWishlistPrefix : guestPackagePrefix;
-        const id = favoriteKey(kind, decodeURIComponent(key.slice(prefix.length)));
-        if (itemKey(id) !== key) return { ok: false, reason: 'invalid-data' };
-        if (value !== '1' && storage.getItem(acknowledgementPrefix + value) === '1') continue;
-        entries.push({ id, revision: value });
+        const entry=parseGuestWishlistRecord(key,value,value!=='1'&&storage.getItem(acknowledgementPrefix+value)==='1',{trip:guestWishlistPrefix,package:guestPackagePrefix});
+        if(entry)entries.push(entry);
       } catch {
         return { ok: false, reason: 'invalid-data' };
       }

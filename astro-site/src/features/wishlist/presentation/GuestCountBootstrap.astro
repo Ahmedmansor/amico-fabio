@@ -1,0 +1,28 @@
+---
+import {parseGuestWishlistRecord} from '../domain/guest-record';
+import {guestWishlistPrefix,guestPackagePrefix} from '../data/guest-storage';
+// Build-time function serialization keeps first paint synchronous and reuses the
+// same pure record validation as the feature's regular data reader. No eval.
+const source=`(()=>{
+  const link=document.querySelector('[data-wishlist-link]');if(!link)return;
+  try{
+    const storage=localStorage;
+    // A saved SDK session is only a display hint; account sync still owns identity.
+    if(storage.getItem('fabio:auth:session:v1'))return;
+    const parse=${parseGuestWishlistRecord.toString()};
+    const prefixes=${JSON.stringify({trip:guestWishlistPrefix,package:guestPackagePrefix})};
+    const ids=new Set();
+    for(let index=0;index<storage.length;index++){
+      const key=storage.key(index);if(!key||(!key.startsWith(prefixes.trip)&&!key.startsWith(prefixes.package)))continue;
+      const value=storage.getItem(key);
+      const entry=parse(key,value,value!=='1'&&storage.getItem('fabio:wishlist:ack:v1:'+value)==='1',prefixes);
+      if(entry)ids.add(entry.id);
+    }
+    const count=link.querySelector('[data-wishlist-count]');
+    count.textContent=ids.size?String(ids.size):'';count.hidden=!ids.size;
+    link.setAttribute('aria-label',ids.size?link.dataset.countLabel.replace('{count}',String(ids.size)):link.dataset.baseLabel);
+    link.setAttribute('aria-busy','false');
+  }catch{/* Unavailable or invalid storage stays with the feature's existing error UI. */}
+})();`;
+---
+<script is:inline set:html={source}/>
