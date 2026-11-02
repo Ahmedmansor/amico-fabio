@@ -1,5 +1,15 @@
 import './who-fabio.js';
 
+const hero=document.querySelector<HTMLElement>('.hero-slider-bg');
+function hydrateHero(){
+  hero?.querySelectorAll<HTMLTemplateElement>('template[data-hero-slide]').forEach(template=>template.replaceWith(template.content));
+}
+// Native lazy-loading may fetch horizontal neighbours during first paint.
+// Preserve swipe slots; populate their images as soon as the visitor interacts.
+hero?.addEventListener('pointerdown',hydrateHero,{once:true,passive:true});
+hero?.addEventListener('keydown',hydrateHero,{once:true});
+hero?.addEventListener('scroll',hydrateHero,{once:true,passive:true});
+
 const track=document.getElementById('reviewsTrack');
 const pause=document.querySelector<HTMLButtonElement>('[data-review-pause]');
 if(track&&pause){
@@ -31,6 +41,11 @@ const motion=matchMedia('(min-width:768px) and (prefers-reduced-motion:no-prefer
 let cleanup:(()=>void)|undefined;
 async function synchronizeMotion(){
   if(!motion.matches){cleanup?.();cleanup=undefined;return;}
+  const first=hero?.querySelector<HTMLImageElement>('img');
+  await first?.decode().catch(()=>{});
+  await new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve())));
+  if(!motion.matches)return;
+  hydrateHero();
   const {mountHomeMotion}=await import('./home-motion');
   if(motion.matches&&!cleanup)cleanup=mountHomeMotion();
 }
