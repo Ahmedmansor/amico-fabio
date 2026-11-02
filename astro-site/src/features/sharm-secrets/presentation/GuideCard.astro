@@ -1,4 +1,5 @@
 ---
+import GuideText from './GuideText.astro';
 import {Image} from 'astro:assets';
 import type {GuideCard} from '../domain/secrets';
 import {guideImage} from './assets';
@@ -6,8 +7,8 @@ interface Props {item:GuideCard;index:number}
 const {item,index}=Astro.props;
 const title=item.title||item.name!;
 ---
-<article class="catalog-card sharm-reveal" style={index===0?undefined:`animation-delay:${index*80}ms`}>
-  <div class="catalog-card-main"><h3 class="catalog-card-title">{title}</h3><p class="catalog-card-desc">{item.desc}</p></div>
+<article data-desktop-reveal class="catalog-card sharm-reveal" style={index===0?undefined:`animation-delay:${index*80}ms`}>
+  <div class="catalog-card-main"><h3 class="catalog-card-title"><GuideText text={title}/></h3><p class="catalog-card-desc"><GuideText text={item.desc}/></p></div>
   <div class="catalog-card-image"><Image src={guideImage(item.img)} alt={title} class="catalog-card-img" loading="lazy" widths={[400,800]} sizes="(min-width:1024px) 520px, 100vw"/></div>
-  {(item.extra_title||item.extra_desc)&&<div class="catalog-card-extra">{item.extra_title&&<h4 class="catalog-card-extra-title">{item.extra_title}</h4>}{item.extra_desc&&<p class="catalog-card-extra-desc">{item.extra_desc}</p>}</div>}
+  {(item.extra_title||item.extra_desc)&&<div class="catalog-card-extra">{item.extra_title&&<h4 class="catalog-card-extra-title"><GuideText text={item.extra_title}/></h4>}{item.extra_desc&&<p class="catalog-card-extra-desc"><GuideText text={item.extra_desc}/></p>}</div>}
 </article>

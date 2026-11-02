@@ -1,5 +1,13 @@
 # Fabio Egypt design context
 
+Latest guide direction, 2026-11-02: clean light Sharm Secrets guide, no decorative
+background photographs. Preserve real content photos/words; use existing local
+Montserrat/Playfair. Replace decorative emoji with consistent inline SVG and cap
+card photos at 360px; avoid stretched empty neighbouring cards. Index uses a
+matching WhatsApp-style pill and native readable dialog/active-section marker.
+21st TOC reference and supplied UI UX Pro Max guidance; minimal focused checks.
+See qa/home-refresh/GUIDE_CLEAN.md.
+
 Latest portrait/contact direction, 2026-11-02: stronger layered hover/touch depth,
 with mobile copy/biography button in a separate row above a clipped portrait.
 WhatsApp uses one white/orange pill and the existing contact label/link, with a
