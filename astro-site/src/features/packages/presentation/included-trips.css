@@ -37,7 +37,7 @@ body:has(.included-trip-dialog[open]){overflow:hidden}
 .included-trip-program>li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;align-items:start}
 .included-trip-program>li>span{font-size:11px;line-height:1.8;color:var(--color-primary-muted);font-weight:600;padding-top:2px}
 .included-trip-program h4{font:600 13px/1.7 Montserrat,Arial,sans-serif;color:var(--color-primary);margin:0 0 6px}
-.included-trip-dialog :focus-visible{outline:3px solid var(--color-accent-orange);outline-offset:2px}
+.included-trip-dialog :focus-visible{outline:3px solid var(--color-primary);outline-offset:2px}
 @media(max-width:1023px){.included-trip-intro{grid-template-columns:1fr;gap:24px}.included-trip-photo{aspect-ratio:16/9}.included-trip-details{gap:24px}.included-trip-summary h2{max-width:32ch}.included-trip-dialog{height:90dvh}}
 @media(max-width:767px){.included-trip-dialog{width:100%;height:100dvh;max-height:100dvh;border:0;border-radius:0}.included-trip-toolbar{padding:12px 20px}.included-trip-article{padding:20px}.included-trip-intro{padding-bottom:24px}.included-trip-photo{aspect-ratio:4/3;border-radius:12px}.included-trip-summary h2{font-size:1.8rem}.included-trip-details{grid-template-columns:1fr;padding-top:24px;gap:28px}.included-trip-panel{padding:20px}.included-trip-program>li{grid-template-columns:60px minmax(0,1fr);gap:12px}}
 @media(hover:hover) and (pointer:fine){.included-trip-toolbar>button:hover{background:var(--surface-brand-soft)}.included-trip-thumbs>button:hover{border-color:var(--color-primary-muted)}}

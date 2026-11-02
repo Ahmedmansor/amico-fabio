@@ -85,3 +85,24 @@ catalog-premium-after-explore.json. No catalog/domain/controller changes.
 Each implementation task passed Astro check/build and had its own reviewed
 focused commit. Screenshots remain ignored/local. Remote publication is verified
 separately below when deployed; local checks alone do not establish deployment.
+
+## Deployed verification and final contrast refinement
+
+Source 8831cd9c7ae37d59b22db0bde8363b4832d79c01 is Ready on existing project
+amico-fabio-test, deployment idgb7z6qa (18s build). Vercel inspect confirmed
+the existing public alias https://amico-fabio-iyzo.vercel.app resolves to it.
+`after all` passed all 24 cases on that real public host; six route/language
+responses returned 200/noindex and the new markup. See
+catalog-premium-deployed-all.json and catalog-premium-deployment.json.
+Unique deployment URLs may be protected; public-host verification used the
+established alias, without changing deployment protection or hosting settings.
+
+Final three-line CSS refinement uses dark brand keyboard outlines on the new
+light surfaces and corrects the placeholder pseudo-element selector. This
+changes only focus/placeholder colors. Astro check: 597 files, no diagnostics;
+matching static build: 171 pages, 70 editorial checks, 50 JSON-LD checks.
+`catalog-focus.mjs`: four focused Chromium cases passed for tour/package at
+375/1440, confirming visible keyboard outlines in both gallery dialogs and the
+actual placeholder color. See catalog-focus.json. Earlier 24-case deployment
+evidence covers the preceding application source; final focused deployment
+verification is recorded separately.

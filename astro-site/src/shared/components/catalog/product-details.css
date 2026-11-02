@@ -72,7 +72,7 @@ body:has(.product-gallery-dialog[open]){overflow:hidden}
 .product-gallery-thumbs{display:flex;gap:10px;overflow-x:auto;max-width:100%;margin:auto;padding:4px 4px 14px;scrollbar-width:thin}
 .product-gallery-thumbs>button{flex:0 0 96px;height:72px;padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;cursor:pointer;background:var(--bg-tinted)}
 .product-gallery-thumbs>button[aria-pressed="true"]{border-color:var(--color-accent-orange)}.product-gallery-thumbs img{width:100%;height:100%;object-fit:cover}
-.product-detail :focus-visible,.product-gallery-dialog :focus-visible{outline:3px solid var(--color-accent-orange);outline-offset:4px}
+.product-detail :focus-visible,.product-gallery-dialog :focus-visible{outline:3px solid var(--color-primary);outline-offset:4px}
 
 body.details-page #whatsapp-wrapper,body.package-details-page #whatsapp-wrapper{display:none}
 :is(.details-page,.package-details-page) #faq-accordion{width:min(var(--site-container),calc(100% - var(--site-gutter)*2));max-width:var(--site-container);padding:0;margin:24px auto 64px}
@@ -116,7 +116,7 @@ body.details-page #whatsapp-wrapper,body.package-details-page #whatsapp-wrapper{
 .product-booking-card #trip-booking-form :is(.border-t,.border-gray-800){border-color:var(--border-color)}
 .product-booking-card #trip-booking-form label.flex:hover{background:var(--surface-brand-soft);border-color:var(--border-color)}
 .product-booking-card :is(#count-adults,#count-children){color:var(--color-primary);min-width:20px}
-.product-booking-card :is(input::placeholder,#nation-selected){color:var(--text-secondary)}
+.product-booking-card input::placeholder,.product-booking-card #nation-selected{color:var(--text-secondary)}
 .product-booking-card #nation-list button{color:var(--color-primary);min-height:44px}
 .product-booking-card #nation-list button:hover{background:var(--surface-brand-soft)}
 .product-booking-card [id^="err-"]{color:var(--color-accent-red)}
