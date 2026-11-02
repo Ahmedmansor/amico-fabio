@@ -1,5 +1,23 @@
 # Production and test flavors
 
+## Restore the owner's demo content — 2026-11-02
+
+The owner reported that their dummy blog articles disappeared after deployment.
+No content files were deleted: all 12 design demo posts (six IT/six EN) and their
+assets remained committed with fixture/demo markers. The prior remote build
+excluded them because BLOG_INCLUDE_FIXTURES was off/absent, while local visual
+builds explicitly set it to 1. Keeping it off on the user's test preview was the
+wrong preview configuration for their expected review content.
+
+Set BLOG_INCLUDE_FIXTURES=1 only on existing `amico-fabio-test` Production and
+Preview, preserving PUBLIC_NOINDEX=1. Do not unset fixture markers or change
+production publication rules. This also restores the guarded destination-guide
+preview pages such as Aswan. Local checks: 588 files, 0 errors/warnings/hints;
+build 171 pages complete, 70 editorial link checks and 50 structured-data contract
+checks passed. The noindex/empty-sitemap guard remains enforced. Run
+`qa/blog/verify-demo-restoration.mjs` after the matching deployment to verify
+existing articles in both listings, HTTP 200, guides and an empty sitemap.
+
 ## Offers-consent activation — 2026-11-02
 
 User explicitly approved the temporary native overlap test. Real lock contention
