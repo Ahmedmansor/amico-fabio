@@ -7,7 +7,7 @@ export function calculateTotal(state:Pick<BookingState,'adults'|'children'|'sele
 }
 export function nextPax(current:number,change:number,min:number){return Math.max(min,current+change);}
 export function validateBookingForm(form:BookingState['formData']) {return {name:!form.name.trim(),date:!form.date.trim(),nation:!form.nation.trim()};}
-export function bookingMessage(state:BookingState,prices:BookingPrices,addons:readonly BookingAddon[],copy:Record<string,string>,locale:string) {
+export function bookingMessage(state:BookingState,prices:BookingPrices,addons:readonly BookingAddon[],copy:Record<string,string>,locale:string,displayQuote='') {
   const extras=state.selectedAddons.map(id=>{const addon=addons.find(item=>item.id===id);if(!addon)throw new Error(`[booking] Unknown selected addon ${id}.`);return addon.labels[locale];}).join(', ');
   const replacements:Record<string,string>={
     '{greeting}':copy.greeting.replace('{name}',state.formData.name),'{trip}':state.title,'{package}':state.title,
@@ -19,5 +19,5 @@ export function bookingMessage(state:BookingState,prices:BookingPrices,addons:re
   };
   let result=state.kind==='package'?copy.package_message:copy.full_message;
   for(const [key,value]of Object.entries(replacements))result=result.split(key).join(value);
-  return result;
+  return displayQuote ? `${result}\n\n${displayQuote}` : result;
 }

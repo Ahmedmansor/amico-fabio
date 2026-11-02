@@ -12,6 +12,7 @@ import Faq from '../../../shared/components/Faq.astro';
 import {imageAssets} from './images';
 import {breakdownHtml,listHtml} from './markup';
 import type {TourPage} from '../domain/details';
+import Price from '../../currency/presentation/Price.astro';
 interface Props {page:TourPage;addons:BookingAddon[]}
 const {page,addons}=Astro.props,{trip,text,gallery}=page,locale=page.locale as Locale;
 const m=getSharedMessages(locale);
@@ -34,7 +35,7 @@ const badge=trip.badges?.[locale]?.trim();
   <div slot="breakdown" id="card-price-breakdown" class="product-price-breakdown" set:html={breakdownHtml(trip,m.global.pricing.min_pax)}></div>
   <Fragment slot="booking">
     <BookingForm trip={trip} locale={locale} addons={addons} messages={m} />
-    <div class="product-total"><span>{m.global.total_estimate}</span><strong id="live-total-price">€{initialTotal}</strong></div>
+    <div class="product-total"><span>{m.global.total_estimate}</span><strong><Price id="live-total-price" amount={initialTotal}/></strong></div>
     <button id="btn-submit-booking" type="button" class="product-book-button">{m.global.book_now}</button>
   </Fragment>
   <Faq slot="faq" locale={locale}/>

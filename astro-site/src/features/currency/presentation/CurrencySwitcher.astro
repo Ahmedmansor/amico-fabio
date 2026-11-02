@@ -1,0 +1,26 @@
+---
+import {currencyCodes} from '../domain/currency';
+import {currencyRates} from '../data/settings';
+import {getSharedMessages} from '../../../shared/i18n/shared';
+import type {Locale} from '../../../shared/config/languages';
+interface Props {locale: Locale}
+const {locale} = Astro.props;
+const m = getSharedMessages(locale).currency;
+---
+<details class="site-currency" data-header-disclosure>
+  <summary aria-label={m.choose}><span data-current-currency>EUR</span><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+  <div class="site-popover currency-options" role="group" aria-label={m.choose}>
+    {currencyCodes.map(code => <button type="button" data-currency={code} disabled={currencyRates[code] === null} aria-pressed={code === 'EUR'}>{code === 'EUR' ? '€' : code === 'USD' ? '$' : '£'} {code}</button>)}
+    <p>{m.notice}</p>
+  </div>
+</details>
+<script>import './browser';</script>
+<style>
+  summary{padding-inline:7px}
+  .currency-options{width:240px}
+  button{display:flex;align-items:center;min-height:44px;padding:10px 14px;border:0;border-radius:var(--radius-control);background:transparent;color:var(--color-primary);font:inherit;font-size:13px;text-align:start;cursor:pointer}
+  button[aria-pressed="true"],button:hover{background:var(--surface-brand-soft)}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  p{margin:6px 8px;font-size:12px;line-height:1.5;color:var(--text-secondary)}
+  @media(max-width:359px){summary{padding-inline:2px}}
+</style>

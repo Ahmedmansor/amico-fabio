@@ -1,4 +1,5 @@
 {
+  "currency": {"choose":"Elegir moneda","notice":"Conversión orientativa. El precio de referencia está en EUR.","quote":"Total orientativo","base":"Precio de referencia en EUR"},
   "productDetail": {
     "previousPhoto": "Foto anterior",
     "nextPhoto": "Foto siguiente",

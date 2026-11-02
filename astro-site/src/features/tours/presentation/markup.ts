@@ -4,10 +4,10 @@ const icon=(name:string)=>`<img src="/assets/images/icons/${name}.svg" alt="" cl
 export const headlinePrice=(trip:Offer)=>trip.prices.adult;
 export function pricesHtml(trip:Offer,hero=false) {
  const color=hero?'text-gold':'text-white';
- return `<span class="inline-flex items-center gap-2">${icon('person-male')}<span class="${color} font-bold">€${trip.prices.adult}</span></span>`;
+ return `<span class="inline-flex items-center gap-2">${icon('person-male')}<span class="${color} font-bold" data-price-eur="${trip.prices.adult}">€${trip.prices.adult}</span></span>`;
 }
 export function breakdownHtml(trip:Offer,label:string) {
- const adult=pricesHtml(trip);const child=trip.prices.child>0?`${icon('child-svgrepo')}<span class="text-white font-bold">€${trip.prices.child}</span>`:'';
+ const adult=pricesHtml(trip);const child=trip.prices.child>0?`${icon('child-svgrepo')}<span class="text-white font-bold" data-price-eur="${trip.prices.child}">€${trip.prices.child}</span>`:'';
  return `<div class="flex items-center gap-2">${adult}</div>${child?`<div class="flex items-center gap-2">${child}</div>`:''}<div class="flex items-center gap-2">${icon('persons')}<span class="text-gray-300">${label}: ${trip.minPax}</span></div>`;
 }
 export function listHtml(items:string[],compact=false,cross=false){return items.map(item=>`<li class="flex items-start leading-relaxed border-b border-gray-100 pb-2 last:border-0">${compact?cross?'<span class="text-gray-400 mr-3 font-bold">×</span>':'<span class="text-gold mr-3 font-bold">✓</span>':'<span class="text-gold mr-3 text-xl">•</span>'}<span class="${compact?'text-gray-600 text-sm':'text-white font-medium'}">${item}</span></li>`).join('');}

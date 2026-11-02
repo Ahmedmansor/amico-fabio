@@ -7,6 +7,7 @@ import WishlistLink from '../../features/wishlist/presentation/WishlistLink.astr
 import AuthTrigger from '../../features/auth/presentation/AuthTrigger.astro';
 import { getPlaceNavigation } from '../../features/places/data/navigation';
 import PlannerLink from './PlannerLink.astro';
+import CurrencySwitcher from '../../features/currency/presentation/CurrencySwitcher.astro';
 import '../styles/site-shell.css';
 interface Props { locale: Locale; route: string; navigation?: Partial<Record<Locale,string>> }
 const { locale, route, navigation } = Astro.props;
@@ -24,7 +25,7 @@ const languageLinks=navigation??Object.fromEntries(supportedLocales.map(lang=>[l
 ---
 <header id="global-header" class="site-header">
   <div class="site-container site-header-inner">
-    <a class="site-brand" href={`/${locale}/`}>
+    <a class="site-brand" href={`/${locale}/`} aria-label="Fabio Egypt">
       <Image src={logo} alt="" width={54} height={52} loading="eager"/>
       <span>Fabio <strong>Egypt</strong><small>{messages.global.brand_subtitle}</small></span>
     </a>
@@ -36,6 +37,7 @@ const languageLinks=navigation??Object.fromEntries(supportedLocales.map(lang=>[l
         <summary aria-label={`${messages.blog.language}: ${languages[locale].label}`}><img class="site-flag" src={`/assets/images/icons/languages/${locale}.svg`} width="24" height="18" alt=""/><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
         <nav class="site-popover" aria-label={messages.blog.language}>{Object.entries(languageLinks).map(([lang,url])=>url&&<a href={url} data-lang={lang} data-lang-switch hreflang={lang} aria-current={lang===locale?'true':undefined}><img class="site-flag" src={`/assets/images/icons/languages/${lang}.svg`} width="24" height="18" alt=""/>{languages[lang as Locale].label}</a>)}</nav>
       </details>
+      <CurrencySwitcher locale={locale}/>
       <PlannerLink locale={locale} class="site-header-planner"/>
       <details class="site-menu" data-header-disclosure>
         <summary aria-label={messages.labels.menu}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></summary>

@@ -5,6 +5,7 @@ import type { ExploreCard, ExploreMessages } from '../domain/explore';
 import { cardBadge } from '../domain/explore';
 import type { Locale } from '../../../shared/config/languages';
 import FavoriteButton from '../../wishlist/presentation/FavoriteButton.astro';
+import Price from '../../currency/presentation/Price.astro';
 interface Props { card: ExploreCard; messages: ExploreMessages; locale: Locale; hidden: boolean }
 const { card, messages: m, locale, hidden } = Astro.props;
 const posters = import.meta.glob<ImageMetadata>('/src/shared/assets/catalog/**/poster.webp', { eager: true, import: 'default' });
@@ -29,7 +30,7 @@ const href = `/${locale}/${isPackage?'packages':'tours'}/${card.offer.slug}/`;
     <p class="catalog-card-desc">{text.short_desc}</p>
     <div class="card-footer"><div class="price-block"><span class="label-start">{m.labels.price_from}</span>
       <div class="price-row">
-        <span class="price-new">€{card.displayPrice}</span>
+        <Price class="price-new" amount={card.displayPrice}/>
       </div>
     </div><a class="card-btn" data-detail-link href={href}>{isPackage ? m.labels.discover_package : m.labels.discover}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
   </div>

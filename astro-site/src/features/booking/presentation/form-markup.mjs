@@ -28,7 +28,7 @@ function _renderTextFields(txt, g, lang) {
 function _renderPaxControls(txt, prices,state) {
     return `
       <div class="flex justify-between items-center bg-gray-800/50 p-2 rounded border border-white/5">
-        <div class="text-sm"><div class="text-white font-bold">${txt.adults}</div><div class="text-gold text-xs">€${prices.adult}</div></div>
+        <div class="text-sm"><div class="text-white font-bold">${txt.adults}</div><div class="text-gold text-xs" data-price-eur="${prices.adult}">€${prices.adult}</div></div>
         <div class="flex items-center gap-3">
           <button type="button" onclick="BookingManager.updatePax('adults', -1, ${prices.minPax})" class="w-8 h-8 rounded bg-gray-700 text-white hover:bg-gold hover:text-black transition">-</button>
           <span id="count-adults" class="font-bold w-4 text-center text-white">${state.adults}</span>
@@ -36,7 +36,7 @@ function _renderPaxControls(txt, prices,state) {
         </div>
       </div>
       <div class="flex justify-between items-center bg-gray-800/50 p-2 rounded border border-white/5">
-        <div class="text-sm"><div class="text-white font-bold">${txt.children}</div><div class="text-gold text-xs">€${prices.child}</div></div>
+        <div class="text-sm"><div class="text-white font-bold">${txt.children}</div><div class="text-gold text-xs" data-price-eur="${prices.child}">€${prices.child}</div></div>
         <div class="flex items-center gap-3">
           <button type="button" onclick="BookingManager.updatePax('children', -1, 0)" class="w-8 h-8 rounded bg-gray-700 text-white hover:bg-gold hover:text-black transition">-</button>
           <span id="count-children" class="font-bold w-4 text-center text-white">${state.children}</span>
@@ -59,7 +59,7 @@ function _renderAddons(txt, lang,state) {
             <input type="checkbox" value="${addon.addon_id}" data-price="${price}" onchange="BookingManager.toggleAddon(this)">
             <span class="ml-3 text-white">${label}</span>
           </div>
-          <span class="text-gold font-bold">€${price}</span>
+          <span class="text-gold font-bold" data-price-eur="${price}">€${price}</span>
         </label>
       `;
     });

@@ -1,4 +1,5 @@
 {
+  "currency": {"choose":"Choose currency","notice":"Indicative conversion. The reference price is in EUR.","quote":"Indicative total","base":"Reference price in EUR"},
   "productDetail": {
       "previousPhoto": "Previous photo",
       "nextPhoto": "Next photo",

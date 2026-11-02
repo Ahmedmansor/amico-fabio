@@ -15,6 +15,7 @@ import type {PackagePage} from '../domain/details';
 import {editorialBadgeKey} from '../../../shared/domain/offers';
 import IncludedTrips from './IncludedTrips.astro';
 import IncludedTripModal from './IncludedTripModal.astro';
+import Price from '../../currency/presentation/Price.astro';
 interface Props {page:PackagePage;addons:BookingAddon[]}
 const {page,addons}=Astro.props,trip=page.package,text=page.text,locale=page.locale as Locale;
 const m=getSharedMessages(locale);
@@ -39,7 +40,7 @@ const badge=m.global.badges[editorialBadgeKey(trip.source.badge_key) as keyof ty
   <div slot="breakdown" id="card-price-breakdown" class="product-price-breakdown" set:html={breakdownHtml(trip,m.global.pricing.min_pax)}></div>
   <Fragment slot="booking">
     <BookingForm trip={trip} locale={locale} addons={addons} messages={m} kind="package"/>
-    <div class="product-total"><span>{m.global.total_estimate}</span><strong id="live-total-price">€{initialTotal}</strong></div>
+    <div class="product-total"><span>{m.global.total_estimate}</span><strong><Price id="live-total-price" amount={initialTotal}/></strong></div>
     <button id="btn-submit-booking" type="button" class="product-book-button">{m.global.book_package_now}</button>
   </Fragment>
   <Faq slot="faq" locale={locale}/>

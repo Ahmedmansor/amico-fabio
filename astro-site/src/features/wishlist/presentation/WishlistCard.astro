@@ -6,6 +6,7 @@ import type { Locale } from '../../../shared/config/languages';
 import FavoriteButton from './FavoriteButton.astro';
 import { getWishlistMessages } from '../data/messages';
 import type { FavoriteKind } from '../domain/wishlist';
+import Price from '../../currency/presentation/Price.astro';
 interface Props { trip: Offer; locale: Locale; kind?: FavoriteKind }
 const { trip, locale, kind = 'trip' } = Astro.props;
 const m = getWishlistMessages(locale);
@@ -21,7 +22,7 @@ if (!image) throw new Error(`[wishlist:${trip.id}] Missing linked image ${trip.p
   <h3>{text.title}</h3>
   <p>{text.short_desc}</p>
   <div class="wishlist-card-footer">
-    <div><span>{m.priceFrom}</span><strong>€{trip.prices.adult}</strong></div>
+    <div><span>{m.priceFrom}</span><strong><Price amount={trip.prices.adult}/></strong></div>
     <a href={`/${locale}/${kind === 'package' ? 'packages' : 'tours'}/${trip.slug}/`}>{m.discover}</a>
   </div>
   </div>

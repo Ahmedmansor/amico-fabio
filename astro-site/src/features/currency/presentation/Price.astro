@@ -1,0 +1,6 @@
+---
+interface Props {amount: number; class?: string; id?: string}
+const {amount, class: className, id} = Astro.props;
+if (!Number.isFinite(amount) || amount < 0) throw new Error('[currency] Invalid price in Price component.');
+---
+<span class={className} id={id} data-price-eur={amount}>€{amount}</span>
