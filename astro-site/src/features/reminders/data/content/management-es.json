@@ -1,0 +1,19 @@
+{
+  "title": "Preferencias de correo",
+  "intro": "Gestiona los recordatorios de favoritos sin iniciar sesión.",
+  "noScript": "Activa JavaScript para utilizar este enlace o gestiona los recordatorios desde tu cuenta.",
+  "language": "Idioma del recordatorio",
+  "save": "Guardar idioma",
+  "unsubscribe": "Desactivar recordatorios",
+  "retry": "Reintentar",
+  "loading": "Cargando las preferencias de correo…",
+  "saving": "Guardando tu elección…",
+  "saved": "Se ha guardado el idioma de tus correos.",
+  "stopped": "Los recordatorios están desactivados. Cambiar el idioma no los volverá a activar.",
+  "enabled": "Los recordatorios están activados. Puedes desactivarlos aquí.",
+  "invalid": "Este enlace no es válido o ya no está disponible. Abre un enlace válido de un correo de recordatorio o gestiona los recordatorios desde tu cuenta.",
+  "error": "No se ha podido confirmar tu elección. Inténtalo de nuevo para comprobar el resultado.",
+  "conflict": "El idioma ha cambiado en otro lugar. Revisa la elección actual y vuelve a guardarla si es necesario.",
+  "disabled": "Los enlaces de preferencias de correo todavía no están disponibles. Puedes gestionar los recordatorios desde tu cuenta.",
+  "back": "Volver a favoritos"
+}
