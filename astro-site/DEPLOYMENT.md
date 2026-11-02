@@ -1,5 +1,22 @@
 # Production and test flavors
 
+## Deeper portrait, clear CTA and animated contact — 2026-11-02
+
+Application b820fe16083642d051c591b242a09d00d30d7835 is Ready on the existing
+amico-fabio-test project, deployment
+https://amico-fabio-test-mhwk64c1v-fabio-landing-pages.vercel.app (20s build).
+Inspect confirmed https://amico-fabio-iyzo.vercel.app . Both home languages
+returned 200/noindex/new portrait/contact markup; nine deployed responsive
+portrait/contact cases passed. The seven real-time mobile-motion cases also
+passed on this source, resolving the previous approval-review usage-limit
+blocker that left source 145777f's deployment verification pending.
+
+Final local Astro check: 604 files, zero diagnostics; static preview build: 171
+pages. Deployed mobile Lighthouse: performance 94, accessibility 100, LCP 2.705s,
+TBT 80ms, CLS 0 (one lab run). No hosting variables/provider/publication flags,
+legacy main, live domain or campaign sources changed. See
+qa/home-refresh/PORTRAIT_CONTACT.md, MOBILE_MOTION.md and their deployed JSON.
+
 ## Light catalog and package trip previews — 2026-11-02
 
 Application source 55b8c51784657fda717fc6c406ebb9b7d36ae63b is Ready on existing

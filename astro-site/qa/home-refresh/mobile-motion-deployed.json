@@ -1,0 +1,57 @@
+{
+  "origin": "https://amico-fabio-iyzo.vercel.app",
+  "results": [
+    {
+      "locale": "en",
+      "width": 375,
+      "autoplay": true,
+      "offscreenStop": true,
+      "vimeoRequests": 0,
+      "errors": [],
+      "longTasksMs": [
+        82,
+        201,
+        85,
+        474,
+        126,
+        99,
+        53,
+        53
+      ]
+    },
+    {
+      "locale": "it",
+      "width": 430,
+      "autoplay": true,
+      "offscreenStop": true,
+      "vimeoRequests": 0,
+      "errors": [],
+      "longTasksMs": []
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "autoplay": true,
+      "offscreenStop": true,
+      "vimeoRequests": 0,
+      "errors": [],
+      "longTasksMs": []
+    },
+    {
+      "route": "explore/sharm/",
+      "mobileReveal": true
+    },
+    {
+      "route": "tours/ras_mohammed_white_island_vip/",
+      "mobileReveal": true
+    },
+    {
+      "route": "packages/dolce_vita_family/",
+      "mobileReveal": true
+    },
+    {
+      "coldReducedMotion": true,
+      "noMotionChunks": true
+    }
+  ]
+}

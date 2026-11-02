@@ -38,3 +38,20 @@ deployed before cases. Phone/desktop screenshots inspected after the final
 portrait size correction. These are Chromium viewport/touch checks, not a claim
 of physical iPad/Safari testing. No external WhatsApp message or lead was sent.
 `git diff --check` passed and explicit task files only were staged.
+
+## Actual test deployment
+
+Application b820fe16083642d051c591b242a09d00d30d7835 is Ready at existing test
+project amico-fabio-test, deployment mhwk64c1v (20s build). Vercel inspect
+confirmed public alias https://amico-fabio-iyzo.vercel.app . Both languages
+returned 200/noindex/new markup. All nine focused portrait/contact cases passed
+on that actual host, including the stronger touch/hover depth, CTA separation,
+contact animation/dialog pause, preserved copy/link and reduced motion. See
+portrait-contact-deployed.json and portrait-contact-deployment.json.
+No hosting settings, production domain/main, catalog or campaign source changed.
+
+The previously pending mobile-motion deployment verification also passed all
+seven real-time cases on this source. Isolated deployed mobile Lighthouse:
+performance 94, accessibility 100, LCP 2.705s, TBT 80ms, CLS 0; no failed
+accessibility audits. One cold lab run, not a controlled regression comparison
+or physical-device/field-INP guarantee. See portrait-contact-performance.json.

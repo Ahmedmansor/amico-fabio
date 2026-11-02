@@ -61,3 +61,17 @@ phone/Safari or field INP. Evidence JSON and reproducible scripts live alongside
 this report. Set PLAYWRIGHT_MODULE/QA_BROWSER and optional QA_ORIGIN/QA_REPORT;
 run `mobile-motion.mjs` or `motion-main-thread.mjs` against static preview :4341.
 Local checks do not prove remote publication; deployment evidence follows.
+
+## Completed deployed verification
+
+The earlier attempt to inspect source 145777f's deployment was blocked by an
+automatic approval-review usage limit, so remote readiness was left unclaimed.
+During the owner's next portrait/contact task, deployed application source
+b820fe16083642d051c591b242a09d00d30d7835 (which includes that motion code) became
+Ready at the established test alias. The complete real-time mobile-motion probe
+then passed all seven cases on https://amico-fabio-iyzo.vercel.app, including
+4x CPU mobile hero sequence/wrap/pause, Facebook/video card autoplay, modal/touch/
+offscreen stops, idle resume, reduced motion and mobile catalog reveals. No
+pre-play Vimeo requests/errors/overflow. See mobile-motion-deployed.json and
+portrait-contact-deployment.json. That resolves the previously pending remote
+motion verification without claiming that earlier blocked action ran.
