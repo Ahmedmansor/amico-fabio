@@ -29,6 +29,8 @@
     "POPULAR": "Popular choice"
   },
   "labels": {
+    "destination": "Destination",
+    "all_destinations": "All cities",
     "price_from": "Starts from",
     "discover": "Discover",
     "discover_package": "Discover package",

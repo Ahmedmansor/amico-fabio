@@ -29,6 +29,8 @@
     "POPULAR": "Molto richiesto"
   },
   "labels": {
+    "destination": "Destinazione",
+    "all_destinations": "Tutte le città",
     "price_from": "A partire da",
     "discover": "Scopri",
     "discover_package": "Scopri il pacchetto",

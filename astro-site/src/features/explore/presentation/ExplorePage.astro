@@ -1,7 +1,8 @@
 ---
 import type { Locale } from '../../../shared/config/languages';
 import type { ExploreCard as Card, ExploreLocation, ExploreMessages } from '../domain/explore';
-import { selectExploreItems, exploreCategories, paginateExplore, categoryLabel } from '../domain/explore';
+import { selectExploreItems, exploreCategories, paginateExplore, categoryLabel, exploreLocations } from '../domain/explore';
+import {getSharedMessages} from '../../../shared/i18n/shared';
 import { filterClass } from './filter-styles';
 import ExploreCard from './ExploreCard.astro';
 import './explore.css';
@@ -10,11 +11,17 @@ const { locale, location, cards, messages: m } = Astro.props;
 const ordered = selectExploreItems(cards, location);
 const initial = paginateExplore(ordered, 1);
 const categories = exploreCategories(cards, location);
+const places=getSharedMessages(locale).global.locations;
+const locationNames:Record<ExploreLocation,string>={all:m.labels.all_destinations,sharm:places.sharm,cairo:places.cairo,luxor_and_aswan:places.luxor_aswan};
 ---
 <main class="explore-content min-h-screen" data-explore data-location={location} data-locale={locale}>
   <section class="explore-container">
     <h1 class="explore-title">{m.title}</h1>
     <div class="explore-toolbar">
+      <nav class="explore-locations" aria-label={m.labels.destination}>
+        <span class="explore-location-caption"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>{m.labels.destination}</span>
+        <div class="explore-location-options">{exploreLocations.map(place=><a class="explore-location" data-explore-location={place} href={`/${locale}/explore/${place==='all'?'':`${place}/`}`} aria-current={place===location?'page':undefined}>{locationNames[place]}</a>)}</div>
+      </nav>
       <div id="filter-chips" class="explore-chips">
         {categories.map(category => <button type="button" data-filter={category} aria-pressed={category === 'all'} class={filterClass(category, category === 'all')}>{categoryLabel(category,m)}</button>)}
       </div>

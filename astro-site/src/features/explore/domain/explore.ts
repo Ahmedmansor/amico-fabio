@@ -9,7 +9,7 @@ export interface ExploreMessages {
   seo: { title: string; description: string }; title: string;
   sort: { sort_label: string; sort_recommended: string; sort_low_high: string; sort_high_low: string };
   filters: Record<string,string>; badges: Record<string,string>;
-  labels: { price_from: string; discover: string; discover_package: string; premium_package: string; no_exclusive_experiences: string };
+  labels: { destination:string; all_destinations:string; price_from: string; discover: string; discover_package: string; premium_package: string; no_exclusive_experiences: string };
   pagination: { page: string; of: string; previous: string; next: string };
 }
 export function validateExploreMessages(messages: ExploreMessages, locale: string): ExploreMessages {

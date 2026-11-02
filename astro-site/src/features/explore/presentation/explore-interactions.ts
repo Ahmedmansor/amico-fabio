@@ -52,6 +52,12 @@ if (host) {
       host!.querySelector('[data-page]')!.textContent = String(page);
       host!.querySelector('[data-pages]')!.textContent = String(result.totalPages);
       storage.set('fabio_explore_sort',sort); storage.set('fabio_explore_cat',category); storage.set('fabio_explore_page',String(page));
+      // Native city routes work without JS; keep ordering but reset category/page.
+      host!.querySelectorAll<HTMLAnchorElement>('[data-explore-location]').forEach(link=>{
+        const city=link.dataset.exploreLocation!;
+        const state=new URLSearchParams({category:'all',sort,page:'1'});
+        link.href=`/${locale}/explore/${city==='all'?'':`${city}/`}?${state}`;
+      });
       // Language navigation keeps the current location, filter, ordering and page.
       document.querySelectorAll<HTMLAnchorElement>('[data-lang]').forEach(link => {
         const other = link.dataset.lang!;
