@@ -1,5 +1,15 @@
 # Fabio Egypt design context
 
+Latest home direction, 2026-11-02: premium desktop/iPad refinement. 21st login,
+contextual search and public component retrieval (Editorial Image Hero, 19077)
+succeeded in this session. Use its separate image/copy editorial composition
+with original Astro/CSS: framed desktop split, landscape image above tablet copy,
+aligned card rhythm and restrained shadows. Phone layout and existing motion
+remain. No third-party source copied or new runtime dependency. See
+qa/home-refresh/PREMIUM.md for verification. Historical catalog-access limitations
+below describe earlier sessions; the previous cloud source-upload rejection
+still applies.
+
 Latest user direction, 2026-11-02: mobile Fabio portrait now moves in 3D. Use a
 small visible-only CSS drift plus passive touch tilt; pause outside the viewport,
 hidden tabs and open dialogs, and disable for reduced motion. This supersedes

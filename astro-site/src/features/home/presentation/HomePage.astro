@@ -9,6 +9,7 @@ import { siteConfig } from '../../../shared/config/site';
 import './home.css';
 import './who-fabio.css';
 import './home-evidence.css';
+import './home-premium.css';
 import TravelBenefits from './TravelBenefits.astro';
 import BookingSteps from './BookingSteps.astro';
 import VideoTestimonials from './VideoTestimonials.astro';
@@ -43,9 +44,10 @@ const facebookPath = 'M22 12a10 10 0 1 0-11.563 9.874v-6.987H7.898V12h2.539V9.79
       </>}
     </div>)}
   </div><div class="hero-overlay"></div><div class="hero-content">
+    <p class="home-eyebrow hero-eyebrow">Fabio Egypt</p>
     <h1 class="hero-title" data-i18n="hero.vip_title">{m.hero.vip_title}</h1>
     <p class="hero-desc" data-i18n="hero.vip_desc">{m.hero.vip_desc}</p>
-    <a href={`/${locale}/sharm-secrets/`} class="hero-btn" data-i18n="hero.vip_btn">{m.hero.vip_btn}</a>
+    <a href={`/${locale}/sharm-secrets/`} class="hero-btn" data-i18n="hero.vip_btn">{m.hero.vip_btn}<svg class="hero-cta-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
   </div></div>
 </section>
 <div class="home-trust">{highlights.map(text=><span>{text}</span>)}</div>

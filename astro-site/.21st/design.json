@@ -88,6 +88,11 @@
       "reference": "https://docs.21st.dev/@cnippet-dev/components/scroll-reveal-2",
       "dialogReference": "https://preview.21st.dev/@originui/components/dialog",
       "implementation": "MIT-listed public patterns adapted with own Astro/native dialog, IntersectionObserver and Web Animations. No component source copied, React, paid generation or cloud source upload. Entry excludes below-768px and reduced-motion. Mobile portrait now has explicitly requested small visible-only CSS 3D drift and passive touch tilt."
+    },
+    {
+      "choice": "Premium desktop and iPad home composition requested 2026-11-02",
+      "reference": "https://21st.dev/@felipemenezes098/components/hero-07",
+      "implementation": "Authenticated 21st CLI search and get 19077 succeeded. Original Astro/CSS adaptation: framed split hero on desktop, landscape image above editorial copy on portrait tablets, existing palette/assets/copy, aligned destination/review cards and quiet hover feedback. No React, Motion or new dependency."
     }
   ],
   "evidence": [
