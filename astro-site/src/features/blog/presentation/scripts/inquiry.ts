@@ -4,7 +4,6 @@ import type { Destination } from '../../domain/taxonomy';
 import type { Locale } from '../../../../shared/config/languages';
 import type { getSharedMessages } from '../../../../shared/i18n/shared';
 import { siteConfig } from '../../../../shared/config/site';
-import { trackBlogInquiry } from '../../../../shared/analytics/lead';
 import './dialog';
 
 type Field = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
@@ -14,6 +13,10 @@ if (configElement) {
     m: ReturnType<typeof getSharedMessages>['blog']; source: InquirySource; locale: Locale; nationalities: string[];
   };
   const forms = [...document.querySelectorAll<HTMLFormElement>('[data-blog-inquiry]')];
+  // Optional analytics must never prevent form controls from initializing.
+  // In development an outdated optimized consent dependency can fail to load.
+  const analytics = import('../../../../shared/analytics/lead').catch(() => null);
+  const trackHandoff = () => {void analytics.then(module => module?.trackBlogInquiry(source.articleId, locale));};
   const now = new Date();
   const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
   let draft: BlogInquiry = { name: '', nationality: '', date: '', adults: 1, children: 0, message: '', destination: source.destination };
@@ -85,13 +88,13 @@ if (configElement) {
     // analytics can collect link_url independently of our sanitized GA4 event.
     handoff.addEventListener('click', () => {
       if (!handoffUrl) return;
-      trackBlogInquiry(source.articleId, locale);
+      trackHandoff();
       window.open(handoffUrl, '_blank', 'noopener,noreferrer');
     });
     fallback.addEventListener('click', event => {
       if (!handoffUrl) return;
       event.preventDefault();
-      trackBlogInquiry(source.articleId, locale);
+      trackHandoff();
       window.location.assign(handoffUrl);
     });
     // Unlock only after enhancement is wired. Native method=dialog also avoids
