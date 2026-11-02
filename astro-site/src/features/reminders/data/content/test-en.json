@@ -1,6 +1,6 @@
 {
   "title": "Reminder email test",
-  "description": "Uses your saved reminder language and the actual reminder template, including email settings and unsubscribe links. Changing the website language has no effect. Save your reminder preference first. One test per saved language in this test window; it does not consume your automatic reminder.",
+  "description": "Uses your saved account language and the actual reminder template, including email settings and unsubscribe links. One test per saved language in this test window; it does not consume your automatic reminder.",
   "send": "Send test email",
   "sending": "Sending your favorites…",
   "accepted": "Test reminder accepted in {language}. Check your inbox, Promotions and spam folders.",

@@ -1,6 +1,7 @@
 import {calculateTotal,nextPax,validateBookingForm,bookingMessage,type BookingState,type BookingPrices,type BookingAddon} from '../domain/booking';
 import {siteConfig} from '../../../shared/config/site';
-const config=JSON.parse(document.getElementById('booking-config')!.textContent!) as {id:string;title:string;kind:BookingState['kind'];prices:BookingPrices;addons:BookingAddon[];locale:string;copy:Record<string,string>;errors:Record<string,string>;labels:Record<string,string>};
+const config=JSON.parse(document.getElementById('booking-config')!.textContent!) as {id:string;title:string;kind:BookingState['kind'];prices:BookingPrices;addons:BookingAddon[];locale:string;nationalityLabels:Record<string,string>;copy:Record<string,string>;errors:Record<string,string>;labels:Record<string,string>};
+const nationalityLabel=(value:string)=>config.nationalityLabels?.[value]??value;
 const state:BookingState={id:config.id,title:config.title,kind:config.kind,adults:config.prices.minPax,children:0,selectedAddons:[],formData:{name:'',date:'',nation:''}};
 const form=document.getElementById('trip-booking-form')!;
 const modal=document.getElementById('invoice-modal')!;
@@ -19,7 +20,7 @@ const escape=(text:string)=>text.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;',
 function invoice(){
  const l=config.labels;const row=(label:string,value:string)=>`<div class="flex justify-between"><span class="text-gray-400">${escape(label)}</span><span class="text-white">${escape(value)}</span></div>`;
  const extras=state.selectedAddons.map(id=>config.addons.find(addon=>addon.id===id)!);
- document.getElementById('invoice-content')!.innerHTML=`<div class="space-y-2"><div class="flex justify-between border-b border-gray-700 pb-2"><span class="text-gray-400">${escape(l.trip)}</span><span class="text-white font-bold text-right">${escape(state.title)}</span></div>${row(l.name,state.formData.name)}${row(l.nation,state.formData.nation)}${row(l.date,state.formData.date)}${row(l.pax,`${state.adults} ${l.adults}, ${state.children} ${l.children}`)}${extras.length?`<div class="border-t border-gray-700 pt-2 mt-2"><p class="text-gold text-xs uppercase mb-1">${l.extras}</p><ul class="list-disc pl-4 text-xs text-gray-400">${extras.map(addon=>`<li>+ ${escape(addon.labels[config.locale])} (€${addon.price})</li>`).join('')}</ul></div>`:''}<div class="flex justify-between items-center bg-gray-800 p-3 rounded mt-4"><span class="text-gold font-bold">${l.total}</span><span class="text-2xl text-white font-bold">€${calculateTotal(state,config.prices,config.addons)}</span></div></div>`;
+ document.getElementById('invoice-content')!.innerHTML=`<div class="space-y-2"><div class="flex justify-between border-b border-gray-700 pb-2"><span class="text-gray-400">${escape(l.trip)}</span><span class="text-white font-bold text-right">${escape(state.title)}</span></div>${row(l.name,state.formData.name)}${row(l.nation,nationalityLabel(state.formData.nation))}${row(l.date,state.formData.date)}${row(l.pax,`${state.adults} ${l.adults}, ${state.children} ${l.children}`)}${extras.length?`<div class="border-t border-gray-700 pt-2 mt-2"><p class="text-gold text-xs uppercase mb-1">${l.extras}</p><ul class="list-disc pl-4 text-xs text-gray-400">${extras.map(addon=>`<li>+ ${escape(addon.labels[config.locale])} (€${addon.price})</li>`).join('')}</ul></div>`:''}<div class="flex justify-between items-center bg-gray-800 p-3 rounded mt-4"><span class="text-gold font-bold">${l.total}</span><span class="text-2xl text-white font-bold">€${calculateTotal(state,config.prices,config.addons)}</span></div></div>`;
  modal.classList.remove('hidden');
 }
 const submit=document.getElementById('btn-submit-booking') as HTMLButtonElement;
@@ -30,5 +31,5 @@ submit.addEventListener('click',()=>{
  const first=Object.entries(errors).find(([,error])=>error);if(first){const target=first[0]==='nation'?picker:field(first[0]);target.focus();target.scrollIntoView({behavior:'smooth',block:'center'});return;}invoice();
 });
 document.getElementById('cancel-invoice')!.addEventListener('click',()=>modal.classList.add('hidden'));
-document.getElementById('confirm-invoice')!.addEventListener('click',()=>{const message=bookingMessage(state,config.prices,config.addons,config.copy,config.locale);window.open(`https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(message)}`,'_blank','noopener,noreferrer');modal.classList.add('hidden');});
+document.getElementById('confirm-invoice')!.addEventListener('click',()=>{const message=bookingMessage({...state,formData:{...state.formData,nation:nationalityLabel(state.formData.nation)}},config.prices,config.addons,config.copy,config.locale);window.open(`https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(message)}`,'_blank','noopener,noreferrer');modal.classList.add('hidden');});
 update();

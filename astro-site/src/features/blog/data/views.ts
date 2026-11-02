@@ -1,5 +1,5 @@
 import { getCollection } from 'astro:content';
-import { supportedLocales, type Locale } from '../../../shared/config/languages';
+import { blogLocales, type Locale } from '../../../shared/config/languages';
 import { getSharedMessages } from '../../../shared/i18n/shared';
 import { getPosts, getBlogPublicationPolicy } from './posts';
 import { getActiveTaxonomy, getFeaturedPost, getPublishedPosts } from '../domain/publication';
@@ -24,7 +24,7 @@ export interface BlogListing {
 
 export async function getBlogListings(): Promise<BlogListing[]> {
   const posts = await getPosts(), policy = await getBlogPublicationPolicy();
-  return supportedLocales.flatMap(lang => {
+  return blogLocales.flatMap(lang => {
     const published = getPublishedPosts(posts, lang, policy), active = getActiveTaxonomy(posts, lang, policy);
     const m = getSharedMessages(lang).blog;
     return [
@@ -56,11 +56,11 @@ export async function getArticleViews() {
   const entries=await getCollection('blog');
   const outlines=new Map(entries.map(entry=>[entry.id,readingOutline(entry.rendered?.html??'')]));
   const inlineCtaIds=new Set(entries.filter(entry=>entry.rendered?.html.includes('blog-cta-compact')).map(entry=>entry.id));
-  return supportedLocales.flatMap(lang => getPublishedPosts(posts, lang, policy).map(post => {
+  return blogLocales.flatMap(lang => getPublishedPosts(posts, lang, policy).map(post => {
     const alternates = getTranslations(post, posts, policy);
     return {
     post, alternates,
-    navigation: Object.keys(alternates).length ? alternates : Object.fromEntries(supportedLocales.map(other=>[other,other===lang?`/${lang}/blog/${post.slug}/`:`/${other}/blog/`])),
+    navigation: Object.keys(alternates).length ? alternates : Object.fromEntries(blogLocales.map(other=>[other,other===lang?`/${lang}/blog/${post.slug}/`:`/${other}/blog/`])),
     related: getRelatedPosts(post, post.demo?discoveryPosts(posts):posts, policy),
     author: post.fixture ? getSharedMessages(lang).blog.fixtureAuthor : authors[post.authorId!].name,
     authorIdentity: post.fixture ? { name: getSharedMessages(lang).blog.fixtureAuthor, type: 'Organization' as const } : authors[post.authorId!],

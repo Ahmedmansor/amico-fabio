@@ -4,7 +4,7 @@ const origin='https://preview.example.test';
 function item(kind: EmailCatalogItem['kind']='trip'): EmailCatalogItem {
   const route=kind==='trip'?'tours':'packages';
   return {kind,id:'stable_id',slug:'public-slug',adult_price:0,
-    localized:{it:{title:'Titolo',url:`${origin}/it/${route}/public-slug/`},en:{title:'Title',url:`${origin}/en/${route}/public-slug/`}},
+    localized:{it:{title:'Titolo',url:`${origin}/it/${route}/public-slug/`},en:{title:'Title',url:`${origin}/en/${route}/public-slug/`},es:{title:'Título',url:`${origin}/es/${route}/public-slug/`},pt:{title:'Título',url:`${origin}/pt/${route}/public-slug/`}},
     image:{url:`${origin}/_astro/poster.jpg`,width:640,height:400}};
 }
 const build=(items: EmailCatalogItem[])=>buildEmailCatalog(items,origin,'2026-10-24T00:00:00Z','test');

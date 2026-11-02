@@ -16,7 +16,7 @@ interface Props {page:TourPage;addons:BookingAddon[]}
 const {page,addons}=Astro.props,{trip,text,gallery}=page,locale=page.locale as Locale;
 const m=getSharedMessages(locale);
 const initialTotal=calculateTotal({adults:trip.minPax,children:0,selectedAddons:[]},{...trip.prices,minPax:trip.minPax},addons);
-const badge=trip.source[`badge_${locale}`]?.trim();
+const badge=trip.badges?.[locale]?.trim();
 ---
 <ProductDetail locale={locale} title={text.title} duration={text.duration} adultPrice={trip.prices.adult} minPax={trip.minPax} bookLabel={m.global.book_now} badge={badge}>
   <Fragment slot="favorite"><FavoriteButton id={trip.id}  locale={locale} title={text.title} compact={false}/></Fragment>

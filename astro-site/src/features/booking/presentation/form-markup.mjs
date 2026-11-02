@@ -50,7 +50,8 @@ function _renderAddons(txt, lang,state) {
 
     let html = `<div class="border-t border-gray-800 my-3 pt-2"><label class="block text-xs text-gold mb-2 font-bold uppercase tracking-wider">${txt.addons}</label><div class="space-y-2">`;
     state.addons.forEach(addon => {
-      const label = lang === 'it' ? addon.label_it : addon.label_en;
+      const label = addon.labels?.[lang] ?? addon[`label_${lang}`];
+      if (!label) throw new Error(`Missing add-on label for ${lang}.`);
       const price = parseFloat(addon.price || 0);
       html += `
         <label class="flex items-center justify-between cursor-pointer hover:bg-gray-800 p-2 rounded transition border border-transparent hover:border-gray-700">

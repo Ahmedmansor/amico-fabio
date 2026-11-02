@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../assets/logos/fabio-header-logo.webp';
-import { languages, supportedLocales, type Locale } from '../config/languages';
+import { languages, blogLocales, supportedLocales, type Locale } from '../config/languages';
 import { getSharedMessages } from '../i18n/shared';
 import WishlistLink from '../../features/wishlist/presentation/WishlistLink.astro';
 import AuthTrigger from '../../features/auth/presentation/AuthTrigger.astro';
@@ -18,7 +18,7 @@ const nav = [
   { key: '', label: messages.menu.home, href: `/${locale}/` },
   { key: 'explore', label: messages.menu.trips, href: `/${locale}/explore/` },
   ...(guide?[{key:'egypt',label:messages.blog.egyptGuide,href:guide}]:[]),
-  { key: 'blog', label: messages.menu.blog, href: `/${locale}/blog/` },
+  { key: 'blog', label: messages.menu.blog, href: `/${blogLocales.includes(locale)?locale:'en'}/blog/` },
 ];
 const languageLinks=navigation??Object.fromEntries(supportedLocales.map(lang=>[lang,`/${lang}/${route?`${route}/`:''}`]));
 ---
@@ -28,7 +28,7 @@ const languageLinks=navigation??Object.fromEntries(supportedLocales.map(lang=>[l
       <Image src={logo} alt="" width={54} height={52} loading="eager"/>
       <span>Fabio <strong>Egypt</strong><small>{messages.global.brand_subtitle}</small></span>
     </a>
-    <nav class="site-desktop-nav" aria-label={messages.blog.navigation}>{nav.map(item=><a href={item.href} aria-current={active(item.key)?'page':undefined}>{item.label}</a>)}</nav>
+    <nav class="site-desktop-nav" aria-label={messages.blog.navigation}>{nav.map(item=><a href={item.href} data-lang-fallback={item.key==='blog'&&!blogLocales.includes(locale)?'en':undefined} aria-current={active(item.key)?'page':undefined}>{item.label}</a>)}</nav>
     <div class="site-header-actions">
       <WishlistLink locale={locale} active={route === 'wishlist'}/>
       <AuthTrigger locale={locale}/>
@@ -40,7 +40,7 @@ const languageLinks=navigation??Object.fromEntries(supportedLocales.map(lang=>[l
       <details class="site-menu" data-header-disclosure>
         <summary aria-label={messages.labels.menu}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></summary>
         <nav class="site-popover site-menu-panel" aria-label={messages.blog.navigation}>
-          {nav.map(item=><a href={item.href} aria-current={active(item.key)?'page':undefined}>{item.label}</a>)}
+          {nav.map(item=><a href={item.href} data-lang-fallback={item.key==='blog'&&!blogLocales.includes(locale)?'en':undefined} aria-current={active(item.key)?'page':undefined}>{item.label}</a>)}
           <a href={`/${locale}/#reviews-section`}>{messages.menu.reviews}</a>
           <a href={`/${locale}/sharm-secrets/`}>{messages.menu.commandments}</a>
           <PlannerLink locale={locale}/>

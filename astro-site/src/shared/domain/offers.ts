@@ -10,6 +10,7 @@ export interface Offer {
   prices: { adult: number; child: number };
   minPax: number;
   text: Record<string, OfferText>;
+  badges?: Record<string, string>;
   source: CsvRow;
 }
 

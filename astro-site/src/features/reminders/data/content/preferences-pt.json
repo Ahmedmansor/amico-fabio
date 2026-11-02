@@ -1,7 +1,7 @@
 {
   "title": "Lembrete por e-mail",
   "languageLabel": "Idioma do lembrete",
-  "languageNote": "Escolha o idioma dos lembretes e selecione Guardar preferência. Pode alterá-lo aqui a qualquer momento. Alterar o idioma do site não modifica esta preferência.",
+  "languageNote": "Os próximos e-mails seguem o último idioma do site utilizado com a sua conta. Alterar o idioma não ativa lembretes nem reinicia o prazo.",
   "label": "Receber um lembrete por e-mail sobre os meus favoritos",
   "description": "Opcional. No máximo um lembrete por conta, 24 horas após a última adição ou a ativação dos lembretes, consoante o que ocorrer mais tarde. Uma lista de favoritos vazia cancela a espera. Pode desativar os lembretes a qualquer momento.",
   "save": "Guardar preferência",

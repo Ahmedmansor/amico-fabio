@@ -3,7 +3,7 @@
   "followSite": "Segui la lingua del sito",
   "save": "Salva lingua",
   "retry": "Continua il salvataggio",
-  "noPreference": "Scegli la lingua dei promemoria quando li attivi per la prima volta. Cambiare la lingua del sito non attiva l’iscrizione e non cambia la lingua delle email.",
+  "noPreference": "L’ultima lingua del sito usata con il tuo account sarà anche la lingua delle email future. Cambiare lingua non attiva i promemoria né modifica il consenso.",
   "loading": "Caricamento delle impostazioni della lingua…",
   "saving": "Salvataggio della lingua…",
   "saved": "Lingua salvata.",

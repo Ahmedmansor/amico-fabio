@@ -1,6 +1,6 @@
 {
   "title": "Prueba del correo de recordatorio",
-  "description": "Utiliza el idioma guardado y la plantilla real del recordatorio, incluidos los enlaces de configuración del correo y de cancelación. Cambiar el idioma del sitio web no tiene efecto. Guarda primero tu preferencia de recordatorios. Una prueba por idioma guardado durante este periodo de prueba; no consume tu recordatorio automático.",
+  "description": "Utiliza el idioma guardado de tu cuenta y la plantilla real del recordatorio, incluidos los enlaces de preferencias y cancelación. Una prueba por idioma guardado durante este periodo de prueba; no consume tu recordatorio automático.",
   "send": "Enviar correo de prueba",
   "sending": "Enviando tus favoritos…",
   "accepted": "Recordatorio de prueba aceptado en {language}. Revisa tu bandeja de entrada, Promociones y spam.",

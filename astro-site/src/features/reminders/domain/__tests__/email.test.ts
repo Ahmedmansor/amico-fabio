@@ -4,7 +4,7 @@ import {prepareWishlistEmail,wishlistWhatsAppUrl} from '../email';
 const origin='https://preview.example.test';
 function item(kind:EmailCatalogItem['kind'],id='same'):EmailCatalogItem{
   const namespace=kind==='trip'?'tours':'packages';
-  return {kind,id,slug:id,adult_price:0,localized:{it:{title:'Titolo',url:`${origin}/it/${namespace}/${id}/`},en:{title:'Title',url:`${origin}/en/${namespace}/${id}/`}},image:{url:`${origin}/poster.jpg`,width:640,height:400}};
+  return {kind,id,slug:id,adult_price:0,localized:{it:{title:'Titolo',url:`${origin}/it/${namespace}/${id}/`},en:{title:'Title',url:`${origin}/en/${namespace}/${id}/`},es:{title:'Título',url:`${origin}/es/${namespace}/${id}/`},pt:{title:'Título',url:`${origin}/pt/${namespace}/${id}/`}},image:{url:`${origin}/poster.jpg`,width:640,height:400}};
 }
 const catalog=buildEmailCatalog([item('trip'),item('package'),item('trip','another')],origin,'2026-10-24T00:00:00Z','test');
 const input={catalog,expectedEnvironment:'test' as const,ids:['same','package:same'],locale:'en' as const,kind:'summary' as const};

@@ -3,7 +3,7 @@
   "followSite": "Usar el idioma del sitio web",
   "save": "Guardar idioma",
   "retry": "Continuar guardando",
-  "noPreference": "Elige el idioma de los recordatorios cuando los actives por primera vez. Cambiar el idioma de navegación no te suscribe ni cambia el idioma de tus correos.",
+  "noPreference": "El último idioma del sitio web utilizado con tu cuenta será también el de los próximos correos. Cambiar el idioma no activa los recordatorios ni modifica el consentimiento.",
   "loading": "Cargando la configuración de idioma…",
   "saving": "Guardando el idioma…",
   "saved": "Idioma guardado.",

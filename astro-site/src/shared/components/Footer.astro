@@ -4,7 +4,7 @@ import '../styles/site-shell.css';
 import logo from '../assets/logos/fabio-header-logo.webp';
 import crossRoots from '../assets/logos/cross-roots-logo.webp';
 import { siteConfig } from '../config/site';
-import type { Locale } from '../config/languages';
+import { blogLocales, type Locale } from '../config/languages';
 import { getSharedMessages } from '../i18n/shared';
 import SocialIcon from './SocialIcon.astro';
 interface Props { locale: Locale }
@@ -21,7 +21,7 @@ const names = { facebook: 'Facebook', instagram: 'Instagram', tiktok: 'TikTok', 
       </div>
       <div class="af-col af-links"><h2 class="af-heading">{m.labels.links}</h2><nav class="af-links-nav" aria-label={m.labels.links}>
         <a href={`/${locale}/explore/`} class="af-link">{m.menu.trips}</a>
-        <a href={`/${locale}/blog/`} class="af-link">{m.menu.blog}</a>
+        <a href={`/${blogLocales.includes(locale)?locale:'en'}/blog/`} data-lang-fallback={!blogLocales.includes(locale)?'en':undefined} class="af-link">{m.menu.blog}</a>
         <a href={`/${locale}/tailor-your-trip/`} class="af-link">{m.planner.nav}</a>
         <a href={`/${locale}/#reviews-section`} class="af-link">{m.menu.reviews}</a>
         <a href={`/${locale}/sharm-secrets/`} class="af-link">{m.menu.commandments}</a>

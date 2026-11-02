@@ -1,7 +1,7 @@
 ---
 import {Image} from 'astro:assets';
 import type {Locale} from '../../../shared/config/languages';
-import {supportedLocales} from '../../../shared/config/languages';
+import {supportedLocales,blogLocales} from '../../../shared/config/languages';
 import {getSharedMessages} from '../../../shared/i18n/shared';
 import {siteConfig} from '../../../shared/config/site';
 import EditorialLayout from '../../../shared/layouts/EditorialLayout.astro';
@@ -40,7 +40,7 @@ const required=['name','email','nationality','phone','arrival','departure','budg
     <section class="planner-review" data-planner-review hidden tabindex="-1" aria-labelledby="planner-review-title"><p class="blog-kicker">{m.countryName}</p><h2 id="planner-review-title">{m.reviewTitle}</h2><p>{m.reviewHint}</p><div class="planner-summary" data-planner-summary></div><button type="button" class="blog-button" data-planner-handoff>{m.openWhatsApp}<span aria-hidden="true">↗</span></button><p><a href={`https://wa.me/${siteConfig.whatsapp.number}`} data-planner-fallback>{m.fallback}</a></p><button type="button" class="planner-edit" data-planner-edit>{m.edit}</button></section>
     <noscript><style is:inline>.planner-form{display:none}</style><a class="blog-button" href={`https://wa.me/${siteConfig.whatsapp.number}`}>{m.openWhatsApp}</a></noscript>
    </div>
-   <aside class="planner-aside"><div class="planner-illustration"><Image src={illustration} alt="" widths={[400,640]} sizes="(min-width:1024px) 360px, 100vw" format="webp" loading="lazy"/></div><div class="planner-side-copy"><p class="blog-kicker">Fabio Egypt</p><h2>{m.sideTitle}</h2><p>{m.sideText}</p><ul>{m.sideItems.map(item=><li><span aria-hidden="true">✓</span>{item}</li>)}</ul><a href={`/${locale}/blog/`} class="blog-text-link">{m.backJournal}<span aria-hidden="true">↗</span></a></div></aside>
+   <aside class="planner-aside"><div class="planner-illustration"><Image src={illustration} alt="" widths={[400,640]} sizes="(min-width:1024px) 360px, 100vw" format="webp" loading="lazy"/></div><div class="planner-side-copy"><p class="blog-kicker">Fabio Egypt</p><h2>{m.sideTitle}</h2><p>{m.sideText}</p><ul>{m.sideItems.map(item=><li><span aria-hidden="true">✓</span>{item}</li>)}</ul><a href={`/${blogLocales.includes(locale)?locale:'en'}/blog/`} data-lang-fallback={!blogLocales.includes(locale)?'en':undefined} class="blog-text-link">{m.backJournal}<span aria-hidden="true">↗</span></a></div></aside>
   </div>
  </main>
  <script id="trip-planner-config" type="application/json" set:html={JSON.stringify({locale,m,nationalities:nationalities.map(item=>item.value),required,number:siteConfig.whatsapp.number}).replaceAll('<','\\u003c')}/>

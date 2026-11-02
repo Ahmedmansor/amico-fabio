@@ -1,11 +1,13 @@
 import { assertLegalAssets } from './assets.mjs';
 import it from './content/it.json' with { type: 'json' };
 import en from './content/en.json' with { type: 'json' };
+import es from './content/es.json' with { type: 'json' };
+import pt from './content/pt.json' with { type: 'json' };
 import { defaultLocale, supportedLocales, type Locale } from '../../../shared/config/languages.ts';
 import { validateTranslations } from '../../../shared/i18n/validate.ts';
 import { validateLegalPage, validateSectionIdentity, type LegalPage } from '../domain/legal.ts';
 
-const dictionaries = { it, en } satisfies Record<Locale, LegalPage>;
+const dictionaries = { it, en, es, pt } satisfies Record<Locale, LegalPage>;
 export const legalIcons: Record<string, string> = Object.fromEntries(
   it.sections.map(section => [section.id, `/assets/images/icons/legal/${section.id === 'motion_data' ? 'intro' : section.id}.svg`]),
 );

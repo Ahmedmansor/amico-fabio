@@ -6,7 +6,7 @@ import { getSetupMessages, setupMessages } from '../setup.ts';
 import { validateTranslations } from '../validate.ts';
 
 test('enabled languages match the supplied dictionaries', () => {
-  assert.deepEqual(supportedLocales, ['it', 'en']);
+  assert.deepEqual(supportedLocales, ['it', 'en', 'es', 'pt']);
   assert.doesNotThrow(() => validateTranslations(setupMessages, supportedLocales, defaultLocale));
   assert.equal(getSetupMessages('en').status, setupMessages.en.status);
 });

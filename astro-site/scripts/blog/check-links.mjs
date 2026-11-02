@@ -2,6 +2,7 @@ import { readFile, readdir } from 'node:fs/promises';
 import { resolve, relative, sep } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { htmlToHast } from 'satteri';
+import {isLocale,blogLocales} from '../../src/shared/config/languages.ts';
 
 function elements(node, result = []) {
   if (node.type === 'element') result.push(node);
@@ -41,8 +42,8 @@ export async function checkBlogLinks(directory, { origin = 'https://fabioegypt.c
   };
   let checked = 0;
   for (const [route, page] of pages) {
-    const lang = route.match(/^\/(it|en)\/(?:blog|egypt)\//)?.[1];
-    if (!lang) continue;
+    const lang = route.match(/^\/([^/]+)\/(?:blog|egypt)\//)?.[1];
+    if (!isLocale(lang)) continue;
     checked++;
     const fail = message => errors.push(`${route}: ${message}`);
     if (page.nodes.filter(node => node.tagName === 'h1').length !== 1) fail('expected exactly one H1');
@@ -62,9 +63,11 @@ export async function checkBlogLinks(directory, { origin = 'https://fabioegypt.c
       const target = resolveLink(p.href, route);
       if (target.error) { fail(target.error); continue; }
       if (!target.url) continue;
-      const targetLang = target.url.pathname.match(/^\/(it|en)\//)?.[1];
+      const segment = target.url.pathname.split('/')[1];
+      const targetLang = isLocale(segment) ? segment : undefined;
       const switcher = Object.hasOwn(p, 'dataLangSwitch');
-      if (targetLang && targetLang !== lang && !switcher && !alternate) fail(`language leak ${p.href}`);
+      const blogFallback = p.dataLangFallback === 'en' && targetLang === 'en' && !blogLocales.includes(lang) && target.url.pathname.startsWith('/en/blog/');
+      if (targetLang && targetLang !== lang && !switcher && !alternate && !blogFallback) fail(`language leak ${p.href}`);
       if (alternate && target.page && p.hrefLang !== 'x-default') {
         if (targetLang !== p.hrefLang) fail(`alternate language mismatch ${p.href}`);
         const reciprocal = target.page.nodes.some(n => n.tagName === 'link' && relHas(n, 'alternate') && n.properties.hrefLang === lang && new URL(n.properties.href, origin).pathname === route);

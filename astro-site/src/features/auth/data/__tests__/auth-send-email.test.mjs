@@ -43,6 +43,22 @@ function setup(overrides = {}) {
 }
 
 describe('signed Auth hook and durable delivery contract', () => {
+  for(const [locale,subject,label] of [['es','Tu código de acceso - Fabio Egypt','Tu código de un solo uso'],['pt','O seu código de acesso - Fabio Egypt','O seu código de utilização única']]) {
+    it(`keeps the signed one-use callback in ${locale} with localized mail`,async()=>{
+      const app=setup(), request=event();
+      request.email_data.redirect_to=`${origin}/${locale}/auth/callback/?next=%2F${locale}%2Fwishlist%2F`;
+      const body=JSON.stringify(request);
+      assert.equal((await app.http(await signedRequest(body))).status,200);
+      assert.equal(app.body().subject,subject);
+      assert.ok(app.body().textContent.includes(`${label}: 123456`));
+      const url=new URL(app.body().textContent.match(/https:\/\/[^\s]+/)[0]);
+      assert.equal(url.pathname,`/${locale}/auth/callback/`);
+      assert.equal(url.searchParams.get('next'),`/${locale}/wishlist/`);
+      assert.deepEqual(parseCallback(url.search,url.hash),{kind:'email',tokenHash:'synthetic-token-hash'});
+      await app.http(await signedRequest(body));
+      assert.equal(app.sends(),1);
+    });
+  }
   it('verifies the real HTTP boundary and emits the static cross-device email callback', async () => {
     const app = setup();
     assert.equal((await app.http(await signedRequest(JSON.stringify(event())))).status, 200);

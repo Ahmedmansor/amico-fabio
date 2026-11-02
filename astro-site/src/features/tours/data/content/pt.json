@@ -1,0 +1,1668 @@
+{
+  "ras_mohammed_white_island_vip": {
+    "tour_id": "ras_mohammed_white_island_vip",
+    "title": "Ras Mohammed e Ilha Branca: a experiência VIP",
+    "short_desc": "Viva as «Caraíbas egípcias» a bordo de um iate de luxo. Snorkeling, descanso e almoço gourmet no parque nacional.",
+    "duration": "8-9 horas (dia inteiro)",
+    "highlights": [
+      "Paragem exclusiva na Ilha Branca (a ilha da Terra do Nunca)",
+      "2 paragens de snorkeling no recife de coral mais bonito do mundo",
+      "Almoço preparado na hora a bordo com bebidas ilimitadas",
+      "Ambiente descontraído: sem multidões, apenas diversão"
+    ],
+    "full_description": "Não é apenas mais um passeio de barco: é um dia inesquecível com a assinatura de Amico Fabio. Vamos zarpar em direção ao Parque Nacional de Ras Mohammed, onde o deserto encontra o mar mais azul que alguma vez viu.\n\nA paragem principal? A Ilha Branca: uma língua de areia branca que aparece e desaparece com a maré, criando uma piscina natural digna das Maldivas.\n\nEntre banhos, o nosso chef prepara a bordo um almoço de bufete fresco e saboroso. Quer queira explorar o fundo do mar com os nossos guias experientes ou apenas apanhar sol no convés, esta é a excursão perfeita para combinar aventura e descanso total.",
+    "program": [
+      {
+        "time": "08:00",
+        "activity": "Recolha VIP",
+        "details": "O nosso transfer privado vai buscá-lo diretamente ao hotel. Sem preocupações."
+      },
+      {
+        "time": "09:00",
+        "activity": "Embarque e boas-vindas",
+        "details": "Chegada ao porto, check-in rápido e boas-vindas a bordo com instruções de segurança."
+      },
+      {
+        "time": "10:30",
+        "activity": "Snorkeling em Ras Mohammed",
+        "details": "Primeira paragem guiada para admirar corais milenares e peixes coloridos."
+      },
+      {
+        "time": "12:30",
+        "activity": "A magia da Ilha Branca",
+        "details": "Desembarque na famosa língua de areia branca. Tempo livre para fotografias para o Instagram e para relaxar na água."
+      },
+      {
+        "time": "13:30",
+        "activity": "Almoço com vista",
+        "details": "Bufete variado a bordo (peixe, carne, arroz e saladas), preparado na hora pelo chef."
+      },
+      {
+        "time": "14:30",
+        "activity": "Último banho ou descanso",
+        "details": "Segunda paragem de snorkeling ou tempo para desfrutar do sol enquanto navegamos."
+      },
+      {
+        "time": "16:30",
+        "activity": "Regresso",
+        "details": "Regresso ao porto e transfer confortável para o seu hotel."
+      }
+    ],
+    "includes": [
+      "Transfer de ida e volta ao hotel (autocarro com ar condicionado)",
+      "Bilhete de entrada no Parque Nacional de Ras Mohammed",
+      "Almoço de bufete preparado a bordo",
+      "Bebidas sem álcool ilimitadas durante todo o dia",
+      "Guia de snorkeling de língua italiana"
+    ],
+    "not_included": [
+      "Aluguer de equipamento de snorkeling (máscara/barbatanas, opcional)",
+      "Serviço profissional de fotografia/vídeo",
+      "Gorjetas (ao seu critério)"
+    ],
+    "important_notes": "Leve: passaporte (obrigatório), toalha de praia, protetor solar, óculos de sol e muita energia. No inverno, leve uma camisola leve para o regresso.",
+    "seo_tags": [
+      "Ras Mohammed",
+      "Ilha Branca Sharm",
+      "Excursão de barco Sharm",
+      "Snorkeling Mar Vermelho",
+      "Amico Fabio Tours"
+    ]
+  },
+  "ras_mohammed_bus_half_day": {
+    "tour_id": "ras_mohammed_bus_half_day",
+    "title": "Explorar a natureza de Ras Mohammed: o parque por terra",
+    "short_desc": "Uma viagem entre o deserto e o mar. Descubra a Porta de Alá, os mangais e o lendário Lago Mágico em meio dia.",
+    "duration": "5-6 horas (meio dia)",
+    "highlights": [
+      "Fotografia emblemática na «Porta de Alá»",
+      "Peça um desejo no Lago Mágico",
+      "Snorkeling guiado a partir da praia (recife de coral vivo)",
+      "Regresso ao hotel à hora de almoço"
+    ],
+    "full_description": "Descubra o ponto exato onde a Ásia encontra a África. Esta excursão por terra é perfeita para quem quer conhecer a verdadeira natureza do Sinai sem passar o dia inteiro num barco.\n\nVamos atravessar a monumental «Porta de Alá» para entrar numa paisagem lunar. Caminharemos entre as raízes aéreas dos mangais, veremos a fenda do terramoto e chegaremos ao famoso «Lago Mágico»: uma piscina natural onde, segundo a lenda beduína, basta atirar uma pedrinha e pedir um desejo para que se concretize.\n\nNão faltará atividade: faremos snorkeling diretamente a partir da praia num dos locais com mais coral do Mar Vermelho.",
+    "program": [
+      {
+        "time": "08:00",
+        "activity": "Partida",
+        "details": "Recolha confortável no seu hotel num miniautocarro com ar condicionado."
+      },
+      {
+        "time": "09:00",
+        "activity": "A Porta de Alá",
+        "details": "Chegada ao parque e paragem para fotografias na entrada monumental."
+      },
+      {
+        "time": "09:45",
+        "activity": "Mangais e terramoto",
+        "details": "Passeio na natureza entre as árvores que crescem em água salgada e a falha sísmica."
+      },
+      {
+        "time": "10:30",
+        "activity": "Lago Mágico",
+        "details": "Tempo para admirar as cores da lagoa e… pedir o seu desejo."
+      },
+      {
+        "time": "11:30",
+        "activity": "Snorkeling a partir da praia",
+        "details": "Mergulho guiado para explorar o recife de coral (também adequado a principiantes)."
+      },
+      {
+        "time": "13:30",
+        "activity": "Regresso",
+        "details": "De volta ao hotel mesmo a tempo do almoço."
+      }
+    ],
+    "includes": [
+      "Transfer de ida e volta ao hotel (miniautocarro com ar condicionado)",
+      "Bilhete de entrada no Parque Nacional de Ras Mohammed",
+      "Guia experiente de língua italiana",
+      "Água mineral durante a excursão"
+    ],
+    "not_included": [
+      "Aluguer de equipamento de snorkeling (máscara/barbatanas, disponível na primeira paragem)",
+      "Serviço profissional de fotografia/vídeo",
+      "Almoço (a excursão termina antes do almoço)"
+    ],
+    "important_notes": "Leve: passaporte (obrigatório para a polícia turística), fato de banho, toalha, calçado confortável para caminhar e moedas para pedir um desejo!",
+    "seo_tags": [
+      "Ras Mohammed de autocarro",
+      "Lago Mágico Sharm",
+      "Porta de Alá",
+      "Snorkeling a partir da praia",
+      "Excursão de meio dia"
+    ]
+  },
+  "tiran_island_boat_vip": {
+    "tour_id": "tiran_island_boat_vip",
+    "title": "Ilha de Tiran VIP: naufrágios e recifes de coral",
+    "short_desc": "Navegue até à fronteira entre o Egito e a Arábia. Snorkeling em recifes famosos (Gordon e Jackson), vista do naufrágio Louilla e descanso total.",
+    "duration": "8 horas (dia inteiro)",
+    "highlights": [
+      "Vista panorâmica do naufrágio do cargueiro «Louilla»",
+      "Snorkeling em recifes famosos: Gordon, Jackson ou Thomas",
+      "Elevada probabilidade de avistar golfinhos durante a navegação",
+      "Almoço de bufete com vista para a ilha (sem desembarque)"
+    ],
+    "full_description": "Não é apenas um passeio de barco: é uma aventura até aos limites do Mar Vermelho. A ilha de Tiran, situada à entrada do Golfo de Aqaba, é famosa pelas águas profundas e pelas correntes que alimentam os corais mais coloridos de Sharm.\n\nVamos navegar em direção aos 4 recifes lendários (Jackson, Woodhouse, Thomas e Gordon). Não desembarcaremos na ilha (zona militar), mas pararemos mesmo em frente para admirar o misterioso naufrágio do cargueiro «Louilla», encalhado desde os anos 80.\n\nÉ a excursão perfeita para quem procura um mar mais «selvagem» do que Ras Mohammed e quer tentar a sorte com os golfinhos que muitas vezes acompanham o nosso rasto.",
+    "program": [
+      {
+        "time": "08:00",
+        "activity": "Recolha no hotel",
+        "details": "Transfer pontual para o porto em autocarro com ar condicionado."
+      },
+      {
+        "time": "09:30",
+        "activity": "Navegação e golfinhos",
+        "details": "Vamos zarpar! Tenha a máquina fotográfica pronta: os golfinhos costumam brincar à volta do barco neste percurso."
+      },
+      {
+        "time": "11:00",
+        "activity": "Lagoa Azul e snorkeling",
+        "details": "Primeira paragem guiada de snorkeling em águas cristalinas abrigadas do vento."
+      },
+      {
+        "time": "13:00",
+        "activity": "Almoço com vista para o naufrágio",
+        "details": "Bufete quente servido a bordo enquanto admira o impressionante naufrágio do Louilla."
+      },
+      {
+        "time": "14:30",
+        "activity": "Segundo banho ou descanso",
+        "details": "Snorkeling no recife exterior (mais rico em peixes) ou tempo para apanhar sol no convés."
+      },
+      {
+        "time": "16:30",
+        "activity": "Regresso ao porto",
+        "details": "Navegação de regresso com música e descanso, seguida de transfer para o hotel."
+      }
+    ],
+    "includes": [
+      "Transfer de ida e volta ao hotel",
+      "Bilhete de entrada no parque marinho",
+      "Almoço de bufete preparado na hora a bordo",
+      "Bebidas sem álcool ilimitadas (água, Coca-Cola, Sprite, chá e café)",
+      "Guia experiente de snorkeling"
+    ],
+    "not_included": [
+      "Aluguer de equipamento de snorkeling (máscara/barbatanas, disponível no porto)",
+      "Serviço profissional de fotografia/vídeo",
+      "Gorjetas para a tripulação"
+    ],
+    "important_notes": "Obrigatório: leve PASSAPORTE ou documento de identificação (o visto Sinai Only é suficiente, mas o documento é necessário para os controlos no porto). Não se esqueça da toalha de praia e do protetor solar.",
+    "seo_tags": [
+      "Ilha de Tiran Sharm",
+      "Naufrágio Louilla",
+      "Snorkeling recife Gordon",
+      "Golfinhos Mar Vermelho",
+      "Excursão de barco Tiran"
+    ]
+  },
+  "dahab_blue_hole_super_safari": {
+    "tour_id": "dahab_blue_hole_super_safari",
+    "title": "Aventura em Dahab: Blue Hole, camelos e desfiladeiro",
+    "short_desc": "A aventura definitiva do Sinai. Faça snorkeling no lendário Blue Hole, caminhe pelo Desfiladeiro Colorido e desfrute de um passeio de camelo junto ao mar.",
+    "duration": "10-11 horas (dia inteiro)",
+    "highlights": [
+      "Snorkeling no mundialmente famoso «Blue Hole» (sítio UNESCO)",
+      "Caminhada guiada no desfiladeiro (Salama ou Desfiladeiro Colorido)",
+      "Passeio tradicional de camelo pela costa",
+      "Almoço beduíno autêntico junto ao mar",
+      "Tempo livre para compras na vila hippie e boémia de Dahab"
+    ],
+    "full_description": "Pronto para uma aventura fora dos percursos habituais? Deixe os resorts de luxo para trás e mergulhe na verdadeira vida do Sinai.\n\nAtravessaremos o deserto de jipe até ao famoso «Blue Hole», uma impressionante cavidade submarina de 100 metros de profundidade que atrai mergulhadores de todo o mundo. Aqui fará snorkeling sobre os recifes de coral mais ricos e preservados da região.\n\nMas a diversão continua: passeie de camelo pela costa (uma experiência verdadeiramente única!), caminhe entre as rochas de cores vivas esculpidas pelo vento no desfiladeiro e termine o dia a descansar ou a fazer compras no centro boémio de Dahab.",
+    "program": [
+      {
+        "time": "07:30",
+        "activity": "Partida para a aventura",
+        "details": "Recolha de jipe/miniautocarro para um percurso panorâmico pelo deserto do Sinai."
+      },
+      {
+        "time": "09:30",
+        "activity": "Caminhada no desfiladeiro",
+        "details": "Passeio guiado pelas formações rochosas únicas do desfiladeiro (aprox. 45 min)."
+      },
+      {
+        "time": "11:00",
+        "activity": "Passeio de camelo junto ao mar",
+        "details": "Chegada à reserva seguida de um tranquilo passeio de camelo pela costa."
+      },
+      {
+        "time": "12:00",
+        "activity": "Blue Hole e snorkeling",
+        "details": "O ponto alto: entre no famoso Blue Hole com uma sessão guiada de snorkeling."
+      },
+      {
+        "time": "13:30",
+        "activity": "Almoço beduíno",
+        "details": "Almoço tradicional numa tenda beduína junto ao mar (frango, arroz e saladas)."
+      },
+      {
+        "time": "15:30",
+        "activity": "Descobrir Dahab",
+        "details": "Tempo livre no passeio marítimo de Dahab para um café, um gelado ou compras de artesanato."
+      },
+      {
+        "time": "17:30",
+        "activity": "Regresso",
+        "details": "De volta a Sharm El Sheikh com o coração cheio de memórias."
+      }
+    ],
+    "includes": [
+      "Transfers de ida e volta de jipe/miniautocarro",
+      "Guia profissional especializado no deserto",
+      "Almoço numa tenda beduína",
+      "Passeio de camelo (incluído no preço)"
+    ],
+    "not_included": [
+      "Taxa do parque nacional (aprox. 10-20€, pagamento obrigatório no local)",
+      "Aluguer de equipamento de snorkeling (máscara/barbatanas/fato isotérmico)",
+      "Bebidas durante o almoço",
+      "Gorjetas"
+    ],
+    "important_notes": "A saber: o Blue Hole é profundo, mas o snorkeling é feito à superfície em total segurança. Leve o passaporte, calçado confortável para caminhar no desfiladeiro (não leve chinelos!) e fato de banho.",
+    "seo_tags": [
+      "Blue Hole Sharm",
+      "Excursão Dahab",
+      "Desfiladeiro Colorido",
+      "Safari Sinai",
+      "Passeio de camelo Dahab"
+    ]
+  },
+  "private_boat_vip_king": {
+    "tour_id": "private_boat_vip_king",
+    "title": "Barco privado VIP: o rei do Mar Vermelho",
+    "short_desc": "A experiência definitiva. Um iate inteiro só para si. Decide o horário, o percurso e a ementa. Privacidade e luxo absolutos.",
+    "duration": "Flexível (decide a duração)",
+    "highlights": [
+      "Aluguer exclusivo de iate (sem desconhecidos a bordo)",
+      "Liberdade total: escolha entre a ilha de Tiran ou Ras Mohammed",
+      "Horários flexíveis: comece e termine quando preferir",
+      "Almoço VIP personalizado (ementa de marisco ou carne a pedido)",
+      "Ideal para festas privadas, aniversários ou descanso em família"
+    ],
+    "full_description": "Bem-vindo a bordo do «King of Red Sea». Esqueça as excursões em grupo, as filas para almoçar e os horários fixos. Hoje, o capitão é você.\n\nEsta opção foi pensada para quem procura o melhor: alugar um iate privado significa ter a tripulação inteiramente à sua disposição. Quer ficar duas horas na Ilha Branca? Feito. Quer ir à procura de golfinhos em Tiran? Vamos. Quer festejar com a sua música ou desfrutar do silêncio do mar aberto? O barco é seu.\n\nÉ a escolha perfeita para famílias que procuram segurança para as crianças, casais em lua de mel à procura de romantismo ou grupos de amigos que querem divertir-se longe de olhares indiscretos.",
+    "program": [
+      {
+        "time": "Flexível",
+        "activity": "Partida à medida",
+        "details": "O transfer privado vai buscá-lo à hora que preferir (recomendamos 09:00)."
+      },
+      {
+        "time": "Flexível",
+        "activity": "Navegação personalizada",
+        "details": "Escolha o seu percurso: Parque Marinho de Ras Mohammed OU ilha de Tiran. O capitão aconselha os melhores locais consoante as condições do vento."
+      },
+      {
+        "time": "Flexível",
+        "activity": "Snorkeling e descanso",
+        "details": "Paramos onde a água é mais azul. Snorkeling privado guiado ou saltos para a água a partir do convés."
+      },
+      {
+        "time": "Flexível",
+        "activity": "Almoço exclusivo",
+        "details": "Sem filas de bufete. O almoço é servido à sua mesa. Ementas de luxo (lagosta e camarão) disponíveis a pedido."
+      },
+      {
+        "time": "Flexível",
+        "activity": "Pôr do sol e regresso",
+        "details": "Desfrute do pôr do sol em mar aberto antes de regressar ao porto como um verdadeiro VIP."
+      }
+    ],
+    "includes": [
+      "Aluguer exclusivo de iate (tripulação e combustível incluídos)",
+      "Transfer privado de ida e volta (carro de luxo/monovolume)",
+      "Almoço a bordo (ementa padrão incluída, extras a pedido)",
+      "Bebidas sem álcool ilimitadas",
+      "Guia privado dedicado"
+    ],
+    "not_included": [
+      "Ementa de luxo adicional (lagosta/champanhe, com reserva prévia)",
+      "Taxas do parque nacional (se aplicáveis)",
+      "Gorjetas para a tripulação",
+      "Fotógrafo privado (a pedido)"
+    ],
+    "important_notes": "O preço varia consoante o tamanho do barco e o número de hóspedes. Contacte-nos para um orçamento à medida. Podemos organizar bolos de aniversário ou decorações românticas.",
+    "seo_tags": [
+      "Aluguer de iates Sharm",
+      "Barco privado Mar Vermelho",
+      "Barco privado Ras Mohammed",
+      "VIP Sharm El Sheikh",
+      "Festa de barco Sharm"
+    ]
+  },
+  "dolphin_show_family": {
+    "tour_id": "dolphin_show_family",
+    "title": "Espetáculo de golfinhos: emoções para toda a família",
+    "short_desc": "Uma hora de pura magia. Admire as acrobacias, os saltos e a inteligência dos golfinhos num espetáculo que encantará adultos e crianças.",
+    "duration": "2,5 horas (incluindo transfers)",
+    "highlights": [
+      "Espetáculo acrobático de 60 minutos",
+      "Adequado a todas as idades (perfeito para crianças)",
+      "Transfer confortável de ida e volta com ar condicionado",
+      "Oportunidades de fotografias com os golfinhos (a partir da plataforma)"
+    ],
+    "full_description": "Não é apenas um espetáculo: é uma explosão de alegria.\n\nSente-se no grande anfiteatro e prepare-se para sorrir ao ver os golfinhos dançar, saltar por arcos e brincar com os seus treinadores em perfeita harmonia. É a excursão da tarde perfeita para descansar e oferecer aos seus filhos uma memória para a vida, sem se cansarem nem se molharem.",
+    "program": [
+      {
+        "time": "14:30",
+        "activity": "Recolha no hotel",
+        "details": "O nosso autocarro estará à espera para o levar ao delfinário."
+      },
+      {
+        "time": "15:00",
+        "activity": "Chegada e lugares",
+        "details": "Entrada rápida e acomodação nos melhores lugares do anfiteatro."
+      },
+      {
+        "time": "15:30",
+        "activity": "O espetáculo",
+        "details": "Começa o espetáculo! 1 hora de música, saltos e aplausos."
+      },
+      {
+        "time": "16:30",
+        "activity": "Regresso",
+        "details": "Fim do espetáculo e regresso confortável ao seu hotel."
+      }
+    ],
+    "includes": [
+      "Transfer de ida e volta ao hotel",
+      "Bilhete de entrada no espetáculo",
+      "Lugar no anfiteatro",
+      "Assistência em inglês/italiano"
+    ],
+    "not_included": [
+      "Fotografias profissionais com os golfinhos (disponíveis para compra após o espetáculo)",
+      "Bebidas e snacks",
+      "Nadar com golfinhos (pode ser reservado à parte)"
+    ],
+    "important_notes": "Conselho: se ficar nas primeiras filas, os golfinhos podem oferecer-lhe uns salpicos simpáticos! As crianças com menos de 4 anos entram gratuitamente.",
+    "seo_tags": [
+      "Espetáculo de golfinhos Sharm",
+      "Espetáculo de golfinhos Egito",
+      "Atividades para crianças Sharm",
+      "Delfinário Sharm"
+    ]
+  },
+  "swim_with_dolphins_vip": {
+    "tour_id": "swim_with_dolphins_vip",
+    "title": "Nadar com golfinhos: amor à primeira vista",
+    "short_desc": "Uma experiência única na vida. Entre na água para dançar e brincar com os animais mais inteligentes do mundo. Um privilégio para poucos.",
+    "duration": "2 horas (atividade na água: 15 ou 30 min)",
+    "highlights": [
+      "Contacto direto: toque, beije e dance com o golfinho",
+      "Grupos pequenos para uma interação máxima",
+      "Experiência VIP com instrutores qualificados",
+      "Transfer privado (disponível a pedido)"
+    ],
+    "full_description": "Conhecer o animal mais inteligente do mundo não é apenas uma excursão: é uma memória que guardará para sempre.\n\nImagine entrar na piscina, sentir a pele suave do golfinho, ser puxado pela sua barbatana e receber um beijo na face. Não precisa de ser nadador olímpico: a atividade é segura e orientada passo a passo por especialistas. Chegou a hora de realizar esse sonho de infância.",
+    "program": [
+      {
+        "time": "Manhã/tarde",
+        "activity": "Recolha VIP",
+        "details": "Recolha no hotel (horários habituais às 10:00 ou 13:30)."
+      },
+      {
+        "time": "No delfinário",
+        "activity": "Instruções",
+        "details": "Preparação, mudança de roupa (fato isotérmico fornecido se necessário) e instruções de segurança."
+      },
+      {
+        "time": "Na água",
+        "activity": "O encontro mágico",
+        "details": "15 ou 30 minutos (consoante a reserva) de pura emoção na água com o golfinho."
+      },
+      {
+        "time": "Após a atividade",
+        "activity": "Fotografias e regresso",
+        "details": "Seque-se, veja as fotografias profissionais (opcional) e regresse ao hotel."
+      }
+    ],
+    "includes": [
+      "Transfer de ida e volta ao hotel",
+      "Bilhete VIP para nadadores",
+      "15 ou 30 minutos na água com golfinhos",
+      "Instrutor dedicado"
+    ],
+    "not_included": [
+      "Serviço de fotografia/vídeo (só os fotógrafos do centro estão autorizados, custo adicional)",
+      "Gorjetas",
+      "Toalhas (traga a sua)"
+    ],
+    "important_notes": "Regras importantes: não são permitidos anéis, pulseiras ou relógios na água para evitar magoar os golfinhos. Não adequado a grávidas. As crianças devem saber nadar ou estar acompanhadas.",
+    "seo_tags": [
+      "Nadar com golfinhos Sharm",
+      "Encontro com golfinhos Egito",
+      "Banho com golfinhos Sharm",
+      "Experiência VIP Sharm"
+    ]
+  },
+  "sina_dream_vip_day": {
+    "tour_id": "sina_dream_vip_day",
+    "title": "Sina Dream VIP: o veleiro de luxo",
+    "short_desc": "Viva o Mar Vermelho a bordo de um autêntico veleiro. Conforto de 5 estrelas, redes sobre a água e o melhor almoço de marisco de Sharm.",
+    "duration": "9 horas (dia inteiro)",
+    "highlights": [
+      "Experiência de navegação (motor e vela) num iate único",
+      "Almoço VIP: camarão, lulas, kofta e peixe fresco",
+      "Descanse em redes suspensas diretamente sobre a água",
+      "Paragem na Ilha Branca ou em Tiran (consoante o tempo)"
+    ],
+    "full_description": "Esqueça os habituais barcos brancos cheios de gente. O Sina Dream é um veleiro clássico equipado com todo o luxo moderno.\n\nImagine-se deitado nas redes suspensas sobre a água cristalina enquanto navega em direção a Ras Mohammed, ouvindo apenas o vento e as ondas. Esta é a única excursão que garante uma experiência gastronómica superior: uma grelhada de marisco e carne preparada na hora que vai deliciar o seu paladar.\n\nÉ a escolha ideal para quem procura aquele toque extra de distinção.",
+    "program": [
+      {
+        "time": "08:00",
+        "activity": "Recolha VIP",
+        "details": "Transfer pontual do seu hotel para o porto."
+      },
+      {
+        "time": "09:30",
+        "activity": "Vamos zarpar!",
+        "details": "Boas-vindas a bordo, música lounge e navegação em direção ao parque marinho."
+      },
+      {
+        "time": "11:00",
+        "activity": "Snorkeling e redes",
+        "details": "Paragem guiada de snorkeling. Quem não nada pode descansar nas famosas redes sobre a água."
+      },
+      {
+        "time": "13:00",
+        "activity": "O grande almoço",
+        "details": "Bufete com camarão, lulas, carne grelhada e saladas frescas."
+      },
+      {
+        "time": "14:30",
+        "activity": "Ilha Branca",
+        "details": "Paragem para desfrutar das águas preservadas da «ilha que não existe» (ou Tiran, consoante o dia)."
+      },
+      {
+        "time": "16:30",
+        "activity": "Regresso",
+        "details": "Navegação de regresso ao porto ao pôr do sol e transfer para o hotel."
+      }
+    ],
+    "includes": [
+      "Transfer de ida e volta",
+      "Bilhete de entrada no parque nacional",
+      "Almoço superior (camarão incluído)",
+      "Bebidas ilimitadas durante todo o dia",
+      "Guia de snorkeling"
+    ],
+    "not_included": [
+      "Aluguer de equipamento de snorkeling",
+      "Serviço de fotografia/vídeo",
+      "Gorjetas"
+    ],
+    "important_notes": "Esta é a excursão mais procurada em Sharm. É essencial reservar com dias de antecedência. Leve o seu passaporte.",
+    "seo_tags": [
+      "Sina Dream Sharm",
+      "Navegação à vela Egito",
+      "Almoço de marisco Sharm",
+      "Excursão VIP Sharm"
+    ]
+  },
+  "dinner_cruise_night_show": {
+    "tour_id": "dinner_cruise_night_show",
+    "title": "Noite mágica: jantar de marisco e espetáculo oriental",
+    "short_desc": "Uma noite inesquecível sob as estrelas. Jantar de marisco, espetáculo de tanoura e dança do ventre enquanto navega pelo golfo de Sharm.",
+    "duration": "5 horas (noite)",
+    "highlights": [
+      "Jantar romântico de bufete com camarão e peixe",
+      "Espetáculo completo: dança do ventre, tanoura e magia",
+      "Navegação noturna com vista para Sharm iluminada",
+      "Ambiente festivo perfeito para casais e famílias"
+    ],
+    "full_description": "Quando o sol se põe, Sharm ilumina-se de magia. Suba a bordo do nosso iate para um cruzeiro noturno que combina boa gastronomia com entretenimento espetacular.\n\nNão é apenas um jantar: é uma viagem pela cultura egípcia. Enquanto desfruta de um generoso bufete de marisco e grelhada mista, será acompanhado pelos melhores artistas locais. O dervixe rodopiante (tanoura) vai hipnotizá-lo e a bailarina de dança do ventre dará vida à festa.\n\nÉ a noite perfeita para celebrar um aniversário, uma data especial ou simplesmente desfrutar da vida.",
+    "program": [
+      {
+        "time": "17:30",
+        "activity": "Recolha",
+        "details": "Recolha no hotel por volta do pôr do sol."
+      },
+      {
+        "time": "18:30",
+        "activity": "Boas-vindas",
+        "details": "Embarque e cocktail de boas-vindas (sem álcool) enquanto o barco sai do porto."
+      },
+      {
+        "time": "19:30",
+        "activity": "Jantar de bufete",
+        "details": "Abertura do bufete: sopa de marisco, camarão, peixe, frango, arroz e muito mais."
+      },
+      {
+        "time": "20:30",
+        "activity": "O espetáculo",
+        "details": "Começa o espetáculo: música ao vivo, dança do ventre e tanoura."
+      },
+      {
+        "time": "22:00",
+        "activity": "Regresso",
+        "details": "Regresso ao porto e transfer para o hotel (ou para o centro da cidade, se solicitado)."
+      }
+    ],
+    "includes": [
+      "Transfer de ida e volta",
+      "Jantar completo de bufete (marisco/carne)",
+      "Bebidas sem álcool ilimitadas",
+      "Espetáculo folclórico"
+    ],
+    "not_included": [
+      "Sumos naturais / café expresso (extra)",
+      "Fotografias profissionais",
+      "Bolo de aniversário (disponível por encomenda adicional)"
+    ],
+    "important_notes": "Vestuário: informal cuidado (recomenda-se levar um casaco leve nos meses de inverno devido à brisa do mar).",
+    "seo_tags": [
+      "Jantar romântico Sharm",
+      "Espetáculo oriental de barco",
+      "Vida noturna Sharm",
+      "Cruzeiro com jantar Egito"
+    ]
+  },
+  "water_sports_adrenaline_combo": {
+    "tour_id": "water_sports_adrenaline_combo",
+    "title": "Adrenalina entre céu e mar: parasailing e diversões aquáticas",
+    "short_desc": "Voe sobre o Mar Vermelho de paraquedas e desafie as ondas numa banana aquática e num insuflável rebocado. Diversão e adrenalina em total segurança.",
+    "duration": "2-3 horas (manhã ou tarde)",
+    "highlights": [
+      "Vista aérea deslumbrante de Sharm (parasailing)",
+      "Diversão emocionante com banana aquática e insuflável rebocado",
+      "Segurança garantida com equipamento moderno",
+      "Sem surpresas: transfer incluído no pacote"
+    ],
+    "full_description": "Ver Sharm do alto ou saltar sobre as ondas? Porquê escolher se pode fazer as duas coisas?\n\nCom o nosso pacote «Adrenalina», vai viver o mar de todos os ângulos. Comece com parasailing: descole diretamente da plataforma do barco (sem sequer se molhar!) para desfrutar de 10 minutos de voo silencioso e espetacular sobre o Mar Vermelho.\n\nDepois, vá para a água para a parte mais animada: agarre-se bem à banana aquática ou ao insuflável rebocado e desafie os amigos para ver quem aguenta mais tempo entre gargalhadas.",
+    "program": [
+      {
+        "time": "Vários horários",
+        "activity": "Recolha",
+        "details": "Recolha no hotel disponível das 10:00 às 16:00."
+      },
+      {
+        "time": "30 min",
+        "activity": "Instruções e preparação",
+        "details": "Chegada à base náutica, coletes salva-vidas e instruções."
+      },
+      {
+        "time": "Atividade 1",
+        "activity": "Céu: parasailing",
+        "details": "Voo individual ou duplo. Uma paisagem que nunca esquecerá."
+      },
+      {
+        "time": "Atividade 2",
+        "activity": "Mar: as diversões",
+        "details": "Hora de gritar e rir nos insufláveis (banana/tubo)."
+      },
+      {
+        "time": "Fim",
+        "activity": "Regresso",
+        "details": "Seque-se e regresse confortavelmente ao hotel no nosso autocarro."
+      }
+    ],
+    "includes": [
+      "Transfer de ida e volta (autocarro com ar condicionado)",
+      "Voo de paraquedas (individual ou duplo)",
+      "Passeio de banana aquática / insuflável rebocado",
+      "Colete salva-vidas",
+      "Instrutor profissional"
+    ],
+    "not_included": [
+      "Fotografia e vídeo (serviço adicional gerido pelo centro)",
+      "Bebidas",
+      "Barco com fundo de vidro (pode ser reservado à parte para acompanhantes)"
+    ],
+    "important_notes": "Segurança: no parasailing duplo, o peso combinado de duas pessoas NÃO pode ultrapassar 150 kg (caso contrário, os voos serão individuais). Atividade não recomendada a grávidas ou pessoas com problemas de costas.",
+    "seo_tags": [
+      "Parasailing Sharm",
+      "Banana aquática Egito",
+      "Desportos aquáticos Sharm",
+      "Paraquedas Mar Vermelho"
+    ]
+  },
+  "albatros_aqua_park_full_day": {
+    "tour_id": "albatros_aqua_park_full_day",
+    "title": "Albatros Aqua Park: o reino da água",
+    "short_desc": "Um dia inteiro de diversão no maior parque aquático do Médio Oriente. Mais de 60 escorregas, piscinas de ondas e descanso para toda a família.",
+    "duration": "7 horas (dia inteiro)",
+    "highlights": [
+      "Acesso ilimitado a mais de 60 escorregas e atrações",
+      "Tudo incluído: almoço e bebidas",
+      "Zona infantil segura vigiada por nadadores-salvadores",
+      "Adrenalina pura: escorregas Kamikaze, King Kong e Black Hole"
+    ],
+    "full_description": "Se procura uma alternativa à praia onde as crianças possam divertir-se à vontade e os adultos voltar a sentir-se crianças, o Albatros é a primeira escolha.\n\nNão é apenas um parque: é uma cidade aquática dentro de um resort de 5 estrelas. Encontrará atrações de recorde: desde torres de adrenalina para os mais corajosos até ao «rio lento» para quem só quer descansar numa boia.\n\nE o melhor? Não precisa de se preocupar com nada: o almoço e as bebidas sem álcool estão incluídos no bilhete durante todo o dia.",
+    "program": [
+      {
+        "time": "09:30",
+        "activity": "Partida",
+        "details": "Autocarro climatizado do seu hotel até à entrada do parque."
+      },
+      {
+        "time": "10:00",
+        "activity": "Entrada VIP",
+        "details": "Recolha dos bilhetes e começa a diversão. Sem filas na bilheteira."
+      },
+      {
+        "time": "13:00",
+        "activity": "Almoço",
+        "details": "Pausa para almoçar nos restaurantes do parque (incluída), com bebidas frescas."
+      },
+      {
+        "time": "14:00",
+        "activity": "Segunda ronda",
+        "details": "Tarde dedicada ao descanso na piscina ou aos últimos escorregas."
+      },
+      {
+        "time": "17:00",
+        "activity": "Regresso",
+        "details": "Saída do parque e transfer de regresso ao hotel."
+      }
+    ],
+    "includes": [
+      "Transfer de ida e volta ao hotel",
+      "Bilhete de entrada (acesso a todas as atrações)",
+      "Almoço de bufete / snacks",
+      "Bebidas sem álcool ilimitadas durante todo o dia"
+    ],
+    "not_included": [
+      "Cacifo para objetos pessoais (pago no local)",
+      "Toalha de praia (recomenda-se trazer a do hotel)",
+      "Wi-Fi (custo adicional)"
+    ],
+    "important_notes": "Conselho: traga a toalha de praia do hotel (as toalhas no parque são pagas). Não se esqueça do protetor solar: o sol é forte enquanto se diverte!",
+    "seo_tags": [
+      "Albatros Aqua Park",
+      "Parques aquáticos Sharm",
+      "Escorregas Sharm El Sheikh",
+      "Diversão em família Egito"
+    ]
+  },
+  "seascope_semi_submarine": {
+    "tour_id": "seascope_semi_submarine",
+    "title": "Sea Scope: o cinema subaquático",
+    "short_desc": "Descubra o recife de coral sem se molhar. Uma experiência de semissubmarino com ar condicionado. Ideal para famílias e para quem não nada.",
+    "duration": "3 horas (incluindo transfers)",
+    "highlights": [
+      "Admire o fundo do mar através de grandes janelas panorâmicas",
+      "Ambiente confortável com ar condicionado (sem preocupações)",
+      "Perfeito para crianças, idosos e para quem não nada",
+      "Tire fotografias incríveis como se fosse mergulhador"
+    ],
+    "full_description": "Quer ver as cores do Mar Vermelho sem se molhar? O Sea Scope é a solução perfeita.\n\nEsta embarcação especial (semissubmarino) tem um casco submerso equipado com grandes janelas de vidro e bancos giratórios. Parece estar num cinema, mas o espetáculo é real: corais, peixes-palhaço e a incrível vida marinha de Sharm desfilarão diante dos seus olhos.\n\nÉ a excursão ideal para famílias com crianças pequenas (que vão adorar o «Nemo»), para quem não sabe nadar ou simplesmente para quem quer desfrutar do mar com todo o descanso e o conforto fresco do ar condicionado.",
+    "program": [
+      {
+        "time": "Vários horários",
+        "activity": "Recolha no hotel",
+        "details": "Escolha o horário que preferir (manhã ou tarde). O autocarro leva-o ao porto."
+      },
+      {
+        "time": "30 min",
+        "activity": "Embarque e navegação",
+        "details": "Vamos partir! Desfrute da vista panorâmica do convés superior enquanto nos aproximamos do recife."
+      },
+      {
+        "time": "1 hora",
+        "activity": "Mergulho «a seco»",
+        "details": "Descida ao salão de observação (abaixo do nível do mar). 45-60 minutos de puro espetáculo entre os corais."
+      },
+      {
+        "time": "30 min",
+        "activity": "Regresso",
+        "details": "Regresso ao porto e transfer confortável para o hotel."
+      }
+    ],
+    "includes": [
+      "Transfer de ida e volta ao hotel (autocarro com ar condicionado)",
+      "Bilhete de entrada no Sea Scope",
+      "Bebida sem álcool de boas-vindas (habitualmente incluída)",
+      "Guia acompanhante"
+    ],
+    "not_included": [
+      "Serviço profissional de fotografia/vídeo",
+      "Gorjetas",
+      "Despesas pessoais"
+    ],
+    "important_notes": "As saídas são habitualmente às 09:00, 11:00 ou 13:00. Perfeito para ocupar meio dia sem se cansar demasiado.",
+    "seo_tags": [
+      "Submarino Sharm",
+      "Sea Scope Egito",
+      "Excursão em família Sharm",
+      "Recife de coral sem se molhar",
+      "Ver peixes sem nadar"
+    ]
+  },
+  "super_safari_5_senses": {
+    "tour_id": "super_safari_5_senses",
+    "title": "Super Safari: os 5 sentidos do Sinai",
+    "short_desc": "A experiência definitiva do deserto. Moto-quatro, camelos ao pôr do sol, jantar beduíno sob as estrelas e observação astronómica.",
+    "duration": "5-6 horas (tarde/noite)",
+    "highlights": [
+      "Adrenalina pura de moto-quatro (ATV)",
+      "Pôr do sol mágico no coração do deserto",
+      "Passeio tradicional de camelo (curto e divertido)",
+      "Jantar de churrasco ilimitado sob um céu estrelado",
+      "Observação de estrelas com telescópios profissionais"
+    ],
+    "full_description": "Porquê escolher se pode ter tudo? O Super Safari é o nosso mais vendido porque reúne a essência do Egito numa única noite.\n\nComeçamos com a adrenalina do moto-quatro, percorrendo as montanhas rochosas do Sinai enquanto o sol se põe. Chegamos a um acampamento beduíno onde o tempo parece parar.\n\nAqui viverá as tradições locais: andar de camelo, provar pão acabado de fazer e desfrutar de um jantar de churrasco com espetáculo oriental. O grande final? Apagamos todas as luzes para observar as constelações com telescópios profissionais, acompanhados por um especialista.",
+    "program": [
+      {
+        "time": "15:30",
+        "activity": "Começa a aventura",
+        "details": "Recolha no hotel e transfer para o centro de moto-quatro no deserto."
+      },
+      {
+        "time": "16:30",
+        "activity": "Motores ligados",
+        "details": "Instruções de segurança, teste de condução e… vamos! 45-60 minutos de condução emocionante pelas dunas."
+      },
+      {
+        "time": "17:30",
+        "activity": "O acampamento",
+        "details": "Chegada à tenda beduína. Boas-vindas com chá de menta e pão fresco."
+      },
+      {
+        "time": "18:00",
+        "activity": "Pôr do sol e camelos",
+        "details": "Passeio de camelo enquanto o deserto fica vermelho ao pôr do sol."
+      },
+      {
+        "time": "19:00",
+        "activity": "Jantar e espetáculo",
+        "details": "Grande jantar de bufete (churrasco, arroz e saladas), acompanhado de dança do ventre e tanoura."
+      },
+      {
+        "time": "20:30",
+        "activity": "As estrelas",
+        "details": "Um momento mágico: observar as constelações através do telescópio."
+      },
+      {
+        "time": "21:30",
+        "activity": "Regresso",
+        "details": "De volta ao hotel com os olhos cheios de encanto."
+      }
+    ],
+    "includes": [
+      "Transfers de ida e volta (autocarro com ar condicionado)",
+      "Aluguer de moto-quatro (individual ou duplo)",
+      "Jantar beduíno com bebidas (água/refrigerantes)",
+      "Passeio de camelo",
+      "Guia de astronomia e telescópio"
+    ],
+    "not_included": [
+      "Taxa estatal do deserto (1€/$ por pessoa, obrigatória)",
+      "Lenço (arafat) para o pó (disponível para compra)",
+      "Óculos para a areia (disponíveis para aluguer)",
+      "Gorjetas",
+      "Serviço profissional de fotografia/vídeo"
+    ],
+    "important_notes": "Nota sobre a taxa: é exigida uma pequena taxa governamental de 1€/$ por pessoa à chegada ao deserto. Traga moedas. Vestuário recomendado: calças compridas e calçado fechado.",
+    "seo_tags": [
+      "Super Safari Sharm",
+      "Moto-quatro e passeio de camelo",
+      "Jantar beduíno Egito",
+      "Observação de estrelas Sinai",
+      "Melhores excursões Sharm"
+    ]
+  },
+  "moto_safari_quad_echo": {
+    "tour_id": "moto_safari_quad_echo",
+    "title": "Moto Safari: moto-quatro, pôr do sol e Vale do Eco",
+    "short_desc": "Adrenalina pura. Conduza o seu moto-quatro até ao coração do Sinai, ouça a sua voz no Vale do Eco e desfrute de um chá beduíno ao pôr do sol.",
+    "duration": "3 horas (partida à tarde)",
+    "highlights": [
+      "Aventura de moto-quatro (moto de 4 rodas)",
+      "Paragem no famoso «Vale do Eco» (experimente gritar!)",
+      "Chá beduíno numa tenda tradicional",
+      "Fotografias espetaculares do pôr do sol no deserto",
+      "Adequado a principiantes e experientes"
+    ],
+    "full_description": "O deserto não foi feito para ser visto de uma janela: foi feito para ser vivido!\n\nPrepare-se para ficar cheio de pó e sentir o vento no rosto. Vou levá-lo de moto-quatro pelos trilhos arenosos e pelas rochas do Sinai. Não precisa de carta de condução, apenas de vontade de se divertir.\n\nAtravessaremos paisagens que parecem Marte até chegar ao mágico «Vale do Eco». Aqui, as montanhas «respondem»: grite o seu nome e ouça a natureza falar consigo.\n\nDepois, pararemos numa verdadeira tenda beduína para beber o tradicional chá de menta (Habbak) e ver o sol desaparecer atrás das montanhas, pintando tudo de vermelho e dourado. É o momento perfeito para fotografias.",
+    "program": [
+      {
+        "time": "15:30",
+        "activity": "Recolha",
+        "details": "Recolha no hotel e transfer para o centro de moto-quatro."
+      },
+      {
+        "time": "16:00",
+        "activity": "Instruções",
+        "details": "Instruções de condução e teste do moto-quatro (segurança a 100%)."
+      },
+      {
+        "time": "16:30",
+        "activity": "A aventura",
+        "details": "Começa o safari! Conduza pelo deserto entre dunas e rochas."
+      },
+      {
+        "time": "17:15",
+        "activity": "Vale do Eco",
+        "details": "Paragem especial para experimentar o efeito do eco e tirar fotografias."
+      },
+      {
+        "time": "17:45",
+        "activity": "Chá beduíno",
+        "details": "Descanse na tenda com chá quente ao pôr do sol."
+      },
+      {
+        "time": "18:30",
+        "activity": "Regresso",
+        "details": "Regresso ao centro e transfer de volta ao hotel."
+      }
+    ],
+    "includes": [
+      "Transfer de ida e volta (autocarro/monovolume)",
+      "Aluguer de moto-quatro (individual ou duplo)",
+      "Guia especializado no deserto",
+      "Chá beduíno"
+    ],
+    "not_included": [
+      "Keffiyeh (lenço para a areia, obrigatório)",
+      "Óculos de sol/proteção (obrigatórios)",
+      "Bebidas adicionais (água/refrigerantes)",
+      "Fotografias profissionais (opcional)",
+      "Gorjetas"
+    ],
+    "important_notes": "Vestuário: leve óculos de sol e um lenço (keffiyeh) para se proteger da areia. Use roupa confortável que não se importe de sujar. Os menores de 16 anos não conduzem (viajam como passageiros com um adulto).",
+    "seo_tags": [
+      "Moto Safari Sharm",
+      "Excursão de moto-quatro Sinai",
+      "Vale do Eco",
+      "Pôr do sol no deserto",
+      "Excursão de aventura"
+    ]
+  },
+  "vip_cena_romantica": {
+    "tour_id": "vip_cena_romantica",
+    "title": "Jantar romântico VIP: 1001 noites",
+    "short_desc": "A experiência mais exclusiva de Sharm. Um jantar privado no coração do deserto, sob um manto de estrelas. Exclusivamente para casais e ocasiões especiais.",
+    "duration": "4-5 horas (noite privada)",
+    "highlights": [
+      "Privacidade absoluta: sem grupos nem confusão, apenas os dois",
+      "Transfer privado num carro de luxo",
+      "Tenda/mesa reservada à luz das velas",
+      "Ementa à carta com grelhada mista servida à mesa",
+      "Ideal para: pedidos de casamento, aniversários e datas especiais"
+    ],
+    "full_description": "Quer impressionar quem ama? Esqueça as excursões turísticas cheias de gente. Levamo-lo onde o deserto se torna magia.\n\nEsta noite foi pensada para quem procura intimidade e «Mazaag Aaly» (bom ambiente/alto nível). Um carro privado irá buscá-lo para o levar a uma zona reservada, longe do ruído dos motores.\n\nAli encontrará o seu recanto de paraíso: uma mesa posta com elegância na areia, rodeada de velas e lanternas. O silêncio do deserto, o céu estrelado e um delicioso jantar servido só para os dois tornarão esta noite inesquecível. É o presente perfeito que ela (ou ele) não espera.",
+    "program": [
+      {
+        "time": "17:00",
+        "activity": "Recolha VIP",
+        "details": "Um motorista privado vai buscá-lo ao hotel (à hora do pôr do sol)."
+      },
+      {
+        "time": "17:45",
+        "activity": "Chegada em silêncio",
+        "details": "Boas-vindas exclusivas na zona reservada. Ambiente intimista e descontraído."
+      },
+      {
+        "time": "18:15",
+        "activity": "Pôr do sol e fotografias",
+        "details": "A hora dourada para fotografias românticas enquanto o deserto fica vermelho."
+      },
+      {
+        "time": "19:00",
+        "activity": "Jantar à luz das velas",
+        "details": "Jantar servido à mesa (não é bufete): entradas, grelhada mista de carne, acompanhamentos e doces orientais."
+      },
+      {
+        "time": "20:30",
+        "activity": "As estrelas",
+        "details": "Tempo para se deitar nos tapetes, observar as estrelas e desfrutar de uma paz absoluta."
+      },
+      {
+        "time": "21:30",
+        "activity": "Regresso",
+        "details": "Regresso ao hotel em carro privado."
+      }
+    ],
+    "includes": [
+      "Carro privado de ida e volta (sem autocarro)",
+      "Jantar VIP servido à mesa (ementa de carne)",
+      "Bebidas sem álcool ilimitadas",
+      "Decoração romântica (velas/lanternas)",
+      "Serviço de empregado dedicado"
+    ],
+    "not_included": [
+      "Bolo de aniversário (pode ser pedido como extra)",
+      "Flores ou presentes especiais (podem ser organizados a pedido)",
+      "Gratificações (gorjetas)",
+      "Bebidas alcoólicas"
+    ],
+    "important_notes": "Esta excursão requer reserva antecipada para preparar a decoração exclusiva. Pode ser acrescentado, a pedido, um breve passeio de cavalo ou camelo ao pôr do sol.",
+    "seo_tags": [
+      "Jantar romântico Sharm",
+      "Jantar VIP no deserto",
+      "Pedido de casamento Egito",
+      "Noite privada Sharm",
+      "Experiência de luxo Sinai"
+    ]
+  },
+  "sharm_old_market_ultimate_shopping": {
+    "tour_id": "sharm_old_market_ultimate_shopping",
+    "title": "Velha Sharm: mesquita, moda e a Índia do Egito",
+    "short_desc": "A excursão definitiva. Visite a Mesquita Dourada e descubra os segredos das compras: malas de luxo e as melhores especiarias do mundo. Fabio traz a Índia a Sharm!",
+    "duration": "3-4 horas (noite)",
+    "highlights": [
+      "Visita à espetacular mesquita de Al Sahaba",
+      "Acesso exclusivo a lojas de pele e malas (preços surpreendentes)",
+      "O reino das especiarias: a «Índia egípcia» ao seu alcance",
+      "Essências e perfumes puros (sem armadilhas turísticas)",
+      "Garantia Fabio: qualidade de topo e nenhuma burla"
+    ],
+    "full_description": "Prepare os sentidos (e a carteira)! Vou levá-lo ao verdadeiro coração de Sharm.\n\nComeçamos com a magia da mesquita de Al Sahaba para as fotografias mais bonitas das suas férias. Depois, passamos ao que importa.\n\nVou abrir-lhe as portas das minhas lojas secretas de pele (malas e sapatos de luxo a preços de fábrica). Mas não acaba aqui! Sabia que não precisa de ir à Índia para encontrar as melhores especiarias? Fabio traz a «Índia egípcia» para aqui mesmo!\n\nEntraremos nas ervanárias mais antigas, onde encontrará açafrão, caril e perfumes oleosos que duram dias na pele. É a qualidade mais pura e limpa do mundo, produtos com que só pode sonhar nos supermercados de casa.",
+    "program": [
+      {
+        "time": "20:00",
+        "activity": "Partida",
+        "details": "Recolha no hotel e transfer para a velha Sharm."
+      },
+      {
+        "time": "20:30",
+        "activity": "Cultura e fotografias",
+        "details": "Contemplar a mesquita de Al Sahaba iluminada."
+      },
+      {
+        "time": "21:00",
+        "activity": "Paragem de moda",
+        "details": "Compras de malas e sapatos de pele verdadeira (preços incríveis)."
+      },
+      {
+        "time": "21:45",
+        "activity": "A Índia do Egito",
+        "details": "Imersão no mundo das especiarias e dos perfumes. Uma explosão de aromas e cores."
+      },
+      {
+        "time": "23:00",
+        "activity": "Regresso",
+        "details": "Regresso ao hotel com alegria e um aroma excelente."
+      }
+    ],
+    "includes": [
+      "Transfer de ida e volta (miniautocarro com ar condicionado)",
+      "Guia local de língua italiana/inglesa",
+      "Entrada na mesquita",
+      "Percurso guiado de compras (pele e especiarias)"
+    ],
+    "not_included": [
+      "Jantar",
+      "Despesas pessoais",
+      "Gorjetas"
+    ],
+    "important_notes": "Conselho: não compre especiarias ao acaso na rua! Levo-o onde os produtos são 100% frescos e limpos.",
+    "seo_tags": [
+      "Compras velha Sharm",
+      "Especiarias Egito",
+      "Perfumes Sharm",
+      "Malas de pele Sharm",
+      "Mesquita de Al Sahaba"
+    ]
+  },
+  "cairo_plane_flexible_museum": {
+    "tour_id": "cairo_plane_flexible_museum",
+    "title": "Cairo de avião: pirâmides e o museu que escolher",
+    "short_desc": "Voe até ao Cairo e escolha a sua história. Pirâmides de Gizé + escolha entre o «Museu Clássico» (Tahrir) ou o «Novo GEM» (o futuro).",
+    "duration": "Dia inteiro (16 horas)",
+    "highlights": [
+      "Voo confortável e rápido a partir de Sharm (apenas 50 min)",
+      "Pirâmides de Gizé e Esfinge (paragem fixa)",
+      "LIVRE ESCOLHA DO MUSEU (ver opções abaixo)",
+      "Almoço incluído em restaurante",
+      "Sem preocupações, tudo organizado"
+    ],
+    "full_description": "O Cairo é mágico, mas cada pessoa tem os seus gostos (e orçamento). Por isso, connosco, é VOCÊ que decide que experiência viver.\n\nA manhã é dedicada aos gigantes: as pirâmides e a Esfinge. Para a tarde, proponho-lhe dois caminhos:\n\n🅰️ Opção A (o clássico, económica): o antigo Museu Egípcio na Praça Tahrir. É o museu histórico, cheio de encanto antigo, pó e história (ao estilo Indiana Jones). Perfeito para quem quer poupar e conhecer o Cairo tradicional.\n\n🅱️ Opção B (o futuro, VIP): o novo GEM (Grande Museu Egípcio). É o maior museu do mundo, moderno e brilhante, e alberga todo o tesouro de Tutankhamon. Custa mais, mas é uma experiência de nível mundial.\n\nNota: encontrará a diferença de preço na lista de preços. Escolha o que faz o seu coração bater!",
+    "program": [
+      {
+        "time": "04:30",
+        "activity": "Voo",
+        "details": "Partida do aeroporto de Sharm."
+      },
+      {
+        "time": "Manhã",
+        "activity": "Gizé",
+        "details": "Visita às pirâmides e à Esfinge com guia."
+      },
+      {
+        "time": "Almoço",
+        "activity": "Descanso",
+        "details": "Almoço de bufete."
+      },
+      {
+        "time": "Tarde",
+        "activity": "O SEU MUSEU",
+        "details": "O grupo divide-se: uns vão ao Museu Antigo (Tahrir) e outros ao Novo (GEM), consoante a reserva."
+      },
+      {
+        "time": "Noite",
+        "activity": "Regresso",
+        "details": "Voo de regresso a Sharm."
+      }
+    ],
+    "includes": [
+      "Voo de ida e volta",
+      "Guia egiptólogo",
+      "Transfers",
+      "Entrada nas pirâmides",
+      "Almoço",
+      "Entrada no museu (A ou B consoante a escolha)"
+    ],
+    "not_included": [
+      "Visto do Egito (obrigatório)",
+      "Bebidas",
+      "Suplemento do GEM (se escolhido)",
+      "Passeio de feluca (opcional)",
+      "Gorjetas"
+    ],
+    "important_notes": "Escolha a opção do museu no momento da reserva para organizar os bilhetes. O visto de entrada é obrigatório.",
+    "seo_tags": [
+      "Cairo a partir de Sharm de avião",
+      "Museu Egípcio Tahrir",
+      "Grande Museu Egípcio GEM",
+      "Pirâmides de Gizé"
+    ]
+  },
+  "cairo_bus_adventure_choice": {
+    "tour_id": "cairo_bus_adventure_choice",
+    "title": "Cairo de autocarro: aventura inteligente e a sua escolha",
+    "short_desc": "História a um preço reduzido. Uma viagem de estrada até às pirâmides. Escolha: o encanto do Museu Antigo ou o futuro do novo GEM.",
+    "duration": "24 horas (maratona de um dia)",
+    "highlights": [
+      "O preço mais baixo para ver as pirâmides",
+      "Viagem noturna em autocarro de turismo (ar condicionado e casa de banho)",
+      "Pirâmides de Gizé e Esfinge (paragem fixa)",
+      "ESCOLHA DO MUSEU (clássico ou novo GEM)",
+      "Almoço incluído no Cairo"
+    ],
+    "full_description": "Quer ver as pirâmides sem gastar uma fortuna? Esta é a opção certa para si.\n\nSejamos sinceros: é uma viagem longa (partida depois da meia-noite), uma verdadeira «maratona» para quem tem espírito aventureiro. Mas a recompensa é enorme: vê a mesma história de quem vai de avião, poupando dinheiro.\n\nTambém aqui Fabio lhe dá a liberdade de escolher a experiência:\n\n🅰️ Opção A (Tahrir, o clássico): visita ao histórico museu da Praça Tahrir. É a opção padrão, perfeita para ver arte antiga no ambiente do centro do Cairo.\n\n🅱️ Opção B (GEM, o novo): quer conhecer o museu de que todo o mundo fala? Com um pequeno suplemento, pode entrar no Grande Museu Egípcio (GEM) e admirar os tesouros numa estrutura futurista.\n\nO autocarro é económico, mas a história que verá não tem preço.",
+    "program": [
+      {
+        "time": "00:30",
+        "activity": "Partida noturna",
+        "details": "Recolha no hotel. Viagem de noite para chegar ao Cairo de madrugada (traga uma almofada de viagem!)."
+      },
+      {
+        "time": "08:30",
+        "activity": "Chegada ao Cairo",
+        "details": "Encontro com o guia egiptólogo e início da visita."
+      },
+      {
+        "time": "Manhã",
+        "activity": "O SEU MUSEU",
+        "details": "O grupo divide-se: visita ao Museu de Tahrir ou ao novo GEM (consoante a escolha)."
+      },
+      {
+        "time": "Almoço",
+        "activity": "Paragem para comer",
+        "details": "Almoço de bufete para recuperar energias."
+      },
+      {
+        "time": "Tarde",
+        "activity": "Gizé",
+        "details": "As pirâmides e a Esfinge. O momento por que esperava."
+      },
+      {
+        "time": "17:00",
+        "activity": "Compras e regresso",
+        "details": "Breve paragem para compras e partida de regresso a Sharm."
+      },
+      {
+        "time": "Noite",
+        "activity": "Chegada",
+        "details": "Chegada ao hotel em Sharm (por volta da meia-noite)."
+      }
+    ],
+    "includes": [
+      "Viagem de ida e volta de autocarro (casa de banho a bordo)",
+      "Guia egiptólogo de língua italiana/inglesa",
+      "Entrada nas pirâmides e na Esfinge",
+      "Entrada no museu (opção A ou B)",
+      "Almoço"
+    ],
+    "not_included": [
+      "Visto do Egito (obrigatório)",
+      "Bebidas ao almoço",
+      "Passeio de feluca (opcional)",
+      "Suplemento do GEM (se escolhido)",
+      "Gorjetas"
+    ],
+    "important_notes": "A viagem de autocarro dura cerca de 7-8 horas em cada sentido. Recomendamos pedir no hotel uma caixa de pequeno-almoço na noite anterior. Leve roupa confortável e uma camisola com capuz para o ar condicionado do autocarro.",
+    "seo_tags": [
+      "Cairo de autocarro a partir de Sharm",
+      "Excursão económica às pirâmides",
+      "Novo museu GEM de autocarro",
+      "Pirâmides de Gizé a baixo custo"
+    ]
+  },
+  "santa_caterina_monastery_morning": {
+    "tour_id": "santa_caterina_monastery_morning",
+    "title": "Santa Catarina: o mosteiro sagrado (clássico e VIP)",
+    "short_desc": "Uma viagem espiritual à Terra Santa. Visite o mosteiro mais antigo do mundo e a Sarça Ardente. Disponível de autocarro (grupo) ou carro privado (VIP).",
+    "duration": "Dia inteiro (partida de manhã às 06:00)",
+    "highlights": [
+      "Viagem pelo deserto do Sinai",
+      "Visita guiada ao Mosteiro de Santa Catarina (UNESCO)",
+      "A «Sarça Ardente»: a árvore sagrada que nunca morre",
+      "O poço de Moisés e a basílica",
+      "Almoço incluído em restaurante",
+      "Possibilidade de MELHORIA VIP (carro privado e restaurante elegante em Dahab)"
+    ],
+    "full_description": "Não é apenas uma excursão: é uma peregrinação pela história e pela paz.\n\nLevo-o à «Terra Santa», onde o céu tocou a terra. Atravessaremos os vales coloridos do Sinai até ao Mosteiro de Santa Catarina, um lugar sagrado para três religiões que permanece intacto há 15 séculos.\n\nAqui respirará um ar diferente. Verá a «Sarça Ardente» e admirará ícones antigos que parecem olhar para a sua alma. É uma experiência de pura cultura e espiritualidade.\n\n🍽️ Almoço: durante o regresso está incluído um almoço reparador num restaurante local.\n\n💎 QUER VIVER O SONHO? ESCOLHA A VERSÃO «FABIO VIP»:\nSejamos sinceros: quantas vezes virá à Terra Santa na vida? Uma? Então faça valer a pena!\nPosso organizar esta excursão num carro privado de luxo só para si (ou para a sua família).\nTerá um guia pessoal em exclusivo (sem esperas, com liberdade para perguntar o que quiser), partirá à hora que preferir e, acima de tudo, levá-lo-ei a almoçar a um restaurante elegante junto ao mar em Dahab. É uma experiência espiritual de primeira classe que nem nos sonhos imagina. Não poupe em memórias que duram para sempre. Merece-o.",
+    "program": [
+      {
+        "time": "06:00",
+        "activity": "Partida",
+        "details": "Recolha no hotel (horário flexível se escolher VIP)."
+      },
+      {
+        "time": "09:00",
+        "activity": "Chegada ao lugar sagrado",
+        "details": "Chegada a Santa Catarina. Entrada no recinto fortificado."
+      },
+      {
+        "time": "Visita",
+        "activity": "O mosteiro",
+        "details": "Visita guiada: basílica, mosaico da Transfiguração, poço de Moisés e Sarça Ardente."
+      },
+      {
+        "time": "13:30",
+        "activity": "Almoço",
+        "details": "Paragem para almoçar em restaurante (padrão para autocarro / elegante em Dahab para VIP)."
+      },
+      {
+        "time": "17:00",
+        "activity": "Regresso",
+        "details": "Regresso a Sharm El Sheikh."
+      }
+    ],
+    "includes": [
+      "Transfer de ida e volta (autocarro para grupo / carro privado para VIP)",
+      "Guia especializado em história e religião",
+      "Bilhetes de entrada no parque nacional e no mosteiro",
+      "Almoço"
+    ],
+    "not_included": [
+      "Bebidas ao almoço",
+      "Entrada no Museu dos Ícones (opcional)",
+      "Gorjetas"
+    ],
+    "important_notes": "Lugar sagrado: vestuário rigoroso (ombros e joelhos cobertos). Nota VIP: se pretende um tratamento de rei, selecione «Excursão privada» no formulário de reserva.",
+    "seo_tags": [
+      "Excursão Mosteiro de Santa Catarina",
+      "Excursão privada Sinai",
+      "Santa Catarina VIP",
+      "Terra Santa Egito"
+    ]
+  },
+  "mount_sinai_sunrise_adventure": {
+    "tour_id": "mount_sinai_sunrise_adventure",
+    "title": "Aventura no monte Sinai: nascer do sol sagrado e mosteiro",
+    "short_desc": "O desafio de uma vida. Suba a montanha de Moisés sob as estrelas, veja o nascer do sol mais bonito do mundo e visite o mosteiro. Disponível de autocarro ou na versão VIP (para poupar as costas).",
+    "duration": "16-18 horas (noite inteira e manhã)",
+    "highlights": [
+      "Caminhada noturna sob um incrível céu estrelado",
+      "Nascer do sol no cume do monte Horeb (2285 m)",
+      "Visita guiada ao Mosteiro de Santa Catarina (UNESCO)",
+      "Guia beduíno experiente para a subida",
+      "Almoço incluído após a descida"
+    ],
+    "full_description": "Pronto para a aventura mais épica do Sinai? Não é uma excursão para turistas preguiçosos: é um desafio para o corpo e a alma.\n\nPartimos de noite para subir a montanha de Moisés. Caminhará sob um manto de estrelas, sentirá o frio do deserto e a adrenalina da subida. Mas, ao chegar ao cume e ver o sol nascer entre as montanhas, perceberá que cada passo valeu a pena. É um momento que o transforma por dentro.\n\nDepois do nascer do sol, descemos para visitar o sagrado Mosteiro de Santa Catarina e a Sarça Ardente.\n\n🚑 O CONSELHO DE OURO DE FABIO (MELHORIA VIP):\nSeja sincero consigo: depois de 7 km a caminhar e uma noite sem dormir, estará exausto. No autocarro do grupo, terá de esperar pelos outros sentado sem conforto.\nSeja prático: escolha a opção VIP (carro privado).\nPorquê? Porque o carro privado se torna a sua «cama móvel». Assim que descer da montanha, entre no carro, recline o banco e durma como um rei até Dahab, onde o levarei a um restaurante elegante junto ao mar para um almoço reparador.\nÉ a diferença entre regressar ao hotel «morto» ou regressar «feliz». As suas costas vão agradecer!",
+    "program": [
+      {
+        "time": "20:30",
+        "activity": "Partida",
+        "details": "Recolha no hotel. Viagem noturna para Santa Catarina."
+      },
+      {
+        "time": "02:00",
+        "activity": "A subida",
+        "details": "Início da caminhada com guia beduíno (a pé ou com camelo opcional)."
+      },
+      {
+        "time": "05:30",
+        "activity": "O nascer do sol",
+        "details": "Chegada ao cume. O momento mágico do nascer do sol."
+      },
+      {
+        "time": "07:30",
+        "activity": "Descida e mosteiro",
+        "details": "Descida e visita ao mosteiro, à Sarça Ardente e ao poço de Moisés."
+      },
+      {
+        "time": "13:00",
+        "activity": "Descanso e almoço",
+        "details": "Almoço bem merecido (padrão para autocarro / elegante em Dahab para VIP)."
+      },
+      {
+        "time": "14:30",
+        "activity": "Regresso",
+        "details": "Viagem de volta a Sharm (hora de dormir!)."
+      }
+    ],
+    "includes": [
+      "Transfer de ida e volta (autocarro ou carro privado VIP)",
+      "Guia turístico em italiano/inglês",
+      "Guia beduíno para a montanha",
+      "Bilhetes de entrada no parque",
+      "Almoço",
+      "Lanterna (trazer ou alugar)"
+    ],
+    "not_included": [
+      "Bebidas",
+      "Subida de camelo (opcional, pagamento aos beduínos)",
+      "Gorjetas",
+      "Pequeno-almoço (pedir uma caixa no hotel)"
+    ],
+    "important_notes": "⚠️ Aviso de esforço: esta excursão exige boa condição física. Faz MUITO frio no cume (leve casaco quente, cachecol e luvas). Use calçado de caminhada ou de corrida resistente. Passaporte obrigatório.",
+    "seo_tags": [
+      "Subida monte Sinai",
+      "Nascer do sol montanha de Moisés",
+      "Excursão Santa Catarina",
+      "Caminhadas Egito",
+      "Excursão de aventura Sharm"
+    ]
+  },
+  "luxor_plane_classic": {
+    "tour_id": "luxor_plane_classic",
+    "title": "Luxor de avião: Vale dos Reis e templos dourados",
+    "short_desc": "O maior museu ao ar livre do mundo. Voe de Sharm para descobrir Karnak, o Vale dos Reis e o templo da rainha Hatshepsut num dia inesquecível.",
+    "duration": "Dia inteiro (16 horas)",
+    "highlights": [
+      "Voo confortável e rápido (45 min) a partir de Sharm El Sheikh",
+      "Templo de Karnak: a maior floresta de colunas do mundo",
+      "Vale dos Reis: entre nos túmulos coloridos dos faraós (3 túmulos)",
+      "Templo da rainha Hatshepsut e Colossos de Mémnon",
+      "Almoço de bufete em restaurante com vista para o Nilo",
+      "Visita a uma fábrica de alabastro (arte do antigo Egito)"
+    ],
+    "full_description": "Prepare-se para ficar de boca aberta. Luxor não é apenas uma cidade: é outro planeta onde o tempo parou há 4000 anos.\n\nGraças ao voo rápido a partir de Sharm, chegamos descansados e prontos para caminhar literalmente dentro da história. Na margem oriental, visitamos o majestoso Templo de Karnak, um labirinto de colunas gigantes que nos faz sentir pequenos perante a grandeza dos faraós.\n\nDepois atravessamos o Nilo para a margem ocidental, a «Cidade dos Mortos». Aqui entrará nos túmulos do Vale dos Reis, cujas cores continuam tão vivas que parecem pintadas ontem. Verá também o singular templo da rainha Hatshepsut, talhado na montanha.\n\nÉ um dia cheio de emoções, cultura e beleza que se vive uma vez na vida.",
+    "program": [
+      {
+        "time": "04:30",
+        "activity": "Voo",
+        "details": "Partida do aeroporto de Sharm. Em menos de uma hora estamos dentro da história."
+      },
+      {
+        "time": "Manhã",
+        "activity": "Karnak",
+        "details": "Visita ao complexo do Templo de Karnak e à Avenida das Esfinges."
+      },
+      {
+        "time": "Almoço",
+        "activity": "Junto ao Nilo",
+        "details": "Paragem para almoçar num restaurante local e provar a cozinha egípcia."
+      },
+      {
+        "time": "Tarde",
+        "activity": "Margem ocidental",
+        "details": "Vale dos Reis (visita a 3 túmulos), Templo de Hatshepsut e paragem nos Colossos de Mémnon."
+      },
+      {
+        "time": "Compras",
+        "activity": "Alabastro",
+        "details": "Visita a um instituto de alabastro para ver os artesãos a trabalhar (recordações únicas)."
+      },
+      {
+        "time": "Regresso",
+        "activity": "Voo",
+        "details": "Voo de regresso a Sharm e transfer para o hotel."
+      }
+    ],
+    "includes": [
+      "Voo de ida e volta",
+      "Todos os transfers em autocarro com ar condicionado",
+      "Guia egiptólogo de língua italiana/inglesa",
+      "Bilhetes de entrada (Karnak, Vale dos Reis e Hatshepsut)",
+      "Almoço"
+    ],
+    "not_included": [
+      "Visto do Egito (OBRIGATÓRIO)",
+      "Bebidas ao almoço",
+      "Túmulo de Tutankhamon (extra opcional)",
+      "Passeio de barco no Nilo / Ilha das Bananas (opcional no local)",
+      "Gorjetas"
+    ],
+    "important_notes": "⚠️ VISTO: o visto de entrada é essencial para voar para Luxor. Verifique se o tem no passaporte! Recomendam-se roupa confortável e sapatilhas.",
+    "seo_tags": [
+      "Excursão Luxor a partir de Sharm",
+      "Excursão Vale dos Reis",
+      "Templo de Karnak",
+      "Voo Sharm Luxor",
+      "Alabastro Egito"
+    ]
+  },
+  "petra_jordan_expedition": {
+    "tour_id": "petra_jordan_expedition",
+    "title": "Petra: a cidade rosa (uma das 7 maravilhas do mundo)",
+    "short_desc": "Uma viagem épica à Jordânia. Navegue pelo Mar Vermelho, atravesse o desfiladeiro do Siq e descubra o Tesouro de Petra. Uma experiência a não perder na vida.",
+    "duration": "Dia inteiro (20-22 horas)",
+    "highlights": [
+      "Travessia de 3 fronteiras e minicruzeiro no Golfo de Aqaba",
+      "Caminhada pelo Siq: o deslumbrante desfiladeiro natural",
+      "O momento de espanto: a vista repentina do Tesouro (Al Khazneh)",
+      "O teatro romano e os túmulos reais",
+      "Almoço incluído em restaurante de 5 estrelas",
+      "Vistos e taxas portuárias TUDO INCLUÍDO"
+    ],
+    "full_description": "Está tão perto de uma das «7 maravilhas do mundo moderno»: não perca a oportunidade!\n\nNão é apenas uma excursão: é uma aventura internacional. Partimos de Sharm para atravessar o Golfo de Aqaba de barco, chegando à Jordânia.\n\nAí começa a magia. Caminhamos pelo Siq, um desfiladeiro estreito e imponente de rochas rosas e vermelhas. A emoção cresce a cada passo até que, de repente, o «Tesouro» (famoso pelo filme Indiana Jones) surge diante dos seus olhos. É um momento de cortar a respiração.\n\nExploramos túmulos reais escavados na rocha e o teatro romano, acompanhados por um guia experiente que revela os segredos do povo nabateu. É um dia longo e intenso, mas regressará com fotografias e memórias que valem ouro.",
+    "program": [
+      {
+        "time": "01:00",
+        "activity": "Partida",
+        "details": "Recolha noturna no hotel e viagem de autocarro até ao porto de Taba."
+      },
+      {
+        "time": "Nascer do sol",
+        "activity": "Navegação",
+        "details": "Embarque no ferry para Aqaba (Jordânia). Desfrute do nascer do sol sobre o mar entre 4 países."
+      },
+      {
+        "time": "Manhã",
+        "activity": "Chegada a Petra",
+        "details": "Viagem de autocarro até Petra e início da caminhada pelo Siq."
+      },
+      {
+        "time": "Ponto alto",
+        "activity": "O Tesouro",
+        "details": "Chegada em frente a Al Khazneh (o Tesouro) e tempo para fotografias épicas."
+      },
+      {
+        "time": "14:00",
+        "activity": "Almoço",
+        "details": "Almoço de bufete num hotel/restaurante de luxo."
+      },
+      {
+        "time": "Tarde",
+        "activity": "Regresso",
+        "details": "Viagem para Aqaba, ferry para Taba e regresso a Sharm."
+      },
+      {
+        "time": "Noite",
+        "activity": "Chegada",
+        "details": "Chegada ao hotel em Sharm (por volta das 23:00)."
+      }
+    ],
+    "includes": [
+      "Todos os transfers (autocarro e ferry)",
+      "Visto de entrada na Jordânia e taxas",
+      "Bilhete de entrada no sítio arqueológico de Petra",
+      "Guia de língua italiana/inglesa",
+      "Almoço de bufete"
+    ],
+    "not_included": [
+      "Bebidas ao almoço",
+      "Gorjetas",
+      "Cavalos ou carruagens no interior de Petra (opcional)"
+    ],
+    "important_notes": "⚠️ PASSAPORTE OBRIGATÓRIO: para entrar na Jordânia precisa de um passaporte com pelo menos 6 meses de validade. NÃO é aceite documento de identificação. Recomenda-se vivamente calçado muito confortável para caminhar.",
+    "seo_tags": [
+      "Excursão Petra a partir de Sharm",
+      "Ferry Taba Aqaba",
+      "Excursão Petra Jordânia",
+      "Siq e Tesouro de Petra",
+      "Maravilhas do mundo"
+    ]
+  },
+  "cairo_pyramids_classic_dummy": {
+    "tour_id": "cairo_pyramids_classic_dummy",
+    "title": "Pirâmides de Gizé e Esfinge: os ícones da antiguidade",
+    "short_desc": "Contemple as grandes pirâmides de Gizé e a Esfinge. Uma viagem de 4500 anos até ao coração do antigo Egito.",
+    "duration": "Meio dia (4-5 horas)",
+    "highlights": [
+      "Visite as 3 grandes pirâmides (Quéops, Quéfren e Miquerinos)",
+      "Selfie com a Grande Esfinge",
+      "Visita ao Templo do Vale",
+      "Miradouro panorâmico para as melhores fotografias",
+      "Guia egiptólogo privado"
+    ],
+    "full_description": "Nenhuma viagem ao Egito fica completa sem esta visita. Levamo-lo diretamente ao planalto de Gizé.\n\nEstará aos pés da Grande Pirâmide, a única maravilha do mundo antigo que sobreviveu. O guia explicará como estas estruturas gigantescas foram construídas sem tecnologia moderna.\n\nDepois seguimos para a Esfinge, a lendária guardiã com corpo de leão e cabeça de rei. História, cultura e momentos a viver pelo menos uma vez na vida.",
+    "program": [
+      {
+        "time": "08:00",
+        "activity": "Recolha",
+        "details": "Recolha no seu hotel no Cairo/Gizé."
+      },
+      {
+        "time": "09:00",
+        "activity": "As pirâmides",
+        "details": "Visita ao planalto de Gizé e às três pirâmides."
+      },
+      {
+        "time": "11:00",
+        "activity": "A Esfinge",
+        "details": "Visita à Esfinge e ao Templo do Vale."
+      },
+      {
+        "time": "12:30",
+        "activity": "Paragem do papiro",
+        "details": "Breve visita para descobrir como se fazia papel na antiguidade."
+      },
+      {
+        "time": "13:30",
+        "activity": "Regresso",
+        "details": "Regresso ao seu hotel."
+      }
+    ],
+    "includes": [
+      "Transporte privado com ar condicionado",
+      "Entradas no planalto de Gizé",
+      "Guia experiente",
+      "Garrafa de água"
+    ],
+    "not_included": [
+      "Entrada no interior das pirâmides (bilhete adicional)",
+      "Almoço",
+      "Gorjetas"
+    ],
+    "important_notes": "Use calçado confortável. O sol pode ser forte; leve chapéu.",
+    "seo_tags": [
+      "Pirâmides Cairo",
+      "Excursão Esfinge",
+      "Planalto de Gizé",
+      "História do Egito"
+    ]
+  },
+  "cairo_nile_dinner_dummy": {
+    "tour_id": "cairo_nile_dinner_dummy",
+    "title": "Nile Maxim: cruzeiro com jantar de 5 estrelas e espetáculo",
+    "short_desc": "Uma noite elegante no Nilo. Jantar de bufete livre, dança do ventre, espetáculo de tanoura e navegação entre as luzes do Cairo.",
+    "duration": "3 horas (noite)",
+    "highlights": [
+      "2 horas a navegar no rio Nilo",
+      "Jantar internacional de bufete livre",
+      "Entretenimento ao vivo (dança do ventre e folclore)",
+      "Vistas deslumbrantes do Cairo à noite",
+      "Ambiente romântico"
+    ],
+    "full_description": "Conheça o Cairo a partir da água. Suba a bordo de um dos restaurantes flutuantes mais luxuosos do Nilo.\n\nDesfrute de um delicioso jantar de bufete livre enquanto navega diante da silhueta iluminada da cidade. O entretenimento inclui uma autêntica bailarina de dança do ventre e um espetáculo de tanoura (saia rodopiante).\n\nÉ a forma perfeita de descansar depois de um dia de pó nas pirâmides.",
+    "program": [
+      {
+        "time": "19:00",
+        "activity": "Recolha",
+        "details": "Transfer para o cais."
+      },
+      {
+        "time": "20:00",
+        "activity": "Navegação",
+        "details": "O barco começa a navegar. Abre o bufete do jantar."
+      },
+      {
+        "time": "21:00",
+        "activity": "Hora do espetáculo",
+        "details": "Começa o espetáculo oriental."
+      },
+      {
+        "time": "22:00",
+        "activity": "Atracagem",
+        "details": "Fim do cruzeiro e transfer de regresso."
+      }
+    ],
+    "includes": [
+      "Jantar de bufete",
+      "Entretenimento",
+      "Transfers"
+    ],
+    "not_included": [
+      "Bebidas",
+      "Gorjetas"
+    ],
+    "important_notes": "Recomenda-se vestuário informal cuidado.",
+    "seo_tags": [
+      "Cruzeiro no Nilo Cairo",
+      "Jantar no Nilo",
+      "Vida noturna Cairo"
+    ]
+  },
+  "cairo_quad_pyramids_dummy": {
+    "tour_id": "cairo_quad_pyramids_dummy",
+    "title": "Moto-quatro nas pirâmides: adrenalina e história",
+    "short_desc": "Percorra as areias do deserto com as Pirâmides de Gizé como cenário. Uma forma aventureira de ver a maravilha antiga.",
+    "duration": "2 horas",
+    "highlights": [
+      "1 hora de moto-quatro (ATV)",
+      "Vistas panorâmicas das pirâmides a partir do deserto",
+      "Horários disponíveis ao nascer ou ao pôr do sol",
+      "Paragem para chá beduíno"
+    ],
+    "full_description": "Combine aventura e história! Conduza um potente moto-quatro na planície desértica fora da zona das Pirâmides de Gizé.\n\nConseguirá perspetivas e fotografias das pirâmides que os turistas habituais não veem. É rápido, divertido e a vista é emblemática.",
+    "program": [
+      {
+        "time": "Flexível",
+        "activity": "Início",
+        "details": "Recolha e instruções de segurança."
+      },
+      {
+        "time": "+30 min",
+        "activity": "Percurso",
+        "details": "Ligue o motor! Percorra as dunas."
+      },
+      {
+        "time": "+90 min",
+        "activity": "Paragem para fotografias",
+        "details": "O melhor local para fotografias panorâmicas."
+      },
+      {
+        "time": "+2 horas",
+        "activity": "Fim",
+        "details": "Transfer de regresso."
+      }
+    ],
+    "includes": [
+      "Aluguer de moto-quatro",
+      "Guia",
+      "Transfers"
+    ],
+    "not_included": [
+      "Lenços/óculos de proteção",
+      "Gorjetas"
+    ],
+    "important_notes": "A idade mínima para conduzir é de 16 anos.",
+    "seo_tags": [
+      "Moto-quatro Cairo",
+      "ATV pirâmides",
+      "Aventura no deserto Cairo"
+    ]
+  },
+  "luxor_kings_valley_dummy": {
+    "tour_id": "luxor_kings_valley_dummy",
+    "title": "Margem ocidental: Vale dos Reis e Hatshepsut",
+    "short_desc": "Entre no além. Visite os túmulos coloridos dos faraós e o magnífico templo da rainha Hatshepsut.",
+    "duration": "Meio dia (manhã)",
+    "highlights": [
+      "Entrada em 3 túmulos no Vale dos Reis",
+      "Templo da rainha Hatshepsut",
+      "Colossos de Mémnon",
+      "Visita a uma fábrica de alabastro"
+    ],
+    "full_description": "Luxor é o maior museu ao ar livre do mundo. Atravessamos o Nilo até à «Cidade dos Mortos».\n\nExplore os túmulos subterrâneos onde as cores continuam vivas após 3000 anos. Contemple com admiração o templo em terraços da poderosa rainha Hatshepsut, talhado na montanha.",
+    "program": [
+      {
+        "time": "07:00",
+        "activity": "Recolha",
+        "details": "A partir do seu hotel/cruzeiro em Luxor."
+      },
+      {
+        "time": "08:00",
+        "activity": "Vale dos Reis",
+        "details": "Visita a 3 túmulos reais."
+      },
+      {
+        "time": "10:00",
+        "activity": "Hatshepsut",
+        "details": "Explore o templo funerário."
+      },
+      {
+        "time": "11:30",
+        "activity": "Mémnon",
+        "details": "Paragem para fotografias nos Colossos."
+      },
+      {
+        "time": "12:30",
+        "activity": "Regresso",
+        "details": "Regresso à margem oriental."
+      }
+    ],
+    "includes": [
+      "Transfers",
+      "Guia",
+      "Bilhetes de entrada"
+    ],
+    "not_included": [
+      "Bilhete para o túmulo de Tutankhamon",
+      "Gorjetas"
+    ],
+    "important_notes": "Fotografar no interior dos túmulos exige um bilhete adicional.",
+    "seo_tags": [
+      "Vale dos Reis",
+      "Excursão Luxor",
+      "Templo de Hatshepsut"
+    ]
+  },
+  "aswan_felucca_dummy": {
+    "tour_id": "aswan_felucca_dummy",
+    "title": "Feluca em Assuão: pôr do sol e jardins botânicos",
+    "short_desc": "Descanse num veleiro tradicional egípcio (feluca). Navegue à volta da ilha Elefantina e veja os jardins botânicos.",
+    "duration": "2 horas",
+    "highlights": [
+      "Navegação tradicional à vela",
+      "Vista do mausoléu de Aga Khan",
+      "Ambiente núbio descontraído",
+      "Vistas do pôr do sol sobre o Nilo"
+    ],
+    "full_description": "A vida passa mais devagar em Assuão. Conheça a paz do Nilo numa feluca, um tipo de barco utilizado desde os faraós.\n\nDeixe o vento levá-lo à volta da ilha Elefantina. Veja o pôr do sol dourado refletir-se na água e desfrute do verdadeiro ambiente núbio.",
+    "program": [
+      {
+        "time": "16:00",
+        "activity": "Embarque",
+        "details": "Suba para a feluca."
+      },
+      {
+        "time": "16:30",
+        "activity": "Navegação",
+        "details": "Navegue à volta das ilhas."
+      },
+      {
+        "time": "17:30",
+        "activity": "Pôr do sol",
+        "details": "Fotografias mágicas do pôr do sol."
+      },
+      {
+        "time": "18:00",
+        "activity": "Fim",
+        "details": "Regresso ao cais."
+      }
+    ],
+    "includes": [
+      "Passeio de feluca",
+      "Capitão"
+    ],
+    "not_included": [
+      "Bebidas",
+      "Gorjetas"
+    ],
+    "important_notes": "Depende das condições do vento.",
+    "seo_tags": [
+      "Feluca Assuão",
+      "Navegação Nilo",
+      "Assuão núbia"
+    ]
+  }
+}

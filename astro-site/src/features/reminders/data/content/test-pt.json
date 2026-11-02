@@ -1,6 +1,6 @@
 {
   "title": "Teste do e-mail de lembrete",
-  "description": "Utiliza o idioma guardado e o modelo real do lembrete, incluindo as ligações para as definições de e-mail e para cancelar os lembretes. Alterar o idioma do site não tem efeito. Guarde primeiro a sua preferência de lembretes. Um teste por idioma guardado durante este período de teste; não consome o seu lembrete automático.",
+  "description": "Utiliza o idioma guardado da sua conta e o modelo real do lembrete, incluindo as ligações para as preferências e para cancelar os lembretes. Um teste por idioma guardado durante este período de teste; não consome o seu lembrete automático.",
   "send": "Enviar e-mail de teste",
   "sending": "A enviar os seus favoritos…",
   "accepted": "Lembrete de teste aceite em {language}. Verifique a caixa de entrada, as Promoções e o spam.",

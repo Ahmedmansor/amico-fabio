@@ -1,6 +1,6 @@
 {
   "title": "Test email del promemoria",
-  "description": "Usa la lingua salvata per i promemoria e il modello effettivo, inclusi i link alle impostazioni e alla disiscrizione. Cambiare la lingua del sito non ha effetto. Salva prima la preferenza del promemoria. Un test per lingua salvata in questa finestra; non consuma il promemoria automatico.",
+  "description": "Usa la lingua salvata del tuo account e il modello reale del promemoria, inclusi i link alle preferenze e alla disiscrizione. Un test per lingua salvata in questa finestra di prova; non consuma il promemoria automatico.",
   "send": "Invia email di prova",
   "sending": "Invio dei preferiti…",
   "accepted": "Promemoria di prova accettato in {language}. Controlla Posta in arrivo, Promozioni e Spam.",

@@ -1,4 +1,5 @@
-import {isLocale} from '../../../shared/config/languages.ts';
+import {getAuthEmailCopy} from './email-messages.ts';
+import {isLocale, type Locale} from '../../../shared/config/languages.ts';
 import {authReturnPaths} from './config.ts';
 import {readBoundedBody, sha256, withDeadline} from './hook-transport.ts';
 import {validateEmailAddress, isDisposableDomain} from '../domain/email-validation.ts';
@@ -44,52 +45,11 @@ export interface AuthSendEmailResponse {
 export function buildMagicLinkEmailContent(params: {
   readonly recipient: string;
   readonly confirmationUrl: string;
-  readonly locale: 'it' | 'en';
+  readonly locale: Locale;
   readonly action?: 'signup' | 'magiclink';
   readonly otp: string;
 }): { readonly subject: string; readonly html: string; readonly text: string } {
-  const isIt = params.locale === 'it';
-
-  const confirming = params.action === 'signup';
-  const subject = confirming ? (isIt ? 'Conferma il tuo account - Fabio Egypt' : 'Confirm your account - Fabio Egypt') : isIt
-    ? 'Il tuo codice di accesso - Fabio Egypt'
-    : 'Your sign-in code - Fabio Egypt';
-
-  const title = confirming ? (isIt ? 'Conferma il tuo indirizzo email' : 'Confirm your email address') : isIt
-    ? 'Accedi a Fabio Egypt'
-    : 'Sign in to Fabio Egypt';
-
-  const greeting = isIt
-    ? 'Ciao,'
-    : 'Hello,';
-
-  const intro = confirming ? (isIt
-    ? 'Hai richiesto un account Fabio Egypt. Conferma il tuo indirizzo email per accedere e gestire i tuoi preferiti.'
-    : 'You requested a Fabio Egypt account. Confirm your email address to sign in and manage your favorites.') : isIt
-    ? 'Abbiamo ricevuto una richiesta di accesso al tuo account Fabio Egypt per salvare e gestire i tuoi preferiti.'
-    : 'We received a request to sign in to your Fabio Egypt account to save and manage your favorites.';
-
-  const buttonText = confirming ? (isIt ? 'Conferma email' : 'Confirm email') : isIt
-    ? 'Accedi ora'
-    : 'Sign in now';
-
-  const validityNotice = isIt
-    ? 'Il codice e il link alternativo sono validi una sola volta e scadono a breve. Usando uno, l’altro non sarà più valido.'
-    : 'The code and alternative link are single-use and expire shortly. Using either consumes this confirmation.';
-
-  const codeLabel=isIt?'Il tuo codice monouso':'Your one-time code';
-  const codeHelp=isIt
-    ? 'Inserisci questo codice nella pagina in cui hai richiesto l’email. Puoi leggere il messaggio da un altro dispositivo. Non condividere il codice.'
-    : 'Enter this code on the page where you requested the email. You can read this message on another device. Do not share the code.';
-  const alternative=isIt?'In alternativa, questo link effettua l’accesso nel browser in cui lo apri:':'Alternatively, this link signs in the browser where you open it:';
-
-  const ignoreNotice = isIt
-    ? 'Se non hai richiesto questo link, puoi ignorare questa email in tutta sicurezza.'
-    : 'If you did not request this link, you can safely ignore this email.';
-
-  const fallbackText = isIt
-    ? 'Se il pulsante non funziona, copia e incolla questo indirizzo nel tuo browser:'
-    : 'If the button does not work, copy and paste this link into your browser:';
+  const {subject,title,greeting,intro,buttonText,validityNotice,codeLabel,codeHelp,alternative,ignoreNotice,fallbackText}=getAuthEmailCopy(params.locale,params.action==='signup');
 
   const htmlUrl = params.confirmationUrl.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
   const html = `<!DOCTYPE html>
@@ -175,7 +135,7 @@ export function createAuthSendEmailHandler(deps: AuthSendEmailDependencies) {
       || typeof otp !== 'string' || !/^\d{6,10}$/.test(otp)
       || !['magiclink', 'signup'].includes(data?.email_action_type ?? '')) return fail(400, 'Unsupported email event.');
     let callback: URL;
-    let locale: 'it' | 'en';
+    let locale: Locale;
     try {
       callback = new URL(data!.redirect_to!);
       const segment = callback.pathname.split('/')[1];

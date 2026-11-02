@@ -1,7 +1,7 @@
 {
   "title": "Recordatorio por correo",
   "languageLabel": "Idioma del recordatorio",
-  "languageNote": "Elige el idioma del recordatorio y pulsa Guardar preferencia. Puedes cambiarlo aquí en cualquier momento. Cambiar el idioma del sitio web no modifica esta preferencia.",
+  "languageNote": "Los próximos correos siguen el último idioma del sitio web utilizado con tu cuenta. Cambiar el idioma no activa los recordatorios ni reinicia su plazo.",
   "label": "Enviarme un recordatorio por correo sobre mis favoritos",
   "description": "Opcional. Como máximo un recordatorio por cuenta, 24 horas después de añadir el último favorito o de activar los recordatorios, lo que ocurra más tarde. Si la lista queda vacía, se cancela la espera. Puedes desactivar los recordatorios en cualquier momento.",
   "save": "Guardar preferencia",

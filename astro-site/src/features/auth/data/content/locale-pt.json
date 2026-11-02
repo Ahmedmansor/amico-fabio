@@ -3,7 +3,7 @@
   "followSite": "Seguir o idioma do site",
   "save": "Guardar idioma",
   "retry": "Continuar a guardar",
-  "noPreference": "Escolha o idioma dos lembretes quando os ativar pela primeira vez. Alterar o idioma de navegação não subscreve lembretes nem altera o idioma dos seus e-mails.",
+  "noPreference": "O último idioma do site utilizado com a sua conta será também o idioma dos próximos e-mails. Alterar o idioma não ativa lembretes nem modifica o consentimento.",
   "loading": "A carregar as definições de idioma…",
   "saving": "A guardar o idioma…",
   "saved": "Idioma guardado.",

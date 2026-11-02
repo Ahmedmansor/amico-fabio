@@ -57,7 +57,7 @@ export function categoryLabel(category: string, messages: ExploreMessages): stri
 }
 export function cardBadge(card: ExploreCard, locale: string, messages: ExploreMessages): string {
   const key = editorialBadgeKey(card.offer.source.badge_key);
-  if (!key) return card.offer.source[`badge_${locale}`] || '';
+  if (!key) return card.offer.badges?.[locale] ?? card.offer.source[`badge_${locale}`] ?? '';
   const badge = messages.badges[key] || messages.badges[key.toLowerCase()];
   if (!badge) throw new Error(`[explore:${card.id}] Missing ${locale} badge translation ${key}.`);
   return badge;

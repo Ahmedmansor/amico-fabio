@@ -20,7 +20,7 @@ const {included,locale}=Astro.props,m=getSharedMessages(locale);
       <div class="included-trip-media">
         <div class="included-trip-photo">
           <Image data-field="included-trip-modal-hero-img" src={imageAssets[item.gallery[0]]} alt={m.detailLabels.heroAlt} widths={[600,1200]} sizes="(min-width:1024px) 600px, 100vw"/>
-          <span data-field="included-trip-badge" class="included-trip-badge" hidden={!item.trip.source[`badge_${locale}`]}>{item.trip.source[`badge_${locale}`]}</span>
+          <span data-field="included-trip-badge" class="included-trip-badge" hidden={!item.trip.badges?.[locale]}>{item.trip.badges?.[locale]}</span>
         </div>
         <div data-field="included-trip-modal-gallery" class="included-trip-thumbs"><PackageGallery gallery={item.gallery} locale={locale} title={text.title}/></div>
       </div>

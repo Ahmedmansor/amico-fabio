@@ -1,5 +1,5 @@
 import type { Locale } from '../../../shared/config/languages';
-import { supportedLocales } from '../../../shared/config/languages';
+import { blogLocales } from '../../../shared/config/languages';
 import type { BlogAlternates } from './models';
 
 export type ListingKind = 'home' | 'destinations' | 'interests';
@@ -16,7 +16,7 @@ export interface ListingDescriptor { lang: Locale; kind: ListingKind; slug?: str
 
 export function getListingAlternates(group: ListingDescriptor, groups: readonly ListingDescriptor[], page: number) {
   const head: BlogAlternates = {}, navigation: BlogAlternates = {};
-  for (const lang of supportedLocales) {
+  for (const lang of blogLocales) {
     const equivalent = groups.find(item => item.lang === lang && item.kind === group.kind && item.slug === group.slug);
     const existing = equivalent && page <= listingPageCount(equivalent.total);
     navigation[lang] = existing ? listingUrl(lang, group.kind, group.slug, page) : listingUrl(lang);
