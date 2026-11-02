@@ -8,6 +8,7 @@ const browser=await chromium.launch({headless:true,executablePath:process.env.QA
 await mkdir(`qa/home-refresh/screenshots/guide-clean-${phase}`,{recursive:true});
 try{
  for(const locale of ['it','en'])for(const width of [375,1280]){
+  if(process.env.QA_SMOKE==='1'&&((locale==='it'&&width===375)||(locale==='en'&&width===1280)))continue;
   const page=await browser.newPage({viewport:{width,height:960},reducedMotion:'reduce'}),errors=[];
   page.on('pageerror',e=>errors.push(e.message));await page.goto(`${origin}/${locale}/sharm-secrets/`,{waitUntil:'load'});await page.getByRole('button',{name:locale==='it'?'Rifiuta facoltativi':'Reject optional',exact:true}).click();
    const content=await page.evaluate(()=>{const main=document.querySelector('.sharm-app').cloneNode(true);main.querySelectorAll('.rotation-control').forEach(n=>n.remove());return {text:main.textContent.replace(/\s+/g,' ').trim(),images:[...main.querySelectorAll('img')].map(n=>({alt:n.alt,src:n.getAttribute('src')})),index:[...document.querySelectorAll('.index-link')].map(n=>({text:n.textContent,href:n.getAttribute('href')}))};});

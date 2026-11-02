@@ -34,3 +34,10 @@ both real source photos were also inspected. Screenshots stay local/ignored.
 No broad test suite or Lighthouse run, no external submissions or hosting flag
 changes. QA script and JSON snapshots are alongside this report. Real deployment
 verification is recorded separately after publication.
+
+Application 1194ae2 is Ready on existing amico-fabio-test, deployment
+https://amico-fabio-test-2d4i0papv-fabio-landing-pages.vercel.app (18s build),
+confirmed alias https://amico-fabio-iyzo.vercel.app . Two final public-host smoke
+cases passed (IT desktop/EN mobile), including the same copy/photo associations,
+native dialogs, index targets, SVG replacements, backgrounds and 360px photo cap.
+See guide-clean-deployed.json. No broad/deployed performance suite was run.
