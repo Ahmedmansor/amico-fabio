@@ -1,0 +1,33 @@
+{
+  "origin": "https://amico-fabio-iyzo.vercel.app",
+  "results": [
+    {
+      "locale": "en",
+      "width": 375,
+      "cities": [
+        "sharm",
+        "cairo",
+        "luxor_and_aswan",
+        "all"
+      ],
+      "nativeRoutes": true,
+      "sortPreserved": true,
+      "categoryReset": true,
+      "errors": []
+    },
+    {
+      "locale": "it",
+      "width": 1280,
+      "cities": [
+        "sharm",
+        "cairo",
+        "luxor_and_aswan",
+        "all"
+      ],
+      "nativeRoutes": true,
+      "sortPreserved": true,
+      "categoryReset": true,
+      "errors": []
+    }
+  ]
+}

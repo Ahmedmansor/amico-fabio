@@ -1,5 +1,19 @@
 # Production and test flavors
 
+## Clean guide and explore city filters — 2026-11-02
+
+Guide source 1194ae2 is Ready (deployment 2d4i0papv, 18s), including SVG icons,
+removed decorative backgrounds, native index and a 360px card-image cap.
+Four local guide cases and two deployed smoke cases passed.
+
+Explore source 0d31096 is Ready (deployment ea2sqlf4r, 19s), including the guide
+and new IT/EN all/Sharm/Cairo/Luxor-Aswan filters. Two local and two deployed
+focused scenarios each covered all four city routes and preserved price order.
+Public alias https://amico-fabio-iyzo.vercel.app returned 200/noindex/new controls
+in both languages. Astro check: 606 files without diagnostics; build: 171 pages.
+No hosting variables, production/main, catalog/provider or campaign changes.
+See qa/home-refresh/GUIDE_CLEAN.md and qa/details/EXPLORE_LOCATION.md.
+
 ## Deeper portrait, clear CTA and animated contact — 2026-11-02
 
 Application b820fe16083642d051c591b242a09d00d30d7835 is Ready on the existing

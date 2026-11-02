@@ -20,3 +20,9 @@ category reset/current indicator worked, no overflow/page errors. Screenshots
 inspected and kept ignored/local. See explore-location.mjs/json. No broad test
 suite or Lighthouse run, no external submissions or hosting environment changes.
 Remote readiness is recorded separately after publication.
+
+Source 0d31096 is Ready on existing amico-fabio-test deployment ea2sqlf4r
+(19s build). Both public test languages returned 200/noindex/new city controls.
+The same two focused city-navigation scenarios passed on the real public alias,
+including all four destinations and sorting. See explore-location-deployed.json
+and explore-location-deployment.json. No production/hosting variables changed.
