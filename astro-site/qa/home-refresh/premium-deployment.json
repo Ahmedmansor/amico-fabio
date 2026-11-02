@@ -1,0 +1,23 @@
+{
+  "origin": "https://amico-fabio-iyzo.vercel.app",
+  "sourceCommit": "b4d83984764802e7085f82457d125208c41cd28a",
+  "project": "amico-fabio-test",
+  "deployment": "https://amico-fabio-test-qgto2cy3p-fabio-landing-pages.vercel.app",
+  "deploymentId": "dpl_7D6krMiuHRWKaoTf7epDBdhA9eej",
+  "state": "READY",
+  "results": [
+    {
+      "locale": "it",
+      "status": 200,
+      "noindex": true,
+      "premiumHero": true
+    },
+    {
+      "locale": "en",
+      "status": 200,
+      "noindex": true,
+      "premiumHero": true
+    }
+  ],
+  "hostingVariablesChanged": false
+}

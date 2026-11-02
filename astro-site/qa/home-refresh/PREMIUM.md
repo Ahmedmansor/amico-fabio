@@ -52,3 +52,15 @@ serve `dist` with scripts/serve-static-qa.mjs on port 4341, then run
 `node qa/home-refresh/premium.mjs after`. Results are premium-before.json,
 premium-after.json and premium-motion.json. Test deployment evidence, if
 published, is recorded separately; local output alone does not prove deployment.
+
+## Verified test deployment
+
+Application commit b4d83984764802e7085f82457d125208c41cd28a was pushed only to
+try-to-refactoring-to-astro. Existing amico-fabio-test deployment
+https://amico-fabio-test-qgto2cy3p-fabio-landing-pages.vercel.app is Ready
+(22s build), with stable alias https://amico-fabio-iyzo.vercel.app .
+The same 12-case responsive/content/interaction probe passed on that actual
+alias; see premium-deployed.json. Both home languages returned 200/noindex and
+the new hero markup; see premium-deployment.json. Hosting variables were not
+changed. Legacy main, live production project/domain and campaign sources are
+unchanged. A physical iPad/Safari review remains outside these Chromium checks.

@@ -48,5 +48,5 @@ try{
   console.log(`${phase} ${locale} ${width}: content, layout, biography, reviews, video privacy PASS`);await page.close();
  }
 }finally{await browser.close();}
-await writeFile(`qa/home-refresh/premium-${phase}.json`,JSON.stringify({origin,results},null,2)+'\n');
+await writeFile(process.env.QA_REPORT||`qa/home-refresh/premium-${phase}.json`,JSON.stringify({origin,results},null,2)+'\n');
 console.log(`${results.length} cases passed`);

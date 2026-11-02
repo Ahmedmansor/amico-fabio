@@ -1,5 +1,18 @@
 # Production and test flavors
 
+## Premium desktop/iPad home — 2026-11-02
+
+Source b4d83984764802e7085f82457d125208c41cd28a is Ready on existing test project
+amico-fabio-test, deployment
+https://amico-fabio-test-qgto2cy3p-fabio-landing-pages.vercel.app (22s build).
+Stable alias https://amico-fabio-iyzo.vercel.app is unchanged. Both home languages
+returned 200/noindex with the new hero; 12 deployed Chromium cases at six widths
+passed baseline-content, layout and interaction checks. Astro check: 596 files,
+zero diagnostics; local matching noindex/demo build: 171 pages. No hosting
+variables or provider/publication settings changed. See
+qa/home-refresh/PREMIUM.md and premium-deployment.json. Legacy main, domain and
+production project remain unchanged.
+
 ## Responsive Fabio/video polish and inquiry resilience — 2026-11-02
 
 Migration source `54594ab382921b9547c98558c7569a358eff21d8`, including the focused
