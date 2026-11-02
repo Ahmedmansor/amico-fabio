@@ -18,6 +18,13 @@ checks passed. The noindex/empty-sitemap guard remains enforced. Run
 `qa/blog/verify-demo-restoration.mjs` after the matching deployment to verify
 existing articles in both listings, HTTP 200, guides and an empty sitemap.
 
+Verified deployment `amico-fabio-test-eyab2mnqh-fabio-landing-pages.vercel.app`
+Ready (27s build), source `53952b7b20528bed5b55fdaa65c17245680ca065`, stable alias
+unchanged. All 12 demo article URLs returned 200/noindex and appeared in their
+IT/EN listings; both Aswan guides returned 200 with the shared inquiry widget;
+the sitemap remained empty. See `qa/blog/demo-restoration.json`. No content,
+translation, images or publication markers were edited to restore visibility.
+
 ## Offers-consent activation — 2026-11-02
 
 User explicitly approved the temporary native overlap test. Real lock contention
