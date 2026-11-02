@@ -1,5 +1,15 @@
 <!-- Current target: LOGIN_REVISION.md, approved 2026-10-28. Historical checkpoints below describe earlier artifacts. -->
 
+2026-11-02 language continuation: the main site now supports IT/EN/ES/PT;
+Portuguese is European Portuguese. Existing account-language and consent locale
+allowlists were extended, preserving locking, revisions, grants and withdrawal.
+Native disposable ES/PT assertions passed with ROLLBACK and baseline restoration.
+Five existing Edge Functions are active with the extended language configuration;
+signed Auth templates also include ES/PT. No real mail was sent. Test application
+062cb09 is Ready. See `../../../supabase/site-languages/VERIFICATION.md` and
+`../../../qa/i18n/PROGRESS.md`; historical two-language descriptions are superseded
+for the main site, not for the excluded blogs or Italian-only campaigns.
+
 # Authentication, wishlists, and email reminders — Fabio Egypt
 
 ## Current target and handoff — 2026-10-28

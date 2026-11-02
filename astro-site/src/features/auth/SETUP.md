@@ -1,5 +1,14 @@
 <!-- Current target: LOGIN_REVISION.md, approved 2026-10-28. Historical checkpoints below describe earlier artifacts. -->
 
+2026-11-02: test application 062cb09 adds `/es/login/`, `/pt/login/` and matching
+localized callback/wishlist pages. Existing backend locale validation and signed
+Auth templates now support both new languages. The user confirmed the test
+redirect allowlist covers `https://amico-fabio-iyzo.vercel.app/**`; dashboard
+readback was unavailable. No redirect/provider/hosting settings were changed.
+See `../../../supabase/site-languages/VERIFICATION.md` for active function versions,
+native role tests and unchanged recipient scope. Actual inbox delivery and
+authenticated cross-browser ES/PT use remain final owner checks.
+
 # Auth activation and remaining setup
 
 Latest marketing checkpoint, 2026-11-02: applied schema and native role/withdrawal

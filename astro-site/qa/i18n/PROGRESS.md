@@ -46,7 +46,27 @@ late consent banner and existing explore query parameters. The local server/test
 setup and assertions were corrected; the final results above are actual passing
 runs. These were harness corrections, not claims that those failed runs passed.
 
-Test deployment status will be recorded after the migration branch push.
+## Published test deployment
+
+Application commit `062cb09` is Ready on the existing `amico-fabio-test` project:
+deployment `dpl_4oPXFN8nuMcszbDb7h7cYmwnQLcH`, 27-second build.
+Vercel inspect confirmed the stable alias `https://amico-fabio-iyzo.vercel.app`.
+
+Eight deployed Chromium cases passed for ES/PT home and package pages at
+390/1440px, including loaded home images, language equivalents, included-trip
+details and localized booking/WhatsApp preparation without sending. See
+`deployed.json`. Additional public HTTP checks confirmed both Egypt-guide roots
+and login pages return 200 with the correct language and noindex; excluded
+ES/PT blog listings return 404. See `published-pages.json` and its runner.
+
+Entry points: `/es/`, `/pt/`, `/es/egypt/`, `/pt/egypt/`, `/es/login/`, `/pt/login/`.
+Final user check: sign in normally in either new language, switch language while
+signed in and reload the wishlist; request an Auth email only if testing inbox
+language. No real inbox delivery or authenticated multi-browser ES/PT test was
+performed by the agent. User confirmed the existing test redirect wildcard.
+
+No hosting variables, production/main, domain, campaign publication flags,
+catalog records, business prices or booking rules were changed.
 
 ## Earlier dictionary-only checkpoint
 

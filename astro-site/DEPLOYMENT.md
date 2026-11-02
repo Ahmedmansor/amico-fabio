@@ -1,5 +1,22 @@
 # Production and test flavors
 
+## Spanish and European Portuguese — 2026-11-02
+
+Application `062cb09` is Ready on the existing amico-fabio-test project,
+deployment `dpl_4oPXFN8nuMcszbDb7h7cYmwnQLcH` (27s build), with the confirmed
+stable alias https://amico-fabio-iyzo.vercel.app . ES/PT home/package flows passed
+eight deployed mobile/desktop browser cases. Both Egypt-guide roots and login
+pages returned 200/correct language/noindex; excluded ES/PT blog listings 404.
+
+Local Astro check: 610 files, zero diagnostics. Static test build: 285 pages,
+282 canonical/reciprocal checks, 88 editorial link checks, 68 JSON-LD checks.
+Existing published routes, IDs, prices, images and Italian-only campaigns are
+retained; no new ES/PT blog content. Main/domain, hosting variables and existing
+catalog data are unchanged. Account language SQL and five existing backend
+functions were extended separately, preserving grants/consent/recipient scope.
+See qa/i18n/PROGRESS.md and supabase/site-languages/VERIFICATION.md for the actual
+checks, user-confirmed redirect wildcard and remaining real inbox/user checks.
+
 ## Clean guide and explore city filters — 2026-11-02
 
 Guide source 1194ae2 is Ready (deployment 2d4i0papv, 18s), including SVG icons,
