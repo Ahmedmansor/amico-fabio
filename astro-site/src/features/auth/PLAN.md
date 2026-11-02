@@ -4,6 +4,15 @@
 
 ## Current target and handoff — 2026-10-28
 
+Latest 2026-11-02: the user approved the temporary native concurrency test.
+Actual overlapping transaction wait/stale rejection passed (12.284765s); the
+single fixture/job were removed and baseline counts restored. The existing
+test project's marketing flag is enabled in Production/Preview for the matching
+rebuild. See `../../../supabase/marketing-consent/VERIFICATION.md` and
+`../../../qa/auth/marketing-activation-deployment.json` for native versus actual
+public-UI evidence. No promotional dispatch, real inbox test or reminder audience
+expansion is implied. Historical OFF/unverified checkpoints below are superseded.
+
 2026-11-02 continuation: marketing backend schema is now APPLIED to fabioEgypt;
 native ownership/verification/withdrawal/replay assertions passed with rollback.
 The public activation gate stays OFF: actual concurrent transaction overlap is

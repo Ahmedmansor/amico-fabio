@@ -15,7 +15,7 @@ try{
     const user={id:'00000000-0000-4000-8000-000000000092',email:'qa@libero.it',aud:'authenticated',role:'authenticated',email_confirmed_at:'2026-10-28T00:00:00Z',user_metadata:{marketing_consent:true},app_metadata:{provider:'email'}};
     const jwt=`${Buffer.from('{"alg":"HS256","typ":"JWT"}').toString('base64url')}.${Buffer.from(JSON.stringify({sub:user.id,aud:'authenticated',exp:Math.floor(Date.now()/1000)+3600})).toString('base64url')}.synthetic`;
     const session={user,access_token:jwt,refresh_token:'synthetic',expires_in:3600,expires_at:Math.floor(Date.now()/1000)+3600,token_type:'bearer'};
-    await context.route('https://challenges.cloudflare.com/**',route=>route.fulfill({contentType:'application/javascript',body:`window.turnstile={render(el,o){window.qaCaptcha=o;setTimeout(()=>o.callback('synthetic-token'),0);return 'qa'},reset(){setTimeout(()=>window.qaCaptcha.callback('synthetic-token'),0)}};`}));
+    await context.route('https://challenges.cloudflare.com/**',route=>route.fulfill({contentType:'application/javascript',body:`window.turnstile={render(el,o){window.qaCaptcha=o;setTimeout(()=>o.callback('synthetic-token'),0);return 'qa'},reset(){setTimeout(()=>window.qaCaptcha.callback('synthetic-token'),0)},remove(){}};`}));
     await context.route('https://auth-qa.invalid/**',async route=>{
       const request=route.request(),url=new URL(request.url()),headers={'access-control-allow-origin':origin,'access-control-allow-headers':'*'};
       if(request.method()==='OPTIONS')return route.fulfill({headers,body:''});
@@ -63,6 +63,6 @@ try{
     results.push({locale,width,passed:true,checks:['default unchecked signup','versioned intent only','metadata cannot grant','verified preference read','failed write and retry','explicit opt-in','withdrawal','no reminder/email calls'],synthetic:true});
     await context.close();
   }
-  await writeFile(new URL('./marketing-browser-results.json',import.meta.url),JSON.stringify({results,sqlRoleTestsExecuted:false,externalEmailsSent:0},null,2)+'\n');
+  await writeFile(new URL('./marketing-browser-results.json',import.meta.url),JSON.stringify({results,syntheticBrowserOnly:true,nativeEvidence:'../../supabase/marketing-consent/native-overlap-2026-11-02.json',externalEmailsSent:0},null,2)+'\n');
   console.log(JSON.stringify(results,null,2));
 }finally{await browser.close();}

@@ -1,5 +1,39 @@
 # Marketing consent checkpoint — 2026-11-02
 
+## Overlap gate passed after explicit approval
+
+The user answered `كمل` to the concrete temporary-job approval question. A fresh
+disposable account and a uniquely named pg_cron job were authorized. The actual
+writer was observed in PgSleep with its advisory transaction lock granted.
+The independent connector request waited 12.284765 seconds, then returned
+`stale-revision-rejected` (40001 caught by the assertion). Final state: consent
+true, revision 1, exactly one audit event. This is real overlapping native
+transaction evidence, distinct from the earlier sequential check below.
+See native-overlap-2026-11-02.json.
+
+The one-shot writer performs self-unscheduling in its outer transaction and
+catches inner writer failures so unscheduling can commit even on a failed write.
+This refines the draft's separate early-commit description while preserving its
+single-job/no-repeat intent. Cleanup also unschedules/cancels only the exact QA
+job/backend and deletes only the exact UUID plus invalid-domain fixture email.
+Read-back: users 7, onboarding 7, preference/intent/audit counts 0, matching jobs
+0, matching backends 0. Historical cron run logs are retained; no active fixture
+or job remains. An initial response-parser failure canceled/cleaned its first
+fixture; the parser was checked read-only before the successful fresh run.
+
+Focused logic checks: 17 Node tests and 2 Vitest tests passed. Astro check: 587
+files, 0 errors/warnings/hints. `npm run build` with the activation flag: 103
+static pages complete. Synthetic browser cases (IT/EN, 375/1440) passed signup
+intent, fail/retry, explicit grant and withdrawal. One obsolete CAPTCHA fixture
+lacked the current remove method; the fixture was fixed, no product code changed.
+Native evidence does not claim a real user's browser/inbox test or any mailing.
+
+The existing Vercel test project's PUBLIC_MARKETING_CONSENT_ENABLED is now 1
+in Production and Preview only. Other flags, reminder scope, provider settings,
+committed defaults and ignored local env files are unchanged. Matching rebuilt
+public-artifact/guest-UI verification is recorded in qa/auth, not inferred from
+the environment update alone. All checkpoints below are historical.
+
 User authorized continuing backend activation, performance and test deployment.
 Applied `schema.sql` as migration `account_marketing_consent` to fabioEgypt
 (`iiivnvwspoikfrlclhyr`). No existing account backfill, reminder enrollment,

@@ -65,6 +65,7 @@
       "synthetic": true
     }
   ],
-  "sqlRoleTestsExecuted": false,
+  "syntheticBrowserOnly": true,
+  "nativeEvidence": "../../supabase/marketing-consent/native-overlap-2026-11-02.json",
   "externalEmailsSent": 0
 }

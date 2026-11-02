@@ -2,6 +2,13 @@
 
 # Auth activation and remaining setup
 
+Latest marketing checkpoint, 2026-11-02: applied schema and native role/withdrawal
+assertions plus actual overlapping transaction test passed. Test project
+`amico-fabio-test` enables PUBLIC_MARKETING_CONSENT_ENABLED=1 in Production and
+Preview; committed defaults stay off. See marketing-consent/VERIFICATION.md and
+qa/auth/marketing-activation-deployment.json. Earlier unapplied/off statements
+below are historical. No promotional sender or broader reminder scope is active.
+
 ## Current login revision — 2026-10-28
 
 Email OTP length is now 6 in Supabase and the local domain/UI. The six-cell

@@ -1,9 +1,10 @@
-# Optional offers consent — applied backend, activation pending
+# Optional offers consent — verified backend and approved test activation
 
-2026-11-02: schema applied to fabioEgypt; native role/verification/withdrawal/
-replay assertions passed and rolled back. Actual simultaneous transaction
-contention is not verified. Public activation remains OFF pending this gate.
-See VERIFICATION.md. Earlier proposal instructions below describe the original plan.
+2026-11-02 latest: native overlap is now verified after explicit temporary-job
+approval. The contender waited 12.284765s and rejected its stale revision; all
+fixtures/jobs were cleaned. The approved test project's Production/Preview flag
+is enabled; committed defaults remain off. See VERIFICATION.md and the native
+evidence JSON. Earlier activation requirements below describe the original gate.
 
 The latest user plan adds optional favorites offers/discounts consent. It is a
 separate default-false permission; existing reminder consent is never reused.

@@ -1,0 +1,45 @@
+{
+  "fixture": "8660b00b-6293-42ec-a5d6-b9a2dc5bc417",
+  "job": "qa_marketing_race_8660b00b629342eca5d6b9a2dc5bc417",
+  "authorization": "User approved the concrete temporary-job proposal by replying كمل after the approval question.",
+  "method": "single transaction self-unschedule; writer exceptions caught so unscheduling commits even if the inner write rolls back",
+  "setup": [
+    {
+      "job_id": 3
+    }
+  ],
+  "active": [
+    {
+      "pid": 1071798,
+      "state": "active",
+      "wait_event": "PgSleep",
+      "advisory_lock_held": true
+    }
+  ],
+  "contender": [
+    {
+      "result": "stale-revision-rejected",
+      "elapsed_seconds": "12.284765"
+    }
+  ],
+  "finalState": [
+    {
+      "revision": 1,
+      "marketing_consent": true,
+      "events": 1
+    }
+  ],
+  "cleanup": [
+    {
+      "cleanup": {
+        "audit": 0,
+        "users": 7,
+        "intents": 0,
+        "onboarding": 7,
+        "preferences": 0,
+        "matching_jobs": 0,
+        "matching_backends": 0
+      }
+    }
+  ]
+}
