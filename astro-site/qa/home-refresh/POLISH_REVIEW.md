@@ -38,3 +38,11 @@ keyboard check exposed native focus leaving to browser chrome; explicit wrapping
 was added. Other probe refinements wait for entrance animation/compositor state
 and stable hover coordinates, not arbitrary initial frames. No external leads,
 accounts or emails were sent. See polish.json.
+
+Deployed source `54594ab382921b9547c98558c7569a358eff21d8` is Ready at the existing
+test alias (deployment `amico-fabio-test-bncr4aot4-fabio-landing-pages.vercel.app`).
+The same seven cases passed on the real test host; see polish-deployed.json.
+Mobile Lighthouse 13.6: performance 99/accessibility 100, LCP 2.2s, TBT 0ms,
+CLS .001, no failing accessibility audits. One cold lab run, not field INP or a
+controlled causal improvement claim over prior runs. No hosting flag or content
+publication setting changed; approved dummy blog content remains enabled/noindex.

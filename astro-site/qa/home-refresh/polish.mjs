@@ -56,4 +56,4 @@ try{
  assert.equal(requests.some(url=>url.includes('desktop-reveal')||url.includes('home-motion')),false);
  results.push({reducedMotion:true,heavyChunksAbsent:true});await reduced.close();
 }finally{await browser.close();}
-await writeFile(new URL('./polish.json',import.meta.url),JSON.stringify({origin,results},null,2)+'\n');console.log(JSON.stringify({cases:results.length,pass:true}));
+await writeFile(new URL(process.env.QA_REPORT||'./polish.json',import.meta.url),JSON.stringify({origin,results},null,2)+'\n');console.log(JSON.stringify({cases:results.length,pass:true}));

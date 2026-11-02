@@ -1,5 +1,22 @@
 # Production and test flavors
 
+## Responsive Fabio/video polish and inquiry resilience — 2026-11-02
+
+Migration source `54594ab382921b9547c98558c7569a358eff21d8`, including the focused
+inquiry fix `f3da441`, is Ready on existing test project `amico-fabio-test`.
+Deployment: `https://amico-fabio-test-bncr4aot4-fabio-landing-pages.vercel.app`;
+stable alias `https://amico-fabio-iyzo.vercel.app` unchanged. No environment,
+provider, catalog or publication flag changed. Dummy blogs stay visible/noindex.
+
+Square uncropped Vimeo thumbnails, original-content biography dialog, explicit
+mobile CSS/touch portrait movement and conditional desktop/iPad card reveals
+passed seven local and seven deployed Chromium cases. Cairo stepper fix passed
+eight development/static cases with optional analytics blocked. Astro check:
+595 files without diagnostics; static build 171 pages complete. Deployed mobile
+Lighthouse: 99 performance/100 accessibility, LCP 2.2s, TBT 0ms, CLS .001 (single
+lab run). See `qa/home-refresh/POLISH_REVIEW.md`, `polish-deployed.json` and
+`polish-performance.json`; inquiry root cause is in `qa/inquiry/STEPPER_FIX.md`.
+
 ## Restore the owner's demo content — 2026-11-02
 
 The owner reported that their dummy blog articles disappeared after deployment.

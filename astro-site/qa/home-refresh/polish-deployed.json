@@ -1,0 +1,75 @@
+{
+  "origin": "https://amico-fabio-iyzo.vercel.app",
+  "results": [
+    {
+      "locale": "it",
+      "width": 375,
+      "squareFullThumbnails": true,
+      "posterMotion": true,
+      "biographyTextPreserved": true,
+      "modalFocusAndScroll": true,
+      "desktopReveals": 0,
+      "mobileHeavyChunkAbsent": true,
+      "errors": []
+    },
+    {
+      "locale": "it",
+      "width": 768,
+      "squareFullThumbnails": true,
+      "posterMotion": true,
+      "biographyTextPreserved": true,
+      "modalFocusAndScroll": true,
+      "desktopReveals": 9,
+      "mobileHeavyChunkAbsent": false,
+      "errors": []
+    },
+    {
+      "locale": "it",
+      "width": 1280,
+      "squareFullThumbnails": true,
+      "posterMotion": true,
+      "biographyTextPreserved": true,
+      "modalFocusAndScroll": true,
+      "desktopReveals": 12,
+      "mobileHeavyChunkAbsent": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "squareFullThumbnails": true,
+      "posterMotion": true,
+      "biographyTextPreserved": true,
+      "modalFocusAndScroll": true,
+      "desktopReveals": 0,
+      "mobileHeavyChunkAbsent": true,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "squareFullThumbnails": true,
+      "posterMotion": true,
+      "biographyTextPreserved": true,
+      "modalFocusAndScroll": true,
+      "desktopReveals": 9,
+      "mobileHeavyChunkAbsent": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "squareFullThumbnails": true,
+      "posterMotion": true,
+      "biographyTextPreserved": true,
+      "modalFocusAndScroll": true,
+      "desktopReveals": 12,
+      "mobileHeavyChunkAbsent": false,
+      "errors": []
+    },
+    {
+      "reducedMotion": true,
+      "heavyChunksAbsent": true
+    }
+  ]
+}
