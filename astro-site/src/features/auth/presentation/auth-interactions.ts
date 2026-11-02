@@ -38,9 +38,12 @@ async function initialize(){
     for(const image of document.querySelectorAll<HTMLImageElement>('[data-auth-avatar]')){
       const fallback=image.parentElement!.querySelector<HTMLElement>('[data-auth-avatar-fallback]')!;
       const url=session?.profile.avatarUrl;
-      if(url){if(image.getAttribute('src')!==url)image.src=url;image.hidden=false;fallback.hidden=true;}
+      if(url){
+        if(image.getAttribute('src')!==url)image.src=url;
+        const loaded=image.complete&&image.naturalWidth>0;
+        image.hidden=!loaded;fallback.hidden=loaded;
+      }
       else{image.removeAttribute('src');image.hidden=true;fallback.hidden=false;}
-      image.parentElement!.dataset.avatarLoading=String(!ready);
     }
     for(const trigger of triggers){
       trigger.href=login;
@@ -56,7 +59,13 @@ async function initialize(){
     document.getElementById('global-header')?.setAttribute('data-session-pending',String(!ready));
     if(!session&&dialog.open)dialog.close();
   }
-  for(const image of document.querySelectorAll<HTMLImageElement>('[data-auth-avatar]'))image.addEventListener('error',()=>{image.hidden=true;image.parentElement!.querySelector<HTMLElement>('[data-auth-avatar-fallback]')!.hidden=false;});
+  for(const image of document.querySelectorAll<HTMLImageElement>('[data-auth-avatar]')){
+    image.addEventListener('load',()=>{
+      if(!session?.profile.avatarUrl||image.getAttribute('src')!==session.profile.avatarUrl||!image.naturalWidth)return;
+      image.hidden=false;image.parentElement!.querySelector<HTMLElement>('[data-auth-avatar-fallback]')!.hidden=true;
+    });
+    image.addEventListener('error',()=>{image.hidden=true;image.parentElement!.querySelector<HTMLElement>('[data-auth-avatar-fallback]')!.hidden=false;});
+  }
   for(const trigger of triggers)trigger.addEventListener('click',event=>{
     if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
     if(!ready){event.preventDefault();return;}

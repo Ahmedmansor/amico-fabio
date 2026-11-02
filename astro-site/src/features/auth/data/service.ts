@@ -79,7 +79,8 @@ export function createAuthService(client: Client, config: AuthConfig, now: () =>
     },
     subscribe(listener: (session: AccountSession | null) => void): () => void {
       const { data } = client.auth.onAuthStateChange((event, session) => {
-        // Initial restoration goes through currentSession/getUser, including fresh profile.
+        // Initial restoration goes through currentSession/getSession; the SDK
+        // reads persisted state and refreshes an expiring session when needed.
         if (event === 'INITIAL_SESSION') return;
         // Keep async consumers out of the SDK's locked synchronous callback.
         queueMicrotask(() => listener(sessionView(session)));

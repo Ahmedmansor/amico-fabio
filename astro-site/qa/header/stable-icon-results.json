@@ -1,0 +1,53 @@
+[
+  {
+    "signedIn": false,
+    "path": "/en/",
+    "visibleBeforeScripts": true,
+    "stableGeometry": true,
+    "authNetworkRequests": 0,
+    "restoredFromLocalStorage": false
+  },
+  {
+    "signedIn": false,
+    "path": "/en/explore/",
+    "visibleBeforeScripts": true,
+    "stableGeometry": true,
+    "authNetworkRequests": 0,
+    "restoredFromLocalStorage": false
+  },
+  {
+    "signedIn": false,
+    "path": "/en/tours/ras_mohammed_bus_half_day/",
+    "visibleBeforeScripts": true,
+    "stableGeometry": true,
+    "authNetworkRequests": 0,
+    "restoredFromLocalStorage": false
+  },
+  {
+    "signedIn": true,
+    "path": "/en/",
+    "visibleBeforeScripts": true,
+    "stableGeometry": true,
+    "authNetworkRequests": 0,
+    "restoredFromLocalStorage": true
+  },
+  {
+    "signedIn": true,
+    "path": "/en/explore/",
+    "visibleBeforeScripts": true,
+    "stableGeometry": true,
+    "authNetworkRequests": 0,
+    "restoredFromLocalStorage": true
+  },
+  {
+    "signedIn": true,
+    "path": "/en/tours/ras_mohammed_bus_half_day/",
+    "visibleBeforeScripts": true,
+    "stableGeometry": true,
+    "authNetworkRequests": 0,
+    "restoredFromLocalStorage": true
+  },
+  {
+    "avatarFailureFallback": true
+  }
+]

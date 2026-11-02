@@ -17,8 +17,8 @@
 .site-header .auth-trigger{width:44px;padding:8px}
 .site-header .auth-trigger-label,.site-header .auth-trigger-loading{display:none!important}
 .site-header .auth-trigger-avatar{width:24px;height:24px;flex-basis:24px}
-.site-header .auth-trigger-avatar[data-avatar-loading="true"],.site-header .wishlist-loading{background:var(--surface-brand-soft)}
-.site-header .auth-trigger-avatar::after,.site-header .wishlist-loading::after{background:linear-gradient(90deg,transparent,var(--surface-action-soft),transparent)}
+.site-header .wishlist-loading{background:var(--surface-brand-soft)}
+.site-header .wishlist-loading::after{background:linear-gradient(90deg,transparent,var(--surface-action-soft),transparent)}
 .site-header .wishlist-count{background:var(--color-accent-orange);color:var(--on-accent)}
 .site-header details{position:relative}.site-header summary{display:flex;align-items:center;justify-content:center;gap:5px;min-width:44px;min-height:44px;cursor:pointer;list-style:none;border-radius:var(--radius-control);font-size:12px;font-weight:600}
 .site-header summary::-webkit-details-marker{display:none}
