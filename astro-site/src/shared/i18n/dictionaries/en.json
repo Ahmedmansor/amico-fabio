@@ -136,6 +136,10 @@
     }
   },
   "labels": {
+    "pauseMotion": "Pause",
+    "resumeMotion": "Resume",
+    "pauseMotionLabel": "Pause automatic scrolling",
+    "resumeMotionLabel": "Resume automatic scrolling",
     "close": "Close",
     "links": "Links",
     "closeIndex": "Close index",

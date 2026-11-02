@@ -41,13 +41,13 @@ try{
   assert.ok(await media.evaluateAll(nodes=>nodes.every(n=>{const r=n.getBoundingClientRect();return Math.abs(r.width-r.height)<1&&getComputedStyle(n.querySelector('img')).objectFit==='contain';})));
   await media.first().locator('img').evaluate(img=>img.decode());
   await page.screenshot({path:`qa/home-refresh/screenshots/polish/${locale}-${width}-videos.png`});
-  const revealCount=await page.evaluate(()=>window.qaReveals);assert.equal(revealCount>0,width>=768);
-  assert.equal(requests.some(url=>url.includes('desktop-reveal')),width>=768);
+  const revealCount=await page.evaluate(()=>window.qaReveals);assert.equal(revealCount>0,true);
+  assert.equal(requests.some(url=>url.includes('desktop-reveal')),true);
   assert.equal(requests.some(url=>url.includes('vimeo.com')),false);
   await page.waitForFunction(()=>document.querySelector('.wf-container').dataset.posterVisible==='false');
   assert.equal(await page.locator('.wf-scene').evaluate(n=>getComputedStyle(n).animationName),'none');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.deepEqual(errors,[]);
-  results.push({locale,width,squareFullThumbnails:true,posterMotion:true,biographyTextPreserved:true,modalFocusAndScroll:true,desktopReveals:revealCount,mobileHeavyChunkAbsent:width===375,errors});await page.close();
+  results.push({locale,width,squareFullThumbnails:true,posterMotion:true,biographyTextPreserved:true,modalFocusAndScroll:true,cardReveals:revealCount,mobileNativeMotion:width===375,errors});await page.close();
  }
  const reduced=await browser.newPage({viewport:{width:768,height:900},reducedMotion:'reduce'}),requests=[];
  reduced.on('request',r=>requests.push(r.url()));await reduced.goto(`${origin}/en/`,{waitUntil:'load'});

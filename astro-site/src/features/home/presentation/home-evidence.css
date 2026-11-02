@@ -43,3 +43,18 @@
  .home-video-play svg{transition:transform var(--motion-fast)}
  .home-video-card:hover .home-video-play svg{transform:scale(1.06)}
 }
+
+.rotation-control{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 14px;border:1px solid var(--border-color);border-radius:999px;background:var(--bg-white);color:var(--color-primary);font:600 11px/1.5 Montserrat,Arial,sans-serif;cursor:pointer}
+.rotation-control[aria-pressed="true"]{background:var(--surface-action-soft)}
+.rotation-control:focus-visible{outline:3px solid var(--color-primary);outline-offset:3px}
+.hero-motion-controls{position:absolute;z-index:2;right:28px;bottom:28px}
+.home-video-motion-controls{display:none}
+@media(min-width:768px) and (max-width:1023px){.hero-motion-controls{top:258px;right:28px;bottom:auto}}
+@media(max-width:767px) and (prefers-reduced-motion:no-preference){
+ .hero-motion-controls{top:190px;right:12px;bottom:auto}
+ .home-video-motion-controls{display:flex;justify-content:flex-end;margin-bottom:18px}
+ .home-videos .rotation-control{border-color:var(--border-on-dark);background:var(--surface-detail-raised);color:var(--bg-white)}
+ .home-videos .rotation-control:focus-visible{outline-color:var(--bg-white)}
+ .reviews-controls .reviews-pause{display:flex}
+}
+@media(prefers-reduced-motion:reduce){.hero-motion-controls,.home-video-motion-controls{display:none}}

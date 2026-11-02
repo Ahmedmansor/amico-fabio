@@ -33,18 +33,10 @@ if(track&&pause){
   };
   document.querySelector('[data-review-prev]')?.addEventListener('click',()=>move(-1));
   document.querySelector('[data-review-next]')?.addEventListener('click',()=>move(1));
-  track.addEventListener('pointerdown',stop,{passive:true});
-  track.addEventListener('keydown',stop);
-  pause.addEventListener('click',()=>{
-    const paused=pause.dataset.paused!=='true';pause.dataset.paused=String(paused);
-    pause.setAttribute('aria-pressed',String(paused));
-    pause.querySelector('span')!.textContent=paused?pause.dataset.resumeLabel!:pause.dataset.pauseLabel!;
-    track.dispatchEvent(new Event('home:reviews-state'));
-  });
 }
 
-// The desktop/iPad enhancement is a separate chunk, never fetched on mobile.
-const motion=matchMedia('(min-width:768px) and (prefers-reduced-motion:no-preference)');
+// Requested mobile autoplay shares a small native-API chunk; reduced motion stays manual.
+const motion=matchMedia('(prefers-reduced-motion:no-preference)');
 let cleanup:(()=>void)|undefined;
 async function synchronizeMotion(){
   if(!motion.matches){cleanup?.();cleanup=undefined;return;}
@@ -52,7 +44,6 @@ async function synchronizeMotion(){
   await first?.decode().catch(()=>{});
   await new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve())));
   if(!motion.matches)return;
-  hydrateHero();
   const {mountHomeMotion}=await import('./home-motion');
   if(motion.matches&&!cleanup)cleanup=mountHomeMotion();
 }

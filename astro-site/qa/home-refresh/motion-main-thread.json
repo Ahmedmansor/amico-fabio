@@ -1,0 +1,29 @@
+{
+  "origin": "http://127.0.0.1:4341",
+  "cpuSlowdown": 4,
+  "phases": [
+    {
+      "name": "load",
+      "start": 0
+    },
+    {
+      "name": "hero",
+      "start": 1604.199999999255
+    },
+    {
+      "name": "reviews",
+      "start": 7422.0999999996275
+    },
+    {
+      "name": "videos",
+      "start": 14317.599999999627
+    }
+  ],
+  "tasks": [
+    {
+      "start": 790.4000000003725,
+      "duration": 95,
+      "phase": "load"
+    }
+  ]
+}

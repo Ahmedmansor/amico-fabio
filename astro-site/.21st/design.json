@@ -41,8 +41,8 @@
     "radius": {},
     "shadows": {},
     "motion": {
-      "scope": "Desktop and iPad widths >=768px, prefers-reduced-motion:no-preference",
-      "mobile": "Static layered poster; manual swipe carousels; no motion chunk fetched"
+      "scope": "All main-site widths with prefers-reduced-motion:no-preference",
+      "mobile": "Visible-only 5s hero, 6s Facebook reviews and 7s video-card native scroll; short once-only card entrances; touch/focus/modal/hidden-tab pauses and explicit controls"
     },
     "density": "unknown"
   },
@@ -61,7 +61,7 @@
     ],
     "avoid": [
       "React, Framer Motion, WebGL, device sensors",
-      "Mobile motion dependencies or animation timers",
+      "Motion frameworks, continuous JS animation loops or offscreen timers",
       "Fake review counts, guest faces, claims or videos",
       "Changes to the campaign design or lead flow"
     ]
@@ -103,6 +103,11 @@
         "https://21st.dev/@ravikatiyar162/components/card-22"
       ],
       "implementation": "Contextual catalog searches succeeded; own Astro/CSS/native dialog with existing real assets and IT/EN dictionaries. Light product reading surfaces, fixed modal toolbar, full included-trip cards, tablet two-column listing and wrapping filters. Original pricing, ordering, booking config and content preserved against browser baselines. No React, new dependency, fabricated ratings or cloud source upload."
+    },
+    {
+      "choice": "User explicitly enabled mobile autoplay and shared card entrances, 2026-11-02",
+      "reference": "https://21st.dev/@bundui/components/carousel4",
+      "implementation": "Contextual search succeeded. Original native scroll/Web Animations and visible-only timeout scheduling; no Embla/React/motion dependency. Pause on touch/focus/dialog/tab hiding/reduced motion; manually controllable, deferred hero neighbours, no pre-play Vimeo access. Supersedes earlier mobile-static and desktop-only loading decisions."
     }
   ],
   "evidence": [

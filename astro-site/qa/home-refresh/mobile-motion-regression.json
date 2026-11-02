@@ -1,0 +1,75 @@
+{
+  "origin": "http://127.0.0.1:4341",
+  "results": [
+    {
+      "locale": "it",
+      "width": 375,
+      "squareFullThumbnails": true,
+      "posterMotion": true,
+      "biographyTextPreserved": true,
+      "modalFocusAndScroll": true,
+      "cardReveals": 4,
+      "mobileNativeMotion": true,
+      "errors": []
+    },
+    {
+      "locale": "it",
+      "width": 768,
+      "squareFullThumbnails": true,
+      "posterMotion": true,
+      "biographyTextPreserved": true,
+      "modalFocusAndScroll": true,
+      "cardReveals": 12,
+      "mobileNativeMotion": false,
+      "errors": []
+    },
+    {
+      "locale": "it",
+      "width": 1280,
+      "squareFullThumbnails": true,
+      "posterMotion": true,
+      "biographyTextPreserved": true,
+      "modalFocusAndScroll": true,
+      "cardReveals": 12,
+      "mobileNativeMotion": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "squareFullThumbnails": true,
+      "posterMotion": true,
+      "biographyTextPreserved": true,
+      "modalFocusAndScroll": true,
+      "cardReveals": 4,
+      "mobileNativeMotion": true,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "squareFullThumbnails": true,
+      "posterMotion": true,
+      "biographyTextPreserved": true,
+      "modalFocusAndScroll": true,
+      "cardReveals": 12,
+      "mobileNativeMotion": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "squareFullThumbnails": true,
+      "posterMotion": true,
+      "biographyTextPreserved": true,
+      "modalFocusAndScroll": true,
+      "cardReveals": 12,
+      "mobileNativeMotion": false,
+      "errors": []
+    },
+    {
+      "reducedMotion": true,
+      "heavyChunksAbsent": true
+    }
+  ]
+}

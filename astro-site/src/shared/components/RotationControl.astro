@@ -1,0 +1,7 @@
+---
+import type {Locale} from '../config/languages';
+import {getSharedMessages} from '../i18n/shared';
+interface Props {locale:Locale;target:string}
+const {locale,target}=Astro.props,m=getSharedMessages(locale).labels;
+---
+<button type="button" class="rotation-control" data-auto-pause-for={target} aria-controls={target} aria-pressed="false" aria-label={m.pauseMotionLabel} data-pause-label={m.pauseMotion} data-resume-label={m.resumeMotion} data-pause-aria={m.pauseMotionLabel} data-resume-aria={m.resumeMotionLabel}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg><span>{m.pauseMotion}</span></button>

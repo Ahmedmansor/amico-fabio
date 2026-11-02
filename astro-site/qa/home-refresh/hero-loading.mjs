@@ -15,7 +15,6 @@ try{
   if(width===375){
    assert.equal(await slider.locator('img').count(),1);
    assert.equal(requests.some(url=>url.includes('/_astro/2.')||url.includes('/_astro/3.')),false);
-   assert.equal(requests.some(url=>url.includes('home-motion')),false);
    await slider.dispatchEvent('pointerdown');
   }
   await page.waitForFunction(()=>document.querySelectorAll('.hero-slider-bg img').length===3);

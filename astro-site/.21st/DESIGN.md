@@ -1,5 +1,13 @@
 # Fabio Egypt design context
 
+Latest mobile motion direction, 2026-11-02: user explicitly supersedes manual-only
+mobile carousels and desktop-only reveals. Enable visible-only hero (5s), Facebook
+reviews (6s), video-card list (7s, mobile only) and short once-only card entrances
+across main-site widths. Native scroll/WAAPI, explicit pause/resume, touch/focus/
+overlay/hidden-tab and reduced-motion gates. Defer neighbour hero images until
+interaction or first advance; preserve video consent. This replaces older mobile
+chunk restrictions below. See qa/home-refresh/MOBILE_MOTION.md.
+
 Latest catalog direction, 2026-11-02: user approved extending the premium home
 treatment to explore, tours and packages without content changes, specifically
 replacing the blue included-trip overlay. Detail pages/header and galleries now
