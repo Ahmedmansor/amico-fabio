@@ -64,7 +64,8 @@
       "Blue Hole Dahab",
       "Safari Deserto Sharm",
       "Migliori escursioni Sharm el Sheikh"
-    ]
+    ],
+    "route_slug": "sharm-confidential-l-esperienza-totale"
   },
   "dolce_vita_family": {
     "tour_id": "dolce_vita_family",
@@ -125,7 +126,8 @@
       "Dolce Vita Family Package",
       "Escursioni sicure Sharm",
       "Delfini e Sottomarino Sharm"
-    ]
+    ],
+    "route_slug": "dolce-vita-family-relax"
   },
   "mille_e_una_notte": {
     "tour_id": "mille_e_una_notte",
@@ -186,7 +188,8 @@
       "Cena romantica deserto",
       "White Island barca a vela",
       "Viaggio di nozze Sharm El Sheikh"
-    ]
+    ],
+    "route_slug": "mille-e-una-notte-fuga-romantica"
   },
   "indiana_jones_adventure": {
     "tour_id": "indiana_jones_adventure",
@@ -247,7 +250,8 @@
       "Colored Canyon tour",
       "Quad Safari Sharm",
       "Intro Dive Mar Rosso"
-    ]
+    ],
+    "route_slug": "indiana-jones-adrenalina-pura"
   },
   "il_grande_blu": {
     "tour_id": "il_grande_blu",
@@ -313,7 +317,8 @@
       "Blue Hole Dahab",
       "Isola di Tiran escursione",
       "Viaggi subacquei Egitto"
-    ]
+    ],
+    "route_slug": "il-grande-blu-i-tesori-del-mar-rosso"
   },
   "cairo_piramidi_saqqara_vip": {
     "tour_id": "cairo_piramidi_saqqara_vip",
@@ -377,7 +382,8 @@
       "Sfinge Egitto",
       "Tour Cairo VIP",
       "Fabio Egypt"
-    ]
+    ],
+    "route_slug": "l-eterna-grandezza-piramidi-di-giza-sfinge-e-saqqara"
   },
   "cairo_cuore_pulsante_museo_cittadella": {
     "tour_id": "cairo_cuore_pulsante_museo_cittadella",
@@ -441,7 +447,8 @@
       "Khan El Khalili",
       "Cosa vedere al Cairo",
       "Tour Città Cairo"
-    ]
+    ],
+    "route_slug": "il-cuore-pulsante-del-cairo-museo-egizio-cittadella-e-khan-el-khalili"
   },
   "cairo_crociera_nilo_cena": {
     "tour_id": "cairo_crociera_nilo_cena",
@@ -499,7 +506,8 @@
       "Spettacolo Tanoura",
       "Cena Romantica Cairo",
       "Fabio Egypt Eventi"
-    ]
+    ],
+    "route_slug": "magia-notturna-sul-nilo-crociera-vip-con-cena-e-spettacolo"
   },
   "cairo_mistico_copto_islamico": {
     "tour_id": "cairo_mistico_copto_islamico",
@@ -563,7 +571,8 @@
       "Chiesa Sospesa",
       "Cairo Islamico",
       "Tour Religioso Cairo"
-    ]
+    ],
+    "route_slug": "il-cairo-mistico-tra-cristianesimo-copto-e-fascino-islamico"
   },
   "cairo_safari_piramidi_tramonto": {
     "tour_id": "cairo_safari_piramidi_tramonto",
@@ -621,7 +630,8 @@
       "Cammello Tramonto Egitto",
       "Avventura Cairo",
       "Fabio Egypt Safari"
-    ]
+    ],
+    "route_slug": "avventura-al-tramonto-quad-safari-e-cammelli-alle-piramidi"
   },
   "alessandria_tour_giornata_intera": {
     "tour_id": "alessandria_tour_giornata_intera",
@@ -690,7 +700,8 @@
       "Biblioteca di Alessandria",
       "Cosa vedere ad Alessandria",
       "Fabio Egypt"
-    ]
+    ],
+    "route_slug": "fuga-sul-mediterraneo-tour-di-un-giorno-ad-alessandria"
   },
   "gran_tour_egitto_cairo_crociera_8g7n": {
     "tour_id": "gran_tour_egitto_cairo_crociera_8g7n",
@@ -758,7 +769,8 @@
       "Gran Tour Egitto",
       "Viaggio Egitto Completo",
       "Fabio Egypt Pacchetti"
-    ]
+    ],
+    "route_slug": "il-gran-tour-faraonico-il-cairo-e-magia-del-nilo-8-giorni"
   },
   "nile_cruise_luxor_aswan_5d4n": {
     "tour_id": "nile_cruise_luxor_aswan_5d4n",
@@ -821,7 +833,8 @@
       "Villaggio Nubiano",
       "Valle dei Re",
       "Viaggio in Egitto VIP"
-    ]
+    ],
+    "route_slug": "crociera-sul-nilo-reale-da-luxor-ad-aswan"
   },
   "nile_cruise_aswan_luxor_4d3n": {
     "tour_id": "nile_cruise_aswan_luxor_4d3n",
@@ -877,6 +890,7 @@
       "Tempio di Philae",
       "Karnak",
       "Fabio Egypt Crociere"
-    ]
+    ],
+    "route_slug": "magia-del-sud-crociera-da-aswan-a-luxor"
   }
 }

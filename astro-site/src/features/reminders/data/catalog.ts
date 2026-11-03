@@ -2,9 +2,10 @@ import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import { getTrips } from '../../tours/data/trips.mjs';
 import { getPackages } from '../../packages/data/packages.mjs';
-import { supportedLocales, type Locale } from '../../../shared/config/languages';
+import { supportedLocales } from '../../../shared/config/languages';
 import type { Offer } from '../../../shared/domain/offers';
 import { buildEmailCatalog, type EmailCatalog, type EmailCatalogItem } from '../domain/catalog';
+import {catalogPath} from '../../../shared/domain/catalog-routes';
 
 const posters=import.meta.glob<ImageMetadata>('/src/shared/assets/catalog/**/poster.webp',{eager:true,import:'default'});
 
@@ -19,8 +20,11 @@ export async function getEmailCatalog(origin: string,generatedAt: string,environ
     const image=await getImage({src:poster,width,height:Math.round(width*9/16),fit:'cover',format:'jpeg'});
     return {kind,id:offer.id,slug:offer.slug,adult_price:offer.prices.adult,
       localized:Object.fromEntries(supportedLocales.map(locale=>[locale,{
+        // Keep v1 url compatible with existing deployed email workers. It is a
+        // preserved redirect; upgraded consumers use the validated canonical URL.
         title:offer.text[locale].title,url:new URL(`/${locale}/${kind==='trip'?'tours':'packages'}/${offer.slug}/`,origin).href,
-      }])) as Record<Locale,{title:string;url:string}>,
+        canonical_url:new URL(catalogPath(offer,locale,kind==='trip'?'tours':'packages'),origin).href,
+      }])) as EmailCatalogItem['localized'],
       image:{url:new URL(image.src,origin).href,width:Number(image.attributes.width),height:Number(image.attributes.height)},
     };
   }

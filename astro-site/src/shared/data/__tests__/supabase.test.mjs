@@ -15,7 +15,8 @@ function mock(tables,{cap=Infinity}={}){
     const request=new URL(input);calls.push(request.href);
     assert.equal(request.origin,url);assert.equal(request.searchParams.has('apikey'),false);
     assert.equal(options.headers.apikey,publishableKey);assert.equal(options.headers.Authorization,undefined);
-    const table=request.pathname.split('/').at(-1),all=tables[table].filter(row=>row.is_active!==false);
+    // Match the live public_settings SELECT policy: promo_banner only.
+    const table=request.pathname.split('/').at(-1),all=tables[table].filter(row=>row.is_active!==false&&(table!=='public_settings'||row.key==='promo_banner'));
     if(table==='package_trips')all.sort((a,b)=>a.package_id.localeCompare(b.package_id)||a.position-b.position);
     else all.sort((a,b)=>a.source_order-b.source_order);
     const start=Number(request.searchParams.get('offset')),limit=Math.min(cap,Number(request.searchParams.get('limit')));
@@ -31,7 +32,9 @@ const normalized=catalog=>({
 test('both providers produce identical complete catalogs, prices, texts, images and ordered relations',async()=>{
   const fixture=mock(tables(),{cap:2});
   const provider=createSupabaseProvider({url,publishableKey,fetchImpl:fixture.fetchImpl,pageSize:5});
-  assert.deepEqual(normalized(await getCatalog(provider)),normalized(await getCatalog(fixtureProvider())));
+  const sheets=fixtureProvider();
+  const publishedFixture={...sheets,async read(name){const rows=await sheets.read(name);return name==='Global_Settings'?rows.filter(row=>row.key==='promo_banner'):rows;}};
+  assert.deepEqual(normalized(await getCatalog(provider)),normalized(await getCatalog(publishedFixture)));
   assert.ok(fixture.calls.filter(call=>new URL(call).pathname.endsWith('/trips')).length>1,'Server caps must not truncate pagination');
 });
 test('source/table reads share requests within a build; reset starts fresh requests',async()=>{

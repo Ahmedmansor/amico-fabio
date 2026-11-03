@@ -1,0 +1,9 @@
+---
+import type {ShareImage} from '../seo/share-image';
+interface Props { destination:string; title:string; locale:string; description:string; shareImage:ShareImage }
+const {destination,title,locale,description,shareImage}=Astro.props;
+const canonical=new URL(destination,Astro.site).href;
+const image=new URL(shareImage.src,import.meta.env.PUBLIC_ASSET_ORIGIN).href;
+---
+<!doctype html>
+<html lang={locale}><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width"/><title>{title}</title><meta name="description" content={description}/><meta http-equiv="refresh" content={`0;url=${destination}`}/><meta name="robots" content="noindex, follow"/><link rel="canonical" href={canonical}/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:image" content={image}/><meta property="og:url" content={canonical}/></head><body><a href={destination}>{title}</a><script is:inline define:vars={{destination}}>window.location.replace(destination+window.location.search+window.location.hash);</script></body></html>

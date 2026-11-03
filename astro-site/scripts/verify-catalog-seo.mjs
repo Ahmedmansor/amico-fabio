@@ -12,6 +12,7 @@ for(const locale of supportedLocales)for(const kind of ['tours','packages']){
     if(!entry.isDirectory())continue;
     const route=`/${locale}/${kind}/${entry.name}/`;
     const html=await readFile(`${root}/${entry.name}/index.html`,'utf8');
+    if(/http-equiv="refresh"/.test(html))continue;
     const match=html.match(/<script\b[^>]*type="application\/ld\+json"[^>]*data-catalog-schema[^>]*>([\s\S]*?)<\/script>/);
     assert.ok(match,`${route}: missing catalog JSON-LD`);
     assert.ok(html.indexOf(match[0])<html.indexOf('</head>'),`${route}: graph must be in the document head`);
@@ -39,7 +40,9 @@ for(const locale of supportedLocales)for(const kind of ['tours','packages']){
     assert.deepEqual(trip.itinerary.itemListElement.map(step=>step.item.name),source.program.map(step=>catalogPlainText(step.activity)));
     assert.equal(crumbs.itemListElement.at(-1).item,canonical);
     for(const language of supportedLocales){
-      const target=new URL(`/${language}/${kind}/${entry.name}/`,siteConfig.url).href;
+      const translated=JSON.parse(await readFile(`src/features/${kind}/data/content/${language}.json`,'utf8'));
+      const stableId=Object.keys(dictionary).find(id=>dictionary[id]===source);
+      const target=new URL(`/${language}/${kind}/${translated[stableId].route_slug}/`,siteConfig.url).href;
       assert.ok(html.includes(`hreflang="${language}" href="${target}"`),`${route}: missing ${language} equivalent`);
     }
     for(const included of trip.subTrip||[]){

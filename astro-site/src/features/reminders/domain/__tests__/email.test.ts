@@ -9,6 +9,10 @@ function item(kind:EmailCatalogItem['kind'],id='same'):EmailCatalogItem{
 const catalog=buildEmailCatalog([item('trip'),item('package'),item('trip','another')],origin,'2026-10-24T00:00:00Z','test');
 const input={catalog,expectedEnvironment:'test' as const,ids:['same','package:same'],locale:'en' as const,kind:'summary' as const};
 describe('wishlist email selection',()=>{
+  it('uses the validated canonical locale link while preserving old manifest support',()=>{
+    const updated=structuredClone(catalog);updated.items[0].localized.en.canonical_url=`${origin}/en/tours/english-title/`;
+    expect(prepareWishlistEmail({...input,catalog:updated}).model?.items[0].url).toBe(`${origin}/en/tours/english-title/`);
+  });
   it('selects only saved items, deduplicates, preserves free prices and kind identity',()=>{
     const result=prepareWishlistEmail({...input,ids:['same','same','package:same']});
     expect(result.model?.items.map(item=>item.kind)).toEqual(['trip','package']);
