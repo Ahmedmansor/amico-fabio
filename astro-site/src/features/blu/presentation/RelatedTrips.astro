@@ -3,15 +3,18 @@ import {Image} from 'astro:assets';
 import type {ImageMetadata} from 'astro';
 import type {BluCopy} from '../data/campaign';
 import type {BluRelatedTrip} from '../data/related-trips';
+import type {BluLocale} from '../domain/campaign';
+import PlannerLink from './PlannerLink.astro';
 import {buildBluMessage,buildBluWhatsApp} from '../domain/campaign';
 import {siteConfig} from '../../../shared/config/site';
-interface Props {copy:BluCopy;trips:BluRelatedTrip[]}
-const {copy,trips}=Astro.props;
+interface Props {copy:BluCopy;trips:BluRelatedTrip[];locale:BluLocale}
+const {copy,trips,locale}=Astro.props;
 const images=import.meta.glob<ImageMetadata>('/src/shared/assets/catalog/trips/sharm/**/poster.webp',{eager:true,import:'default'});
 for(const trip of trips)if(!images[trip.poster])throw new Error(`[blu:${trip.id}] Missing linked image ${trip.poster}.`);
 ---
 <aside class="blu-related" aria-labelledby="blu-related-title">
  <div class="blu-related-inner"><span class="blu-eyebrow">SHARM EL SHEIKH</span><h2 id="blu-related-title">{copy.relatedTitle}</h2><p>{copy.relatedIntro}</p>
+  <PlannerLink copy={copy} locale={locale}/>
   <div class="blu-related-cards">{trips.map(trip=><a class="blu-related-trip blu-box" href={buildBluWhatsApp(siteConfig.whatsapp.number,buildBluMessage(copy.waDefaultMsg,copy.selectedLabel,trip.title))} target="_blank" rel="noopener noreferrer" data-blu-whatsapp data-related-trip={trip.id}>
    <Image src={images[trip.poster]} alt={trip.title} widths={[360,600]} sizes="(min-width:1200px) 280px, (min-width:640px) 30vw, 90vw" loading="lazy" format="webp"/>
    <div><h3>{trip.title}</h3><span>{copy.relatedCta} <span aria-hidden="true">↗</span></span></div>

@@ -6,7 +6,7 @@ export type BluLocale = typeof bluLocales[number];
 export const bluId = 'red-sea-cartoon';
 export const bluPaths = campaignLanguagePaths.blu;
 export const passphrase = 'SEGRETO-BIKINI';
-export const experienceIds = ['sponge','squid','patrick','treasure','puff'] as const;
+export const experienceIds = ['sponge','squid','patrick','treasure','puff','sandy'] as const;
 export type ExperienceId = typeof experienceIds[number];
 
 export function isBluLocale(value: unknown): value is BluLocale {

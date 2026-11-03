@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 250" fill="none" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Bushy squirrel tail, white exploration suit and transparent flower helmet. -->
+  <path d="M165 199 C201 207 229 187 226 159 C223 136 200 130 189 143 Q179 157 195 170 Q203 174 210 166 Q212 186 183 179 L161 180Z" fill="#BE7D42"/>
+  <path d="M193 147 Q203 143 211 151 M188 178 Q203 184 218 171" stroke="#EDD4A3" stroke-width="5"/>
+  <path d="M89 176 L80 223 L107 226 L120 194 L133 225 L160 222 L148 175" fill="#F8FAFC"/>
+  <path d="M82 218 L78 232 Q69 243 108 239 L110 224 M133 224 L132 238 Q172 242 165 231 L158 218" fill="#D9E7F1"/>
+  <path d="M83 215 L108 217 M135 217 L158 214" stroke="#E85255" stroke-width="8"/>
+  <path d="M89 132 Q65 132 56 155 L45 164 Q41 174 51 178 Q62 181 67 167 L83 155 M151 132 Q166 129 174 112 L177 99 Q177 91 187 94 Q195 98 188 108 L188 126 Q179 153 157 157" fill="#F8FAFC"/>
+  <path d="M61 148 L74 155 M173 119 L185 124" stroke="#E85255" stroke-width="7"/>
+  <path d="M85 131 Q116 118 150 132 L162 181 Q124 201 78 182Z" fill="#F8FAFC"/>
+  <path d="M85 177 Q120 188 156 177" stroke="#91A7BD" stroke-width="8"/>
+  <circle cx="120" cy="154" r="14" fill="#FFE135"/><path d="M113 151 Q120 145 127 151 L125 161 Q120 169 115 161Z" fill="#BF793C" stroke-width="2"/><path d="M111 150 H129 M120 145 V140" stroke-width="2"/>
+  <circle cx="119" cy="78" r="64" fill="#C6F4FB" fill-opacity=".38" stroke="#E8FAFF" stroke-width="6"/>
+  <circle cx="119" cy="78" r="67" stroke-width="3.5"/>
+  <path d="M63 73 Q58 37 94 23" stroke="white" stroke-opacity=".8" stroke-width="6"/>
+  <circle cx="85" cy="63" r="15" fill="#BE7D42"/><circle cx="152" cy="63" r="15" fill="#BE7D42"/>
+  <circle cx="85" cy="64" r="8" fill="#F6BFAC" stroke-width="2"/><circle cx="152" cy="64" r="8" fill="#F6BFAC" stroke-width="2"/>
+  <path d="M83 79 Q86 51 116 53 Q146 51 154 80 L153 101 Q140 126 118 126 Q90 124 83 102Z" fill="#BE7D42"/>
+  <path d="M88 99 Q101 87 117 96 Q136 86 150 99 Q144 124 119 125 Q94 123 88 99Z" fill="#F3D4A3"/>
+  <ellipse cx="105" cy="80" rx="12" ry="17" fill="white"/><ellipse cx="133" cy="80" rx="12" ry="17" fill="white"/>
+  <ellipse cx="108" cy="82" rx="4" ry="7" fill="#0F172A" stroke="none"/><ellipse cx="131" cy="82" rx="4" ry="7" fill="#0F172A" stroke="none"/>
+  <path d="M98 64 L95 58 M108 62 L108 55 M133 62 L134 55 M141 65 L147 60" stroke-width="2.5"/>
+  <ellipse cx="119" cy="99" rx="8" ry="5" fill="#0F172A"/>
+  <path d="M99 106 Q119 124 141 105"/><path d="M110 109 L110 121 L127 121 L127 109Z" fill="white" stroke-width="2"/><path d="M119 111 V120" stroke-width="2"/>
+  <path d="M79 132 Q118 145 159 130 L161 140 Q119 155 77 142Z" fill="#C3D4E0"/>
+  <g fill="#F68DB8" stroke-width="2.5"><ellipse cx="167" cy="24" rx="8" ry="13"/><ellipse cx="180" cy="32" rx="13" ry="8"/><ellipse cx="175" cy="45" rx="8" ry="12"/><ellipse cx="160" cy="44" rx="9" ry="12"/><ellipse cx="154" cy="30" rx="12" ry="8"/></g>
+  <circle cx="167" cy="34" r="7" fill="#FFE135" stroke-width="2.5"/>
+</svg>

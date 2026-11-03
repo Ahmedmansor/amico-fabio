@@ -57,7 +57,7 @@ async function rejectCookies(page,locale){
  await page.locator('html.show--consent').waitFor({state:'hidden'});
 }
 async function inspect(page,locale,width){
- assert.equal(await page.locator('[data-experience-card]').count(),5);
+ assert.equal(await page.locator('[data-experience-card]').count(),6);
  assert.equal(await page.locator('[data-related-trip]').count(),3);
  assert.equal(await page.locator('form,input[type="email"],input[type="tel"]').count(),0);
  const mainText=await page.locator('main').innerText();
@@ -78,7 +78,7 @@ async function inspect(page,locale,width){
   const placement=await page.locator('[data-mobile-bottle]').evaluate(a=>({position:getComputedStyle(a).position,bottom:innerHeight-a.getBoundingClientRect().bottom}));
   assert.equal(placement.position,'fixed');assert.ok(placement.bottom>=0&&placement.bottom<=40);
  }
- return {locale,width,overflow:state.overflow,images:state.images.length,characters:5,relatedTrips:3,prices:false,forms:false,whatsappLinks:links.length};
+ return {locale,width,overflow:state.overflow,images:state.images.length,experienceCards:6,relatedTrips:3,prices:false,forms:false,whatsappLinks:links.length};
 }
 try{
  for(const locale of ['it','en'])for(const [name,viewport]of Object.entries({mobile:{width:390,height:844},tablet:{width:820,height:1180},desktop:{width:1440,height:900}})){
@@ -156,7 +156,7 @@ try{
  assert.equal(await storagePage.locator('[data-pose-controls]').isVisible(),true);assert.equal(await storagePage.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.deepEqual(storageErrors,[]);
  results.push({mode:'320px-storage-denied',overflow:false,controlsRemainUsable:true,errors:storageErrors});await storageContext.close();
  const noJS=await context({viewport:{width:390,height:844},javaScriptEnabled:false});const page=await noJS.newPage();await page.goto(`${origin}/it/blu/`);
- assert.equal(await page.locator('[data-experience-card]').count(),5);assert.equal(await page.locator('[data-mobile-bottle]').isVisible(),true);
+ assert.equal(await page.locator('[data-experience-card]').count(),6);assert.equal(await page.locator('[data-mobile-bottle]').isVisible(),true);
  assert.equal(await page.locator('[data-motion-control]').isVisible(),false);assert.equal(await page.locator('form').count(),0);
  results.push({mode:'no-javascript',allContentAndDirectWhatsApp:true});await noJS.close();
  await fs.writeFile(new URL('./browser-results.json',import.meta.url),JSON.stringify({origin,results,externalSubmission:false},null,2)+'\n');

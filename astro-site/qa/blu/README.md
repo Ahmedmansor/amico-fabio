@@ -1,5 +1,49 @@
 # Blu campaign — 2026-11-04
 
+## Current revision: characters and complete-trip planner
+
+The owner requested a softer Squidward, added Sandy, and asked for prominent access
+to the existing complete-trip planner. Subsequent feedback and the final supplied
+smiling Mr. Krabs image supersede the SVG redraw attempts. The owner clarified
+that this is an appearance/expression reference, not a screenshot to paste into
+the page. The final artwork is a new built-in ImageGen illustration on transparent
+alpha, optimized to responsive WebP by Astro and displayed whole with
+`object-fit: contain`, alongside the established Plankton/treasure SVG. The raw
+screenshot copy and rejected Krabs SVG are removed. Squidward keeps a gentler
+expression; Sandy has a squirrel tail, white suit and flower helmet. Their artwork
+stays editable local SVG. No new dependency was introduced. The exact prompt and
+final asset path are recorded in `KRABS_PROMPT.md`. The final PNG is 1199×1312,
+has an alpha channel and transparent corner pixels (verified with Sharp).
+
+There are now **six experience cards**, including Sandy, and still **three real
+related trips**. The hero and related-trip sidebar show translated links to
+`/{locale}/tailor-your-trip/`, describing a complete custom itinerary. The existing
+planner is reused with no change to its form or submission behavior. The landing
+page still has no prices or personal-data form; mobile bottle/WhatsApp behavior
+is retained. Six cards form a regular two-column desktop grid and one-column phone
+list. The expanded sidebar scrolls normally rather than pinning a tall block.
+
+Revision verification uses `node qa/blu/revision.mjs` with the existing external
+Playwright/Chromium variables. It serves the final build locally by default;
+`QA_ORIGIN` optionally targets the dev preview. Four focused IT/EN phone/desktop
+cases check six cards, three real trips, both planner links and their actual
+destination, Sandy's WhatsApp draft, SVG containment, overflow, no prices/forms
+and browser errors. No planner form or WhatsApp message is submitted. New local
+screenshots are `screenshots/revision-*`; tracked evidence is
+`revision-results.json`. Existing `browser-results.json`, baseline comparisons
+and the 16-case results below describe the initial `2de71b8` checkpoint; that full
+motion suite was not rerun for this visual/navigation revision. Its reusable
+script now expects six cards. The focused domain suite has five passing tests.
+
+Final revision Astro check: 759 files, zero errors/warnings/hints; static build:
+575 pages and 232 canonical/reciprocal checks. Rendered 21st review is refreshed
+against the final IT/EN artifacts. See local `revision-check.log` and
+`revision-build.log` for actual command output.
+All four revision browser cases passed against that final static artifact; the
+rendered 21st review reports zero errors, warnings and suggestions.
+
+## Initial implementation checkpoint (`2de71b8`)
+
 New owner-approved campaign on the existing migration branch, inside the static
 Astro application. Local viewing: `/it/blu/` and `/en/blu/`; `/blu/` is a static
 Italian entry redirect. This report does not claim publication on the live domain.

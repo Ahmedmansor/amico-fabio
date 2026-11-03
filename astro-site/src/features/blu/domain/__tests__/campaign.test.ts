@@ -3,11 +3,12 @@ import {buildBluMessage,buildBluWhatsApp,canEnhanceMotion,smoothFrameSample,vali
 import {getBluCampaign} from '../../data/campaign';
 
 describe('blu campaign',()=>{
- it('publishes matching IT/EN content and exactly five stable experiences',()=>{
+ it('publishes matching IT/EN content and six stable experiences including Sandy',()=>{
   for(const locale of ['it','en']) {
    const campaign=getBluCampaign(locale);
-   expect(campaign.experiences).toHaveLength(5);
-   expect(new Set(campaign.experiences.map(item=>item.id)).size).toBe(5);
+   expect(campaign.experiences).toHaveLength(6);
+   expect(new Set(campaign.experiences.map(item=>item.id)).size).toBe(6);
+   expect(campaign.experiences.at(-1)?.id).toBe('sandy');
    expect(campaign.path).toBe(`/${locale}/blu/`);
   }
   expect(()=>getBluCampaign('es')).toThrow('not published');

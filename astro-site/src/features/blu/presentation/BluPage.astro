@@ -12,6 +12,7 @@ import ExperienceCards from './ExperienceCards.astro';
 import SecretBottle from './SecretBottle.astro';
 import RelatedTrips from './RelatedTrips.astro';
 import UnderwaterDecor from './UnderwaterDecor.astro';
+import PlannerLink from './PlannerLink.astro';
 import './blu.css';
 interface Props {campaign:BluCampaign;trips:BluRelatedTrip[]}
 const {campaign,trips}=Astro.props;
@@ -28,10 +29,11 @@ const browserConfig={locale,number:siteConfig.whatsapp.number,copy,experiences:c
     <h1 id="blu-title">{copy.heroTitle}</h1><p class="blu-hero-description">{copy.heroSub}</p>
     <blockquote class="blu-quote blu-box"><span>{copy.fabioSaysLabel}</span><p>«{copy.fabioQuote}»</p><cite>— Fabio</cite></blockquote>
     <div class="blu-hero-actions"><a class="blu-button blu-button-yellow" href="#character-lore-section">{copy.btnExplore}<span aria-hidden="true">↓</span></a><a class="blu-button blu-button-green" href={whatsapp} target="_blank" rel="noopener noreferrer" data-blu-whatsapp>{copy.btnWhatsapp}<span aria-hidden="true">↗</span></a></div>
+    <PlannerLink copy={copy} locale={locale} compact/>
    </div>
    <Portal copy={copy}/>
   </section>
-  <div class="blu-story-layout"><div><ExperienceCards campaign={campaign}/><SecretBottle copy={copy} whatsapp={whatsapp}/></div><RelatedTrips copy={copy} trips={trips}/></div>
+  <div class="blu-story-layout"><div><ExperienceCards campaign={campaign}/><SecretBottle copy={copy} whatsapp={whatsapp}/></div><RelatedTrips copy={copy} locale={locale} trips={trips}/></div>
  </main>
  <LandingFooter campaign={campaign} whatsapp={whatsapp}/>
  <script id="blu-config" type="application/json" set:html={JSON.stringify(browserConfig).replaceAll('<','\u003c')}/>
