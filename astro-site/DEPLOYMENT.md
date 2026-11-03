@@ -1,5 +1,25 @@
 # Production and test flavors
 
+## Astro is live on the production domain — 2026-11-03
+
+Verified `https://fabioegypt.com` serves the Astro production artifact from
+`gh-pages` commit `f8355f7`, built from migration source `75ceba8`. Managed Pages
+run `41570779052` completed successfully. The production release marker matches
+the source. All 19 public-page checks, five languages, 230 sitemap URLs, eight
+sampled assets, currency menu and HTTP 404 checks passed. No real Auth, email or
+booking form was submitted; personal sign-in/inbox tests remain owner checks.
+
+At the user's request to continue, the verified local static build was pushed
+to the existing `gh-pages / (root)` source. DNS, Pages settings, hosting services
+and billing were unchanged. Remote tag `legacy-pages-before-astro-2026-11-03`
+preserves the exact previous artifact. See `qa/production/publication.json`,
+`live.json` and `README.md` for evidence and rollback.
+
+The custom Astro workflow still has the recorded account-lock limitation.
+Merging source into `main` alone does not yet rebuild the live artifact. Until
+that is resolved, build and verify production locally, then explicitly update
+`gh-pages`. Vercel remains the separate test environment.
+
 ## Production cutover authorized — 2026-11-03
 
 The owner now explicitly requests merging the migration branch into `main` and
@@ -10,9 +30,9 @@ with the production CNAME. The new `Astro production Pages` workflow prepares
 an independently validated `astro-site/dist` artifact and deploys only `main`.
 Preparation commit `a69b504` is pushed and verified locally. GitHub run
 `41559378646` could not start any build step: the account is locked due to a
-billing issue. Main is not merged and Pages still publishes the legacy
-`gh-pages` artifact. Resolve the account lock before rerunning the workflow and
-performing the cutover; no billing or Pages-source setting was changed.
+billing issue. At that checkpoint main was not merged and Pages still published
+the legacy artifact. The later managed-branch publication above succeeded;
+the custom-workflow error remains evidence of the automatic rebuild limitation.
 See `qa/production/github-blocker.json` for the exact API annotation.
 See `qa/production/README.md` and `preparation.json` for public build-variable
 configuration, backend origin verification, real check outputs and rollback.

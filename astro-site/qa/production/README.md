@@ -1,10 +1,48 @@
 # Production cutover — 2026-11-03
 
+## Current state: live publication verified
+
+`https://fabioegypt.com` serves Astro artifact `f8355f7`, built from source
+`75ceba8`. At the user's request to continue despite the custom-workflow lock,
+the local production build was published to the existing `gh-pages` source.
+Managed [Pages run 41570779052](https://github.com/Ahmedmansor/amico-fabio/actions/runs/41570779052)
+succeeded. `/release.json` returns 200 with the expected source. No DNS,
+Pages-source, hosting or billing setting was changed.
+
+All 1,386 copied files matched the reviewed build byte-for-byte. `.nojekyll`
+preserves `_astro/` assets in branch publishing; `release.json` records public
+release provenance. Generated whitespace was preserved, with only whitespace
+diagnostics excluded from the artifact diff check. Source diff checks passed.
+The remote tag `legacy-pages-before-astro-2026-11-03` preserves the old artifact.
+
+`node qa/production/verify-live.mjs` passed 19 public page checks across five
+languages, 230 sitemap URLs, eight sampled assets, the currency menu without its
+notice, and an unknown-route HTTP 404. See `live.json` and `publication.json`.
+This is public HTTP/artifact evidence, not personal login or inbox testing.
+The campaign probe uses their existing `<h1>` structure; the initial generic
+`<main>` assumption was corrected without changing a page.
+
+The custom workflow's account lock still limits automatic source rebuilds.
+Keep Pages on the existing branch source. To publish future changes while it
+remains, build using the reviewed production workflow environment, run
+`scripts/verify-production.mjs`, copy only `dist/` into an isolated checkout of
+current `origin/gh-pages`, retain CNAME and `.nojekyll`, record the source,
+commit and push normally, then verify managed Pages and the real domain.
+Switch to GitHub Actions only when its custom build can execute successfully.
+Main source reconciliation follows this publication report.
+
+For artifact rollback, revert the artifact replacement on `gh-pages` (or commit
+the rollback tag's tree as a new descendant), push normally and verify Pages.
+Do not force-push or delete release history.
+
+## Earlier preparation checkpoint
+
 The owner explicitly authorized the migration branch merge into `main` and
 publishing Astro on `https://fabioegypt.com`. This extends the earlier test-only
 authorization. The existing GitHub Pages hosting and static architecture stay.
 See `preparation.json` and `backend.json` for the actual pre-cutover evidence;
-frontend publication is pending until the Actions deployment is verified.
+frontend publication was pending at this earlier checkpoint; see the current
+live status above.
 
 Preparation commit `a69b504` was pushed. GitHub Actions run
 [41559378646](https://github.com/Ahmedmansor/amico-fabio/actions/runs/41559378646)
