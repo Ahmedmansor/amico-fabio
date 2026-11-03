@@ -17,10 +17,14 @@
 @media(prefers-reduced-motion:reduce){.wf-scene{transform:none;transition:none}.wf-foreground,.wf-bg{transform:none}}
 
 @media(max-width:767px) and (prefers-reduced-motion:no-preference){
- .wf-container[data-poster-visible="true"] .wf-scene{animation:fabio-mobile-drift 7s ease-in-out infinite}
- body:has(dialog[open]) .wf-scene{animation-play-state:paused}
+ .wf-container[data-poster-visible="true"] .wf-foreground{animation:fabio-mobile-drift 7s ease-in-out infinite}
+ .wf-container[data-poster-visible="true"] .wf-bg{animation:fabio-mobile-background 7s ease-in-out infinite}
+ body:has(dialog[open]) .wf-foreground,body:has(dialog[open]) .wf-bg{animation-play-state:paused}
 }
-@keyframes fabio-mobile-drift{0%,100%{transform:rotateX(-3deg) rotateY(-6deg) scale(1.045)}50%{transform:rotateX(3deg) rotateY(6deg) scale(1.045)}}
+/* Animate the layers directly: nested preserve-3d rotation can look stationary
+   in WebKit despite a running animation clock. Depth/scale stay constant. */
+@keyframes fabio-mobile-drift{0%,100%{transform:translate3d(-7px,2px,70px)}50%{transform:translate3d(7px,-2px,70px)}}
+@keyframes fabio-mobile-background{0%,100%{transform:translate3d(3px,0,-26px) scale(1.08)}50%{transform:translate3d(-3px,0,-26px) scale(1.08)}}
 
 /* Clip the portrait independently so depth never intrudes into mobile copy/CTA. */
 .wf-portrait-viewport{position:absolute;inset:0;overflow:hidden;perspective:850px}
