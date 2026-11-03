@@ -117,6 +117,11 @@
       "choice": "Clean Sharm Secrets editorial guide and SVG icons, 2026-11-02",
       "reference": "https://21st.dev/@mohammadshehadeh/components/toc",
       "implementation": "Contextual 21st search; own Astro/native dialog. Remove six decorative background renders, retain original content images/words, Montserrat body and Playfair headings. Independent card heights, 360px image cap; replace decorative emoji with inline SVG without editing source dictionaries. Unify floating index pill with WhatsApp. Reuse visible-only gallery scheduler; four focused local cases, no broad testing or new dependencies."
+    },
+    {
+      "choice": "Sitewide Fabio Egypt WhatsApp channel card above every footer",
+      "reference": "Owner-supplied two-phone WhatsApp channel HTML mockup, 2026-11-03",
+      "implementation": "Own static Astro feature with local Montserrat/Playfair, navy/gold theme tokens, real logo/catalog photo, scoped CSS and reduced-motion hover. All five site languages; Italian campaigns retain their shells. Empty public channel URL gives a genuine disabled coming-soon state; no fake verified badge, follower count, React, CDN or copied preview scripts."
     }
   ],
   "evidence": [

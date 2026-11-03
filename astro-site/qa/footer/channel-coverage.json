@@ -1,0 +1,965 @@
+{
+  "pages": 240,
+  "results": [
+    {
+      "route": "/de/ausfluege/adrenalin-in-luft-und-wasser-parasailing-und-wasserspass/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/albatros-aqua-park-das-wasserreich/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/alt-sharm-moschee-mode-und-das-indien-agyptens/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/dahab-abenteuer-blue-hole-kamele-und-canyon/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/delfinshow-begeisterung-fur-die-ganze-familie/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/kairo-mit-dem-bus-preisbewusstes-abenteuer-nach-deiner-wahl/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/kairo-per-flugzeug-pyramiden-und-dein-wunschmuseum/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/katharinenkloster-das-heilige-kloster-klassisch-und-vip/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/luxor-per-flugzeug-tal-der-konige-und-goldene-tempel/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/magic-night-meeresfruchte-dinner-und-orientalische-show/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/moto-safari-quad-sonnenuntergang-und-echotal/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/petra-die-rosarote-stadt-eines-der-7-weltwunder/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/privatboot-vip-der-konig-des-roten-meeres/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/ras-mohammed-nature-explorer-den-nationalpark-an-land-entdecken/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/ras-mohammed-und-die-weisse-insel-das-vip-erlebnis/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/romantisches-vip-dinner-1001-nacht/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/schwimmen-mit-delfinen-liebe-auf-den-ersten-blick/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/sea-scope-das-unterwasserkino/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/sina-dream-vip-die-luxus-segelyacht/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/sinai-abenteuer-heiliger-sonnenaufgang-und-kloster/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/super-safari-die-5-sinne-des-sinai/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/ausfluege/tiran-insel-vip-schiffswracks-und-korallenriffe/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/auth/callback/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/blog/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/explore/cairo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/explore/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/explore/luxor_and_aswan/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/explore/sharm/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/legal/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/login/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/reisepakete/abenteuer-im-sonnenuntergang-quad-safari-und-kamele-bei-den-pyramiden/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/reisepakete/auszeit-am-mittelmeer-ganztagestour-nach-alexandria/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/reisepakete/das-grosse-blau-schatze-des-roten-meeres/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/reisepakete/die-grosse-pharaonenreise-kairo-und-nilzauber-8-tage/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/reisepakete/dolce-vita-familie-und-entspannung/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/reisepakete/ewige-grosse-pyramiden-von-gizeh-sphinx-und-sakkara/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/reisepakete/indiana-jones-pures-adrenalin/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/reisepakete/kairos-pulsierendes-herz-agyptisches-museum-zitadelle-und-khan-el-khalili/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/reisepakete/konigliche-nilkreuzfahrt-von-luxor-nach-assuan/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/reisepakete/mystisches-kairo-koptisches-christentum-und-islamisches-erbe/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/reisepakete/nachtliche-magie-auf-dem-nil-vip-dinner-bootsfahrt-und-show/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/reisepakete/sharm-confidential-das-komplette-erlebnis/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/reisepakete/tausendundeine-nacht-romantische-auszeit/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/reisepakete/zauber-des-sudens-kreuzfahrt-von-assuan-nach-luxor/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/sharm-secrets/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/tailor-your-trip/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/de/wishlist/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/auth/callback/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/blog/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/explore/cairo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/explore/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/explore/luxor_and_aswan/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/explore/sharm/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/legal/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/login/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/packages/dolce-vita-family-relax/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/packages/eternal-grandeur-pyramids-of-giza-sphinx-saqqara/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/packages/indiana-jones-pure-adrenaline/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/packages/mediterranean-escape-full-day-tour-of-alexandria/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/packages/mystic-cairo-between-coptic-christianity-islamic-heritage/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/packages/night-magic-on-the-nile-vip-dinner-cruise-show/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/packages/one-thousand-and-one-nights-romantic-escape/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/packages/royal-nile-cruise-from-luxor-to-aswan/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/packages/sharm-confidential-the-total-experience/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/packages/southern-magic-cruise-from-aswan-to-luxor/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/packages/sunset-adventure-quad-safari-camels-at-the-pyramids/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/packages/the-beating-heart-of-cairo-egyptian-museum-citadel-khan-el-khalili/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/packages/the-big-blue-treasures-of-the-red-sea/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/packages/the-grand-pharaonic-tour-cairo-nile-magic-8-days/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/sharm-secrets/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tailor-your-trip/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/adrenaline-sky-sea-parasailing-water-toys/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/albatros-aqua-park-the-water-kingdom/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/cairo-by-bus-smart-adventure-your-choice/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/cairo-by-plane-pyramids-you-choose-the-museum/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/dahab-adventure-blue-hole-camels-canyon/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/dolphin-show-thrills-for-the-whole-family/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/luxor-by-plane-valley-of-kings-golden-temples/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/magic-night-seafood-dinner-oriental-show/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/moto-safari-quad-sunset-echo-valley/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/mt-sinai-adventure-sacred-sunrise-monastery/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/old-sharm-mosque-fashion-the-india-of-egypt/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/petra-the-rose-city-one-of-the-7-wonders-of-the-world/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/private-boat-vip-the-king-of-red-sea/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/ras-mohammed-nature-explorer-the-park-by-land/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/ras-mohammed-white-island-the-vip-experience/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/sea-scope-the-underwater-cinema/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/sina-dream-vip-the-luxury-sailing-yacht/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/st-catherine-the-sacred-monastery-classic-vip/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/super-safari-5-senses-of-sinai/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/swim-with-dolphins-love-at-first-sight/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/tiran-island-vip-wrecks-and-coral-reefs/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/tours/vip-romantic-dinner-1001-nights/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/en/wishlist/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/auth/callback/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/adrenalina-entre-cielo-y-mar-parasailing-y-juegos-acuaticos/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/albatros-aqua-park-el-reino-del-agua/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/aventura-en-dahab-blue-hole-camellos-y-canon/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/aventura-en-el-monte-sinai-amanecer-sagrado-y-monasterio/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/barco-privado-vip-el-rey-del-mar-rojo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/cena-romantica-vip-1001-noches/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/el-cairo-en-autobus-aventura-inteligente-y-tu-eleccion/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/el-cairo-en-avion-piramides-y-el-museo-que-tu-elijas/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/espectaculo-de-delfines-emociones-para-toda-la-familia/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/explora-la-naturaleza-de-ras-mohammed-el-parque-por-tierra/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/isla-de-tiran-vip-pecios-y-arrecifes-de-coral/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/luxor-en-avion-valle-de-los-reyes-y-templos-dorados/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/moto-safari-quad-atardecer-y-valle-del-eco/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/nadar-con-delfines-amor-a-primera-vista/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/noche-magica-cena-de-marisco-y-espectaculo-oriental/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/petra-la-ciudad-rosa-una-de-las-7-maravillas-del-mundo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/ras-mohammed-e-isla-blanca-la-experiencia-vip/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/santa-catalina-el-monasterio-sagrado-clasico-y-vip/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/sea-scope-el-cine-submarino/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/sina-dream-vip-el-velero-de-lujo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/super-safari-los-5-sentidos-del-sinai/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/excursiones/viejo-sharm-mezquita-moda-y-la-india-de-egipto/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/explore/cairo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/explore/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/explore/luxor_and_aswan/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/explore/sharm/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/legal/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/login/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/paquetes/aventura-al-atardecer-safari-en-quad-y-camellos-en-las-piramides/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/paquetes/crucero-real-por-el-nilo-de-luxor-a-asuan/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/paquetes/dolce-vita-familia-y-relax/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/paquetes/el-cairo-mistico-cristianismo-copto-y-patrimonio-islamico/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/paquetes/el-corazon-de-el-cairo-museo-egipcio-ciudadela-y-jan-el-jalili/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/paquetes/el-gran-azul-tesoros-del-mar-rojo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/paquetes/el-gran-circuito-faraonico-el-cairo-y-la-magia-del-nilo-8-dias/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/paquetes/escapada-mediterranea-excursion-de-dia-completo-a-alejandria/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/paquetes/grandeza-eterna-piramides-de-guiza-esfinge-y-saqqara/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/paquetes/indiana-jones-adrenalina-pura/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/paquetes/las-mil-y-una-noches-escapada-romantica/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/paquetes/magia-del-sur-crucero-de-asuan-a-luxor/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/paquetes/magia-nocturna-en-el-nilo-crucero-vip-con-cena-y-espectaculo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/paquetes/sharm-confidential-la-experiencia-total/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/sharm-secrets/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/tailor-your-trip/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/es/wishlist/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/auth/callback/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/blog/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/adrenalina-sky-sea-parasailing-water-toys/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/albatros-aqua-park-il-regno-dell-acqua/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/cena-romantica-vip-mille-e-una-notte/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/dahab-adventure-blue-hole-cammelli-canyon/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/dolphin-show-emozioni-per-tutta-la-famiglia/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/il-cairo-in-aereo-piramidi-tu-scegli-il-museo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/il-cairo-in-bus-l-avventura-smart-la-tua-scelta/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/isola-di-tiran-vip-relitti-e-barriere-coralline/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/luxor-in-aereo-la-valle-dei-re-i-templi-d-oro/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/monte-sinai-adventure-l-alba-sacra-monastero/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/moto-safari-quad-tramonto-valle-dell-eco/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/notte-magica-cena-di-pesce-show-orientale/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/nuotare-con-i-delfini-amore-a-prima-vista/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/petra-la-citta-rosa-una-delle-7-meraviglie-del-mondo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/private-boat-vip-the-king-of-red-sea/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/ras-mohammed-nature-explorer-il-parco-via-terra/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/ras-mohammed-white-island-l-esperienza-vip/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/santa-caterina-il-monastero-sacro-classic-vip/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/sea-scope-il-cinema-sottomarino/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/sharm-vecchia-moschea-fashion-l-india-d-egitto/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/sina-dream-vip-il-veliero-di-lusso/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/escursioni/super-safari-i-5-sensi-del-sinai/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/explore/cairo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/explore/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/explore/luxor_and_aswan/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/explore/sharm/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/legal/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/login/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/pacchetti/avventura-al-tramonto-quad-safari-e-cammelli-alle-piramidi/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/pacchetti/crociera-sul-nilo-reale-da-luxor-ad-aswan/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/pacchetti/dolce-vita-family-relax/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/pacchetti/fuga-sul-mediterraneo-tour-di-un-giorno-ad-alessandria/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/pacchetti/il-cairo-mistico-tra-cristianesimo-copto-e-fascino-islamico/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/pacchetti/il-cuore-pulsante-del-cairo-museo-egizio-cittadella-e-khan-el-khalili/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/pacchetti/il-gran-tour-faraonico-il-cairo-e-magia-del-nilo-8-giorni/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/pacchetti/il-grande-blu-i-tesori-del-mar-rosso/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/pacchetti/indiana-jones-adrenalina-pura/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/pacchetti/l-eterna-grandezza-piramidi-di-giza-sfinge-e-saqqara/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/pacchetti/magia-del-sud-crociera-da-aswan-a-luxor/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/pacchetti/magia-notturna-sul-nilo-crociera-vip-con-cena-e-spettacolo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/pacchetti/mille-e-una-notte-fuga-romantica/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/pacchetti/sharm-confidential-l-esperienza-totale/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/sharm-secrets/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/tailor-your-trip/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/it/wishlist/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/offerta-sharm/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/auth/callback/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/adrenalina-entre-ceu-e-mar-parasailing-e-diversoes-aquaticas/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/albatros-aqua-park-o-reino-da-agua/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/aventura-em-dahab-blue-hole-camelos-e-desfiladeiro/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/aventura-no-monte-sinai-nascer-do-sol-sagrado-e-mosteiro/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/barco-privado-vip-o-rei-do-mar-vermelho/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/cairo-de-autocarro-aventura-inteligente-e-a-sua-escolha/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/cairo-de-aviao-piramides-e-o-museu-que-escolher/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/espetaculo-de-golfinhos-emocoes-para-toda-a-familia/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/explorar-a-natureza-de-ras-mohammed-o-parque-por-terra/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/ilha-de-tiran-vip-naufragios-e-recifes-de-coral/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/jantar-romantico-vip-1001-noites/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/luxor-de-aviao-vale-dos-reis-e-templos-dourados/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/moto-safari-moto-quatro-por-do-sol-e-vale-do-eco/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/nadar-com-golfinhos-amor-a-primeira-vista/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/noite-magica-jantar-de-marisco-e-espetaculo-oriental/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/petra-a-cidade-rosa-uma-das-7-maravilhas-do-mundo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/ras-mohammed-e-ilha-branca-a-experiencia-vip/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/santa-catarina-o-mosteiro-sagrado-classico-e-vip/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/sea-scope-o-cinema-subaquatico/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/sina-dream-vip-o-veleiro-de-luxo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/super-safari-os-5-sentidos-do-sinai/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/excursoes/velha-sharm-mesquita-moda-e-a-india-do-egito/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/explore/cairo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/explore/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/explore/luxor_and_aswan/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/explore/sharm/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/legal/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/login/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/pacotes/as-mil-e-uma-noites-escapadinha-romantica/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/pacotes/aventura-ao-por-do-sol-safari-de-moto-quatro-e-camelos-nas-piramides/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/pacotes/cairo-mistico-cristianismo-copta-e-patrimonio-islamico/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/pacotes/cruzeiro-real-no-nilo-de-luxor-a-assuao/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/pacotes/dolce-vita-familia-e-descanso/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/pacotes/escapadinha-mediterranica-excursao-de-dia-inteiro-a-alexandria/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/pacotes/grandeza-eterna-piramides-de-gize-esfinge-e-sacara/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/pacotes/indiana-jones-adrenalina-pura/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/pacotes/magia-do-sul-cruzeiro-de-assuao-a-luxor/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/pacotes/magia-noturna-no-nilo-cruzeiro-vip-com-jantar-e-espetaculo/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/pacotes/o-coracao-do-cairo-museu-egipcio-cidadela-e-khan-el-khalili/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/pacotes/o-grande-azul-tesouros-do-mar-vermelho/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/pacotes/o-grande-circuito-faraonico-cairo-e-a-magia-do-nilo-8-dias/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/pacotes/sharm-confidential-a-experiencia-total/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/sharm-secrets/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/tailor-your-trip/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/pt/wishlist/",
+      "state": "coming-soon"
+    },
+    {
+      "route": "/welcome/",
+      "state": "coming-soon"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ export const siteConfig = {
   analytics: { measurementId: 'G-C73NVS8KFS' },
   whatsapp: {
     number: '201063239261',
+    channelUrl: '' as string, // Add the real https://whatsapp.com/channel/... URL when created.
   },
   social: {
     facebook: 'https://www.facebook.com/fabioEgyptVip/',

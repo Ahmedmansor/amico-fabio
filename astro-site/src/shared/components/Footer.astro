@@ -7,11 +7,13 @@ import { siteConfig } from '../config/site';
 import { blogLocales, type Locale } from '../config/languages';
 import { getSharedMessages } from '../i18n/shared';
 import SocialIcon from './SocialIcon.astro';
+import WhatsAppChannel from '../../features/whatsapp-channel/presentation/WhatsAppChannel.astro';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const m = getSharedMessages(locale);
 const names = { facebook: 'Facebook', instagram: 'Instagram', tiktok: 'TikTok', youtube: 'YouTube' } as const;
 ---
+<WhatsAppChannel locale={locale}/>
 <footer id="global-footer" class="site-footer">
   <div class="af-footer"><div class="af-footer-inner">
     <div class="af-grid">

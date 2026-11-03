@@ -7,6 +7,7 @@ import type {getWelcome} from '../data/welcome.mjs';
 import portrait from './assets/portrait.webp';
 import placeholder from './assets/placeholder.webp';
 import './welcome.css';
+import WhatsAppChannel from '../../whatsapp-channel/presentation/WhatsAppChannel.astro';
 interface Props {campaign:ReturnType<typeof getWelcome>}
 const {campaign}=Astro.props;
 const config=JSON.stringify(campaign).replaceAll('<','\u003c');
@@ -105,6 +106,7 @@ const config=JSON.stringify(campaign).replaceAll('<','\u003c');
     </div>
   </div>
 
+  <WhatsAppChannel locale="it"/>
   <footer id="global-footer" class="relative z-10 w-full mt-12"></footer>
 
 

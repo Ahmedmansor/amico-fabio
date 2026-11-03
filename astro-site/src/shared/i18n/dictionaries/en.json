@@ -411,5 +411,14 @@
       "red-sea": "Red Sea coast",
       "desert": "Desert experiences"
     }
+  },
+  "whatsappChannel": {
+    "label": "Fabio Egypt WhatsApp channel",
+    "title": "A little closer to Egypt.",
+    "description": "Tours, travel tips and news from Egypt, straight to your WhatsApp.",
+    "join": "Follow the channel",
+    "pending": "Channel coming soon",
+    "note": "We are preparing the Fabio Egypt channel.",
+    "destinations": "Sharm · Cairo · Luxor"
   }
 }

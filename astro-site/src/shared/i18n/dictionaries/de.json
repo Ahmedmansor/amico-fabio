@@ -421,5 +421,14 @@
       "red-sea": "Küste des Roten Meeres",
       "desert": "Wüstenerlebnisse"
     }
+  },
+  "whatsappChannel": {
+    "label": "WhatsApp-Kanal von Fabio Egypt",
+    "title": "Ägypten, ein Stück näher.",
+    "description": "Ausflüge, Reisetipps und Neuigkeiten aus Ägypten, direkt auf WhatsApp.",
+    "join": "Kanal folgen",
+    "pending": "Kanal startet bald",
+    "note": "Wir bereiten den Kanal von Fabio Egypt vor.",
+    "destinations": "Sharm · Kairo · Luxor"
   }
 }
