@@ -1,0 +1,351 @@
+{
+  "date": "2026-11-03",
+  "hiddenCookieHitRegion": {
+    "device": "iPhone SE",
+    "kind": "welcome",
+    "status": "fail",
+    "details": {
+      "events": [
+        {
+          "type": "pointerdown",
+          "target": "cm__desc"
+        },
+        {
+          "type": "pointerup",
+          "target": "cm__desc"
+        },
+        {
+          "type": "pointerdown",
+          "target": "cm__desc"
+        },
+        {
+          "type": "pointerup",
+          "target": "cm__desc"
+        }
+      ],
+      "valid": true,
+      "nameFilled": true,
+      "phoneFilled": true,
+      "htmlClass": "",
+      "cookie": [
+        {
+          "class": "",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "pointer": "auto",
+          "rect": {
+            "x": 160,
+            "y": 16,
+            "width": 0,
+            "height": 0,
+            "top": 16,
+            "right": 160,
+            "bottom": 16,
+            "left": 160
+          }
+        },
+        {
+          "class": "cm cm--box cm--bottom cm--right",
+          "display": "flex",
+          "visibility": "hidden",
+          "opacity": "0",
+          "pointer": "auto",
+          "rect": {
+            "x": 8,
+            "y": 150.9906005859375,
+            "width": 304,
+            "height": 434.609375,
+            "top": 150.9906005859375,
+            "right": 312,
+            "bottom": 585.5999755859375,
+            "left": 8
+          }
+        },
+        {
+          "class": "cm__desc",
+          "display": "block",
+          "visibility": "hidden",
+          "opacity": "1",
+          "pointer": "auto",
+          "rect": {
+            "x": 8,
+            "y": 201.8187255859375,
+            "width": 304,
+            "height": 182.390625,
+            "top": 201.8187255859375,
+            "right": 312,
+            "bottom": 384.2093505859375,
+            "left": 8
+          }
+        }
+      ],
+      "viewport": {
+        "w": 320,
+        "h": 568,
+        "scale": 1,
+        "offset": 0
+      }
+    },
+    "error": "page.waitForEvent: Timeout 7000ms exceeded while waiting for event \"dialog\"\n=========================== logs ===========================\nwaiting for event \"dialog\"\n============================================================",
+    "pageErrors": [],
+    "syntheticLeadPosts": 0,
+    "externalLeadPosts": 0
+  },
+  "whiteInputText": {
+    "device": "iPhone SE",
+    "kind": "welcome",
+    "status": "fail",
+    "details": {
+      "events": [
+        {
+          "type": "pointerdown",
+          "target": "SPAN"
+        },
+        {
+          "type": "pointerup",
+          "target": "SPAN"
+        },
+        {
+          "type": "mousedown",
+          "target": "SPAN"
+        },
+        {
+          "type": "mouseup",
+          "target": "SPAN"
+        },
+        {
+          "type": "click",
+          "target": "SPAN"
+        },
+        {
+          "type": "invalid",
+          "target": "name"
+        },
+        {
+          "type": "invalid",
+          "target": "whatsapp"
+        },
+        {
+          "type": "pointerdown",
+          "target": "SPAN"
+        },
+        {
+          "type": "pointerup",
+          "target": "SPAN"
+        },
+        {
+          "type": "mousedown",
+          "target": "SPAN"
+        },
+        {
+          "type": "mouseup",
+          "target": "SPAN"
+        },
+        {
+          "type": "click",
+          "target": "SPAN"
+        },
+        {
+          "type": "submit",
+          "target": "contactForm"
+        }
+      ],
+      "valid": true,
+      "nameFilled": true,
+      "phoneFilled": true,
+      "htmlClass": "",
+      "cookie": [
+        {
+          "class": "",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "pointer": "auto",
+          "rect": {
+            "x": 160,
+            "y": 16,
+            "width": 0,
+            "height": 0,
+            "top": 16,
+            "right": 160,
+            "bottom": 16,
+            "left": 160
+          }
+        },
+        {
+          "class": "cm cm--box cm--bottom cm--right",
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "0.000077",
+          "pointer": "none",
+          "rect": {
+            "x": 8,
+            "y": 150.9886474609375,
+            "width": 304,
+            "height": 434.609375,
+            "top": 150.9886474609375,
+            "right": 312,
+            "bottom": 585.5980224609375,
+            "left": 8
+          }
+        },
+        {
+          "class": "cm__desc",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "pointer": "none",
+          "rect": {
+            "x": 8,
+            "y": 201.8167724609375,
+            "width": 304,
+            "height": 182.390625,
+            "top": 201.8167724609375,
+            "right": 312,
+            "bottom": 384.2073974609375,
+            "left": 8
+          }
+        }
+      ],
+      "viewport": {
+        "w": 320,
+        "h": 568,
+        "scale": 1,
+        "offset": 0
+      }
+    },
+    "error": "Typed text is white on the light welcome form",
+    "pageErrors": [],
+    "syntheticLeadPosts": 1,
+    "externalLeadPosts": 0
+  },
+  "decorativeOverlay": {
+    "device": "iPhone SE",
+    "kind": "welcome",
+    "status": "fail",
+    "details": {
+      "events": [
+        {
+          "type": "pointerdown",
+          "target": "SPAN"
+        },
+        {
+          "type": "pointerup",
+          "target": "SPAN"
+        },
+        {
+          "type": "mousedown",
+          "target": "SPAN"
+        },
+        {
+          "type": "mouseup",
+          "target": "SPAN"
+        },
+        {
+          "type": "click",
+          "target": "SPAN"
+        },
+        {
+          "type": "invalid",
+          "target": "name"
+        },
+        {
+          "type": "invalid",
+          "target": "whatsapp"
+        },
+        {
+          "type": "pointerdown",
+          "target": "SPAN"
+        },
+        {
+          "type": "pointerup",
+          "target": "SPAN"
+        },
+        {
+          "type": "mousedown",
+          "target": "SPAN"
+        },
+        {
+          "type": "mouseup",
+          "target": "SPAN"
+        },
+        {
+          "type": "click",
+          "target": "SPAN"
+        },
+        {
+          "type": "submit",
+          "target": "contactForm"
+        }
+      ],
+      "valid": true,
+      "nameFilled": true,
+      "phoneFilled": true,
+      "htmlClass": "",
+      "cookie": [
+        {
+          "class": "",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "pointer": "auto",
+          "rect": {
+            "x": 160,
+            "y": 16,
+            "width": 0,
+            "height": 0,
+            "top": 16,
+            "right": 160,
+            "bottom": 16,
+            "left": 160
+          }
+        },
+        {
+          "class": "cm cm--box cm--bottom cm--right",
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "0.000077",
+          "pointer": "none",
+          "rect": {
+            "x": 8,
+            "y": 150.988525390625,
+            "width": 304,
+            "height": 434.609375,
+            "top": 150.988525390625,
+            "right": 312,
+            "bottom": 585.597900390625,
+            "left": 8
+          }
+        },
+        {
+          "class": "cm__desc",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "pointer": "none",
+          "rect": {
+            "x": 8,
+            "y": 201.816650390625,
+            "width": 304,
+            "height": 182.390625,
+            "top": 201.816650390625,
+            "right": 312,
+            "bottom": 384.207275390625,
+            "left": 8
+          }
+        }
+      ],
+      "viewport": {
+        "w": 320,
+        "h": 568,
+        "scale": 1,
+        "offset": 0
+      }
+    },
+    "error": "Decorative overlay blocks cookie preferences: <div class=\"absolute inset-0 bg-black/20 z-0 fixed\"></div>",
+    "pageErrors": [],
+    "syntheticLeadPosts": 1,
+    "externalLeadPosts": 0
+  }
+}

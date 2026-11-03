@@ -11,3 +11,13 @@ const config={locale,messages,measurementId:siteConfig.analytics.measurementId};
 <script id="cookie-consent-config" type="application/json" set:html={JSON.stringify(config).replaceAll('<','\\u003c')}/>
 <script>import '../consent/browser';</script>
 <style>.cookie-preferences-link{padding:12px;text-align:center;font:inherit}.cookie-preferences-link button{cursor:pointer;text-decoration:underline;background:transparent;border:0;color:inherit;font:inherit}</style>
+<style is:global>
+  /* WebKit can retain hit regions for visually hidden consent panels over
+     campaign compositing layers. Closed panels must never intercept touches. */
+  html:not(.show--consent) #cc-main .cm,
+  html:not(.show--consent) #cc-main .cm *,
+  html:not(.show--consent) #cc-main .cm-overlay,
+  html:not(.show--preferences) #cc-main .pm,
+  html:not(.show--preferences) #cc-main .pm *,
+  html:not(.show--preferences) #cc-main .pm-overlay { pointer-events: none !important; }
+</style>

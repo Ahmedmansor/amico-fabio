@@ -17,10 +17,10 @@ const config=JSON.stringify(campaign).replaceAll('<','\u003c');
 
   <header id="global-header" class="fixed w-full top-0 z-50 transition-all duration-300"></header>
 
-  <div class="absolute inset-0 bg-black/20 z-0 fixed"></div>
+  <div class="absolute inset-0 bg-black/20 z-0 fixed pointer-events-none" aria-hidden="true"></div>
 
   <div
-    class="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-0 animate-bounce text-white/90 text-center drop-shadow-md">
+    class="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-0 animate-bounce text-white/90 text-center drop-shadow-md pointer-events-none">
     <p class="text-[10px] uppercase tracking-widest font-bold mb-1 shadow-black">
       SCORRI GIÙ
     </p>
