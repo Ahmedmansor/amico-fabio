@@ -1,0 +1,18 @@
+<svg viewBox="0 0 200 180">
+                                <circle cx="35" cy="35" r="2.5" fill="#FFE135"/>
+                                <circle cx="165" cy="42" r="3" fill="#FFE135"/>
+                                <circle cx="150" cy="22" r="2" fill="#FFFFFF"/>
+                                <path d="M100 14 C112 14, 128 55, 136 85 C158 70, 175 78, 152 108 C156 125, 152 140, 145 150 L55 150 C48 140, 44 125, 48 108 C25 78, 42 70, 64 85 C72 55, 88 14, 100 14 Z" fill="#FF758F" stroke="#0F172A" stroke-width="4.5" stroke-linejoin="round"/>
+                                <path d="M76 46 L90 42 L86 49" fill="none" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                                <path d="M124 46 L110 42 L114 49" fill="none" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                                <ellipse cx="89" cy="62" rx="10" ry="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                                <ellipse cx="111" cy="62" rx="10" ry="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                                <circle cx="91" cy="64" r="3.5" fill="#0F172A"/>
+                                <circle cx="109" cy="64" r="3.5" fill="#0F172A"/>
+                                <path d="M76 82 Q100 112 124 82 Z" fill="#800F2F" stroke="#0F172A" stroke-width="4"/>
+                                <path d="M88 94 Q100 88 112 94 Z" fill="#FF758F"/>
+                                <path d="M52 126 L148 126 L152 162 L106 162 L100 148 L94 162 L48 162 Z" fill="#A3E635" stroke="#0F172A" stroke-width="4.5"/>
+                                <line x1="52" y1="133" x2="148" y2="133" stroke="#0F172A" stroke-width="3.5"/>
+                                <circle cx="72" cy="148" r="7" fill="#9333EA"/>
+                                <circle cx="126" cy="146" r="8" fill="#9333EA"/>
+                            </svg>

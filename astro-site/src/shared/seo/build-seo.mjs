@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import {siteConfig} from '../config/site.ts';
 import {supportedLocales} from '../config/languages.ts';
 import {catalogSection} from '../domain/catalog-routes.ts';
+import {campaignLanguagePaths} from '../config/campaigns.ts';
 const xml=value=>value.replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c]));
 export function seoFiles({noindex=false,assetOrigin=siteConfig.url}={}){return {name:'fabio-seo',hooks:{'astro:build:done':async({dir,logger})=>{
  const entries=[];
@@ -26,7 +27,12 @@ export function seoFiles({noindex=false,assetOrigin=siteConfig.url}={}){return {
  for(const entry of entries){const path=new URL(entry.canonical).pathname,locale=path.split('/')[1];
   const blog=supportedLocales.includes(locale)&&(path.startsWith(`/${locale}/blog/`)||path.startsWith(`/${locale}/egypt/`));
   const catalog=supportedLocales.includes(locale)&&[catalogSection(locale,'tours'),catalogSection(locale,'packages'),'tours','packages'].includes(path.split('/')[2]);
-  if(supportedLocales.includes(locale)&&!blog)for(const language of supportedLocales){const expected=new URL(path.replace(/^\/[^/]+\//,`/${language}/`),siteConfig.url).href;if(!entry.alternates.some(a=>a.locale===language&&(catalog||a.href===expected)))throw new Error(`[SEO:${path}] Missing equivalent ${language} hreflang.`);}
+  const campaign=Object.values(campaignLanguagePaths).find(paths=>Object.values(paths).includes(path));
+  if(campaign){
+   for(const [language,route]of Object.entries(campaign))if(!entry.alternates.some(a=>a.locale===language&&a.href===new URL(route,siteConfig.url).href))throw new Error(`[SEO:${path}] Missing campaign ${language} hreflang.`);
+   if(entry.alternates.length!==Object.keys(campaign).length)throw new Error(`[SEO:${path}] Campaign links to an unpublished translation.`);
+  }
+  if(supportedLocales.includes(locale)&&!blog&&!campaign)for(const language of supportedLocales){const expected=new URL(path.replace(/^\/[^/]+\//,`/${language}/`),siteConfig.url).href;if(!entry.alternates.some(a=>a.locale===language&&(catalog||a.href===expected)))throw new Error(`[SEO:${path}] Missing equivalent ${language} hreflang.`);}
   if(catalog&&!entry.alternates.some(a=>a.locale===locale&&a.href===entry.canonical))throw new Error(`[SEO:${path}] Catalog hreflang must include self-reference.`);
   if(blog&&entry.alternates.length&&!entry.alternates.some(a=>a.locale===locale&&a.href===entry.canonical))throw new Error(`[SEO:${path}] Blog hreflang must include self-reference.`);
   for(const alternate of entry.alternates){const target=urls.get(alternate.href);if(!target||!target.alternates.some(a=>a.href===entry.canonical))throw new Error(`[SEO:${path}] Missing or nonreciprocal hreflang ${alternate.href}.`);}

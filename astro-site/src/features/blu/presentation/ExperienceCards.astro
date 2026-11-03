@@ -1,0 +1,25 @@
+---
+import type {BluCampaign} from '../data/campaign';
+import {siteConfig} from '../../../shared/config/site';
+import {buildBluMessage,buildBluWhatsApp} from '../domain/campaign';
+import sponge from './assets/sponge.svg?raw';
+import squid from './assets/squid.svg?raw';
+import patrick from './assets/patrick.svg?raw';
+import treasure from './assets/treasure.svg?raw';
+import puff from './assets/puff.svg?raw';
+interface Props {campaign:BluCampaign}
+const {campaign:{copy,experiences}}=Astro.props;
+const illustrations={sponge,squid,patrick,treasure,puff};
+---
+<section id="character-lore-section" class="blu-experiences" aria-labelledby="blu-experience-title">
+ <div class="blu-section-heading"><span class="blu-eyebrow">{copy.sec2Badge}</span><h2 id="blu-experience-title">{copy.sec2Title}</h2><p>{copy.sec2Sub}</p></div>
+ <div class="blu-cards">
+  {experiences.map((experience,index)=><article class={`blu-card blu-box blu-card-${experience.id}`} data-experience-card>
+   <div class="blu-card-art" aria-hidden="true"><span class="blu-card-number">0{index+1}</span><div set:html={illustrations[experience.id]}/></div>
+   <h3>{experience.title}</h3><p>{experience.description}</p>
+   <div class="blu-card-bottom"><span class="blu-card-tag">{experience.tag}</span>
+    <a class="blu-button blu-button-yellow" href={buildBluWhatsApp(siteConfig.whatsapp.number,buildBluMessage(copy.waDefaultMsg,copy.selectedLabel,experience.title))} target="_blank" rel="noopener noreferrer" data-experience={experience.id}>{experience.button}<span aria-hidden="true">↗</span></a>
+   </div>
+  </article>)}
+ </div>
+</section>

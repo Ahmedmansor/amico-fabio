@@ -1,0 +1,30 @@
+---
+import {Image} from 'astro:assets';
+import type {BluCopy} from '../data/campaign';
+import fabio from './assets/fabio.svg?raw';
+import village from './assets/village.svg?raw';
+import sea from '../../../shared/assets/catalog/trips/sharm/sea/ras_mohammed_bus_half_day/3.webp';
+interface Props {copy:BluCopy}
+const {copy}=Astro.props;
+---
+<figure class="blu-portal-panel blu-box">
+ <figcaption class="blu-portal-title">{copy.portalTitle}</figcaption>
+ <div class="blu-poses" data-pose-controls hidden>
+  {[copy.pose1,copy.pose2,copy.pose3].map((pose,index)=><button type="button" data-pose={index+1} aria-pressed={index===0}>{pose}</button>)}
+ </div>
+ <div class="blu-portal" data-portal>
+  <div class="blu-real-world">
+   <Image src={sea} alt={copy.realImageAlt} widths={[480,800,1100]} sizes="(min-width:1200px) 420px, (min-width:768px) 45vw, 100vw" loading="eager" fetchpriority="high" format="webp"/>
+   <span class="blu-portal-label">{copy.realLabel}</span>
+   <div class="blu-real-caption"><strong>{copy.realSideTitle}</strong><p>{copy.realSideDesc}</p></div>
+  </div>
+  <div class="blu-cartoon-world" data-cartoon-overlay>
+   <div class="blu-village" aria-hidden="true" set:html={village}/>
+   <span class="blu-portal-label">BIKINI BOTTOM</span>
+   <div class="blu-fabio" aria-hidden="true" set:html={fabio}/>
+  </div>
+  <div class="blu-portal-divider" data-portal-divider aria-hidden="true"><span>↔</span></div>
+  <input class="blu-portal-range" id="blu-portal-range" type="range" min="0" max="100" value="62" aria-label={copy.sliderLabel} hidden/>
+ </div>
+ <p class="blu-portal-hint" data-portal-hint hidden>{copy.sliderHint}</p>
+</figure>

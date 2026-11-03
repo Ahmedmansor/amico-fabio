@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabio Egypt | Il Segreto della Vera Bikini Bottom nel Mar Rosso</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Fredoka (Cartoon Display) & Plus Jakarta Sans (21st.dev Modern UI) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --sponge-yellow: #FFE135;
+            --bikini-cyan: #00B4D8;
+            --deep-abyss: #03071E;
+            --sand-gold: #F4E2B8;
+            --coral-pink: #FF758F;
+            --squid-teal: #70C1B3;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(180deg, #00B4D8 0%, #0077B6 28%, #023E8A 65%, #03045E 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .cartoon-font {
+            font-family: 'Fredoka', cursive, sans-serif;
+            letter-spacing: 0.02em;
+        }
+
+        /* Neo-Brutalist Cartoon + 21st.dev Hybrid Styling */
+        .cartoon-box {
+            border: 4px solid #0F172A;
+            box-shadow: 0 8px 0 #0F172A;
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+        }
+
+        .cartoon-btn {
+            border: 3px solid #0F172A;
+            box-shadow: 0 6px 0 #0F172A;
+            transition: box-shadow 0.15s ease, background-color 0.2s ease;
+            will-change: transform;
+        }
+
+        .cartoon-btn:active {
+            transform: translateY(4px) !important;
+            box-shadow: 0 2px 0 #0F172A !important;
+        }
+
+        .cartoon-stroke {
+            -webkit-text-stroke: 2.5px #0F172A;
+            text-shadow: 0 6px 0 #0F172A;
+        }
+
+        .cartoon-stroke-sm {
+            -webkit-text-stroke: 1.5px #0F172A;
+            text-shadow: 0 3px 0 #0F172A;
+        }
+
+        /* 21st.dev Spotlight Card Effect */
+        .spotlight-card {
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .spotlight-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(255, 225, 53, 0.22),
+                transparent 40%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Volumetric Underwater Sun Rays */
+        .light-rays {
+            background: repeating-linear-gradient(
+                108deg,
+                rgba(255, 255, 255, 0.14) 0%,
+                rgba(255, 255, 255, 0.02) 7%,
+                transparent 14%,
+                transparent 24%
+            );
+            pointer-events: none;
+        }
+
+        /* Animated Shimmer Border (21st.dev style) */
+        @keyframes borderPulse {
+            0%, 100% { border-color: #FFE135; }
+            50% { border-color: #FF758F; }
+        }
+        .mystery-glow {
+            animation: borderPulse 4s infinite ease-in-out;
+        }
+
+        /* Lite Mode Overrides (Disables GPU heavy animations & blurs) */
+        body.lite-mode .gsap-flower,
+        body.lite-mode .bubble-particle,
+        body.lite-mode .floating-jellyfish,
+        body.lite-mode #depth-gauge-widget {
+            display: none !important;
+        }
+        body.lite-mode .backdrop-blur-md,
+        body.lite-mode .backdrop-blur-xl {
+            backdrop-filter: none !important;
+            background-color: rgba(15, 23, 42, 0.94) !important;
+        }
+
+        /* Sprite Sheet Splicer Classes for User Uploaded Sheet */
+        .sprite-mode-2x2 {
+            object-fit: none !important;
+            width: 100% !important;
+            height: 100% !important;
+            background-size: 200% 200%;
+            background-repeat: no-repeat;
+            transition: background-position 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .sprite-mode-3x1 {
+            object-fit: none !important;
+            width: 100% !important;
+            height: 100% !important;
+            background-size: 300% 100%;
+            background-repeat: no-repeat;
+            transition: background-position 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #03045E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FFE135;
+            border: 2px solid #0F172A;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen selection:bg-yellow-300 selection:text-slate-950">
+
+    <!-- Volumetric Sun Rays Overlay -->
+    <div class="fixed inset-0 light-rays z-0"></div>
+
+    <!-- ===================================================================== -->
+    <!-- BIKINI BOTTOM SKY & FLOATING JELLYFISH LAYER (GSAP Controlled)        -->
+    <!-- ===================================================================== -->
+    <div id="underwater-fx-container" class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <!-- Flower Cloud 1 (Yellow) -->
+        <svg class="gsap-flower absolute top-16 left-[4%] w-32 h-32 opacity-50" viewBox="0 0 120 120">
+            <path d="M60 22 C72 -2, 102 15, 84 40 C115 46, 104 84, 78 78 C84 110, 48 115, 48 84 C16 95, 4 60, 32 50 C10 26, 44 4, 60 22 Z" fill="none" stroke="#FFE135" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="60" cy="56" r="12" fill="none" stroke="#FFE135" stroke-width="5"/>
+        </svg>
+
+        <!-- Flower Cloud 2 (Coral Pink) -->
+        <svg class="gsap-flower absolute top-36 right-[5%] w-40 h-40 opacity-45" viewBox="0 0 120 120">
+            <path d="M60 22 C72 -2, 102 15, 84 40 C115 46, 104 84, 78 78 C84 110, 48 115, 48 84 C16 95, 4 60, 32 50 C10 26, 44 4, 60 22 Z" fill="none" stroke="#FF758F" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="60" cy="56" r="12" fill="none" stroke="#FF758F" stroke-width="5"/>
+        </svg>
+
+        <!-- Flower Cloud 3 (Cyan) -->
+        <svg class="gsap-flower absolute top-[52%] left-[8%] w-28 h-28 opacity-35" viewBox="0 0 120 120">
+            <path d="M60 22 C72 -2, 102 15, 84 40 C115 46, 104 84, 78 78 C84 110, 48 115, 48 84 C16 95, 4 60, 32 50 C10 26, 44 4, 60 22 Z" fill="none" stroke="#90E0EF" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="60" cy="56" r="12" fill="none" stroke="#90E0EF" stroke-width="5"/>
+        </svg>
+
+        <!-- Custom SVG Animated Jellyfish 1 -->
+        <svg class="floating-jellyfish absolute top-[28%] right-[14%] w-20 h-20 opacity-80" viewBox="0 0 100 100">
+            <path d="M20 50 C20 20, 80 20, 80 50 C80 56, 20 56, 20 50 Z" fill="#FF758F" stroke="#0F172A" stroke-width="4"/>
+            <ellipse cx="40" cy="36" rx="5" ry="3" fill="#E63946"/>
+            <ellipse cx="62" cy="40" rx="6" ry="3.5" fill="#E63946"/>
+            <ellipse cx="50" cy="28" rx="4" ry="2.5" fill="#FFB3C1"/>
+            <path d="M32 54 Q26 70 35 86" fill="none" stroke="#FF758F" stroke-width="4" stroke-linecap="round"/>
+            <path d="M45 55 Q52 72 44 88" fill="none" stroke="#FF758F" stroke-width="4" stroke-linecap="round"/>
+            <path d="M58 55 Q65 72 56 88" fill="none" stroke="#FF758F" stroke-width="4" stroke-linecap="round"/>
+            <path d="M70 54 Q76 70 67 86" fill="none" stroke="#FF758F" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+
+        <!-- Dynamic Bubbles Injected Here -->
+        <div id="bubbles-layer"></div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- ICONIC SPONGEBOB "2 HOURS LATER..." TIME-CARD OVERLAY (GSAP + AUDIO)  -->
+    <!-- ===================================================================== -->
+    <div id="timecard-overlay" class="fixed inset-0 z-[100] pointer-events-none opacity-0 flex items-center justify-center bg-gradient-to-br from-amber-300 via-teal-500 to-rose-500 p-6">
+        <!-- Retro Bikini Bottom Floral Frame -->
+        <div class="relative w-full max-w-3xl h-80 sm:h-96 cartoon-box bg-[#F4E2B8] rounded-3xl flex flex-col items-center justify-center text-center p-8 overflow-hidden shadow-2xl">
+            <svg class="absolute -top-10 -left-10 w-44 h-44 opacity-40" viewBox="0 0 120 120">
+                <path d="M60 22 C72 -2, 102 15, 84 40 C115 46, 104 84, 78 78 C84 110, 48 115, 48 84 C16 95, 4 60, 32 50 C10 26, 44 4, 60 22 Z" fill="#E63946"/>
+            </svg>
+            <svg class="absolute -bottom-10 -right-10 w-48 h-48 opacity-40" viewBox="0 0 120 120">
+                <path d="M60 22 C72 -2, 102 15, 84 40 C115 46, 104 84, 78 78 C84 110, 48 115, 48 84 C16 95, 4 60, 32 50 C10 26, 44 4, 60 22 Z" fill="#00B4D8"/>
+            </svg>
+            <span class="bg-slate-950 text-yellow-300 font-extrabold text-xs uppercase px-3 py-1 rounded-full mb-3 tracking-widest">
+                🎙️ French Narrator Voice
+            </span>
+            <h2 id="timecard-title" class="cartoon-font text-4xl sm:text-6xl font-extrabold text-slate-950 uppercase tracking-wider drop-shadow">
+                3.5 Ore di Volo Dopo...
+            </h2>
+            <p id="timecard-sub" class="text-slate-800 font-extrabold text-base sm:text-xl mt-3">
+                Benvenuto nella Vera Bikini Bottom a Sharm El Sheikh con Fabio! 🍍🌊
+            </p>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- LIVE RED SEA DEPTH SONAR GAUGE (21st.dev + ScrollTrigger)             -->
+    <!-- ===================================================================== -->
+    <div id="depth-gauge-widget" class="fixed right-3 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col items-center bg-slate-950/85 backdrop-blur-md border-2 border-slate-800 rounded-2xl p-2.5 shadow-2xl w-16">
+        <span class="text-[10px] font-extrabold text-cyan-300 uppercase tracking-tighter">Depth</span>
+        <span id="depth-meter-text" class="cartoon-font text-sm font-extrabold text-yellow-300 my-1">0m</span>
+        <div class="w-2.5 h-36 bg-slate-900 rounded-full overflow-hidden border border-slate-700 relative">
+            <div id="depth-meter-bar" class="w-full bg-gradient-to-b from-cyan-300 via-yellow-300 to-rose-500 rounded-full" style="height: 5%;"></div>
+        </div>
+        <span class="text-[9px] font-bold text-slate-400 mt-1.5 text-center leading-tight" id="depth-zone-label">Superficie</span>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- TOP SMART HARDWARE TELEMETRY & AUTO-LANGUAGE BAR                      -->
+    <!-- ===================================================================== -->
+    <div class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-md border-b-4 border-slate-950 px-3 py-2 text-xs sm:text-sm">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <!-- Hardware Detection & Mode Switch -->
+            <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-900 border border-slate-700 text-cyan-300 font-semibold">
+                    <span id="hw-indicator" class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span id="hw-specs-text">Scanning GPU/CPU...</span>
+                </span>
+                <span class="hidden md:inline-block px-2.5 py-0.5 rounded-md bg-slate-900 border border-slate-800 text-yellow-300 font-mono text-xs" id="fps-counter">60 FPS</span>
+                <button id="toggle-perf-btn" onclick="togglePerformanceMode()" class="px-3 py-1 rounded-lg bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-extrabold border-2 border-slate-950 transition cursor-pointer">
+                    ⚡ 21st + GSAP Engine: ON
+                </button>
+                <button onclick="playTimeCardTransition()" class="px-2.5 py-1 rounded-lg bg-pink-400 hover:bg-pink-300 text-slate-950 font-extrabold border-2 border-slate-950 transition cursor-pointer" title="Effetto Narratore SpongeBob!">
+                    ⏳ "2 Ore Dopo..."
+                </button>
+            </div>
+
+            <!-- Language Switcher (IT Default, ES, EN) -->
+            <div class="flex items-center gap-1.5 bg-slate-900 p-1 rounded-xl border border-slate-700">
+                <span class="text-slate-400 text-xs px-1.5 hidden sm:inline">Canale:</span>
+                <button onclick="setLanguage('it')" id="lang-it" class="lang-btn px-2.5 py-1 rounded-lg font-extrabold bg-yellow-400 text-slate-950 transition">🇮🇹 IT</button>
+                <button onclick="setLanguage('es')" id="lang-es" class="lang-btn px-2.5 py-1 rounded-lg font-extrabold text-white hover:bg-slate-800 transition">🇪🇸 ES</button>
+                <button onclick="setLanguage('en')" id="lang-en" class="lang-btn px-2.5 py-1 rounded-lg font-extrabold text-white hover:bg-slate-800 transition">🇬🇧 EN</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- NAVIGATION HEADER                                                     -->
+    <!-- ===================================================================== -->
+    <header class="relative z-20 max-w-7xl mx-auto px-4 pt-5 pb-3 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-3.5 group">
+            <!-- Smooth Studio-Drawn Fabio Avatar Badge (Continuous Bezier Curves) -->
+            <div class="w-16 h-16 rounded-2xl bg-yellow-400 cartoon-box flex items-center justify-center overflow-hidden relative group-hover:rotate-3 transition">
+                <svg viewBox="0 0 140 140" class="w-15 h-15 mt-1">
+                    <!-- Jacket Shoulders -->
+                    <path d="M22 138 C24 106, 44 98, 70 98 C96 98, 116 106, 118 138 Z" fill="#1E293B" stroke="#0F172A" stroke-width="4.5" stroke-linejoin="round"/>
+                    <!-- Flowing Burgundy Scarf -->
+                    <path d="M40 92 C52 100, 88 100, 100 92 C104 102, 98 114, 86 114 C72 116, 56 115, 42 110 C36 105, 36 96, 40 92 Z" fill="#9B2226" stroke="#0F172A" stroke-width="4" stroke-linejoin="round"/>
+                    <!-- Connected Neck -->
+                    <path d="M56 80 L56 96 L84 96 L84 80 Z" fill="#F4A261" stroke="#0F172A" stroke-width="4"/>
+                    <!-- Smooth Anatomical Head & Jawline -->
+                    <path d="M42 46 C40 72, 48 90, 70 90 C92 90, 100 72, 98 46 C96 30, 44 30, 42 46 Z" fill="#FBBF77" stroke="#0F172A" stroke-width="4.5"/>
+                    <!-- Natural Dark Hair Locks -->
+                    <path d="M40 42 C36 52, 38 64, 43 68 C43 56, 45 48, 48 44 Z" fill="#1E293B"/>
+                    <path d="M100 42 C104 52, 102 64, 97 68 C97 56, 95 48, 92 44 Z" fill="#1E293B"/>
+                    <!-- Curved Straw Hat Crown & Organic Brim -->
+                    <path d="M36 38 C38 10, 102 10, 104 38 Z" fill="#F4A261" stroke="#0F172A" stroke-width="4.5"/>
+                    <path d="M37 30 Q70 37 103 30 L104 37 Q70 44 36 37 Z" fill="#800F2F" stroke="#0F172A" stroke-width="3.5"/>
+                    <path d="M12 38 C35 28, 105 28, 128 38 C112 48, 28 48, 12 38 Z" fill="#E9C46A" stroke="#0F172A" stroke-width="4.5"/>
+                    <!-- Sleek Connected Glasses -->
+                    <rect x="46" y="50" width="20" height="13" rx="4" fill="#E0FBFC" stroke="#0F172A" stroke-width="4"/>
+                    <rect x="74" y="50" width="20" height="13" rx="4" fill="#E0FBFC" stroke="#0F172A" stroke-width="4"/>
+                    <path d="M66 55 Q70 53 74 55" fill="none" stroke="#0F172A" stroke-width="4"/>
+                    <!-- Expressive Smile -->
+                    <path d="M56 72 Q70 83 84 72 Q70 76 56 72 Z" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div>
+                <div class="flex items-center gap-2">
+                    <span class="cartoon-font text-2xl sm:text-3xl font-extrabold text-yellow-300 cartoon-stroke tracking-wide leading-none">FABIO EGYPT</span>
+                    <span class="bg-cyan-400 text-slate-950 text-[11px] font-extrabold px-2 py-0.5 rounded-md border-2 border-slate-950 uppercase">Insider</span>
+                </div>
+                <span class="text-xs font-bold text-cyan-100 bg-slate-950/70 px-2.5 py-0.5 rounded-md inline-block mt-1 border border-cyan-400/30" data-i18n="navTag">
+                    Il Custode della Vera Bikini Bottom nel Mar Rosso
+                </span>
+            </div>
+        </a>
+
+        <!-- Curiosity CTA -->
+        <a href="#secret-bottle-section" class="magnetic-btn cartoon-btn bg-amber-300 hover:bg-yellow-300 text-slate-950 font-extrabold px-4 py-2.5 rounded-xl text-sm sm:text-base flex items-center gap-2">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2.5">
+                <path d="M9 3h6v4l4 8v5a1 1 0 01-1 1H6a1 1 0 01-1-1v-5l4-8V3z" fill="#70C1B3"/>
+                <path d="M8 3h8" stroke-linecap="round"/>
+            </svg>
+            <span data-i18n="navCta">Apri la Bottiglia Segreta</span>
+        </a>
+    </header>
+
+    <!-- ===================================================================== -->
+    <!-- HERO SECTION: CURIOSITY, LORE & STUDIO FABIO CHARACTER SHEET          -->
+    <!-- ===================================================================== -->
+    <main class="relative z-10 max-w-7xl mx-auto px-4 pt-6 pb-24">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+            
+            <!-- Left Column: Curiosity Story & Loyalty Hook -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                
+                <!-- 21st.dev Floating Mystery Badge -->
+                <div class="inline-flex items-center gap-3 bg-slate-950/90 text-yellow-300 cartoon-box mystery-glow px-4 py-2 rounded-2xl font-extrabold text-xs sm:text-sm">
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 animate-ping"></span>
+                    <span data-i18n="heroBadge">Hai notato il ragazzo col cappello di paglia nei nostri video di SpongeBob?</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl font-extrabold leading-[1.08] text-yellow-300 cartoon-stroke" data-i18n="heroTitle">
+                    Non è solo un cartone. La Vera Bikini Bottom si nasconde nel Mar Rosso!
+                </h1>
+
+                <p class="text-base sm:text-xl text-cyan-50 font-semibold max-w-2xl mx-auto lg:mx-0 bg-slate-950/60 backdrop-blur-md p-5 rounded-2xl border-2 border-cyan-300/30 leading-relaxed" data-i18n="heroSub">
+                    Se fai parte della nostra community di SpongeBob, non sei un semplice turista. Io sono Fabio, vivo a Sharm El Sheikh e porto i veri fan a esplorare le lagune segrete, i coralli viventi e il deserto stellato che hanno ispirato le avventure del nostro mondo sottomarino.
+                </p>
+
+                <!-- Interactive Character Dialogue Box (Fabio + Happy Plankton & SpongeBob) -->
+                <div class="bg-amber-100 text-slate-950 cartoon-box p-4 sm:p-5 rounded-3xl flex flex-col sm:flex-row items-center gap-4 text-left max-w-2xl mx-auto lg:mx-0 relative">
+                    <div class="w-20 h-20 shrink-0 rounded-2xl bg-sky-300 border-3 border-slate-950 flex items-center justify-center p-1 shadow-inner">
+                        <svg viewBox="0 0 100 100" class="w-full h-full">
+                            <path d="M18 15 Q50 12 82 15 Q88 50 82 85 Q50 88 18 85 Q12 50 18 15 Z" fill="#FFE135" stroke="#0F172A" stroke-width="4"/>
+                            <circle cx="26" cy="24" r="4" fill="#CCB000"/>
+                            <circle cx="74" cy="28" r="5" fill="#CCB000"/>
+                            <circle cx="24" cy="70" r="4.5" fill="#CCB000"/>
+                            <circle cx="38" cy="44" r="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                            <circle cx="62" cy="44" r="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                            <circle cx="40" cy="44" r="6" fill="#38BDF8" stroke="#0F172A" stroke-width="2.5"/>
+                            <circle cx="60" cy="44" r="6" fill="#38BDF8" stroke="#0F172A" stroke-width="2.5"/>
+                            <circle cx="40" cy="44" r="2.5" fill="#0F172A"/>
+                            <circle cx="60" cy="44" r="2.5" fill="#0F172A"/>
+                            <path d="M48 48 Q50 38 56 48" fill="#FFE135" stroke="#0F172A" stroke-width="3.5"/>
+                            <path d="M28 60 Q50 76 72 60" fill="none" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                            <rect x="42" y="65" width="7" height="9" fill="#FFFFFF" stroke="#0F172A" stroke-width="2.5"/>
+                            <rect x="51" y="65" width="7" height="9" fill="#FFFFFF" stroke="#0F172A" stroke-width="2.5"/>
+                        </svg>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="font-extrabold text-xs uppercase tracking-wider px-2 py-0.5 rounded bg-rose-600 text-white" data-i18n="fabioSaysLabel">Segreto per gli Iscritti al Canale</span>
+                            <span class="text-xs font-extrabold text-emerald-800 bg-emerald-200 px-2 py-0.5 rounded border border-emerald-900">✨ Anche Plankton è felice qui!</span>
+                        </div>
+                        <p class="font-bold text-slate-900 text-sm sm:text-base leading-snug" data-i18n="fabioQuote">
+                            "A Sharm El Sheikh persino Plankton ha smesso di rubare la formula segreta e la Signora Puff si gode il mare senza incidenti! Entra nella famiglia di Fabio per vivere il vero Mar Rosso."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Magnetic Hero CTAs -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#character-lore-section" class="magnetic-btn w-full sm:w-auto cartoon-btn bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-extrabold text-lg px-7 py-4 rounded-2xl text-center flex items-center justify-center gap-2">
+                        <span>🧭</span>
+                        <span data-i18n="btnExplore">Scopri i 5 Segreti dei Personaggi</span>
+                    </a>
+                    <a id="hero-wa-link" href="https://wa.me/201000000000?text=Ciao%20Fabio!%20Ti%20ho%20visto%20nei%20video%20di%20SpongeBob%20e%20voglio%20scoprire%20i%20luoghi%20segreti%20di%20Sharm!" target="_blank" class="magnetic-btn w-full sm:w-auto cartoon-btn bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold text-lg px-7 py-4 rounded-2xl text-center flex items-center justify-center gap-2">
+                        <span>🍍</span>
+                        <span data-i18n="btnWhatsapp">Chiedi a Fabio (Solo Fan)</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: STUDIO FABIO CHARACTER SHEET & SPRITE SPLICER PORTAL -->
+            <div class="lg:col-span-5">
+                <div class="spotlight-card cartoon-box bg-slate-950/90 rounded-3xl p-4 sm:p-5 relative">
+                    
+                    <!-- Top Character Sheet & Sprite Splicer Controls -->
+                    <div class="flex flex-col gap-2 mb-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="bg-yellow-400 text-slate-950 font-extrabold text-xs px-3 py-1 rounded-xl border-2 border-slate-950" data-i18n="sheetBadge">
+                                🎨 Fabio Studio Sheet (3 Pose + PNG Splicer)
+                            </span>
+                            <!-- Upload Custom Sheet Button + Splicer Grid Selector -->
+                            <div class="flex items-center gap-1">
+                                <label for="sprite-upload" class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-rose-500 hover:bg-rose-400 text-white cursor-pointer border-2 border-slate-950 transition shadow" title="Carica il tuo Character Sheet di Fabio!">
+                                    📁 Carica Sheet
+                                </label>
+                                <input type="file" id="sprite-upload" accept="image/*" class="hidden" onchange="handleCustomSpriteUpload(event)">
+                                <select id="sprite-grid-mode" onchange="updateSpriteSliceMode()" class="hidden bg-slate-900 text-cyan-300 text-[11px] font-bold px-2 py-1 rounded-lg border border-slate-700">
+                                    <option value="2x2">Sheet 2x2</option>
+                                    <option value="3x1">Sheet 3x1</option>
+                                    <option value="full">Singola</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Pose Switcher Buttons (Works for both Studio SVG and Uploaded Sprite Sheet!) -->
+                        <div class="grid grid-cols-3 gap-1.5 bg-slate-900 p-1 rounded-xl border border-slate-800">
+                            <button onclick="switchFabioPose(1)" id="pose-btn-1" class="py-1.5 rounded-lg text-xs font-extrabold bg-cyan-400 text-slate-950 transition">🤠 1. Il Custode</button>
+                            <button onclick="switchFabioPose(2)" id="pose-btn-2" class="py-1.5 rounded-lg text-xs font-extrabold text-slate-300 hover:bg-slate-800 transition">🤿 2. Esploratore</button>
+                            <button onclick="switchFabioPose(3)" id="pose-btn-3" class="py-1.5 rounded-lg text-xs font-extrabold text-slate-300 hover:bg-slate-800 transition">🍹 3. Capitan VIP</button>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Split Portal: Bikini Bottom World vs Real Red Sea Paradise -->
+                    <div class="relative w-full h-[410px] sm:h-[440px] rounded-2xl overflow-hidden select-none border-4 border-slate-950" id="comparison-box">
+                        
+                        <!-- ========================================================= -->
+                        <!-- LAYER 1 (RIGHT SIDE): REAL SHARM EL SHEIKH VIP PARADISE   -->
+                        <!-- ========================================================= -->
+                        <div class="absolute inset-0 bg-gradient-to-b from-sky-400 via-cyan-600 to-blue-950 flex flex-col justify-between p-4">
+                            <svg viewBox="0 0 400 400" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+                                <circle cx="320" cy="70" r="38" fill="#FDE047" opacity="0.9"/>
+                                <polygon points="0,145 90,95 180,145" fill="#D97706" opacity="0.7"/>
+                                <polygon points="120,145 240,85 360,145" fill="#B45309" opacity="0.8"/>
+                                <polygon points="280,145 370,105 420,145" fill="#92400E" opacity="0.75"/>
+                                <!-- Luxury VIP Yacht -->
+                                <path d="M180 135 L330 135 L310 155 L195 155 Z" fill="#FFFFFF" stroke="#0F172A" stroke-width="3"/>
+                                <path d="M210 115 L290 115 L305 135 L200 135 Z" fill="#F8FAFC" stroke="#0F172A" stroke-width="3"/>
+                                <rect x="225" y="120" width="50" height="8" rx="3" fill="#38BDF8"/>
+                                <path d="M0 150 Q100 140 200 150 T400 150 L400 400 L0 400 Z" fill="url(#realSeaGrad)" opacity="0.85"/>
+                                <defs>
+                                    <linearGradient id="realSeaGrad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#06B6D4"/>
+                                        <stop offset="50%" stop-color="#0284C7"/>
+                                        <stop offset="100%" stop-color="#0F172A"/>
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0 360 Q120 330 260 355 T400 345 L400 400 L0 400 Z" fill="#FDE68A"/>
+                                <path d="M310 360 C300 310, 340 300, 330 360" fill="#F43F5E" stroke="#0F172A" stroke-width="2.5"/>
+                                <path d="M330 360 C335 315, 370 315, 355 360" fill="#FB7185" stroke="#0F172A" stroke-width="2.5"/>
+                                <path d="M260 365 C245 320, 285 320, 275 365" fill="#A855F7" stroke="#0F172A" stroke-width="2.5"/>
+                                <ellipse cx="300" cy="240" rx="14" ry="8" fill="#FB923C" stroke="#0F172A" stroke-width="2"/>
+                                <path d="M298 232 L298 248" stroke="#FFFFFF" stroke-width="3"/>
+                                <ellipse cx="345" cy="270" rx="12" ry="6" fill="#FACC15" stroke="#0F172A" stroke-width="2"/>
+                            </svg>
+
+                            <div class="relative z-10 flex justify-between items-start">
+                                <span class="bg-emerald-400 text-slate-950 font-extrabold px-3 py-1 rounded-xl border-2 border-slate-950 text-xs shadow">
+                                    🌊 MAR ROSSO REALE
+                                </span>
+                                <span class="bg-slate-950/85 text-yellow-300 font-extrabold px-3 py-1 rounded-xl border border-yellow-400/40 text-xs">
+                                    Ras Mohammed & Tiran
+                                </span>
+                            </div>
+
+                            <div class="relative z-10 mt-auto bg-slate-950/80 backdrop-blur-md p-3 rounded-2xl border-2 border-emerald-400/50 text-right">
+                                <p class="cartoon-font text-lg font-extrabold text-emerald-300" data-i18n="realSideTitle">
+                                    Il Mondo di Fabio a Sharm
+                                </p>
+                                <p class="text-xs text-cyan-100 font-semibold" data-i18n="realSideDesc">
+                                    Dove la fantasia di Bikini Bottom diventa un'esperienza vera nel Mar Rosso.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- ========================================================= -->
+                        <!-- LAYER 2 (LEFT SIDE): ILLUSTRATED BIKINI BOTTOM + FABIO    -->
+                        <!-- ========================================================= -->
+                        <div id="cartoon-overlay" class="absolute inset-0 bg-gradient-to-b from-[#48CAE4] via-[#00B4D8] to-[#F4E2B8] flex flex-col justify-between p-4" style="clip-path: polygon(0 0, 62% 0, 62% 100%, 0 100%);">
+                            
+                            <!-- Full Bikini Bottom Architecture SVG (Patrick's Rock, Squiddi's Moai, SpongeBob's Pineapple) -->
+                            <svg viewBox="0 0 400 400" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+                                <path d="M0 320 Q200 305 400 325 L400 400 L0 400 Z" fill="#F4E2B8" stroke="#0F172A" stroke-width="3.5"/>
+                                <path d="M135 322 L115 400 L165 400 L155 322 Z" fill="#94A3B8" stroke="#0F172A" stroke-width="3"/>
+                                <!-- Patrick's Rock -->
+                                <path d="M15 325 C15 270, 85 270, 85 325 Z" fill="#7F4F24" stroke="#0F172A" stroke-width="3.5"/>
+                                <line x1="50" y1="270" x2="50" y2="250" stroke="#F59E0B" stroke-width="3"/>
+                                <!-- Squiddi's Moai -->
+                                <path d="M105 322 L112 200 L168 200 L175 322 Z" fill="#3B526B" stroke="#0F172A" stroke-width="3.5"/>
+                                <rect x="106" y="215" width="68" height="14" rx="4" fill="#293B4F" stroke="#0F172A" stroke-width="3"/>
+                                <path d="M133 229 L129 275 L151 275 L147 229 Z" fill="#4C6885" stroke="#0F172A" stroke-width="3"/>
+                                <circle cx="122" cy="242" r="9" fill="#38BDF8" stroke="#0F172A" stroke-width="3"/>
+                                <circle cx="158" cy="242" r="9" fill="#38BDF8" stroke="#0F172A" stroke-width="3"/>
+                                <path d="M128 322 L128 292 C128 280, 152 280, 152 292 L152 322 Z" fill="#B45309" stroke="#0F172A" stroke-width="3"/>
+                                <!-- SpongeBob's Pineapple -->
+                                <path d="M240 205 C215 155, 250 140, 260 190 C265 135, 290 135, 285 190 C305 145, 330 165, 300 205 Z" fill="#2EC4B6" stroke="#0F172A" stroke-width="3.5"/>
+                                <path d="M225 325 C215 230, 240 190, 272 190 C304 190, 328 230, 318 325 Z" fill="#F77F00" stroke="#0F172A" stroke-width="3.5"/>
+                                <path d="M235 225 L308 295 M248 200 L315 265 M225 260 L285 320" stroke="#D62828" stroke-width="2.5" opacity="0.6"/>
+                                <path d="M308 225 L235 295 M295 200 L228 265 M315 260 L255 320" stroke="#D62828" stroke-width="2.5" opacity="0.6"/>
+                                <circle cx="252" cy="235" r="10" fill="#7DD3FC" stroke="#0F172A" stroke-width="3.5"/>
+                                <circle cx="294" cy="272" r="9" fill="#7DD3FC" stroke="#0F172A" stroke-width="3.5"/>
+                                <path d="M256 325 L256 286 C256 270, 286 270, 286 286 L286 325 Z" fill="#94A3B8" stroke="#0F172A" stroke-width="3.5"/>
+                            </svg>
+
+                            <div class="relative z-10 flex justify-between items-start">
+                                <span class="bg-yellow-300 text-slate-950 font-extrabold px-3 py-1 rounded-xl border-2 border-slate-950 text-xs shadow">
+                                    🍍 BIKINI BOTTOM
+                                </span>
+                            </div>
+
+                            <!-- =============================================================== -->
+                            <!-- ORGANIC STUDIO-DRAWN FABIO CHARACTER (CONNECTED BEZIER CURVES)   -->
+                            <!-- =============================================================== -->
+                            <div class="relative z-10 my-auto flex flex-col items-center justify-center">
+                                <!-- Sprite Splicer Container (Shown when user uploads their PNG Character Sheet) -->
+                                <div id="custom-sprite-viewport" class="hidden w-56 h-56 rounded-2xl overflow-hidden drop-shadow-[0_10px_0_#0F172A] border-2 border-slate-950/30 bg-white/10 backdrop-blur-sm"></div>
+
+                                <!-- Organic Connected 2D Cartoon Illustration of Fabio -->
+                                <svg id="fabio-master-svg" viewBox="0 0 260 270" class="w-56 h-56 sm:w-60 sm:h-60 drop-shadow-[0_10px_0_rgba(15,23,42,0.92)]">
+                                    <defs>
+                                        <linearGradient id="hatStrawGrad" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="#FDE68A"/>
+                                            <stop offset="55%" stop-color="#F4A261"/>
+                                            <stop offset="100%" stop-color="#E07A5F"/>
+                                        </linearGradient>
+                                        <linearGradient id="jacketLeatherGrad" x1="0" y1="0" x2="1" y2="1">
+                                            <stop offset="0%" stop-color="#334155"/>
+                                            <stop offset="50%" stop-color="#1E293B"/>
+                                            <stop offset="100%" stop-color="#0F172A"/>
+                                        </linearGradient>
+                                        <linearGradient id="scarfRedGrad" x1="0" y1="0" x2="1" y2="0">
+                                            <stop offset="0%" stop-color="#780000"/>
+                                            <stop offset="50%" stop-color="#AE2012"/>
+                                            <stop offset="100%" stop-color="#9B2226"/>
+                                        </linearGradient>
+                                    </defs>
+
+                                    <!-- 1. Back of Straw Hat Brim (Curved Organic Sombrero/Sunhat silhouette) -->
+                                    <path d="M26 76 C55 52, 205 52, 234 76 C215 102, 45 102, 26 76 Z" fill="#D97706" stroke="#0F172A" stroke-width="5" stroke-linejoin="round"/>
+
+                                    <!-- 2. Connected Torso & Fitted Dark Leather Jacket with Lapels -->
+                                    <path d="M58 175 C64 152, 92 146, 130 146 C168 146, 196 152, 202 175 L214 252 C165 260, 95 260, 46 252 Z" fill="url(#jacketLeatherGrad)" stroke="#0F172A" stroke-width="5" stroke-linejoin="round"/>
+                                    <!-- Inner Warm Yellow SpongeBob Shirt V-Neck -->
+                                    <path d="M106 152 L154 152 L142 254 L118 254 Z" fill="#FFE135" stroke="#0F172A" stroke-width="4"/>
+                                    <!-- Leather Jacket Lapel Collars & Zipper Detail -->
+                                    <path d="M88 156 L116 218 L92 222 L76 175 Z" fill="#475569" stroke="#0F172A" stroke-width="4" stroke-linejoin="round"/>
+                                    <path d="M172 156 L144 218 L168 222 L184 175 Z" fill="#475569" stroke="#0F172A" stroke-width="4" stroke-linejoin="round"/>
+
+                                    <!-- 3. Anatomical Neck & Shaded Chin Shadow -->
+                                    <path d="M108 124 L108 154 L152 154 L152 124 Z" fill="#F4A261" stroke="#0F172A" stroke-width="4.5"/>
+                                    <path d="M110 132 Q130 144 150 132 L150 142 Q130 150 110 142 Z" fill="#E07A5F"/>
+
+                                    <!-- 4. Flowing Burgundy Scarf with Draped Folds (From Character Sheet) -->
+                                    <path d="M74 140 C95 152, 165 152, 186 140 C194 154, 188 170, 170 172 C145 176, 115 176, 90 172 C72 170, 66 154, 74 140 Z" fill="url(#scarfRedGrad)" stroke="#0F172A" stroke-width="4.5" stroke-linejoin="round"/>
+                                    <!-- Scarf Hanging Tail with Fringe Fold -->
+                                    <path d="M140 162 C148 184, 158 205, 162 222 L132 224 C130 202, 128 182, 128 164 Z" fill="#AE2012" stroke="#0F172A" stroke-width="4.5" stroke-linejoin="round"/>
+                                    <path d="M88 156 Q130 165 172 156" fill="none" stroke="#5F0F40" stroke-width="3" stroke-linecap="round"/>
+
+                                    <!-- 5. Ears & Natural Dark Wavy Hair Locks -->
+                                    <ellipse cx="78" cy="100" rx="10" ry="13" fill="#F4A261" stroke="#0F172A" stroke-width="4.5"/>
+                                    <ellipse cx="182" cy="100" rx="10" ry="13" fill="#F4A261" stroke="#0F172A" stroke-width="4.5"/>
+                                    <path d="M78 66 C70 80, 72 98, 82 108 C82 92, 85 78, 90 68 Z" fill="#1E293B" stroke="#0F172A" stroke-width="3.5" stroke-linejoin="round"/>
+                                    <path d="M182 66 C190 80, 188 98, 178 108 C178 92, 175 78, 170 68 Z" fill="#1E293B" stroke="#0F172A" stroke-width="3.5" stroke-linejoin="round"/>
+
+                                    <!-- 6. Organic Sculpted Head, Cheekbones & Jawline -->
+                                    <path d="M82 68 C80 100, 92 138, 130 138 C168 138, 180 100, 178 68 C176 44, 84 44, 82 68 Z" fill="#FBBF77" stroke="#0F172A" stroke-width="5" stroke-linejoin="round"/>
+                                    <!-- Warm Cheek Blush -->
+                                    <ellipse cx="96" cy="104" rx="8" ry="4.5" fill="#F4A261" opacity="0.65"/>
+                                    <ellipse cx="164" cy="104" rx="8" ry="4.5" fill="#F4A261" opacity="0.65"/>
+
+                                    <!-- 7. Expressive Eyebrows & Nose Bridge -->
+                                    <path d="M92 74 Q106 67 118 73" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round"/>
+                                    <path d="M142 73 Q154 67 168 74" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round"/>
+                                    <path d="M128 86 C125 96, 125 102, 133 103" fill="none" stroke="#D97706" stroke-width="4" stroke-linecap="round"/>
+
+                                    <!-- 8. Sleek Dark-Rimmed Glasses with Cyan Reflection -->
+                                    <rect x="86" y="79" width="38" height="24" rx="6" fill="#E0FBFC" fill-opacity="0.88" stroke="#0F172A" stroke-width="5"/>
+                                    <rect x="136" y="79" width="38" height="24" rx="6" fill="#E0FBFC" fill-opacity="0.88" stroke="#0F172A" stroke-width="5"/>
+                                    <path d="M124 89 Q130 85 136 89" fill="none" stroke="#0F172A" stroke-width="5"/>
+                                    <line x1="80" y1="88" x2="86" y2="89" stroke="#0F172A" stroke-width="4.5"/>
+                                    <line x1="174" y1="89" x2="180" y2="88" stroke="#0F172A" stroke-width="4.5"/>
+                                    <!-- Animated Pupils & Lens Shine -->
+                                    <circle cx="106" cy="91" r="5" fill="#0F172A"/>
+                                    <circle cx="154" cy="91" r="5" fill="#0F172A"/>
+                                    <circle cx="108" cy="89" r="2" fill="#FFFFFF"/>
+                                    <circle cx="156" cy="89" r="2" fill="#FFFFFF"/>
+                                    <line x1="92" y1="83" x2="99" y2="98" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="142" y1="83" x2="149" y2="98" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+
+                                    <!-- 9. Charismatic Cartoon Smile -->
+                                    <path d="M104 111 Q130 129 156 111 Q130 116 104 111 Z" fill="#FFFFFF" stroke="#0F172A" stroke-width="4" stroke-linejoin="round"/>
+                                    <path d="M116 123 Q130 126 144 123" fill="none" stroke="#E07A5F" stroke-width="2.5" stroke-linecap="round"/>
+
+                                    <!-- 10. Woven Straw Hat Crown & Curved Front Brim -->
+                                    <path d="M74 62 C76 16, 184 16, 186 62 Z" fill="url(#hatStrawGrad)" stroke="#0F172A" stroke-width="5" stroke-linejoin="round"/>
+                                    <!-- Woven Straw Cross-lines -->
+                                    <path d="M92 34 Q130 26 168 34 M84 46 Q130 38 176 46" fill="none" stroke="#B45309" stroke-width="2.5" opacity="0.55"/>
+                                    <!-- Burgundy Hat Ribbon -->
+                                    <path d="M75 50 Q130 60 185 50 L186 61 Q130 71 74 61 Z" fill="#800F2F" stroke="#0F172A" stroke-width="4.5" stroke-linejoin="round"/>
+                                    <!-- Organic Sweeping Hat Brim -->
+                                    <path d="M22 68 C65 48, 195 48, 238 68 C195 80, 65 80, 22 68 Z" fill="#E9C46A" stroke="#0F172A" stroke-width="5" stroke-linejoin="round"/>
+
+                                    <!-- ===================================================== -->
+                                    <!-- POSE 1: THE KEEPER OF BIKINI BOTTOM (Golden Compass)  -->
+                                    <!-- ===================================================== -->
+                                    <g id="fabio-pose-1">
+                                        <!-- Left Arm Waving Warmly -->
+                                        <path d="M60 180 C34 166, 24 140, 32 114" fill="none" stroke="#0F172A" stroke-width="24" stroke-linecap="round"/>
+                                        <path d="M60 180 C34 166, 24 140, 32 114" fill="none" stroke="#1E293B" stroke-width="16" stroke-linecap="round"/>
+                                        <!-- Open Waving Hand -->
+                                        <circle cx="33" cy="105" r="13" fill="#FBBF77" stroke="#0F172A" stroke-width="4.5"/>
+                                        <!-- Right Arm Holding Bikini Bottom Golden Compass & Map -->
+                                        <path d="M200 180 C220 190, 224 210, 206 218" fill="none" stroke="#0F172A" stroke-width="22" stroke-linecap="round"/>
+                                        <path d="M200 180 C220 190, 224 210, 206 218" fill="none" stroke="#1E293B" stroke-width="14" stroke-linecap="round"/>
+                                        <circle cx="204" cy="208" r="22" fill="#FFE135" stroke="#0F172A" stroke-width="4.5"/>
+                                        <circle cx="204" cy="208" r="15" fill="#FFFBEB" stroke="#0F172A" stroke-width="3"/>
+                                        <polygon points="204,195 209,208 204,221 199,208" fill="#E63946"/>
+                                    </g>
+
+                                    <!-- ===================================================== -->
+                                    <!-- POSE 2: RED SEA REEF EXPLORER (Goggles & Jelly Net)   -->
+                                    <!-- ===================================================== -->
+                                    <g id="fabio-pose-2" class="hidden">
+                                        <!-- Pro Diving Mask Resting on Hat -->
+                                        <rect x="82" y="34" width="96" height="26" rx="12" fill="#00B4D8" stroke="#0F172A" stroke-width="4.5"/>
+                                        <line x1="130" y1="34" x2="130" y2="60" stroke="#0F172A" stroke-width="4.5"/>
+                                        <path d="M92 40 L104 54 M144 40 L156 54" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+                                        <!-- Right Arm Holding SpongeBob's Jellyfishing Net & Smiling Jellyfish -->
+                                        <line x1="212" y1="78" x2="194" y2="248" stroke="#D97706" stroke-width="8" stroke-linecap="round"/>
+                                        <line x1="212" y1="78" x2="194" y2="248" stroke="#0F172A" stroke-width="2"/>
+                                        <ellipse cx="216" cy="72" rx="28" ry="18" fill="#A7F3D0" fill-opacity="0.78" stroke="#0F172A" stroke-width="4.5"/>
+                                        <!-- Friendly Pink Jellyfish Hovering Above Net -->
+                                        <path d="M202 44 C202 26, 234 26, 234 44 Z" fill="#FF758F" stroke="#0F172A" stroke-width="3.5"/>
+                                        <path d="M210 44 L208 56 M218 44 L218 58 M226 44 L228 56" stroke="#FF758F" stroke-width="3" stroke-linecap="round"/>
+                                    </g>
+
+                                    <!-- ===================================================== -->
+                                    <!-- POSE 3: VIP YACHT CAPTAIN (Shades & Pineapple Drink)  -->
+                                    <!-- ===================================================== -->
+                                    <g id="fabio-pose-3" class="hidden">
+                                        <!-- Dark Polarized VIP Sunglasses Overlay -->
+                                        <rect x="86" y="79" width="38" height="24" rx="6" fill="#0F172A" stroke="#FFE135" stroke-width="3.5"/>
+                                        <rect x="136" y="79" width="38" height="24" rx="6" fill="#0F172A" stroke="#FFE135" stroke-width="3.5"/>
+                                        <line x1="92" y1="84" x2="104" y2="98" stroke="#38BDF8" stroke-width="3.5" stroke-linecap="round"/>
+                                        <line x1="142" y1="84" x2="154" y2="98" stroke="#38BDF8" stroke-width="3.5" stroke-linecap="round"/>
+                                        <!-- Left Hand Holding Mini Bikini Bottom Pineapple Drink -->
+                                        <ellipse cx="42" cy="186" rx="18" ry="22" fill="#F77F00" stroke="#0F172A" stroke-width="4.5"/>
+                                        <path d="M32 166 L42 152 L52 166" fill="#2EC4B6" stroke="#0F172A" stroke-width="3.5"/>
+                                        <line x1="46" y1="164" x2="58" y2="142" stroke="#FF758F" stroke-width="4.5" stroke-linecap="round"/>
+                                    </g>
+                                </svg>
+                            </div>
+
+                            <!-- Bottom Caption inside Cartoon Layer -->
+                            <div class="relative z-10 bg-yellow-300 text-slate-950 font-extrabold px-3 py-2 rounded-2xl border-2 border-slate-950 text-xs flex items-center justify-between">
+                                <span id="pose-caption-text">🤠 Fabio: Custode di Bikini Bottom</span>
+                                <span class="bg-slate-950 text-yellow-300 px-2 py-0.5 rounded-md text-[10px]">Scorri ↔️</span>
+                            </div>
+                        </div>
+
+                        <!-- Range Input Slider Control -->
+                        <input type="range" min="8" max="92" value="62" id="compare-range" oninput="updateComparison(this.value)" class="absolute inset-0 opacity-0 cursor-ew-resize w-full h-full z-30">
+
+                        <!-- Visual Portal Divider Line -->
+                        <div id="compare-line" class="absolute top-0 bottom-0 w-1.5 bg-slate-950 z-20 pointer-events-none" style="left: 62%;">
+                            <div class="w-11 h-11 rounded-full bg-yellow-400 text-slate-950 font-extrabold flex items-center justify-center absolute top-1/2 -translate-x-1/2 -translate-y-1/2 text-lg border-4 border-slate-950 shadow-xl">
+                                ↔️
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-center text-xs font-bold text-cyan-200 mt-2.5" data-i18n="sliderHint">
+                        👆 Trascina il portale o clicca le 3 pose di Fabio (puoi anche caricare il tuo Sheet PNG!)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===================================================================== -->
+        <!-- SECTION 2: 5-CARD 21st.dev BENTO GRID OF SPONGEBOB CAST               -->
+        <!-- (SpongeBob, Squiddi, Patrick, Mr. Krabs + Happy Plankton, Mrs. Puff)  -->
+        <!-- ===================================================================== -->
+        <section id="character-lore-section" class="mt-24">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="bg-pink-400 text-slate-950 cartoon-box px-4 py-1.5 rounded-full font-extrabold text-xs sm:text-sm uppercase inline-block">
+                    🍍 <span data-i18n="sec2Badge">Tutti i Protagonisti di Bikini Bottom a Sharm</span>
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-yellow-300 cartoon-stroke" data-i18n="sec2Title">
+                    5 Segreti che Solo i Veri Fan Possono Vivere!
+                </h2>
+                <p class="text-cyan-100 font-semibold text-base sm:text-lg" data-i18n="sec2Sub">
+                    Da SpongeBob e Squiddi fino alla storica tregua tra Mr. Krabs e Plankton Felice e alla guida sicura della Signora Puff: scopri cosa succede quando il nostro canale incontra il Mar Rosso!
+                </p>
+            </div>
+
+            <!-- TOP ROW: 3 CHARACTER CARDS (SpongeBob, Squiddi, Patrick) -->
+            <div class="grid md:grid-cols-3 gap-7">
+                
+                <!-- ============================================================= -->
+                <!-- CARD 1: SPONGEBOB -> CURIOSITÀ & CAMPI DI MEDUSE (RAS MOHAMMED)-->
+                <!-- ============================================================= -->
+                <div class="spotlight-card gsap-card cartoon-box bg-gradient-to-b from-amber-400/20 via-slate-900/95 to-slate-950 rounded-3xl p-6 flex flex-col justify-between relative group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-yellow-400 text-slate-950 font-extrabold text-xs px-3 py-1 rounded-xl border-2 border-slate-950">
+                                #1 L'ESPLORATORE CURIOSO
+                            </span>
+                            <span class="text-xs font-extrabold text-yellow-300">Jellyfish Fields ➔ Ras Mohammed</span>
+                        </div>
+
+                        <!-- FULL CUSTOM SPONGEBOB SVG ILLUSTRATION -->
+                        <div class="h-48 rounded-2xl bg-gradient-to-b from-sky-400 to-cyan-600 border-3 border-slate-950 mb-5 flex items-center justify-center relative overflow-hidden p-2">
+                            <svg viewBox="0 0 200 180" class="w-44 h-44 group-hover:scale-105 transition duration-300">
+                                <path d="M55 20 Q100 15 145 20 Q152 65 145 115 Q100 120 55 115 Q48 65 55 20 Z" fill="#FFE135" stroke="#0F172A" stroke-width="4.5"/>
+                                <circle cx="66" cy="32" r="5" fill="#D4B200"/>
+                                <circle cx="134" cy="36" r="6" fill="#D4B200"/>
+                                <circle cx="64" cy="95" r="4.5" fill="#D4B200"/>
+                                <circle cx="132" cy="92" r="4" fill="#D4B200"/>
+                                <line x1="76" y1="34" x2="73" y2="26" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="84" y1="32" x2="84" y2="24" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="92" y1="34" x2="95" y2="26" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="108" y1="34" x2="105" y2="26" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="116" y1="32" x2="116" y2="24" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="124" y1="34" x2="127" y2="26" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <circle cx="84" cy="52" r="17" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="116" cy="52" r="17" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="86" cy="52" r="7.5" fill="#38BDF8" stroke="#0F172A" stroke-width="3"/>
+                                <circle cx="114" cy="52" r="7.5" fill="#38BDF8" stroke="#0F172A" stroke-width="3"/>
+                                <circle cx="86" cy="52" r="3.5" fill="#0F172A"/>
+                                <circle cx="114" cy="52" r="3.5" fill="#0F172A"/>
+                                <path d="M97 56 Q104 42 112 58" fill="#FFE135" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                                <circle cx="68" cy="68" r="5" fill="#FF758F" opacity="0.7"/>
+                                <circle cx="132" cy="68" r="5" fill="#FF758F" opacity="0.7"/>
+                                <path d="M68 74 Q100 98 132 74" fill="none" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                                <rect x="90" y="82" width="9" height="12" rx="1.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                                <rect x="101" y="82" width="9" height="12" rx="1.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                                <rect x="57" y="114" width="86" height="16" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+                                <rect x="57" y="130" width="86" height="22" fill="#8B5E34" stroke="#0F172A" stroke-width="4"/>
+                                <line x1="65" y1="138" x2="77" y2="138" stroke="#0F172A" stroke-width="4"/>
+                                <line x1="94" y1="138" x2="106" y2="138" stroke="#0F172A" stroke-width="4"/>
+                                <line x1="123" y1="138" x2="135" y2="138" stroke="#0F172A" stroke-width="4"/>
+                                <polygon points="95,114 105,114 108,136 100,143 92,136" fill="#E63946" stroke="#0F172A" stroke-width="3.5"/>
+                                <path d="M54 95 Q28 75 34 50" fill="none" stroke="#FFE135" stroke-width="7" stroke-linecap="round"/>
+                                <path d="M146 95 Q172 75 166 50" fill="none" stroke="#FFE135" stroke-width="7" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <h3 class="text-2xl font-extrabold text-yellow-300 mb-2" data-i18n="card1Title">
+                            La Meraviglia di SpongeBob
+                        </h3>
+                        <p class="text-cyan-100 text-sm font-medium mb-5 leading-relaxed" data-i18n="card1Desc">
+                            Ti sei mai chiesto come sarebbe nuotare davvero nei "Campi di Meduse"? Fabio ti porta nei giardini corallini segreti di Ras Mohammed, dove migliaia di pesci colorati ti circondano in un acquario naturale.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/90 p-3.5 rounded-2xl border-2 border-yellow-400/40 space-y-2.5">
+                        <div class="flex justify-between text-xs font-bold text-yellow-300">
+                            <span data-i18n="card1Tag">🧭 Segreto: Barriera Yolanda & Relitto</span>
+                            <span>100% Meraviglia</span>
+                        </div>
+                        <button onclick="selectLorePath('SpongeBob - Barriera Segreta Ras Mohammed')" class="magnetic-btn w-full cartoon-btn bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-extrabold py-3 rounded-xl text-sm">
+                            🧽 <span data-i18n="card1Btn">Scopri il Segreto di SpongeBob</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ============================================================= -->
+                <!-- CARD 2: SQUIDWARD (SQUIDDI) -> PACE & LAGUNA GOO (ISOLA BIANCA)-->
+                <!-- ============================================================= -->
+                <div class="spotlight-card gsap-card cartoon-box bg-gradient-to-b from-teal-400/20 via-slate-900/95 to-slate-950 rounded-3xl p-6 flex flex-col justify-between relative group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-cyan-400 text-slate-950 font-extrabold text-xs px-3 py-1 rounded-xl border-2 border-slate-950">
+                                #2 IL RE DEL RELAX VIP
+                            </span>
+                            <span class="text-xs font-extrabold text-cyan-300">Goo Lagoon ➔ Isola Bianca</span>
+                        </div>
+
+                        <!-- FULL CUSTOM SQUIDWARD (SQUIDDI) SVG ILLUSTRATION -->
+                        <div class="h-48 rounded-2xl bg-gradient-to-b from-teal-400 to-emerald-700 border-3 border-slate-950 mb-5 flex items-center justify-center relative overflow-hidden p-2">
+                            <svg viewBox="0 0 200 180" class="w-44 h-44 group-hover:scale-105 transition duration-300">
+                                <ellipse cx="100" cy="52" rx="46" ry="34" fill="#70C1B3" stroke="#0F172A" stroke-width="4.5"/>
+                                <circle cx="72" cy="34" r="4" fill="#4E9387"/>
+                                <circle cx="128" cy="38" r="5" fill="#4E9387"/>
+                                <path d="M82 32 Q100 28 118 32" fill="none" stroke="#4E9387" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M78 78 L72 115 L128 115 L122 78 Z" fill="#70C1B3" stroke="#0F172A" stroke-width="4.5"/>
+                                <rect x="70" y="52" width="28" height="18" rx="4" fill="#0F172A" stroke="#FFE135" stroke-width="3"/>
+                                <rect x="102" y="52" width="28" height="18" rx="4" fill="#0F172A" stroke="#FFE135" stroke-width="3"/>
+                                <line x1="75" y1="56" x2="83" y2="66" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                                <line x1="107" y1="56" x2="115" y2="66" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M92 62 C86 105, 114 105, 108 62 Z" fill="#70C1B3" stroke="#0F172A" stroke-width="4.5"/>
+                                <path d="M76 98 Q100 108 124 98" fill="none" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                                <path d="M68 115 L132 115 L140 165 L60 165 Z" fill="#D97706" stroke="#0F172A" stroke-width="4.5"/>
+                                <circle cx="148" cy="138" r="16" fill="#7F4F24" stroke="#0F172A" stroke-width="4"/>
+                                <path d="M148 122 L160 104" stroke="#FF758F" stroke-width="4" stroke-linecap="round"/>
+                                <polygon points="154,104 170,112 166,96" fill="#FFE135" stroke="#0F172A" stroke-width="2"/>
+                            </svg>
+                        </div>
+
+                        <h3 class="text-2xl font-extrabold text-cyan-300 mb-2" data-i18n="card2Title">
+                            La Pace Assoluta di Squiddi
+                        </h3>
+                        <p class="text-cyan-100 text-sm font-medium mb-5 leading-relaxed" data-i18n="card2Desc">
+                            Quando Squiddi sogna una giornata perfetta lontano dal caos, sogna la vera "Goo Lagoon": una lingua di sabbia bianca in mezzo al mare turchese (L'Isola Bianca di Sharm) dove rilassarsi in yacht con Fabio.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/90 p-3.5 rounded-2xl border-2 border-cyan-400/40 space-y-2.5">
+                        <div class="flex justify-between text-xs font-bold text-cyan-300">
+                            <span data-i18n="card2Tag">🛥️ Segreto: La Vera Goo Lagoon (Isola Bianca)</span>
+                            <span>Zero Stress</span>
+                        </div>
+                        <button onclick="selectLorePath('Squiddi - La Vera Goo Lagoon Isola Bianca')" class="magnetic-btn w-full cartoon-btn bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold py-3 rounded-xl text-sm">
+                            🏝️ <span data-i18n="card2Btn">Scopri l'Oasi di Squiddi</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ============================================================= -->
+                <!-- CARD 3: PATRICK STAR -> NOTTE STELLATA & DESERTO DEL SINAI     -->
+                <!-- ============================================================= -->
+                <div class="spotlight-card gsap-card cartoon-box bg-gradient-to-b from-pink-400/20 via-slate-900/95 to-slate-950 rounded-3xl p-6 flex flex-col justify-between relative group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-pink-400 text-slate-950 font-extrabold text-xs px-3 py-1 rounded-xl border-2 border-slate-950">
+                                #3 SPIRITO LIBERO & STELLE
+                            </span>
+                            <span class="text-xs font-extrabold text-pink-300">Bikini Dunes ➔ Sinai Desert</span>
+                        </div>
+
+                        <!-- FULL CUSTOM PATRICK STAR SVG ILLUSTRATION -->
+                        <div class="h-48 rounded-2xl bg-gradient-to-b from-indigo-600 to-purple-900 border-3 border-slate-950 mb-5 flex items-center justify-center relative overflow-hidden p-2">
+                            <svg viewBox="0 0 200 180" class="w-44 h-44 group-hover:scale-105 transition duration-300">
+                                <circle cx="35" cy="35" r="2.5" fill="#FFE135"/>
+                                <circle cx="165" cy="42" r="3" fill="#FFE135"/>
+                                <circle cx="150" cy="22" r="2" fill="#FFFFFF"/>
+                                <path d="M100 14 C112 14, 128 55, 136 85 C158 70, 175 78, 152 108 C156 125, 152 140, 145 150 L55 150 C48 140, 44 125, 48 108 C25 78, 42 70, 64 85 C72 55, 88 14, 100 14 Z" fill="#FF758F" stroke="#0F172A" stroke-width="4.5" stroke-linejoin="round"/>
+                                <path d="M76 46 L90 42 L86 49" fill="none" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                                <path d="M124 46 L110 42 L114 49" fill="none" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                                <ellipse cx="89" cy="62" rx="10" ry="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                                <ellipse cx="111" cy="62" rx="10" ry="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                                <circle cx="91" cy="64" r="3.5" fill="#0F172A"/>
+                                <circle cx="109" cy="64" r="3.5" fill="#0F172A"/>
+                                <path d="M76 82 Q100 112 124 82 Z" fill="#800F2F" stroke="#0F172A" stroke-width="4"/>
+                                <path d="M88 94 Q100 88 112 94 Z" fill="#FF758F"/>
+                                <path d="M52 126 L148 126 L152 162 L106 162 L100 148 L94 162 L48 162 Z" fill="#A3E635" stroke="#0F172A" stroke-width="4.5"/>
+                                <line x1="52" y1="133" x2="148" y2="133" stroke="#0F172A" stroke-width="3.5"/>
+                                <circle cx="72" cy="148" r="7" fill="#9333EA"/>
+                                <circle cx="126" cy="146" r="8" fill="#9333EA"/>
+                            </svg>
+                        </div>
+
+                        <h3 class="text-2xl font-extrabold text-pink-300 mb-2" data-i18n="card3Title">
+                            Le Notti Stellate di Patrick
+                        </h3>
+                        <p class="text-cyan-100 text-sm font-medium mb-5 leading-relaxed" data-i18n="card3Desc">
+                            Proprio come le dune sabbiose fuori da Bikini Bottom, a pochi minuti dal mare di Sharm si apre il Deserto del Sinai: tramonti infuocati in Quad, eco tra i canyon e un cielo stellato che lascia a bocca aperta come Patrick.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/90 p-3.5 rounded-2xl border-2 border-pink-400/40 space-y-2.5">
+                        <div class="flex justify-between text-xs font-bold text-pink-300">
+                            <span data-i18n="card3Tag">🏜️ Segreto: Canyon Nascosto & Cielo Beduino</span>
+                            <span>Pura Libertà</span>
+                        </div>
+                        <button onclick="selectLorePath('Patrick - Dune Segrete e Stelle del Sinai')" class="magnetic-btn w-full cartoon-btn bg-pink-400 hover:bg-pink-300 text-slate-950 font-extrabold py-3 rounded-xl text-sm">
+                            ⭐ <span data-i18n="card3Btn">Scopri le Stelle di Patrick</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BOTTOM ROW (NEW!): 2 WIDE BENTO SHOWCASE CARDS (Mr. Krabs & Happy Plankton + Mrs. Puff) -->
+            <div class="grid md:grid-cols-2 gap-7 mt-7">
+
+                <!-- ========================================================================= -->
+                <!-- CARD 4 (NEW): MR. KRABS & HAPPY PLANKTON ("LA TREGUA DEL MAR ROSSO")      -->
+                <!-- ========================================================================= -->
+                <div class="spotlight-card gsap-card cartoon-box bg-gradient-to-br from-rose-500/20 via-slate-900/95 to-emerald-950/90 rounded-3xl p-6 flex flex-col justify-between relative group">
+                    <div>
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                            <span class="bg-emerald-400 text-slate-950 font-extrabold text-xs px-3 py-1 rounded-xl border-2 border-slate-950">
+                                #4 LA TREGUA STORICA: MR. KRABS & PLANKTON FELICE!
+                            </span>
+                            <span class="text-xs font-extrabold text-emerald-300">Krusty Krab + Chum Bucket ➔ Vero Tesoro</span>
+                        </div>
+
+                        <!-- FULL CUSTOM SVG: MR. KRABS & GENUINELY HAPPY PLANKTON TOGETHER -->
+                        <div class="h-52 rounded-2xl bg-gradient-to-r from-rose-600 via-amber-500 to-teal-600 border-3 border-slate-950 mb-5 flex items-center justify-center relative overflow-hidden p-3">
+                            <svg viewBox="0 0 320 180" class="w-full h-full max-w-[300px] group-hover:scale-105 transition duration-300">
+                                <!-- === LEFT CHARACTER: MR. KRABS (HAPPY & WELCOMING) === -->
+                                <!-- Tall Red Eyestalks -->
+                                <rect x="68" y="16" width="14" height="44" rx="7" fill="#E63946" stroke="#0F172A" stroke-width="4"/>
+                                <rect x="102" y="16" width="14" height="44" rx="7" fill="#E63946" stroke="#0F172A" stroke-width="4"/>
+                                <ellipse cx="75" cy="24" rx="10" ry="12" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                                <ellipse cx="109" cy="24" rx="10" ry="12" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                                <circle cx="77" cy="24" r="4" fill="#0F172A"/>
+                                <circle cx="107" cy="24" r="4" fill="#0F172A"/>
+                                <!-- Krabs Pointy Nose & Wide Head/Body -->
+                                <path d="M44 68 C44 46, 140 46, 140 68 C148 92, 136 112, 92 112 C48 112, 36 92, 44 68 Z" fill="#E63946" stroke="#0F172A" stroke-width="4.5"/>
+                                <polygon points="86,52 104,44 96,62" fill="#E63946" stroke="#0F172A" stroke-width="3.5"/>
+                                <!-- Big Joyful Krabs Smile -->
+                                <path d="M58 76 Q92 102 126 76 Z" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+                                <!-- Blue Sailor Shirt & Belt with Gold Buckle -->
+                                <path d="M48 106 L136 106 L142 145 L42 145 Z" fill="#60A5FA" stroke="#0F172A" stroke-width="4.5"/>
+                                <rect x="42" y="142" width="100" height="14" fill="#0F172A"/>
+                                <rect x="82" y="140" width="20" height="18" fill="#FFE135" stroke="#0F172A" stroke-width="3"/>
+                                <!-- Big Red Crab Claw Giving Thumbs/Claw Up -->
+                                <path d="M16 74 C6 50, 38 44, 44 66 C36 62, 26 68, 42 76 C32 90, 16 86, 16 74 Z" fill="#E63946" stroke="#0F172A" stroke-width="4"/>
+
+                                <!-- === RIGHT CHARACTER: HAPPY SMILING PLANKTON ON TREASURE CHEST! === -->
+                                <!-- Golden Red Sea Treasure Chest Base -->
+                                <rect x="190" y="118" width="96" height="46" rx="6" fill="#D97706" stroke="#0F172A" stroke-width="4.5"/>
+                                <rect x="190" y="132" width="96" height="8" fill="#FFE135" stroke="#0F172A" stroke-width="3"/>
+                                <circle cx="238" cy="136" r="7" fill="#FFE135" stroke="#0F172A" stroke-width="3"/>
+
+                                <!-- Plankton Long Segmented Antennae (Curved Happily!) -->
+                                <path d="M226 38 Q210 12 196 18" fill="none" stroke="#1B4332" stroke-width="4.5" stroke-linecap="round"/>
+                                <path d="M250 38 Q266 12 280 18" fill="none" stroke="#1B4332" stroke-width="4.5" stroke-linecap="round"/>
+                                <line x1="212" y1="22" x2="218" y2="28" stroke="#0F172A" stroke-width="3"/>
+                                <line x1="264" y1="22" x2="258" y2="28" stroke="#0F172A" stroke-width="3"/>
+
+                                <!-- Plankton Teal-Green Bean Body -->
+                                <rect x="214" y="34" width="48" height="86" rx="24" fill="#2D6A4F" stroke="#0F172A" stroke-width="4.5"/>
+                                <!-- Happy Curved Eyebrow -->
+                                <path d="M222 44 Q238 36 254 44" fill="none" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                                <!-- Plankton Single Giant Eye with Sparkle of Pure Joy! -->
+                                <ellipse cx="238" cy="62" rx="16" ry="18" fill="#FEF08A" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="238" cy="62" r="8" fill="#E63946" stroke="#0F172A" stroke-width="2.5"/>
+                                <circle cx="241" cy="58" r="3.5" fill="#FFFFFF"/>
+                                <circle cx="234" cy="66" r="1.8" fill="#FFFFFF"/>
+                                <!-- Huge Happy Plankton Grin (Super Excited!) -->
+                                <path d="M220 84 Q238 110 256 84 Z" fill="#800F2F" stroke="#0F172A" stroke-width="3.5"/>
+                                <path d="M224 85 L252 85 L250 91 L226 91 Z" fill="#FFFFFF"/>
+                                <path d="M230 100 Q238 94 246 100 Z" fill="#FF758F"/>
+                                <!-- Plankton Cheering Arms Holding a Mini Red Sea Coral Map & Cocktail -->
+                                <path d="M214 78 Q190 62 194 46" fill="none" stroke="#2D6A4F" stroke-width="6" stroke-linecap="round"/>
+                                <path d="M262 78 Q286 62 282 46" fill="none" stroke="#2D6A4F" stroke-width="6" stroke-linecap="round"/>
+                                <!-- Floating Heart / Friendship Sparkle Between Krabs & Plankton -->
+                                <path d="M168 52 C164 44, 152 46, 156 56 C160 64, 168 68, 168 68 C168 68, 176 64, 180 56 C184 46, 172 44, 168 52 Z" fill="#FFE135" stroke="#0F172A" stroke-width="3"/>
+                            </svg>
+                        </div>
+
+                        <h3 class="text-2xl font-extrabold text-emerald-300 mb-2" data-i18n="card4Title">
+                            Perché Plankton è Felice con Mr. Krabs?
+                        </h3>
+                        <p class="text-cyan-100 text-sm font-medium mb-5 leading-relaxed" data-i18n="card4Desc">
+                            A Bikini Bottom litigano sempre, ma a Sharm El Sheikh hanno fatto pace! Fabio ha mostrato a Plankton e Mr. Krabs che il vero tesoro non è chiuso in cassaforte: sono le lagune segrete, il pesce fresco a bordo e le esperienze autentiche lontano dalle trappole per turisti.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/90 p-3.5 rounded-2xl border-2 border-emerald-400/40 space-y-2.5">
+                        <div class="flex justify-between text-xs font-bold text-emerald-300">
+                            <span data-i18n="card4Tag">🦀🦠 Segreto: Il Tesoro Reale del Mar Rosso (Zero Trappole)</span>
+                            <span>100% Felicità</span>
+                        </div>
+                        <button onclick="selectLorePath('Mr Krabs e Plankton Felice - Il Vero Tesoro di Sharm')" class="magnetic-btn w-full cartoon-btn bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold py-3 rounded-xl text-sm">
+                            🗺️ <span data-i18n="card4Btn">Scopri il Tesoro di Krabs & Plankton</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ========================================================================= -->
+                <!-- CARD 5 (NEW): MRS. PUFF / SIGNORA PUFF ("SCUOLA GUIDA SICURA AL 100%")    -->
+                <!-- ========================================================================= -->
+                <div class="spotlight-card gsap-card cartoon-box bg-gradient-to-br from-sky-500/20 via-slate-900/95 to-indigo-950/90 rounded-3xl p-6 flex flex-col justify-between relative group">
+                    <div>
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                            <span class="bg-sky-400 text-slate-950 font-extrabold text-xs px-3 py-1 rounded-xl border-2 border-slate-950">
+                                #5 SIGNORA PUFF RILASSATA (ZERO INCIDENTI!)
+                            </span>
+                            <span class="text-xs font-extrabold text-sky-300">Boating School ➔ Capitani Certificati</span>
+                        </div>
+
+                        <!-- FULL CUSTOM SVG: MRS. PUFF (مدام نفيخة) SMILING PEACEFULLY IN SAILOR HAT -->
+                        <div class="h-52 rounded-2xl bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-800 border-3 border-slate-950 mb-5 flex items-center justify-center relative overflow-hidden p-3">
+                            <svg viewBox="0 0 320 180" class="w-full h-full max-w-[300px] group-hover:scale-105 transition duration-300">
+                                <!-- Background Nautical Steering Wheel -->
+                                <circle cx="245" cy="95" r="44" fill="none" stroke="#D97706" stroke-width="8" opacity="0.45"/>
+                                <circle cx="245" cy="95" r="14" fill="#D97706" opacity="0.45"/>
+
+                                <!-- Mrs. Puff Round Cream-Yellow Pufferfish Body (Calm & Un-inflated!) -->
+                                <ellipse cx="145" cy="102" rx="64" ry="54" fill="#FDE68A" stroke="#0F172A" stroke-width="4.5"/>
+                                <!-- Pufferfish Back Spikes & Teal Top Pattern -->
+                                <path d="M88 74 C98 46, 192 46, 202 74 C175 64, 115 64, 88 74 Z" fill="#5EEAD4" stroke="#0F172A" stroke-width="4"/>
+                                <polygon points="78,92 66,88 76,102" fill="#5EEAD4" stroke="#0F172A" stroke-width="3"/>
+                                <polygon points="212,92 224,88 214,102" fill="#5EEAD4" stroke="#0F172A" stroke-width="3"/>
+
+                                <!-- Blonde Curly Hair Puffs Under Sailor Cap -->
+                                <circle cx="102" cy="54" r="14" fill="#FACC15" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="122" cy="48" r="15" fill="#FACC15" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="168" cy="48" r="15" fill="#FACC15" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="188" cy="54" r="14" fill="#FACC15" stroke="#0F172A" stroke-width="4"/>
+
+                                <!-- Iconic Blue Nautical Sailor Hat -->
+                                <path d="M116 44 C116 16, 174 16, 174 44 Z" fill="#2563EB" stroke="#0F172A" stroke-width="4.5"/>
+                                <path d="M108 42 Q145 50 182 42 L180 50 Q145 58 110 50 Z" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+
+                                <!-- Mrs. Puff Happy Eyes with Eyelashes -->
+                                <circle cx="126" cy="82" r="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="164" cy="82" r="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="128" cy="82" r="5.5" fill="#0F172A"/>
+                                <circle cx="162" cy="82" r="5.5" fill="#0F172A"/>
+                                <circle cx="130" cy="80" r="2" fill="#FFFFFF"/>
+                                <circle cx="164" cy="80" r="2" fill="#FFFFFF"/>
+
+                                <!-- Peaceful Relieved Smile with Coral Lipstick -->
+                                <path d="M122 106 Q145 124 168 106" fill="none" stroke="#E63946" stroke-width="5" stroke-linecap="round"/>
+                                <circle cx="110" cy="100" r="6" fill="#FB7185" opacity="0.6"/>
+                                <circle cx="180" cy="100" r="6" fill="#FB7185" opacity="0.6"/>
+
+                                <!-- Blue Sailor Collar & Red Bow Tie -->
+                                <path d="M92 138 L198 138 L208 172 L82 172 Z" fill="#3B82F6" stroke="#0F172A" stroke-width="4.5"/>
+                                <polygon points="145,146 124,134 124,158" fill="#E63946" stroke="#0F172A" stroke-width="3.5"/>
+                                <polygon points="145,146 166,134 166,158" fill="#E63946" stroke="#0F172A" stroke-width="3.5"/>
+                                <circle cx="145" cy="146" r="6" fill="#E63946" stroke="#0F172A" stroke-width="3"/>
+
+                                <!-- "100% Approved by Mrs. Puff" Golden Badge -->
+                                <circle cx="256" cy="54" r="24" fill="#FFE135" stroke="#0F172A" stroke-width="4"/>
+                                <path d="M246 54 L253 62 L268 46" fill="none" stroke="#0F172A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <h3 class="text-2xl font-extrabold text-sky-300 mb-2" data-i18n="card5Title">
+                            La Tranquillità della Signora Puff
+                        </h3>
+                        <p class="text-cyan-100 text-sm font-medium mb-5 leading-relaxed" data-i18n="card5Desc">
+                            A Bikini Bottom la Signora Puff si gonfia di paura ogni volta che SpongeBob tocca il volante! A Sharm El Sheikh con Fabio, invece, i nostri capitani di Yacht e le guide Quad nel deserto sono professionisti certificati: sicurezza totale per famiglie, coppie e gruppi di amici.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/90 p-3.5 rounded-2xl border-2 border-sky-400/40 space-y-2.5">
+                        <div class="flex justify-between text-xs font-bold text-sky-300">
+                            <span data-i18n="card5Tag">⚓ Segreto: Guide Italiane & Sicurezza 5 Stelle</span>
+                            <span>Approvato da Mrs. Puff</span>
+                        </div>
+                        <button onclick="selectLorePath('Signora Puff - Navigazione e Safari 100% Sicuri')" class="magnetic-btn w-full cartoon-btn bg-sky-400 hover:bg-sky-300 text-slate-950 font-extrabold py-3 rounded-xl text-sm">
+                            🛥️ <span data-i18n="card5Btn">Viaggia Sicuro come la Signora Puff</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- SECTION 3: THE SECRET FORMULA BOTTLE (LOYALTY & CURIOSITY VAULT)      -->
+        <!-- ===================================================================== -->
+        <!-- SECTION 2: 21st.dev INTERACTIVE CHARACTER LORE DOCK                   -->
+        <!-- (SpongeBob, Squiddi, Patrick -> Real Red Sea Curiosity Equivalents)   -->
+        <!-- ===================================================================== -->
+        <section id="character-lore-section" class="mt-24">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="bg-pink-400 text-slate-950 cartoon-box px-4 py-1.5 rounded-full font-extrabold text-xs sm:text-sm uppercase inline-block">
+                    🍍 <span data-i18n="sec2Badge">Dal Mondo di SpongeBob alla Realtà</span>
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-yellow-300 cartoon-stroke" data-i18n="sec2Title">
+                    Cosa Cerchi nella Vera Bikini Bottom?
+                </h2>
+                <p class="text-cyan-100 font-semibold text-base sm:text-lg" data-i18n="sec2Sub">
+                    Non ti proponiamo sconti finti. Scegli il personaggio che ti rappresenta di più quando guardi i nostri video e scopri quale segreto di Sharm El Sheikh ha preparato Fabio per te:
+                </p>
+            </div>
+
+            <!-- 3D Spotlight Bento Grid with Full Custom SVG Characters -->
+            <div class="grid md:grid-cols-3 gap-7">
+                
+                <!-- ============================================================= -->
+                <!-- CARD 1: SPONGEBOB -> CURIOSITÀ & CAMPI DI MEDUSE (RAS MOHAMMED)-->
+                <!-- ============================================================= -->
+                <div class="spotlight-card gsap-card cartoon-box bg-gradient-to-b from-amber-400/20 via-slate-900/95 to-slate-950 rounded-3xl p-6 flex flex-col justify-between relative group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-yellow-400 text-slate-950 font-extrabold text-xs px-3 py-1 rounded-xl border-2 border-slate-950">
+                                #1 L'ESPLORATORE CURIOSO
+                            </span>
+                            <span class="text-xs font-extrabold text-yellow-300">Jellyfish Fields ➔ Ras Mohammed</span>
+                        </div>
+
+                        <!-- FULL CUSTOM SPONGEBOB SVG ILLUSTRATION -->
+                        <div class="h-48 rounded-2xl bg-gradient-to-b from-sky-400 to-cyan-600 border-3 border-slate-950 mb-5 flex items-center justify-center relative overflow-hidden p-2">
+                            <svg viewBox="0 0 200 180" class="w-44 h-44 group-hover:scale-105 transition duration-300">
+                                <!-- SpongeBob Wavy Porous Square Body -->
+                                <path d="M55 20 Q100 15 145 20 Q152 65 145 115 Q100 120 55 115 Q48 65 55 20 Z" fill="#FFE135" stroke="#0F172A" stroke-width="4.5"/>
+                                <!-- Sponge Pores -->
+                                <circle cx="66" cy="32" r="5" fill="#D4B200"/>
+                                <circle cx="134" cy="36" r="6" fill="#D4B200"/>
+                                <circle cx="64" cy="95" r="4.5" fill="#D4B200"/>
+                                <circle cx="132" cy="92" r="4" fill="#D4B200"/>
+                                <!-- Eyelashes -->
+                                <line x1="76" y1="34" x2="73" y2="26" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="84" y1="32" x2="84" y2="24" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="92" y1="34" x2="95" y2="26" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="108" y1="34" x2="105" y2="26" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="116" y1="32" x2="116" y2="24" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="124" y1="34" x2="127" y2="26" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <!-- Huge Expressive Eyes -->
+                                <circle cx="84" cy="52" r="17" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="116" cy="52" r="17" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="86" cy="52" r="7.5" fill="#38BDF8" stroke="#0F172A" stroke-width="3"/>
+                                <circle cx="114" cy="52" r="7.5" fill="#38BDF8" stroke="#0F172A" stroke-width="3"/>
+                                <circle cx="86" cy="52" r="3.5" fill="#0F172A"/>
+                                <circle cx="114" cy="52" r="3.5" fill="#0F172A"/>
+                                <!-- Signature Nose & Cheeks -->
+                                <path d="M97 56 Q104 42 112 58" fill="#FFE135" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                                <circle cx="68" cy="68" r="5" fill="#FF758F" opacity="0.7"/>
+                                <circle cx="132" cy="68" r="5" fill="#FF758F" opacity="0.7"/>
+                                <!-- Big Joyful Smile & Two Buck Teeth -->
+                                <path d="M68 74 Q100 98 132 74" fill="none" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                                <rect x="90" y="82" width="9" height="12" rx="1.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                                <rect x="101" y="82" width="9" height="12" rx="1.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                                <!-- White Shirt, Brown Pants & Red Tie -->
+                                <rect x="57" y="114" width="86" height="16" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+                                <rect x="57" y="130" width="86" height="22" fill="#8B5E34" stroke="#0F172A" stroke-width="4"/>
+                                <!-- Black Belt Dashes -->
+                                <line x1="65" y1="138" x2="77" y2="138" stroke="#0F172A" stroke-width="4"/>
+                                <line x1="94" y1="138" x2="106" y2="138" stroke="#0F172A" stroke-width="4"/>
+                                <line x1="123" y1="138" x2="135" y2="138" stroke="#0F172A" stroke-width="4"/>
+                                <!-- Red Tie -->
+                                <polygon points="95,114 105,114 108,136 100,143 92,136" fill="#E63946" stroke="#0F172A" stroke-width="3.5"/>
+                                <!-- Excited Waving Arms -->
+                                <path d="M54 95 Q28 75 34 50" fill="none" stroke="#FFE135" stroke-width="7" stroke-linecap="round"/>
+                                <path d="M146 95 Q172 75 166 50" fill="none" stroke="#FFE135" stroke-width="7" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <h3 class="text-2xl font-extrabold text-yellow-300 mb-2" data-i18n="card1Title">
+                            La Meraviglia di SpongeBob
+                        </h3>
+                        <p class="text-cyan-100 text-sm font-medium mb-5 leading-relaxed" data-i18n="card1Desc">
+                            Ti sei mai chiesto come sarebbe nuotare davvero nei "Campi di Meduse"? Fabio ti porta nei giardini corallini segreti di Ras Mohammed, dove migliaia di pesci colorati ti circondano in un acquario naturale.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/90 p-3.5 rounded-2xl border-2 border-yellow-400/40 space-y-2.5">
+                        <div class="flex justify-between text-xs font-bold text-yellow-300">
+                            <span data-i18n="card1Tag">🧭 Segreto: Barriera Yolanda & Relitto</span>
+                            <span>100% Meraviglia</span>
+                        </div>
+                        <button onclick="selectLorePath('SpongeBob - Barriera Segreta Ras Mohammed')" class="magnetic-btn w-full cartoon-btn bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-extrabold py-3 rounded-xl text-sm">
+                            🧽 <span data-i18n="card1Btn">Scopri il Segreto di SpongeBob</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ============================================================= -->
+                <!-- CARD 2: SQUIDWARD (SQUIDDI) -> PACE & LAGUNA GOO (ISOLA BIANCA)-->
+                <!-- ============================================================= -->
+                <div class="spotlight-card gsap-card cartoon-box bg-gradient-to-b from-teal-400/20 via-slate-900/95 to-slate-950 rounded-3xl p-6 flex flex-col justify-between relative group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-cyan-400 text-slate-950 font-extrabold text-xs px-3 py-1 rounded-xl border-2 border-slate-950">
+                                #2 IL RE DEL RELAX VIP
+                            </span>
+                            <span class="text-xs font-extrabold text-cyan-300">Goo Lagoon ➔ Isola Bianca</span>
+                        </div>
+
+                        <!-- FULL CUSTOM SQUIDWARD (SQUIDDI) SVG ILLUSTRATION -->
+                        <div class="h-48 rounded-2xl bg-gradient-to-b from-teal-400 to-emerald-700 border-3 border-slate-950 mb-5 flex items-center justify-center relative overflow-hidden p-2">
+                            <svg viewBox="0 0 200 180" class="w-44 h-44 group-hover:scale-105 transition duration-300">
+                                <!-- Squidward Big Bulbous Turquoise Head -->
+                                <ellipse cx="100" cy="52" rx="46" ry="34" fill="#70C1B3" stroke="#0F172A" stroke-width="4.5"/>
+                                <!-- Forehead Spots & Wrinkle Lines -->
+                                <circle cx="72" cy="34" r="4" fill="#4E9387"/>
+                                <circle cx="128" cy="38" r="5" fill="#4E9387"/>
+                                <path d="M82 32 Q100 28 118 32" fill="none" stroke="#4E9387" stroke-width="3" stroke-linecap="round"/>
+                                <!-- Narrow Neck & Lower Head -->
+                                <path d="M78 78 L72 115 L128 115 L122 78 Z" fill="#70C1B3" stroke="#0F172A" stroke-width="4.5"/>
+                                <!-- Cool VIP Sunglasses on Squiddi's Eyes -->
+                                <rect x="70" y="52" width="28" height="18" rx="4" fill="#0F172A" stroke="#FFE135" stroke-width="3"/>
+                                <rect x="102" y="52" width="28" height="18" rx="4" fill="#0F172A" stroke="#FFE135" stroke-width="3"/>
+                                <line x1="75" y1="56" x2="83" y2="66" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                                <line x1="107" y1="56" x2="115" y2="66" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                                <!-- Iconic Big Drooping Squiddi Nose -->
+                                <path d="M92 62 C86 105, 114 105, 108 62 Z" fill="#70C1B3" stroke="#0F172A" stroke-width="4.5"/>
+                                <!-- Rare Happy / Relaxed Squiddi Smile -->
+                                <path d="M76 98 Q100 108 124 98" fill="none" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                                <!-- Brown Resort Shirt Collar -->
+                                <path d="M68 115 L132 115 L140 165 L60 165 Z" fill="#D97706" stroke="#0F172A" stroke-width="4.5"/>
+                                <!-- Holding a Tropical Coconut Cocktail -->
+                                <circle cx="148" cy="138" r="16" fill="#7F4F24" stroke="#0F172A" stroke-width="4"/>
+                                <path d="M148 122 L160 104" stroke="#FF758F" stroke-width="4" stroke-linecap="round"/>
+                                <polygon points="154,104 170,112 166,96" fill="#FFE135" stroke="#0F172A" stroke-width="2"/>
+                            </svg>
+                        </div>
+
+                        <h3 class="text-2xl font-extrabold text-cyan-300 mb-2" data-i18n="card2Title">
+                            La Pace Assoluta di Squiddi
+                        </h3>
+                        <p class="text-cyan-100 text-sm font-medium mb-5 leading-relaxed" data-i18n="card2Desc">
+                            Quando Squiddi sogna una giornata perfetta lontano dal caos, sogna la vera "Goo Lagoon": una lingua di sabbia bianca in mezzo al mare turchese (L'Isola Bianca di Sharm) dove rilassarsi in yacht con Fabio.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/90 p-3.5 rounded-2xl border-2 border-cyan-400/40 space-y-2.5">
+                        <div class="flex justify-between text-xs font-bold text-cyan-300">
+                            <span data-i18n="card2Tag">🛥️ Segreto: La Vera Goo Lagoon (Isola Bianca)</span>
+                            <span>Zero Stress</span>
+                        </div>
+                        <button onclick="selectLorePath('Squiddi - La Vera Goo Lagoon Isola Bianca')" class="magnetic-btn w-full cartoon-btn bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold py-3 rounded-xl text-sm">
+                            🏝️ <span data-i18n="card2Btn">Scopri l'Oasi di Squiddi</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ============================================================= -->
+                <!-- CARD 3: PATRICK STAR -> NOTTE STELLATA & DESERTO DEL SINAI     -->
+                <!-- ============================================================= -->
+                <div class="spotlight-card gsap-card cartoon-box bg-gradient-to-b from-pink-400/20 via-slate-900/95 to-slate-950 rounded-3xl p-6 flex flex-col justify-between relative group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-pink-400 text-slate-950 font-extrabold text-xs px-3 py-1 rounded-xl border-2 border-slate-950">
+                                #3 SPIRITO LIBERO & STELLE
+                            </span>
+                            <span class="text-xs font-extrabold text-pink-300">Bikini Dunes ➔ Sinai Desert</span>
+                        </div>
+
+                        <!-- FULL CUSTOM PATRICK STAR SVG ILLUSTRATION -->
+                        <div class="h-48 rounded-2xl bg-gradient-to-b from-indigo-600 to-purple-900 border-3 border-slate-950 mb-5 flex items-center justify-center relative overflow-hidden p-2">
+                            <svg viewBox="0 0 200 180" class="w-44 h-44 group-hover:scale-105 transition duration-300">
+                                <!-- Desert Stars in Background -->
+                                <circle cx="35" cy="35" r="2.5" fill="#FFE135"/>
+                                <circle cx="165" cy="42" r="3" fill="#FFE135"/>
+                                <circle cx="150" cy="22" r="2" fill="#FFFFFF"/>
+                                <!-- Patrick Cone Starfish Body & Raised Arms -->
+                                <path d="M100 14 C112 14, 128 55, 136 85 C158 70, 175 78, 152 108 C156 125, 152 140, 145 150 L55 150 C48 140, 44 125, 48 108 C25 78, 42 70, 64 85 C72 55, 88 14, 100 14 Z" fill="#FF758F" stroke="#0F172A" stroke-width="4.5" stroke-linejoin="round"/>
+                                <!-- Thick Zig-Zag Eyebrows -->
+                                <path d="M76 46 L90 42 L86 49" fill="none" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                                <path d="M124 46 L110 42 L114 49" fill="none" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                                <!-- Patrick Eyes -->
+                                <ellipse cx="89" cy="62" rx="10" ry="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                                <ellipse cx="111" cy="62" rx="10" ry="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                                <circle cx="91" cy="64" r="3.5" fill="#0F172A"/>
+                                <circle cx="109" cy="64" r="3.5" fill="#0F172A"/>
+                                <!-- Big Amazed Starry Smile -->
+                                <path d="M76 82 Q100 112 124 82 Z" fill="#800F2F" stroke="#0F172A" stroke-width="4"/>
+                                <path d="M88 94 Q100 88 112 94 Z" fill="#FF758F"/>
+                                <!-- Iconic Lime Green & Purple Floral Shorts -->
+                                <path d="M52 126 L148 126 L152 162 L106 162 L100 148 L94 162 L48 162 Z" fill="#A3E635" stroke="#0F172A" stroke-width="4.5"/>
+                                <line x1="52" y1="133" x2="148" y2="133" stroke="#0F172A" stroke-width="3.5"/>
+                                <!-- Purple Hawaiian Flowers on Shorts -->
+                                <circle cx="72" cy="148" r="7" fill="#9333EA"/>
+                                <circle cx="126" cy="146" r="8" fill="#9333EA"/>
+                            </svg>
+                        </div>
+
+                        <h3 class="text-2xl font-extrabold text-pink-300 mb-2" data-i18n="card3Title">
+                            Le Notti Stellate di Patrick
+                        </h3>
+                        <p class="text-cyan-100 text-sm font-medium mb-5 leading-relaxed" data-i18n="card3Desc">
+                            Proprio come le dune sabbiose fuori da Bikini Bottom, a pochi minuti dal mare di Sharm si apre il Deserto del Sinai: tramonti infuocati in Quad, eco tra i canyon e un cielo stellato che lascia a bocca aperta come Patrick.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/90 p-3.5 rounded-2xl border-2 border-pink-400/40 space-y-2.5">
+                        <div class="flex justify-between text-xs font-bold text-pink-300">
+                            <span data-i18n="card3Tag">🏜️ Segreto: Canyon Nascosto & Cielo Beduino</span>
+                            <span>Pura Libertà</span>
+                        </div>
+                        <button onclick="selectLorePath('Patrick - Dune Segrete e Stelle del Sinai')" class="magnetic-btn w-full cartoon-btn bg-pink-400 hover:bg-pink-300 text-slate-950 font-extrabold py-3 rounded-xl text-sm">
+                            ⭐ <span data-i18n="card3Btn">Scopri le Stelle di Patrick</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- SECTION 3: THE SECRET FORMULA BOTTLE (LOYALTY & CURIOSITY VAULT)      -->
+        <!-- Replaces cheap discount codes with an Insider Passport Experience      -->
+        <!-- ===================================================================== -->
+        <section id="secret-bottle-section" class="mt-24">
+            <div class="spotlight-card cartoon-box bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+                
+                <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
+                    
+                    <!-- Left: Secret Formula Bottle SVG & Interactive Uncork -->
+                    <div class="lg:col-span-7 space-y-5">
+                        <div class="inline-flex items-center gap-2 bg-yellow-400 text-slate-950 font-extrabold text-xs px-3.5 py-1.5 rounded-xl border-2 border-slate-950 uppercase">
+                            <span>🧪</span>
+                            <span data-i18n="promoBadge">Solo per la Community di SpongeBob (Zero Turisti di Massa)</span>
+                        </div>
+
+                        <h2 class="text-3xl sm:text-5xl font-extrabold text-yellow-300 cartoon-stroke" data-i18n="promoTitle">
+                            Apri la Bottiglia della Formula Segreta di Fabio!
+                        </h2>
+
+                        <p class="font-semibold text-cyan-100 text-base sm:text-lg leading-relaxed" data-i18n="promoDesc">
+                            Plankton cerca questa bottiglia da 25 anni, ma è riservata a chi segue i nostri video! Dentro non c'è un banale volantino pubblicitario: c'è la Mappa Segreta di Fabio con i luoghi nascosti di Sharm El Sheikh e l'accesso diretto al nostro gruppo privato.
+                        </p>
+
+                        <!-- Loyalty Perks Pillars -->
+                        <div class="grid sm:grid-cols-3 gap-3 pt-2">
+                            <div class="bg-slate-900/90 border-2 border-cyan-400/40 rounded-2xl p-3">
+                                <p class="font-extrabold text-yellow-300 text-sm" data-i18n="perk1Title">🗺️ Mappa Segreta</p>
+                                <p class="text-xs text-slate-300 mt-1" data-i18n="perk1Desc">Le baie di Sharm dove i barconi affollati degli hotel non arrivano mai.</p>
+                            </div>
+                            <div class="bg-slate-900/90 border-2 border-pink-400/40 rounded-2xl p-3">
+                                <p class="font-extrabold text-pink-300 text-sm" data-i18n="perk2Title">🤝 Amico sul Posto</p>
+                                <p class="text-xs text-slate-300 mt-1" data-i18n="perk2Desc">Parli direttamente con Fabio nella tua lingua, come un amico che ti aspetta in Egitto.</p>
+                            </div>
+                            <div class="bg-slate-900/90 border-2 border-emerald-400/40 rounded-2xl p-3">
+                                <p class="font-extrabold text-emerald-300 text-sm" data-i18n="perk3Title">🎖️ Passaporto Fan</p>
+                                <p class="text-xs text-slate-300 mt-1" data-i18n="perk3Desc">Trattamento speciale a bordo riservato esclusivamente agli iscritti del canale.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Interactive Secret Formula Bottle Card -->
+                    <div class="lg:col-span-5 bg-amber-100 text-slate-950 cartoon-box rounded-3xl p-6 text-center space-y-4 relative">
+                        
+                        <!-- Custom Animated SVG Secret Formula Bottle -->
+                        <div class="flex justify-center">
+                            <svg id="formula-bottle-svg" onclick="uncorkBottle()" viewBox="0 0 160 160" class="w-36 h-36 cursor-pointer hover:scale-105 transition">
+                                <!-- Glowing Aura -->
+                                <circle cx="80" cy="85" r="56" fill="#FFE135" opacity="0.35"/>
+                                <!-- Cork Top (Animates up when clicked) -->
+                                <g id="bottle-cork">
+                                    <path d="M66 18 L94 18 L90 38 L70 38 Z" fill="#B45309" stroke="#0F172A" stroke-width="4"/>
+                                </g>
+                                <!-- Bottle Neck & Rim -->
+                                <rect x="62" y="34" width="36" height="10" rx="4" fill="#E0FBFC" stroke="#0F172A" stroke-width="4"/>
+                                <!-- Glass Bottle Body -->
+                                <path d="M66 44 L50 75 L50 135 C50 144, 110 144, 110 135 L110 75 L94 44 Z" fill="#A5F3FC" fill-opacity="0.75" stroke="#0F172A" stroke-width="4.5"/>
+                                <!-- Rolled Secret Parchment Scroll Inside Bottle -->
+                                <rect x="66" y="72" width="28" height="52" rx="4" fill="#FDE68A" stroke="#0F172A" stroke-width="3.5" transform="rotate(-6 80 98)"/>
+                                <!-- Red Ribbon around Scroll -->
+                                <rect x="65" y="94" width="30" height="7" fill="#E63946" stroke="#0F172A" stroke-width="2.5" transform="rotate(-6 80 98)"/>
+                                <!-- Glass Shine -->
+                                <path d="M58 80 L58 125" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <p class="text-xs font-extrabold uppercase tracking-wider text-rose-700" id="bottle-status-label" data-i18n="codeLabel">
+                            CLICCA SULLA BOTTIGLIA O COPIA LA PAROLA D'ORDINE SEGRETA:
+                        </p>
+
+                        <!-- Secret Passphrase Box -->
+                        <div class="bg-white border-3 border-dashed border-slate-950 rounded-2xl py-3 px-4 flex items-center justify-between">
+                            <span id="promo-code-text" class="cartoon-font text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-wider">SEGRETO-BIKINI</span>
+                            <button onclick="copySecretWord()" id="copy-btn" class="cartoon-btn bg-yellow-400 hover:bg-yellow-300 px-3.5 py-1.5 rounded-xl font-extrabold text-xs">
+                                🔑 <span data-i18n="copyBtn">Copia Chiave</span>
+                            </button>
+                        </div>
+
+                        <!-- WhatsApp Insider Access Button -->
+                        <a id="bottom-wa-link" href="https://wa.me/201000000000?text=Ciao%20Fabio!%20Ho%20aperto%20la%20Bottiglia%20Segreta%20(Parola%20d'ordine:%20SEGRETO-BIKINI)%20dai%20video%20di%20SpongeBob!%20Mandami%20la%20mappa%20segreta%20di%20Sharm!" target="_blank" class="magnetic-btn block w-full cartoon-btn bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold py-4 rounded-2xl text-base sm:text-lg">
+                            🍍 <span data-i18n="claimWhatsappBtn">Invia la Parola d'Ordine a Fabio</span>
+                        </a>
+
+                        <p class="text-[11px] font-bold text-slate-700" data-i18n="waGuarantee">
+                            🔒 Accesso diretto per i fan del canale • Ricevi subito i consigli segreti di Fabio su WhatsApp
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================================================================== -->
+    <!-- BIKINI BOTTOM SANDY OCEAN FLOOR FOOTER                                -->
+    <!-- ===================================================================== -->
+    <footer class="relative z-10 bg-[#E9C46A] text-slate-950 border-t-4 border-slate-950 pt-8 pb-12 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-yellow-400 border-2 border-slate-950 flex items-center justify-center font-extrabold text-lg">
+                    🍍
+                </div>
+                <div>
+                    <p class="cartoon-font text-2xl font-extrabold leading-none">FABIO EGYPT • BIKINI BOTTOM INSIDER</p>
+                    <p class="text-xs font-bold text-slate-800 mt-1" data-i18n="footerNote">
+                        Il punto d'incontro ufficiale a Sharm El Sheikh per la community di SpongeBob • IT / ES / EN
+                    </p>
+                </div>
+            </div>
+            <div class="text-xs font-extrabold bg-amber-200 border-2 border-slate-950 px-4 py-2 rounded-xl">
+                21st.dev Spotlight UI + GSAP ScrollTrigger + Custom SVG Lore Engine
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================================================================== -->
+    <!-- JAVASCRIPT: GSAP MASTER ENGINE, 21ST.DEV INTERACTIONS & TRANSLATIONS  -->
+    <!-- ===================================================================== -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        let isHighSpecMode = true;
+        let currentLang = 'it';
+        let gsapTimelines = [];
+        let hasCustomSpriteSheet = false;
+        let currentPoseIndex = 1;
+
+        // 1. CURIOSITY & LORE MULTI-LANGUAGE DICTIONARY (All 5 Characters Included!)
+        const translations = {
+            it: {
+                navTag: "Il Custode della Vera Bikini Bottom nel Mar Rosso",
+                navCta: "Apri la Bottiglia Segreta",
+                heroBadge: "Hai notato il ragazzo col cappello di paglia nei nostri video di SpongeBob?",
+                heroTitle: "Non è solo un cartone. La Vera Bikini Bottom si nasconde nel Mar Rosso!",
+                heroSub: "Se fai parte della nostra community di SpongeBob, non sei un semplice turista. Io sono Fabio, vivo a Sharm El Sheikh e porto i veri fan a esplorare le lagune segrete, i coralli viventi e il deserto stellato che hanno ispirato il nostro mondo sottomarino.",
+                fabioSaysLabel: "Segreto per gli Iscritti al Canale",
+                fabioQuote: "\"A Sharm El Sheikh persino Plankton ha smesso di rubare la formula segreta e la Signora Puff si gode il mare senza incidenti! Entra nella famiglia di Fabio per vivere il vero Mar Rosso.\"",
+                btnExplore: "Scopri i 5 Segreti dei Personaggi",
+                btnWhatsapp: "Chiedi a Fabio (Solo Fan)",
+                sheetBadge: "🎨 Fabio Studio Sheet (3 Pose + PNG Splicer)",
+                sliderHint: "👆 Trascina il portale o clicca le 3 pose di Fabio (puoi anche caricare il tuo Sheet PNG!)",
+                realSideTitle: "Il Mondo di Fabio a Sharm",
+                realSideDesc: "Dove la fantasia di Bikini Bottom diventa un'esperienza vera nel Mar Rosso.",
+                sec2Badge: "Tutti i Protagonisti di Bikini Bottom a Sharm",
+                sec2Title: "5 Segreti che Solo i Veri Fan Possono Vivere!",
+                sec2Sub: "Da SpongeBob e Squiddi fino alla storica tregua tra Mr. Krabs e Plankton Felice e alla guida sicura della Signora Puff: scopri cosa succede quando il nostro canale incontra il Mar Rosso!",
+                card1Title: "La Meraviglia di SpongeBob",
+                card1Desc: "Ti sei mai chiesto come sarebbe nuotare davvero nei 'Campi di Meduse'? Fabio ti porta nei giardini corallini segreti di Ras Mohammed, dove migliaia di pesci colorati ti circondano in un acquario naturale.",
+                card1Tag: "🧭 Segreto: Barriera Yolanda & Relitto",
+                card1Btn: "Scopri il Segreto di SpongeBob",
+                card2Title: "La Pace Assoluta di Squiddi",
+                card2Desc: "Quando Squiddi sogna una giornata perfetta lontano dal caos, sogna la vera 'Goo Lagoon': una lingua di sabbia bianca in mezzo al mare turchese (L'Isola Bianca di Sharm) dove rilassarsi in yacht con Fabio.",
+                card2Tag: "🛥️ Segreto: La Vera Goo Lagoon (Isola Bianca)",
+                card2Btn: "Scopri l'Oasi di Squiddi",
+                card3Title: "Le Notti Stellate di Patrick",
+                card3Desc: "Proprio come le dune sabbiose fuori da Bikini Bottom, a pochi minuti dal mare di Sharm si apre il Deserto del Sinai: tramonti infuocati, eco tra i canyon e un cielo stellato che lascia a bocca aperta come Patrick.",
+                card3Tag: "🏜️ Segreto: Canyon Nascosto & Cielo Beduino",
+                card3Btn: "Scopri le Stelle di Patrick",
+                card4Title: "Perché Plankton è Felice con Mr. Krabs?",
+                card4Desc: "A Bikini Bottom litigano sempre, ma a Sharm El Sheikh hanno fatto pace! Fabio ha mostrato a Plankton e Mr. Krabs che il vero tesoro sono le lagune segrete e le esperienze autentiche lontano dalle trappole per turisti.",
+                card4Tag: "🦀🦠 Segreto: Il Tesoro Reale del Mar Rosso",
+                card4Btn: "Scopri il Tesoro di Krabs & Plankton",
+                card5Title: "La Tranquillità della Signora Puff",
+                card5Desc: "A Bikini Bottom la Signora Puff si gonfia di paura quando SpongeBob guida! A Sharm con Fabio, invece, i nostri capitani di Yacht e guide Quad sono professionisti certificati: relax e sicurezza al 100%.",
+                card5Tag: "⚓ Segreto: Guide Italiane & Sicurezza 5 Stelle",
+                card5Btn: "Viaggia Sicuro come la Signora Puff",
+                promoBadge: "Solo per la Community di SpongeBob (Zero Turisti di Massa)",
+                promoTitle: "Apri la Bottiglia della Formula Segreta di Fabio!",
+                promoDesc: "Plankton cerca questa bottiglia da 25 anni, ma è riservata a chi segue i nostri video! Dentro c'è la Mappa Segreta di Fabio con i luoghi nascosti di Sharm El Sheikh che i turisti normali non vedono mai.",
+                perk1Title: "🗺️ Mappa Segreta",
+                perk1Desc: "Le baie di Sharm dove i barconi affollati degli hotel non arrivano mai.",
+                perk2Title: "🤝 Amico sul Posto",
+                perk2Desc: "Parli direttamente con Fabio in italiano, come un amico che ti aspetta in Egitto.",
+                perk3Title: "🎖️ Passaporto Fan",
+                perk3Desc: "Esperienze autentiche riservate esclusivamente alla community del canale.",
+                codeLabel: "CLICCA SULLA BOTTIGLIA O COPIA LA PAROLA D'ORDINE SEGRETA:",
+                copyBtn: "Copia Chiave",
+                claimWhatsappBtn: "Invia la Parola d'Ordine a Fabio",
+                waGuarantee: "🔒 Accesso diretto per i fan del canale • Ricevi subito la mappa segreta su WhatsApp",
+                footerNote: "Il punto d'incontro ufficiale a Sharm El Sheikh per la community di SpongeBob • IT / ES / EN",
+                waDefaultMsg: "Ciao Fabio! Ti ho riconosciuto dai video di SpongeBob! Ho la parola d'ordine SEGRETO-BIKINI e vorrei scoprire i luoghi segreti di Sharm El Sheikh!",
+                timeCardTitle: "3.5 Ore di Volo Dopo...",
+                timeCardSub: "Benvenuto nella Vera Bikini Bottom a Sharm El Sheikh con Fabio! 🍍🌊"
+            },
+            es: {
+                navTag: "El Guardián del Verdadero Fondo de Bikini en el Mar Rojo",
+                navCta: "Abrir la Botella Secreta",
+                heroBadge: "¿Viste al chico del sombrero de paja en nuestros videos de Bob Esponja?",
+                heroTitle: "No es solo un dibujo animado. ¡El Verdadero Fondo de Bikini está en el Mar Rojo!",
+                heroSub: "Si eres parte de nuestra comunidad de Bob Esponja, no eres un turista más. Soy Fabio, vivo en Sharm El Sheikh y llevo a los verdaderos fans a descubrir lagunas secretas, arrecifes vivos y el desierto estrellado.",
+                fabioSaysLabel: "Secreto exclusivo para Suscriptores",
+                fabioQuote: "\"¡En Sharm El Sheikh hasta Plankton dejó de robar la fórmula secreta y la Sra. Puff navega sin accidentes! Únete a la familia de Fabio en el Mar Rojo.\"",
+                btnExplore: "Descubrir los 5 Secretos",
+                btnWhatsapp: "Hablar con Fabio (Solo Fans)",
+                sheetBadge: "🎨 Fabio Studio Sheet (3 Poses + PNG Splicer)",
+                sliderHint: "👆 Desliza el portal o cambia la pose de Fabio (¡también puedes subir tu Sheet PNG!)",
+                realSideTitle: "El Mundo de Fabio en Sharm",
+                realSideDesc: "Donde la magia de Fondo de Bikini se convierte en una aventura real en el Mar Rojo.",
+                sec2Badge: "Todos los Personajes de Fondo de Bikini en Sharm",
+                sec2Title: "¡5 Secretos que Solo los Verdaderos Fans Pueden Vivir!",
+                sec2Sub: "Desde Bob Esponja y Calamardo hasta la tregua entre Don Cangrejo y Plankton Feliz y la tranquilidad de la Sra. Puff:",
+                card1Title: "El Asombro de Bob Esponja",
+                card1Desc: "¿Alguna vez soñaste con nadar en los 'Campos de Medusas'? Fabio te lleva a los jardines de coral secretos de Ras Mohammed, rodeado de miles de peces tropicales reales.",
+                card1Tag: "🧭 Secreto: Arrecife Yolanda y Barco Hundido",
+                card1Btn: "Descubrir el Secreto de Bob",
+                card2Title: "La Paz Absoluta de Calamardo",
+                card2Desc: "Cuando Calamardo sueña con un día perfecto lejos del ruido, sueña con la verdadera 'Laguna Pegajosa': la Isla Blanca de Sharm, un banco de arena virgen en medio del mar turquesa.",
+                card2Tag: "🛥️ Secreto: La Verdadera Goo Lagoon (Isla Blanca)",
+                card2Btn: "Descubrir el Oasis de Calamardo",
+                card3Title: "Las Noches Estrelladas de Patricio",
+                card3Desc: "Igual que las dunas fuera de Fondo de Bikini, a pocos minutos del mar se abre el Desierto del Sinaí: atardeceres épicos, cañones ocultos y un cielo lleno de estrellas.",
+                card3Tag: "🏜️ Secreto: Cañón Oculto y Cielo Beduino",
+                card3Btn: "Descubrir las Estrellas de Patricio",
+                card4Title: "¿Por qué Plankton está Feliz con Don Cangrejo?",
+                card4Desc: "En Fondo de Bikini siempre pelean, ¡pero en Sharm hicieron las paces! Fabio les mostró que el verdadero tesoro son las lagunas secretas del Mar Rojo lejos de las trampas para turistas.",
+                card4Tag: "🦀🦠 Secreto: El Tesoro Real del Mar Rojo",
+                card4Btn: "Ver el Tesoro de Cangrejo y Plankton",
+                card5Title: "La Tranquilidad de la Señora Puff",
+                card5Desc: "¡En Fondo de Bikini la Sra. Puff se infla de miedo cuando conduce Bob! En Sharm con Fabio, nuestros capitanes de Yate y guías de Quad son profesionales certificados: 100% seguridad.",
+                card5Tag: "⚓ Secreto: Guías Expertos y Seguridad Total",
+                card5Btn: "Viajar Seguro como la Sra. Puff",
+                promoBadge: "Solo para la Comunidad de Bob Esponja (Cero Turismo Masivo)",
+                promoTitle: "¡Abre la Botella de la Fórmula Secreta de Fabio!",
+                promoDesc: "Plankton lleva 25 años buscando esta botella, ¡pero es solo para quienes ven nuestros videos! Dentro está el Mapa Secreto de Fabio con los rincones de Sharm que los turistas de hotel nunca ven.",
+                perk1Title: "🗺️ Mapa Secreto",
+                perk1Desc: "Las bahías de Sharm donde los barcos llenos de turistas nunca llegan.",
+                perk2Title: "🤝 Un Amigo Local",
+                perk2Desc: "Hablas directamente con Fabio en español, como un amigo esperándote en Egipto.",
+                perk3Title: "🎖️ Pasaporte Fan",
+                perk3Desc: "Experiencias auténtiche reservadas exclusivamente para los seguidores del canal.",
+                codeLabel: "HAZ CLIC EN LA BOTELLA O COPIA LA CONTRASEÑA SECRETA:",
+                copyBtn: "Copiar Clave",
+                claimWhatsappBtn: "Enviar Contraseña Secreta a Fabio",
+                waGuarantee: "🔒 Acceso directo para fans del canal • Recibe el mapa secreto por WhatsApp",
+                footerNote: "El punto de encuentro oficial en Sharm El Sheikh para la comunidad de Bob Esponja • IT / ES / EN",
+                waDefaultMsg: "¡Hola Fabio! Te reconocí por los videos de Bob Esponja. Tengo la clave SEGRETO-BIKINI y quiero descubrir los lugares secretos de Sharm El Sheikh!",
+                timeCardTitle: "3.5 Horas de Vuelo Después...",
+                timeCardSub: "¡Bienvenido al Verdadero Fondo de Bikini en Sharm El Sheikh con Fabio! 🍍🌊"
+            },
+            en: {
+                navTag: "Keeper of the Real Bikini Bottom in the Red Sea",
+                navCta: "Uncork the Secret Bottle",
+                heroBadge: "Noticed the guy in the straw hat popping up in our SpongeBob videos?",
+                heroTitle: "It's Not Just a Cartoon. The Real Bikini Bottom Hides in the Red Sea!",
+                heroSub: "If you're part of our SpongeBob community, you're not an ordinary tourist. I'm Fabio, I live in Sharm El Sheikh, and I guide true fans to the hidden lagoons, living reefs, and starry desert skies that bring our underwater world to life.",
+                fabioSaysLabel: "Insider Secret for Channel Subscribers",
+                fabioQuote: "\"In Sharm El Sheikh even Plankton stopped stealing the formula and Mrs. Puff enjoys a crash-free cruise! Join Fabio's insider family in the Red Sea.\"",
+                btnExplore: "Unlock All 5 Character Secrets",
+                btnWhatsapp: "Ask Fabio (Fans Only)",
+                sheetBadge: "🎨 Fabio Studio Sheet (3 Poses + PNG Splicer)",
+                sliderHint: "👆 Drag the portal or click Fabio's 3 poses (you can also upload your own Sheet PNG!)",
+                realSideTitle: "Fabio's World in Sharm",
+                realSideDesc: "Where Bikini Bottom curiosity transforms into a real Red Sea adventure.",
+                sec2Badge: "The Entire Bikini Bottom Cast in Sharm",
+                sec2Title: "5 Secrets Only True Fans Can Experience!",
+                sec2Sub: "From SpongeBob and Squidward to Mr. Krabs & Happy Plankton's truce and Mrs. Puff's crash-free sanctuary:",
+                card1Title: "SpongeBob's Pure Wonder",
+                card1Desc: "Ever wondered what swimming through real-life 'Jellyfish Fields' feels like? Fabio takes you to the hidden coral gardens of Ras Mohammed, surrounded by thousands of glowing reef fish.",
+                card1Tag: "🧭 Secret: Yolanda Reef & Sunken Treasures",
+                card1Btn: "Unlock SpongeBob's Secret Reef",
+                card2Title: "Squidward's Ultimate Peace",
+                card2Desc: "When Squidward dreams of a quiet day away from chaos, he dreams of the real 'Goo Lagoon': Sharm's White Island, a pure white sandbar floating in the middle of turquoise waters.",
+                card2Tag: "🛥️ Secret: The Real Goo Lagoon (White Island)",
+                card2Btn: "Unlock Squidward's Sanctuary",
+                card3Title: "Patrick's Starry Desert Nights",
+                card3Desc: "Just like the sandy dunes beyond Bikini Bottom, minutes from Sharm's coast lies the Sinai Desert: hidden canyons, sunset dunes, and a stargazing night that leaves you amazed like Patrick.",
+                card3Tag: "🏜️ Secret: Hidden Canyon & Bedouin Stars",
+                card3Btn: "Unlock Patrick's Starry Night",
+                card4Title: "Why Is Plankton Happy with Mr. Krabs?",
+                card4Desc: "In Bikini Bottom they're rivals, but in Sharm El Sheikh they called a truce! Fabio showed Plankton and Mr. Krabs that the real treasure isn't locked in a safe—it's the secret Red Sea lagoons away from tourist traps.",
+                card4Tag: "🦀🦠 Secret: The Real Red Sea Treasure",
+                card4Btn: "Unlock Krabs & Plankton's Treasure",
+                card5Title: "Mrs. Puff's Crash-Free Sanctuary",
+                card5Desc: "In Bikini Bottom, Mrs. Puff inflates in panic whenever SpongeBob drives! In Sharm with Fabio, our licensed yacht captains and desert quad guides guarantee a 100% smooth, safe, panic-free adventure.",
+                card5Tag: "⚓ Secret: Certified Pro Guides & 5-Star Safety",
+                card5Btn: "Cruise Safely Like Mrs. Puff",
+                promoBadge: "Exclusively for Our SpongeBob Community (Zero Mass Tourism)",
+                promoTitle: "Uncork Fabio's Secret Formula Bottle!",
+                promoDesc: "Plankton has spent 25 years chasing this bottle, but it belongs to our viewers! Inside is Fabio's Forbidden Map of Sharm El Sheikh—revealing secret lagoons that hotel tourists never see.",
+                perk1Title: "🗺️ Forbidden Map",
+                perk1Desc: "Hidden Red Sea bays where crowded hotel boats never go.",
+                perk2Title: "🤝 Local Insider",
+                perk2Desc: "Chat directly with Fabio like a trusted friend waiting for you in Egypt.",
+                perk3Title: "🎖️ Fan Passport",
+                perk3Desc: "Authentic Red Sea experiences curated exclusively for our channel family.",
+                codeLabel: "CLICK THE BOTTLE OR COPY THE SECRET PASSPHRASE:",
+                copyBtn: "Copy Key",
+                claimWhatsappBtn: "Send Secret Passphrase to Fabio",
+                waGuarantee: "🔒 Direct Insider Access • Receive Fabio's Secret Sharm Map on WhatsApp",
+                footerNote: "The official Sharm El Sheikh home for our SpongeBob community • IT / ES / EN",
+                waDefaultMsg: "Hi Fabio! I recognized you from the SpongeBob videos! I have the secret key SEGRETO-BIKINI and want to discover the hidden spots of Sharm El Sheikh!",
+                timeCardTitle: "3.5 Hours Later...",
+                timeCardSub: "Welcome to the Real Bikini Bottom in Sharm El Sheikh with Fabio! 🍍🌊"
+            }
+        };
+
+        // Switch Language Instantly
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            const dict = translations[lang];
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) el.textContent = dict[key];
+            });
+
+            document.getElementById('timecard-title').textContent = dict.timeCardTitle;
+            document.getElementById('timecard-sub').textContent = dict.timeCardSub;
+
+            const encodedMsg = encodeURIComponent(dict.waDefaultMsg);
+            document.getElementById('hero-wa-link').href = `https://wa.me/201000000000?text=${encodedMsg}`;
+            document.getElementById('bottom-wa-link').href = `https://wa.me/201000000000?text=${encodedMsg}`;
+
+            ['it', 'es', 'en'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                if (l === lang) {
+                    btn.className = "lang-btn px-2.5 py-1 rounded-lg font-extrabold bg-yellow-400 text-slate-950 transition";
+                } else {
+                    btn.className = "lang-btn px-2.5 py-1 rounded-lg font-extrabold text-white hover:bg-slate-800 transition";
+                }
+            });
+        }
+
+        // 2. STUDIO FABIO POSE SWITCHER + SPRITE SHEET SPLICER ENGINE
+        function switchFabioPose(poseNum) {
+            currentPoseIndex = poseNum;
+
+            [1, 2, 3].forEach(n => {
+                const group = document.getElementById(`fabio-pose-${n}`);
+                const btn = document.getElementById(`pose-btn-${n}`);
+                if (n === poseNum) {
+                    if (group) group.classList.remove('hidden');
+                    btn.className = "py-1.5 rounded-lg text-xs font-extrabold bg-cyan-400 text-slate-950 transition";
+                } else {
+                    if (group) group.classList.add('hidden');
+                    btn.className = "py-1.5 rounded-lg text-xs font-extrabold text-slate-300 hover:bg-slate-800 transition";
+                }
+            });
+
+            const captions = {
+                1: "🤠 Pose 1: Fabio Custode di Bikini Bottom",
+                2: "🤿 Pose 2: Fabio Esploratore a Ras Mohammed",
+                3: "🍹 Pose 3: Fabio Capitan VIP con Squiddi"
+            };
+            document.getElementById('pose-caption-text').textContent = captions[poseNum];
+
+            // If user uploaded a multi-pose Sprite Sheet PNG, pan to the corresponding frame!
+            if (hasCustomSpriteSheet) {
+                updateSpriteSlicePosition(poseNum);
+            } else if (isHighSpecMode) {
+                gsap.fromTo('#fabio-master-svg', { scale: 0.9, rotation: -3 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" });
+            }
+        }
+
+        // Handle Custom Character Sheet PNG Upload with Automatic Sprite Slicing
+        function handleCustomSpriteUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                hasCustomSpriteSheet = true;
+                const viewport = document.getElementById('custom-sprite-viewport');
+                const modeSelect = document.getElementById('sprite-grid-mode');
+
+                viewport.style.backgroundImage = `url(${e.target.result})`;
+                viewport.classList.remove('hidden');
+                modeSelect.classList.remove('hidden');
+                document.getElementById('fabio-master-svg').classList.add('hidden');
+
+                updateSpriteSliceMode();
+                document.getElementById('pose-caption-text').textContent = "✨ Character Sheet Originale Attivo! Clicca Pose 1-3";
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function updateSpriteSliceMode() {
+            if (!hasCustomSpriteSheet) return;
+            const mode = document.getElementById('sprite-grid-mode').value;
+            const viewport = document.getElementById('custom-sprite-viewport');
+
+            viewport.classList.remove('sprite-mode-2x2', 'sprite-mode-3x1');
+            if (mode === '2x2') {
+                viewport.classList.add('sprite-mode-2x2');
+            } else if (mode === '3x1') {
+                viewport.classList.add('sprite-mode-3x1');
+            } else {
+                viewport.style.backgroundSize = 'contain';
+                viewport.style.backgroundRepeat = 'no-repeat';
+                viewport.style.backgroundPosition = 'center';
+            }
+            updateSpriteSlicePosition(currentPoseIndex);
+        }
+
+        function updateSpriteSlicePosition(poseNum) {
+            const mode = document.getElementById('sprite-grid-mode').value;
+            const viewport = document.getElementById('custom-sprite-viewport');
+            if (mode === '2x2') {
+                const positions = { 1: '0% 0%', 2: '100% 0%', 3: '0% 100%' };
+                viewport.style.backgroundPosition = positions[poseNum] || '0% 0%';
+            } else if (mode === '3x1') {
+                const positions = { 1: '0% 50%', 2: '50% 50%', 3: '100% 50%' };
+                viewport.style.backgroundPosition = positions[poseNum] || '0% 50%';
+            }
+        }
+
+        // 3. ICONIC "2 HOURS LATER..." SPONGEBOB TIME-CARD TRANSITION + WEB AUDIO SYNTH
+        function playTimeCardTransition(callback) {
+            const overlay = document.getElementById('timecard-overlay');
+            overlay.style.pointerEvents = 'auto';
+
+            // Synthesize playful underwater bubble + tropical chord using Web Audio API (no external mp3 needed)
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const notes = [392.00, 493.88, 587.33, 783.99]; // G Major 7 tropical ukulele chord
+                notes.forEach((freq, i) => {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.06);
+                    gain.gain.setValueAtTime(0.12, ctx.currentTime + i * 0.06);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.1);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(ctx.currentTime + i * 0.06);
+                    osc.stop(ctx.currentTime + 1.15);
+                });
+            } catch (e) {}
+
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    overlay.style.pointerEvents = 'none';
+                    if (callback) callback();
+                }
+            });
+
+            tl.to(overlay, { opacity: 1, duration: 0.35, ease: "power2.out" })
+              .fromTo('#timecard-title', { scale: 0.7, rotation: -4 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2)" }, "<")
+              .to(overlay, { opacity: 0, duration: 0.45, delay: 1.1, ease: "power2.in" });
+        }
+
+        // 4. 21st.dev 3D SPOTLIGHT TILT CARDS & MAGNETIC BUTTONS
+                    y: "+=28",
+                    duration: 18 + idx * 4,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut"
+                });
+                gsapTimelines.push(tl);
+            });
+
+            // Floating Jellyfish Bobbing
+            const jellyTl = gsap.to('.floating-jellyfish', {
+                y: -35,
+                x: 20,
+                rotation: 8,
+                duration: 3.2,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
+            gsapTimelines.push(jellyTl);
+
+            // Live Red Sea Depth Sonar ScrollTrigger
+            ScrollTrigger.create({
+                trigger: document.body,
+                start: "top top",
+                end: "bottom bottom",
+                onUpdate: (self) => {
+                    const depthMeters = Math.round(self.progress * 50);
+                    const meterText = document.getElementById('depth-meter-text');
+                    const meterBar = document.getElementById('depth-meter-bar');
+                    const zoneLabel = document.getElementById('depth-zone-label');
+                    if (meterText && meterBar && zoneLabel) {
+                        meterText.textContent = `-${depthMeters}m`;
+                        meterBar.style.height = `${Math.max(6, self.progress * 100)}%`;
+                        if (depthMeters < 15) zoneLabel.textContent = "Superficie";
+                        else if (depthMeters < 35) zoneLabel.textContent = "Barriera";
+                        else zoneLabel.textContent = "Vault Segreto";
+                    }
+                }
+            });
+
+            // ScrollTrigger Stagger Cards
+            gsap.fromTo('.gsap-card',
+                { y: 60, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    stagger: 0.14,
+                    duration: 0.75,
+                    ease: "back.out(1.4)",
+                    scrollTrigger: {
+                        trigger: '#character-lore-section',
+                        start: 'top 82%'
+                    }
+                }
+            );
+        }
+
+        function enableLiteMode() {
+            isHighSpecMode = false;
+            gsapTimelines.forEach(tl => tl.kill());
+            gsapTimelines = [];
+            document.getElementById('bubbles-layer').innerHTML = '';
+            gsap.set('.gsap-card, .spotlight-card, .magnetic-btn', { clearProps: "all" });
+
+            document.body.classList.add('lite-mode');
+            document.getElementById('hw-indicator').className = "w-2.5 h-2.5 rounded-full bg-amber-400";
+            document.getElementById('toggle-perf-btn').textContent = "🔋 Mode: Lite Mobile (Battery Saver)";
+            document.getElementById('toggle-perf-btn').className = "px-3 py-1 rounded-lg bg-sky-400 hover:bg-sky-300 text-slate-950 font-extrabold border-2 border-slate-950 transition cursor-pointer";
+        }
+
+        function togglePerformanceMode() {
+            if (isHighSpecMode) {
+                enableLiteMode();
+            } else {
+                enableHighSpecGSAP();
+            }
+        }
+
+        // Live FPS Counter
+        let lastTime = performance.now();
+        let frameCount = 0;
+        function checkFPS(now) {
+            frameCount++;
+            if (now - lastTime >= 1000) {
+                const fpsEl = document.getElementById('fps-counter');
+                if (fpsEl) fpsEl.textContent = `${frameCount} FPS`;
+                frameCount = 0;
+                lastTime = now;
+            }
+            requestAnimationFrame(checkFPS);
+        }
+
+        // Interactive Split Slider Update
+        function updateComparison(val) {
+            const overlay = document.getElementById('cartoon-overlay');
+            const line = document.getElementById('compare-line');
+            overlay.style.clipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0 100%)`;
+        // Select Character Lore Path -> Play Time-Card & Scroll to Secret Bottle
+        function selectLorePath(loreTopic) {
+            const dict = translations[currentLang];
+            const customMsg = `${dict.waDefaultMsg} [Segreto scelto: ${loreTopic}]`;
+            document.getElementById('bottom-wa-link').href = `https://wa.me/201000000000?text=${encodeURIComponent(customMsg)}`;
+
+            playTimeCardTransition(() => {
+                document.getElementById('secret-bottle-section').scrollIntoView({ behavior: 'smooth' });
+                setTimeout(uncorkBottle, 500);
+            });
+        }
+
+        // Interactive Uncork Secret Formula Bottle Animation
+        function uncorkBottle() {
+            if (isHighSpecMode) {
+                gsap.to('#bottle-cork', {
+                    y: -26,
+                    rotation: 18,
+                    duration: 0.5,
+                    ease: "back.out(2)",
+                    yoyo: true,
+                    repeat: 1
+                });
+                gsap.fromTo('#formula-bottle-svg',
+                    { rotation: -8 },
+                    { rotation: 8, duration: 0.12, repeat: 5, yoyo: true, ease: "power1.inOut", onComplete: () => gsap.set('#formula-bottle-svg', { rotation: 0 }) }
+                );
+            }
+            copySecretWord();
+        }
+
+        // Copy Secret Passphrase
+        function copySecretWord() {
+            const code = document.getElementById('promo-code-text').textContent;
+            const tempInput = document.createElement('textarea');
+            tempInput.value = code;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const btn = document.getElementById('copy-btn');
+            btn.innerHTML = "✅ Segreto Sbloccato!";
+            setTimeout(() => {
+                btn.innerHTML = `🔑 <span>${translations[currentLang].copyBtn}</span>`;
+            }, 2200);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            detectHardwareAndInit();
+            init21stInteractions();
+            requestAnimationFrame(checkFPS);
+        });
+    </script>
+</body>
+</html>

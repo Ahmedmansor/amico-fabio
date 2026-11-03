@@ -1,0 +1,23 @@
+<svg viewBox="0 0 140 140">
+                    <!-- Jacket Shoulders -->
+                    <path d="M22 138 C24 106, 44 98, 70 98 C96 98, 116 106, 118 138 Z" fill="#1E293B" stroke="#0F172A" stroke-width="4.5" stroke-linejoin="round"/>
+                    <!-- Flowing Burgundy Scarf -->
+                    <path d="M40 92 C52 100, 88 100, 100 92 C104 102, 98 114, 86 114 C72 116, 56 115, 42 110 C36 105, 36 96, 40 92 Z" fill="#9B2226" stroke="#0F172A" stroke-width="4" stroke-linejoin="round"/>
+                    <!-- Connected Neck -->
+                    <path d="M56 80 L56 96 L84 96 L84 80 Z" fill="#F4A261" stroke="#0F172A" stroke-width="4"/>
+                    <!-- Smooth Anatomical Head & Jawline -->
+                    <path d="M42 46 C40 72, 48 90, 70 90 C92 90, 100 72, 98 46 C96 30, 44 30, 42 46 Z" fill="#FBBF77" stroke="#0F172A" stroke-width="4.5"/>
+                    <!-- Natural Dark Hair Locks -->
+                    <path d="M40 42 C36 52, 38 64, 43 68 C43 56, 45 48, 48 44 Z" fill="#1E293B"/>
+                    <path d="M100 42 C104 52, 102 64, 97 68 C97 56, 95 48, 92 44 Z" fill="#1E293B"/>
+                    <!-- Curved Straw Hat Crown & Organic Brim -->
+                    <path d="M36 38 C38 10, 102 10, 104 38 Z" fill="#F4A261" stroke="#0F172A" stroke-width="4.5"/>
+                    <path d="M37 30 Q70 37 103 30 L104 37 Q70 44 36 37 Z" fill="#800F2F" stroke="#0F172A" stroke-width="3.5"/>
+                    <path d="M12 38 C35 28, 105 28, 128 38 C112 48, 28 48, 12 38 Z" fill="#E9C46A" stroke="#0F172A" stroke-width="4.5"/>
+                    <!-- Sleek Connected Glasses -->
+                    <rect x="46" y="50" width="20" height="13" rx="4" fill="#E0FBFC" stroke="#0F172A" stroke-width="4"/>
+                    <rect x="74" y="50" width="20" height="13" rx="4" fill="#E0FBFC" stroke="#0F172A" stroke-width="4"/>
+                    <path d="M66 55 Q70 53 74 55" fill="none" stroke="#0F172A" stroke-width="4"/>
+                    <!-- Expressive Smile -->
+                    <path d="M56 72 Q70 83 84 72 Q70 76 56 72 Z" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5" stroke-linejoin="round"/>
+                </svg>

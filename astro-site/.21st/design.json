@@ -127,6 +127,11 @@
       "choice": "Sitewide Fabio Egypt WhatsApp channel card above every footer",
       "reference": "Owner-supplied two-phone WhatsApp channel HTML mockup, 2026-11-03",
       "implementation": "Own static Astro feature with local Montserrat/Playfair, navy/gold theme tokens, real logo and text-only WhatsApp channel screens, a shorter navy card with protruding phones, scoped CSS and reduced-motion hover. All five site languages; Italian campaigns retain their shells. Empty public channel URL gives a genuine disabled coming-soon state; no fake verified badge, follower count, React, CDN or copied preview scripts."
+    },
+    {
+      "choice": "Owner-approved blu underwater campaign, 2026-11-04",
+      "reference": "https://21st.dev/aceternity/card-spotlight/default",
+      "implementation": "Independent static IT/EN campaign from supplied cartoon HTML; retained original SVGs and underwater palette with local Fredoka/Jakarta, neutral shell and own header/footer. Public 21st spotlight reference adapted with own CSS/Vanilla. Owner explicitly requested GSAP for this campaign, superseding main-site motion-framework restrictions within blu only: dynamic import after capability/frame checks, full-content Lite fallback and jank/reduced-motion/save-data/visibility gates. Real catalog trip photos and titles in a desktop sidebar; no prices or personal-data forms. Mobile fixed bottle opens WhatsApp directly. No React, contextual source export, new service or production deployment. See qa/blu/README.md."
     }
   ],
   "evidence": [

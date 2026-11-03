@@ -1,0 +1,45 @@
+<svg viewBox="0 0 320 180">
+                                <!-- Background Nautical Steering Wheel -->
+                                <circle cx="245" cy="95" r="44" fill="none" stroke="#D97706" stroke-width="8" opacity="0.45"/>
+                                <circle cx="245" cy="95" r="14" fill="#D97706" opacity="0.45"/>
+
+                                <!-- Mrs. Puff Round Cream-Yellow Pufferfish Body (Calm & Un-inflated!) -->
+                                <ellipse cx="145" cy="102" rx="64" ry="54" fill="#FDE68A" stroke="#0F172A" stroke-width="4.5"/>
+                                <!-- Pufferfish Back Spikes & Teal Top Pattern -->
+                                <path d="M88 74 C98 46, 192 46, 202 74 C175 64, 115 64, 88 74 Z" fill="#5EEAD4" stroke="#0F172A" stroke-width="4"/>
+                                <polygon points="78,92 66,88 76,102" fill="#5EEAD4" stroke="#0F172A" stroke-width="3"/>
+                                <polygon points="212,92 224,88 214,102" fill="#5EEAD4" stroke="#0F172A" stroke-width="3"/>
+
+                                <!-- Blonde Curly Hair Puffs Under Sailor Cap -->
+                                <circle cx="102" cy="54" r="14" fill="#FACC15" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="122" cy="48" r="15" fill="#FACC15" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="168" cy="48" r="15" fill="#FACC15" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="188" cy="54" r="14" fill="#FACC15" stroke="#0F172A" stroke-width="4"/>
+
+                                <!-- Iconic Blue Nautical Sailor Hat -->
+                                <path d="M116 44 C116 16, 174 16, 174 44 Z" fill="#2563EB" stroke="#0F172A" stroke-width="4.5"/>
+                                <path d="M108 42 Q145 50 182 42 L180 50 Q145 58 110 50 Z" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+
+                                <!-- Mrs. Puff Happy Eyes with Eyelashes -->
+                                <circle cx="126" cy="82" r="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="164" cy="82" r="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="128" cy="82" r="5.5" fill="#0F172A"/>
+                                <circle cx="162" cy="82" r="5.5" fill="#0F172A"/>
+                                <circle cx="130" cy="80" r="2" fill="#FFFFFF"/>
+                                <circle cx="164" cy="80" r="2" fill="#FFFFFF"/>
+
+                                <!-- Peaceful Relieved Smile with Coral Lipstick -->
+                                <path d="M122 106 Q145 124 168 106" fill="none" stroke="#E63946" stroke-width="5" stroke-linecap="round"/>
+                                <circle cx="110" cy="100" r="6" fill="#FB7185" opacity="0.6"/>
+                                <circle cx="180" cy="100" r="6" fill="#FB7185" opacity="0.6"/>
+
+                                <!-- Blue Sailor Collar & Red Bow Tie -->
+                                <path d="M92 138 L198 138 L208 172 L82 172 Z" fill="#3B82F6" stroke="#0F172A" stroke-width="4.5"/>
+                                <polygon points="145,146 124,134 124,158" fill="#E63946" stroke="#0F172A" stroke-width="3.5"/>
+                                <polygon points="145,146 166,134 166,158" fill="#E63946" stroke="#0F172A" stroke-width="3.5"/>
+                                <circle cx="145" cy="146" r="6" fill="#E63946" stroke="#0F172A" stroke-width="3"/>
+
+                                <!-- "100% Approved by Mrs. Puff" Golden Badge -->
+                                <circle cx="256" cy="54" r="24" fill="#FFE135" stroke="#0F172A" stroke-width="4"/>
+                                <path d="M246 54 L253 62 L268 46" fill="none" stroke="#0F172A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>

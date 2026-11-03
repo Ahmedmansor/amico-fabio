@@ -1,0 +1,133 @@
+<svg id="fabio-master-svg" viewBox="0 0 260 270">
+                                    <defs>
+                                        <linearGradient id="hatStrawGrad" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="#FDE68A"/>
+                                            <stop offset="55%" stop-color="#F4A261"/>
+                                            <stop offset="100%" stop-color="#E07A5F"/>
+                                        </linearGradient>
+                                        <linearGradient id="jacketLeatherGrad" x1="0" y1="0" x2="1" y2="1">
+                                            <stop offset="0%" stop-color="#334155"/>
+                                            <stop offset="50%" stop-color="#1E293B"/>
+                                            <stop offset="100%" stop-color="#0F172A"/>
+                                        </linearGradient>
+                                        <linearGradient id="scarfRedGrad" x1="0" y1="0" x2="1" y2="0">
+                                            <stop offset="0%" stop-color="#780000"/>
+                                            <stop offset="50%" stop-color="#AE2012"/>
+                                            <stop offset="100%" stop-color="#9B2226"/>
+                                        </linearGradient>
+                                    </defs>
+
+                                    <!-- 1. Back of Straw Hat Brim (Curved Organic Sombrero/Sunhat silhouette) -->
+                                    <path d="M26 76 C55 52, 205 52, 234 76 C215 102, 45 102, 26 76 Z" fill="#D97706" stroke="#0F172A" stroke-width="5" stroke-linejoin="round"/>
+
+                                    <!-- 2. Connected Torso & Fitted Dark Leather Jacket with Lapels -->
+                                    <path d="M58 175 C64 152, 92 146, 130 146 C168 146, 196 152, 202 175 L214 252 C165 260, 95 260, 46 252 Z" fill="url(#jacketLeatherGrad)" stroke="#0F172A" stroke-width="5" stroke-linejoin="round"/>
+                                    <!-- Inner Warm Yellow SpongeBob Shirt V-Neck -->
+                                    <path d="M106 152 L154 152 L142 254 L118 254 Z" fill="#FFE135" stroke="#0F172A" stroke-width="4"/>
+                                    <!-- Leather Jacket Lapel Collars & Zipper Detail -->
+                                    <path d="M88 156 L116 218 L92 222 L76 175 Z" fill="#475569" stroke="#0F172A" stroke-width="4" stroke-linejoin="round"/>
+                                    <path d="M172 156 L144 218 L168 222 L184 175 Z" fill="#475569" stroke="#0F172A" stroke-width="4" stroke-linejoin="round"/>
+
+                                    <!-- 3. Anatomical Neck & Shaded Chin Shadow -->
+                                    <path d="M108 124 L108 154 L152 154 L152 124 Z" fill="#F4A261" stroke="#0F172A" stroke-width="4.5"/>
+                                    <path d="M110 132 Q130 144 150 132 L150 142 Q130 150 110 142 Z" fill="#E07A5F"/>
+
+                                    <!-- 4. Flowing Burgundy Scarf with Draped Folds (From Character Sheet) -->
+                                    <path d="M74 140 C95 152, 165 152, 186 140 C194 154, 188 170, 170 172 C145 176, 115 176, 90 172 C72 170, 66 154, 74 140 Z" fill="url(#scarfRedGrad)" stroke="#0F172A" stroke-width="4.5" stroke-linejoin="round"/>
+                                    <!-- Scarf Hanging Tail with Fringe Fold -->
+                                    <path d="M140 162 C148 184, 158 205, 162 222 L132 224 C130 202, 128 182, 128 164 Z" fill="#AE2012" stroke="#0F172A" stroke-width="4.5" stroke-linejoin="round"/>
+                                    <path d="M88 156 Q130 165 172 156" fill="none" stroke="#5F0F40" stroke-width="3" stroke-linecap="round"/>
+
+                                    <!-- 5. Ears & Natural Dark Wavy Hair Locks -->
+                                    <ellipse cx="78" cy="100" rx="10" ry="13" fill="#F4A261" stroke="#0F172A" stroke-width="4.5"/>
+                                    <ellipse cx="182" cy="100" rx="10" ry="13" fill="#F4A261" stroke="#0F172A" stroke-width="4.5"/>
+                                    <path d="M78 66 C70 80, 72 98, 82 108 C82 92, 85 78, 90 68 Z" fill="#1E293B" stroke="#0F172A" stroke-width="3.5" stroke-linejoin="round"/>
+                                    <path d="M182 66 C190 80, 188 98, 178 108 C178 92, 175 78, 170 68 Z" fill="#1E293B" stroke="#0F172A" stroke-width="3.5" stroke-linejoin="round"/>
+
+                                    <!-- 6. Organic Sculpted Head, Cheekbones & Jawline -->
+                                    <path d="M82 68 C80 100, 92 138, 130 138 C168 138, 180 100, 178 68 C176 44, 84 44, 82 68 Z" fill="#FBBF77" stroke="#0F172A" stroke-width="5" stroke-linejoin="round"/>
+                                    <!-- Warm Cheek Blush -->
+                                    <ellipse cx="96" cy="104" rx="8" ry="4.5" fill="#F4A261" opacity="0.65"/>
+                                    <ellipse cx="164" cy="104" rx="8" ry="4.5" fill="#F4A261" opacity="0.65"/>
+
+                                    <!-- 7. Expressive Eyebrows & Nose Bridge -->
+                                    <path d="M92 74 Q106 67 118 73" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round"/>
+                                    <path d="M142 73 Q154 67 168 74" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round"/>
+                                    <path d="M128 86 C125 96, 125 102, 133 103" fill="none" stroke="#D97706" stroke-width="4" stroke-linecap="round"/>
+
+                                    <!-- 8. Sleek Dark-Rimmed Glasses with Cyan Reflection -->
+                                    <rect x="86" y="79" width="38" height="24" rx="6" fill="#E0FBFC" fill-opacity="0.88" stroke="#0F172A" stroke-width="5"/>
+                                    <rect x="136" y="79" width="38" height="24" rx="6" fill="#E0FBFC" fill-opacity="0.88" stroke="#0F172A" stroke-width="5"/>
+                                    <path d="M124 89 Q130 85 136 89" fill="none" stroke="#0F172A" stroke-width="5"/>
+                                    <line x1="80" y1="88" x2="86" y2="89" stroke="#0F172A" stroke-width="4.5"/>
+                                    <line x1="174" y1="89" x2="180" y2="88" stroke="#0F172A" stroke-width="4.5"/>
+                                    <!-- Animated Pupils & Lens Shine -->
+                                    <circle cx="106" cy="91" r="5" fill="#0F172A"/>
+                                    <circle cx="154" cy="91" r="5" fill="#0F172A"/>
+                                    <circle cx="108" cy="89" r="2" fill="#FFFFFF"/>
+                                    <circle cx="156" cy="89" r="2" fill="#FFFFFF"/>
+                                    <line x1="92" y1="83" x2="99" y2="98" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+                                    <line x1="142" y1="83" x2="149" y2="98" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+
+                                    <!-- 9. Charismatic Cartoon Smile -->
+                                    <path d="M104 111 Q130 129 156 111 Q130 116 104 111 Z" fill="#FFFFFF" stroke="#0F172A" stroke-width="4" stroke-linejoin="round"/>
+                                    <path d="M116 123 Q130 126 144 123" fill="none" stroke="#E07A5F" stroke-width="2.5" stroke-linecap="round"/>
+
+                                    <!-- 10. Woven Straw Hat Crown & Curved Front Brim -->
+                                    <path d="M74 62 C76 16, 184 16, 186 62 Z" fill="url(#hatStrawGrad)" stroke="#0F172A" stroke-width="5" stroke-linejoin="round"/>
+                                    <!-- Woven Straw Cross-lines -->
+                                    <path d="M92 34 Q130 26 168 34 M84 46 Q130 38 176 46" fill="none" stroke="#B45309" stroke-width="2.5" opacity="0.55"/>
+                                    <!-- Burgundy Hat Ribbon -->
+                                    <path d="M75 50 Q130 60 185 50 L186 61 Q130 71 74 61 Z" fill="#800F2F" stroke="#0F172A" stroke-width="4.5" stroke-linejoin="round"/>
+                                    <!-- Organic Sweeping Hat Brim -->
+                                    <path d="M22 68 C65 48, 195 48, 238 68 C195 80, 65 80, 22 68 Z" fill="#E9C46A" stroke="#0F172A" stroke-width="5" stroke-linejoin="round"/>
+
+                                    <!-- ===================================================== -->
+                                    <!-- POSE 1: THE KEEPER OF BIKINI BOTTOM (Golden Compass)  -->
+                                    <!-- ===================================================== -->
+                                    <g id="fabio-pose-1">
+                                        <!-- Left Arm Waving Warmly -->
+                                        <path d="M60 180 C34 166, 24 140, 32 114" fill="none" stroke="#0F172A" stroke-width="24" stroke-linecap="round"/>
+                                        <path d="M60 180 C34 166, 24 140, 32 114" fill="none" stroke="#1E293B" stroke-width="16" stroke-linecap="round"/>
+                                        <!-- Open Waving Hand -->
+                                        <circle cx="33" cy="105" r="13" fill="#FBBF77" stroke="#0F172A" stroke-width="4.5"/>
+                                        <!-- Right Arm Holding Bikini Bottom Golden Compass & Map -->
+                                        <path d="M200 180 C220 190, 224 210, 206 218" fill="none" stroke="#0F172A" stroke-width="22" stroke-linecap="round"/>
+                                        <path d="M200 180 C220 190, 224 210, 206 218" fill="none" stroke="#1E293B" stroke-width="14" stroke-linecap="round"/>
+                                        <circle cx="204" cy="208" r="22" fill="#FFE135" stroke="#0F172A" stroke-width="4.5"/>
+                                        <circle cx="204" cy="208" r="15" fill="#FFFBEB" stroke="#0F172A" stroke-width="3"/>
+                                        <polygon points="204,195 209,208 204,221 199,208" fill="#E63946"/>
+                                    </g>
+
+                                    <!-- ===================================================== -->
+                                    <!-- POSE 2: RED SEA REEF EXPLORER (Goggles & Jelly Net)   -->
+                                    <!-- ===================================================== -->
+                                    <g id="fabio-pose-2" class="hidden">
+                                        <!-- Pro Diving Mask Resting on Hat -->
+                                        <rect x="82" y="34" width="96" height="26" rx="12" fill="#00B4D8" stroke="#0F172A" stroke-width="4.5"/>
+                                        <line x1="130" y1="34" x2="130" y2="60" stroke="#0F172A" stroke-width="4.5"/>
+                                        <path d="M92 40 L104 54 M144 40 L156 54" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+                                        <!-- Right Arm Holding SpongeBob's Jellyfishing Net & Smiling Jellyfish -->
+                                        <line x1="212" y1="78" x2="194" y2="248" stroke="#D97706" stroke-width="8" stroke-linecap="round"/>
+                                        <line x1="212" y1="78" x2="194" y2="248" stroke="#0F172A" stroke-width="2"/>
+                                        <ellipse cx="216" cy="72" rx="28" ry="18" fill="#A7F3D0" fill-opacity="0.78" stroke="#0F172A" stroke-width="4.5"/>
+                                        <!-- Friendly Pink Jellyfish Hovering Above Net -->
+                                        <path d="M202 44 C202 26, 234 26, 234 44 Z" fill="#FF758F" stroke="#0F172A" stroke-width="3.5"/>
+                                        <path d="M210 44 L208 56 M218 44 L218 58 M226 44 L228 56" stroke="#FF758F" stroke-width="3" stroke-linecap="round"/>
+                                    </g>
+
+                                    <!-- ===================================================== -->
+                                    <!-- POSE 3: VIP YACHT CAPTAIN (Shades & Pineapple Drink)  -->
+                                    <!-- ===================================================== -->
+                                    <g id="fabio-pose-3" class="hidden">
+                                        <!-- Dark Polarized VIP Sunglasses Overlay -->
+                                        <rect x="86" y="79" width="38" height="24" rx="6" fill="#0F172A" stroke="#FFE135" stroke-width="3.5"/>
+                                        <rect x="136" y="79" width="38" height="24" rx="6" fill="#0F172A" stroke="#FFE135" stroke-width="3.5"/>
+                                        <line x1="92" y1="84" x2="104" y2="98" stroke="#38BDF8" stroke-width="3.5" stroke-linecap="round"/>
+                                        <line x1="142" y1="84" x2="154" y2="98" stroke="#38BDF8" stroke-width="3.5" stroke-linecap="round"/>
+                                        <!-- Left Hand Holding Mini Bikini Bottom Pineapple Drink -->
+                                        <ellipse cx="42" cy="186" rx="18" ry="22" fill="#F77F00" stroke="#0F172A" stroke-width="4.5"/>
+                                        <path d="M32 166 L42 152 L52 166" fill="#2EC4B6" stroke="#0F172A" stroke-width="3.5"/>
+                                        <line x1="46" y1="164" x2="58" y2="142" stroke="#FF758F" stroke-width="4.5" stroke-linecap="round"/>
+                                    </g>
+                                </svg>

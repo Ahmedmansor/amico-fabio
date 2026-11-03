@@ -1,0 +1,26 @@
+---
+import type {BluCampaign} from '../data/campaign';
+import avatar from './assets/avatar.svg?raw';
+interface Props {campaign:BluCampaign}
+const {campaign:{copy,locale,alternates}}=Astro.props;
+---
+<a class="blu-skip" href="#blu-main">{copy.skipLink}</a>
+<div class="blu-toolbar">
+ <div class="blu-width blu-toolbar-inner">
+  <div class="blu-motion-control" hidden data-motion-control>
+   <label for="blu-effects">{copy.motionLabel}</label>
+   <select id="blu-effects"><option value="auto">{copy.motionAuto}</option><option value="lite">{copy.motionLite}</option><option value="full">{copy.motionFull}</option></select>
+   <span data-motion-status role="status">{copy.motionStatusLite}</span>
+  </div>
+  <nav aria-label={copy.languageLabel} class="blu-languages">
+   {Object.entries(alternates).map(([language,path])=><a href={path} lang={language} hreflang={language} aria-current={language===locale?'page':undefined}>{language.toUpperCase()}</a>)}
+  </nav>
+ </div>
+</div>
+<header class="blu-width blu-header" id="blu-top">
+ <a href={`/${locale}/`} class="blu-brand" aria-label="Fabio Egypt">
+  <span class="blu-avatar" aria-hidden="true" set:html={avatar}/>
+  <span><strong>FABIO EGYPT</strong><small>{copy.navTag}</small></span>
+ </a>
+ <a class="blu-button blu-button-yellow blu-header-cta" href="#secret-bottle-section">{copy.navCta}<span aria-hidden="true">↘</span></a>
+</header>

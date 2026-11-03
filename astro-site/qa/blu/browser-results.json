@@ -1,0 +1,163 @@
+{
+  "origin": "http://127.0.0.1:63336",
+  "results": [
+    {
+      "locale": "it",
+      "width": 390,
+      "overflow": false,
+      "images": 4,
+      "characters": 5,
+      "relatedTrips": 3,
+      "prices": false,
+      "forms": false,
+      "whatsappLinks": 12,
+      "errors": [],
+      "reference": {
+        "cards": 8,
+        "heading": "Non è solo un cartone. La Vera Bikini Bottom si nasconde nel Mar Rosso!",
+        "dependencyNormalization": "Local Tailwind/font equivalents; broken source scripts disabled; archive unchanged."
+      }
+    },
+    {
+      "locale": "it",
+      "width": 820,
+      "overflow": false,
+      "images": 4,
+      "characters": 5,
+      "relatedTrips": 3,
+      "prices": false,
+      "forms": false,
+      "whatsappLinks": 12,
+      "errors": []
+    },
+    {
+      "locale": "it",
+      "width": 1440,
+      "overflow": false,
+      "images": 4,
+      "characters": 5,
+      "relatedTrips": 3,
+      "prices": false,
+      "forms": false,
+      "whatsappLinks": 12,
+      "errors": [],
+      "reference": {
+        "cards": 8,
+        "heading": "Non è solo un cartone. La Vera Bikini Bottom si nasconde nel Mar Rosso!",
+        "dependencyNormalization": "Local Tailwind/font equivalents; broken source scripts disabled; archive unchanged."
+      }
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "overflow": false,
+      "images": 4,
+      "characters": 5,
+      "relatedTrips": 3,
+      "prices": false,
+      "forms": false,
+      "whatsappLinks": 12,
+      "errors": [],
+      "reference": {
+        "cards": 8,
+        "heading": "It's Not Just a Cartoon. The Real Bikini Bottom Hides in the Red Sea!",
+        "dependencyNormalization": "Local Tailwind/font equivalents; broken source scripts disabled; archive unchanged."
+      }
+    },
+    {
+      "locale": "en",
+      "width": 820,
+      "overflow": false,
+      "images": 4,
+      "characters": 5,
+      "relatedTrips": 3,
+      "prices": false,
+      "forms": false,
+      "whatsappLinks": 12,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "overflow": false,
+      "images": 4,
+      "characters": 5,
+      "relatedTrips": 3,
+      "prices": false,
+      "forms": false,
+      "whatsappLinks": 12,
+      "errors": [],
+      "reference": {
+        "cards": 8,
+        "heading": "It's Not Just a Cartoon. The Real Bikini Bottom Hides in the Red Sea!",
+        "dependencyNormalization": "Local Tailwind/font equivalents; broken source scripts disabled; archive unchanged."
+      }
+    },
+    {
+      "mode": "weak-memory",
+      "syntheticHardware": true,
+      "enhancementLoaded": false,
+      "automaticJankDowngrade": false,
+      "liteSkipsGsap": true
+    },
+    {
+      "mode": "weak-cpu",
+      "syntheticHardware": true,
+      "enhancementLoaded": false,
+      "automaticJankDowngrade": false,
+      "liteSkipsGsap": true
+    },
+    {
+      "mode": "save-data",
+      "syntheticHardware": true,
+      "enhancementLoaded": false,
+      "automaticJankDowngrade": false,
+      "liteSkipsGsap": true
+    },
+    {
+      "mode": "reduced-motion",
+      "syntheticHardware": true,
+      "enhancementLoaded": false,
+      "automaticJankDowngrade": false,
+      "liteSkipsGsap": true
+    },
+    {
+      "mode": "lite-preference",
+      "syntheticHardware": true,
+      "enhancementLoaded": false,
+      "automaticJankDowngrade": false,
+      "liteSkipsGsap": true
+    },
+    {
+      "mode": "strong-mobile",
+      "syntheticHardware": true,
+      "enhancementLoaded": true,
+      "automaticJankDowngrade": true,
+      "liteSkipsGsap": false
+    },
+    {
+      "mode": "unknown-hints",
+      "syntheticHardware": true,
+      "enhancementLoaded": true,
+      "automaticJankDowngrade": true,
+      "liteSkipsGsap": false
+    },
+    {
+      "mode": "clipboard-and-consented-analytics",
+      "clipboardSuccessAndFailure": true,
+      "relatedSelectionUpdatesMobileBottle": true,
+      "leadContainsOnlyCampaignChannelLocale": true
+    },
+    {
+      "mode": "320px-storage-denied",
+      "overflow": false,
+      "controlsRemainUsable": true,
+      "errors": []
+    },
+    {
+      "mode": "no-javascript",
+      "allContentAndDirectWhatsApp": true
+    }
+  ],
+  "externalSubmission": false
+}

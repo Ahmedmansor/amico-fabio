@@ -1,0 +1,33 @@
+<svg viewBox="0 0 200 180">
+                                <path d="M55 20 Q100 15 145 20 Q152 65 145 115 Q100 120 55 115 Q48 65 55 20 Z" fill="#FFE135" stroke="#0F172A" stroke-width="4.5"/>
+                                <circle cx="66" cy="32" r="5" fill="#D4B200"/>
+                                <circle cx="134" cy="36" r="6" fill="#D4B200"/>
+                                <circle cx="64" cy="95" r="4.5" fill="#D4B200"/>
+                                <circle cx="132" cy="92" r="4" fill="#D4B200"/>
+                                <line x1="76" y1="34" x2="73" y2="26" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="84" y1="32" x2="84" y2="24" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="92" y1="34" x2="95" y2="26" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="108" y1="34" x2="105" y2="26" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="116" y1="32" x2="116" y2="24" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="124" y1="34" x2="127" y2="26" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+                                <circle cx="84" cy="52" r="17" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="116" cy="52" r="17" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+                                <circle cx="86" cy="52" r="7.5" fill="#38BDF8" stroke="#0F172A" stroke-width="3"/>
+                                <circle cx="114" cy="52" r="7.5" fill="#38BDF8" stroke="#0F172A" stroke-width="3"/>
+                                <circle cx="86" cy="52" r="3.5" fill="#0F172A"/>
+                                <circle cx="114" cy="52" r="3.5" fill="#0F172A"/>
+                                <path d="M97 56 Q104 42 112 58" fill="#FFE135" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                                <circle cx="68" cy="68" r="5" fill="#FF758F" opacity="0.7"/>
+                                <circle cx="132" cy="68" r="5" fill="#FF758F" opacity="0.7"/>
+                                <path d="M68 74 Q100 98 132 74" fill="none" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                                <rect x="90" y="82" width="9" height="12" rx="1.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                                <rect x="101" y="82" width="9" height="12" rx="1.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="3.5"/>
+                                <rect x="57" y="114" width="86" height="16" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+                                <rect x="57" y="130" width="86" height="22" fill="#8B5E34" stroke="#0F172A" stroke-width="4"/>
+                                <line x1="65" y1="138" x2="77" y2="138" stroke="#0F172A" stroke-width="4"/>
+                                <line x1="94" y1="138" x2="106" y2="138" stroke="#0F172A" stroke-width="4"/>
+                                <line x1="123" y1="138" x2="135" y2="138" stroke="#0F172A" stroke-width="4"/>
+                                <polygon points="95,114 105,114 108,136 100,143 92,136" fill="#E63946" stroke="#0F172A" stroke-width="3.5"/>
+                                <path d="M54 95 Q28 75 34 50" fill="none" stroke="#FFE135" stroke-width="7" stroke-linecap="round"/>
+                                <path d="M146 95 Q172 75 166 50" fill="none" stroke="#FFE135" stroke-width="7" stroke-linecap="round"/>
+                            </svg>
