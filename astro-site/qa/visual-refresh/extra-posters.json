@@ -1,0 +1,28 @@
+[
+  {
+    "name": "The Big Blue",
+    "source": "exec-fd158706-9558-4177-ab7c-029877cac867.png",
+    "target": "src/shared/assets/catalog/packages/sharm/il_grande_blu/poster.webp",
+    "width": 1200,
+    "height": 800,
+    "format": "webp",
+    "quality": 78,
+    "sourceBytes": 3009512,
+    "previousBytes": 126651,
+    "webpBytes": 187506,
+    "sha256": "9476f2853c76b867e6a1777271815d78f65eb6e6a4200e48a4c26e0608237eba"
+  },
+  {
+    "name": "Sharm Confidential",
+    "source": "exec-1d5cc3c2-5584-4b8b-8222-3f44296539d0.png",
+    "target": "src/shared/assets/catalog/packages/sharm/sharm_confidential/poster.webp",
+    "width": 1200,
+    "height": 800,
+    "format": "webp",
+    "quality": 78,
+    "sourceBytes": 3324476,
+    "previousBytes": 193643,
+    "webpBytes": 210380,
+    "sha256": "aedce3166b059c089e036fbdb6c304debfcf065c24551e4c7274434c9a29d29a"
+  }
+]
