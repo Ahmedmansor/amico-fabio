@@ -11,7 +11,6 @@ const m = getSharedMessages(locale).currency;
   <summary aria-label={m.choose}><span data-current-currency>EUR</span><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
   <div class="site-popover currency-options" role="group" aria-label={m.choose}>
     {currencyCodes.map(code => <button type="button" data-currency={code} disabled={currencyRates[code] === null} aria-pressed={code === 'EUR'}>{code === 'EUR' ? '€' : code === 'USD' ? '$' : '£'} {code}</button>)}
-    <p>{m.notice}</p>
   </div>
 </details>
 <script>import './browser';</script>
@@ -21,6 +20,5 @@ const m = getSharedMessages(locale).currency;
   button{display:flex;align-items:center;min-height:44px;padding:10px 14px;border:0;border-radius:var(--radius-control);background:transparent;color:var(--text-heading);font:inherit;font-size:13px;text-align:start;cursor:pointer}
   button[aria-pressed="true"],button:hover{background:var(--surface-brand-soft)}
   button:disabled{opacity:.5;cursor:not-allowed}
-  p{margin:6px 8px;font-size:12px;line-height:1.5;color:var(--text-secondary)}
   @media(max-width:359px){summary{padding-inline:2px}}
 </style>
