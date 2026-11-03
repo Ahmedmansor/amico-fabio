@@ -1,0 +1,872 @@
+[
+  {
+    "v": "Afghan",
+    "t": "Afghanistan",
+    "c": [
+      "#1f4e79",
+      "#fff",
+      "#009a49"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Albanian",
+    "t": "Albania",
+    "c": [
+      "#e41e26",
+      "#e41e26",
+      "#e41e26"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Algerian",
+    "t": "Algeria",
+    "c": [
+      "#006233",
+      "#fff",
+      "#d52b1e"
+    ],
+    "p": "v3"
+  },
+  {
+    "v": "American",
+    "t": "United States",
+    "c": [
+      "#b22234",
+      "#fff",
+      "#3c3b6e"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Andorran",
+    "t": "Andorra",
+    "c": [
+      "#0033a0",
+      "#ffcd00",
+      "#c8102e"
+    ],
+    "p": "v3"
+  },
+  {
+    "v": "Angolan",
+    "t": "Angola",
+    "c": [
+      "#d80027",
+      "#000",
+      "#d80027"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Argentine",
+    "t": "Argentina",
+    "c": [
+      "#75aadb",
+      "#fff",
+      "#75aadb"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Armenian",
+    "t": "Armenia",
+    "c": [
+      "#d90012",
+      "#0033a0",
+      "#f2a800"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Australian",
+    "t": "Australia",
+    "c": [
+      "#012169",
+      "#fff",
+      "#c8102e"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Austrian",
+    "t": "Austria",
+    "c": [
+      "#ed2939",
+      "#fff",
+      "#ed2939"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Azerbaijani",
+    "t": "Azerbaijan",
+    "c": [
+      "#00a3dd",
+      "#ed2939",
+      "#009a49"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Bahraini",
+    "t": "Bahrain",
+    "c": [
+      "#fff",
+      "#ce1126",
+      "#ce1126"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Bangladeshi",
+    "t": "Bangladesh",
+    "c": [
+      "#006a4e",
+      "#f42a41",
+      "#006a4e"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Belgian",
+    "t": "Belgium",
+    "c": [
+      "#000",
+      "#ffcd00",
+      "#ef3340"
+    ],
+    "p": "v3"
+  },
+  {
+    "v": "Bolivian",
+    "t": "Bolivia",
+    "c": [
+      "#d52b1e",
+      "#ffd500",
+      "#007934"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Bosnian",
+    "t": "Bosnia and Herzegovina",
+    "c": [
+      "#002f6c",
+      "#fcd116",
+      "#fff"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Brazilian",
+    "t": "Brazil",
+    "c": [
+      "#009b3a",
+      "#ffdf00",
+      "#002776"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "British",
+    "t": "United Kingdom",
+    "c": [
+      "#00247d",
+      "#fff",
+      "#cf142b"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Bulgarian",
+    "t": "Bulgaria",
+    "c": [
+      "#fff",
+      "#00966e",
+      "#d62612"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Cambodian",
+    "t": "Cambodia",
+    "c": [
+      "#032ea1",
+      "#e00025",
+      "#032ea1"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Canadian",
+    "t": "Canada",
+    "c": [
+      "#ff0000",
+      "#fff",
+      "#ff0000"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Chilean",
+    "t": "Chile",
+    "c": [
+      "#0039a6",
+      "#fff",
+      "#d2232c"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Chinese",
+    "t": "China",
+    "c": [
+      "#de2910",
+      "#ffde00",
+      "#de2910"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Colombian",
+    "t": "Colombia",
+    "c": [
+      "#fcd116",
+      "#003893",
+      "#ce1126"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Croatian",
+    "t": "Croatia",
+    "c": [
+      "#ff0000",
+      "#fff",
+      "#171796"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Cypriot",
+    "t": "Cyprus",
+    "c": [
+      "#fff",
+      "#d4af37",
+      "#fff"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Czech",
+    "t": "Czech Republic",
+    "c": [
+      "#fff",
+      "#11457e",
+      "#d7141a"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Danish",
+    "t": "Denmark",
+    "c": [
+      "#c8102e",
+      "#fff",
+      "#c8102e"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Dutch",
+    "t": "Netherlands",
+    "c": [
+      "#ae1c28",
+      "#fff",
+      "#21468b"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Egyptian",
+    "t": "Egypt",
+    "c": [
+      "#ce1126",
+      "#fff",
+      "#000000"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Emirati",
+    "t": "United Arab Emirates",
+    "c": [
+      "#00732f",
+      "#fff",
+      "#000"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Estonian",
+    "t": "Estonia",
+    "c": [
+      "#0072ce",
+      "#000",
+      "#fff"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Finnish",
+    "t": "Finland",
+    "c": [
+      "#fff",
+      "#003580",
+      "#fff"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "French",
+    "t": "France",
+    "c": [
+      "#0055a4",
+      "#fff",
+      "#ef4135"
+    ],
+    "p": "v3"
+  },
+  {
+    "v": "Georgian",
+    "t": "Georgia",
+    "c": [
+      "#fff",
+      "#d40000",
+      "#fff"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "German",
+    "t": "Germany",
+    "c": [
+      "#000",
+      "#dd0000",
+      "#ffce00"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Greek",
+    "t": "Greece",
+    "c": [
+      "#0d5eaf",
+      "#fff",
+      "#0d5eaf"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Hungarian",
+    "t": "Hungary",
+    "c": [
+      "#cd2a3e",
+      "#fff",
+      "#436f4d"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Icelandic",
+    "t": "Iceland",
+    "c": [
+      "#02529c",
+      "#fff",
+      "#dc1c3c"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Indian",
+    "t": "India",
+    "c": [
+      "#ff9933",
+      "#fff",
+      "#138808"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Indonesian",
+    "t": "Indonesia",
+    "c": [
+      "#ce1126",
+      "#fff",
+      "#fff"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Irish",
+    "t": "Ireland",
+    "c": [
+      "#169b62",
+      "#fff",
+      "#ff883e"
+    ],
+    "p": "v3"
+  },
+  {
+    "v": "Israeli",
+    "t": "Israel",
+    "c": [
+      "#fff",
+      "#0038b8",
+      "#fff"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Italian",
+    "t": "Italy",
+    "c": [
+      "#009246",
+      "#fff",
+      "#ce2b37"
+    ],
+    "p": "v3"
+  },
+  {
+    "v": "Japanese",
+    "t": "Japan",
+    "c": [
+      "#fff",
+      "#bc002d",
+      "#fff"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Jordanian",
+    "t": "Jordan",
+    "c": [
+      "#007a3d",
+      "#000",
+      "#ce1126"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Kazakh",
+    "t": "Kazakhstan",
+    "c": [
+      "#00afca",
+      "#f6d049",
+      "#00afca"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Kenyan",
+    "t": "Kenya",
+    "c": [
+      "#000",
+      "#bb1f2d",
+      "#2f5d35"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Kuwaiti",
+    "t": "Kuwait",
+    "c": [
+      "#007a3d",
+      "#fff",
+      "#000"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Latvian",
+    "t": "Latvia",
+    "c": [
+      "#9e2438",
+      "#fff",
+      "#9e2438"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Lebanese",
+    "t": "Lebanon",
+    "c": [
+      "#f00000",
+      "#fff",
+      "#f00000"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Lithuanian",
+    "t": "Lithuania",
+    "c": [
+      "#fdb913",
+      "#006a44",
+      "#c1272d"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Luxembourgish",
+    "t": "Luxembourg",
+    "c": [
+      "#00a3e0",
+      "#fff",
+      "#ed2939"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Malaysian",
+    "t": "Malaysia",
+    "c": [
+      "#010080",
+      "#fff",
+      "#d00000"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Maltese",
+    "t": "Malta",
+    "c": [
+      "#fff",
+      "#e4002b",
+      "#fff"
+    ],
+    "p": "v3"
+  },
+  {
+    "v": "Mexican",
+    "t": "Mexico",
+    "c": [
+      "#006847",
+      "#fff",
+      "#ce1126"
+    ],
+    "p": "v3"
+  },
+  {
+    "v": "Moroccan",
+    "t": "Morocco",
+    "c": [
+      "#c1272d",
+      "#c1272d",
+      "#c1272d"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Nepalese",
+    "t": "Nepal",
+    "c": [
+      "#003893",
+      "#dc143c",
+      "#003893"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "New Zealander",
+    "t": "New Zealand",
+    "c": [
+      "#00247d",
+      "#fff",
+      "#cf142b"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Norwegian",
+    "t": "Norway",
+    "c": [
+      "#ef2b2d",
+      "#fff",
+      "#002868"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Pakistani",
+    "t": "Pakistan",
+    "c": [
+      "#00401a",
+      "#fff",
+      "#00401a"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Palestinian",
+    "t": "Palestine",
+    "c": [
+      "#000",
+      "#fff",
+      "#007a3d"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Peruvian",
+    "t": "Peru",
+    "c": [
+      "#d91023",
+      "#fff",
+      "#d91023"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Philippine",
+    "t": "Philippines",
+    "c": [
+      "#0038a8",
+      "#fff",
+      "#ce1126"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Polish",
+    "t": "Poland",
+    "c": [
+      "#fff",
+      "#dc143c",
+      "#dc143c"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Portuguese",
+    "t": "Portugal",
+    "c": [
+      "#046a38",
+      "#da291c",
+      "#da291c"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Qatari",
+    "t": "Qatar",
+    "c": [
+      "#8d1b3d",
+      "#fff",
+      "#8d1b3d"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Romanian",
+    "t": "Romania",
+    "c": [
+      "#002b7f",
+      "#fcd116",
+      "#ce1126"
+    ],
+    "p": "v3"
+  },
+  {
+    "v": "Russian",
+    "t": "Russia",
+    "c": [
+      "#fff",
+      "#0039a6",
+      "#d52b1e"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Saudi",
+    "t": "Saudi Arabia",
+    "c": [
+      "#006c35",
+      "#fff",
+      "#006c35"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Scottish",
+    "t": "Scotland",
+    "c": [
+      "#0065bd",
+      "#fff",
+      "#0065bd"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Serbian",
+    "t": "Serbia",
+    "c": [
+      "#c6363c",
+      "#0f52ba",
+      "#fff"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Singaporean",
+    "t": "Singapore",
+    "c": [
+      "#ed2939",
+      "#fff",
+      "#fff"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Slovak",
+    "t": "Slovakia",
+    "c": [
+      "#fff",
+      "#0b4ea2",
+      "#ee1c25"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Slovenian",
+    "t": "Slovenia",
+    "c": [
+      "#fff",
+      "#0056a3",
+      "#ed1c24"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "South African",
+    "t": "South Africa",
+    "c": [
+      "#007850",
+      "#000",
+      "#de3831"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "South Korean",
+    "t": "South Korea",
+    "c": [
+      "#fff",
+      "#000",
+      "#c60c30"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Spanish",
+    "t": "Spain",
+    "c": [
+      "#aa151b",
+      "#f1bf00",
+      "#aa151b"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Swedish",
+    "t": "Sweden",
+    "c": [
+      "#006aa7",
+      "#fecc00",
+      "#006aa7"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Swiss",
+    "t": "Switzerland",
+    "c": [
+      "#d52b1e",
+      "#fff",
+      "#d52b1e"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Syrian",
+    "t": "Syria",
+    "c": [
+      "#ce1126",
+      "#fff",
+      "#000"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Thai",
+    "t": "Thailand",
+    "c": [
+      "#ff0000",
+      "#fff",
+      "#2d2a4a"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Tunisian",
+    "t": "Tunisia",
+    "c": [
+      "#e70013",
+      "#fff",
+      "#e70013"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Turkish",
+    "t": "Turkey",
+    "c": [
+      "#e30a17",
+      "#fff",
+      "#e30a17"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Ukrainian",
+    "t": "Ukraine",
+    "c": [
+      "#0057b7",
+      "#ffd700",
+      "#0057b7"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Uruguayan",
+    "t": "Uruguay",
+    "c": [
+      "#00a1e4",
+      "#fff",
+      "#ffd700"
+    ],
+    "p": "h3"
+  },
+  {
+    "v": "Venezuelan",
+    "t": "Venezuela",
+    "c": [
+      "#f4c300",
+      "#003893",
+      "#ce1126"
+    ],
+    "p": "h3"
+  }
+]

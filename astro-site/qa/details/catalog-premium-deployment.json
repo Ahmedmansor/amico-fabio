@@ -1,0 +1,48 @@
+{
+  "origin": "https://amico-fabio-iyzo.vercel.app",
+  "sourceCommit": "8831cd9c7ae37d59b22db0bde8363b4832d79c01",
+  "project": "amico-fabio-test",
+  "deployment": "https://amico-fabio-test-idgb7z6qa-fabio-landing-pages.vercel.app",
+  "deploymentId": "dpl_BcG16FjysDY9HfCXH1uo6RyU4shr",
+  "state": "READY",
+  "results": [
+    {
+      "path": "/it/explore/sharm/",
+      "status": 200,
+      "noindex": true,
+      "marker": "explore-toolbar"
+    },
+    {
+      "path": "/it/tours/ras_mohammed_white_island_vip/",
+      "status": 200,
+      "noindex": true,
+      "marker": "product-detail"
+    },
+    {
+      "path": "/it/packages/dolce_vita_family/",
+      "status": 200,
+      "noindex": true,
+      "marker": "included-trip-dialog"
+    },
+    {
+      "path": "/en/explore/sharm/",
+      "status": 200,
+      "noindex": true,
+      "marker": "explore-toolbar"
+    },
+    {
+      "path": "/en/tours/ras_mohammed_white_island_vip/",
+      "status": 200,
+      "noindex": true,
+      "marker": "product-detail"
+    },
+    {
+      "path": "/en/packages/dolce_vita_family/",
+      "status": 200,
+      "noindex": true,
+      "marker": "included-trip-dialog"
+    }
+  ],
+  "hostingVariablesChanged": false,
+  "externalSubmissions": 0
+}

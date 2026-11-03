@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-15",
+  "project": "iiivnvwspoikfrlclhyr",
+  "migration": "20261015033536_restrict_rls_auto_enable_execute",
+  "authorization": "User authorized the function permission follow-up and requested agreement before blog implementation.",
+  "function": "public.rls_auto_enable()",
+  "before": {
+    "acl": null,
+    "anon_execute": true,
+    "authenticated_execute": true,
+    "definition_md5": "846ec2fbff751d24b890656d63c3a9bf"
+  },
+  "after": {
+    "owner": "postgres",
+    "acl": "{postgres=X/postgres}",
+    "anon_execute": false,
+    "authenticated_execute": false,
+    "owner_execute": true,
+    "security_definer": true,
+    "result_type": "event_trigger",
+    "definition_md5": "846ec2fbff751d24b890656d63c3a9bf",
+    "event_trigger": {"name": "ensure_rls", "enabled": "O", "event": "ddl_command_end"},
+    "security_advisor_lints": []
+  },
+  "catalog_tables": {
+    "names": ["trips", "packages", "package_trips", "trip_addons", "public_settings"],
+    "all_rls_enabled": true,
+    "all_anon_select": true,
+    "any_anon_insert_update_delete_truncate": false
+  },
+  "checks": {
+    "astro_check": {"files": 187, "errors": 0, "warnings": 0, "hints": 0, "exit_code": 0},
+    "build": {"provider": "supabase", "trips": 22, "packages": 14, "addons": 3, "settings": 1, "pages": 90, "seconds": 9.22, "exit_code": 0}
+  },
+  "limitations": ["No temporary public table was created to exercise the event trigger; definition, binding and enabled state were verified directly.", "No RPC exploit probe or lead submission was performed."]
+}

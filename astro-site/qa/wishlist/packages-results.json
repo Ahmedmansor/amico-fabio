@@ -1,0 +1,61 @@
+{
+  "mode": "guest-local-storage",
+  "cases": [
+    {
+      "locale": "it",
+      "width": 375,
+      "packageButton": true,
+      "detailSave": true,
+      "legacyTourPreserved": true,
+      "separateSections": true,
+      "correctLinks": true,
+      "reload": true,
+      "crossTab": true,
+      "independentRemove": true,
+      "emptyState": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "it",
+      "width": 1440,
+      "packageButton": true,
+      "detailSave": true,
+      "legacyTourPreserved": true,
+      "separateSections": true,
+      "correctLinks": true,
+      "reload": true,
+      "crossTab": true,
+      "independentRemove": true,
+      "emptyState": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "packageButton": true,
+      "detailSave": true,
+      "legacyTourPreserved": true,
+      "separateSections": true,
+      "correctLinks": true,
+      "reload": true,
+      "crossTab": true,
+      "independentRemove": true,
+      "emptyState": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "packageButton": true,
+      "detailSave": true,
+      "legacyTourPreserved": true,
+      "separateSections": true,
+      "correctLinks": true,
+      "reload": true,
+      "crossTab": true,
+      "independentRemove": true,
+      "emptyState": true,
+      "noPageErrors": true
+    }
+  ]
+}

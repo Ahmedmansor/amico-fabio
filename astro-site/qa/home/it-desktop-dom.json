@@ -1,0 +1,820 @@
+{
+  "astro": {
+    "bio": "\n        <p>Cari ospiti,</p>\n\n        <p>A Sharm El Sheikh troverete centinaia di venditori che vi offriranno \"il prezzo più basso\". Io ho fatto una scelta diversa: <strong>offrirvi la qualità più alta</strong>.</p>\n\n        <p>Il mio catalogo non contiene tutto, ma solo il meglio. Ho selezionato personalmente ogni barca, ogni guida e ogni angolo di deserto per garantirvi tre cose che non hanno prezzo: <strong>Sicurezza, Privacy e Magia</strong>.</p>\n\n       \n\n        <p style=\"margin-top: 20px; font-style: italic; color: #fff;\">Chi è Fabio? Più di un amico, un’istituzione.</p>\n\n        <p>Affidare la propria vacanza a qualcuno è una questione di fiducia. Ecco perché sono diverso:</p>\n\n\n\n        <span class=\"wf-text-highlight\">Eccellenza &amp; Legalità</span>\n\n        <p>Laureato in Lingue (Al-Alsun) e Guida Ufficiale autorizzata dal Ministero. A Sharm, dove l'abusivismo è diffuso, scegliere me significa scegliere la competenza certificata.</p>\n\n\n\n        <span class=\"wf-text-highlight\">Servizio VIP (Assistente di Volo)</span>\n\n        <p>Il mio altro ufficio è \"il cielo\". Come Assistente di Volo, unisco il calore dell'ospitalità egiziana alla precisione degli standard internazionali.</p>\n\n\n\n        <span class=\"wf-text-highlight\">Ospiti, Non Numeri</span>\n\n        <p>Mentre altri vi stipano in bus affollati, io scelgo la concretezza: Auto privata, flessibilità totale e zero sorprese.</p>\n\n\n\n        <span class=\"wf-text-highlight\">Il Valore dei Ricordi</span>\n\n        <p>Ricordate: un'escursione rovinata per risparmiare pochi euro... alla fine costa molto cara.</p>\n\n\n\n        <span class=\"wf-quote\">\"La qualità ha un prezzo, ma i vostri ricordi più belli non hanno prezzo.\"</span>\n\n      ",
+    "images": [
+      {
+        "alt": "Menu",
+        "complete": true,
+        "src": "/assets/images/icons/menu-icon.webp",
+        "width": 96
+      },
+      {
+        "alt": "Fabio Tours Logo",
+        "complete": true,
+        "src": "/_image/?href=%2F%40fs%2FD%3A%2FFabio%2Ffabio-landing%2Fastro-site%2Fsrc%2Fshared%2Fassets%2Flogos%2Ffabio-header-logo.webp%3ForigWidth%3D150%26origHeight%3D144%26origFormat%3Dwebp&w=84&h=81&f=webp",
+        "width": 84
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "src": "/assets/images/icons/languages/it.svg",
+        "width": 150
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "src": "/assets/images/icons/languages/it.svg",
+        "width": 150
+      },
+      {
+        "alt": "",
+        "complete": true,
+        "src": "/assets/images/icons/languages/en.svg",
+        "width": 150
+      },
+      {
+        "alt": "Comandamenti 1",
+        "complete": true,
+        "src": "/_image/?href=%2F%40fs%2FD%3A%2FFabio%2Ffabio-landing%2Fastro-site%2Fsrc%2Ffeatures%2Fhome%2Fpresentation%2Fassets%2Fcomandamenti-images%2F1.webp%3ForigWidth%3D600%26origHeight%3D894%26origFormat%3Dwebp&w=600&h=894&f=webp",
+        "width": 400
+      },
+      {
+        "alt": "Comandamenti 2",
+        "complete": true,
+        "src": "/_image/?href=%2F%40fs%2FD%3A%2FFabio%2Ffabio-landing%2Fastro-site%2Fsrc%2Ffeatures%2Fhome%2Fpresentation%2Fassets%2Fcomandamenti-images%2F2.webp%3ForigWidth%3D600%26origHeight%3D894%26origFormat%3Dwebp&w=600&h=894&f=webp",
+        "width": 400
+      },
+      {
+        "alt": "Comandamenti 3",
+        "complete": true,
+        "src": "/_image/?href=%2F%40fs%2FD%3A%2FFabio%2Ffabio-landing%2Fastro-site%2Fsrc%2Ffeatures%2Fhome%2Fpresentation%2Fassets%2Fcomandamenti-images%2F3.webp%3ForigWidth%3D600%26origHeight%3D894%26origFormat%3Dwebp&w=600&h=894&f=webp",
+        "width": 400
+      },
+      {
+        "alt": "Background",
+        "complete": true,
+        "src": "/_image/?href=%2F%40fs%2FD%3A%2FFabio%2Ffabio-landing%2Fastro-site%2Fsrc%2Ffeatures%2Fhome%2Fpresentation%2Fassets%2Fhome-who-fabio%2Fhome-who-fabio-bg.webp%3ForigWidth%3D800%26origHeight%3D1071%26origFormat%3Dwebp&w=800&h=1071&f=webp",
+        "width": 900
+      },
+      {
+        "alt": "Fabio",
+        "complete": true,
+        "src": "/_image/?href=%2F%40fs%2FD%3A%2FFabio%2Ffabio-landing%2Fastro-site%2Fsrc%2Ffeatures%2Fhome%2Fpresentation%2Fassets%2Fhome-who-fabio%2Fhome-who-fabio-preson.webp%3ForigWidth%3D800%26origHeight%3D1071%26origFormat%3Dwebp&w=800&h=1071&f=webp",
+        "width": 900
+      },
+      {
+        "alt": "Close",
+        "complete": true,
+        "src": "/assets/images/icons/close-icon.svg",
+        "width": 150
+      },
+      {
+        "alt": "Sharm El Sheikh",
+        "complete": true,
+        "src": "/_image/?href=%2F%40fs%2FD%3A%2FFabio%2Ffabio-landing%2Fastro-site%2Fsrc%2Ffeatures%2Fhome%2Fpresentation%2Fassets%2Fhome-fabio-tours-sections%2Fsharm.webp%3ForigWidth%3D800%26origHeight%3D450%26origFormat%3Dwebp&w=800&h=450&f=webp",
+        "width": 800
+      },
+      {
+        "alt": "Cairo",
+        "complete": true,
+        "src": "/_image/?href=%2F%40fs%2FD%3A%2FFabio%2Ffabio-landing%2Fastro-site%2Fsrc%2Ffeatures%2Fhome%2Fpresentation%2Fassets%2Fhome-fabio-tours-sections%2Fcairo.webp%3ForigWidth%3D800%26origHeight%3D450%26origFormat%3Dwebp&w=800&h=450&f=webp",
+        "width": 800
+      },
+      {
+        "alt": "Luxor & Aswan",
+        "complete": true,
+        "src": "/_image/?href=%2F%40fs%2FD%3A%2FFabio%2Ffabio-landing%2Fastro-site%2Fsrc%2Ffeatures%2Fhome%2Fpresentation%2Fassets%2Fhome-fabio-tours-sections%2FLuxor-and-aswan.webp%3ForigWidth%3D800%26origHeight%3D450%26origFormat%3Dwebp&w=800&h=450&f=webp",
+        "width": 800
+      },
+      {
+        "alt": "FABIO",
+        "complete": true,
+        "src": "/_image/?href=%2F%40fs%2FD%3A%2FFabio%2Ffabio-landing%2Fastro-site%2Fsrc%2Fshared%2Fassets%2Flogos%2Ffabio-header-logo.webp%3ForigWidth%3D150%26origHeight%3D144%26origFormat%3Dwebp&w=84&h=81&f=webp",
+        "width": 84
+      },
+      {
+        "alt": "Facebook",
+        "complete": true,
+        "src": "/assets/images/icons/social/facebook.svg",
+        "width": 150
+      },
+      {
+        "alt": "Instagram",
+        "complete": true,
+        "src": "/assets/images/icons/social/instagram.svg",
+        "width": 150
+      },
+      {
+        "alt": "TikTok",
+        "complete": true,
+        "src": "/assets/images/icons/social/tiktok.svg",
+        "width": 150
+      },
+      {
+        "alt": "YouTube",
+        "complete": true,
+        "src": "/assets/images/icons/social/youtube.svg",
+        "width": 150
+      },
+      {
+        "alt": "Cross Roots Logo",
+        "complete": true,
+        "src": "/_image/?href=%2F%40fs%2FD%3A%2FFabio%2Ffabio-landing%2Fastro-site%2Fsrc%2Fshared%2Fassets%2Flogos%2Fcross-roots-logo.webp%3ForigWidth%3D150%26origHeight%3D121%26origFormat%3Dwebp&w=75&h=50&f=webp",
+        "width": 75
+      }
+    ],
+    "links": [
+      {
+        "href": "http://127.0.0.1:4321/it/",
+        "text": "Home"
+      },
+      {
+        "href": "http://127.0.0.1:4321/it/#trips-grid",
+        "text": "Escursioni"
+      },
+      {
+        "href": "http://127.0.0.1:4321/it/#reviews-section",
+        "text": "Recensioni"
+      },
+      {
+        "href": "https://fabioegypt.com/sharm-secrets/index.html",
+        "text": "10 Comandamenti"
+      },
+      {
+        "href": "http://127.0.0.1:4321/it/#",
+        "text": "Blog"
+      },
+      {
+        "href": "http://127.0.0.1:4321/it/",
+        "text": "Home"
+      },
+      {
+        "href": "http://127.0.0.1:4321/it/#trips-grid",
+        "text": "Escursioni"
+      },
+      {
+        "href": "http://127.0.0.1:4321/it/#reviews-section",
+        "text": "Recensioni"
+      },
+      {
+        "href": "https://fabioegypt.com/sharm-secrets/index.html",
+        "text": "10 Comandamenti"
+      },
+      {
+        "href": "http://127.0.0.1:4321/it/#",
+        "text": "Blog"
+      },
+      {
+        "href": "http://127.0.0.1:4321/it/",
+        "text": "Italiano"
+      },
+      {
+        "href": "http://127.0.0.1:4321/en/",
+        "text": "English"
+      },
+      {
+        "href": "https://fabioegypt.com/sharm-secrets/index.html",
+        "text": "SBLOCCA IL MANUALE VIP"
+      },
+      {
+        "href": "https://fabioegypt.com/explore.html?loc=sharm",
+        "text": "Sharm El SheikhScopri"
+      },
+      {
+        "href": "https://fabioegypt.com/explore.html?loc=cairo",
+        "text": "CairoScopri"
+      },
+      {
+        "href": "https://fabioegypt.com/explore.html?loc=luxor_and_aswan",
+        "text": "Luxor e AswanScopri"
+      },
+      {
+        "href": "https://www.facebook.com/CROSSROOTSTRAVEL/reviews/?id=100063543025466&sk=reviews",
+        "text": "Leggi su Facebook"
+      },
+      {
+        "href": "http://127.0.0.1:4321/it/legal/",
+        "text": "Legale & Privacy"
+      },
+      {
+        "href": "https://fabioegypt.com/sharm-secrets/index.html#page6",
+        "text": "Perché Fabio?"
+      },
+      {
+        "href": "mailto:info@fabioegypt.com",
+        "text": "info@fabioegypt.com"
+      },
+      {
+        "href": "https://www.facebook.com/fabioEgyptVip/",
+        "text": ""
+      },
+      {
+        "href": "https://www.instagram.com/fabio_egypt_vip",
+        "text": ""
+      },
+      {
+        "href": "https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn",
+        "text": ""
+      },
+      {
+        "href": "https://www.youtube.com/@FabioEgyptItaly",
+        "text": ""
+      },
+      {
+        "href": "https://wa.me/201063239261",
+        "text": ""
+      }
+    ],
+    "overflow": false,
+    "sections": [
+      {
+        "id": "hero-slider-section",
+        "rect": {
+          "height": 700,
+          "width": 1100,
+          "x": 170,
+          "y": 40
+        },
+        "style": null,
+        "text": null
+      },
+      {
+        "id": "who-fabio",
+        "rect": {
+          "height": 600,
+          "width": 1440,
+          "x": 0,
+          "y": 740
+        },
+        "style": null,
+        "text": null
+      },
+      {
+        "id": "promo-banner-container",
+        "rect": {
+          "height": 73.33333587646484,
+          "width": 1440,
+          "x": 0,
+          "y": 82
+        },
+        "style": "margin-top: 72px;",
+        "text": null
+      },
+      {
+        "id": "trips-grid",
+        "rect": {
+          "height": 120,
+          "width": 1440,
+          "x": 0,
+          "y": 1388
+        },
+        "style": null,
+        "text": null
+      },
+      {
+        "id": "lux-entry-card group relative block overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500",
+        "rect": {
+          "height": 450,
+          "width": 800,
+          "x": 320,
+          "y": 1564
+        },
+        "style": null,
+        "text": "Sharm El SheikhScopri"
+      },
+      {
+        "id": "lux-entry-card group relative block overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500",
+        "rect": {
+          "height": 450,
+          "width": 800,
+          "x": 320,
+          "y": 2094
+        },
+        "style": null,
+        "text": "CairoScopri"
+      },
+      {
+        "id": "lux-entry-card group relative block overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500",
+        "rect": {
+          "height": 450,
+          "width": 800,
+          "x": 320,
+          "y": 2624
+        },
+        "style": null,
+        "text": "Luxor e AswanScopri"
+      },
+      {
+        "id": "reviews-section",
+        "rect": {
+          "height": 686.5521240234375,
+          "width": 1440,
+          "x": 0,
+          "y": 3194
+        },
+        "style": null,
+        "text": null
+      },
+      {
+        "id": "global-footer",
+        "rect": {
+          "height": 362.5104370117187,
+          "width": 1440,
+          "x": 0,
+          "y": 3912.55224609375
+        },
+        "style": null,
+        "text": null
+      }
+    ],
+    "strings": [
+      "Nota: I 10 Comandamenti di Fabio",
+      "Il manuale di sopravvivenza definitivo per Sharm. Evita le trappole per turisti e vivi la vera vacanza da insider.",
+      "SBLOCCA IL MANUALE VIP",
+      "Chi è Fabio",
+      "FABIO TOURS",
+      "Esperienze VIP a Sharm El Sheikh",
+      "Sharm El Sheikh",
+      "Scopri",
+      "Cairo",
+      "Scopri",
+      "Luxor e Aswan",
+      "Scopri",
+      "Dicono di Noi",
+      "Le parole dei nostri ospiti su Facebook",
+      "Siciliano Irene Veronica",
+      "5 Febbraio 2026",
+      "Wonderful experience spectacular organization Fabio wonderful person and above all very helpful I highly recommend it",
+      "Federico Selmi",
+      "23 Novembre 2024",
+      "Cross roots. Fabio un NOME UNA GARANZIA. La guida perfetta per delle bellissime escursioni. Fabio ci ha accompagnati nel nostro meraviglioso viaggio da prima della partenza al nostro rientro a Catania. Abbiamo passato una settimana meravigliosa con numerose escursioni... Grazie Fabio!",
+      "Vittorio Mazzullo",
+      "27 Settembre 2022",
+      "Consiglio vivamente cross roots travel, Fabio gentilissimo e sempre a disposizione anche di notte… non ti lascia mai da solo! Arrivato in Hotel tutto lo staff mi sconsigliava di fidarmi di qualcuno e invece io con la fiducia di Fathy ho risparmiato un casinò di soldi e ho fatto esperienze uniche!",
+      "Brandon Rigano",
+      "6 Settembre 2022",
+      "Ringraziamo infinitamente Fabio per questa fantastica vacanza, un grande organizzatore. È riuscito a pianificare tutte le escursioni nei minimi dettagli, facendoci vivere esperienze uniche. Dispone di servizi ottimi, pronto a soddisfare tutte le nostre richieste.",
+      "Francesca Mannelli",
+      "30 Agosto 2022",
+      "Ho contattato Fathy dall’Italia, ci ha indicato le migliori escursioni da poter svolgere e sono state davvero formidabili. È stato presente ad ogni ora del giorno e della notte, affidandoci a guide super preparate. Ci siamo sentiti protetti in ogni secondo.",
+      "Lorenzo Alberti",
+      "23 Ottobre 2019",
+      "Consiglio vivamente le escursioni. Fabio è una grande persona competente e gentile... lo ringrazio molto se tornerò a sharm sicuramente mi affiderò di nuovo a lui 🎉🎉 impegno e serietà non mancano divertimento assoluto.",
+      "Vincenzo Novacco",
+      "10 Ottobre 2019",
+      "Per chi viaggia cercando di conoscere e scambiare non superficialmente con l'antichissima e ricchissima cultura egiziana... consiglio vivamente e con fiducia la CROSS ROOTS Travel di Fathy (Fabio) Mansur, preparato, pronto ad ogni spiegazione ben disposto all'interscambio culturale.",
+      "Antonella Testa",
+      "10 Ottobre 2019",
+      "Mi sono affidata a Fabio per le escursioni nella penisola del Sinai per un gruppo di 30 persone, siamo stati benissimo, puntualissimo, prodigo di spiegazioni... professionale ed affidabile. Sicuramente lo consiglio.",
+      "Verdiana Troìa",
+      "9 Ottobre 2019",
+      "Per le escursioni a Sharm mi sono affidata a Fabio, puntuale, preparato e sempre a disposizione. Ottimo il suo team in particolare l'archeologo Ali, simpaticissimo e molto colto pronto a rispondere ad ogni tua domanda.",
+      "Katia Rusciano",
+      "4 Settembre 2019",
+      "Una vacanza meravigliosa... resa ancor più bella dalla nostra guida... grazie Fabio per averci fatto vivere delle splendide giornate... ci vediamo spero al più presto 😘",
+      "Francesca Delfine",
+      "24 Settembre 2019",
+      "Bellissima vacanza trascorsa a sharm con un’ottima guida di Fabio, grazie per aver reso la nostra vacanza speciale, ci torneremo sicuramente! 😘",
+      "Annalaura Borrelli",
+      "23 Settembre 2019",
+      "Grazie di aver reso il nostro soggiorno a Sharm indimenticabile. Grazie di averci seguito in tutto e per le bellissime escursioni consigliate. Fathy un nome, una garanzia. Ci vediamo presto ❤️",
+      "Oliva Duran",
+      "27 Maggio 2019",
+      "The excellent service that provides to every group or individual that ambition to explore Egypt. From arrival to departure! Highly educated multilingual guides are perfectly organized. They coordinate and manage every aspect of the tours.",
+      "Siciliano Irene Veronica",
+      "5 Febbraio 2026",
+      "Wonderful experience spectacular organization Fabio wonderful person and above all very helpful I highly recommend it",
+      "Federico Selmi",
+      "23 Novembre 2024",
+      "Cross roots. Fabio un NOME UNA GARANZIA. La guida perfetta per delle bellissime escursioni. Fabio ci ha accompagnati nel nostro meraviglioso viaggio da prima della partenza al nostro rientro a Catania. Abbiamo passato una settimana meravigliosa con numerose escursioni... Grazie Fabio!",
+      "Vittorio Mazzullo",
+      "27 Settembre 2022",
+      "Consiglio vivamente cross roots travel, Fabio gentilissimo e sempre a disposizione anche di notte… non ti lascia mai da solo! Arrivato in Hotel tutto lo staff mi sconsigliava di fidarmi di qualcuno e invece io con la fiducia di Fathy ho risparmiato un casinò di soldi e ho fatto esperienze uniche!",
+      "Brandon Rigano",
+      "6 Settembre 2022",
+      "Ringraziamo infinitamente Fabio per questa fantastica vacanza, un grande organizzatore. È riuscito a pianificare tutte le escursioni nei minimi dettagli, facendoci vivere esperienze uniche. Dispone di servizi ottimi, pronto a soddisfare tutte le nostre richieste.",
+      "Francesca Mannelli",
+      "30 Agosto 2022",
+      "Ho contattato Fathy dall’Italia, ci ha indicato le migliori escursioni da poter svolgere e sono state davvero formidabili. È stato presente ad ogni ora del giorno e della notte, affidandoci a guide super preparate. Ci siamo sentiti protetti in ogni secondo.",
+      "Lorenzo Alberti",
+      "23 Ottobre 2019",
+      "Consiglio vivamente le escursioni. Fabio è una grande persona competente e gentile... lo ringrazio molto se tornerò a sharm sicuramente mi affiderò di nuovo a lui 🎉🎉 impegno e serietà non mancano divertimento assoluto.",
+      "Vincenzo Novacco",
+      "10 Ottobre 2019",
+      "Per chi viaggia cercando di conoscere e scambiare non superficialmente con l'antichissima e ricchissima cultura egiziana... consiglio vivamente e con fiducia la CROSS ROOTS Travel di Fathy (Fabio) Mansur, preparato, pronto ad ogni spiegazione ben disposto all'interscambio culturale.",
+      "Antonella Testa",
+      "10 Ottobre 2019",
+      "Mi sono affidata a Fabio per le escursioni nella penisola del Sinai per un gruppo di 30 persone, siamo stati benissimo, puntualissimo, prodigo di spiegazioni... professionale ed affidabile. Sicuramente lo consiglio.",
+      "Verdiana Troìa",
+      "9 Ottobre 2019",
+      "Per le escursioni a Sharm mi sono affidata a Fabio, puntuale, preparato e sempre a disposizione. Ottimo il suo team in particolare l'archeologo Ali, simpaticissimo e molto colto pronto a rispondere ad ogni tua domanda.",
+      "Katia Rusciano",
+      "4 Settembre 2019",
+      "Una vacanza meravigliosa... resa ancor più bella dalla nostra guida... grazie Fabio per averci fatto vivere delle splendide giornate... ci vediamo spero al più presto 😘",
+      "Francesca Delfine",
+      "24 Settembre 2019",
+      "Bellissima vacanza trascorsa a sharm con un’ottima guida di Fabio, grazie per aver reso la nostra vacanza speciale, ci torneremo sicuramente! 😘",
+      "Annalaura Borrelli",
+      "23 Settembre 2019",
+      "Grazie di aver reso il nostro soggiorno a Sharm indimenticabile. Grazie di averci seguito in tutto e per le bellissime escursioni consigliate. Fathy un nome, una garanzia. Ci vediamo presto ❤️",
+      "Oliva Duran",
+      "27 Maggio 2019",
+      "The excellent service that provides to every group or individual that ambition to explore Egypt. From arrival to departure! Highly educated multilingual guides are perfectly organized. They coordinate and manage every aspect of the tours.",
+      "Leggi su Facebook"
+    ]
+  },
+  "legacy": {
+    "bio": "\n        &lt;p&gt;Cari ospiti,&lt;/p&gt;\n\n        &lt;p&gt;A Sharm El Sheikh troverete centinaia di venditori che vi offriranno \"il prezzo più basso\". Io ho fatto una scelta diversa: &lt;strong&gt;offrirvi la qualità più alta&lt;/strong&gt;.&lt;/p&gt;\n\n        &lt;p&gt;Il mio catalogo non contiene tutto, ma solo il meglio. Ho selezionato personalmente ogni barca, ogni guida e ogni angolo di deserto per garantirvi tre cose che non hanno prezzo: &lt;strong&gt;Sicurezza, Privacy e Magia&lt;/strong&gt;.&lt;/p&gt;\n\n       \n\n        &lt;p style=\"margin-top: 20px; font-style: italic; color: #fff;\"&gt;Chi è Fabio? Più di un amico, un’istituzione.&lt;/p&gt;\n\n        &lt;p&gt;Affidare la propria vacanza a qualcuno è una questione di fiducia. Ecco perché sono diverso:&lt;/p&gt;\n\n\n\n        &lt;span class=\"wf-text-highlight\"&gt;Eccellenza &amp; Legalità&lt;/span&gt;\n\n        &lt;p&gt;Laureato in Lingue (Al-Alsun) e Guida Ufficiale autorizzata dal Ministero. A Sharm, dove l'abusivismo è diffuso, scegliere me significa scegliere la competenza certificata.&lt;/p&gt;\n\n\n\n        &lt;span class=\"wf-text-highlight\"&gt;Servizio VIP (Assistente di Volo)&lt;/span&gt;\n\n        &lt;p&gt;Il mio altro ufficio è \"il cielo\". Come Assistente di Volo, unisco il calore dell'ospitalità egiziana alla precisione degli standard internazionali.&lt;/p&gt;\n\n\n\n        &lt;span class=\"wf-text-highlight\"&gt;Ospiti, Non Numeri&lt;/span&gt;\n\n        &lt;p&gt;Mentre altri vi stipano in bus affollati, io scelgo la concretezza: Auto privata, flessibilità totale e zero sorprese.&lt;/p&gt;\n\n\n\n        &lt;span class=\"wf-text-highlight\"&gt;Il Valore dei Ricordi&lt;/span&gt;\n\n        &lt;p&gt;Ricordate: un'escursione rovinata per risparmiare pochi euro... alla fine costa molto cara.&lt;/p&gt;\n\n\n\n        &lt;span class=\"wf-quote\"&gt;\"La qualità ha un prezzo, ma i vostri ricordi più belli non hanno prezzo.\"&lt;/span&gt;\n\n      ",
+    "images": [
+      {
+        "alt": "Menu",
+        "complete": true,
+        "src": "/assets/images/icons/menu-icon.webp",
+        "width": 96
+      },
+      {
+        "alt": "Fabio Tours Logo",
+        "complete": true,
+        "src": "/assets/images/logo/fabio-header-logo.webp",
+        "width": 150
+      },
+      {
+        "alt": "Comandamenti 1",
+        "complete": true,
+        "src": "/assets/images/comandamenti-images/1.webp",
+        "width": 600
+      },
+      {
+        "alt": "Comandamenti 2",
+        "complete": true,
+        "src": "/assets/images/comandamenti-images/2.webp",
+        "width": 600
+      },
+      {
+        "alt": "Comandamenti 3",
+        "complete": true,
+        "src": "/assets/images/comandamenti-images/3.webp",
+        "width": 600
+      },
+      {
+        "alt": "Background",
+        "complete": true,
+        "src": "/assets/images/home-who-fabio/home-who-fabio-bg.webp",
+        "width": 800
+      },
+      {
+        "alt": "Fabio",
+        "complete": true,
+        "src": "/assets/images/home-who-fabio/home-who-fabio-preson.webp",
+        "width": 800
+      },
+      {
+        "alt": "Close",
+        "complete": true,
+        "src": "/assets/images/icons/close-icon.svg",
+        "width": 150
+      },
+      {
+        "alt": "Sharm El Sheikh",
+        "complete": true,
+        "src": "assets/images/home-fabio-tours-sections/sharm.webp",
+        "width": 800
+      },
+      {
+        "alt": "Cairo",
+        "complete": true,
+        "src": "assets/images/home-fabio-tours-sections/cairo.webp",
+        "width": 800
+      },
+      {
+        "alt": "Luxor & Aswan",
+        "complete": true,
+        "src": "assets/images/home-fabio-tours-sections/Luxor-and-aswan.webp",
+        "width": 800
+      },
+      {
+        "alt": "FABIO",
+        "complete": true,
+        "src": "/assets/images/logo/fabio-header-logo.webp",
+        "width": 150
+      },
+      {
+        "alt": "Facebook",
+        "complete": true,
+        "src": "/assets/images/icons/social/facebook.svg",
+        "width": 150
+      },
+      {
+        "alt": "Instagram",
+        "complete": true,
+        "src": "/assets/images/icons/social/instagram.svg",
+        "width": 150
+      },
+      {
+        "alt": "TikTok",
+        "complete": true,
+        "src": "/assets/images/icons/social/tiktok.svg",
+        "width": 150
+      },
+      {
+        "alt": "YouTube",
+        "complete": true,
+        "src": "/assets/images/icons/social/youtube.svg",
+        "width": 150
+      },
+      {
+        "alt": "Cross Roots Logo",
+        "complete": true,
+        "src": "/assets/images/logo/cross-roots-logo.webp",
+        "width": 150
+      }
+    ],
+    "links": [
+      {
+        "href": "http://127.0.0.1:5173/#",
+        "text": "Home"
+      },
+      {
+        "href": "http://127.0.0.1:5173/#",
+        "text": "Escursioni"
+      },
+      {
+        "href": "http://127.0.0.1:5173/#",
+        "text": "Recensioni"
+      },
+      {
+        "href": "http://127.0.0.1:5173/#",
+        "text": "10 Comandamenti"
+      },
+      {
+        "href": "http://127.0.0.1:5173/#",
+        "text": "Blog"
+      },
+      {
+        "href": "http://127.0.0.1:5173/#",
+        "text": "Home"
+      },
+      {
+        "href": "http://127.0.0.1:5173/#",
+        "text": "Escursioni"
+      },
+      {
+        "href": "http://127.0.0.1:5173/#",
+        "text": "Recensioni"
+      },
+      {
+        "href": "http://127.0.0.1:5173/#",
+        "text": "10 Comandamenti"
+      },
+      {
+        "href": "http://127.0.0.1:5173/#",
+        "text": "Blog"
+      },
+      {
+        "href": "http://127.0.0.1:5173/sharm-secrets/index.html",
+        "text": "SBLOCCA IL MANUALE VIP"
+      },
+      {
+        "href": "http://127.0.0.1:5173/explore.html?loc=sharm",
+        "text": "Sharm El Sheikh\n                Scopri"
+      },
+      {
+        "href": "http://127.0.0.1:5173/explore.html?loc=cairo",
+        "text": "Cairo\n                Scopri"
+      },
+      {
+        "href": "http://127.0.0.1:5173/explore.html?loc=luxor_and_aswan",
+        "text": "Luxor e Aswan\n                Scopri"
+      },
+      {
+        "href": "https://www.facebook.com/CROSSROOTSTRAVEL/reviews/?id=100063543025466&sk=reviews",
+        "text": "Leggi su Facebook"
+      },
+      {
+        "href": "http://127.0.0.1:5173/legal.html",
+        "text": "Legale & Privacy"
+      },
+      {
+        "href": "http://127.0.0.1:5173/sharm-secrets/index.html#page6",
+        "text": "Perché Fabio?"
+      },
+      {
+        "href": "mailto:info@fabioegypt.com",
+        "text": "info@fabioegypt.com"
+      },
+      {
+        "href": "https://www.facebook.com/fabioEgyptVip/",
+        "text": ""
+      },
+      {
+        "href": "https://www.instagram.com/fabio_egypt_vip",
+        "text": ""
+      },
+      {
+        "href": "https://www.tiktok.com/@fabioegypt.vip?_r=1&_t=ZS-98nPDGjK3Cn",
+        "text": ""
+      },
+      {
+        "href": "https://www.youtube.com/@FabioEgyptItaly",
+        "text": ""
+      }
+    ],
+    "overflow": false,
+    "sections": [
+      {
+        "id": "hero-slider-section",
+        "rect": {
+          "height": 700,
+          "width": 1100,
+          "x": 170,
+          "y": 40
+        },
+        "style": null,
+        "text": null
+      },
+      {
+        "id": "who-fabio",
+        "rect": {
+          "height": 600,
+          "width": 1440,
+          "x": 0,
+          "y": 740
+        },
+        "style": null,
+        "text": null
+      },
+      {
+        "id": "promo-banner-container",
+        "rect": {
+          "height": 73.33333587646484,
+          "width": 1440,
+          "x": 0,
+          "y": 82
+        },
+        "style": "margin-top: 72px; display: block; transition: opacity 0.5s ease-out; opacity: 1;",
+        "text": null
+      },
+      {
+        "id": "trips-grid",
+        "rect": {
+          "height": 120,
+          "width": 1440,
+          "x": 0,
+          "y": 1388
+        },
+        "style": null,
+        "text": null
+      },
+      {
+        "id": "lux-entry-card group relative block overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500",
+        "rect": {
+          "height": 450,
+          "width": 800,
+          "x": 320,
+          "y": 1564
+        },
+        "style": null,
+        "text": "Sharm El Sheikh\n                Scopri"
+      },
+      {
+        "id": "lux-entry-card group relative block overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500",
+        "rect": {
+          "height": 450,
+          "width": 800,
+          "x": 320,
+          "y": 2094
+        },
+        "style": null,
+        "text": "Cairo\n                Scopri"
+      },
+      {
+        "id": "lux-entry-card group relative block overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500",
+        "rect": {
+          "height": 450,
+          "width": 800,
+          "x": 320,
+          "y": 2624
+        },
+        "style": null,
+        "text": "Luxor e Aswan\n                Scopri"
+      },
+      {
+        "id": "reviews-section",
+        "rect": {
+          "height": 686.5521240234375,
+          "width": 1440,
+          "x": 0,
+          "y": 3194
+        },
+        "style": null,
+        "text": null
+      },
+      {
+        "id": "global-footer",
+        "rect": {
+          "height": 373.0104370117187,
+          "width": 1440,
+          "x": 0,
+          "y": 3912.55224609375
+        },
+        "style": null,
+        "text": null
+      }
+    ],
+    "strings": [
+      "Nota: I 10 Comandamenti di Fabio",
+      "Il manuale di sopravvivenza definitivo per Sharm. Evita le trappole per turisti e vivi la vera vacanza da insider.",
+      "SBLOCCA IL MANUALE VIP",
+      "Chi è Fabio",
+      "FABIO TOURS",
+      "Esperienze VIP a Sharm El Sheikh",
+      "Sharm El Sheikh",
+      "Scopri",
+      "Cairo",
+      "Scopri",
+      "Luxor e Aswan",
+      "Scopri",
+      "Dicono di Noi",
+      "Le parole dei nostri ospiti su Facebook",
+      "Siciliano Irene Veronica",
+      "5 Febbraio 2026",
+      "Wonderful experience spectacular organization Fabio wonderful person and above all very helpful I highly recommend it",
+      "Federico Selmi",
+      "23 Novembre 2024",
+      "Cross roots. Fabio un NOME UNA GARANZIA. La guida perfetta per delle bellissime escursioni. Fabio ci ha accompagnati nel nostro meraviglioso viaggio da prima della partenza al nostro rientro a Catania. Abbiamo passato una settimana meravigliosa con numerose escursioni... Grazie Fabio!",
+      "Vittorio Mazzullo",
+      "27 Settembre 2022",
+      "Consiglio vivamente cross roots travel, Fabio gentilissimo e sempre a disposizione anche di notte… non ti lascia mai da solo! Arrivato in Hotel tutto lo staff mi sconsigliava di fidarmi di qualcuno e invece io con la fiducia di Fathy ho risparmiato un casinò di soldi e ho fatto esperienze uniche!",
+      "Brandon Rigano",
+      "6 Settembre 2022",
+      "Ringraziamo infinitamente Fabio per questa fantastica vacanza, un grande organizzatore. È riuscito a pianificare tutte le escursioni nei minimi dettagli, facendoci vivere esperienze uniche. Dispone di servizi ottimi, pronto a soddisfare tutte le nostre richieste.",
+      "Francesca Mannelli",
+      "30 Agosto 2022",
+      "Ho contattato Fathy dall’Italia, ci ha indicato le migliori escursioni da poter svolgere e sono state davvero formidabili. È stato presente ad ogni ora del giorno e della notte, affidandoci a guide super preparate. Ci siamo sentiti protetti in ogni secondo.",
+      "Lorenzo Alberti",
+      "23 Ottobre 2019",
+      "Consiglio vivamente le escursioni. Fabio è una grande persona competente e gentile... lo ringrazio molto se tornerò a sharm sicuramente mi affiderò di nuovo a lui 🎉🎉 impegno e serietà non mancano divertimento assoluto.",
+      "Vincenzo Novacco",
+      "10 Ottobre 2019",
+      "Per chi viaggia cercando di conoscere e scambiare non superficialmente con l'antichissima e ricchissima cultura egiziana... consiglio vivamente e con fiducia la CROSS ROOTS Travel di Fathy (Fabio) Mansur, preparato, pronto ad ogni spiegazione ben disposto all'interscambio culturale.",
+      "Antonella Testa",
+      "10 Ottobre 2019",
+      "Mi sono affidata a Fabio per le escursioni nella penisola del Sinai per un gruppo di 30 persone, siamo stati benissimo, puntualissimo, prodigo di spiegazioni... professionale ed affidabile. Sicuramente lo consiglio.",
+      "Verdiana Troìa",
+      "9 Ottobre 2019",
+      "Per le escursioni a Sharm mi sono affidata a Fabio, puntuale, preparato e sempre a disposizione. Ottimo il suo team in particolare l'archeologo Ali, simpaticissimo e molto colto pronto a rispondere ad ogni tua domanda.",
+      "Katia Rusciano",
+      "4 Settembre 2019",
+      "Una vacanza meravigliosa... resa ancor più bella dalla nostra guida... grazie Fabio per averci fatto vivere delle splendide giornate... ci vediamo spero al più presto 😘",
+      "Francesca Delfine",
+      "24 Settembre 2019",
+      "Bellissima vacanza trascorsa a sharm con un’ottima guida di Fabio, grazie per aver reso la nostra vacanza speciale, ci torneremo sicuramente! 😘",
+      "Annalaura Borrelli",
+      "23 Settembre 2019",
+      "Grazie di aver reso il nostro soggiorno a Sharm indimenticabile. Grazie di averci seguito in tutto e per le bellissime escursioni consigliate. Fathy un nome, una garanzia. Ci vediamo presto ❤️",
+      "Oliva Duran",
+      "27 Maggio 2019",
+      "The excellent service that provides to every group or individual that ambition to explore Egypt. From arrival to departure! Highly educated multilingual guides are perfectly organized. They coordinate and manage every aspect of the tours.",
+      "Siciliano Irene Veronica",
+      "5 Febbraio 2026",
+      "Wonderful experience spectacular organization Fabio wonderful person and above all very helpful I highly recommend it",
+      "Federico Selmi",
+      "23 Novembre 2024",
+      "Cross roots. Fabio un NOME UNA GARANZIA. La guida perfetta per delle bellissime escursioni. Fabio ci ha accompagnati nel nostro meraviglioso viaggio da prima della partenza al nostro rientro a Catania. Abbiamo passato una settimana meravigliosa con numerose escursioni... Grazie Fabio!",
+      "Vittorio Mazzullo",
+      "27 Settembre 2022",
+      "Consiglio vivamente cross roots travel, Fabio gentilissimo e sempre a disposizione anche di notte… non ti lascia mai da solo! Arrivato in Hotel tutto lo staff mi sconsigliava di fidarmi di qualcuno e invece io con la fiducia di Fathy ho risparmiato un casinò di soldi e ho fatto esperienze uniche!",
+      "Brandon Rigano",
+      "6 Settembre 2022",
+      "Ringraziamo infinitamente Fabio per questa fantastica vacanza, un grande organizzatore. È riuscito a pianificare tutte le escursioni nei minimi dettagli, facendoci vivere esperienze uniche. Dispone di servizi ottimi, pronto a soddisfare tutte le nostre richieste.",
+      "Francesca Mannelli",
+      "30 Agosto 2022",
+      "Ho contattato Fathy dall’Italia, ci ha indicato le migliori escursioni da poter svolgere e sono state davvero formidabili. È stato presente ad ogni ora del giorno e della notte, affidandoci a guide super preparate. Ci siamo sentiti protetti in ogni secondo.",
+      "Lorenzo Alberti",
+      "23 Ottobre 2019",
+      "Consiglio vivamente le escursioni. Fabio è una grande persona competente e gentile... lo ringrazio molto se tornerò a sharm sicuramente mi affiderò di nuovo a lui 🎉🎉 impegno e serietà non mancano divertimento assoluto.",
+      "Vincenzo Novacco",
+      "10 Ottobre 2019",
+      "Per chi viaggia cercando di conoscere e scambiare non superficialmente con l'antichissima e ricchissima cultura egiziana... consiglio vivamente e con fiducia la CROSS ROOTS Travel di Fathy (Fabio) Mansur, preparato, pronto ad ogni spiegazione ben disposto all'interscambio culturale.",
+      "Antonella Testa",
+      "10 Ottobre 2019",
+      "Mi sono affidata a Fabio per le escursioni nella penisola del Sinai per un gruppo di 30 persone, siamo stati benissimo, puntualissimo, prodigo di spiegazioni... professionale ed affidabile. Sicuramente lo consiglio.",
+      "Verdiana Troìa",
+      "9 Ottobre 2019",
+      "Per le escursioni a Sharm mi sono affidata a Fabio, puntuale, preparato e sempre a disposizione. Ottimo il suo team in particolare l'archeologo Ali, simpaticissimo e molto colto pronto a rispondere ad ogni tua domanda.",
+      "Katia Rusciano",
+      "4 Settembre 2019",
+      "Una vacanza meravigliosa... resa ancor più bella dalla nostra guida... grazie Fabio per averci fatto vivere delle splendide giornate... ci vediamo spero al più presto 😘",
+      "Francesca Delfine",
+      "24 Settembre 2019",
+      "Bellissima vacanza trascorsa a sharm con un’ottima guida di Fabio, grazie per aver reso la nostra vacanza speciale, ci torneremo sicuramente! 😘",
+      "Annalaura Borrelli",
+      "23 Settembre 2019",
+      "Grazie di aver reso il nostro soggiorno a Sharm indimenticabile. Grazie di averci seguito in tutto e per le bellissime escursioni consigliate. Fathy un nome, una garanzia. Ci vediamo presto ❤️",
+      "Oliva Duran",
+      "27 Maggio 2019",
+      "The excellent service that provides to every group or individual that ambition to explore Egypt. From arrival to departure! Highly educated multilingual guides are perfectly organized. They coordinate and manage every aspect of the tours.",
+      "Leggi su Facebook"
+    ]
+  }
+}

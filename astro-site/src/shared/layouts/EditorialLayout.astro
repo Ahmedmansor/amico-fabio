@@ -1,0 +1,39 @@
+---
+import DocumentShell from './DocumentShell.astro';
+import PageHead from '../seo/PageHead.astro';
+import { getSharedMessages } from '../i18n/shared';
+import { type Locale } from '../config/languages';
+import { siteConfig } from '../config/site';
+import type { ShareImage } from '../seo/share-image';
+import type { BlogAlternates } from '../../features/blog/domain/models';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import AuthDialog from '../../features/auth/presentation/AuthDialog.astro';
+import WelcomeDialog from '../../features/auth/presentation/WelcomeDialog.astro';
+import WishlistInvitation from '../../features/wishlist/presentation/WishlistInvitation.astro';
+import InquiryDialog from '../../features/blog/presentation/components/InquiryDialog.astro';
+import type {Destination} from '../../features/blog/domain/taxonomy';
+import DesktopPolish from '../components/DesktopPolish.astro';
+import '../styles/global.css';
+import '../../features/blog/presentation/styles/blog.css';
+import '../styles/typography.css';
+interface Props {locale:Locale;title:string;description:string;path:string;alternates:BlogAlternates;navigation:BlogAlternates;fixture?:boolean;article?:boolean;articleId?:string;destination?:Destination;shareImage?:ShareImage;section?:'blog'|'places'|'planner'}
+const {locale,title,description,path,alternates,navigation,fixture=false,article=false,articleId,destination,shareImage}=Astro.props;
+const m=getSharedMessages(locale).blog;
+const section=Astro.props.section??'blog';
+---
+<DocumentShell locale={locale} bodyClass="blog-site" hasHeader>
+  <Fragment slot="head">
+    <PageHead locale={locale} route="blog" title={`${title} | Fabio Egypt`} description={description} canonicalPath={path} alternatePaths={alternates} noindexOverride={fixture} ogType={article?'article':'website'} shareImage={shareImage} fontPreloads={['montserrat-v31-latin-regular.woff2','playfair-display-v40-latin-regular.woff2']}/>
+    <slot name="head"/>
+  </Fragment>
+  <a class="blog-skip" href="#blog-main">{m.skip}</a>
+  <Header locale={locale} route={section==='places'?'egypt':section==='planner'?'tailor-your-trip':'blog'} navigation={navigation}/>
+  <WishlistInvitation locale={locale}/>
+  {fixture&&<div class="blog-fixture-notice blog-container" data-fixture><span>[FIXTURE]</span> {m.fixtureNotice}</div>}
+  <slot/>
+  <Footer locale={locale}/>
+  <AuthDialog locale={locale}/><WelcomeDialog locale={locale}/>
+  <DesktopPolish/>
+  {section!=='planner'&&<InquiryDialog locale={locale} source={{articleId,title,url:new URL(path,siteConfig.url).href,destination}}/>}
+</DocumentShell>

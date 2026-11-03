@@ -1,0 +1,4 @@
+import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';
+const test=process.argv.includes('--test');let pages=0;
+function visit(folder){for(const file of fs.readdirSync(folder,{withFileTypes:true})){const target=path.join(folder,file.name);if(file.isDirectory())visit(target);else if(file.name.endsWith('.html')){const html=fs.readFileSync(target,'utf8');if(file.name==='404.html'||/http-equiv="refresh"/i.test(html))continue;pages++;assert.equal(/name="robots" content="noindex, follow"/.test(html),test,`${target}: incorrect indexing flavor`);}}}
+visit('dist');assert.ok(pages>0);const count=(fs.readFileSync('dist/sitemap.xml','utf8').match(/<loc>/g)||[]).length;assert.equal(count,test?0:pages);console.log(`${test?'TEST':'PRODUCTION'} flavor verified: ${pages} content pages, ${test?'all noindex':'all indexable'}, ${count} sitemap URLs. Root redirect and 404 excluded.`);

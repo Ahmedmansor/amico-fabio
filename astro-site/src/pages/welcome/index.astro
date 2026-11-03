@@ -1,0 +1,6 @@
+---
+import {getWelcome} from '../../features/welcome/data/welcome.mjs';
+import WelcomePage from '../../features/welcome/presentation/WelcomePage.astro';
+const campaign=getWelcome();
+---
+<WelcomePage campaign={campaign}/>

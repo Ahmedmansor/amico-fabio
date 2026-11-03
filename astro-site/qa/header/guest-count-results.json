@@ -1,0 +1,58 @@
+{
+  "results": [
+    {
+      "path": "/en/",
+      "expected": 3,
+      "countBeforeModules": true,
+      "authIndependent": true,
+      "stableGeometry": true,
+      "frames": {
+        "observed": 42,
+        "blank": 0
+      },
+      "backendRequests": 0
+    },
+    {
+      "path": "/en/explore/",
+      "expected": 3,
+      "countBeforeModules": true,
+      "authIndependent": true,
+      "stableGeometry": true,
+      "frames": {
+        "observed": 34,
+        "blank": 0
+      },
+      "backendRequests": 0
+    },
+    {
+      "path": "/en/tours/super_safari_5_senses/",
+      "expected": 3,
+      "countBeforeModules": true,
+      "authIndependent": true,
+      "stableGeometry": true,
+      "frames": {
+        "observed": 43,
+        "blank": 0
+      },
+      "backendRequests": 0
+    },
+    {
+      "path": "/en/wishlist/",
+      "expected": 4,
+      "countBeforeModules": true,
+      "authIndependent": true,
+      "stableGeometry": true,
+      "frames": {
+        "observed": 68,
+        "blank": 0
+      },
+      "backendRequests": 0
+    },
+    {
+      "addUpdatesImmediately": true,
+      "crossTabRemoval": true,
+      "backendRequests": 0
+    }
+  ],
+  "errors": []
+}

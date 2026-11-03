@@ -1,0 +1,53 @@
+{
+  "mode": "synthetic-local-only",
+  "cases": [
+    {
+      "locale": "it",
+      "width": 375,
+      "uncheckedByDefault": true,
+      "keyboardSave": true,
+      "noImplicitConsent": true,
+      "retrySameRequest": true,
+      "accountIsolation": true,
+      "noOverflow": true,
+      "localOnly": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "it",
+      "width": 1440,
+      "uncheckedByDefault": true,
+      "keyboardSave": true,
+      "noImplicitConsent": true,
+      "retrySameRequest": true,
+      "accountIsolation": true,
+      "noOverflow": true,
+      "localOnly": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "uncheckedByDefault": true,
+      "keyboardSave": true,
+      "noImplicitConsent": true,
+      "retrySameRequest": true,
+      "accountIsolation": true,
+      "noOverflow": true,
+      "localOnly": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "uncheckedByDefault": true,
+      "keyboardSave": true,
+      "noImplicitConsent": true,
+      "retrySameRequest": true,
+      "accountIsolation": true,
+      "noOverflow": true,
+      "localOnly": true,
+      "noPageErrors": true
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "title": "E-Mail-Erinnerung",
+  "languageLabel": "Sprache der Erinnerung",
+  "languageNote": "Künftige E-Mails folgen der zuletzt mit deinem Konto verwendeten Website-Sprache. Ein Sprachwechsel aktiviert keine Erinnerungen und startet ihre Wartezeit nicht neu.",
+  "label": "Sende mir eine einmalige E-Mail-Erinnerung an meine Favoriten",
+  "description": "Optional. Höchstens eine Erinnerung pro Konto, 24 Stunden nach dem letzten Hinzufügen oder dem Aktivieren der Erinnerung, je nachdem, was später war. Eine leere Favoritenliste beendet die Wartezeit. Du kannst Erinnerungen jederzeit deaktivieren.",
+  "save": "Einstellung speichern",
+  "loading": "Deine Erinnerungseinstellung wird geladen…",
+  "saving": "Deine Erinnerungseinstellung wird gespeichert…",
+  "enabled": "E-Mail-Erinnerungen sind für dieses Konto aktiviert.",
+  "disabled": "E-Mail-Erinnerungen sind deaktiviert. Deine Favoriten bleiben gespeichert.",
+  "error": "Deine Erinnerungseinstellung konnte nicht bestätigt werden. Bitte versuche es erneut.",
+  "outdated": "Die Erinnerungsinformationen haben sich geändert. Lade deine Einstellung neu, bevor du erneut wählst.",
+  "retry": "Erneut versuchen",
+  "reload": "Einstellung neu laden",
+  "privacy": "Datenschutzhinweise"
+}

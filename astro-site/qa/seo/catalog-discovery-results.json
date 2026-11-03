@@ -1,0 +1,31 @@
+{
+  "metadataPages": 20,
+  "packagePages": 70,
+  "tourLinks": 100,
+  "browser": [
+    {
+      "locale": "it",
+      "width": 375,
+      "modal": true,
+      "keyboardNavigation": "/it/tours/cairo_bus_adventure_choice/"
+    },
+    {
+      "locale": "it",
+      "width": 1280,
+      "modal": true,
+      "keyboardNavigation": "/it/tours/cairo_bus_adventure_choice/"
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "modal": true,
+      "keyboardNavigation": "/en/tours/cairo_bus_adventure_choice/"
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "modal": true,
+      "keyboardNavigation": "/en/tours/cairo_bus_adventure_choice/"
+    }
+  ]
+}

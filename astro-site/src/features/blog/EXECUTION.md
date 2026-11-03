@@ -1,0 +1,226 @@
+# Blog execution checklist
+
+Status: technical implementation and grouped integration complete locally.
+Real editorial publication still needs approved articles/author/photos. See
+qa/blog/FINAL.md for verification and the intentional noindex SEO-score exception.
+Updated: 2026-10-28. Preparation-only instruction was superseded by the owner's
+subsequent implementation request. New blog UI uses ui-ux-pro-max and a fresh
+visual direction; generated temporary WebP imagery is approved.
+
+Latest check cadence: focused tests for the changed blog behavior; batch broad
+Astro check/build at integration milestones. The per-phase broad-check wording
+below is historical and does not require repeated whole-site builds. Do not
+retest unrelated existing features without a concrete regression risk.
+
+Read README.md, PLAN.md, DECISIONS.md and applicable repository instructions first.
+An unchecked task is pending, not a claim of functionality. This checklist
+expands PLAN.md's phase numbers; keep those numbers stable in future reports.
+
+## Before the first implementation task
+
+- [x] Receive the owner's subsequent instruction to start implementation.
+- [x] Confirm the migration branch, inspect working-tree changes and preserve
+      unrelated work. Never switch to main.
+- [x] Activate the existing external pinned Node runtime per project setup;
+      confirm installed Astro/package versions without changing them.
+- [x] Recheck the documented APIs relevant to the phase being implemented.
+- [x] Identify exact task files and acceptance evidence before editing.
+
+Implement one focused task at a time. The former preparation-only boundary no
+longer blocks the authorized implementation; preserve all other scope boundaries.
+
+## Phase 0 — Planning package
+
+- [x] Record the self-contained feature plan and WhatsApp-only scope.
+- [x] Add README, authoring guide, decisions, QA plan and this checklist.
+- [x] Prepare empty data/domain/presentation directories with Git placeholders.
+- [x] Carry the completed preparation commit into the first implementation report.
+
+Checked items above describe documentation/scaffolding only. They do not mark
+any runtime phase complete.
+
+## Phase 1 — Prove Astro 7 content processing
+
+- [x] Inspect supported native processor hooks and collection/render timing.
+- [x] Build an isolated technical test with colocated Markdown and local images.
+- [x] Prove figure/caption, one link transform and one CTA insertion preserve
+      optimization, dimensions and valid HTML.
+- [x] Prove changed content invalidates the derived link information in dev.
+- [x] Keep temporary prototype inputs outside published content/routes or behind
+      a verified guard; do not leave an unguarded fixture route in this commit.
+- [x] Record H01/H02 results in DECISIONS.md; justify any needed dependency.
+- [x] Run focused phase checks; batch Astro check/build at integration milestones; review diff and commit.
+
+**Done when:** the supported rendering approach has real output evidence and
+does not require guessing about image transforms or circular content loading.
+
+## Phase 2 — Pure domain foundation
+
+- [x] Define article/version IDs, taxonomy, publication context and inquiry types.
+- [x] Implement publication filtering with explicit time/policy arguments.
+- [x] Implement translation resolution, reading time and active taxonomy.
+- [x] Implement related scoring and deterministic tie-breaks.
+- [x] Test identity, filtering/time boundaries, language isolation and empty sets.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+
+**Done when:** pure rules have meaningful tests and no environment/Astro/data/DOM
+dependency enters domain. Inquiry behavior is implemented in phase 10.
+
+## Phase 3 — Collection and data layer
+
+- [x] Register the collection through the feature-owned schema and supported glob.
+- [x] Map directory, article ID and slug separately; validate folder language.
+- [x] Implement content reading and one validated publication index.
+- [x] Add metadata, date, taxonomy, image, author and duplicate checks.
+- [x] Add keyword-claim diagnostics with both file names and normalized phrase.
+- [x] Provide the content-check entry point without replacing existing tests.
+- [x] Test intended invalid inputs in isolation with expected error messages.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+
+**Done when:** pages/plugins can obtain consistent validated models and bad
+inputs fail with useful record/field information.
+
+## Phase 4 — Fixtures and production guards
+
+- [x] Prepare deterministic technical WebP fixtures and the asset inventory;
+      illustrative imagegen assets/replacements move to phase 5's visual work.
+- [x] Add visibly artificial, colocated test articles/images covering QA.md.
+- [x] Include translated/untranslated, long/short, draft/future and pagination cases.
+- [x] Implement dev/approved-noindex-preview opt-in and production refusal.
+- [x] Connect output guards to the build path and scan derived public outputs.
+- [x] Prove forced opt-in is rejected in production and normal output is clean.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+
+**Done when:** test articles can be reviewed safely and cannot enter a production
+artifact through a forgotten environment flag.
+
+## Phase 5 — Index and taxonomy pages
+
+- [x] Use imagegen for replaceable illustrative article/city/interest images;
+      convert to WebP, use stable source paths and record generated/temporary
+      status, dimensions and replacement notes in ASSETS.md.
+- [x] Apply ui-ux-pro-max: generate/review a blog-specific design direction,
+      record selected tokens and Astro/Tailwind guidance, and build a fresh
+      scoped visual shell without inheriting current site styling. Preserve
+      shared navigation/Auth/wishlist behavior without redesigning other pages.
+- [x] Before introducing asymmetric routes, land the minimal tested shared
+      alternate-path/SEO-validation support needed for them (a prerequisite
+      slice of phase 8). Preserve existing-route assertions. Never leave this
+      until phase 8 if it would make the required phase 5/6 build fail; record
+      the earlier slice in both phase reports. Full metadata QA remains phase 8.
+- [x] Build reusable cards, featured selection and localized empty states.
+- [x] Add home sections, hide empty taxonomy/fact sections and use reviewed copy.
+- [x] Generate home/city/interest routes with nine-item pagination.
+- [x] Ensure page one has one URL; omit empty and overflow pages.
+- [x] Capture 375/768/1280px IT/EN screenshots and inspect generated routes.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+
+**Done when:** listing routes render full static content using the new blog shell
+and shared document/SEO/functionality integrations.
+Do not activate placeholder Blog navigation before valid routes exist.
+
+## Phase 6 — Article layout and inquiry entry points
+
+- [x] Build breadcrumbs/chips/byline/hero/body/related-article composition.
+- [x] Add verified figure/caption and inline CTA insertion transforms.
+- [x] Implement sticky desktop aside and mobile action/dialog with focus handling.
+- [x] Integrate the real WhatsApp controls with phase 10; never show fake submission success.
+- [x] Check short/no-image/nested-image cases and existing floating-control overlap.
+- [x] Capture all three widths; run keyboard/dialog walkthroughs.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+
+**Done when:** article structure/CTAs/dialog work and no placeholder claims a
+request was sent. Keep any incomplete form state clearly nonfunctional.
+
+## Phase 7 — Internal linking and output checks
+
+- [x] Implement normalized longest-first keyword selection and exclusion rules.
+- [x] Apply automatic linking to eligible article AST nodes only.
+- [x] Respect manual target links, self-exclusion, one/target and five-link cap.
+- [x] Build internal-path/fragment/language/alt/heading checks with correct scope.
+- [x] Prove both valid output and intentional broken-link/language-leak rejection.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+
+**Done when:** all QA.md link cases have rendered-output evidence, not just pure
+algorithm tests.
+
+## Phase 8 — Shared navigation and SEO integration
+
+- [x] Forward page-specific navigation and head alternate maps separately.
+- [x] Extend the existing SEO generator/validator for actual translated routes.
+- [x] Add article OG/social/JSON-LD and accurate author/date metadata.
+- [x] Verify unpaired articles and unequal paginated listings without fake hreflang.
+- [x] Activate the existing Blog nav item once routes are ready and verified.
+- [x] Regression-check current shared-shell routes and noindex behavior.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+
+**Done when:** one sitemap/head system describes real pages and shared navigation
+preserves existing site behavior. Real author details may block only publication
+of real articles; fixtures must remain visibly artificial.
+
+## Phase 9 — Related tour references
+
+- [x] Resolve explicit stable trip IDs through getTrips(), respecting visibility.
+- [x] Select the first eligible configured tour deterministically.
+- [x] Render approved locale title/image/link; do not calculate article prices.
+- [x] Reject unknown references and test hidden/missing-locale cases explicitly.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+
+**Done when:** references are validated through the owning feature's public
+data interface and cards lead to the proper booking page.
+
+## Phase 10 — WhatsApp inquiry
+
+- [x] Implement pure validation and localized message generation from PLAN.md.
+- [x] Reuse approved country/label data through an acyclic shared/public interface.
+- [x] Add unique labeled form IDs, localized errors and in-memory draft continuity.
+- [x] Add review/cancel/confirm flow and clean article context in the message.
+- [x] Open the encoded shared-number link from an explicit user action, with
+      usable fallback; never add a request-received or delivered success state.
+- [x] Add consent-gated shared analytics without personal values.
+- [x] Test text/encoding and intercept navigation without sending a real message.
+- [x] Capture both mount points/all widths; run focused tests and Astro check/build.
+- [x] Review diff and commit.
+
+**Done when:** the visitor can review a valid inquiry and open WhatsApp to send it
+themselves. No Supabase, persistence, email or backend acceptance exists here.
+
+## Phase 11 — Authoring tools
+
+- [x] Implement the safe local draft scaffold and reference/keyword report.
+- [x] Test invalid names/locales and existing-directory refusal using temp inputs.
+- [x] Replace proposed command descriptions in AUTHORING.md with actual syntax.
+- [x] Check the template against the implemented schema and route rules.
+- [x] Run focused phase tests; batch Astro check/build at integration milestones; review diff and commit.
+
+**Done when:** the owner can prepare a new draft without guessing metadata paths
+or overwriting an existing article.
+
+## Phase 12 — Final QA and handoff
+
+- [x] Run the focused blog suite and implemented content/link/fixture guards;
+      preserve the existing runner and avoid unrelated retests per owner instruction.
+- [x] Run Astro check and final static build; record actual outputs.
+- [x] Record the implemented browser/translation/negative-test matrix and
+      distinguish the remaining real-content release checks in FINAL.md.
+- [x] Measure performance/CLS and validate structured data with named tools.
+- [x] Record outstanding editorial inputs and specific limitations honestly.
+- [x] Produce final report and focused commit for any final fixes/evidence.
+
+**Done when:** acceptance is backed by the tested revision and remaining real
+publication dependencies are explicit. A deploy/push is a separate applicable
+scope decision; do not alter hosting during preparation or inherit Auth-only
+deployment authorization.
+
+## Progress reporting
+
+After each future completed task, report in Egyptian Arabic:
+
+1. What changed and why.
+2. Files and real check results.
+3. Exact local route/artifact to inspect, when available.
+4. Commit hash and any actual blocker.
+5. Next numbered task and its acceptance criterion.
+
+Do not send a checklist that implies unchecked implementation is finished.
+Routine choices within authorized implementation do not need repeated permission.

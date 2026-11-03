@@ -1,0 +1,15 @@
+{
+  "title": "Special trip offers, from Fabio",
+  "label": "Yes, I would like Fabio to email me offers and discounts related to my favorites (optional).",
+  "description": "This choice is separate from the favorites reminder. You can withdraw it here at any time. Your account and favorites work without it.",
+  "save": "Save choice",
+  "saved": "Your choice has been saved.",
+  "loading": "Loading your choice…",
+  "failed": "Your choice could not be confirmed. Reload it before trying again.",
+  "retry": "Reload choice",
+  "verify": "Verify your email before saving this choice.",
+  "intro": "Would you like an email from Fabio when there is a special offer for your saved trips?",
+  "optional": "Optional",
+  "privacy": "Privacy notice",
+  "signupDescription": "You can create an account and save trips without accepting offers. This choice is separate from the favorites reminder. You can withdraw your consent in your account."
+}

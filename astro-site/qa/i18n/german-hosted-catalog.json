@@ -1,0 +1,14 @@
+{
+  "origin": "https://amico-fabio-iyzo.vercel.app",
+  "status": 200,
+  "items": 36,
+  "locales": [
+    "it",
+    "en",
+    "es",
+    "pt",
+    "de"
+  ],
+  "environment": "test",
+  "generatedAt": "2026-11-03T00:26:02.217Z"
+}

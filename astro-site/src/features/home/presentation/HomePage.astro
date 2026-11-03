@@ -1,0 +1,91 @@
+---
+import { Image } from 'astro:assets';
+import HeroSlide from './HeroSlide.astro';
+import RotationControl from '../../../shared/components/RotationControl.astro';
+import BiographyDialog from './BiographyDialog.astro';
+import type { Locale } from '../../../shared/config/languages';
+import type { HomeContent } from '../domain/home';
+import { reviewRating } from '../domain/home';
+import { siteConfig } from '../../../shared/config/site';
+import './home.css';
+import './who-fabio.css';
+import './home-evidence.css';
+import './home-premium.css';
+import TravelBenefits from './TravelBenefits.astro';
+import BookingSteps from './BookingSteps.astro';
+import VideoTestimonials from './VideoTestimonials.astro';
+import type {getHomeEvidence} from '../data/evidence';
+import {getSharedMessages} from '../../../shared/i18n/shared';
+import slide1 from './assets/comandamenti-images/1.webp';
+import slide2 from './assets/comandamenti-images/2.webp';
+import slide3 from './assets/comandamenti-images/3.webp';
+import background from './assets/home-who-fabio/home-who-fabio-bg.webp';
+import person from '../../../shared/assets/people/fabio.webp';
+import sharm from './assets/home-fabio-tours-sections/sharm.webp';
+import cairo from './assets/home-fabio-tours-sections/cairo.webp';
+import luxor from './assets/home-fabio-tours-sections/Luxor-and-aswan.webp';
+interface Props { locale: Locale; content: HomeContent; evidence:ReturnType<typeof getHomeEvidence>; promo?: { active: boolean; values: Record<string, string> } }
+const { locale, content: m, promo, evidence } = Astro.props;
+const shared=getSharedMessages(locale);
+const highlights=[...m.global.who_is_fabio_content.matchAll(/<span class="wf-text-highlight">([^<]+)<\/span>/g)].map(match=>match[1]);
+const locations = [
+  { image: sharm, alt: 'Sharm El Sheikh', name: m.global.locations.sharm, id: 'sharm' },
+  { image: cairo, alt: 'Cairo', name: m.global.locations.cairo, id: 'cairo' },
+  { image: luxor, alt: 'Luxor & Aswan', name: m.global.locations.luxor_aswan, id: 'luxor_and_aswan' },
+];
+const facebookPath = 'M22 12a10 10 0 1 0-11.563 9.874v-6.987H7.898V12h2.539V9.797c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.63.771-1.63 1.562V12h2.773l-.443 2.887h-2.33v6.987A10.003 10.003 0 0 0 22 12Z';
+---
+{promo?.active && <aside id="promo-banner-container"><div class="home-promo"><span>{promo.values[locale]}</span><button type="button" data-dismiss-promo aria-label={shared.labels.close}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div></aside>}
+<section id="hero-slider-section" >
+  <div class="hero-slider-box"><div class="hero-slider-bg" id="home-hero-track">
+    {[slide1, slide2, slide3].map((image,index) => <div class="hero-slide-slot">
+      {index===0 ? <HeroSlide image={image} title={m.hero.vip_title} active/> : <>
+        <template data-hero-slide><HeroSlide image={image} title={m.hero.vip_title}/></template>
+        <noscript><HeroSlide image={image} title={m.hero.vip_title} fallback/></noscript>
+      </>}
+    </div>)}
+  </div><div class="hero-overlay"></div><div class="hero-content">
+    <p class="home-eyebrow hero-eyebrow">Fabio Egypt</p>
+    <h1 class="hero-title" data-i18n="hero.vip_title">{m.hero.vip_title}</h1>
+    <p class="hero-desc" data-i18n="hero.vip_desc">{m.hero.vip_desc}</p>
+    <a href={`/${locale}/sharm-secrets/`} class="hero-btn" data-i18n="hero.vip_btn">{m.hero.vip_btn}<svg class="hero-cta-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
+  </div><div class="hero-motion-controls"><RotationControl locale={locale} target="home-hero-track"/></div></div>
+</section>
+<div class="home-trust">{highlights.map(text=><span>{text}</span>)}</div>
+<section id="who-fabio" class="who-fabio-section" aria-labelledby="who-fabio-title"><div class="wf-container">
+  <div class="wf-portrait-viewport" aria-hidden="true"><div class="wf-scene">
+    <Image src={background} class="wf-bg" alt="" loading="lazy" decoding="async" widths={[480,800]} quality={65} sizes="(min-width:1280px) 1240px, 100vw"/>
+    <div class="wf-shade"></div>
+    <div class="wf-foreground"><div class="wf-glow"></div><Image src={person} class="wf-figure" alt="" loading="lazy" decoding="async" widths={[320,480,800]} quality={70} sizes="(min-width:1024px) 500px, (min-width:768px) 400px, 340px"/></div>
+  </div></div>
+  <div class="wf-copy"><p class="home-eyebrow">Fabio Egypt</p><h2 id="who-fabio-title">{m.global.who_is_fabio_btn}</h2><p>{m.journey.posterIntro}</p><button type="button" class="wf-bio-btn" aria-haspopup="dialog" aria-controls="fabio-biography">{m.global.who_is_fabio_btn}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button></div>
+</div></section>
+<BiographyDialog title={m.global.who_is_fabio_btn} intro={m.journey.posterIntro} content={m.global.who_is_fabio_content} closeLabel={shared.labels.close}/>
+<TravelBenefits title={evidence.whyTitle} items={evidence.why}/>
+<div id="trips-grid" class="text-center mt-12 mb-8 scroll-mt-32"><h2 class="main-brand-title" data-i18n="global.brand_title">{m.global.brand_title}</h2><p class="text-gray-400 uppercase tracking-widest text-sm md:text-base" data-i18n="global.vip_experiences">{m.global.vip_experiences}</p></div>
+<div class="home-destinations">
+  {locations.map(location => <a class="lux-entry-card" data-desktop-reveal href={`/${locale}/explore/${location.id}/`}>
+    <div class="lux-entry-image"><Image src={location.image} alt={location.name} loading="lazy" widths={[480,800]} sizes="(min-width: 1024px) 400px, (min-width: 768px) 33vw, 100vw" /><div class="lux-entry-overlay"></div></div>
+    <div class="lux-entry-content"><h3 class="lux-entry-title">{location.name}</h3><span class="lux-entry-cta">{m.global.discover}</span></div>
+  </a>)}
+</div>
+<BookingSteps locale={locale} title={evidence.stepsTitle} items={evidence.steps}/>
+<VideoTestimonials title={evidence.videoTitle} videos={evidence.videos} copy={m.journey} locale={locale}/>
+
+<section id="reviews-section" class="scroll-mt-32" aria-label={m.reviews.title}><div class="reviews-container">
+  <div class="reviews-header"><h2 class="reviews-title" data-i18n="reviews.title">{m.reviews.title}</h2><p class="reviews-subtitle" data-i18n="reviews.subtitle">{m.reviews.subtitle}</p></div>
+  <div class="reviews-controls" role="group" aria-label={m.journey.reviewControls}>
+    <button type="button" data-review-prev aria-controls="reviewsTrack" aria-label={m.journey.previousReview}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+    <button type="button" class="reviews-pause" data-review-pause data-paused="false" data-pause-label={m.journey.pauseReviews} data-resume-label={m.journey.resumeReviews} aria-controls="reviewsTrack" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg><span>{m.journey.pauseReviews}</span></button>
+    <button type="button" data-review-next aria-controls="reviewsTrack" aria-label={m.journey.nextReview}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+  </div>
+  <div class="reviews-slider"><div id="reviewsTrack" class="reviews-track" role="list" aria-label={m.reviews.title}>
+    {m.reviews.items.map(review => <article class="review-card" role="listitem">
+      <div class="review-header"><div class="review-author"><div class="review-name">{review.name}</div><div class="review-meta">{review.date}</div></div><div class="review-facebook" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d={facebookPath}/></svg></div></div>
+      <div class="review-rating" role="img" aria-label={`${reviewRating(review.rating)} / 5`}>{Array.from({length:5},(_, index) => <span class:list={['review-star',{'is-filled':index < reviewRating(review.rating)}]} aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>)}</div>
+      <blockquote class="review-text">{review.text}</blockquote>
+    </article>)}
+  </div></div>
+  <div class="reviews-footer"><a class="reviews-facebook-btn" target="_blank" rel="noopener noreferrer" href={siteConfig.reviewsUrl}><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d={facebookPath}/></svg><span data-i18n="reviews.facebook_btn">{m.reviews.facebook_btn}</span></a></div>
+</div></section>
+<script>import './home-interactions';</script>

@@ -1,0 +1,62 @@
+{
+  "faq": [
+    {
+      "expanded": "false",
+      "id": "faq-btn-faq-1"
+    },
+    {
+      "expanded": "true",
+      "id": "faq-btn-faq-2"
+    },
+    {
+      "expanded": "false",
+      "id": "faq-btn-faq-3"
+    },
+    {
+      "expanded": "false",
+      "id": "faq-btn-faq-4"
+    }
+  ],
+  "emptyForm": [
+    {
+      "id": "lsh-name-error",
+      "text": "Per favore inserisci il tuo nome."
+    },
+    {
+      "id": "lsh-date-error",
+      "text": "Per favore seleziona una data."
+    }
+  ],
+  "invalidPeople": [
+    "lsh-name-error",
+    "lsh-date-error",
+    "lsh-people-error"
+  ],
+  "videos": [
+    {
+      "src": "https://player.vimeo.com/video/1214756632?autoplay=1&dnt=1",
+      "title": "Il Parco Marino di Ras Mohamed"
+    },
+    {
+      "src": "https://player.vimeo.com/video/1214757531?autoplay=1&dnt=1",
+      "title": "Il Parco Marino di Ras Mohamed"
+    },
+    {
+      "src": "https://player.vimeo.com/video/1214758552?autoplay=1&dnt=1",
+      "title": "Soho square"
+    },
+    {
+      "src": "https://player.vimeo.com/video/1214760129?autoplay=1&dnt=1",
+      "title": "l’escursione del safari"
+    },
+    {
+      "src": "https://player.vimeo.com/video/1214757761?autoplay=1&dnt=1",
+      "title": "la nostra macchina privata VIP"
+    },
+    {
+      "src": "https://player.vimeo.com/video/1214758307?autoplay=1&dnt=1",
+      "title": "la città magica di Dahab"
+    }
+  ],
+  "videoClosed": true
+}

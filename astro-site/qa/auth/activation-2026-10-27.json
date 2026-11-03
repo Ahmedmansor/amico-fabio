@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-27",
+  "project": "iiivnvwspoikfrlclhyr",
+  "edgeFunction": {
+    "name": "auth-send-email",
+    "version": 4,
+    "unsignedStatus": 401,
+    "startupMissingSecretResolved": true
+  },
+  "actualAuthChecks": {
+    "maintainedDomain": {
+      "status": 403,
+      "message": "Temporary or disposable email domains are not allowed.",
+      "remainingTestUsers": 0
+    },
+    "sendHookReservedDomain": {
+      "status": 400,
+      "message": "Email domain does not accept incoming messages.",
+      "remainingTestUsers": 0
+    }
+  },
+  "concurrency": {
+    "owner": {
+      "sessionId": 433810,
+      "outcome": "send"
+    },
+    "contender": {
+      "sessionId": 433830,
+      "outcome": "uncertain",
+      "waitedMs": 778.497
+    },
+    "remainingTestDeliveries": 0,
+    "remainingTestCounters": 0
+  },
+  "nativeRoleTests": {
+    "passed": true,
+    "rollback": true
+  },
+  "nativeDenoCheck": {
+    "exitCode": 0
+  },
+  "vercel": {
+    "project": "amico-fabio-test",
+    "deployment": "dpl_DuWtc2g5BTUY3NC8c6WpGtGyFwA4",
+    "url": "https://amico-fabio-iyzo.vercel.app",
+    "ready": true,
+    "itAndEn": {
+      "emailEnabled": true,
+      "googleEnabled": true,
+      "resendSeconds": 60,
+      "emailInput": true,
+      "emailChoice": true,
+      "noindex": true
+    }
+  },
+  "externalEmailsSentByAgent": 0,
+  "inboxReceiptVerified": false,
+  "manualCrossBrowserAcceptanceVerified": false,
+  "reminderRecipientScopeChanged": false,
+  "checks": {
+    "nodeTests": 366,
+    "vitestTests": 195,
+    "failures": 0,
+    "astroFiles": 421,
+    "astroErrors": 0,
+    "astroWarnings": 0,
+    "astroHints": 0,
+    "staticPages": 96,
+    "buildSeconds": 14.05
+  },
+  "liveBrowser": {
+    "emailChoiceExpanded": true,
+    "emailInputVisible": true,
+    "sendButtonEnabled": true,
+    "emailSubmitted": false
+  }
+}

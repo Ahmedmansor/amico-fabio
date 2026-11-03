@@ -1,0 +1,74 @@
+{
+  "origin": "http://127.0.0.1:4327",
+  "results": [
+    {
+      "lang": "en",
+      "width": 375,
+      "interactionVerified": true,
+      "whatsappIntercepted": 1,
+      "screenshot": "qa/trip-planner/screenshots/planner-en-375.png"
+    },
+    {
+      "lang": "en",
+      "width": 768,
+      "interactionVerified": false,
+      "whatsappIntercepted": 0,
+      "screenshot": "qa/trip-planner/screenshots/planner-en-768.png"
+    },
+    {
+      "lang": "en",
+      "width": 1280,
+      "interactionVerified": false,
+      "whatsappIntercepted": 0,
+      "screenshot": "qa/trip-planner/screenshots/planner-en-1280.png"
+    },
+    {
+      "lang": "it",
+      "width": 375,
+      "interactionVerified": false,
+      "whatsappIntercepted": 0,
+      "screenshot": "qa/trip-planner/screenshots/planner-it-375.png"
+    },
+    {
+      "lang": "it",
+      "width": 768,
+      "interactionVerified": false,
+      "whatsappIntercepted": 0,
+      "screenshot": "qa/trip-planner/screenshots/planner-it-768.png"
+    },
+    {
+      "lang": "it",
+      "width": 1280,
+      "interactionVerified": true,
+      "whatsappIntercepted": 1,
+      "screenshot": "qa/trip-planner/screenshots/planner-it-1280.png"
+    }
+  ],
+  "headers": [
+    {
+      "lang": "en",
+      "width": 375,
+      "href": "/en/tailor-your-trip/",
+      "visible": true
+    },
+    {
+      "lang": "en",
+      "width": 1280,
+      "href": "/en/tailor-your-trip/",
+      "visible": true
+    },
+    {
+      "lang": "it",
+      "width": 375,
+      "href": "/it/tailor-your-trip/",
+      "visible": true
+    },
+    {
+      "lang": "it",
+      "width": 1280,
+      "href": "/it/tailor-your-trip/",
+      "visible": true
+    }
+  ],
+  "headerOnlyFollowup": true
+}

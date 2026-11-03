@@ -1,0 +1,13 @@
+---
+import {Image} from 'astro:assets';
+import {imageAssets} from '../../packages/presentation/images';
+import {getSharedMessages} from '../../../shared/i18n/shared';
+import type {Locale} from '../../../shared/config/languages';
+interface Props {locale:Locale;product:{title:string;poster:string;url:string;kind:'tour'|'package'}}
+const {locale,product}=Astro.props,m=getSharedMessages(locale).blog,image=imageAssets[product.poster];
+if(!image)throw new Error(`[places] Missing product poster: ${product.poster}`);
+---
+<a href={product.url} class="place-product" data-editorial-product target="_blank" rel="noopener noreferrer">
+  <Image src={image} alt="" widths={[320,640]} sizes="(min-width:1024px) 320px, 100vw" format="webp" loading="lazy"/>
+  <div><p class="blog-kicker">{product.kind==='tour'?m.tourLabel:m.packageLabel}</p><h3>{product.title}</h3><span class="blog-text-link">{m.viewDetails}<span aria-hidden="true">↗</span></span></div>
+</a>

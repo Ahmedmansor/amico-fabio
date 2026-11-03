@@ -1,0 +1,26 @@
+---
+import {authConfig,localeBrowserConfig} from '../data/build-config';
+import {getAuthMessages} from '../data/messages';
+import {getLocaleMessages} from '../data/locale-messages';
+import type {Locale} from '../../../shared/config/languages';
+import AccountSummary from './AccountSummary.astro';
+import './auth.css';
+interface Props {locale:Locale}
+const {locale}=Astro.props,m=getAuthMessages(locale);
+const localeSettings=localeBrowserConfig?{config:localeBrowserConfig,messages:getLocaleMessages(locale)}:null;
+const configuration=JSON.stringify({config:authConfig,messages:m,locale,localeSettings}).replace(/</g,'\\u003c');
+---
+{authConfig && <>
+  <script type="application/json" id="auth-config" set:html={configuration}/>
+  <dialog class="auth-dialog" data-auth-dialog aria-labelledby="auth-title">
+    <div class="auth-content">
+      <h2 id="auth-title">{m.accountTitle}</h2>
+      <p>{m.signedIn}</p><AccountSummary locale={locale}/>
+      {authConfig.passwordEnabled && <a class="auth-button auth-secondary" href={`/${locale}/login/?settings=password`}>{m.optionalPassword}</a>}
+      <button type="button" class="auth-button auth-secondary" data-auth-signout>{m.signOut}</button>
+      <p data-auth-status role="status" aria-live="polite" hidden></p>
+      <button type="button" class="auth-close" data-auth-close>{m.close}</button>
+    </div>
+  </dialog>
+</>}
+<script>import './auth-interactions';</script>

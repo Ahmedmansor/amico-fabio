@@ -1,0 +1,28 @@
+id,slug,adult_price,child_price,min_pax,location,category,featured,badge_it,badge_en,is_active,source_order
+ras_mohammed_white_island_vip,ras_mohammed_white_island_vip,40,19.5,1,sharm,sea,true,Top 🔥,Top 🔥,true,0
+ras_mohammed_bus_half_day,ras_mohammed_bus_half_day,30,13,1,sharm,sea,true,Top 🔥,Top 🔥,true,1
+tiran_island_boat_vip,tiran_island_boat_vip,40,20,1,sharm,sea,true,"","",true,2
+dahab_blue_hole_super_safari,dahab_blue_hole_super_safari,40,20,1,sharm,sea,true,"","",true,3
+private_boat_vip_king,private_boat_vip_king,80,28,1,sharm,sea,true,"","",true,4
+dolphin_show_family,dolphin_show_family,25,13,1,sharm,sea,true,"","",true,5
+swim_with_dolphins_vip,swim_with_dolphins_vip,75,70,1,sharm,sea,true,"","",true,6
+sina_dream_vip_day,sina_dream_vip_day,70,30,1,sharm,sea,true,"","",true,7
+dinner_cruise_night_show,dinner_cruise_night_show,35,40,1,sharm,sea,true,"","",true,8
+water_sports_adrenaline_combo,water_sports_adrenaline_combo,45,40,1,sharm,sea,true,"","",true,9
+albatros_aqua_park_full_day,albatros_aqua_park_full_day,50,40,1,sharm,sea,true,"","",true,10
+seascope_semi_submarine,seascope_semi_submarine,45,40,1,sharm,sea,true,"","",true,11
+super_safari_5_senses,super_safari_5_senses,55,0,1,sharm,desert,true,Top 🔥,Top 🔥,true,12
+moto_safari_quad_echo,moto_safari_quad_echo,30,0,1,sharm,desert,true,"","",true,13
+vip_cena_romantica,vip_cena_romantica,60,0,1,sharm,desert,true,"","",true,14
+cairo_plane_flexible_museum,cairo_plane_flexible_museum,230,0,1,sharm,culture,true,"","",true,15
+cairo_bus_adventure_choice,cairo_bus_adventure_choice,80,0,1,sharm,culture,true,"","",true,16
+santa_caterina_monastery_morning,santa_caterina_monastery_morning,60,0,1,sharm,culture,true,"","",true,17
+mount_sinai_sunrise_adventure,mount_sinai_sunrise_adventure,70,0,1,sharm,culture,true,"","",true,18
+luxor_plane_classic,luxor_plane_classic,240,0,1,sharm,culture,true,"","",true,19
+petra_jordan_expedition,petra_jordan_expedition,270,0,1,sharm,culture,true,"","",true,20
+sharm_old_market_ultimate_shopping,sharm_old_market_ultimate_shopping,25,0,1,sharm,culture,true,"","",true,21
+cairo_pyramids_classic_dummy,cairo_pyramids_classic_dummy,80,0,1,cairo,classic,false,"","",false,22
+cairo_nile_dinner_dummy,cairo_nile_dinner_dummy,81,0,1,cairo,sea,false,"","",false,23
+cairo_quad_pyramids_dummy,cairo_quad_pyramids_dummy,82,0,1,cairo,desert,false,"","",false,24
+luxor_kings_valley_dummy,luxor_kings_valley_dummy,83,0,1,luxor_and_aswan,luxor,false,"","",false,25
+aswan_felucca_dummy,aswan_felucca_dummy,84,0,1,luxor_and_aswan,aswan,false,"","",false,26

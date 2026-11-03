@@ -1,0 +1,22 @@
+{
+  "reducedMotionChunkAbsent": true,
+  "reducedMotionPoster": true,
+  "preferencesBeforeEmbed": true,
+  "noVimeoWithoutConsent": true,
+  "dialogOpens": true,
+  "iframe": "https://player.vimeo.com/video/1214756632?autoplay=1&dnt=1",
+  "playerHttpStatus": 401,
+  "playerVideoElement": 0,
+  "closeUnloadsPlayer": true,
+  "escapeUnloadsPlayer": true,
+  "analyticsNotEnabled": true,
+  "campaignVideos": 6,
+  "campaignIDs": [
+    "1214756632",
+    "1214757531",
+    "1214758552",
+    "1214760129",
+    "1214757761",
+    "1214758307"
+  ]
+}

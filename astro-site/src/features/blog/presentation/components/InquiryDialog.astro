@@ -1,0 +1,13 @@
+---
+import type {Locale} from '../../../../shared/config/languages';
+import type {InquirySource} from '../../domain/inquiry';
+import {getSharedMessages} from '../../../../shared/i18n/shared';
+import {getNationalityOptions} from '../../data/inquiry-options';
+import InquiryForm from './InquiryForm.astro';
+interface Props {locale:Locale;source:InquirySource}
+const {locale,source}=Astro.props,m=getSharedMessages(locale).blog;
+const configuration=JSON.stringify({locale,source,m,nationalities:getNationalityOptions(locale).map(option=>option.value)}).replaceAll('<',String.raw`\u003c`);
+---
+<dialog id="blog-inquiry-dialog" class="blog-inquiry-dialog" aria-labelledby="blog-dialog-title"><button class="blog-dialog-close" type="button" data-blog-close aria-label={m.close}>×</button><h2 id="blog-dialog-title">{m.formTitle}</h2><p>{m.formHint}</p><InquiryForm locale={locale} prefix="dialog" destination={source.destination}/></dialog>
+<script type="application/json" id="blog-inquiry-config" set:html={configuration}/>
+<script>import '../scripts/inquiry';</script>

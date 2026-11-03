@@ -1,0 +1,27 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+*.log
+/supabase/local/
+
+# Visual migration evidence stays local; keep QA JSON and Markdown tracked.
+/qa/**/*.png
+/qa/**/*.jpg
+/qa/**/*.jpeg
+/qa/**/*.webp
+/qa/**/*.avif
+/qa/blog/lighthouse-*.raw.json
+/qa/header/lighthouse-*.raw.json
+/qa/details/lighthouse-*.raw.json
+/qa/inquiry/lighthouse-*.raw.json
+/qa/home-refresh/lighthouse-*.raw.json
+/qa/footer/lighthouse-*.raw.json
+/qa/marketing-design/lighthouse-*.raw.json
+
+# Disposable blog pipeline verification projects (removed by the runner).
+/qa/blog/.pipeline/
+
+/qa/wishlist/design-lighthouse.raw.json

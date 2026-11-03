@@ -1,0 +1,882 @@
+{
+  "sharm_confidential": {
+    "tour_id": "sharm_confidential",
+    "title": "Sharm Confidential: a experiência total",
+    "short_desc": "O pacote definitivo de 6 dias. Inclui TUDO: iate VIP, Ras Mohammed por terra, Super Safari, Dahab e visita à cidade. Não terá de se preocupar com nada.",
+    "duration": "6 dias / 5 noites (programa completo)",
+    "highlights": [
+      "5 experiências incluídas (mar, terra, deserto e cidade)",
+      "Dupla experiência em Ras Mohammed (iate e autocarro)",
+      "Dahab e Blue Hole de jipe",
+      "Todos os transfers e jantares mencionados incluídos"
+    ],
+    "full_description": "Porquê escolher se pode ter tudo? Este itinerário é a combinação perfeita de descanso e aventura.\n\nCriámos um percurso lógico que lhe permite explorar Sharm de todos os ângulos: navegar até à Ilha Branca, fazer snorkeling a partir da praia em Ras Mohammed, percorrer as dunas do deserto e viajar até ao lendário Blue Hole em Dahab.\n\nCada dia é equilibrado para não se cansar, com transfers privados e assistência contínua de Fabio.",
+    "program": [
+      {
+        "time": "DIA 1",
+        "activity": "Chegada e visita à cidade (bem-vindo a Sharm)",
+        "details": "Transfer privado para o hotel e check-in. À noite, «Fabio City Tour»: visita guiada à mesquita de Al Sahaba, compras no Mercado Velho e conselhos sobre os melhores locais para jantar."
+      },
+      {
+        "time": "DIA 2",
+        "activity": "O grande azul: iate VIP e Ilha Branca",
+        "details": "Dia inteiro no mar. Navegação de luxo em direção ao Parque Nacional de Ras Mohammed e paragem na famosa «Ilha Branca» (as Maldivas egípcias). Almoço a bordo incluído."
+      },
+      {
+        "time": "DIA 3",
+        "activity": "Natureza selvagem: Ras Mohammed de autocarro",
+        "details": "Meio dia dedicado a descobrir Ras Mohammed por terra. Snorkeling a partir da praia (recife Yolanda), visita à Porta de Alá, ao Lago Mágico e aos mangais. Tarde livre para descansar."
+      },
+      {
+        "time": "DIA 4",
+        "activity": "Super Safari: os 5 sentidos do Sinai",
+        "details": "Manhã livre. À tarde começa a aventura: moto-quatro no deserto, passeio de camelo ao pôr do sol, chá beduíno e jantar tradicional sob as estrelas com espetáculo."
+      },
+      {
+        "time": "DIA 5",
+        "activity": "Aventura em Dahab e Blue Hole",
+        "details": "Excursão de jipe à vila hippie de Dahab. Snorkeling no lendário Blue Hole, almoço junto ao mar e passeio pelo colorido mercado local (desfiladeiro opcional)."
+      },
+      {
+        "time": "DIA 6",
+        "activity": "Despedida e transfer final",
+        "details": "Pequeno-almoço, check-out do hotel e transfer privado para o aeroporto. Assistência até à partida e despedida final."
+      }
+    ],
+    "includes": [
+      "Todos os transfers privados (aeroporto e excursões)",
+      "Bilhetes de entrada nos parques nacionais",
+      "Almoço no iate e em Dahab",
+      "Jantar beduíno no deserto",
+      "Equipamento básico de snorkeling (a pedido)",
+      "Assistência prioritária pelo WhatsApp 24 horas por dia, todos os dias"
+    ],
+    "not_included": [
+      "Voos internacionais e seguro de viagem",
+      "Alojamento em hotel (podemos sugerir os melhores resorts)",
+      "Gorjetas e extras pessoais",
+      "Fotografias e vídeos profissionais durante as excursões"
+    ],
+    "important_notes": "A ordem das excursões pode ser alterada consoante o tempo ou as suas preferências. Recomenda-se levar passaporte, protetor solar e calçado confortável.",
+    "seo_tags": [
+      "Pacote completo Sharm El Sheikh",
+      "Ras Mohammed autocarro e barco",
+      "Excursão Blue Hole Dahab",
+      "Safari no deserto Sharm",
+      "Melhores excursões em Sharm"
+    ]
+  },
+  "dolce_vita_family": {
+    "tour_id": "dolce_vita_family",
+    "title": "Dolce Vita: família e descanso",
+    "short_desc": "As férias perfeitas para famílias. Crianças felizes (golfinhos e submarino) e pais descansados (iate VIP e jantar romântico). Sem preocupações.",
+    "duration": "5 dias (ritmo tranquilo)",
+    "highlights": [
+      "4 experiências incluídas (iate, submarino, golfinhos e jantar)",
+      "Ideal para crianças de todas as idades (100% seguro)",
+      "Ritmo calmo e confortável (sem madrugadas)",
+      "Transfers privados com ar condicionado para cada excursão"
+    ],
+    "full_description": "Sabemos que viajar com crianças pode ser um desafio. Por isso criámos o «Dolce Vita», um pacote pensado para eliminar as preocupações dos pais e maximizar a diversão dos mais pequenos.\n\nSem despertadores de madrugada nem transfers desconfortáveis. Tudo é organizado com horários cómodos e total segurança. As crianças descobrirão o mar sem se molharem no submarino e rir-se-ão com os golfinhos, enquanto os pais desfrutam do sol no iate e de um jantar romântico no mar.",
+    "program": [
+      {
+        "time": "DIA 1",
+        "activity": "Bem-vindos ao Egito",
+        "details": "Chegada ao aeroporto de Sharm, boas-vindas VIP pela equipa de Fabio e transfer privado para o hotel. Breve apresentação do programa confortável da semana."
+      },
+      {
+        "time": "DIA 2",
+        "activity": "Terra do Nunca (Ilha Branca)",
+        "details": "Um dia de conto de fadas. Navegação em direção à famosa Ilha Branca (uma faixa de areia semelhante às Maldivas), onde as crianças podem brincar em águas pouco profundas e seguras enquanto os pais descansam no iate. Almoço incluído."
+      },
+      {
+        "time": "DIA 3",
+        "activity": "À procura de Nemo (Seascope)",
+        "details": "Manhã dedicada à descoberta do fundo do mar com o submarino Seascope. As crianças podem ver peixes coloridos e corais através de janelas panorâmicas sem se molharem. Tarde livre na piscina."
+      },
+      {
+        "time": "DIA 4",
+        "activity": "Golfinhos e jantar com espetáculo",
+        "details": "Dia de emoções. Tarde no espetáculo de golfinhos para fazer rir os mais pequenos. À noite, grande final com o cruzeiro com jantar: bufete num navio de luxo com música, espetáculo de tanoura e brisa do mar."
+      },
+      {
+        "time": "DIA 5",
+        "activity": "Despedida e transfer",
+        "details": "Pequeno-almoço tranquilo, check-out do hotel e transfer privado para o aeroporto com uma pequena recordação do seu amigo Fabio."
+      }
+    ],
+    "includes": [
+      "Todos os transfers privados (aeroporto e excursões)",
+      "Bilhetes de entrada (parque marinho e espetáculo de golfinhos)",
+      "Almoço a bordo do iate e jantar no cruzeiro",
+      "Assistência prioritária para famílias (WhatsApp 24/7)",
+      "Equipamento básico de snorkeling para crianças (a pedido)"
+    ],
+    "not_included": [
+      "Voos internacionais e seguro de viagem",
+      "Alojamento em hotel (podemos sugerir os melhores resorts para famílias)",
+      "Gorjetas e extras pessoais",
+      "Fotografias e vídeos profissionais durante as excursões"
+    ],
+    "important_notes": "O pacote é flexível: os horários podem ser adaptados ao ritmo dos seus filhos. Recomenda-se levar protetor solar, chapéus e fatos de banho para todas as atividades no mar.",
+    "seo_tags": [
+      "Férias em família Sharm",
+      "Sharm com crianças",
+      "Pacote Dolce Vita Family",
+      "Excursões seguras Sharm",
+      "Golfinhos e submarino Sharm"
+    ]
+  },
+  "mille_e_una_notte": {
+    "tour_id": "mille_e_una_notte",
+    "title": "As mil e uma noites: escapadinha romântica",
+    "short_desc": "O pacote mais exclusivo para casais. Pôr do sol no deserto, jantares à luz das velas e navegação de luxo. Só para os dois.",
+    "duration": "5 dias (privacidade e magia)",
+    "highlights": [
+      "4 experiências românticas (veleiro, moto-quatro privado, jantar VIP e cruzeiro com jantar)",
+      "Guias privados (sem grupos grandes, apenas os dois)",
+      "Destaque para o pôr do sol e o ambiente",
+      "Transfers privados de luxo e discretos"
+    ],
+    "full_description": "Não é uma excursão em grupo: é a vossa lua de mel (ou escapadinha romântica) organizada ao mais ínfimo pormenor.\n\nEliminámos as multidões e acrescentámos privacidade. Neste pacote, o deserto torna-se o vosso refúgio privado ao pôr do sol e o mar transforma-se num palco romântico. Fabio garantirá que cada momento seja perfeito, do brinde no Barco Pirata ao jantar à luz das velas sob o céu estrelado do Sinai.",
+    "program": [
+      {
+        "time": "DIA 1",
+        "activity": "Bem-vindos ao paraíso",
+        "details": "Chegada VIP. Transfer privado de carro de luxo para o hotel. Sem esperas, apenas descanso desde o primeiro momento."
+      },
+      {
+        "time": "DIA 2",
+        "activity": "Velas ao vento: barco pirata e Ilha Branca",
+        "details": "Um dia único a bordo do «Veleiro dos Piratas». Um veleiro de luxo, decorado em madeira e estilo clássico, que vos levará à mágica «Terra do Nunca» (Ilha Branca). Almoço de marisco servido a bordo."
+      },
+      {
+        "time": "DIA 3",
+        "activity": "Pôr do sol privado: moto-quatro e jantar VIP",
+        "details": "A experiência principal. Guia privado (só para os dois) com moto-quatro no deserto durante a hora dourada do pôr do sol. Depois, um jantar diferente: «Jantar Beduíno VIP» à luz das velas numa tenda reservada, com grelhada mista e total privacidade."
+      },
+      {
+        "time": "DIA 4",
+        "activity": "Última noite: cruzeiro com jantar romântico",
+        "details": "Manhã livre para a praia. À noite, vistam-se com elegância para um cruzeiro noturno com jantar de bufete internacional, música suave e navegação ao luar pela costa de Sharm."
+      },
+      {
+        "time": "DIA 5",
+        "activity": "Adeus, amor",
+        "details": "Pequeno-almoço no quarto (se o hotel permitir), check-out tranquilo e transfer privado para o aeroporto para o regresso."
+      }
+    ],
+    "includes": [
+      "Todos os transfers privados VIP (carro de luxo)",
+      "Dia inteiro no veleiro pirata com almoço de marisco",
+      "Safari privado (moto-quatro só para o casal) e jantar beduíno reservado",
+      "Jantar romântico no cruzeiro",
+      "Assistência pessoal de Fabio 24/7 para pedidos especiais"
+    ],
+    "not_included": [
+      "Voos internacionais e alojamento em hotel",
+      "Bebidas alcoólicas (disponíveis como extra)",
+      "Sessão fotográfica profissional (recomendada, a pedido)",
+      "Gorjetas e extras pessoais"
+    ],
+    "important_notes": "Para o cruzeiro com jantar é exigido vestuário informal cuidado. Levem os passaportes para a excursão de barco. Podemos organizar bolos surpresa ou flores a pedido.",
+    "seo_tags": [
+      "Lua de mel Sharm",
+      "Pacote romântico Egito",
+      "Jantar romântico deserto",
+      "Navegação Ilha Branca",
+      "Viagem de casal Sharm El Sheikh"
+    ]
+  },
+  "indiana_jones_adventure": {
+    "tour_id": "indiana_jones_adventure",
+    "title": "Indiana Jones: adrenalina pura",
+    "short_desc": "Não é para preguiçosos. Uma mistura explosiva de aventura: safari de jipe, caminhada no desfiladeiro, motos no deserto, parasailing e o seu primeiro mergulho com garrafa.",
+    "duration": "5 dias (modo ação)",
+    "highlights": [
+      "4 atividades extremas (jipe, mergulho, moto-quatro e parasailing)",
+      "Exploração do Desfiladeiro Colorido (exclusiva)",
+      "Todo o equipamento técnico incluído",
+      "Guias experientes em segurança e aventura"
+    ],
+    "full_description": "Se as suas férias ideais são deitado ao sol, escolha outro pacote. O «Indiana Jones» foi pensado para quem procura emoções fortes.\n\nVamos levá-lo fora dos percursos habituais: subirá as rochas do Desfiladeiro Colorido, mergulhará nas profundezas do Blue Hole, conduzirá motos potentes pelas dunas e voará sobre o Mar Vermelho de paraquedas. Cinco dias vividos ao máximo, com a segurança e a organização impecáveis de Fabio.",
+    "program": [
+      {
+        "time": "DIA 1",
+        "activity": "Chegada e preparação",
+        "details": "Aterragem em Sharm, transfer privado para o hotel e reunião animada com a equipa para preparar o equipamento das próximas aventuras."
+      },
+      {
+        "time": "DIA 2",
+        "activity": "No trilho de Indiana Jones (desfiladeiro e Blue Hole)",
+        "details": "A verdadeira aventura. Partida de jipe safari para o deserto, caminhada entre as rochas psicadélicas do Desfiladeiro Colorido e snorkeling no lendário Blue Hole de Dahab. Almoço beduíno incluído."
+      },
+      {
+        "time": "DIA 3",
+        "activity": "Missão abismo: batismo de mergulho",
+        "details": "É hora de respirar debaixo de água. Um instrutor profissional vai acompanhá-lo no seu primeiro mergulho com garrafa. Descobrirá um mundo estranho e colorido que poucos têm coragem de ver de perto."
+      },
+      {
+        "time": "DIA 4",
+        "activity": "Dia de velocidade: motos e desportos aquáticos",
+        "details": "Dia dedicado à velocidade. Manhã: combinação de desportos aquáticos (voo de parasailing e banana aquática). Tarde: moto-quatro duplo ou buggy em pleno deserto para um percurso emocionante pelas dunas ao pôr do sol."
+      },
+      {
+        "time": "DIA 5",
+        "activity": "Fim do jogo e despedida",
+        "details": "Recuperação de energias, pequeno-almoço de campeão, check-out e transfer privado para o aeroporto com muitas histórias para contar."
+      }
+    ],
+    "includes": [
+      "Todos os transfers (jipe 4x4, autocarro e carro privado)",
+      "Almoço beduíno em Dahab",
+      "Aluguer de moto-quatro/buggy e equipamento completo de mergulho",
+      "Instrutor certificado PADI para o batismo de mergulho",
+      "Assistência médica de primeiros socorros disponível"
+    ],
+    "not_included": [
+      "Voos internacionais e hotel",
+      "Entrada no Blue Hole (paga no local)",
+      "Bebidas adicionais e gorjetas",
+      "Serviço de fotografia/vídeo GoPro (vivamente recomendado)"
+    ],
+    "important_notes": "É necessário ter boa saúde para mergulhar (não voar nas 24 horas após o mergulho). Leve calçado confortável para o desfiladeiro e passaporte válido para o posto de controlo de Dahab.",
+    "seo_tags": [
+      "Aventura Sharm El Sheikh",
+      "Blue Hole Dahab",
+      "Excursão Desfiladeiro Colorido",
+      "Safari moto-quatro Sharm",
+      "Batismo de mergulho Mar Vermelho"
+    ]
+  },
+  "il_grande_blu": {
+    "tour_id": "il_grande_blu",
+    "title": "O grande azul: tesouros do Mar Vermelho",
+    "short_desc": "O paraíso para quem vive de barbatanas calçadas. 4 excursões marinhas completas: Ras Mohammed (mar e terra), Tiran e o lendário Blue Hole.",
+    "duration": "6 dias (imersão total no mar)",
+    "highlights": [
+      "4 dias de mar incluídos (aproveite as férias ao máximo)",
+      "Combinação perfeita de barcos de luxo e snorkeling a partir da praia",
+      "Visita completa a Ras Mohammed (por mar e terra)",
+      "Todos os almoços e bebidas durante as excursões incluídos"
+    ],
+    "full_description": "Escolheu Sharm pelo seu recife de coral único no mundo? Este é o seu pacote.\n\nDeixámos tudo o resto de lado para nos concentrarmos apenas no mar. Todos os dias o levaremos a um lugar diferente: das águas cristalinas da Ilha Branca aos misteriosos naufrágios de Tiran, passando pelas profundezas do Blue Hole e pela natureza selvagem de Ras Mohammed por terra. Uma imersão total no azul, com o máximo conforto.",
+    "program": [
+      {
+        "time": "DIA 1",
+        "activity": "Chegada e descanso",
+        "details": "Aterragem em Sharm e transfer privado para o hotel. Tempo livre para se instalar e preparar o equipamento para a semana de atividades no mar."
+      },
+      {
+        "time": "DIA 2",
+        "activity": "As Maldivas do Egito (Ilha Branca)",
+        "details": "Começamos em grande. Dia de iate VIP em direção a Ras Mohammed, com uma paragem especial na faixa de areia branca que surge no meio do mar. Snorkeling guiado e almoço a bordo."
+      },
+      {
+        "time": "DIA 3",
+        "activity": "Ras Mohammed por terra (natureza)",
+        "details": "Hoje descobrimos o parque nacional de outra perspetiva. Viagem de autocarro à Porta de Alá, banho no Lago Mágico e snorkeling a partir da praia do recife Yolanda. Contacto direto com a natureza intacta."
+      },
+      {
+        "time": "DIA 4",
+        "activity": "A lenda: Blue Hole e Dahab",
+        "details": "Viagem de jipe à meca dos mergulhadores: o Blue Hole. Snorkeling neste abismo azul profundo, almoço beduíno junto ao mar e visita à tranquila vila de Dahab."
+      },
+      {
+        "time": "DIA 5",
+        "activity": "Lagoas e naufrágios: ilha de Tiran",
+        "details": "Dia de descanso total no barco em direção à ilha de Tiran. Veremos os famosos navios encalhados e faremos snorkeling nas lagoas turquesa mais tranquilas de Sharm."
+      },
+      {
+        "time": "DIA 6",
+        "activity": "Último banho e despedida",
+        "details": "Manhã livre, check-out e transfer privado para o aeroporto. Regresso a casa com o bronzeado perfeito."
+      }
+    ],
+    "includes": [
+      "Todos os transfers (barco, autocarro, jipe e carro privado)",
+      "Entradas nos parques nacionais (Ras Mohammed/Blue Hole)",
+      "Almoço de bufete ou beduíno e bebidas em todas as excursões",
+      "Guia profissional de snorkeling na água",
+      "Taxas e licenças marítimas"
+    ],
+    "not_included": [
+      "Voos internacionais e hotel",
+      "Aluguer de equipamento de snorkeling (máscara, barbatanas e fato isotérmico)",
+      "Gorjetas para a tripulação",
+      "Fotografias subaquáticas profissionais"
+    ],
+    "important_notes": "O passaporte é obrigatório (visto «Sinai Only» ou completo, consoante a duração). Leve toalhas e protetor solar todos os dias. O equipamento pode ser alugado no primeiro dia.",
+    "seo_tags": [
+      "Snorkeling Sharm El Sheikh",
+      "Excursão Ras Mohammed",
+      "Blue Hole Dahab",
+      "Excursão ilha de Tiran",
+      "Excursões de mergulho Egito"
+    ]
+  },
+  "cairo_piramidi_saqqara_vip": {
+    "tour_id": "cairo_piramidi_saqqara_vip",
+    "title": "Grandeza eterna: Pirâmides de Gizé, Esfinge e Sacará",
+    "short_desc": "Uma viagem VIP no tempo: as emblemáticas Pirâmides de Gizé, a enigmática Esfinge e a pirâmide mais antiga do mundo em Sacará.",
+    "duration": "8-9 horas (dia inteiro)",
+    "highlights": [
+      "Caminhe pelo mágico planalto de Gizé",
+      "Visite a majestosa Esfinge e o Templo do Vale",
+      "Explore a pirâmide escalonada de Djoser em Sacará",
+      "Guia egiptólogo privado de língua italiana"
+    ],
+    "full_description": "Prepare-se para uma viagem inesquecível no tempo. Não vai apenas olhar para as pirâmides: vai caminhar onde os faraós escreveram a história. Juntos descobriremos a grandeza da Grande Pirâmide de Quéops, o mistério da Esfinge e viajaremos até Sacará para admirar a pirâmide escalonada de Djoser, a estrutura de pedra mais antiga do mundo. Com a Fabio Egypt, viverá o antigo Egito com serviço VIP, sem pressas e com um guia experiente dedicado.",
+    "program": [
+      {
+        "time": "08:30",
+        "activity": "Recolha no hotel",
+        "details": "O nosso transfer privado com ar condicionado vai buscá-lo diretamente ao seu hotel no Cairo ou em Gizé."
+      },
+      {
+        "time": "09:30",
+        "activity": "Planalto de Gizé e pirâmides",
+        "details": "Chegada às pirâmides (Quéops, Quéfren e Miquerinos). Tempo para fotografias panorâmicas memoráveis e explicações históricas."
+      },
+      {
+        "time": "11:30",
+        "activity": "A Grande Esfinge",
+        "details": "Visita ao Templo do Vale e encontro frente a frente com a emblemática Esfinge."
+      },
+      {
+        "time": "13:00",
+        "activity": "Almoço tradicional",
+        "details": "Paragem num restaurante local de qualidade para saborear pratos egípcios autênticos."
+      },
+      {
+        "time": "14:30",
+        "activity": "Sacará",
+        "details": "Transfer para Sacará para explorar o complexo funerário de Djoser e a primeira pirâmide alguma vez construída."
+      },
+      {
+        "time": "16:30",
+        "activity": "Regresso",
+        "details": "Regresso tranquilo ao hotel após um dia cheio de história."
+      }
+    ],
+    "includes": [
+      "Transfer privado de ida e volta em veículo com ar condicionado",
+      "Almoço em restaurante local (bebidas excluídas)",
+      "Guia egiptólogo experiente de língua italiana",
+      "Água engarrafada durante os transfers"
+    ],
+    "not_included": [
+      "Bilhetes de entrada nos sítios arqueológicos (pagos no local)",
+      "Entrada no interior da Grande Pirâmide (opcional)",
+      "Gorjetas (ao seu critério)"
+    ],
+    "important_notes": "Leve: passaporte, calçado muito confortável para caminhar na areia, chapéu, protetor solar e óculos de sol.",
+    "seo_tags": [
+      "Pirâmides de Gizé",
+      "Excursão Sacará",
+      "Esfinge Egito",
+      "Excursão VIP Cairo",
+      "Fabio Egypt"
+    ]
+  },
+  "cairo_cuore_pulsante_museo_cittadella": {
+    "tour_id": "cairo_cuore_pulsante_museo_cittadella",
+    "title": "O coração do Cairo: Museu Egípcio, Cidadela e Khan el-Khalili",
+    "short_desc": "Descubra a alma do Cairo: os tesouros de ouro de Tutankhamon, vistas deslumbrantes da Cidadela e compras mágicas no bazar.",
+    "duration": "8 horas (dia inteiro)",
+    "highlights": [
+      "Admire os tesouros de ouro do rei Tutankhamon",
+      "Explore a Cidadela de Saladino e a Mesquita de Alabastro",
+      "Perca-se nos aromas e nas cores de Khan el-Khalili",
+      "Almoço com vista para o Nilo ou na cidade"
+    ],
+    "full_description": "Uma imersão total na alma da capital egípcia! Começamos por explorar os tesouros inestimáveis do Museu Egípcio, incluindo a lendária máscara de ouro do rei Tutankhamon. Depois subimos à Cidadela de Saladino para admirar a majestosa Mesquita de Alabastro e desfrutar de uma vista panorâmica deslumbrante sobre o Cairo. Para terminar em grande, mergulhamos nos aromas, nas cores e na energia do mercado de Khan el-Khalili, o bazar mais antigo e fascinante do Médio Oriente.",
+    "program": [
+      {
+        "time": "09:00",
+        "activity": "Recolha",
+        "details": "Encontro com o seu guia privado e partida do hotel num carro com ar condicionado."
+      },
+      {
+        "time": "09:30",
+        "activity": "Museu Egípcio",
+        "details": "Visita guiada às imensas coleções de objetos antigos e obras-primas do antigo Egito."
+      },
+      {
+        "time": "12:30",
+        "activity": "Almoço",
+        "details": "Pausa para almoçar num excelente restaurante e recuperar energias."
+      },
+      {
+        "time": "14:00",
+        "activity": "Cidadela de Saladino",
+        "details": "Visita à fortaleza medieval e à maravilhosa Mesquita de Muhammad Ali."
+      },
+      {
+        "time": "15:30",
+        "activity": "Khan el-Khalili",
+        "details": "Passeio pelo mercado histórico. Tempo livre para compras, chá de menta e café turco."
+      },
+      {
+        "time": "17:00",
+        "activity": "Regresso",
+        "details": "Fim da excursão e regresso confortável ao hotel."
+      }
+    ],
+    "includes": [
+      "Transfer privado de ida e volta de carro/miniautocarro",
+      "Almoço em restaurante local",
+      "Guia turístico de língua italiana",
+      "Água engarrafada"
+    ],
+    "not_included": [
+      "Bilhetes de entrada em museus e monumentos",
+      "Bebidas durante o almoço",
+      "Gorjetas (ao seu critério)"
+    ],
+    "important_notes": "Vestuário: roupa discreta para visitar a mesquita (ombros e joelhos cobertos, tanto para homens como para mulheres). Calçado confortável para o bazar.",
+    "seo_tags": [
+      "Museu Egípcio Cairo",
+      "Cidadela de Saladino",
+      "Khan el-Khalili",
+      "O que ver no Cairo",
+      "Visita à cidade do Cairo"
+    ]
+  },
+  "cairo_crociera_nilo_cena": {
+    "tour_id": "cairo_crociera_nilo_cena",
+    "title": "Magia noturna no Nilo: cruzeiro VIP com jantar e espetáculo",
+    "short_desc": "Viva a magia do Nilo à noite. Jantar de bufete de primeira classe, dança do ventre e espetáculo de tanoura.",
+    "duration": "3-4 horas (noite)",
+    "highlights": [
+      "Navegação romântica no rio Nilo iluminado",
+      "Jantar de bufete variado com pratos egípcios e internacionais",
+      "Espetáculo folclórico de tanoura",
+      "Música ao vivo e dança do ventre"
+    ],
+    "full_description": "Conheça o Cairo de uma perspetiva completamente diferente: deslizando suavemente pelas águas do lendário Nilo sob um céu estrelado. Convidamo-lo para uma noite de puro luxo a bordo de um cruzeiro de primeira classe. Saboreie um delicioso jantar de bufete com especialidades locais e internacionais enquanto desfruta de um animado espetáculo de dança do ventre e da hipnótica dança tradicional tanoura. Uma experiência mágica, perfeita para casais e famílias.",
+    "program": [
+      {
+        "time": "18:30",
+        "activity": "Recolha",
+        "details": "O motorista encontra-o no hotel para o levar ao cais de embarque no Nilo."
+      },
+      {
+        "time": "19:30",
+        "activity": "Embarque e navegação",
+        "details": "Bem-vindo a bordo. O barco começa a navegar enquanto desfruta da silhueta iluminada da cidade."
+      },
+      {
+        "time": "20:00",
+        "activity": "Jantar de bufete",
+        "details": "Abre o variado bufete com uma vasta seleção de pratos deliciosos."
+      },
+      {
+        "time": "21:00",
+        "activity": "Espetáculo",
+        "details": "Começa o entretenimento ao vivo: dança do ventre, dervixes rodopiantes (tanoura) e música."
+      },
+      {
+        "time": "22:00",
+        "activity": "Regresso",
+        "details": "Desembarque no cais e transfer de regresso ao hotel."
+      }
+    ],
+    "includes": [
+      "Transfer privado de ida e volta a partir do hotel",
+      "Cruzeiro de 2 horas no Nilo",
+      "Jantar de bufete livre",
+      "Espetáculos de entretenimento"
+    ],
+    "not_included": [
+      "Bebidas (disponíveis para compra a bordo)",
+      "Gorjetas (ao seu critério)"
+    ],
+    "important_notes": "Vestuário: informal cuidado. Uma ótima oportunidade para celebrar aniversários ou datas especiais.",
+    "seo_tags": [
+      "Cruzeiro com jantar Nilo",
+      "Nilo à noite",
+      "Espetáculo de tanoura",
+      "Jantar romântico Cairo",
+      "Eventos Fabio Egypt"
+    ]
+  },
+  "cairo_mistico_copto_islamico": {
+    "tour_id": "cairo_mistico_copto_islamico",
+    "title": "Cairo místico: cristianismo copta e património islâmico",
+    "short_desc": "Uma viagem espiritual pelos bairros mais antigos: siga os passos da Sagrada Família e descubra mesquitas históricas.",
+    "duration": "6-7 horas",
+    "highlights": [
+      "Visita à Igreja Suspensa (Al-Muallaqa)",
+      "Exploração da Igreja de Abu Serga (refúgio da Sagrada Família)",
+      "Visita à Sinagoga Ben Ezra",
+      "Passeio evocativo pela rua Al-Muizz no Cairo islâmico"
+    ],
+    "full_description": "Um percurso espiritual e cultural pelos bairros mais antigos da cidade. Exploramos o Cairo copta, caminhando pelos lugares sagrados onde a Sagrada Família se refugiou. Visitamos a evocativa «Igreja Suspensa», construída sobre as ruínas de uma antiga fortaleza romana, e a Sinagoga Ben Ezra. Depois continuamos para o Cairo islâmico, passeando entre antigas mesquitas e uma arquitetura deslumbrante que conta séculos de coexistência pacífica e profunda espiritualidade.",
+    "program": [
+      {
+        "time": "09:00",
+        "activity": "Recolha",
+        "details": "Partida do hotel com o seu guia especializado em história e religiões."
+      },
+      {
+        "time": "09:45",
+        "activity": "Cairo copta",
+        "details": "Exploração da Igreja Suspensa e descida à cripta de Abu Serga."
+      },
+      {
+        "time": "11:30",
+        "activity": "Sinagoga",
+        "details": "Visita à histórica Sinagoga Ben Ezra (sujeita à disponibilidade de abertura)."
+      },
+      {
+        "time": "13:00",
+        "activity": "Almoço",
+        "details": "Pausa para um almoço tranquilo."
+      },
+      {
+        "time": "14:00",
+        "activity": "Cairo islâmico (rua Al-Muizz)",
+        "details": "Passeio pelo maior museu ao ar livre de arquitetura islâmica do mundo."
+      },
+      {
+        "time": "16:00",
+        "activity": "Regresso",
+        "details": "Fim da excursão e regresso ao hotel."
+      }
+    ],
+    "includes": [
+      "Transfer privado de ida e volta",
+      "Almoço em restaurante local",
+      "Guia experiente de língua italiana",
+      "Água engarrafada"
+    ],
+    "not_included": [
+      "Bilhetes de entrada",
+      "Bebidas no restaurante",
+      "Gorjetas (ao seu critério)"
+    ],
+    "important_notes": "É exigido vestuário discreto em respeito pelos locais de culto. Os ombros e joelhos devem estar cobertos.",
+    "seo_tags": [
+      "Cairo copta",
+      "Sagrada Família Egito",
+      "Igreja Suspensa",
+      "Cairo islâmico",
+      "Excursão religiosa Cairo"
+    ]
+  },
+  "cairo_safari_piramidi_tramonto": {
+    "tour_id": "cairo_safari_piramidi_tramonto",
+    "title": "Aventura ao pôr do sol: safari de moto-quatro e camelos nas pirâmides",
+    "short_desc": "Ação e vistas deslumbrantes! Percorra o deserto de Gizé de moto-quatro e desfrute de um passeio de camelo ao pôr do sol.",
+    "duration": "3-4 horas (tarde/pôr do sol)",
+    "highlights": [
+      "1 hora de adrenalina pura de moto-quatro (ATV) no deserto",
+      "Miradouros panorâmicos exclusivos longe das multidões",
+      "Passeio tradicional de camelo de meia hora",
+      "Vista inesquecível das pirâmides ao pôr do sol"
+    ],
+    "full_description": "Para quem procura adrenalina com uma vista incomparável! Deixe a cidade para trás e percorra o deserto de Gizé num potente moto-quatro (ATV). Atravessaremos as dunas para chegar a locais panorâmicos exclusivos, perfeitos para fotografias incríveis. O ponto alto? Um passeio tradicional de camelo no momento em que o sol se põe atrás das imponentes pirâmides, pintando o céu de vermelho e dourado. Uma aventura selvagem e inesquecível.",
+    "program": [
+      {
+        "time": "15:00",
+        "activity": "Recolha no hotel",
+        "details": "Transfer para o centro de safari situado na margem do deserto de Gizé."
+      },
+      {
+        "time": "15:45",
+        "activity": "Instruções e moto-quatro",
+        "details": "Instruções de segurança e partida para uma hora emocionante de moto-quatro pelas dunas."
+      },
+      {
+        "time": "17:00",
+        "activity": "Passeio de camelo",
+        "details": "Do motor à tradição: passeio de camelo a desfrutar da paisagem."
+      },
+      {
+        "time": "17:30",
+        "activity": "Pôr do sol panorâmico",
+        "details": "Paragem num miradouro estratégico para tirar fotografias magníficas enquanto o sol se põe atrás das pirâmides."
+      },
+      {
+        "time": "18:30",
+        "activity": "Regresso",
+        "details": "Regresso à base e transfer para o hotel."
+      }
+    ],
+    "includes": [
+      "Transfer de ida e volta a partir do hotel",
+      "Aluguer de moto-quatro (ATV) durante 1 hora",
+      "Passeio de camelo (aprox. 30 minutos)",
+      "Guia acompanhante beduíno",
+      "Água"
+    ],
+    "not_included": [
+      "Gorjetas para os guias beduínos"
+    ],
+    "important_notes": "Não é necessária carta de condução para o moto-quatro. Recomendamos roupa confortável que se possa sujar, óculos de sol para a areia e um lenço (keffiyeh).",
+    "seo_tags": [
+      "Moto-quatro pirâmides",
+      "Safari Gizé",
+      "Camelo ao pôr do sol Egito",
+      "Aventura Cairo",
+      "Safari Fabio Egypt"
+    ]
+  },
+  "alessandria_tour_giornata_intera": {
+    "tour_id": "alessandria_tour_giornata_intera",
+    "title": "Escapadinha mediterrânica: excursão de dia inteiro a Alexandria",
+    "short_desc": "Saia do Cairo por um dia e descubra o ambiente greco-romano de Alexandria, a pérola do Mediterrâneo.",
+    "duration": "10-12 horas (dia inteiro)",
+    "highlights": [
+      "Exploração das misteriosas catacumbas de Kom el-Shoqafa",
+      "Fotografia panorâmica na Cidadela de Qaitbay (antigo Farol de Alexandria)",
+      "Visita à majestosa Biblioteca de Alexandria moderna",
+      "Almoço de peixe fresco à beira-mar"
+    ],
+    "full_description": "Deixamos o Cairo por um dia e viajamos para norte para descobrir a «pérola do Mediterrâneo». Alexandria, no Egito, fundada por Alexandre, o Grande, tem um ambiente greco-romano único. Exploramos as misteriosas catacumbas de Kom el-Shoqafa, admiramos a majestosa Cidadela de Qaitbay (construída sobre as ruínas do antigo Farol) e visitamos a moderna e espetacular Biblioteca de Alexandria. Desfrutamos também de um delicioso almoço de peixe fresco com vista para o mar.",
+    "program": [
+      {
+        "time": "07:00",
+        "activity": "Partida cedo",
+        "details": "Recolha no hotel no Cairo e viagem panorâmica para norte (aprox. 2,5–3 horas) em veículo com ar condicionado."
+      },
+      {
+        "time": "10:00",
+        "activity": "Catacumbas",
+        "details": "Exploração do maior cemitério romano do Egito, escavado na rocha em três níveis."
+      },
+      {
+        "time": "11:30",
+        "activity": "Coluna de Pompeu",
+        "details": "Breve paragem para admirar a coluna triunfal romana e as ruínas do Serapeu."
+      },
+      {
+        "time": "13:00",
+        "activity": "Almoço de peixe",
+        "details": "Pausa para almoçar num restaurante com vista para o Mediterrâneo, saboreando o peixe fresco do dia."
+      },
+      {
+        "time": "14:30",
+        "activity": "Cidadela de Qaitbay",
+        "details": "Visita à imponente cidadela construída exatamente onde se encontrava o famoso Farol de Alexandria."
+      },
+      {
+        "time": "15:45",
+        "activity": "Biblioteca de Alexandria",
+        "details": "Visita à obra-prima da arquitetura moderna que homenageia a antiga e célebre biblioteca."
+      },
+      {
+        "time": "17:00",
+        "activity": "Regresso ao Cairo",
+        "details": "Partida de Alexandria para regressar confortavelmente ao seu hotel no Cairo à noite."
+      }
+    ],
+    "includes": [
+      "Transfer privado de ida e volta Cairo–Alexandria",
+      "Almoço de peixe (ou alternativas)",
+      "Guia experiente de língua italiana",
+      "Água engarrafada durante a viagem"
+    ],
+    "not_included": [
+      "Bilhetes de entrada nos locais e na biblioteca",
+      "Bebidas no restaurante",
+      "Gorjetas"
+    ],
+    "important_notes": "Às terças-feiras, a Biblioteca de Alexandria pode ter horário reduzido ou estar encerrada; nesse caso, a visita será feita pelo exterior ou substituída pelos Jardins de Montazah. Leve o passaporte.",
+    "seo_tags": [
+      "Excursão Alexandria a partir do Cairo",
+      "Catacumbas Egito",
+      "Biblioteca de Alexandria",
+      "O que ver em Alexandria",
+      "Fabio Egypt"
+    ]
+  },
+  "gran_tour_egitto_cairo_crociera_8g7n": {
+    "tour_id": "gran_tour_egitto_cairo_crociera_8g7n",
+    "title": "O grande circuito faraónico: Cairo e a magia do Nilo (8 dias)",
+    "short_desc": "A experiência definitiva. Uma viagem completa de 8 dias que combina as pirâmides do Cairo, o novo Grande Museu Egípcio e um cruzeiro de luxo no Nilo.",
+    "duration": "8 dias / 7 noites",
+    "highlights": [
+      "Explore as Pirâmides de Gizé e o Grande Museu Egípcio (GEM) no Cairo",
+      "Cruzeiro de 5 estrelas no Nilo (Assuão–Luxor) com pensão completa",
+      "Conheça a cultura local na colorida aldeia núbia",
+      "Visite as obras-primas do Vale dos Reis e do Templo de Karnak",
+      "Percorra o coração do Cairo antigo e islâmico"
+    ],
+    "full_description": "Porquê escolher se pode ter tudo? O «Grande circuito faraónico» é o pacote VIP definitivo da Fabio Egypt. Em 8 dias descobrirá a essência do Egito: começamos no Cairo, admirando as imponentes pirâmides e os tesouros do Grande Museu Egípcio. Depois, um voo curto leva-o a Assuão para embarcar num luxuoso cruzeiro de 5 estrelas. Navegamos pelo Nilo, visitando os templos mais fascinantes (Philae, Edfu e Kom Ombo) até Luxor, a capital dos faraós. Regressamos depois ao Cairo para nos perdermos nas ruas místicas da Cidadela e do Cairo copta. Uma viagem sem preocupações, cuidada ao mais ínfimo pormenor.",
+    "program": [
+      {
+        "time": "Dias 1 e 2",
+        "activity": "Chegada e as maravilhas do Cairo",
+        "details": "Dia 1: chegada ao Cairo, boas-vindas VIP no aeroporto e transfer para o hotel. Dia 2: dia inteiro no planalto de Gizé (pirâmides e Esfinge) e visita ao incrível Grande Museu Egípcio (GEM). Noite no Cairo."
+      },
+      {
+        "time": "Dia 3",
+        "activity": "Voo para Assuão e aldeia núbia",
+        "details": "Voo de manhã para Assuão. Visita ao romântico Templo de Philae e embarque no cruzeiro no Nilo. À tarde, excursão fluvial à animada aldeia núbia. Noite a bordo."
+      },
+      {
+        "time": "Dia 4",
+        "activity": "Navegação e Kom Ombo",
+        "details": "Manhã livre (opcional: excursão de madrugada aos majestosos templos de Abu Simbel). Navegação para norte e visita ao Templo de Sobek em Kom Ombo. Jantar e noite a bordo."
+      },
+      {
+        "time": "Dia 5",
+        "activity": "Templo de Edfu e chegada a Luxor",
+        "details": "Visita ao Templo de Hórus em Edfu. Descanse no convés de sol enquanto o navio atravessa a eclusa de Esna para chegar a Luxor. Noite a bordo."
+      },
+      {
+        "time": "Dia 6",
+        "activity": "Luxor: capital dos faraós",
+        "details": "(Opcional: balão de ar quente de madrugada). Desembarque e visita à margem ocidental (Vale dos Reis, Templo de Hatshepsut e Colossos de Mémnon). À tarde, exploração de Karnak e do Templo de Luxor. Voo de regresso ao Cairo à noite."
+      },
+      {
+        "time": "Dias 7 e 8",
+        "activity": "Cairo antigo e partida",
+        "details": "Dia 7: visita ao Cairo histórico (Cidadela de Saladino, Cairo copta e as suas antigas igrejas). Dia 8: pequeno-almoço no hotel e transfer para o aeroporto para o voo de regresso. Fim dos nossos serviços VIP."
+      }
+    ],
+    "includes": [
+      "3 noites em hotel no Cairo (alojamento e pequeno-almoço)",
+      "4 noites em cruzeiro de 5 estrelas no Nilo (pensão completa)",
+      "Voos internos (Cairo–Assuão / Luxor–Cairo)",
+      "Todos os transfers privados em veículos com ar condicionado",
+      "Guia egiptólogo privado de língua italiana",
+      "Excursão à aldeia núbia"
+    ],
+    "not_included": [
+      "Voos internacionais e visto turístico",
+      "Bilhetes de entrada nos locais (pagos no local para maior flexibilidade)",
+      "Excursões opcionais (Abu Simbel e balão de ar quente)",
+      "Bebidas no cruzeiro e gorjetas"
+    ],
+    "important_notes": "Este é um circuito privado e personalizável. Podemos acrescentar uma extensão ao Mar Vermelho (Hurghada ou Sharm) se desejar descansar na praia no final do circuito cultural.",
+    "seo_tags": [
+      "Pacote Egito 8 dias",
+      "Cairo e cruzeiro no Nilo",
+      "Grande circuito Egito",
+      "Viagem completa Egito",
+      "Pacotes Fabio Egypt"
+    ]
+  },
+  "nile_cruise_luxor_aswan_5d4n": {
+    "tour_id": "nile_cruise_luxor_aswan_5d4n",
+    "title": "Cruzeiro real no Nilo: de Luxor a Assuão",
+    "short_desc": "Uma viagem de 5 estrelas e 5 dias/4 noites. Explore o Vale dos Reis, templos majestosos e a magia das cores da aldeia núbia.",
+    "duration": "5 dias / 4 noites",
+    "highlights": [
+      "Navegação de 5 estrelas com pensão completa a bordo",
+      "Visita aos templos de Karnak e Luxor (margem oriental)",
+      "Exploração do Vale dos Reis e do Templo de Hatshepsut",
+      "Excursão exclusiva à colorida aldeia núbia em Assuão"
+    ],
+    "full_description": "Embarque numa aventura inesquecível pelo rio mais longo do mundo. Este cruzeiro de 5 dias/4 noites de Luxor a Assuão foi pensado para lhe proporcionar o máximo conforto e descoberta. Caminhará entre as colunas gigantes de Karnak, descerá aos túmulos dos faraós no Vale dos Reis e navegará suavemente para sul, visitando os templos de Edfu e Kom Ombo. O grande final? Um mágico passeio de feluca ao coração da cultura do sul: a hospitalidade e as cores vibrantes da aldeia núbia em Assuão.",
+    "program": [
+      {
+        "time": "Dia 1",
+        "activity": "Embarque e templos de Luxor",
+        "details": "Chegada a Luxor e check-in no cruzeiro de 5 estrelas. Almoço a bordo. À tarde, visita ao imenso Templo de Karnak e ao evocativo Templo de Luxor iluminado à noite. Jantar e alojamento."
+      },
+      {
+        "time": "Dia 2",
+        "activity": "Margem ocidental e navegação",
+        "details": "Manhã: (opcional: balão de ar quente de madrugada). Visita ao Vale dos Reis, ao Templo de Hatshepsut e aos Colossos de Mémnon. Início da navegação panorâmica para Edfu. Noite a bordo."
+      },
+      {
+        "time": "Dia 3",
+        "activity": "Edfu, Kom Ombo e descanso",
+        "details": "Carruagem de cavalos (hantour) para visitar o Templo de Hórus em Edfu. Navegação para Kom Ombo e visita ao templo duplo de Sobek e Haroeris. Jantar e navegação para Assuão."
+      },
+      {
+        "time": "Dia 4",
+        "activity": "Assuão, Philae e aldeia núbia",
+        "details": "Visita à Grande Barragem, ao Obelisco Inacabado e ao romântico Templo de Philae. À tarde, passeio de feluca e visita à pitoresca aldeia núbia para conhecer a cultura local."
+      },
+      {
+        "time": "Dia 5",
+        "activity": "Desembarque (opção Abu Simbel)",
+        "details": "Pequeno-almoço e desembarque. (Excursão matinal opcional aos majestosos templos de Abu Simbel). Transfer para o aeroporto ou estação de comboios para o regresso."
+      }
+    ],
+    "includes": [
+      "4 noites em cabina dupla (cruzeiro de 5 estrelas)",
+      "Pensão completa (pequeno-almoço, almoço e jantar)",
+      "Todos os transfers privados em veículos com ar condicionado",
+      "Guia egiptólogo experiente de língua italiana",
+      "Todos os bilhetes de entrada nos locais mencionados",
+      "Excursão à aldeia núbia de lancha/feluca"
+    ],
+    "not_included": [
+      "Voos internos ou comboios",
+      "Bebidas alcoólicas e sem álcool a bordo",
+      "Excursão a Abu Simbel (opcional)",
+      "Balão de ar quente em Luxor (opcional)",
+      "Gorjetas (ao seu critério)"
+    ],
+    "important_notes": "O programa pode sofrer pequenas alterações de horário devido à navegação ou às eclusas de Esna, mas todas as visitas estão garantidas. Roupa confortável e protetor solar são essenciais.",
+    "seo_tags": [
+      "Cruzeiro no Nilo",
+      "Luxor Assuão",
+      "Aldeia núbia",
+      "Vale dos Reis",
+      "Viagem VIP Egito"
+    ]
+  },
+  "nile_cruise_aswan_luxor_4d3n": {
+    "tour_id": "nile_cruise_aswan_luxor_4d3n",
+    "title": "Magia do sul: cruzeiro de Assuão a Luxor",
+    "short_desc": "Descubra os tesouros do Alto Egito em apenas 4 dias e 3 noites. Do Templo de Philae em Assuão aos segredos do Vale dos Reis em Luxor.",
+    "duration": "4 dias / 3 noites",
+    "highlights": [
+      "Cruzeiro de 5 estrelas com pensão completa",
+      "Exploração do Templo de Philae na ilha de Agilkia",
+      "Navegação mágica no Nilo com vista para o pôr do sol",
+      "Visita aos tesouros monumentais de Luxor (Karnak e Vale dos Reis)"
+    ],
+    "full_description": "Comece a aventura na pitoresca Assuão, a porta de África. Nesta viagem de 4 dias/3 noites, admirará a beleza do Templo de Philae, dedicado à deusa Ísis. Depois navegamos pelo Nilo, parando para descobrir os singulares templos de Kom Ombo e Edfu, até chegar à capital faraónica por excelência: Luxor. Aí perder-se-á nos corredores secretos do Vale dos Reis e na grandeza do complexo de Karnak. Uma dose concentrada de história e luxo.",
+    "program": [
+      {
+        "time": "Dia 1",
+        "activity": "Assuão e Templo de Philae",
+        "details": "Chegada a Assuão e check-in no navio. Visita à majestosa Grande Barragem e ao belo Templo de Philae. Almoço a bordo e tempo livre. (Opcional: visita à aldeia núbia à tarde)."
+      },
+      {
+        "time": "Dia 2",
+        "activity": "Kom Ombo e Edfu",
+        "details": "De madrugada (opcional: excursão aos templos de Abu Simbel). Navegação para Kom Ombo e visita ao templo. Continuação para Edfu. Jantar a bordo com festa tradicional."
+      },
+      {
+        "time": "Dia 3",
+        "activity": "Edfu e chegada a Luxor",
+        "details": "Visita matinal ao Templo de Hórus em Edfu. Descanse no convés de sol enquanto navegamos para Luxor, atravessando a eclusa de Esna. Ao fim da tarde, visita ao complexo de Karnak e ao Templo de Luxor."
+      },
+      {
+        "time": "Dia 4",
+        "activity": "Margem ocidental e desembarque",
+        "details": "De manhã cedo: (opcional: balão de ar quente). Desembarque após o pequeno-almoço. Visita à margem ocidental: Vale dos Reis, Templo de Hatshepsut e Colossos de Mémnon. Transfer para o aeroporto/estação."
+      }
+    ],
+    "includes": [
+      "3 noites em cabina dupla (cruzeiro de 5 estrelas)",
+      "Pensão completa (pequeno-almoço, almoço e jantar)",
+      "Todos os transfers privados",
+      "Guia egiptólogo experiente de língua italiana",
+      "Todos os bilhetes de entrada nos locais mencionados"
+    ],
+    "not_included": [
+      "Voos internos ou comboios",
+      "Bebidas",
+      "Excursão a Abu Simbel ou à aldeia núbia (opcional)",
+      "Gorjetas"
+    ],
+    "important_notes": "Uma opção perfeita para quem tem menos tempo mas não quer perder a autêntica experiência de navegar no Nilo. Recomendamos reservar os voos internos de acordo com os horários do programa.",
+    "seo_tags": [
+      "Cruzeiro Assuão Luxor",
+      "Excursão Alto Egito",
+      "Templo de Philae",
+      "Karnak",
+      "Cruzeiros Fabio Egypt"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-03",
+  "sourceCommit": "a69b504f796e4044a46277a74c618c9414db338f",
+  "workflow": "Astro production Pages",
+  "runId": 41559378646,
+  "runUrl": "https://github.com/Ahmedmansor/amico-fabio/actions/runs/41559378646",
+  "buildJobId": 125666010396,
+  "conclusion": "failure",
+  "executedBuildSteps": 0,
+  "failureAnnotation": "The job was not started because your account is locked due to a billing issue.",
+  "mainMerged": false,
+  "pagesSourceChanged": false,
+  "productionFrontendChanged": false,
+  "billingSettingsChanged": false,
+  "requiredUserAction": "Resolve the GitHub account billing lock. Then rerun this workflow, verify its build, switch Pages source to GitHub Actions, merge and verify the main deployment."
+}

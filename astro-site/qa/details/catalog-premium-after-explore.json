@@ -1,0 +1,2093 @@
+{
+  "origin": "http://127.0.0.1:4341",
+  "results": [
+    {
+      "kind": "explore",
+      "locale": "it",
+      "width": 375,
+      "content": {
+        "fields": {
+          "detail-title": "",
+          "detail-duration": "",
+          "detail-desc": "",
+          "detail-full-desc": "",
+          "detail-highlights": "",
+          "detail-includes": "",
+          "detail-excludes": "",
+          "detail-program": "",
+          "detail-important": "",
+          "card-price": "",
+          "card-price-breakdown": "",
+          "live-total-price": "",
+          "included-trips-subtitle": ""
+        },
+        "booking": null,
+        "labels": [
+          "Ordina per prezzo"
+        ],
+        "links": [
+          "/it/tours/ras_mohammed_bus_half_day/",
+          "/it/tours/ras_mohammed_bus_half_day/",
+          "/it/tours/ras_mohammed_white_island_vip/",
+          "/it/tours/ras_mohammed_white_island_vip/",
+          "/it/tours/super_safari_5_senses/",
+          "/it/tours/super_safari_5_senses/",
+          "/it/tours/dolphin_show_family/",
+          "/it/tours/dolphin_show_family/",
+          "/it/tours/sharm_old_market_ultimate_shopping/",
+          "/it/tours/sharm_old_market_ultimate_shopping/",
+          "/it/tours/moto_safari_quad_echo/",
+          "/it/tours/moto_safari_quad_echo/",
+          "/it/tours/dinner_cruise_night_show/",
+          "/it/tours/dinner_cruise_night_show/",
+          "/it/tours/tiran_island_boat_vip/",
+          "/it/tours/tiran_island_boat_vip/",
+          "/it/tours/dahab_blue_hole_super_safari/",
+          "/it/tours/dahab_blue_hole_super_safari/",
+          "/it/tours/water_sports_adrenaline_combo/",
+          "/it/tours/water_sports_adrenaline_combo/",
+          "/it/tours/seascope_semi_submarine/",
+          "/it/tours/seascope_semi_submarine/",
+          "/it/tours/albatros_aqua_park_full_day/",
+          "/it/tours/albatros_aqua_park_full_day/",
+          "/it/tours/vip_cena_romantica/",
+          "/it/tours/vip_cena_romantica/",
+          "/it/tours/santa_caterina_monastery_morning/",
+          "/it/tours/santa_caterina_monastery_morning/",
+          "/it/tours/sina_dream_vip_day/",
+          "/it/tours/sina_dream_vip_day/",
+          "/it/tours/mount_sinai_sunrise_adventure/",
+          "/it/tours/mount_sinai_sunrise_adventure/",
+          "/it/tours/swim_with_dolphins_vip/",
+          "/it/tours/swim_with_dolphins_vip/",
+          "/it/tours/private_boat_vip_king/",
+          "/it/tours/private_boat_vip_king/",
+          "/it/tours/cairo_bus_adventure_choice/",
+          "/it/tours/cairo_bus_adventure_choice/",
+          "/it/packages/dolce_vita_family/",
+          "/it/packages/dolce_vita_family/",
+          "/it/packages/indiana_jones_adventure/",
+          "/it/packages/indiana_jones_adventure/",
+          "/it/packages/mille_e_una_notte/",
+          "/it/packages/mille_e_una_notte/",
+          "/it/packages/il_grande_blu/",
+          "/it/packages/il_grande_blu/",
+          "/it/packages/sharm_confidential/",
+          "/it/packages/sharm_confidential/",
+          "/it/tours/cairo_plane_flexible_museum/",
+          "/it/tours/cairo_plane_flexible_museum/",
+          "/it/tours/luxor_plane_classic/",
+          "/it/tours/luxor_plane_classic/",
+          "/it/tours/petra_jordan_expedition/",
+          "/it/tours/petra_jordan_expedition/"
+        ],
+        "cards": [
+          {
+            "key": "trip:ras_mohammed_bus_half_day",
+            "price": "30",
+            "score": "3",
+            "text": "Top 🔥Salva nei preferitiRas Mohammed Nature Explorer: Il Parco via TerraUn viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.A partire da€30Scopri"
+          },
+          {
+            "key": "trip:ras_mohammed_white_island_vip",
+            "price": "40",
+            "score": "3",
+            "text": "Top 🔥Salva nei preferitiRas Mohammed & White Island: L'Esperienza VIPVivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.A partire da€40Scopri"
+          },
+          {
+            "key": "trip:super_safari_5_senses",
+            "price": "55",
+            "score": "3",
+            "text": "Top 🔥Salva nei preferitiSuper Safari: I 5 Sensi del SinaiL'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.A partire da€55Scopri"
+          },
+          {
+            "key": "trip:dolphin_show_family",
+            "price": "25",
+            "score": "0",
+            "text": "Salva nei preferitiDolphin Show: Emozioni per tutta la FamigliaUn'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.A partire da€25Scopri"
+          },
+          {
+            "key": "trip:sharm_old_market_ultimate_shopping",
+            "price": "25",
+            "score": "0",
+            "text": "Salva nei preferitiSharm Vecchia: Moschea, Fashion & L'India d'EgittoIl tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!A partire da€25Scopri"
+          },
+          {
+            "key": "trip:moto_safari_quad_echo",
+            "price": "30",
+            "score": "0",
+            "text": "Salva nei preferitiMoto Safari: Quad, Tramonto & Valle dell'EcoAdrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.A partire da€30Scopri"
+          },
+          {
+            "key": "trip:dinner_cruise_night_show",
+            "price": "35",
+            "score": "0",
+            "text": "Salva nei preferitiNotte Magica: Cena di Pesce & Show OrientaleUna serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.A partire da€35Scopri"
+          },
+          {
+            "key": "trip:tiran_island_boat_vip",
+            "price": "40",
+            "score": "0",
+            "text": "Salva nei preferitiIsola di Tiran VIP: Relitti e Barriere CorallineNaviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.A partire da€40Scopri"
+          },
+          {
+            "key": "trip:dahab_blue_hole_super_safari",
+            "price": "40",
+            "score": "0",
+            "text": "Salva nei preferitiDahab Adventure: Blue Hole, Cammelli & CanyonLa vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.A partire da€40Scopri"
+          },
+          {
+            "key": "trip:water_sports_adrenaline_combo",
+            "price": "45",
+            "score": "0",
+            "text": "Salva nei preferitiAdrenalina Sky & Sea: Parasailing & Water ToysVola sul Mar Rosso con il paracadute e sfida le onde con Banana Boat e Tubo. Divertimento puro e adrenalina in totale sicurezza.A partire da€45Scopri"
+          },
+          {
+            "key": "trip:seascope_semi_submarine",
+            "price": "45",
+            "score": "0",
+            "text": "Salva nei preferitiSea Scope: Il Cinema SottomarinoScopri la barriera corallina restando all'asciutto. Un'esperienza in sottomarino panoramico con aria condizionata. Ideale per famiglie.A partire da€45Scopri"
+          },
+          {
+            "key": "trip:albatros_aqua_park_full_day",
+            "price": "50",
+            "score": "0",
+            "text": "Salva nei preferitiAlbatros Aqua Park: Il Regno dell'AcquaUna giornata di puro divertimento nel parco acquatico più grande del Medio Oriente. Oltre 60 scivoli, piscine a onde e relax per tutta la famiglia.A partire da€50Scopri"
+          },
+          {
+            "key": "trip:vip_cena_romantica",
+            "price": "60",
+            "score": "0",
+            "text": "Salva nei preferitiCena Romantica VIP: Mille e Una NotteL'esperienza più esclusiva di Sharm. Una cena privata nel cuore del deserto, sotto un tappeto di stelle. Solo per coppie e occasioni speciali.A partire da€60Scopri"
+          },
+          {
+            "key": "trip:santa_caterina_monastery_morning",
+            "price": "60",
+            "score": "0",
+            "text": "Salva nei preferitiSanta Caterina: Il Monastero Sacro (Classic & VIP)Un viaggio spirituale nella Terra Santa. Visita il Monastero più antico del mondo e il Roveto Ardente. Disponibile in Bus (Gruppo) o Auto Privata (VIP).A partire da€60Scopri"
+          },
+          {
+            "key": "trip:sina_dream_vip_day",
+            "price": "70",
+            "score": "0",
+            "text": "Salva nei preferitiSina Dream VIP: Il Veliero di LussoVivi il Mar Rosso a bordo di un vero veliero. Comfort a 5 stelle, amache sul mare e il miglior pranzo di pesce di Sharm.A partire da€70Scopri"
+          },
+          {
+            "key": "trip:mount_sinai_sunrise_adventure",
+            "price": "70",
+            "score": "0",
+            "text": "Salva nei preferitiMonte Sinai Adventure: L'Alba Sacra & MonasteroLa sfida della vita. Scala il Monte di Mosè sotto le stelle, guarda l'alba più bella del mondo e visita il Monastero. Disponibile in Bus o Versione VIP (Salva-Schiena).A partire da€70Scopri"
+          },
+          {
+            "key": "trip:swim_with_dolphins_vip",
+            "price": "75",
+            "score": "0",
+            "text": "Salva nei preferitiNuotare con i Delfini: Amore a Prima VistaL'esperienza della vita. Entra in acqua, danza e gioca con l'animale più intelligente del mondo. Un privilegio per pochi.A partire da€75Scopri"
+          },
+          {
+            "key": "trip:private_boat_vip_king",
+            "price": "80",
+            "score": "0",
+            "text": "Salva nei preferitiPrivate Boat VIP: The King of Red SeaL'esperienza definitiva. Uno yacht intero solo per te. Tu decidi l'orario, la rotta e il menu. Privacy assoluta e lusso.A partire da€80Scopri"
+          },
+          {
+            "key": "trip:cairo_bus_adventure_choice",
+            "price": "80",
+            "score": "0",
+            "text": "Salva nei preferitiIl Cairo in Bus: L'Avventura Smart & La Tua SceltaLa storia a piccolo prezzo. Un viaggio 'On the Road' verso le Piramidi. Scegli tu: il fascino del Vecchio Museo o il futuro del Nuovo GEM.A partire da€80Scopri"
+          },
+          {
+            "key": "package:dolce_vita_family",
+            "price": "160",
+            "score": "0",
+            "text": "Adatta alle famiglieSalva nei preferitiPacchetto PremiumDolce Vita: Family & RelaxLa vacanza perfetta per famiglie. Bambini felici (Delfini e Sottomarino) e genitori rilassati (Yacht VIP e Cena Romantica). Zero stress.A partire da€160Scopri il pacchetto"
+          },
+          {
+            "key": "package:indiana_jones_adventure",
+            "price": "160",
+            "score": "0",
+            "text": "Più votatoSalva nei preferitiPacchetto PremiumIndiana Jones: Adrenalina PuraVietato ai pigri. Un mix esplosivo di avventura: Jeep Safari, Trekking nel Canyon, Moto nel deserto, Paracadute e la tua prima Immersione.A partire da€160Scopri il pacchetto"
+          },
+          {
+            "key": "package:mille_e_una_notte",
+            "price": "180",
+            "score": "0",
+            "text": "NovitàSalva nei preferitiPacchetto PremiumMille e Una Notte: Fuga RomanticaIl pacchetto più esclusivo per le coppie. Deserti al tramonto, cene a lume di candela e navigazione di lusso. Solo per voi due.A partire da€180Scopri il pacchetto"
+          },
+          {
+            "key": "package:il_grande_blu",
+            "price": "180",
+            "score": "0",
+            "text": "Salva nei preferitiPacchetto PremiumIl Grande Blu: I Tesori del Mar RossoIl paradiso per chi vive con le pinne ai piedi. 4 Escursioni marine complete: Ras Mohammed (Mare e Terra), Tiran e il leggendario Blue Hole.A partire da€180Scopri il pacchetto"
+          },
+          {
+            "key": "package:sharm_confidential",
+            "price": "200",
+            "score": "0",
+            "text": "Best sellerSalva nei preferitiPacchetto PremiumSharm Confidential: L'Esperienza TotaleIl pacchetto definitivo di 6 giorni. Include TUTTO: Yacht VIP, Ras Mohammed via terra, Super Safari, Dahab e City Tour. Non dovrai pensare a nulla.A partire da€200Scopri il pacchetto"
+          },
+          {
+            "key": "trip:cairo_plane_flexible_museum",
+            "price": "230",
+            "score": "0",
+            "text": "Salva nei preferitiIl Cairo in Aereo: Piramidi & Tu Scegli il MuseoVola al Cairo e decidi tu la storia. Piramidi di Giza + La tua scelta tra il 'Museo Classico' (Tahrir) o il 'Nuovo GEM' (Il Futuro).A partire da€230Scopri"
+          },
+          {
+            "key": "trip:luxor_plane_classic",
+            "price": "240",
+            "score": "0",
+            "text": "Salva nei preferitiLuxor in Aereo: La Valle dei Re & I Templi d'OroIl museo a cielo aperto più grande del mondo. Vola da Sharm per scoprire Karnak, la Valle dei Re e il Tempio della Regina Hatshepsut in un giorno indimenticabile.A partire da€240Scopri"
+          },
+          {
+            "key": "trip:petra_jordan_expedition",
+            "price": "270",
+            "score": "0",
+            "text": "Salva nei preferitiPetra: La Città Rosa (Una delle 7 Meraviglie del Mondo)Un viaggio epico in Giordania. Naviga il Mar Rosso, attraversa il Canyon 'Il Siq' e scopri il Tesoro di Petra. Un'esperienza da lista dei desideri.A partire da€270Scopri"
+          }
+        ],
+        "filters": [
+          "Tutte",
+          "Pacchetti",
+          "Cultura",
+          "Deserto",
+          "Mare",
+          "Consigliati (VIP)",
+          "Prezzo: Basso → Alto",
+          "Prezzo: Alto → Basso"
+        ],
+        "included": [],
+        "templates": []
+      },
+      "modalCases": 0,
+      "errors": [],
+      "overflow": false
+    },
+    {
+      "kind": "explore",
+      "locale": "it",
+      "width": 820,
+      "content": {
+        "fields": {
+          "detail-title": "",
+          "detail-duration": "",
+          "detail-desc": "",
+          "detail-full-desc": "",
+          "detail-highlights": "",
+          "detail-includes": "",
+          "detail-excludes": "",
+          "detail-program": "",
+          "detail-important": "",
+          "card-price": "",
+          "card-price-breakdown": "",
+          "live-total-price": "",
+          "included-trips-subtitle": ""
+        },
+        "booking": null,
+        "labels": [
+          "Ordina per prezzo"
+        ],
+        "links": [
+          "/it/tours/ras_mohammed_bus_half_day/",
+          "/it/tours/ras_mohammed_bus_half_day/",
+          "/it/tours/ras_mohammed_white_island_vip/",
+          "/it/tours/ras_mohammed_white_island_vip/",
+          "/it/tours/super_safari_5_senses/",
+          "/it/tours/super_safari_5_senses/",
+          "/it/tours/dolphin_show_family/",
+          "/it/tours/dolphin_show_family/",
+          "/it/tours/sharm_old_market_ultimate_shopping/",
+          "/it/tours/sharm_old_market_ultimate_shopping/",
+          "/it/tours/moto_safari_quad_echo/",
+          "/it/tours/moto_safari_quad_echo/",
+          "/it/tours/dinner_cruise_night_show/",
+          "/it/tours/dinner_cruise_night_show/",
+          "/it/tours/tiran_island_boat_vip/",
+          "/it/tours/tiran_island_boat_vip/",
+          "/it/tours/dahab_blue_hole_super_safari/",
+          "/it/tours/dahab_blue_hole_super_safari/",
+          "/it/tours/water_sports_adrenaline_combo/",
+          "/it/tours/water_sports_adrenaline_combo/",
+          "/it/tours/seascope_semi_submarine/",
+          "/it/tours/seascope_semi_submarine/",
+          "/it/tours/albatros_aqua_park_full_day/",
+          "/it/tours/albatros_aqua_park_full_day/",
+          "/it/tours/vip_cena_romantica/",
+          "/it/tours/vip_cena_romantica/",
+          "/it/tours/santa_caterina_monastery_morning/",
+          "/it/tours/santa_caterina_monastery_morning/",
+          "/it/tours/sina_dream_vip_day/",
+          "/it/tours/sina_dream_vip_day/",
+          "/it/tours/mount_sinai_sunrise_adventure/",
+          "/it/tours/mount_sinai_sunrise_adventure/",
+          "/it/tours/swim_with_dolphins_vip/",
+          "/it/tours/swim_with_dolphins_vip/",
+          "/it/tours/private_boat_vip_king/",
+          "/it/tours/private_boat_vip_king/",
+          "/it/tours/cairo_bus_adventure_choice/",
+          "/it/tours/cairo_bus_adventure_choice/",
+          "/it/packages/dolce_vita_family/",
+          "/it/packages/dolce_vita_family/",
+          "/it/packages/indiana_jones_adventure/",
+          "/it/packages/indiana_jones_adventure/",
+          "/it/packages/mille_e_una_notte/",
+          "/it/packages/mille_e_una_notte/",
+          "/it/packages/il_grande_blu/",
+          "/it/packages/il_grande_blu/",
+          "/it/packages/sharm_confidential/",
+          "/it/packages/sharm_confidential/",
+          "/it/tours/cairo_plane_flexible_museum/",
+          "/it/tours/cairo_plane_flexible_museum/",
+          "/it/tours/luxor_plane_classic/",
+          "/it/tours/luxor_plane_classic/",
+          "/it/tours/petra_jordan_expedition/",
+          "/it/tours/petra_jordan_expedition/"
+        ],
+        "cards": [
+          {
+            "key": "trip:ras_mohammed_bus_half_day",
+            "price": "30",
+            "score": "3",
+            "text": "Top 🔥Salva nei preferitiRas Mohammed Nature Explorer: Il Parco via TerraUn viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.A partire da€30Scopri"
+          },
+          {
+            "key": "trip:ras_mohammed_white_island_vip",
+            "price": "40",
+            "score": "3",
+            "text": "Top 🔥Salva nei preferitiRas Mohammed & White Island: L'Esperienza VIPVivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.A partire da€40Scopri"
+          },
+          {
+            "key": "trip:super_safari_5_senses",
+            "price": "55",
+            "score": "3",
+            "text": "Top 🔥Salva nei preferitiSuper Safari: I 5 Sensi del SinaiL'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.A partire da€55Scopri"
+          },
+          {
+            "key": "trip:dolphin_show_family",
+            "price": "25",
+            "score": "0",
+            "text": "Salva nei preferitiDolphin Show: Emozioni per tutta la FamigliaUn'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.A partire da€25Scopri"
+          },
+          {
+            "key": "trip:sharm_old_market_ultimate_shopping",
+            "price": "25",
+            "score": "0",
+            "text": "Salva nei preferitiSharm Vecchia: Moschea, Fashion & L'India d'EgittoIl tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!A partire da€25Scopri"
+          },
+          {
+            "key": "trip:moto_safari_quad_echo",
+            "price": "30",
+            "score": "0",
+            "text": "Salva nei preferitiMoto Safari: Quad, Tramonto & Valle dell'EcoAdrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.A partire da€30Scopri"
+          },
+          {
+            "key": "trip:dinner_cruise_night_show",
+            "price": "35",
+            "score": "0",
+            "text": "Salva nei preferitiNotte Magica: Cena di Pesce & Show OrientaleUna serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.A partire da€35Scopri"
+          },
+          {
+            "key": "trip:tiran_island_boat_vip",
+            "price": "40",
+            "score": "0",
+            "text": "Salva nei preferitiIsola di Tiran VIP: Relitti e Barriere CorallineNaviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.A partire da€40Scopri"
+          },
+          {
+            "key": "trip:dahab_blue_hole_super_safari",
+            "price": "40",
+            "score": "0",
+            "text": "Salva nei preferitiDahab Adventure: Blue Hole, Cammelli & CanyonLa vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.A partire da€40Scopri"
+          },
+          {
+            "key": "trip:water_sports_adrenaline_combo",
+            "price": "45",
+            "score": "0",
+            "text": "Salva nei preferitiAdrenalina Sky & Sea: Parasailing & Water ToysVola sul Mar Rosso con il paracadute e sfida le onde con Banana Boat e Tubo. Divertimento puro e adrenalina in totale sicurezza.A partire da€45Scopri"
+          },
+          {
+            "key": "trip:seascope_semi_submarine",
+            "price": "45",
+            "score": "0",
+            "text": "Salva nei preferitiSea Scope: Il Cinema SottomarinoScopri la barriera corallina restando all'asciutto. Un'esperienza in sottomarino panoramico con aria condizionata. Ideale per famiglie.A partire da€45Scopri"
+          },
+          {
+            "key": "trip:albatros_aqua_park_full_day",
+            "price": "50",
+            "score": "0",
+            "text": "Salva nei preferitiAlbatros Aqua Park: Il Regno dell'AcquaUna giornata di puro divertimento nel parco acquatico più grande del Medio Oriente. Oltre 60 scivoli, piscine a onde e relax per tutta la famiglia.A partire da€50Scopri"
+          },
+          {
+            "key": "trip:vip_cena_romantica",
+            "price": "60",
+            "score": "0",
+            "text": "Salva nei preferitiCena Romantica VIP: Mille e Una NotteL'esperienza più esclusiva di Sharm. Una cena privata nel cuore del deserto, sotto un tappeto di stelle. Solo per coppie e occasioni speciali.A partire da€60Scopri"
+          },
+          {
+            "key": "trip:santa_caterina_monastery_morning",
+            "price": "60",
+            "score": "0",
+            "text": "Salva nei preferitiSanta Caterina: Il Monastero Sacro (Classic & VIP)Un viaggio spirituale nella Terra Santa. Visita il Monastero più antico del mondo e il Roveto Ardente. Disponibile in Bus (Gruppo) o Auto Privata (VIP).A partire da€60Scopri"
+          },
+          {
+            "key": "trip:sina_dream_vip_day",
+            "price": "70",
+            "score": "0",
+            "text": "Salva nei preferitiSina Dream VIP: Il Veliero di LussoVivi il Mar Rosso a bordo di un vero veliero. Comfort a 5 stelle, amache sul mare e il miglior pranzo di pesce di Sharm.A partire da€70Scopri"
+          },
+          {
+            "key": "trip:mount_sinai_sunrise_adventure",
+            "price": "70",
+            "score": "0",
+            "text": "Salva nei preferitiMonte Sinai Adventure: L'Alba Sacra & MonasteroLa sfida della vita. Scala il Monte di Mosè sotto le stelle, guarda l'alba più bella del mondo e visita il Monastero. Disponibile in Bus o Versione VIP (Salva-Schiena).A partire da€70Scopri"
+          },
+          {
+            "key": "trip:swim_with_dolphins_vip",
+            "price": "75",
+            "score": "0",
+            "text": "Salva nei preferitiNuotare con i Delfini: Amore a Prima VistaL'esperienza della vita. Entra in acqua, danza e gioca con l'animale più intelligente del mondo. Un privilegio per pochi.A partire da€75Scopri"
+          },
+          {
+            "key": "trip:private_boat_vip_king",
+            "price": "80",
+            "score": "0",
+            "text": "Salva nei preferitiPrivate Boat VIP: The King of Red SeaL'esperienza definitiva. Uno yacht intero solo per te. Tu decidi l'orario, la rotta e il menu. Privacy assoluta e lusso.A partire da€80Scopri"
+          },
+          {
+            "key": "trip:cairo_bus_adventure_choice",
+            "price": "80",
+            "score": "0",
+            "text": "Salva nei preferitiIl Cairo in Bus: L'Avventura Smart & La Tua SceltaLa storia a piccolo prezzo. Un viaggio 'On the Road' verso le Piramidi. Scegli tu: il fascino del Vecchio Museo o il futuro del Nuovo GEM.A partire da€80Scopri"
+          },
+          {
+            "key": "package:dolce_vita_family",
+            "price": "160",
+            "score": "0",
+            "text": "Adatta alle famiglieSalva nei preferitiPacchetto PremiumDolce Vita: Family & RelaxLa vacanza perfetta per famiglie. Bambini felici (Delfini e Sottomarino) e genitori rilassati (Yacht VIP e Cena Romantica). Zero stress.A partire da€160Scopri il pacchetto"
+          },
+          {
+            "key": "package:indiana_jones_adventure",
+            "price": "160",
+            "score": "0",
+            "text": "Più votatoSalva nei preferitiPacchetto PremiumIndiana Jones: Adrenalina PuraVietato ai pigri. Un mix esplosivo di avventura: Jeep Safari, Trekking nel Canyon, Moto nel deserto, Paracadute e la tua prima Immersione.A partire da€160Scopri il pacchetto"
+          },
+          {
+            "key": "package:mille_e_una_notte",
+            "price": "180",
+            "score": "0",
+            "text": "NovitàSalva nei preferitiPacchetto PremiumMille e Una Notte: Fuga RomanticaIl pacchetto più esclusivo per le coppie. Deserti al tramonto, cene a lume di candela e navigazione di lusso. Solo per voi due.A partire da€180Scopri il pacchetto"
+          },
+          {
+            "key": "package:il_grande_blu",
+            "price": "180",
+            "score": "0",
+            "text": "Salva nei preferitiPacchetto PremiumIl Grande Blu: I Tesori del Mar RossoIl paradiso per chi vive con le pinne ai piedi. 4 Escursioni marine complete: Ras Mohammed (Mare e Terra), Tiran e il leggendario Blue Hole.A partire da€180Scopri il pacchetto"
+          },
+          {
+            "key": "package:sharm_confidential",
+            "price": "200",
+            "score": "0",
+            "text": "Best sellerSalva nei preferitiPacchetto PremiumSharm Confidential: L'Esperienza TotaleIl pacchetto definitivo di 6 giorni. Include TUTTO: Yacht VIP, Ras Mohammed via terra, Super Safari, Dahab e City Tour. Non dovrai pensare a nulla.A partire da€200Scopri il pacchetto"
+          },
+          {
+            "key": "trip:cairo_plane_flexible_museum",
+            "price": "230",
+            "score": "0",
+            "text": "Salva nei preferitiIl Cairo in Aereo: Piramidi & Tu Scegli il MuseoVola al Cairo e decidi tu la storia. Piramidi di Giza + La tua scelta tra il 'Museo Classico' (Tahrir) o il 'Nuovo GEM' (Il Futuro).A partire da€230Scopri"
+          },
+          {
+            "key": "trip:luxor_plane_classic",
+            "price": "240",
+            "score": "0",
+            "text": "Salva nei preferitiLuxor in Aereo: La Valle dei Re & I Templi d'OroIl museo a cielo aperto più grande del mondo. Vola da Sharm per scoprire Karnak, la Valle dei Re e il Tempio della Regina Hatshepsut in un giorno indimenticabile.A partire da€240Scopri"
+          },
+          {
+            "key": "trip:petra_jordan_expedition",
+            "price": "270",
+            "score": "0",
+            "text": "Salva nei preferitiPetra: La Città Rosa (Una delle 7 Meraviglie del Mondo)Un viaggio epico in Giordania. Naviga il Mar Rosso, attraversa il Canyon 'Il Siq' e scopri il Tesoro di Petra. Un'esperienza da lista dei desideri.A partire da€270Scopri"
+          }
+        ],
+        "filters": [
+          "Tutte",
+          "Pacchetti",
+          "Cultura",
+          "Deserto",
+          "Mare",
+          "Consigliati (VIP)",
+          "Prezzo: Basso → Alto",
+          "Prezzo: Alto → Basso"
+        ],
+        "included": [],
+        "templates": []
+      },
+      "modalCases": 0,
+      "errors": [],
+      "overflow": false
+    },
+    {
+      "kind": "explore",
+      "locale": "it",
+      "width": 1180,
+      "content": {
+        "fields": {
+          "detail-title": "",
+          "detail-duration": "",
+          "detail-desc": "",
+          "detail-full-desc": "",
+          "detail-highlights": "",
+          "detail-includes": "",
+          "detail-excludes": "",
+          "detail-program": "",
+          "detail-important": "",
+          "card-price": "",
+          "card-price-breakdown": "",
+          "live-total-price": "",
+          "included-trips-subtitle": ""
+        },
+        "booking": null,
+        "labels": [
+          "Ordina per prezzo"
+        ],
+        "links": [
+          "/it/tours/ras_mohammed_bus_half_day/",
+          "/it/tours/ras_mohammed_bus_half_day/",
+          "/it/tours/ras_mohammed_white_island_vip/",
+          "/it/tours/ras_mohammed_white_island_vip/",
+          "/it/tours/super_safari_5_senses/",
+          "/it/tours/super_safari_5_senses/",
+          "/it/tours/dolphin_show_family/",
+          "/it/tours/dolphin_show_family/",
+          "/it/tours/sharm_old_market_ultimate_shopping/",
+          "/it/tours/sharm_old_market_ultimate_shopping/",
+          "/it/tours/moto_safari_quad_echo/",
+          "/it/tours/moto_safari_quad_echo/",
+          "/it/tours/dinner_cruise_night_show/",
+          "/it/tours/dinner_cruise_night_show/",
+          "/it/tours/tiran_island_boat_vip/",
+          "/it/tours/tiran_island_boat_vip/",
+          "/it/tours/dahab_blue_hole_super_safari/",
+          "/it/tours/dahab_blue_hole_super_safari/",
+          "/it/tours/water_sports_adrenaline_combo/",
+          "/it/tours/water_sports_adrenaline_combo/",
+          "/it/tours/seascope_semi_submarine/",
+          "/it/tours/seascope_semi_submarine/",
+          "/it/tours/albatros_aqua_park_full_day/",
+          "/it/tours/albatros_aqua_park_full_day/",
+          "/it/tours/vip_cena_romantica/",
+          "/it/tours/vip_cena_romantica/",
+          "/it/tours/santa_caterina_monastery_morning/",
+          "/it/tours/santa_caterina_monastery_morning/",
+          "/it/tours/sina_dream_vip_day/",
+          "/it/tours/sina_dream_vip_day/",
+          "/it/tours/mount_sinai_sunrise_adventure/",
+          "/it/tours/mount_sinai_sunrise_adventure/",
+          "/it/tours/swim_with_dolphins_vip/",
+          "/it/tours/swim_with_dolphins_vip/",
+          "/it/tours/private_boat_vip_king/",
+          "/it/tours/private_boat_vip_king/",
+          "/it/tours/cairo_bus_adventure_choice/",
+          "/it/tours/cairo_bus_adventure_choice/",
+          "/it/packages/dolce_vita_family/",
+          "/it/packages/dolce_vita_family/",
+          "/it/packages/indiana_jones_adventure/",
+          "/it/packages/indiana_jones_adventure/",
+          "/it/packages/mille_e_una_notte/",
+          "/it/packages/mille_e_una_notte/",
+          "/it/packages/il_grande_blu/",
+          "/it/packages/il_grande_blu/",
+          "/it/packages/sharm_confidential/",
+          "/it/packages/sharm_confidential/",
+          "/it/tours/cairo_plane_flexible_museum/",
+          "/it/tours/cairo_plane_flexible_museum/",
+          "/it/tours/luxor_plane_classic/",
+          "/it/tours/luxor_plane_classic/",
+          "/it/tours/petra_jordan_expedition/",
+          "/it/tours/petra_jordan_expedition/"
+        ],
+        "cards": [
+          {
+            "key": "trip:ras_mohammed_bus_half_day",
+            "price": "30",
+            "score": "3",
+            "text": "Top 🔥Salva nei preferitiRas Mohammed Nature Explorer: Il Parco via TerraUn viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.A partire da€30Scopri"
+          },
+          {
+            "key": "trip:ras_mohammed_white_island_vip",
+            "price": "40",
+            "score": "3",
+            "text": "Top 🔥Salva nei preferitiRas Mohammed & White Island: L'Esperienza VIPVivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.A partire da€40Scopri"
+          },
+          {
+            "key": "trip:super_safari_5_senses",
+            "price": "55",
+            "score": "3",
+            "text": "Top 🔥Salva nei preferitiSuper Safari: I 5 Sensi del SinaiL'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.A partire da€55Scopri"
+          },
+          {
+            "key": "trip:dolphin_show_family",
+            "price": "25",
+            "score": "0",
+            "text": "Salva nei preferitiDolphin Show: Emozioni per tutta la FamigliaUn'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.A partire da€25Scopri"
+          },
+          {
+            "key": "trip:sharm_old_market_ultimate_shopping",
+            "price": "25",
+            "score": "0",
+            "text": "Salva nei preferitiSharm Vecchia: Moschea, Fashion & L'India d'EgittoIl tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!A partire da€25Scopri"
+          },
+          {
+            "key": "trip:moto_safari_quad_echo",
+            "price": "30",
+            "score": "0",
+            "text": "Salva nei preferitiMoto Safari: Quad, Tramonto & Valle dell'EcoAdrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.A partire da€30Scopri"
+          },
+          {
+            "key": "trip:dinner_cruise_night_show",
+            "price": "35",
+            "score": "0",
+            "text": "Salva nei preferitiNotte Magica: Cena di Pesce & Show OrientaleUna serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.A partire da€35Scopri"
+          },
+          {
+            "key": "trip:tiran_island_boat_vip",
+            "price": "40",
+            "score": "0",
+            "text": "Salva nei preferitiIsola di Tiran VIP: Relitti e Barriere CorallineNaviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.A partire da€40Scopri"
+          },
+          {
+            "key": "trip:dahab_blue_hole_super_safari",
+            "price": "40",
+            "score": "0",
+            "text": "Salva nei preferitiDahab Adventure: Blue Hole, Cammelli & CanyonLa vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.A partire da€40Scopri"
+          },
+          {
+            "key": "trip:water_sports_adrenaline_combo",
+            "price": "45",
+            "score": "0",
+            "text": "Salva nei preferitiAdrenalina Sky & Sea: Parasailing & Water ToysVola sul Mar Rosso con il paracadute e sfida le onde con Banana Boat e Tubo. Divertimento puro e adrenalina in totale sicurezza.A partire da€45Scopri"
+          },
+          {
+            "key": "trip:seascope_semi_submarine",
+            "price": "45",
+            "score": "0",
+            "text": "Salva nei preferitiSea Scope: Il Cinema SottomarinoScopri la barriera corallina restando all'asciutto. Un'esperienza in sottomarino panoramico con aria condizionata. Ideale per famiglie.A partire da€45Scopri"
+          },
+          {
+            "key": "trip:albatros_aqua_park_full_day",
+            "price": "50",
+            "score": "0",
+            "text": "Salva nei preferitiAlbatros Aqua Park: Il Regno dell'AcquaUna giornata di puro divertimento nel parco acquatico più grande del Medio Oriente. Oltre 60 scivoli, piscine a onde e relax per tutta la famiglia.A partire da€50Scopri"
+          },
+          {
+            "key": "trip:vip_cena_romantica",
+            "price": "60",
+            "score": "0",
+            "text": "Salva nei preferitiCena Romantica VIP: Mille e Una NotteL'esperienza più esclusiva di Sharm. Una cena privata nel cuore del deserto, sotto un tappeto di stelle. Solo per coppie e occasioni speciali.A partire da€60Scopri"
+          },
+          {
+            "key": "trip:santa_caterina_monastery_morning",
+            "price": "60",
+            "score": "0",
+            "text": "Salva nei preferitiSanta Caterina: Il Monastero Sacro (Classic & VIP)Un viaggio spirituale nella Terra Santa. Visita il Monastero più antico del mondo e il Roveto Ardente. Disponibile in Bus (Gruppo) o Auto Privata (VIP).A partire da€60Scopri"
+          },
+          {
+            "key": "trip:sina_dream_vip_day",
+            "price": "70",
+            "score": "0",
+            "text": "Salva nei preferitiSina Dream VIP: Il Veliero di LussoVivi il Mar Rosso a bordo di un vero veliero. Comfort a 5 stelle, amache sul mare e il miglior pranzo di pesce di Sharm.A partire da€70Scopri"
+          },
+          {
+            "key": "trip:mount_sinai_sunrise_adventure",
+            "price": "70",
+            "score": "0",
+            "text": "Salva nei preferitiMonte Sinai Adventure: L'Alba Sacra & MonasteroLa sfida della vita. Scala il Monte di Mosè sotto le stelle, guarda l'alba più bella del mondo e visita il Monastero. Disponibile in Bus o Versione VIP (Salva-Schiena).A partire da€70Scopri"
+          },
+          {
+            "key": "trip:swim_with_dolphins_vip",
+            "price": "75",
+            "score": "0",
+            "text": "Salva nei preferitiNuotare con i Delfini: Amore a Prima VistaL'esperienza della vita. Entra in acqua, danza e gioca con l'animale più intelligente del mondo. Un privilegio per pochi.A partire da€75Scopri"
+          },
+          {
+            "key": "trip:private_boat_vip_king",
+            "price": "80",
+            "score": "0",
+            "text": "Salva nei preferitiPrivate Boat VIP: The King of Red SeaL'esperienza definitiva. Uno yacht intero solo per te. Tu decidi l'orario, la rotta e il menu. Privacy assoluta e lusso.A partire da€80Scopri"
+          },
+          {
+            "key": "trip:cairo_bus_adventure_choice",
+            "price": "80",
+            "score": "0",
+            "text": "Salva nei preferitiIl Cairo in Bus: L'Avventura Smart & La Tua SceltaLa storia a piccolo prezzo. Un viaggio 'On the Road' verso le Piramidi. Scegli tu: il fascino del Vecchio Museo o il futuro del Nuovo GEM.A partire da€80Scopri"
+          },
+          {
+            "key": "package:dolce_vita_family",
+            "price": "160",
+            "score": "0",
+            "text": "Adatta alle famiglieSalva nei preferitiPacchetto PremiumDolce Vita: Family & RelaxLa vacanza perfetta per famiglie. Bambini felici (Delfini e Sottomarino) e genitori rilassati (Yacht VIP e Cena Romantica). Zero stress.A partire da€160Scopri il pacchetto"
+          },
+          {
+            "key": "package:indiana_jones_adventure",
+            "price": "160",
+            "score": "0",
+            "text": "Più votatoSalva nei preferitiPacchetto PremiumIndiana Jones: Adrenalina PuraVietato ai pigri. Un mix esplosivo di avventura: Jeep Safari, Trekking nel Canyon, Moto nel deserto, Paracadute e la tua prima Immersione.A partire da€160Scopri il pacchetto"
+          },
+          {
+            "key": "package:mille_e_una_notte",
+            "price": "180",
+            "score": "0",
+            "text": "NovitàSalva nei preferitiPacchetto PremiumMille e Una Notte: Fuga RomanticaIl pacchetto più esclusivo per le coppie. Deserti al tramonto, cene a lume di candela e navigazione di lusso. Solo per voi due.A partire da€180Scopri il pacchetto"
+          },
+          {
+            "key": "package:il_grande_blu",
+            "price": "180",
+            "score": "0",
+            "text": "Salva nei preferitiPacchetto PremiumIl Grande Blu: I Tesori del Mar RossoIl paradiso per chi vive con le pinne ai piedi. 4 Escursioni marine complete: Ras Mohammed (Mare e Terra), Tiran e il leggendario Blue Hole.A partire da€180Scopri il pacchetto"
+          },
+          {
+            "key": "package:sharm_confidential",
+            "price": "200",
+            "score": "0",
+            "text": "Best sellerSalva nei preferitiPacchetto PremiumSharm Confidential: L'Esperienza TotaleIl pacchetto definitivo di 6 giorni. Include TUTTO: Yacht VIP, Ras Mohammed via terra, Super Safari, Dahab e City Tour. Non dovrai pensare a nulla.A partire da€200Scopri il pacchetto"
+          },
+          {
+            "key": "trip:cairo_plane_flexible_museum",
+            "price": "230",
+            "score": "0",
+            "text": "Salva nei preferitiIl Cairo in Aereo: Piramidi & Tu Scegli il MuseoVola al Cairo e decidi tu la storia. Piramidi di Giza + La tua scelta tra il 'Museo Classico' (Tahrir) o il 'Nuovo GEM' (Il Futuro).A partire da€230Scopri"
+          },
+          {
+            "key": "trip:luxor_plane_classic",
+            "price": "240",
+            "score": "0",
+            "text": "Salva nei preferitiLuxor in Aereo: La Valle dei Re & I Templi d'OroIl museo a cielo aperto più grande del mondo. Vola da Sharm per scoprire Karnak, la Valle dei Re e il Tempio della Regina Hatshepsut in un giorno indimenticabile.A partire da€240Scopri"
+          },
+          {
+            "key": "trip:petra_jordan_expedition",
+            "price": "270",
+            "score": "0",
+            "text": "Salva nei preferitiPetra: La Città Rosa (Una delle 7 Meraviglie del Mondo)Un viaggio epico in Giordania. Naviga il Mar Rosso, attraversa il Canyon 'Il Siq' e scopri il Tesoro di Petra. Un'esperienza da lista dei desideri.A partire da€270Scopri"
+          }
+        ],
+        "filters": [
+          "Tutte",
+          "Pacchetti",
+          "Cultura",
+          "Deserto",
+          "Mare",
+          "Consigliati (VIP)",
+          "Prezzo: Basso → Alto",
+          "Prezzo: Alto → Basso"
+        ],
+        "included": [],
+        "templates": []
+      },
+      "modalCases": 0,
+      "errors": [],
+      "overflow": false
+    },
+    {
+      "kind": "explore",
+      "locale": "it",
+      "width": 1440,
+      "content": {
+        "fields": {
+          "detail-title": "",
+          "detail-duration": "",
+          "detail-desc": "",
+          "detail-full-desc": "",
+          "detail-highlights": "",
+          "detail-includes": "",
+          "detail-excludes": "",
+          "detail-program": "",
+          "detail-important": "",
+          "card-price": "",
+          "card-price-breakdown": "",
+          "live-total-price": "",
+          "included-trips-subtitle": ""
+        },
+        "booking": null,
+        "labels": [
+          "Ordina per prezzo"
+        ],
+        "links": [
+          "/it/tours/ras_mohammed_bus_half_day/",
+          "/it/tours/ras_mohammed_bus_half_day/",
+          "/it/tours/ras_mohammed_white_island_vip/",
+          "/it/tours/ras_mohammed_white_island_vip/",
+          "/it/tours/super_safari_5_senses/",
+          "/it/tours/super_safari_5_senses/",
+          "/it/tours/dolphin_show_family/",
+          "/it/tours/dolphin_show_family/",
+          "/it/tours/sharm_old_market_ultimate_shopping/",
+          "/it/tours/sharm_old_market_ultimate_shopping/",
+          "/it/tours/moto_safari_quad_echo/",
+          "/it/tours/moto_safari_quad_echo/",
+          "/it/tours/dinner_cruise_night_show/",
+          "/it/tours/dinner_cruise_night_show/",
+          "/it/tours/tiran_island_boat_vip/",
+          "/it/tours/tiran_island_boat_vip/",
+          "/it/tours/dahab_blue_hole_super_safari/",
+          "/it/tours/dahab_blue_hole_super_safari/",
+          "/it/tours/water_sports_adrenaline_combo/",
+          "/it/tours/water_sports_adrenaline_combo/",
+          "/it/tours/seascope_semi_submarine/",
+          "/it/tours/seascope_semi_submarine/",
+          "/it/tours/albatros_aqua_park_full_day/",
+          "/it/tours/albatros_aqua_park_full_day/",
+          "/it/tours/vip_cena_romantica/",
+          "/it/tours/vip_cena_romantica/",
+          "/it/tours/santa_caterina_monastery_morning/",
+          "/it/tours/santa_caterina_monastery_morning/",
+          "/it/tours/sina_dream_vip_day/",
+          "/it/tours/sina_dream_vip_day/",
+          "/it/tours/mount_sinai_sunrise_adventure/",
+          "/it/tours/mount_sinai_sunrise_adventure/",
+          "/it/tours/swim_with_dolphins_vip/",
+          "/it/tours/swim_with_dolphins_vip/",
+          "/it/tours/private_boat_vip_king/",
+          "/it/tours/private_boat_vip_king/",
+          "/it/tours/cairo_bus_adventure_choice/",
+          "/it/tours/cairo_bus_adventure_choice/",
+          "/it/packages/dolce_vita_family/",
+          "/it/packages/dolce_vita_family/",
+          "/it/packages/indiana_jones_adventure/",
+          "/it/packages/indiana_jones_adventure/",
+          "/it/packages/mille_e_una_notte/",
+          "/it/packages/mille_e_una_notte/",
+          "/it/packages/il_grande_blu/",
+          "/it/packages/il_grande_blu/",
+          "/it/packages/sharm_confidential/",
+          "/it/packages/sharm_confidential/",
+          "/it/tours/cairo_plane_flexible_museum/",
+          "/it/tours/cairo_plane_flexible_museum/",
+          "/it/tours/luxor_plane_classic/",
+          "/it/tours/luxor_plane_classic/",
+          "/it/tours/petra_jordan_expedition/",
+          "/it/tours/petra_jordan_expedition/"
+        ],
+        "cards": [
+          {
+            "key": "trip:ras_mohammed_bus_half_day",
+            "price": "30",
+            "score": "3",
+            "text": "Top 🔥Salva nei preferitiRas Mohammed Nature Explorer: Il Parco via TerraUn viaggio tra deserto e mare. Scopri la Porta di Allah, le Mangrovie e il leggendario Lago Magico in mezza giornata.A partire da€30Scopri"
+          },
+          {
+            "key": "trip:ras_mohammed_white_island_vip",
+            "price": "40",
+            "score": "3",
+            "text": "Top 🔥Salva nei preferitiRas Mohammed & White Island: L'Esperienza VIPVivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.A partire da€40Scopri"
+          },
+          {
+            "key": "trip:super_safari_5_senses",
+            "price": "55",
+            "score": "3",
+            "text": "Top 🔥Salva nei preferitiSuper Safari: I 5 Sensi del SinaiL'esperienza desertica definitiva. Quad tra le dune, cammellata al tramonto, cena beduina sotto le stelle e osservazione astronomica.A partire da€55Scopri"
+          },
+          {
+            "key": "trip:dolphin_show_family",
+            "price": "25",
+            "score": "0",
+            "text": "Salva nei preferitiDolphin Show: Emozioni per tutta la FamigliaUn'ora di pura magia. Ammira le acrobazie, i salti e l'intelligenza dei delfini in uno spettacolo che incanterà grandi e piccini.A partire da€25Scopri"
+          },
+          {
+            "key": "trip:sharm_old_market_ultimate_shopping",
+            "price": "25",
+            "score": "0",
+            "text": "Salva nei preferitiSharm Vecchia: Moschea, Fashion & L'India d'EgittoIl tour definitivo. Visita la Moschea d'oro e scopri i segreti dello shopping: borse di lusso e le migliori spezie del mondo. Fabio ti porta l'India a Sharm!A partire da€25Scopri"
+          },
+          {
+            "key": "trip:moto_safari_quad_echo",
+            "price": "30",
+            "score": "0",
+            "text": "Salva nei preferitiMoto Safari: Quad, Tramonto & Valle dell'EcoAdrenalina pura. Guida il tuo Quad nel cuore del Sinai, ascolta la tua voce nella Valle dell'Eco e goditi un tè beduino al tramonto.A partire da€30Scopri"
+          },
+          {
+            "key": "trip:dinner_cruise_night_show",
+            "price": "35",
+            "score": "0",
+            "text": "Salva nei preferitiNotte Magica: Cena di Pesce & Show OrientaleUna serata indimenticabile sotto le stelle. Cena a base di pesce, spettacolo di Tanoura e Danza del Ventre mentre navighi nel golfo di Sharm.A partire da€35Scopri"
+          },
+          {
+            "key": "trip:tiran_island_boat_vip",
+            "price": "40",
+            "score": "0",
+            "text": "Salva nei preferitiIsola di Tiran VIP: Relitti e Barriere CorallineNaviga verso il confine tra Egitto e Arabia. Snorkeling sui reef più famosi (Gordon & Jackson), vista sul relitto Louilla e relax totale.A partire da€40Scopri"
+          },
+          {
+            "key": "trip:dahab_blue_hole_super_safari",
+            "price": "40",
+            "score": "0",
+            "text": "Salva nei preferitiDahab Adventure: Blue Hole, Cammelli & CanyonLa vera avventura nel Sinai. Snorkeling nel leggendario Blue Hole, trekking nel Canyon Colorato e cammellata sul mare.A partire da€40Scopri"
+          },
+          {
+            "key": "trip:water_sports_adrenaline_combo",
+            "price": "45",
+            "score": "0",
+            "text": "Salva nei preferitiAdrenalina Sky & Sea: Parasailing & Water ToysVola sul Mar Rosso con il paracadute e sfida le onde con Banana Boat e Tubo. Divertimento puro e adrenalina in totale sicurezza.A partire da€45Scopri"
+          },
+          {
+            "key": "trip:seascope_semi_submarine",
+            "price": "45",
+            "score": "0",
+            "text": "Salva nei preferitiSea Scope: Il Cinema SottomarinoScopri la barriera corallina restando all'asciutto. Un'esperienza in sottomarino panoramico con aria condizionata. Ideale per famiglie.A partire da€45Scopri"
+          },
+          {
+            "key": "trip:albatros_aqua_park_full_day",
+            "price": "50",
+            "score": "0",
+            "text": "Salva nei preferitiAlbatros Aqua Park: Il Regno dell'AcquaUna giornata di puro divertimento nel parco acquatico più grande del Medio Oriente. Oltre 60 scivoli, piscine a onde e relax per tutta la famiglia.A partire da€50Scopri"
+          },
+          {
+            "key": "trip:vip_cena_romantica",
+            "price": "60",
+            "score": "0",
+            "text": "Salva nei preferitiCena Romantica VIP: Mille e Una NotteL'esperienza più esclusiva di Sharm. Una cena privata nel cuore del deserto, sotto un tappeto di stelle. Solo per coppie e occasioni speciali.A partire da€60Scopri"
+          },
+          {
+            "key": "trip:santa_caterina_monastery_morning",
+            "price": "60",
+            "score": "0",
+            "text": "Salva nei preferitiSanta Caterina: Il Monastero Sacro (Classic & VIP)Un viaggio spirituale nella Terra Santa. Visita il Monastero più antico del mondo e il Roveto Ardente. Disponibile in Bus (Gruppo) o Auto Privata (VIP).A partire da€60Scopri"
+          },
+          {
+            "key": "trip:sina_dream_vip_day",
+            "price": "70",
+            "score": "0",
+            "text": "Salva nei preferitiSina Dream VIP: Il Veliero di LussoVivi il Mar Rosso a bordo di un vero veliero. Comfort a 5 stelle, amache sul mare e il miglior pranzo di pesce di Sharm.A partire da€70Scopri"
+          },
+          {
+            "key": "trip:mount_sinai_sunrise_adventure",
+            "price": "70",
+            "score": "0",
+            "text": "Salva nei preferitiMonte Sinai Adventure: L'Alba Sacra & MonasteroLa sfida della vita. Scala il Monte di Mosè sotto le stelle, guarda l'alba più bella del mondo e visita il Monastero. Disponibile in Bus o Versione VIP (Salva-Schiena).A partire da€70Scopri"
+          },
+          {
+            "key": "trip:swim_with_dolphins_vip",
+            "price": "75",
+            "score": "0",
+            "text": "Salva nei preferitiNuotare con i Delfini: Amore a Prima VistaL'esperienza della vita. Entra in acqua, danza e gioca con l'animale più intelligente del mondo. Un privilegio per pochi.A partire da€75Scopri"
+          },
+          {
+            "key": "trip:private_boat_vip_king",
+            "price": "80",
+            "score": "0",
+            "text": "Salva nei preferitiPrivate Boat VIP: The King of Red SeaL'esperienza definitiva. Uno yacht intero solo per te. Tu decidi l'orario, la rotta e il menu. Privacy assoluta e lusso.A partire da€80Scopri"
+          },
+          {
+            "key": "trip:cairo_bus_adventure_choice",
+            "price": "80",
+            "score": "0",
+            "text": "Salva nei preferitiIl Cairo in Bus: L'Avventura Smart & La Tua SceltaLa storia a piccolo prezzo. Un viaggio 'On the Road' verso le Piramidi. Scegli tu: il fascino del Vecchio Museo o il futuro del Nuovo GEM.A partire da€80Scopri"
+          },
+          {
+            "key": "package:dolce_vita_family",
+            "price": "160",
+            "score": "0",
+            "text": "Adatta alle famiglieSalva nei preferitiPacchetto PremiumDolce Vita: Family & RelaxLa vacanza perfetta per famiglie. Bambini felici (Delfini e Sottomarino) e genitori rilassati (Yacht VIP e Cena Romantica). Zero stress.A partire da€160Scopri il pacchetto"
+          },
+          {
+            "key": "package:indiana_jones_adventure",
+            "price": "160",
+            "score": "0",
+            "text": "Più votatoSalva nei preferitiPacchetto PremiumIndiana Jones: Adrenalina PuraVietato ai pigri. Un mix esplosivo di avventura: Jeep Safari, Trekking nel Canyon, Moto nel deserto, Paracadute e la tua prima Immersione.A partire da€160Scopri il pacchetto"
+          },
+          {
+            "key": "package:mille_e_una_notte",
+            "price": "180",
+            "score": "0",
+            "text": "NovitàSalva nei preferitiPacchetto PremiumMille e Una Notte: Fuga RomanticaIl pacchetto più esclusivo per le coppie. Deserti al tramonto, cene a lume di candela e navigazione di lusso. Solo per voi due.A partire da€180Scopri il pacchetto"
+          },
+          {
+            "key": "package:il_grande_blu",
+            "price": "180",
+            "score": "0",
+            "text": "Salva nei preferitiPacchetto PremiumIl Grande Blu: I Tesori del Mar RossoIl paradiso per chi vive con le pinne ai piedi. 4 Escursioni marine complete: Ras Mohammed (Mare e Terra), Tiran e il leggendario Blue Hole.A partire da€180Scopri il pacchetto"
+          },
+          {
+            "key": "package:sharm_confidential",
+            "price": "200",
+            "score": "0",
+            "text": "Best sellerSalva nei preferitiPacchetto PremiumSharm Confidential: L'Esperienza TotaleIl pacchetto definitivo di 6 giorni. Include TUTTO: Yacht VIP, Ras Mohammed via terra, Super Safari, Dahab e City Tour. Non dovrai pensare a nulla.A partire da€200Scopri il pacchetto"
+          },
+          {
+            "key": "trip:cairo_plane_flexible_museum",
+            "price": "230",
+            "score": "0",
+            "text": "Salva nei preferitiIl Cairo in Aereo: Piramidi & Tu Scegli il MuseoVola al Cairo e decidi tu la storia. Piramidi di Giza + La tua scelta tra il 'Museo Classico' (Tahrir) o il 'Nuovo GEM' (Il Futuro).A partire da€230Scopri"
+          },
+          {
+            "key": "trip:luxor_plane_classic",
+            "price": "240",
+            "score": "0",
+            "text": "Salva nei preferitiLuxor in Aereo: La Valle dei Re & I Templi d'OroIl museo a cielo aperto più grande del mondo. Vola da Sharm per scoprire Karnak, la Valle dei Re e il Tempio della Regina Hatshepsut in un giorno indimenticabile.A partire da€240Scopri"
+          },
+          {
+            "key": "trip:petra_jordan_expedition",
+            "price": "270",
+            "score": "0",
+            "text": "Salva nei preferitiPetra: La Città Rosa (Una delle 7 Meraviglie del Mondo)Un viaggio epico in Giordania. Naviga il Mar Rosso, attraversa il Canyon 'Il Siq' e scopri il Tesoro di Petra. Un'esperienza da lista dei desideri.A partire da€270Scopri"
+          }
+        ],
+        "filters": [
+          "Tutte",
+          "Pacchetti",
+          "Cultura",
+          "Deserto",
+          "Mare",
+          "Consigliati (VIP)",
+          "Prezzo: Basso → Alto",
+          "Prezzo: Alto → Basso"
+        ],
+        "included": [],
+        "templates": []
+      },
+      "modalCases": 0,
+      "errors": [],
+      "overflow": false
+    },
+    {
+      "kind": "explore",
+      "locale": "en",
+      "width": 375,
+      "content": {
+        "fields": {
+          "detail-title": "",
+          "detail-duration": "",
+          "detail-desc": "",
+          "detail-full-desc": "",
+          "detail-highlights": "",
+          "detail-includes": "",
+          "detail-excludes": "",
+          "detail-program": "",
+          "detail-important": "",
+          "card-price": "",
+          "card-price-breakdown": "",
+          "live-total-price": "",
+          "included-trips-subtitle": ""
+        },
+        "booking": null,
+        "labels": [
+          "Sort by price"
+        ],
+        "links": [
+          "/en/tours/ras_mohammed_bus_half_day/",
+          "/en/tours/ras_mohammed_bus_half_day/",
+          "/en/tours/ras_mohammed_white_island_vip/",
+          "/en/tours/ras_mohammed_white_island_vip/",
+          "/en/tours/super_safari_5_senses/",
+          "/en/tours/super_safari_5_senses/",
+          "/en/tours/dolphin_show_family/",
+          "/en/tours/dolphin_show_family/",
+          "/en/tours/sharm_old_market_ultimate_shopping/",
+          "/en/tours/sharm_old_market_ultimate_shopping/",
+          "/en/tours/moto_safari_quad_echo/",
+          "/en/tours/moto_safari_quad_echo/",
+          "/en/tours/dinner_cruise_night_show/",
+          "/en/tours/dinner_cruise_night_show/",
+          "/en/tours/tiran_island_boat_vip/",
+          "/en/tours/tiran_island_boat_vip/",
+          "/en/tours/dahab_blue_hole_super_safari/",
+          "/en/tours/dahab_blue_hole_super_safari/",
+          "/en/tours/water_sports_adrenaline_combo/",
+          "/en/tours/water_sports_adrenaline_combo/",
+          "/en/tours/seascope_semi_submarine/",
+          "/en/tours/seascope_semi_submarine/",
+          "/en/tours/albatros_aqua_park_full_day/",
+          "/en/tours/albatros_aqua_park_full_day/",
+          "/en/tours/vip_cena_romantica/",
+          "/en/tours/vip_cena_romantica/",
+          "/en/tours/santa_caterina_monastery_morning/",
+          "/en/tours/santa_caterina_monastery_morning/",
+          "/en/tours/sina_dream_vip_day/",
+          "/en/tours/sina_dream_vip_day/",
+          "/en/tours/mount_sinai_sunrise_adventure/",
+          "/en/tours/mount_sinai_sunrise_adventure/",
+          "/en/tours/swim_with_dolphins_vip/",
+          "/en/tours/swim_with_dolphins_vip/",
+          "/en/tours/private_boat_vip_king/",
+          "/en/tours/private_boat_vip_king/",
+          "/en/tours/cairo_bus_adventure_choice/",
+          "/en/tours/cairo_bus_adventure_choice/",
+          "/en/packages/dolce_vita_family/",
+          "/en/packages/dolce_vita_family/",
+          "/en/packages/indiana_jones_adventure/",
+          "/en/packages/indiana_jones_adventure/",
+          "/en/packages/mille_e_una_notte/",
+          "/en/packages/mille_e_una_notte/",
+          "/en/packages/il_grande_blu/",
+          "/en/packages/il_grande_blu/",
+          "/en/packages/sharm_confidential/",
+          "/en/packages/sharm_confidential/",
+          "/en/tours/cairo_plane_flexible_museum/",
+          "/en/tours/cairo_plane_flexible_museum/",
+          "/en/tours/luxor_plane_classic/",
+          "/en/tours/luxor_plane_classic/",
+          "/en/tours/petra_jordan_expedition/",
+          "/en/tours/petra_jordan_expedition/"
+        ],
+        "cards": [
+          {
+            "key": "trip:ras_mohammed_bus_half_day",
+            "price": "30",
+            "score": "3",
+            "text": "Top 🔥Save to favoritesRas Mohammed Nature Explorer: The Park by LandA journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.Starts from€30Discover"
+          },
+          {
+            "key": "trip:ras_mohammed_white_island_vip",
+            "price": "40",
+            "score": "3",
+            "text": "Top 🔥Save to favoritesRas Mohammed & White Island: The VIP ExperienceExperience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.Starts from€40Discover"
+          },
+          {
+            "key": "trip:super_safari_5_senses",
+            "price": "55",
+            "score": "3",
+            "text": "Top 🔥Save to favoritesSuper Safari: 5 Senses of SinaiThe ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.Starts from€55Discover"
+          },
+          {
+            "key": "trip:dolphin_show_family",
+            "price": "25",
+            "score": "0",
+            "text": "Save to favoritesDolphin Show: Thrills for the Whole FamilyAn hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.Starts from€25Discover"
+          },
+          {
+            "key": "trip:sharm_old_market_ultimate_shopping",
+            "price": "25",
+            "score": "0",
+            "text": "Save to favoritesOld Sharm: Mosque, Fashion & The India of EgyptThe ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!Starts from€25Discover"
+          },
+          {
+            "key": "trip:moto_safari_quad_echo",
+            "price": "30",
+            "score": "0",
+            "text": "Save to favoritesMoto Safari: Quad, Sunset & Echo ValleyPure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.Starts from€30Discover"
+          },
+          {
+            "key": "trip:dinner_cruise_night_show",
+            "price": "35",
+            "score": "0",
+            "text": "Save to favoritesMagic Night: Seafood Dinner & Oriental ShowAn unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.Starts from€35Discover"
+          },
+          {
+            "key": "trip:tiran_island_boat_vip",
+            "price": "40",
+            "score": "0",
+            "text": "Save to favoritesTiran Island VIP: Wrecks and Coral ReefsSail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.Starts from€40Discover"
+          },
+          {
+            "key": "trip:dahab_blue_hole_super_safari",
+            "price": "40",
+            "score": "0",
+            "text": "Save to favoritesDahab Adventure: Blue Hole, Camels & CanyonThe ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.Starts from€40Discover"
+          },
+          {
+            "key": "trip:water_sports_adrenaline_combo",
+            "price": "45",
+            "score": "0",
+            "text": "Save to favoritesAdrenaline Sky & Sea: Parasailing & Water ToysFly over the Red Sea with a parachute and challenge the waves on a Banana Boat and Tube. Pure fun and adrenaline in total safety.Starts from€45Discover"
+          },
+          {
+            "key": "trip:seascope_semi_submarine",
+            "price": "45",
+            "score": "0",
+            "text": "Save to favoritesSea Scope: The Underwater CinemaDiscover the coral reef while staying dry. A semi-submarine experience with AC. Ideal for families and non-swimmers.Starts from€45Discover"
+          },
+          {
+            "key": "trip:albatros_aqua_park_full_day",
+            "price": "50",
+            "score": "0",
+            "text": "Save to favoritesAlbatros Aqua Park: The Water KingdomA full day of pure fun at the largest water park in the Middle East. Over 60 slides, wave pools, and relaxation for the whole family.Starts from€50Discover"
+          },
+          {
+            "key": "trip:vip_cena_romantica",
+            "price": "60",
+            "score": "0",
+            "text": "Save to favoritesVIP Romantic Dinner: 1001 NightsSharm's most exclusive experience. A private dinner in the heart of the desert, under a canopy of stars. Strictly for couples and special occasions.Starts from€60Discover"
+          },
+          {
+            "key": "trip:santa_caterina_monastery_morning",
+            "price": "60",
+            "score": "0",
+            "text": "Save to favoritesSt. Catherine: The Sacred Monastery (Classic & VIP)A spiritual journey in the Holy Land. Visit the world's oldest monastery and the Burning Bush. Available by Bus (Group) or Private Car (VIP).Starts from€60Discover"
+          },
+          {
+            "key": "trip:sina_dream_vip_day",
+            "price": "70",
+            "score": "0",
+            "text": "Save to favoritesSina Dream VIP: The Luxury Sailing YachtExperience the Red Sea aboard an authentic sailing ship. 5-star comfort, over-water hammocks, and the best seafood lunch in Sharm.Starts from€70Discover"
+          },
+          {
+            "key": "trip:mount_sinai_sunrise_adventure",
+            "price": "70",
+            "score": "0",
+            "text": "Save to favoritesMt. Sinai Adventure: Sacred Sunrise & MonasteryThe challenge of a lifetime. Climb Moses Mountain under the stars, watch the most beautiful sunrise in the world, and visit the Monastery. Available in Bus or VIP Version (Back-Saver).Starts from€70Discover"
+          },
+          {
+            "key": "trip:swim_with_dolphins_vip",
+            "price": "75",
+            "score": "0",
+            "text": "Save to favoritesSwim with Dolphins: Love at First SightA once-in-a-lifetime experience. Enter the water to dance and play with the world's most intelligent animals. A privilege for the few.Starts from€75Discover"
+          },
+          {
+            "key": "trip:private_boat_vip_king",
+            "price": "80",
+            "score": "0",
+            "text": "Save to favoritesPrivate Boat VIP: The King of Red SeaThe ultimate experience. An entire yacht just for you. You decide the time, the route, and the menu. Absolute privacy and luxury.Starts from€80Discover"
+          },
+          {
+            "key": "trip:cairo_bus_adventure_choice",
+            "price": "80",
+            "score": "0",
+            "text": "Save to favoritesCairo by Bus: Smart Adventure & Your ChoiceHistory at a small price. An 'On the Road' trip to the Pyramids. You choose: the charm of the Old Museum or the future of the New GEM.Starts from€80Discover"
+          },
+          {
+            "key": "package:dolce_vita_family",
+            "price": "160",
+            "score": "0",
+            "text": "Family friendlySave to favoritesPremium PackageDolce Vita: Family & RelaxThe perfect holiday for families. Happy kids (Dolphins & Submarine) and relaxed parents (VIP Yacht & Romantic Dinner). Zero stress.Starts from€160Discover package"
+          },
+          {
+            "key": "package:indiana_jones_adventure",
+            "price": "160",
+            "score": "0",
+            "text": "Top ratedSave to favoritesPremium PackageIndiana Jones: Pure AdrenalineNot for the lazy. An explosive mix of adventure: Jeep Safari, Canyon Trekking, Desert Bikes, Parasailing, and your first Scuba Dive.Starts from€160Discover package"
+          },
+          {
+            "key": "package:mille_e_una_notte",
+            "price": "180",
+            "score": "0",
+            "text": "NewSave to favoritesPremium PackageOne Thousand and One Nights: Romantic EscapeThe most exclusive package for couples. Desert sunsets, candlelight dinners, and luxury sailing. Just for the two of you.Starts from€180Discover package"
+          },
+          {
+            "key": "package:il_grande_blu",
+            "price": "180",
+            "score": "0",
+            "text": "Save to favoritesPremium PackageThe Big Blue: Treasures of the Red SeaParadise for those who live with fins on. 4 Complete marine excursions: Ras Mohammed (Sea & Land), Tiran, and the legendary Blue Hole.Starts from€180Discover package"
+          },
+          {
+            "key": "package:sharm_confidential",
+            "price": "200",
+            "score": "0",
+            "text": "Best sellerSave to favoritesPremium PackageSharm Confidential: The Total ExperienceThe ultimate 6-day package. Includes EVERYTHING: VIP Yacht, Ras Mohammed by land, Super Safari, Dahab, and City Tour. You won't have to worry about a thing.Starts from€200Discover package"
+          },
+          {
+            "key": "trip:cairo_plane_flexible_museum",
+            "price": "230",
+            "score": "0",
+            "text": "Save to favoritesCairo by Plane: Pyramids & You Choose the MuseumFly to Cairo and decide your history. Giza Pyramids + Your choice between the 'Classic Museum' (Tahrir) or the 'New GEM' (The Future).Starts from€230Discover"
+          },
+          {
+            "key": "trip:luxor_plane_classic",
+            "price": "240",
+            "score": "0",
+            "text": "Save to favoritesLuxor by Plane: Valley of Kings & Golden TemplesThe world's largest open-air museum. Fly from Sharm to discover Karnak, Valley of the Kings, and Queen Hatshepsut Temple in one unforgettable day.Starts from€240Discover"
+          },
+          {
+            "key": "trip:petra_jordan_expedition",
+            "price": "270",
+            "score": "0",
+            "text": "Save to favoritesPetra: The Rose City (One of the 7 Wonders of the World)An epic trip to Jordan. Sail the Red Sea, cross 'The Siq' canyon, and discover the Treasury of Petra. A bucket-list experience.Starts from€270Discover"
+          }
+        ],
+        "filters": [
+          "All",
+          "Packages",
+          "Culture",
+          "Desert",
+          "Sea",
+          "Recommended (VIP)",
+          "Price: Low → High",
+          "Price: High → Low"
+        ],
+        "included": [],
+        "templates": []
+      },
+      "modalCases": 0,
+      "errors": [],
+      "overflow": false
+    },
+    {
+      "kind": "explore",
+      "locale": "en",
+      "width": 820,
+      "content": {
+        "fields": {
+          "detail-title": "",
+          "detail-duration": "",
+          "detail-desc": "",
+          "detail-full-desc": "",
+          "detail-highlights": "",
+          "detail-includes": "",
+          "detail-excludes": "",
+          "detail-program": "",
+          "detail-important": "",
+          "card-price": "",
+          "card-price-breakdown": "",
+          "live-total-price": "",
+          "included-trips-subtitle": ""
+        },
+        "booking": null,
+        "labels": [
+          "Sort by price"
+        ],
+        "links": [
+          "/en/tours/ras_mohammed_bus_half_day/",
+          "/en/tours/ras_mohammed_bus_half_day/",
+          "/en/tours/ras_mohammed_white_island_vip/",
+          "/en/tours/ras_mohammed_white_island_vip/",
+          "/en/tours/super_safari_5_senses/",
+          "/en/tours/super_safari_5_senses/",
+          "/en/tours/dolphin_show_family/",
+          "/en/tours/dolphin_show_family/",
+          "/en/tours/sharm_old_market_ultimate_shopping/",
+          "/en/tours/sharm_old_market_ultimate_shopping/",
+          "/en/tours/moto_safari_quad_echo/",
+          "/en/tours/moto_safari_quad_echo/",
+          "/en/tours/dinner_cruise_night_show/",
+          "/en/tours/dinner_cruise_night_show/",
+          "/en/tours/tiran_island_boat_vip/",
+          "/en/tours/tiran_island_boat_vip/",
+          "/en/tours/dahab_blue_hole_super_safari/",
+          "/en/tours/dahab_blue_hole_super_safari/",
+          "/en/tours/water_sports_adrenaline_combo/",
+          "/en/tours/water_sports_adrenaline_combo/",
+          "/en/tours/seascope_semi_submarine/",
+          "/en/tours/seascope_semi_submarine/",
+          "/en/tours/albatros_aqua_park_full_day/",
+          "/en/tours/albatros_aqua_park_full_day/",
+          "/en/tours/vip_cena_romantica/",
+          "/en/tours/vip_cena_romantica/",
+          "/en/tours/santa_caterina_monastery_morning/",
+          "/en/tours/santa_caterina_monastery_morning/",
+          "/en/tours/sina_dream_vip_day/",
+          "/en/tours/sina_dream_vip_day/",
+          "/en/tours/mount_sinai_sunrise_adventure/",
+          "/en/tours/mount_sinai_sunrise_adventure/",
+          "/en/tours/swim_with_dolphins_vip/",
+          "/en/tours/swim_with_dolphins_vip/",
+          "/en/tours/private_boat_vip_king/",
+          "/en/tours/private_boat_vip_king/",
+          "/en/tours/cairo_bus_adventure_choice/",
+          "/en/tours/cairo_bus_adventure_choice/",
+          "/en/packages/dolce_vita_family/",
+          "/en/packages/dolce_vita_family/",
+          "/en/packages/indiana_jones_adventure/",
+          "/en/packages/indiana_jones_adventure/",
+          "/en/packages/mille_e_una_notte/",
+          "/en/packages/mille_e_una_notte/",
+          "/en/packages/il_grande_blu/",
+          "/en/packages/il_grande_blu/",
+          "/en/packages/sharm_confidential/",
+          "/en/packages/sharm_confidential/",
+          "/en/tours/cairo_plane_flexible_museum/",
+          "/en/tours/cairo_plane_flexible_museum/",
+          "/en/tours/luxor_plane_classic/",
+          "/en/tours/luxor_plane_classic/",
+          "/en/tours/petra_jordan_expedition/",
+          "/en/tours/petra_jordan_expedition/"
+        ],
+        "cards": [
+          {
+            "key": "trip:ras_mohammed_bus_half_day",
+            "price": "30",
+            "score": "3",
+            "text": "Top 🔥Save to favoritesRas Mohammed Nature Explorer: The Park by LandA journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.Starts from€30Discover"
+          },
+          {
+            "key": "trip:ras_mohammed_white_island_vip",
+            "price": "40",
+            "score": "3",
+            "text": "Top 🔥Save to favoritesRas Mohammed & White Island: The VIP ExperienceExperience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.Starts from€40Discover"
+          },
+          {
+            "key": "trip:super_safari_5_senses",
+            "price": "55",
+            "score": "3",
+            "text": "Top 🔥Save to favoritesSuper Safari: 5 Senses of SinaiThe ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.Starts from€55Discover"
+          },
+          {
+            "key": "trip:dolphin_show_family",
+            "price": "25",
+            "score": "0",
+            "text": "Save to favoritesDolphin Show: Thrills for the Whole FamilyAn hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.Starts from€25Discover"
+          },
+          {
+            "key": "trip:sharm_old_market_ultimate_shopping",
+            "price": "25",
+            "score": "0",
+            "text": "Save to favoritesOld Sharm: Mosque, Fashion & The India of EgyptThe ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!Starts from€25Discover"
+          },
+          {
+            "key": "trip:moto_safari_quad_echo",
+            "price": "30",
+            "score": "0",
+            "text": "Save to favoritesMoto Safari: Quad, Sunset & Echo ValleyPure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.Starts from€30Discover"
+          },
+          {
+            "key": "trip:dinner_cruise_night_show",
+            "price": "35",
+            "score": "0",
+            "text": "Save to favoritesMagic Night: Seafood Dinner & Oriental ShowAn unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.Starts from€35Discover"
+          },
+          {
+            "key": "trip:tiran_island_boat_vip",
+            "price": "40",
+            "score": "0",
+            "text": "Save to favoritesTiran Island VIP: Wrecks and Coral ReefsSail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.Starts from€40Discover"
+          },
+          {
+            "key": "trip:dahab_blue_hole_super_safari",
+            "price": "40",
+            "score": "0",
+            "text": "Save to favoritesDahab Adventure: Blue Hole, Camels & CanyonThe ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.Starts from€40Discover"
+          },
+          {
+            "key": "trip:water_sports_adrenaline_combo",
+            "price": "45",
+            "score": "0",
+            "text": "Save to favoritesAdrenaline Sky & Sea: Parasailing & Water ToysFly over the Red Sea with a parachute and challenge the waves on a Banana Boat and Tube. Pure fun and adrenaline in total safety.Starts from€45Discover"
+          },
+          {
+            "key": "trip:seascope_semi_submarine",
+            "price": "45",
+            "score": "0",
+            "text": "Save to favoritesSea Scope: The Underwater CinemaDiscover the coral reef while staying dry. A semi-submarine experience with AC. Ideal for families and non-swimmers.Starts from€45Discover"
+          },
+          {
+            "key": "trip:albatros_aqua_park_full_day",
+            "price": "50",
+            "score": "0",
+            "text": "Save to favoritesAlbatros Aqua Park: The Water KingdomA full day of pure fun at the largest water park in the Middle East. Over 60 slides, wave pools, and relaxation for the whole family.Starts from€50Discover"
+          },
+          {
+            "key": "trip:vip_cena_romantica",
+            "price": "60",
+            "score": "0",
+            "text": "Save to favoritesVIP Romantic Dinner: 1001 NightsSharm's most exclusive experience. A private dinner in the heart of the desert, under a canopy of stars. Strictly for couples and special occasions.Starts from€60Discover"
+          },
+          {
+            "key": "trip:santa_caterina_monastery_morning",
+            "price": "60",
+            "score": "0",
+            "text": "Save to favoritesSt. Catherine: The Sacred Monastery (Classic & VIP)A spiritual journey in the Holy Land. Visit the world's oldest monastery and the Burning Bush. Available by Bus (Group) or Private Car (VIP).Starts from€60Discover"
+          },
+          {
+            "key": "trip:sina_dream_vip_day",
+            "price": "70",
+            "score": "0",
+            "text": "Save to favoritesSina Dream VIP: The Luxury Sailing YachtExperience the Red Sea aboard an authentic sailing ship. 5-star comfort, over-water hammocks, and the best seafood lunch in Sharm.Starts from€70Discover"
+          },
+          {
+            "key": "trip:mount_sinai_sunrise_adventure",
+            "price": "70",
+            "score": "0",
+            "text": "Save to favoritesMt. Sinai Adventure: Sacred Sunrise & MonasteryThe challenge of a lifetime. Climb Moses Mountain under the stars, watch the most beautiful sunrise in the world, and visit the Monastery. Available in Bus or VIP Version (Back-Saver).Starts from€70Discover"
+          },
+          {
+            "key": "trip:swim_with_dolphins_vip",
+            "price": "75",
+            "score": "0",
+            "text": "Save to favoritesSwim with Dolphins: Love at First SightA once-in-a-lifetime experience. Enter the water to dance and play with the world's most intelligent animals. A privilege for the few.Starts from€75Discover"
+          },
+          {
+            "key": "trip:private_boat_vip_king",
+            "price": "80",
+            "score": "0",
+            "text": "Save to favoritesPrivate Boat VIP: The King of Red SeaThe ultimate experience. An entire yacht just for you. You decide the time, the route, and the menu. Absolute privacy and luxury.Starts from€80Discover"
+          },
+          {
+            "key": "trip:cairo_bus_adventure_choice",
+            "price": "80",
+            "score": "0",
+            "text": "Save to favoritesCairo by Bus: Smart Adventure & Your ChoiceHistory at a small price. An 'On the Road' trip to the Pyramids. You choose: the charm of the Old Museum or the future of the New GEM.Starts from€80Discover"
+          },
+          {
+            "key": "package:dolce_vita_family",
+            "price": "160",
+            "score": "0",
+            "text": "Family friendlySave to favoritesPremium PackageDolce Vita: Family & RelaxThe perfect holiday for families. Happy kids (Dolphins & Submarine) and relaxed parents (VIP Yacht & Romantic Dinner). Zero stress.Starts from€160Discover package"
+          },
+          {
+            "key": "package:indiana_jones_adventure",
+            "price": "160",
+            "score": "0",
+            "text": "Top ratedSave to favoritesPremium PackageIndiana Jones: Pure AdrenalineNot for the lazy. An explosive mix of adventure: Jeep Safari, Canyon Trekking, Desert Bikes, Parasailing, and your first Scuba Dive.Starts from€160Discover package"
+          },
+          {
+            "key": "package:mille_e_una_notte",
+            "price": "180",
+            "score": "0",
+            "text": "NewSave to favoritesPremium PackageOne Thousand and One Nights: Romantic EscapeThe most exclusive package for couples. Desert sunsets, candlelight dinners, and luxury sailing. Just for the two of you.Starts from€180Discover package"
+          },
+          {
+            "key": "package:il_grande_blu",
+            "price": "180",
+            "score": "0",
+            "text": "Save to favoritesPremium PackageThe Big Blue: Treasures of the Red SeaParadise for those who live with fins on. 4 Complete marine excursions: Ras Mohammed (Sea & Land), Tiran, and the legendary Blue Hole.Starts from€180Discover package"
+          },
+          {
+            "key": "package:sharm_confidential",
+            "price": "200",
+            "score": "0",
+            "text": "Best sellerSave to favoritesPremium PackageSharm Confidential: The Total ExperienceThe ultimate 6-day package. Includes EVERYTHING: VIP Yacht, Ras Mohammed by land, Super Safari, Dahab, and City Tour. You won't have to worry about a thing.Starts from€200Discover package"
+          },
+          {
+            "key": "trip:cairo_plane_flexible_museum",
+            "price": "230",
+            "score": "0",
+            "text": "Save to favoritesCairo by Plane: Pyramids & You Choose the MuseumFly to Cairo and decide your history. Giza Pyramids + Your choice between the 'Classic Museum' (Tahrir) or the 'New GEM' (The Future).Starts from€230Discover"
+          },
+          {
+            "key": "trip:luxor_plane_classic",
+            "price": "240",
+            "score": "0",
+            "text": "Save to favoritesLuxor by Plane: Valley of Kings & Golden TemplesThe world's largest open-air museum. Fly from Sharm to discover Karnak, Valley of the Kings, and Queen Hatshepsut Temple in one unforgettable day.Starts from€240Discover"
+          },
+          {
+            "key": "trip:petra_jordan_expedition",
+            "price": "270",
+            "score": "0",
+            "text": "Save to favoritesPetra: The Rose City (One of the 7 Wonders of the World)An epic trip to Jordan. Sail the Red Sea, cross 'The Siq' canyon, and discover the Treasury of Petra. A bucket-list experience.Starts from€270Discover"
+          }
+        ],
+        "filters": [
+          "All",
+          "Packages",
+          "Culture",
+          "Desert",
+          "Sea",
+          "Recommended (VIP)",
+          "Price: Low → High",
+          "Price: High → Low"
+        ],
+        "included": [],
+        "templates": []
+      },
+      "modalCases": 0,
+      "errors": [],
+      "overflow": false
+    },
+    {
+      "kind": "explore",
+      "locale": "en",
+      "width": 1180,
+      "content": {
+        "fields": {
+          "detail-title": "",
+          "detail-duration": "",
+          "detail-desc": "",
+          "detail-full-desc": "",
+          "detail-highlights": "",
+          "detail-includes": "",
+          "detail-excludes": "",
+          "detail-program": "",
+          "detail-important": "",
+          "card-price": "",
+          "card-price-breakdown": "",
+          "live-total-price": "",
+          "included-trips-subtitle": ""
+        },
+        "booking": null,
+        "labels": [
+          "Sort by price"
+        ],
+        "links": [
+          "/en/tours/ras_mohammed_bus_half_day/",
+          "/en/tours/ras_mohammed_bus_half_day/",
+          "/en/tours/ras_mohammed_white_island_vip/",
+          "/en/tours/ras_mohammed_white_island_vip/",
+          "/en/tours/super_safari_5_senses/",
+          "/en/tours/super_safari_5_senses/",
+          "/en/tours/dolphin_show_family/",
+          "/en/tours/dolphin_show_family/",
+          "/en/tours/sharm_old_market_ultimate_shopping/",
+          "/en/tours/sharm_old_market_ultimate_shopping/",
+          "/en/tours/moto_safari_quad_echo/",
+          "/en/tours/moto_safari_quad_echo/",
+          "/en/tours/dinner_cruise_night_show/",
+          "/en/tours/dinner_cruise_night_show/",
+          "/en/tours/tiran_island_boat_vip/",
+          "/en/tours/tiran_island_boat_vip/",
+          "/en/tours/dahab_blue_hole_super_safari/",
+          "/en/tours/dahab_blue_hole_super_safari/",
+          "/en/tours/water_sports_adrenaline_combo/",
+          "/en/tours/water_sports_adrenaline_combo/",
+          "/en/tours/seascope_semi_submarine/",
+          "/en/tours/seascope_semi_submarine/",
+          "/en/tours/albatros_aqua_park_full_day/",
+          "/en/tours/albatros_aqua_park_full_day/",
+          "/en/tours/vip_cena_romantica/",
+          "/en/tours/vip_cena_romantica/",
+          "/en/tours/santa_caterina_monastery_morning/",
+          "/en/tours/santa_caterina_monastery_morning/",
+          "/en/tours/sina_dream_vip_day/",
+          "/en/tours/sina_dream_vip_day/",
+          "/en/tours/mount_sinai_sunrise_adventure/",
+          "/en/tours/mount_sinai_sunrise_adventure/",
+          "/en/tours/swim_with_dolphins_vip/",
+          "/en/tours/swim_with_dolphins_vip/",
+          "/en/tours/private_boat_vip_king/",
+          "/en/tours/private_boat_vip_king/",
+          "/en/tours/cairo_bus_adventure_choice/",
+          "/en/tours/cairo_bus_adventure_choice/",
+          "/en/packages/dolce_vita_family/",
+          "/en/packages/dolce_vita_family/",
+          "/en/packages/indiana_jones_adventure/",
+          "/en/packages/indiana_jones_adventure/",
+          "/en/packages/mille_e_una_notte/",
+          "/en/packages/mille_e_una_notte/",
+          "/en/packages/il_grande_blu/",
+          "/en/packages/il_grande_blu/",
+          "/en/packages/sharm_confidential/",
+          "/en/packages/sharm_confidential/",
+          "/en/tours/cairo_plane_flexible_museum/",
+          "/en/tours/cairo_plane_flexible_museum/",
+          "/en/tours/luxor_plane_classic/",
+          "/en/tours/luxor_plane_classic/",
+          "/en/tours/petra_jordan_expedition/",
+          "/en/tours/petra_jordan_expedition/"
+        ],
+        "cards": [
+          {
+            "key": "trip:ras_mohammed_bus_half_day",
+            "price": "30",
+            "score": "3",
+            "text": "Top 🔥Save to favoritesRas Mohammed Nature Explorer: The Park by LandA journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.Starts from€30Discover"
+          },
+          {
+            "key": "trip:ras_mohammed_white_island_vip",
+            "price": "40",
+            "score": "3",
+            "text": "Top 🔥Save to favoritesRas Mohammed & White Island: The VIP ExperienceExperience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.Starts from€40Discover"
+          },
+          {
+            "key": "trip:super_safari_5_senses",
+            "price": "55",
+            "score": "3",
+            "text": "Top 🔥Save to favoritesSuper Safari: 5 Senses of SinaiThe ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.Starts from€55Discover"
+          },
+          {
+            "key": "trip:dolphin_show_family",
+            "price": "25",
+            "score": "0",
+            "text": "Save to favoritesDolphin Show: Thrills for the Whole FamilyAn hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.Starts from€25Discover"
+          },
+          {
+            "key": "trip:sharm_old_market_ultimate_shopping",
+            "price": "25",
+            "score": "0",
+            "text": "Save to favoritesOld Sharm: Mosque, Fashion & The India of EgyptThe ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!Starts from€25Discover"
+          },
+          {
+            "key": "trip:moto_safari_quad_echo",
+            "price": "30",
+            "score": "0",
+            "text": "Save to favoritesMoto Safari: Quad, Sunset & Echo ValleyPure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.Starts from€30Discover"
+          },
+          {
+            "key": "trip:dinner_cruise_night_show",
+            "price": "35",
+            "score": "0",
+            "text": "Save to favoritesMagic Night: Seafood Dinner & Oriental ShowAn unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.Starts from€35Discover"
+          },
+          {
+            "key": "trip:tiran_island_boat_vip",
+            "price": "40",
+            "score": "0",
+            "text": "Save to favoritesTiran Island VIP: Wrecks and Coral ReefsSail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.Starts from€40Discover"
+          },
+          {
+            "key": "trip:dahab_blue_hole_super_safari",
+            "price": "40",
+            "score": "0",
+            "text": "Save to favoritesDahab Adventure: Blue Hole, Camels & CanyonThe ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.Starts from€40Discover"
+          },
+          {
+            "key": "trip:water_sports_adrenaline_combo",
+            "price": "45",
+            "score": "0",
+            "text": "Save to favoritesAdrenaline Sky & Sea: Parasailing & Water ToysFly over the Red Sea with a parachute and challenge the waves on a Banana Boat and Tube. Pure fun and adrenaline in total safety.Starts from€45Discover"
+          },
+          {
+            "key": "trip:seascope_semi_submarine",
+            "price": "45",
+            "score": "0",
+            "text": "Save to favoritesSea Scope: The Underwater CinemaDiscover the coral reef while staying dry. A semi-submarine experience with AC. Ideal for families and non-swimmers.Starts from€45Discover"
+          },
+          {
+            "key": "trip:albatros_aqua_park_full_day",
+            "price": "50",
+            "score": "0",
+            "text": "Save to favoritesAlbatros Aqua Park: The Water KingdomA full day of pure fun at the largest water park in the Middle East. Over 60 slides, wave pools, and relaxation for the whole family.Starts from€50Discover"
+          },
+          {
+            "key": "trip:vip_cena_romantica",
+            "price": "60",
+            "score": "0",
+            "text": "Save to favoritesVIP Romantic Dinner: 1001 NightsSharm's most exclusive experience. A private dinner in the heart of the desert, under a canopy of stars. Strictly for couples and special occasions.Starts from€60Discover"
+          },
+          {
+            "key": "trip:santa_caterina_monastery_morning",
+            "price": "60",
+            "score": "0",
+            "text": "Save to favoritesSt. Catherine: The Sacred Monastery (Classic & VIP)A spiritual journey in the Holy Land. Visit the world's oldest monastery and the Burning Bush. Available by Bus (Group) or Private Car (VIP).Starts from€60Discover"
+          },
+          {
+            "key": "trip:sina_dream_vip_day",
+            "price": "70",
+            "score": "0",
+            "text": "Save to favoritesSina Dream VIP: The Luxury Sailing YachtExperience the Red Sea aboard an authentic sailing ship. 5-star comfort, over-water hammocks, and the best seafood lunch in Sharm.Starts from€70Discover"
+          },
+          {
+            "key": "trip:mount_sinai_sunrise_adventure",
+            "price": "70",
+            "score": "0",
+            "text": "Save to favoritesMt. Sinai Adventure: Sacred Sunrise & MonasteryThe challenge of a lifetime. Climb Moses Mountain under the stars, watch the most beautiful sunrise in the world, and visit the Monastery. Available in Bus or VIP Version (Back-Saver).Starts from€70Discover"
+          },
+          {
+            "key": "trip:swim_with_dolphins_vip",
+            "price": "75",
+            "score": "0",
+            "text": "Save to favoritesSwim with Dolphins: Love at First SightA once-in-a-lifetime experience. Enter the water to dance and play with the world's most intelligent animals. A privilege for the few.Starts from€75Discover"
+          },
+          {
+            "key": "trip:private_boat_vip_king",
+            "price": "80",
+            "score": "0",
+            "text": "Save to favoritesPrivate Boat VIP: The King of Red SeaThe ultimate experience. An entire yacht just for you. You decide the time, the route, and the menu. Absolute privacy and luxury.Starts from€80Discover"
+          },
+          {
+            "key": "trip:cairo_bus_adventure_choice",
+            "price": "80",
+            "score": "0",
+            "text": "Save to favoritesCairo by Bus: Smart Adventure & Your ChoiceHistory at a small price. An 'On the Road' trip to the Pyramids. You choose: the charm of the Old Museum or the future of the New GEM.Starts from€80Discover"
+          },
+          {
+            "key": "package:dolce_vita_family",
+            "price": "160",
+            "score": "0",
+            "text": "Family friendlySave to favoritesPremium PackageDolce Vita: Family & RelaxThe perfect holiday for families. Happy kids (Dolphins & Submarine) and relaxed parents (VIP Yacht & Romantic Dinner). Zero stress.Starts from€160Discover package"
+          },
+          {
+            "key": "package:indiana_jones_adventure",
+            "price": "160",
+            "score": "0",
+            "text": "Top ratedSave to favoritesPremium PackageIndiana Jones: Pure AdrenalineNot for the lazy. An explosive mix of adventure: Jeep Safari, Canyon Trekking, Desert Bikes, Parasailing, and your first Scuba Dive.Starts from€160Discover package"
+          },
+          {
+            "key": "package:mille_e_una_notte",
+            "price": "180",
+            "score": "0",
+            "text": "NewSave to favoritesPremium PackageOne Thousand and One Nights: Romantic EscapeThe most exclusive package for couples. Desert sunsets, candlelight dinners, and luxury sailing. Just for the two of you.Starts from€180Discover package"
+          },
+          {
+            "key": "package:il_grande_blu",
+            "price": "180",
+            "score": "0",
+            "text": "Save to favoritesPremium PackageThe Big Blue: Treasures of the Red SeaParadise for those who live with fins on. 4 Complete marine excursions: Ras Mohammed (Sea & Land), Tiran, and the legendary Blue Hole.Starts from€180Discover package"
+          },
+          {
+            "key": "package:sharm_confidential",
+            "price": "200",
+            "score": "0",
+            "text": "Best sellerSave to favoritesPremium PackageSharm Confidential: The Total ExperienceThe ultimate 6-day package. Includes EVERYTHING: VIP Yacht, Ras Mohammed by land, Super Safari, Dahab, and City Tour. You won't have to worry about a thing.Starts from€200Discover package"
+          },
+          {
+            "key": "trip:cairo_plane_flexible_museum",
+            "price": "230",
+            "score": "0",
+            "text": "Save to favoritesCairo by Plane: Pyramids & You Choose the MuseumFly to Cairo and decide your history. Giza Pyramids + Your choice between the 'Classic Museum' (Tahrir) or the 'New GEM' (The Future).Starts from€230Discover"
+          },
+          {
+            "key": "trip:luxor_plane_classic",
+            "price": "240",
+            "score": "0",
+            "text": "Save to favoritesLuxor by Plane: Valley of Kings & Golden TemplesThe world's largest open-air museum. Fly from Sharm to discover Karnak, Valley of the Kings, and Queen Hatshepsut Temple in one unforgettable day.Starts from€240Discover"
+          },
+          {
+            "key": "trip:petra_jordan_expedition",
+            "price": "270",
+            "score": "0",
+            "text": "Save to favoritesPetra: The Rose City (One of the 7 Wonders of the World)An epic trip to Jordan. Sail the Red Sea, cross 'The Siq' canyon, and discover the Treasury of Petra. A bucket-list experience.Starts from€270Discover"
+          }
+        ],
+        "filters": [
+          "All",
+          "Packages",
+          "Culture",
+          "Desert",
+          "Sea",
+          "Recommended (VIP)",
+          "Price: Low → High",
+          "Price: High → Low"
+        ],
+        "included": [],
+        "templates": []
+      },
+      "modalCases": 0,
+      "errors": [],
+      "overflow": false
+    },
+    {
+      "kind": "explore",
+      "locale": "en",
+      "width": 1440,
+      "content": {
+        "fields": {
+          "detail-title": "",
+          "detail-duration": "",
+          "detail-desc": "",
+          "detail-full-desc": "",
+          "detail-highlights": "",
+          "detail-includes": "",
+          "detail-excludes": "",
+          "detail-program": "",
+          "detail-important": "",
+          "card-price": "",
+          "card-price-breakdown": "",
+          "live-total-price": "",
+          "included-trips-subtitle": ""
+        },
+        "booking": null,
+        "labels": [
+          "Sort by price"
+        ],
+        "links": [
+          "/en/tours/ras_mohammed_bus_half_day/",
+          "/en/tours/ras_mohammed_bus_half_day/",
+          "/en/tours/ras_mohammed_white_island_vip/",
+          "/en/tours/ras_mohammed_white_island_vip/",
+          "/en/tours/super_safari_5_senses/",
+          "/en/tours/super_safari_5_senses/",
+          "/en/tours/dolphin_show_family/",
+          "/en/tours/dolphin_show_family/",
+          "/en/tours/sharm_old_market_ultimate_shopping/",
+          "/en/tours/sharm_old_market_ultimate_shopping/",
+          "/en/tours/moto_safari_quad_echo/",
+          "/en/tours/moto_safari_quad_echo/",
+          "/en/tours/dinner_cruise_night_show/",
+          "/en/tours/dinner_cruise_night_show/",
+          "/en/tours/tiran_island_boat_vip/",
+          "/en/tours/tiran_island_boat_vip/",
+          "/en/tours/dahab_blue_hole_super_safari/",
+          "/en/tours/dahab_blue_hole_super_safari/",
+          "/en/tours/water_sports_adrenaline_combo/",
+          "/en/tours/water_sports_adrenaline_combo/",
+          "/en/tours/seascope_semi_submarine/",
+          "/en/tours/seascope_semi_submarine/",
+          "/en/tours/albatros_aqua_park_full_day/",
+          "/en/tours/albatros_aqua_park_full_day/",
+          "/en/tours/vip_cena_romantica/",
+          "/en/tours/vip_cena_romantica/",
+          "/en/tours/santa_caterina_monastery_morning/",
+          "/en/tours/santa_caterina_monastery_morning/",
+          "/en/tours/sina_dream_vip_day/",
+          "/en/tours/sina_dream_vip_day/",
+          "/en/tours/mount_sinai_sunrise_adventure/",
+          "/en/tours/mount_sinai_sunrise_adventure/",
+          "/en/tours/swim_with_dolphins_vip/",
+          "/en/tours/swim_with_dolphins_vip/",
+          "/en/tours/private_boat_vip_king/",
+          "/en/tours/private_boat_vip_king/",
+          "/en/tours/cairo_bus_adventure_choice/",
+          "/en/tours/cairo_bus_adventure_choice/",
+          "/en/packages/dolce_vita_family/",
+          "/en/packages/dolce_vita_family/",
+          "/en/packages/indiana_jones_adventure/",
+          "/en/packages/indiana_jones_adventure/",
+          "/en/packages/mille_e_una_notte/",
+          "/en/packages/mille_e_una_notte/",
+          "/en/packages/il_grande_blu/",
+          "/en/packages/il_grande_blu/",
+          "/en/packages/sharm_confidential/",
+          "/en/packages/sharm_confidential/",
+          "/en/tours/cairo_plane_flexible_museum/",
+          "/en/tours/cairo_plane_flexible_museum/",
+          "/en/tours/luxor_plane_classic/",
+          "/en/tours/luxor_plane_classic/",
+          "/en/tours/petra_jordan_expedition/",
+          "/en/tours/petra_jordan_expedition/"
+        ],
+        "cards": [
+          {
+            "key": "trip:ras_mohammed_bus_half_day",
+            "price": "30",
+            "score": "3",
+            "text": "Top 🔥Save to favoritesRas Mohammed Nature Explorer: The Park by LandA journey between desert and sea. Discover Allah's Gate, Mangroves, and the legendary Magic Lake in half a day.Starts from€30Discover"
+          },
+          {
+            "key": "trip:ras_mohammed_white_island_vip",
+            "price": "40",
+            "score": "3",
+            "text": "Top 🔥Save to favoritesRas Mohammed & White Island: The VIP ExperienceExperience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.Starts from€40Discover"
+          },
+          {
+            "key": "trip:super_safari_5_senses",
+            "price": "55",
+            "score": "3",
+            "text": "Top 🔥Save to favoritesSuper Safari: 5 Senses of SinaiThe ultimate desert experience. Quads, camels at sunset, Bedouin dinner under the stars, and stargazing.Starts from€55Discover"
+          },
+          {
+            "key": "trip:dolphin_show_family",
+            "price": "25",
+            "score": "0",
+            "text": "Save to favoritesDolphin Show: Thrills for the Whole FamilyAn hour of pure magic. Admire the acrobatics, jumps, and intelligence of dolphins in a show that will enchant both adults and children.Starts from€25Discover"
+          },
+          {
+            "key": "trip:sharm_old_market_ultimate_shopping",
+            "price": "25",
+            "score": "0",
+            "text": "Save to favoritesOld Sharm: Mosque, Fashion & The India of EgyptThe ultimate tour. Visit the Golden Mosque and discover shopping secrets: luxury bags and the world's best spices. Fabio brings India to Sharm!Starts from€25Discover"
+          },
+          {
+            "key": "trip:moto_safari_quad_echo",
+            "price": "30",
+            "score": "0",
+            "text": "Save to favoritesMoto Safari: Quad, Sunset & Echo ValleyPure adrenaline. Drive your Quad into the heart of Sinai, hear your voice in the Echo Valley, and enjoy Bedouin tea at sunset.Starts from€30Discover"
+          },
+          {
+            "key": "trip:dinner_cruise_night_show",
+            "price": "35",
+            "score": "0",
+            "text": "Save to favoritesMagic Night: Seafood Dinner & Oriental ShowAn unforgettable evening under the stars. Seafood dinner, Tanoura show, and Belly Dancing while cruising the Sharm gulf.Starts from€35Discover"
+          },
+          {
+            "key": "trip:tiran_island_boat_vip",
+            "price": "40",
+            "score": "0",
+            "text": "Save to favoritesTiran Island VIP: Wrecks and Coral ReefsSail to the border between Egypt and Arabia. Snorkeling on famous reefs (Gordon & Jackson), Louilla wreck view, and total relaxation.Starts from€40Discover"
+          },
+          {
+            "key": "trip:dahab_blue_hole_super_safari",
+            "price": "40",
+            "score": "0",
+            "text": "Save to favoritesDahab Adventure: Blue Hole, Camels & CanyonThe ultimate Sinai adventure. Snorkel in the legendary Blue Hole, trek through the Colored Canyon, and enjoy a camel ride by the sea.Starts from€40Discover"
+          },
+          {
+            "key": "trip:water_sports_adrenaline_combo",
+            "price": "45",
+            "score": "0",
+            "text": "Save to favoritesAdrenaline Sky & Sea: Parasailing & Water ToysFly over the Red Sea with a parachute and challenge the waves on a Banana Boat and Tube. Pure fun and adrenaline in total safety.Starts from€45Discover"
+          },
+          {
+            "key": "trip:seascope_semi_submarine",
+            "price": "45",
+            "score": "0",
+            "text": "Save to favoritesSea Scope: The Underwater CinemaDiscover the coral reef while staying dry. A semi-submarine experience with AC. Ideal for families and non-swimmers.Starts from€45Discover"
+          },
+          {
+            "key": "trip:albatros_aqua_park_full_day",
+            "price": "50",
+            "score": "0",
+            "text": "Save to favoritesAlbatros Aqua Park: The Water KingdomA full day of pure fun at the largest water park in the Middle East. Over 60 slides, wave pools, and relaxation for the whole family.Starts from€50Discover"
+          },
+          {
+            "key": "trip:vip_cena_romantica",
+            "price": "60",
+            "score": "0",
+            "text": "Save to favoritesVIP Romantic Dinner: 1001 NightsSharm's most exclusive experience. A private dinner in the heart of the desert, under a canopy of stars. Strictly for couples and special occasions.Starts from€60Discover"
+          },
+          {
+            "key": "trip:santa_caterina_monastery_morning",
+            "price": "60",
+            "score": "0",
+            "text": "Save to favoritesSt. Catherine: The Sacred Monastery (Classic & VIP)A spiritual journey in the Holy Land. Visit the world's oldest monastery and the Burning Bush. Available by Bus (Group) or Private Car (VIP).Starts from€60Discover"
+          },
+          {
+            "key": "trip:sina_dream_vip_day",
+            "price": "70",
+            "score": "0",
+            "text": "Save to favoritesSina Dream VIP: The Luxury Sailing YachtExperience the Red Sea aboard an authentic sailing ship. 5-star comfort, over-water hammocks, and the best seafood lunch in Sharm.Starts from€70Discover"
+          },
+          {
+            "key": "trip:mount_sinai_sunrise_adventure",
+            "price": "70",
+            "score": "0",
+            "text": "Save to favoritesMt. Sinai Adventure: Sacred Sunrise & MonasteryThe challenge of a lifetime. Climb Moses Mountain under the stars, watch the most beautiful sunrise in the world, and visit the Monastery. Available in Bus or VIP Version (Back-Saver).Starts from€70Discover"
+          },
+          {
+            "key": "trip:swim_with_dolphins_vip",
+            "price": "75",
+            "score": "0",
+            "text": "Save to favoritesSwim with Dolphins: Love at First SightA once-in-a-lifetime experience. Enter the water to dance and play with the world's most intelligent animals. A privilege for the few.Starts from€75Discover"
+          },
+          {
+            "key": "trip:private_boat_vip_king",
+            "price": "80",
+            "score": "0",
+            "text": "Save to favoritesPrivate Boat VIP: The King of Red SeaThe ultimate experience. An entire yacht just for you. You decide the time, the route, and the menu. Absolute privacy and luxury.Starts from€80Discover"
+          },
+          {
+            "key": "trip:cairo_bus_adventure_choice",
+            "price": "80",
+            "score": "0",
+            "text": "Save to favoritesCairo by Bus: Smart Adventure & Your ChoiceHistory at a small price. An 'On the Road' trip to the Pyramids. You choose: the charm of the Old Museum or the future of the New GEM.Starts from€80Discover"
+          },
+          {
+            "key": "package:dolce_vita_family",
+            "price": "160",
+            "score": "0",
+            "text": "Family friendlySave to favoritesPremium PackageDolce Vita: Family & RelaxThe perfect holiday for families. Happy kids (Dolphins & Submarine) and relaxed parents (VIP Yacht & Romantic Dinner). Zero stress.Starts from€160Discover package"
+          },
+          {
+            "key": "package:indiana_jones_adventure",
+            "price": "160",
+            "score": "0",
+            "text": "Top ratedSave to favoritesPremium PackageIndiana Jones: Pure AdrenalineNot for the lazy. An explosive mix of adventure: Jeep Safari, Canyon Trekking, Desert Bikes, Parasailing, and your first Scuba Dive.Starts from€160Discover package"
+          },
+          {
+            "key": "package:mille_e_una_notte",
+            "price": "180",
+            "score": "0",
+            "text": "NewSave to favoritesPremium PackageOne Thousand and One Nights: Romantic EscapeThe most exclusive package for couples. Desert sunsets, candlelight dinners, and luxury sailing. Just for the two of you.Starts from€180Discover package"
+          },
+          {
+            "key": "package:il_grande_blu",
+            "price": "180",
+            "score": "0",
+            "text": "Save to favoritesPremium PackageThe Big Blue: Treasures of the Red SeaParadise for those who live with fins on. 4 Complete marine excursions: Ras Mohammed (Sea & Land), Tiran, and the legendary Blue Hole.Starts from€180Discover package"
+          },
+          {
+            "key": "package:sharm_confidential",
+            "price": "200",
+            "score": "0",
+            "text": "Best sellerSave to favoritesPremium PackageSharm Confidential: The Total ExperienceThe ultimate 6-day package. Includes EVERYTHING: VIP Yacht, Ras Mohammed by land, Super Safari, Dahab, and City Tour. You won't have to worry about a thing.Starts from€200Discover package"
+          },
+          {
+            "key": "trip:cairo_plane_flexible_museum",
+            "price": "230",
+            "score": "0",
+            "text": "Save to favoritesCairo by Plane: Pyramids & You Choose the MuseumFly to Cairo and decide your history. Giza Pyramids + Your choice between the 'Classic Museum' (Tahrir) or the 'New GEM' (The Future).Starts from€230Discover"
+          },
+          {
+            "key": "trip:luxor_plane_classic",
+            "price": "240",
+            "score": "0",
+            "text": "Save to favoritesLuxor by Plane: Valley of Kings & Golden TemplesThe world's largest open-air museum. Fly from Sharm to discover Karnak, Valley of the Kings, and Queen Hatshepsut Temple in one unforgettable day.Starts from€240Discover"
+          },
+          {
+            "key": "trip:petra_jordan_expedition",
+            "price": "270",
+            "score": "0",
+            "text": "Save to favoritesPetra: The Rose City (One of the 7 Wonders of the World)An epic trip to Jordan. Sail the Red Sea, cross 'The Siq' canyon, and discover the Treasury of Petra. A bucket-list experience.Starts from€270Discover"
+          }
+        ],
+        "filters": [
+          "All",
+          "Packages",
+          "Culture",
+          "Desert",
+          "Sea",
+          "Recommended (VIP)",
+          "Price: Low → High",
+          "Price: High → Low"
+        ],
+        "included": [],
+        "templates": []
+      },
+      "modalCases": 0,
+      "errors": [],
+      "overflow": false
+    }
+  ]
+}

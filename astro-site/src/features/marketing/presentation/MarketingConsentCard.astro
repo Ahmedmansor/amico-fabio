@@ -1,0 +1,23 @@
+---
+import type {Locale} from '../../../shared/config/languages';
+import {getMarketingMessages} from '../data/messages';
+import FabioPortrait from '../../../shared/components/FabioPortrait.astro';
+import './marketing.css';
+interface Props {locale:Locale}
+const {locale}=Astro.props,m=getMarketingMessages(locale);
+const id=`marketing-${locale}`;
+---
+<section class="marketing-consent" data-marketing-consent aria-labelledby="marketing-title" aria-describedby={`${id}-intro`} hidden>
+  <slot/>
+  <header class="marketing-heading">
+    <div class="marketing-heading-copy"><div class="marketing-meta"><span class="marketing-sender">Fabio Egypt</span><span class="marketing-optional">{m.optional}</span></div><h2 id="marketing-title">{m.title}</h2><p id={`${id}-intro`} class="marketing-intro">{m.intro}</p></div>
+    <FabioPortrait/>
+  </header>
+  <form data-marketing-form>
+    <label class="marketing-choice" for={`${id}-choice`}><input id={`${id}-choice`} type="checkbox" data-marketing-choice aria-describedby={`${id}-description`} disabled/><span>{m.label}</span></label>
+    <div class="marketing-actions"><button type="submit" class="auth-button auth-secondary marketing-save" data-marketing-save disabled>{m.save}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button><a class="marketing-privacy" href={`/${locale}/legal/`}>{m.privacy}</a></div>
+  </form>
+  <p id={`${id}-description`} class="marketing-description">{m.description}</p>
+  <p class="marketing-status" data-marketing-status role="status" aria-live="polite" aria-atomic="true">{m.loading}</p>
+  <button type="button" class="auth-button auth-secondary marketing-retry" data-marketing-retry hidden>{m.retry}</button>
+</section>

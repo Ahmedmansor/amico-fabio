@@ -1,0 +1,30 @@
+---
+import '@shared/styles/global.css';
+import { defaultLocale, languages, type Locale } from '@shared/config/languages';
+import { getSetupMessages } from '@shared/i18n/setup';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const messages = getSetupMessages(locale);
+---
+
+<!doctype html>
+<html lang={locale} dir={languages[locale].direction}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{messages.title}</title>
+  </head>
+  <body class="min-h-screen bg-slate-950 text-white">
+    <main class="mx-auto flex min-h-screen max-w-3xl items-center px-6">
+      <div>
+        <h1 class="text-3xl font-bold">{messages.title}</h1>
+        <p class="mt-4 text-slate-300">{messages.status}</p>
+      </div>
+    </main>
+  </body>
+</html>

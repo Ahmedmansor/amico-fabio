@@ -19,6 +19,7 @@ export default defineConfig({
         legal: resolve(__dirname, 'legal.html'),
         packageDetails: resolve(__dirname, 'package-details.html'),
         details: resolve(__dirname, 'details.html'),
+        offertaSharm: resolve(__dirname, 'offerta-sharm/index.html'),
       },
     },
     outDir: 'dist',

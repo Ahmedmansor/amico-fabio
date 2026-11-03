@@ -1,0 +1,71 @@
+{
+  "origin": "https://amico-fabio-iyzo.vercel.app",
+  "sourceCommit": "83a3123deb11960d60c7757c7e87bdf4bedcf330",
+  "results": [
+    {
+      "path": "/it/",
+      "status": 200,
+      "noindex": true,
+      "marker": "hero-slide-slot"
+    },
+    {
+      "path": "/it/wishlist/",
+      "status": 200,
+      "noindex": true,
+      "marker": "wishlist-card-photo"
+    },
+    {
+      "path": "/it/tailor-your-trip/",
+      "status": 200,
+      "noindex": true,
+      "marker": "data-nationality-select"
+    },
+    {
+      "path": "/it/tours/ras_mohammed_white_island_vip/",
+      "status": 200,
+      "noindex": true,
+      "marker": "product-section-nav"
+    },
+    {
+      "path": "/it/login/",
+      "status": 200,
+      "noindex": true,
+      "marker": "data-login-page",
+      "authPreserved": true,
+      "marketingActivationOff": true
+    },
+    {
+      "path": "/en/",
+      "status": 200,
+      "noindex": true,
+      "marker": "hero-slide-slot"
+    },
+    {
+      "path": "/en/wishlist/",
+      "status": 200,
+      "noindex": true,
+      "marker": "wishlist-card-photo"
+    },
+    {
+      "path": "/en/tailor-your-trip/",
+      "status": 200,
+      "noindex": true,
+      "marker": "data-nationality-select"
+    },
+    {
+      "path": "/en/tours/ras_mohammed_white_island_vip/",
+      "status": 200,
+      "noindex": true,
+      "marker": "product-section-nav"
+    },
+    {
+      "path": "/en/login/",
+      "status": 200,
+      "noindex": true,
+      "marker": "data-login-page",
+      "authPreserved": true,
+      "marketingActivationOff": true
+    }
+  ],
+  "liveEmailsSent": 0
+}

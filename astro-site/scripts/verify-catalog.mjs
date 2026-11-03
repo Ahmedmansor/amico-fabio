@@ -1,0 +1,11 @@
+import { getCatalog } from '../src/shared/data/catalog.mjs';
+import { getCatalogProvider } from '../src/shared/data/provider.mjs';
+const provider = getCatalogProvider();
+provider.reset();
+const catalog = await getCatalog(provider);
+console.log(`Validated live ${provider.name}: ${catalog.trips.length} trips, ${catalog.packages.length} packages, ${catalog.addons.length} addons, ${catalog.settings.length} settings.`);
+const zeroChildren = [...catalog.trips, ...catalog.packages].filter(offer => offer.prices.child === 0);
+const minimumOne = [...catalog.trips, ...catalog.packages].filter(offer => offer.minPax === 1);
+console.log(`Final catalog: ${zeroChildren.length} free child prices; ${minimumOne.length} records with minimum pax 1. Original default conversions are recorded in the import preflight.`);
+console.log('Active IDs, slugs, prices, translations, poster files, package references and addon references validated.');
+console.log('Promo dates are retained as source metadata; active status is not changed by date gating.');

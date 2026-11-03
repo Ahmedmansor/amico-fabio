@@ -1,0 +1,2 @@
+# Preserve real CLI output, including its trailing spaces and final blank line.
+*.txt whitespace=-blank-at-eol,-blank-at-eof

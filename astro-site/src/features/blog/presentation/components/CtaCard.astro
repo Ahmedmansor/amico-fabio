@@ -1,0 +1,7 @@
+---
+import type {Locale} from '../../../../shared/config/languages';
+import {ctaCardHtml} from '../markdown/cta';
+interface Props {locale:Locale;compact?:boolean}
+const {locale,compact=false}=Astro.props;
+---
+<Fragment set:html={ctaCardHtml(locale,compact)}/>

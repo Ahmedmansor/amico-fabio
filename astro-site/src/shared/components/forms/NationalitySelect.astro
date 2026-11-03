@@ -1,0 +1,17 @@
+---
+interface Props {id:string;label:string;placeholder:string;describedBy:string;options:{value:string;label:string;colors:string[];pattern:string}[]}
+const {id,label,placeholder,describedBy,options}=Astro.props;
+import './nationality-select.css';
+---
+<div class="nationality-select" data-nationality-select>
+  <select id={id} name="nationality" required aria-describedby={describedBy}>
+    <option value="">{placeholder}</option>{options.map(option=><option value={option.value}>{option.label}</option>)}
+  </select>
+  <button type="button" class="nationality-trigger" data-nationality-trigger role="combobox" aria-label={label} aria-expanded="false" aria-controls={`${id}-options`} aria-haspopup="listbox" aria-describedby={describedBy} hidden><span data-nationality-selected>{placeholder}</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+  <div id={`${id}-options`} class="nationality-options" data-nationality-options popover="auto" role="listbox" aria-label={label}>
+    {options.map(option=><button type="button" role="option" aria-selected="false" tabindex="-1" data-nationality-value={option.value}>
+      <svg class="nationality-flag" width="24" height="16" viewBox="0 0 24 16" aria-hidden="true">{option.colors.map((color,index)=>option.pattern==='v3'?<rect x={index*8} width="8" height="16" fill={color}/>:<rect y={index*(16/(option.pattern==='h2'?2:3))} width="24" height={16/(option.pattern==='h2'?2:3)} fill={color}/>)}</svg><span>{option.label}</span>
+    </button>)}
+  </div>
+</div>
+<script>import './nationality-select';</script>

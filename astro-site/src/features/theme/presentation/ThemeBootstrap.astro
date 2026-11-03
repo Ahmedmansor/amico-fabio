@@ -1,0 +1,9 @@
+<!-- Runs before page CSS/content. Campaign shells deliberately omit this. -->
+<script is:inline>
+  (() => {
+    let preference = 'system';
+    try { const saved = localStorage.getItem('fabio_theme'); if (saved === 'light' || saved === 'dark') preference = saved; } catch {}
+    document.documentElement.dataset.themePreference = preference;
+    document.documentElement.dataset.theme = preference === 'dark' || (preference === 'system' && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  })();
+</script>

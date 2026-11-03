@@ -1,0 +1,26 @@
+.wf-overlay-bio{width:min(1000px,calc(100% - 32px));max-width:none;max-height:min(850px,calc(100dvh - 48px));margin:auto;padding:0;border:1px solid var(--border-color);border-radius:28px;background:var(--surface-card);color:var(--text-main);box-shadow:var(--site-shadow);overflow:hidden}
+.wf-overlay-bio[open]{display:flex;flex-direction:column;animation:fabio-dialog-enter 240ms ease-out}
+.wf-overlay-bio::backdrop{background:var(--overlay-darker);animation:fabio-backdrop-enter 180ms ease-out}
+body:has(.wf-overlay-bio[open]){overflow:hidden}
+.wf-bio-header{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 32px;border-bottom:1px solid var(--border-color);flex:none}
+.wf-bio-header .home-eyebrow{font-size:10px;color:var(--text-brand-muted);margin:0 0 8px}
+.wf-bio-header h2{font:400 32px/1.2 'Playfair Display',Georgia,serif;letter-spacing:-.03em;color:var(--text-heading);margin:0}
+.wf-overlay-close{display:grid;place-items:center;flex:none;width:44px;height:44px;border:1px solid var(--border-color);border-radius:50%;color:var(--text-heading);background:var(--surface-card);cursor:pointer}
+.wf-bio-scroll{overflow-y:auto;overscroll-behavior:contain;min-height:0;padding:32px;scrollbar-width:thin;scrollbar-color:var(--border-color) transparent}
+.wf-bio-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;align-items:start}
+.wf-bio-profile{position:sticky;top:0;min-width:0}
+.wf-bio-portrait{height:250px;display:flex;align-items:flex-end;justify-content:center;background:var(--surface-action-soft);border:1px solid var(--border-color);border-radius:100px 100px 24px 24px;overflow:hidden}
+.wf-bio-portrait img{display:block;width:100%;height:100%;object-fit:contain;object-position:bottom}
+.wf-bio-profile p{font:500 13px/1.8 Montserrat,Arial,sans-serif;color:var(--text-secondary);margin:20px 0 0;text-wrap:balance}
+.wf-overlay-text{font-size:15px;line-height:1.85;color:var(--text-secondary);max-width:65ch;min-width:0;overflow-wrap:anywhere}
+.wf-overlay-text p{margin:0 0 20px}.wf-overlay-text>p:first-child{font-weight:600;color:var(--text-heading)}
+.wf-overlay-text strong,.wf-overlay-text [style]{color:var(--text-heading)!important}
+.wf-overlay-text .wf-text-highlight{display:block;font:600 17px/1.5 Montserrat,Arial,sans-serif;color:var(--text-heading);margin:32px 0 12px;padding-left:14px;border-left:3px solid var(--color-accent-orange)}
+.wf-overlay-text .wf-quote{display:block;margin-top:28px;padding:20px 24px;border-radius:16px;background:var(--surface-action-soft);color:var(--text-heading);font:400 21px/1.6 'Playfair Display',Georgia,serif}
+.wf-bio-footer{display:flex;justify-content:flex-end;padding-top:28px;margin-top:28px;border-top:1px solid var(--border-color)}
+.wf-bio-footer button{display:flex;align-items:center;gap:20px;min-height:44px;padding:10px 20px;border:0;border-radius:10px;background:var(--color-primary);color:var(--bg-white);font:600 13px Montserrat,Arial,sans-serif;cursor:pointer}
+.wf-overlay-bio :focus-visible{outline:3px solid var(--color-accent-orange);outline-offset:3px}.wf-bio-scroll:focus-visible{outline-offset:-4px}
+@keyframes fabio-dialog-enter{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes fabio-backdrop-enter{from{opacity:0}to{opacity:1}}
+@media(max-width:767px){.wf-overlay-bio{width:calc(100% - 24px);max-height:calc(100dvh - 24px);border-radius:22px}.wf-bio-header{padding:20px;gap:12px}.wf-bio-header h2{font-size:26px}.wf-bio-scroll{padding:24px 20px}.wf-bio-layout{display:block}.wf-bio-profile{position:static;display:flex;align-items:center;gap:20px;padding-bottom:24px;margin-bottom:24px;border-bottom:1px solid var(--border-color)}.wf-bio-portrait{flex:none;width:96px;height:120px;border-radius:48px 48px 16px 16px}.wf-bio-profile p{margin:0;font-size:12px}.wf-overlay-text{font-size:14px;line-height:1.9}.wf-overlay-text .wf-text-highlight{font-size:16px}.wf-overlay-text .wf-quote{padding:20px;font-size:19px}}
+@media(prefers-reduced-motion:reduce){.wf-overlay-bio[open],.wf-overlay-bio::backdrop{animation:none}}

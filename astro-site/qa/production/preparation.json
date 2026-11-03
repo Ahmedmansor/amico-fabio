@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-03",
+  "origin": "https://fabioegypt.com",
+  "phase": "production preparation; frontend cutover pending",
+  "authorization": "User explicitly requested committing/pushing local changes, merging the migration branch into main and publishing Astro on the real .com domain.",
+  "baseline": {
+    "main": "4cabc408c2a135e2076ba61d96d96912fe4f65de",
+    "ghPages": "70dc9d2e292d91385ffa1d55eb1a5b0537a893e3",
+    "pagesSource": "gh-pages / (root)"
+  },
+  "backend": [
+    {
+      "name": "auth-send-email",
+      "status": "ACTIVE",
+      "previousVersion": 9,
+      "version": 10,
+      "changedFiles": [
+        "configuration.json"
+      ],
+      "sourceReadback": "exact match",
+      "verify_jwt": false
+    },
+    {
+      "name": "account-locale",
+      "status": "ACTIVE",
+      "previousVersion": 5,
+      "version": 6,
+      "changedFiles": [
+        "configuration.json"
+      ],
+      "sourceReadback": "exact match",
+      "verify_jwt": false
+    },
+    {
+      "name": "wishlist-email-management",
+      "status": "ACTIVE",
+      "previousVersion": 4,
+      "version": 5,
+      "changedFiles": [
+        "configuration.json"
+      ],
+      "sourceReadback": "exact match",
+      "verify_jwt": false
+    },
+    {
+      "name": "wishlist-email-preferences",
+      "status": "ACTIVE",
+      "previousVersion": 7,
+      "version": 8,
+      "changedFiles": [
+        "configuration.json"
+      ],
+      "sourceReadback": "exact match",
+      "verify_jwt": false
+    }
+  ],
+  "authUrls": {
+    "siteUrl": "https://fabioegypt.com",
+    "addedCallbacks": [
+      "https://fabioegypt.com/it/auth/callback/**",
+      "https://fabioegypt.com/en/auth/callback/**",
+      "https://fabioegypt.com/es/auth/callback/**",
+      "https://fabioegypt.com/pt/auth/callback/**",
+      "https://fabioegypt.com/de/auth/callback/**"
+    ],
+    "existingCallbacksPreserved": true
+  },
+  "turnstile": {
+    "widget": "Fabio Egypt",
+    "productionDomainAlreadyAllowed": true,
+    "domainsChanged": false,
+    "mode": "managed",
+    "secretsReadOrRotated": false
+  },
+  "checks": {
+    "astro": "717 files; 0 errors, 0 warnings, 0 hints",
+    "build": "248 pages; static; Supabase 22 trips, 14 packages, 3 addons, 1 settings",
+    "artifact": "230 sitemap URLs; 5 login/wishlist languages; 321 text artifacts",
+    "focusedTests": "44 tests; 44 passed; 0 failed",
+    "backend": "13 CORS/auth-denial checks passed"
+  },
+  "realEmailsSent": 0,
+  "authenticatedCustomerTesting": false
+}

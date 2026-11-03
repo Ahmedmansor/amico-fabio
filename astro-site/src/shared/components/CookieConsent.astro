@@ -1,0 +1,13 @@
+---
+import type {Locale} from '../config/languages';
+import {getSharedMessages} from '../i18n/shared';
+import {siteConfig} from '../config/site';
+import 'vanilla-cookieconsent/dist/cookieconsent.css';
+const {locale}=Astro.props as {locale:Locale};
+const messages=getSharedMessages(locale).cookies;
+const config={locale,messages,measurementId:siteConfig.analytics.measurementId};
+---
+<div class="cookie-preferences-link"><button type="button" data-cc="show-preferencesModal">{messages.manage}</button></div>
+<script id="cookie-consent-config" type="application/json" set:html={JSON.stringify(config).replaceAll('<','\\u003c')}/>
+<script>import '../consent/browser';</script>
+<style>.cookie-preferences-link{padding:12px;text-align:center;font:inherit}.cookie-preferences-link button{cursor:pointer;text-decoration:underline;background:transparent;border:0;color:inherit;font:inherit}</style>

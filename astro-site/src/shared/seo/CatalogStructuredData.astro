@@ -1,0 +1,13 @@
+---
+import {catalogStructuredData, serializeCatalogStructuredData, type CatalogSeoInput} from '../domain/catalog-seo';
+import {siteConfig} from '../config/site';
+import {getSharedMessages} from '../i18n/shared';
+import type {Locale} from '../config/languages';
+import type {ShareImage} from './share-image';
+interface Props { product: CatalogSeoInput & {locale:Locale}; image:ShareImage }
+const {product,image}=Astro.props;
+const messages=getSharedMessages(product.locale);
+const graph=catalogStructuredData(product,{site:siteConfig.url,assetOrigin:import.meta.env.PUBLIC_ASSET_ORIGIN,
+  image,homeLabel:messages.menu.home,tripsLabel:messages.menu.trips});
+---
+<script is:inline type="application/ld+json" data-catalog-schema set:html={serializeCatalogStructuredData(graph)}/>

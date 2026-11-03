@@ -1,0 +1,47 @@
+---
+import type { Locale } from '../../../shared/config/languages';
+import type { ExploreCard as Card, ExploreLocation, ExploreMessages } from '../domain/explore';
+import { selectExploreItems, exploreCategories, paginateExplore, categoryLabel, exploreLocations } from '../domain/explore';
+import {getSharedMessages} from '../../../shared/i18n/shared';
+import { filterClass } from './filter-styles';
+import ExploreCard from './ExploreCard.astro';
+import './explore.css';
+interface Props { locale: Locale; location: ExploreLocation; cards: Card[]; messages: ExploreMessages }
+const { locale, location, cards, messages: m } = Astro.props;
+const ordered = selectExploreItems(cards, location);
+const initial = paginateExplore(ordered, 1);
+const categories = exploreCategories(cards, location);
+const places=getSharedMessages(locale).global.locations;
+const locationNames:Record<ExploreLocation,string>={all:m.labels.all_destinations,sharm:places.sharm,cairo:places.cairo,luxor_and_aswan:places.luxor_aswan};
+---
+<main class="explore-content min-h-screen" data-explore data-location={location} data-locale={locale}>
+  <section class="explore-container">
+    <h1 class="explore-title">{m.title}</h1>
+    <div class="explore-toolbar">
+      <nav class="explore-locations" aria-label={m.labels.destination}>
+        <span class="explore-location-caption"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>{m.labels.destination}</span>
+        <div class="explore-location-options">{exploreLocations.map(place=><a class="explore-location" data-explore-location={place} href={`/${locale}/explore/${place==='all'?'':`${place}/`}`} aria-current={place===location?'page':undefined}>{locationNames[place]}</a>)}</div>
+      </nav>
+      <div id="filter-chips" class="explore-chips">
+        {categories.map(category => <button type="button" data-filter={category} aria-pressed={category === 'all'} class={filterClass(category, category === 'all')}>{categoryLabel(category,m)}</button>)}
+      </div>
+      <div class="explore-sort"><label for="price-sort">{m.sort.sort_label}</label>
+        <select id="price-sort" class="bg-gray-900 text-white border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:border-gold cursor-pointer w-full md:w-auto">
+          <option value="default" selected>{m.sort.sort_recommended}</option><option value="price_asc">{m.sort.sort_low_high}</option><option value="price_desc">{m.sort.sort_high_low}</option>
+        </select>
+      </div>
+    </div>
+    <div id="explore-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-up delay-200">
+      {ordered.map((card,index) => <ExploreCard card={card} locale={locale} messages={m} hidden={index >= 9}/>)}
+      <div data-empty class="col-span-full text-center py-20" hidden={ordered.length > 0}><p class="text-gray-400 text-xl font-playfair italic">{m.labels.no_exclusive_experiences}</p></div>
+    </div>
+    <div id="pagination-controls" class:list={['mt-16 flex justify-center items-center gap-4 animate-fade-up delay-200',{'hidden':initial.totalPages <= 1}]}>
+      <button type="button" data-previous disabled class="w-10 h-10 rounded-full border border-gold text-gold flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gold hover:text-black transition-colors">{m.pagination.previous}</button>
+      <span class="text-white font-playfair text-lg">{m.pagination.page} <span class="text-gold" data-page>1</span> {m.pagination.of} <span data-pages>{initial.totalPages}</span></span>
+      <button type="button" data-next class="w-10 h-10 rounded-full border border-gold text-gold flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gold hover:text-black transition-colors">{m.pagination.next}</button>
+    </div>
+  </section>
+</main>
+<noscript><style is:inline>[data-explore-card][hidden]{display:flex!important}#pagination-controls{display:none!important}</style></noscript>
+<script>import './explore-interactions';</script>
+<style is:global>[data-explore-card][hidden], [data-empty][hidden], [data-filter][hidden] { display:none !important; }</style>

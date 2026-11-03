@@ -1,0 +1,85 @@
+{
+  "mode": "synthetic-no-real-email",
+  "cases": [
+    {
+      "locale": "it",
+      "width": 375,
+      "outcome": "accepted",
+      "explicitSingleSend": true,
+      "noRecipientInRequest": true,
+      "noAutomaticRetry": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "it",
+      "width": 375,
+      "outcome": "unknown",
+      "explicitSingleSend": true,
+      "noRecipientInRequest": true,
+      "noAutomaticRetry": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "it",
+      "width": 1440,
+      "outcome": "accepted",
+      "explicitSingleSend": true,
+      "noRecipientInRequest": true,
+      "noAutomaticRetry": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "it",
+      "width": 1440,
+      "outcome": "unknown",
+      "explicitSingleSend": true,
+      "noRecipientInRequest": true,
+      "noAutomaticRetry": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "outcome": "accepted",
+      "explicitSingleSend": true,
+      "noRecipientInRequest": true,
+      "noAutomaticRetry": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "outcome": "unknown",
+      "explicitSingleSend": true,
+      "noRecipientInRequest": true,
+      "noAutomaticRetry": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "outcome": "accepted",
+      "explicitSingleSend": true,
+      "noRecipientInRequest": true,
+      "noAutomaticRetry": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "outcome": "unknown",
+      "explicitSingleSend": true,
+      "noRecipientInRequest": true,
+      "noAutomaticRetry": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    }
+  ]
+}

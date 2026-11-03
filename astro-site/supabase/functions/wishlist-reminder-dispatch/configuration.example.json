@@ -1,0 +1,19 @@
+{
+  "enabled": false,
+  "batchSize": 1,
+  "leaseSeconds": 120,
+  "dailyLimit": null,
+  "attemptLimit": 3,
+  "retrySeconds": 60,
+  "timeoutMs": 10000,
+  "managementLifetimeMs": null,
+  "allowedRecipients": [],
+  "accountIds": [],
+  "senderEmail": "info@fabioegypt.com",
+  "senderName": "Fabio Egypt",
+  "catalogOrigin": "https://amico-fabio-iyzo.vercel.app",
+  "catalogMaxAgeMs": 172800000,
+  "environment": "test",
+  "maxResponseBytes": 65536,
+  "maxRequestBytes": 2097152
+}

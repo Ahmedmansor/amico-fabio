@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import type { ExploreCard, ExploreMessages } from '../domain/explore';
+import { cardBadge } from '../domain/explore';
+import type { Locale } from '../../../shared/config/languages';
+import FavoriteButton from '../../wishlist/presentation/FavoriteButton.astro';
+import Price from '../../currency/presentation/Price.astro';
+interface Props { card: ExploreCard; messages: ExploreMessages; locale: Locale; hidden: boolean }
+const { card, messages: m, locale, hidden } = Astro.props;
+const posters = import.meta.glob<ImageMetadata>('/src/shared/assets/catalog/**/poster.webp', { eager: true, import: 'default' });
+const image = posters[card.offer.poster];
+if (!image) throw new Error(`[explore:${card.id}] Missing linked image ${card.offer.poster}.`);
+const isPackage = card.kind === 'package';
+const text = card.offer.text[locale];
+const badge = cardBadge(card, locale, m);
+const href = `/${locale}/${isPackage?'packages':'tours'}/${card.offer.slug}/`;
+---
+<article data-desktop-reveal class:list={['catalog-card','trip-card',{'premium-package-card':isPackage}]} data-explore-card data-card-key={`${card.kind}:${card.id}`} data-trip-id={card.id} data-location={card.location} data-category={card.category} data-price={card.displayPrice} data-score={card.score} data-source-index={card.sourceIndex} hidden={hidden}>
+  <div class="catalog-card-image">
+    <a href={href} class="catalog-image-link" data-detail-link><Image src={image} alt={text.title} class="catalog-card-img" loading="lazy" widths={[400,800]} sizes="(min-width:1024px) 400px, (min-width:768px) 50vw, 100vw"/></a>
+    <div class="card-badges">
+      {badge && <span class:list={['standard-badge',{'standard-badge-premium':isPackage}]}>{badge}</span>}
+    </div>
+    <div class="card-favorite"><FavoriteButton id={card.id} kind={card.kind} locale={locale} title={text.title}/></div>
+  </div>
+  <div class="card-content">
+    {isPackage && <div class="card-package-label">{m.labels.premium_package}</div>}
+    <h2 class="catalog-card-title">{text.title}</h2>
+    <p class="catalog-card-desc">{text.short_desc}</p>
+    <div class="card-footer"><div class="price-block"><span class="label-start">{m.labels.price_from}</span>
+      <div class="price-row">
+        <Price class="price-new" amount={card.displayPrice}/>
+      </div>
+    </div><a class="card-btn" data-detail-link href={href}>{isPackage ? m.labels.discover_package : m.labels.discover}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+  </div>
+</article>

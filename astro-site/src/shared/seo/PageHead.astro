@@ -1,0 +1,34 @@
+---
+import squareLogo from '../assets/logos/logo-fabio-square.webp';
+import { siteConfig } from '../config/site';
+import { languages, supportedLocales, type Locale } from '../config/languages';
+import type {ShareImage} from './share-image';
+import {getImage} from 'astro:assets';
+import {preventIndexing} from './indexing';
+interface Props { locale: Locale; route: string; title: string; description: string; canonicalPath?:string; alternatePaths?:Partial<Record<Locale,string>>; keywords?:string; ogTitle?:string; ogDescription?:string; twitterDescription?:string;shareImage?:ShareImage;noindexOverride?:boolean;ogType?:'website'|'article';fontPreloads?:readonly string[] }
+const { locale, route, title, description,canonicalPath,alternatePaths,keywords,ogTitle=title,ogDescription=description,twitterDescription=description,shareImage,noindexOverride=false,ogType='website',fontPreloads=['montserrat-v31-latin-regular.woff2','montserrat-v31-latin-700.woff2','playfair-display-v40-latin-regular.woff2'] } = Astro.props;
+const routePath = route ? `${route}/` : '';
+const canonical = new URL(canonicalPath||`/${locale}/${routePath}`, siteConfig.url).href;
+const alternates=alternatePaths||Object.fromEntries(supportedLocales.map(language=>[language,`/${language}/${routePath}`]));
+const logo=await getImage({src:squareLogo,width:squareLogo.width,format:'webp'});
+const assetOrigin=import.meta.env.PUBLIC_ASSET_ORIGIN;
+const image = new URL(shareImage?.src||logo.src, assetOrigin).href;
+const shareUrl=new URL(new URL(canonical).pathname,assetOrigin).href;
+const noindex=noindexOverride||preventIndexing(import.meta.env.PUBLIC_NOINDEX);
+---
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>{title}</title><meta name="description" content={description}/>
+<link rel="canonical" href={canonical}/>
+{Object.entries(alternates).map(([language,path]) => path&&<link rel="alternate" hreflang={language} href={new URL(path, siteConfig.url).href}/>)}
+{keywords&&<meta name="keywords" content={keywords}/>}
+<meta name="robots" content={noindex?'noindex, follow':'index, follow'}/><meta name="author" content="Fabio Egypt"/>
+<meta property="og:type" content={ogType}/><meta property="og:locale" content={languages[locale].ogLocale}/>
+{Object.keys(alternates).filter(language=>language!==locale).map(language=><meta property="og:locale:alternate" content={languages[language as Locale].ogLocale}/>)}
+<meta property="og:url" content={shareUrl}/><meta property="og:site_name" content="Fabio Egypt Tours"/>
+<meta property="og:title" content={ogTitle}/><meta property="og:description" content={ogDescription}/><meta property="og:image" content={image}/>
+{shareImage&&<><meta property="og:image:secure_url" content={image}/><meta property="og:image:type" content={shareImage.type}/><meta property="og:image:width" content={String(shareImage.width)}/><meta property="og:image:height" content={String(shareImage.height)}/><meta property="og:image:alt" content={shareImage.alt}/></>}
+<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content={ogTitle}/><meta name="twitter:description" content={twitterDescription}/><meta name="twitter:image" content={image}/>
+<meta name="twitter:url" content={shareUrl}/>
+{shareImage&&<meta name="twitter:image:alt" content={shareImage.alt}/>}
+<link rel="icon" type="image/webp" href={logo.src}/><link rel="apple-touch-icon" href={logo.src}/>
+{fontPreloads.map(font=><link rel="preload" href={`/assets/fonts/${font}`} as="font" type="font/woff2" crossorigin/>)}

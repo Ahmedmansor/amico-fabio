@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Esplora i Viaggi | Fabio Egypt Tours",
+    "description": "Scegli la tua prossima avventura in Egitto. Tour privati a Sharm, Cairo, Luxor e Aswan. I migliori prezzi e servizio VIP.",
+    "destinations": {
+      "sharm": {
+        "title": "Esplora i Viaggi: Sharm El Sheikh | Fabio Egypt Tours",
+        "description": "Scegli la tua prossima avventura in Egitto. Tour privati a Sharm El Sheikh. I migliori prezzi e servizio VIP."
+      },
+      "cairo": {
+        "title": "Esplora i Viaggi: Cairo | Fabio Egypt Tours",
+        "description": "Scegli la tua prossima avventura in Egitto. Tour privati a Cairo. I migliori prezzi e servizio VIP."
+      },
+      "luxor_and_aswan": {
+        "title": "Esplora i Viaggi: Luxor e Aswan | Fabio Egypt Tours",
+        "description": "Scegli la tua prossima avventura in Egitto. Tour privati a Luxor e Aswan. I migliori prezzi e servizio VIP."
+      }
+    }
+  },
+  "title": "Esplora i Viaggi",
+  "sort": {
+    "sort_label": "Ordina per prezzo",
+    "sort_recommended": "Consigliati (VIP)",
+    "sort_low_high": "Prezzo: Basso → Alto",
+    "sort_high_low": "Prezzo: Alto → Basso"
+  },
+  "filters": {
+    "all": "Tutte",
+    "sea": "Mare",
+    "culture": "Cultura",
+    "desert": "Deserto",
+    "packages": "Pacchetti"
+  },
+  "badges": {
+    "BEST_SELLER": "Best seller",
+    "LIMITED_TIME": "Offerta a tempo limitato",
+    "NEW": "Novità",
+    "TOP_RATED": "Più votato",
+    "FAMILY_FRIENDLY": "Adatta alle famiglie",
+    "VIP_EXCLUSIVE": "VIP esclusivo",
+    "CHEAPEST_PRICE": "Prezzo più basso",
+    "RECOMMENDED": "Consigliato",
+    "POPULAR": "Molto richiesto"
+  },
+  "labels": {
+    "destination": "Destinazione",
+    "all_destinations": "Tutte le città",
+    "price_from": "A partire da",
+    "discover": "Scopri",
+    "discover_package": "Scopri il pacchetto",
+    "premium_package": "Pacchetto Premium",
+    "no_exclusive_experiences": "Nessuna esperienza esclusiva disponibile al momento."
+  },
+  "pagination": {
+    "page": "Page",
+    "of": "of",
+    "previous": "←",
+    "next": "→"
+  }
+}

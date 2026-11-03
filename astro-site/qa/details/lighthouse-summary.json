@@ -1,0 +1,28 @@
+[
+  {
+    "mode": "mobile",
+    "fetchTime": "2026-10-29T03:07:55.439Z",
+    "performance": 0.9,
+    "accessibility": 1,
+    "metrics": {
+      "first-contentful-paint": "1.1 s",
+      "largest-contentful-paint": "3.6 s",
+      "total-blocking-time": "0 ms",
+      "cumulative-layout-shift": "0.026"
+    },
+    "label": 1
+  },
+  {
+    "mode": "desktop",
+    "fetchTime": "2026-10-29T03:08:08.954Z",
+    "performance": 1,
+    "accessibility": 1,
+    "metrics": {
+      "first-contentful-paint": "0.3 s",
+      "largest-contentful-paint": "0.7 s",
+      "total-blocking-time": "0 ms",
+      "cumulative-layout-shift": "0"
+    },
+    "label": 1
+  }
+]

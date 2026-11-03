@@ -1,0 +1,57 @@
+{
+  "comparisons": [
+    {
+      "view": "it-desktop",
+      "legacyWidth": 1440,
+      "astroWidth": 1440,
+      "titleMatches": true,
+      "sectionsMatch": true,
+      "indexMatches": true,
+      "footerMatches": true,
+      "contactsMatch": true,
+      "imageLabelsMatch": true
+    },
+    {
+      "view": "en-desktop",
+      "legacyWidth": 1440,
+      "astroWidth": 1440,
+      "titleMatches": true,
+      "sectionsMatch": true,
+      "indexMatches": true,
+      "footerMatches": true,
+      "contactsMatch": true,
+      "imageLabelsMatch": true
+    },
+    {
+      "view": "it-mobile",
+      "legacyWidth": 390,
+      "astroWidth": 390,
+      "titleMatches": true,
+      "sectionsMatch": true,
+      "indexMatches": true,
+      "footerMatches": true,
+      "contactsMatch": true,
+      "imageLabelsMatch": true
+    },
+    {
+      "view": "en-mobile",
+      "legacyWidth": 390,
+      "astroWidth": 390,
+      "titleMatches": true,
+      "sectionsMatch": true,
+      "indexMatches": true,
+      "footerMatches": true,
+      "contactsMatch": true,
+      "imageLabelsMatch": true
+    }
+  ],
+  "screenshotsDirectory": "C:/Users/ahmedMansour/.codex/visualizations/2026/10/13/01a133f3-3946-7162-8fa8-b0b50f899db0/legal-migration",
+  "interactions": {
+    "languageNavigation": true,
+    "mobileMenu": true,
+    "indexLinks": 12,
+    "indexClosedAfterNavigation": true,
+    "footerHidesFloatingControls": true,
+    "allImagesLoadedAfterFooter": true
+  }
+}

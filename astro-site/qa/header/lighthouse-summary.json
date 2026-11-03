@@ -1,0 +1,140 @@
+{
+  "note": "Single cold laboratory runs, not field data. Do not compare uncompressed baseline directly with gzip results. The inline CSS trial was rejected. Final build retains shared external CSS. Local gzip server uses no-cache; Auth remains enabled. Mobile LCP 3.4–3.5 s remains above the aspirational 2.5 s target and needs deployed-host measurement before release.",
+  "results": [
+    {
+      "case": "original-static-home-mobile",
+      "transport": "uncompressed",
+      "lighthouse": "13.6.0",
+      "fetchTime": "2026-10-28T23:16:54.191Z",
+      "url": "http://127.0.0.1:4333/it/",
+      "formFactor": "mobile",
+      "scores": {
+        "performance": 71,
+        "accessibility": 95
+      },
+      "metrics": {
+        "largest-contentful-paint": {
+          "value": 7595.093999999997,
+          "display": "7.6 s"
+        },
+        "cumulative-layout-shift": {
+          "value": 0.03995454717428267,
+          "display": "0.04"
+        },
+        "total-blocking-time": {
+          "value": 4,
+          "display": "0 ms"
+        }
+      },
+      "runtimeError": null
+    },
+    {
+      "case": "rejected-inline-css-trial-mobile",
+      "transport": "uncompressed",
+      "lighthouse": "13.6.0",
+      "fetchTime": "2026-10-28T23:50:56.635Z",
+      "url": "http://127.0.0.1:4333/it/",
+      "formFactor": "mobile",
+      "scores": {
+        "performance": 78,
+        "accessibility": 100
+      },
+      "metrics": {
+        "largest-contentful-paint": {
+          "value": 5787.33,
+          "display": "5.8 s"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "display": "0"
+        },
+        "total-blocking-time": {
+          "value": 40.5,
+          "display": "40 ms"
+        }
+      },
+      "runtimeError": null
+    },
+    {
+      "case": "home-mobile",
+      "transport": "gzip",
+      "lighthouse": "13.6.0",
+      "fetchTime": "2026-10-28T23:54:00.931Z",
+      "url": "http://127.0.0.1:4333/it/",
+      "formFactor": "mobile",
+      "scores": {
+        "performance": 91,
+        "accessibility": 100
+      },
+      "metrics": {
+        "largest-contentful-paint": {
+          "value": 3528.2960000000003,
+          "display": "3.5 s"
+        },
+        "cumulative-layout-shift": {
+          "value": 0.0004862120301828913,
+          "display": "0"
+        },
+        "total-blocking-time": {
+          "value": 0,
+          "display": "0 ms"
+        }
+      },
+      "runtimeError": null
+    },
+    {
+      "case": "catalog-mobile",
+      "transport": "gzip",
+      "lighthouse": "13.6.0",
+      "fetchTime": "2026-10-28T23:59:35.808Z",
+      "url": "http://127.0.0.1:4333/it/explore/",
+      "formFactor": "mobile",
+      "scores": {
+        "performance": 92,
+        "accessibility": 100
+      },
+      "metrics": {
+        "largest-contentful-paint": {
+          "value": 3375.562,
+          "display": "3.4 s"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "display": "0"
+        },
+        "total-blocking-time": {
+          "value": 63,
+          "display": "60 ms"
+        }
+      },
+      "runtimeError": null
+    },
+    {
+      "case": "home-desktop",
+      "transport": "gzip",
+      "lighthouse": "13.6.0",
+      "fetchTime": "2026-10-28T23:57:12.952Z",
+      "url": "http://127.0.0.1:4333/it/",
+      "formFactor": "desktop",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100
+      },
+      "metrics": {
+        "largest-contentful-paint": {
+          "value": 749.0360000000001,
+          "display": "0.7 s"
+        },
+        "cumulative-layout-shift": {
+          "value": 0.0002377180516047506,
+          "display": "0"
+        },
+        "total-blocking-time": {
+          "value": 0,
+          "display": "0 ms"
+        }
+      },
+      "runtimeError": null
+    }
+  ]
+}

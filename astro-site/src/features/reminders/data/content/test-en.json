@@ -1,0 +1,13 @@
+{
+  "title": "Reminder email test",
+  "description": "Uses your saved account language and the actual reminder template, including email settings and unsubscribe links. One test per saved language in this test window; it does not consume your automatic reminder.",
+  "send": "Send test email",
+  "sending": "Sending your favorites…",
+  "accepted": "Test reminder accepted in {language}. Check your inbox, Promotions and spam folders.",
+  "alreadySent": "The {language} test was already sent in this test window. No new email was sent.",
+  "reminderDisabled": "Save your reminder consent and language below before testing. Then try again.",
+  "failed": "The test email could not be sent. Check that you are using the approved test account.",
+  "unknown": "The sending result could not be confirmed. Check your inbox before trying again.",
+  "expired": "This test has expired. A new authorized test is needed.",
+  "localeUnavailable": "This test window uses another language. A new authorized test is needed for the selected language."
+}

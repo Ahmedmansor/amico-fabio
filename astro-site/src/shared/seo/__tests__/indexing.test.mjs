@@ -1,0 +1,4 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';
+import {preventIndexing,assertIndexingHost} from '../indexing.ts';
+test('production defaults to indexable and only exact 1 enables noindex',()=>{assert.equal(preventIndexing(undefined),false);assert.equal(preventIndexing(''),false);assert.equal(preventIndexing('1'),true);for(const invalid of ['0','true','false',' 1'])assert.throws(()=>preventIndexing(invalid),/PUBLIC_NOINDEX/);});
+test('Vercel cannot be accidentally indexed and GitHub Actions cannot accidentally publish noindex',()=>{assert.throws(()=>assertIndexingHost(false,'1',undefined),/Vercel/);assert.throws(()=>assertIndexingHost(true,undefined,'true'),/GitHub/);assert.doesNotThrow(()=>assertIndexingHost(true,'1',undefined));assert.doesNotThrow(()=>assertIndexingHost(false,undefined,'true'));});

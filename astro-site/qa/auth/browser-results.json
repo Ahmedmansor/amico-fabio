@@ -1,0 +1,59 @@
+{
+  "mode": "synthetic-auth-only",
+  "cases": [
+    {
+      "locale": "it",
+      "width": 375,
+      "inputValidation": true,
+      "duplicateSendGuard": true,
+      "freshBrowserVerification": true,
+      "callbackScrubbedBeforeVerification": true,
+      "safeReturn": true,
+      "restoredAccount": true,
+      "signoutPreservesGuestWishlist": true,
+      "pageErrors": []
+    },
+    {
+      "locale": "it",
+      "width": 1440,
+      "inputValidation": true,
+      "duplicateSendGuard": true,
+      "freshBrowserVerification": true,
+      "callbackScrubbedBeforeVerification": true,
+      "safeReturn": true,
+      "restoredAccount": true,
+      "signoutPreservesGuestWishlist": true,
+      "pageErrors": []
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "inputValidation": true,
+      "duplicateSendGuard": true,
+      "freshBrowserVerification": true,
+      "callbackScrubbedBeforeVerification": true,
+      "safeReturn": true,
+      "restoredAccount": true,
+      "signoutPreservesGuestWishlist": true,
+      "pageErrors": []
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "inputValidation": true,
+      "duplicateSendGuard": true,
+      "freshBrowserVerification": true,
+      "callbackScrubbedBeforeVerification": true,
+      "safeReturn": true,
+      "restoredAccount": true,
+      "signoutPreservesGuestWishlist": true,
+      "pageErrors": []
+    }
+  ],
+  "expiredLink": true,
+  "googlePKCE": true,
+  "deniedStorage": true,
+  "noJavaScript": true,
+  "directWishlistEntry": true,
+  "nativeDialogFocusTrap": true
+}

@@ -1,0 +1,806 @@
+{
+  "origin": "http://127.0.0.1:4333",
+  "phase": "after",
+  "results": [
+    {
+      "path": "/it/tours/ras_mohammed_white_island_vip/",
+      "width": 375,
+      "status": 200,
+      "title": "Ras Mohammed & White Island: L'Esperienza VIP",
+      "duration": "8-9 Ore (Giornata Intera)",
+      "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+      "fullDescription": "Non è la solita gita in barca, è una giornata indimenticabile firmata Amico Fabio. Salperemo verso il Parco Nazionale di Ras Mohammed, dove il deserto incontra il mare più blu che abbiate mai visto. La tappa principale? L'Isola Bianca (Isola che non c'è): una lingua di sabbia bianca che appare e scompare con la marea, creando una piscina naturale degna delle Maldive. Tra un tuffo e l'altro, il nostro chef di bordo preparerà un pranzo a buffet fresco e gustoso. Che tu voglia esplorare i fondali con le nostre guide esperte o semplicemente abbronzarti sul ponte sole, questa è l'escursione perfetta per combinare avventura e totale relax.",
+      "notes": "Porta con te: Passaporto (obbligatorio), telo mare, crema solare, occhiali da sole e tanta voglia di divertirti. In inverno porta una felpa leggera per il rientro.",
+      "highlights": [
+        "Sosta esclusiva all'Isola Bianca (L'Isola che non c'è)",
+        "2 tappe snorkeling sulla barriera corallina più bella del mondo",
+        "Pranzo fresco a bordo con bevande illimitate",
+        "Atmosfera rilassata: Niente folla, solo divertimento"
+      ],
+      "includes": [
+        "Transfer A/R da hotel (Bus Aria Condizionata)",
+        "Biglietto ingresso Parco Ras Mohammed",
+        "Pranzo a buffet preparato a bordo",
+        "Bevande analcoliche illimitate tutto il giorno",
+        "Guida Snorkeling parlante italiano"
+      ],
+      "excludes": [
+        "Noleggio attrezzatura snorkeling (maschera/pinne - opzionale)",
+        "Servizio foto/video professionale",
+        "Mance (a discrezione)"
+      ],
+      "price": "€40",
+      "initialTotal": "€40",
+      "prices": {
+        "adult": 40,
+        "child": 19.5,
+        "minPax": 1
+      },
+      "addons": [
+        {
+          "id": "diving",
+          "price": 15,
+          "labels": {
+            "it": "Immersione con bombole",
+            "en": "Scuba Diving Option"
+          }
+        },
+        {
+          "id": "photo",
+          "price": 25,
+          "labels": {
+            "it": "Servizio fotografico",
+            "en": "Professional Photos"
+          }
+        }
+      ],
+      "overflow": false,
+      "overlap": false,
+      "errors": [],
+      "galleryOpens": true,
+      "galleryImages": 9,
+      "galleryLoads": true,
+      "galleryNext": true,
+      "galleryKeyboard": true,
+      "galleryCloses": true,
+      "photoCursor": "pointer",
+      "darkHeaderMatches": true,
+      "mobileReachesForm": true,
+      "totalUpdates": true
+    },
+    {
+      "path": "/it/tours/ras_mohammed_white_island_vip/",
+      "width": 768,
+      "status": 200,
+      "title": "Ras Mohammed & White Island: L'Esperienza VIP",
+      "duration": "8-9 Ore (Giornata Intera)",
+      "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+      "fullDescription": "Non è la solita gita in barca, è una giornata indimenticabile firmata Amico Fabio. Salperemo verso il Parco Nazionale di Ras Mohammed, dove il deserto incontra il mare più blu che abbiate mai visto. La tappa principale? L'Isola Bianca (Isola che non c'è): una lingua di sabbia bianca che appare e scompare con la marea, creando una piscina naturale degna delle Maldive. Tra un tuffo e l'altro, il nostro chef di bordo preparerà un pranzo a buffet fresco e gustoso. Che tu voglia esplorare i fondali con le nostre guide esperte o semplicemente abbronzarti sul ponte sole, questa è l'escursione perfetta per combinare avventura e totale relax.",
+      "notes": "Porta con te: Passaporto (obbligatorio), telo mare, crema solare, occhiali da sole e tanta voglia di divertirti. In inverno porta una felpa leggera per il rientro.",
+      "highlights": [
+        "Sosta esclusiva all'Isola Bianca (L'Isola che non c'è)",
+        "2 tappe snorkeling sulla barriera corallina più bella del mondo",
+        "Pranzo fresco a bordo con bevande illimitate",
+        "Atmosfera rilassata: Niente folla, solo divertimento"
+      ],
+      "includes": [
+        "Transfer A/R da hotel (Bus Aria Condizionata)",
+        "Biglietto ingresso Parco Ras Mohammed",
+        "Pranzo a buffet preparato a bordo",
+        "Bevande analcoliche illimitate tutto il giorno",
+        "Guida Snorkeling parlante italiano"
+      ],
+      "excludes": [
+        "Noleggio attrezzatura snorkeling (maschera/pinne - opzionale)",
+        "Servizio foto/video professionale",
+        "Mance (a discrezione)"
+      ],
+      "price": "€40",
+      "initialTotal": "€40",
+      "prices": {
+        "adult": 40,
+        "child": 19.5,
+        "minPax": 1
+      },
+      "addons": [
+        {
+          "id": "diving",
+          "price": 15,
+          "labels": {
+            "it": "Immersione con bombole",
+            "en": "Scuba Diving Option"
+          }
+        },
+        {
+          "id": "photo",
+          "price": 25,
+          "labels": {
+            "it": "Servizio fotografico",
+            "en": "Professional Photos"
+          }
+        }
+      ],
+      "overflow": false,
+      "overlap": false,
+      "errors": [],
+      "galleryOpens": true,
+      "galleryImages": 9,
+      "galleryLoads": true,
+      "galleryNext": true,
+      "galleryKeyboard": true,
+      "galleryCloses": true,
+      "photoCursor": "pointer",
+      "darkHeaderMatches": true,
+      "mobileReachesForm": true,
+      "totalUpdates": true
+    },
+    {
+      "path": "/it/tours/ras_mohammed_white_island_vip/",
+      "width": 1280,
+      "status": 200,
+      "title": "Ras Mohammed & White Island: L'Esperienza VIP",
+      "duration": "8-9 Ore (Giornata Intera)",
+      "description": "Vivi i 'Caraibi d'Egitto' a bordo di uno yacht di lusso. Snorkeling, relax e pranzo gourmet nel Parco Nazionale.",
+      "fullDescription": "Non è la solita gita in barca, è una giornata indimenticabile firmata Amico Fabio. Salperemo verso il Parco Nazionale di Ras Mohammed, dove il deserto incontra il mare più blu che abbiate mai visto. La tappa principale? L'Isola Bianca (Isola che non c'è): una lingua di sabbia bianca che appare e scompare con la marea, creando una piscina naturale degna delle Maldive. Tra un tuffo e l'altro, il nostro chef di bordo preparerà un pranzo a buffet fresco e gustoso. Che tu voglia esplorare i fondali con le nostre guide esperte o semplicemente abbronzarti sul ponte sole, questa è l'escursione perfetta per combinare avventura e totale relax.",
+      "notes": "Porta con te: Passaporto (obbligatorio), telo mare, crema solare, occhiali da sole e tanta voglia di divertirti. In inverno porta una felpa leggera per il rientro.",
+      "highlights": [
+        "Sosta esclusiva all'Isola Bianca (L'Isola che non c'è)",
+        "2 tappe snorkeling sulla barriera corallina più bella del mondo",
+        "Pranzo fresco a bordo con bevande illimitate",
+        "Atmosfera rilassata: Niente folla, solo divertimento"
+      ],
+      "includes": [
+        "Transfer A/R da hotel (Bus Aria Condizionata)",
+        "Biglietto ingresso Parco Ras Mohammed",
+        "Pranzo a buffet preparato a bordo",
+        "Bevande analcoliche illimitate tutto il giorno",
+        "Guida Snorkeling parlante italiano"
+      ],
+      "excludes": [
+        "Noleggio attrezzatura snorkeling (maschera/pinne - opzionale)",
+        "Servizio foto/video professionale",
+        "Mance (a discrezione)"
+      ],
+      "price": "€40",
+      "initialTotal": "€40",
+      "prices": {
+        "adult": 40,
+        "child": 19.5,
+        "minPax": 1
+      },
+      "addons": [
+        {
+          "id": "diving",
+          "price": 15,
+          "labels": {
+            "it": "Immersione con bombole",
+            "en": "Scuba Diving Option"
+          }
+        },
+        {
+          "id": "photo",
+          "price": 25,
+          "labels": {
+            "it": "Servizio fotografico",
+            "en": "Professional Photos"
+          }
+        }
+      ],
+      "overflow": false,
+      "overlap": false,
+      "errors": [],
+      "galleryOpens": true,
+      "galleryImages": 9,
+      "galleryLoads": true,
+      "galleryNext": true,
+      "galleryKeyboard": true,
+      "galleryCloses": true,
+      "photoCursor": "pointer",
+      "darkHeaderMatches": true,
+      "sticky": true,
+      "totalUpdates": true
+    },
+    {
+      "path": "/it/packages/sharm_confidential/",
+      "width": 375,
+      "status": 200,
+      "title": "Sharm Confidential: L'Esperienza Totale",
+      "duration": "6 Giorni / 5 Notti (Programma Completo)",
+      "description": "Il pacchetto definitivo di 6 giorni. Include TUTTO: Yacht VIP, Ras Mohammed via terra, Super Safari, Dahab e City Tour. Non dovrai pensare a nulla.",
+      "fullDescription": "Perché scegliere quando puoi avere tutto? Questo itinerario è la fusione perfetta tra relax e avventura. Abbiamo creato un flusso logico che ti permette di esplorare Sharm da ogni angolazione: navigherai verso l'Isola Bianca, farai snorkeling dalla spiaggia a Ras Mohammed, cavalcherai le dune del deserto e viaggerai fino al Blue Hole di Dahab. Ogni giornata è bilanciata per non stancarti, con trasferimenti privati e l'assistenza continua di Fabio.",
+      "notes": "L'ordine delle escursioni può essere modificato in base alle condizioni meteo o alle tue preferenze. Si consiglia di portare passaporto, crema solare e scarpe comode.",
+      "highlights": [
+        "5 Escursioni incluse (Mare, Terra, Deserto, Città)",
+        "Doppia esperienza Ras Mohammed (Yacht + Bus)",
+        "Dahab e Blue Hole in Jeep",
+        "Tutti i trasferimenti e le cene menzionate inclusi"
+      ],
+      "includes": [
+        "Tutti i trasferimenti privati (Aeroporto & Escursioni)",
+        "Biglietti d'ingresso ai Parchi Nazionali",
+        "Pranzo sullo Yacht e a Dahab",
+        "Cena Beduina nel deserto",
+        "Attrezzatura snorkeling base (su richiesta)",
+        "Assistenza prioritaria Fabio via WhatsApp"
+      ],
+      "excludes": [
+        "Voli internazionali e assicurazione di viaggio",
+        "Soggiorno in hotel (possiamo suggerire i migliori resort)",
+        "Mance ed extra personali",
+        "Foto e video professionali durante le escursioni"
+      ],
+      "price": "€200",
+      "initialTotal": "€200",
+      "prices": {
+        "adult": 200,
+        "child": 110,
+        "minPax": 1
+      },
+      "addons": [],
+      "overflow": false,
+      "overlap": false,
+      "errors": [],
+      "galleryOpens": true,
+      "galleryImages": 50,
+      "galleryLoads": true,
+      "galleryNext": true,
+      "galleryKeyboard": true,
+      "galleryCloses": true,
+      "photoCursor": "pointer",
+      "darkHeaderMatches": true,
+      "mobileReachesForm": true,
+      "totalUpdates": true,
+      "includedTripOpens": true,
+      "includedTripCloses": true
+    },
+    {
+      "path": "/it/packages/sharm_confidential/",
+      "width": 768,
+      "status": 200,
+      "title": "Sharm Confidential: L'Esperienza Totale",
+      "duration": "6 Giorni / 5 Notti (Programma Completo)",
+      "description": "Il pacchetto definitivo di 6 giorni. Include TUTTO: Yacht VIP, Ras Mohammed via terra, Super Safari, Dahab e City Tour. Non dovrai pensare a nulla.",
+      "fullDescription": "Perché scegliere quando puoi avere tutto? Questo itinerario è la fusione perfetta tra relax e avventura. Abbiamo creato un flusso logico che ti permette di esplorare Sharm da ogni angolazione: navigherai verso l'Isola Bianca, farai snorkeling dalla spiaggia a Ras Mohammed, cavalcherai le dune del deserto e viaggerai fino al Blue Hole di Dahab. Ogni giornata è bilanciata per non stancarti, con trasferimenti privati e l'assistenza continua di Fabio.",
+      "notes": "L'ordine delle escursioni può essere modificato in base alle condizioni meteo o alle tue preferenze. Si consiglia di portare passaporto, crema solare e scarpe comode.",
+      "highlights": [
+        "5 Escursioni incluse (Mare, Terra, Deserto, Città)",
+        "Doppia esperienza Ras Mohammed (Yacht + Bus)",
+        "Dahab e Blue Hole in Jeep",
+        "Tutti i trasferimenti e le cene menzionate inclusi"
+      ],
+      "includes": [
+        "Tutti i trasferimenti privati (Aeroporto & Escursioni)",
+        "Biglietti d'ingresso ai Parchi Nazionali",
+        "Pranzo sullo Yacht e a Dahab",
+        "Cena Beduina nel deserto",
+        "Attrezzatura snorkeling base (su richiesta)",
+        "Assistenza prioritaria Fabio via WhatsApp"
+      ],
+      "excludes": [
+        "Voli internazionali e assicurazione di viaggio",
+        "Soggiorno in hotel (possiamo suggerire i migliori resort)",
+        "Mance ed extra personali",
+        "Foto e video professionali durante le escursioni"
+      ],
+      "price": "€200",
+      "initialTotal": "€200",
+      "prices": {
+        "adult": 200,
+        "child": 110,
+        "minPax": 1
+      },
+      "addons": [],
+      "overflow": false,
+      "overlap": false,
+      "errors": [],
+      "galleryOpens": true,
+      "galleryImages": 50,
+      "galleryLoads": true,
+      "galleryNext": true,
+      "galleryKeyboard": true,
+      "galleryCloses": true,
+      "photoCursor": "pointer",
+      "darkHeaderMatches": true,
+      "mobileReachesForm": true,
+      "totalUpdates": true,
+      "includedTripOpens": true,
+      "includedTripCloses": true
+    },
+    {
+      "path": "/it/packages/sharm_confidential/",
+      "width": 1280,
+      "status": 200,
+      "title": "Sharm Confidential: L'Esperienza Totale",
+      "duration": "6 Giorni / 5 Notti (Programma Completo)",
+      "description": "Il pacchetto definitivo di 6 giorni. Include TUTTO: Yacht VIP, Ras Mohammed via terra, Super Safari, Dahab e City Tour. Non dovrai pensare a nulla.",
+      "fullDescription": "Perché scegliere quando puoi avere tutto? Questo itinerario è la fusione perfetta tra relax e avventura. Abbiamo creato un flusso logico che ti permette di esplorare Sharm da ogni angolazione: navigherai verso l'Isola Bianca, farai snorkeling dalla spiaggia a Ras Mohammed, cavalcherai le dune del deserto e viaggerai fino al Blue Hole di Dahab. Ogni giornata è bilanciata per non stancarti, con trasferimenti privati e l'assistenza continua di Fabio.",
+      "notes": "L'ordine delle escursioni può essere modificato in base alle condizioni meteo o alle tue preferenze. Si consiglia di portare passaporto, crema solare e scarpe comode.",
+      "highlights": [
+        "5 Escursioni incluse (Mare, Terra, Deserto, Città)",
+        "Doppia esperienza Ras Mohammed (Yacht + Bus)",
+        "Dahab e Blue Hole in Jeep",
+        "Tutti i trasferimenti e le cene menzionate inclusi"
+      ],
+      "includes": [
+        "Tutti i trasferimenti privati (Aeroporto & Escursioni)",
+        "Biglietti d'ingresso ai Parchi Nazionali",
+        "Pranzo sullo Yacht e a Dahab",
+        "Cena Beduina nel deserto",
+        "Attrezzatura snorkeling base (su richiesta)",
+        "Assistenza prioritaria Fabio via WhatsApp"
+      ],
+      "excludes": [
+        "Voli internazionali e assicurazione di viaggio",
+        "Soggiorno in hotel (possiamo suggerire i migliori resort)",
+        "Mance ed extra personali",
+        "Foto e video professionali durante le escursioni"
+      ],
+      "price": "€200",
+      "initialTotal": "€200",
+      "prices": {
+        "adult": 200,
+        "child": 110,
+        "minPax": 1
+      },
+      "addons": [],
+      "overflow": false,
+      "overlap": false,
+      "errors": [],
+      "galleryOpens": true,
+      "galleryImages": 50,
+      "galleryLoads": true,
+      "galleryNext": true,
+      "galleryKeyboard": true,
+      "galleryCloses": true,
+      "photoCursor": "pointer",
+      "darkHeaderMatches": true,
+      "sticky": true,
+      "totalUpdates": true,
+      "includedTripOpens": true,
+      "includedTripCloses": true
+    },
+    {
+      "path": "/en/tours/ras_mohammed_white_island_vip/",
+      "width": 375,
+      "status": 200,
+      "title": "Ras Mohammed & White Island: The VIP Experience",
+      "duration": "8-9 Hours (Full Day)",
+      "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+      "fullDescription": "It’s not just another boat trip, it’s an unforgettable day signed by Amico Fabio. We will set sail to Ras Mohammed National Park, where the desert meets the bluest sea you’ve ever seen. The main stop? White Island: a tongue of white sand that appears and disappears with the tide, creating a natural pool worthy of the Maldives. Between dives, our onboard chef will prepare a fresh and tasty buffet lunch. Whether you want to explore the seabed with our expert guides or just sunbathe on the sun deck, this is the perfect excursion to combine adventure and total relaxation.",
+      "notes": "Bring with you: Passport (mandatory), beach towel, sunscreen, sunglasses, and lots of energy. In winter, bring a light sweatshirt for the return.",
+      "highlights": [
+        "Exclusive stop at the White Island (The Neverland Island)",
+        "2 snorkeling stops on the world's most beautiful coral reef",
+        "Fresh lunch on board with unlimited drinks",
+        "Relaxed atmosphere: No crowds, just fun"
+      ],
+      "includes": [
+        "R/T Hotel transfer (A/C Bus)",
+        "Ras Mohammed National Park entry ticket",
+        "Buffet lunch prepared on board",
+        "Unlimited soft drinks all day",
+        "Italian-speaking Snorkeling guide"
+      ],
+      "excludes": [
+        "Snorkeling equipment rental (mask/fins - optional)",
+        "Professional photo/video service",
+        "Tips (at your discretion)"
+      ],
+      "price": "€40",
+      "initialTotal": "€40",
+      "prices": {
+        "adult": 40,
+        "child": 19.5,
+        "minPax": 1
+      },
+      "addons": [
+        {
+          "id": "diving",
+          "price": 15,
+          "labels": {
+            "it": "Immersione con bombole",
+            "en": "Scuba Diving Option"
+          }
+        },
+        {
+          "id": "photo",
+          "price": 25,
+          "labels": {
+            "it": "Servizio fotografico",
+            "en": "Professional Photos"
+          }
+        }
+      ],
+      "overflow": false,
+      "overlap": false,
+      "errors": [],
+      "galleryOpens": true,
+      "galleryImages": 9,
+      "galleryLoads": true,
+      "galleryNext": true,
+      "galleryKeyboard": true,
+      "galleryCloses": true,
+      "photoCursor": "pointer",
+      "darkHeaderMatches": true,
+      "mobileReachesForm": true,
+      "totalUpdates": true
+    },
+    {
+      "path": "/en/tours/ras_mohammed_white_island_vip/",
+      "width": 768,
+      "status": 200,
+      "title": "Ras Mohammed & White Island: The VIP Experience",
+      "duration": "8-9 Hours (Full Day)",
+      "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+      "fullDescription": "It’s not just another boat trip, it’s an unforgettable day signed by Amico Fabio. We will set sail to Ras Mohammed National Park, where the desert meets the bluest sea you’ve ever seen. The main stop? White Island: a tongue of white sand that appears and disappears with the tide, creating a natural pool worthy of the Maldives. Between dives, our onboard chef will prepare a fresh and tasty buffet lunch. Whether you want to explore the seabed with our expert guides or just sunbathe on the sun deck, this is the perfect excursion to combine adventure and total relaxation.",
+      "notes": "Bring with you: Passport (mandatory), beach towel, sunscreen, sunglasses, and lots of energy. In winter, bring a light sweatshirt for the return.",
+      "highlights": [
+        "Exclusive stop at the White Island (The Neverland Island)",
+        "2 snorkeling stops on the world's most beautiful coral reef",
+        "Fresh lunch on board with unlimited drinks",
+        "Relaxed atmosphere: No crowds, just fun"
+      ],
+      "includes": [
+        "R/T Hotel transfer (A/C Bus)",
+        "Ras Mohammed National Park entry ticket",
+        "Buffet lunch prepared on board",
+        "Unlimited soft drinks all day",
+        "Italian-speaking Snorkeling guide"
+      ],
+      "excludes": [
+        "Snorkeling equipment rental (mask/fins - optional)",
+        "Professional photo/video service",
+        "Tips (at your discretion)"
+      ],
+      "price": "€40",
+      "initialTotal": "€40",
+      "prices": {
+        "adult": 40,
+        "child": 19.5,
+        "minPax": 1
+      },
+      "addons": [
+        {
+          "id": "diving",
+          "price": 15,
+          "labels": {
+            "it": "Immersione con bombole",
+            "en": "Scuba Diving Option"
+          }
+        },
+        {
+          "id": "photo",
+          "price": 25,
+          "labels": {
+            "it": "Servizio fotografico",
+            "en": "Professional Photos"
+          }
+        }
+      ],
+      "overflow": false,
+      "overlap": false,
+      "errors": [],
+      "galleryOpens": true,
+      "galleryImages": 9,
+      "galleryLoads": true,
+      "galleryNext": true,
+      "galleryKeyboard": true,
+      "galleryCloses": true,
+      "photoCursor": "pointer",
+      "darkHeaderMatches": true,
+      "mobileReachesForm": true,
+      "totalUpdates": true
+    },
+    {
+      "path": "/en/tours/ras_mohammed_white_island_vip/",
+      "width": 1280,
+      "status": 200,
+      "title": "Ras Mohammed & White Island: The VIP Experience",
+      "duration": "8-9 Hours (Full Day)",
+      "description": "Experience the 'Egyptian Caribbean' aboard a luxury yacht. Snorkeling, relaxation, and gourmet lunch in the National Park.",
+      "fullDescription": "It’s not just another boat trip, it’s an unforgettable day signed by Amico Fabio. We will set sail to Ras Mohammed National Park, where the desert meets the bluest sea you’ve ever seen. The main stop? White Island: a tongue of white sand that appears and disappears with the tide, creating a natural pool worthy of the Maldives. Between dives, our onboard chef will prepare a fresh and tasty buffet lunch. Whether you want to explore the seabed with our expert guides or just sunbathe on the sun deck, this is the perfect excursion to combine adventure and total relaxation.",
+      "notes": "Bring with you: Passport (mandatory), beach towel, sunscreen, sunglasses, and lots of energy. In winter, bring a light sweatshirt for the return.",
+      "highlights": [
+        "Exclusive stop at the White Island (The Neverland Island)",
+        "2 snorkeling stops on the world's most beautiful coral reef",
+        "Fresh lunch on board with unlimited drinks",
+        "Relaxed atmosphere: No crowds, just fun"
+      ],
+      "includes": [
+        "R/T Hotel transfer (A/C Bus)",
+        "Ras Mohammed National Park entry ticket",
+        "Buffet lunch prepared on board",
+        "Unlimited soft drinks all day",
+        "Italian-speaking Snorkeling guide"
+      ],
+      "excludes": [
+        "Snorkeling equipment rental (mask/fins - optional)",
+        "Professional photo/video service",
+        "Tips (at your discretion)"
+      ],
+      "price": "€40",
+      "initialTotal": "€40",
+      "prices": {
+        "adult": 40,
+        "child": 19.5,
+        "minPax": 1
+      },
+      "addons": [
+        {
+          "id": "diving",
+          "price": 15,
+          "labels": {
+            "it": "Immersione con bombole",
+            "en": "Scuba Diving Option"
+          }
+        },
+        {
+          "id": "photo",
+          "price": 25,
+          "labels": {
+            "it": "Servizio fotografico",
+            "en": "Professional Photos"
+          }
+        }
+      ],
+      "overflow": false,
+      "overlap": false,
+      "errors": [],
+      "galleryOpens": true,
+      "galleryImages": 9,
+      "galleryLoads": true,
+      "galleryNext": true,
+      "galleryKeyboard": true,
+      "galleryCloses": true,
+      "photoCursor": "pointer",
+      "darkHeaderMatches": true,
+      "sticky": true,
+      "totalUpdates": true
+    },
+    {
+      "path": "/en/packages/sharm_confidential/",
+      "width": 375,
+      "status": 200,
+      "title": "Sharm Confidential: The Total Experience",
+      "duration": "6 Days / 5 Nights (Full Program)",
+      "description": "The ultimate 6-day package. Includes EVERYTHING: VIP Yacht, Ras Mohammed by land, Super Safari, Dahab, and City Tour. You won't have to worry about a thing.",
+      "fullDescription": "Why choose when you can have it all? This itinerary is the perfect fusion of relaxation and adventure. We created a logical flow that allows you to explore Sharm from every angle: sail to the White Island, snorkel from the beach at Ras Mohammed, ride the desert dunes, and travel to the legendary Blue Hole in Dahab. Every day is balanced so you don't get tired, with private transfers and continuous assistance from Fabio.",
+      "notes": "The order of excursions can be modified based on weather conditions or your preferences. It is recommended to bring your passport, sunscreen, and comfortable shoes.",
+      "highlights": [
+        "5 Experiences included (Sea, Land, Desert, City)",
+        "Double Ras Mohammed experience (Yacht + Bus)",
+        "Dahab and Blue Hole via Jeep",
+        "All transfers and mentioned dinners included"
+      ],
+      "includes": [
+        "All private transfers (Airport & Excursions)",
+        "Entrance tickets to National Parks",
+        "Lunch on the Yacht and in Dahab",
+        "Bedouin Dinner in the desert",
+        "Basic snorkeling gear (upon request)",
+        "Priority assistance via WhatsApp 24/7"
+      ],
+      "excludes": [
+        "International flights and travel insurance",
+        "Hotel accommodation (we can suggest best resorts)",
+        "Tips and personal extras",
+        "Professional photos and videos during excursions"
+      ],
+      "price": "€200",
+      "initialTotal": "€200",
+      "prices": {
+        "adult": 200,
+        "child": 110,
+        "minPax": 1
+      },
+      "addons": [],
+      "overflow": false,
+      "overlap": false,
+      "errors": [],
+      "galleryOpens": true,
+      "galleryImages": 50,
+      "galleryLoads": true,
+      "galleryNext": true,
+      "galleryKeyboard": true,
+      "galleryCloses": true,
+      "photoCursor": "pointer",
+      "darkHeaderMatches": true,
+      "mobileReachesForm": true,
+      "totalUpdates": true,
+      "includedTripOpens": true,
+      "includedTripCloses": true
+    },
+    {
+      "path": "/en/packages/sharm_confidential/",
+      "width": 768,
+      "status": 200,
+      "title": "Sharm Confidential: The Total Experience",
+      "duration": "6 Days / 5 Nights (Full Program)",
+      "description": "The ultimate 6-day package. Includes EVERYTHING: VIP Yacht, Ras Mohammed by land, Super Safari, Dahab, and City Tour. You won't have to worry about a thing.",
+      "fullDescription": "Why choose when you can have it all? This itinerary is the perfect fusion of relaxation and adventure. We created a logical flow that allows you to explore Sharm from every angle: sail to the White Island, snorkel from the beach at Ras Mohammed, ride the desert dunes, and travel to the legendary Blue Hole in Dahab. Every day is balanced so you don't get tired, with private transfers and continuous assistance from Fabio.",
+      "notes": "The order of excursions can be modified based on weather conditions or your preferences. It is recommended to bring your passport, sunscreen, and comfortable shoes.",
+      "highlights": [
+        "5 Experiences included (Sea, Land, Desert, City)",
+        "Double Ras Mohammed experience (Yacht + Bus)",
+        "Dahab and Blue Hole via Jeep",
+        "All transfers and mentioned dinners included"
+      ],
+      "includes": [
+        "All private transfers (Airport & Excursions)",
+        "Entrance tickets to National Parks",
+        "Lunch on the Yacht and in Dahab",
+        "Bedouin Dinner in the desert",
+        "Basic snorkeling gear (upon request)",
+        "Priority assistance via WhatsApp 24/7"
+      ],
+      "excludes": [
+        "International flights and travel insurance",
+        "Hotel accommodation (we can suggest best resorts)",
+        "Tips and personal extras",
+        "Professional photos and videos during excursions"
+      ],
+      "price": "€200",
+      "initialTotal": "€200",
+      "prices": {
+        "adult": 200,
+        "child": 110,
+        "minPax": 1
+      },
+      "addons": [],
+      "overflow": false,
+      "overlap": false,
+      "errors": [],
+      "galleryOpens": true,
+      "galleryImages": 50,
+      "galleryLoads": true,
+      "galleryNext": true,
+      "galleryKeyboard": true,
+      "galleryCloses": true,
+      "photoCursor": "pointer",
+      "darkHeaderMatches": true,
+      "mobileReachesForm": true,
+      "totalUpdates": true,
+      "includedTripOpens": true,
+      "includedTripCloses": true
+    },
+    {
+      "path": "/en/packages/sharm_confidential/",
+      "width": 1280,
+      "status": 200,
+      "title": "Sharm Confidential: The Total Experience",
+      "duration": "6 Days / 5 Nights (Full Program)",
+      "description": "The ultimate 6-day package. Includes EVERYTHING: VIP Yacht, Ras Mohammed by land, Super Safari, Dahab, and City Tour. You won't have to worry about a thing.",
+      "fullDescription": "Why choose when you can have it all? This itinerary is the perfect fusion of relaxation and adventure. We created a logical flow that allows you to explore Sharm from every angle: sail to the White Island, snorkel from the beach at Ras Mohammed, ride the desert dunes, and travel to the legendary Blue Hole in Dahab. Every day is balanced so you don't get tired, with private transfers and continuous assistance from Fabio.",
+      "notes": "The order of excursions can be modified based on weather conditions or your preferences. It is recommended to bring your passport, sunscreen, and comfortable shoes.",
+      "highlights": [
+        "5 Experiences included (Sea, Land, Desert, City)",
+        "Double Ras Mohammed experience (Yacht + Bus)",
+        "Dahab and Blue Hole via Jeep",
+        "All transfers and mentioned dinners included"
+      ],
+      "includes": [
+        "All private transfers (Airport & Excursions)",
+        "Entrance tickets to National Parks",
+        "Lunch on the Yacht and in Dahab",
+        "Bedouin Dinner in the desert",
+        "Basic snorkeling gear (upon request)",
+        "Priority assistance via WhatsApp 24/7"
+      ],
+      "excludes": [
+        "International flights and travel insurance",
+        "Hotel accommodation (we can suggest best resorts)",
+        "Tips and personal extras",
+        "Professional photos and videos during excursions"
+      ],
+      "price": "€200",
+      "initialTotal": "€200",
+      "prices": {
+        "adult": 200,
+        "child": 110,
+        "minPax": 1
+      },
+      "addons": [],
+      "overflow": false,
+      "overlap": false,
+      "errors": [],
+      "galleryOpens": true,
+      "galleryImages": 50,
+      "galleryLoads": true,
+      "galleryNext": true,
+      "galleryKeyboard": true,
+      "galleryCloses": true,
+      "photoCursor": "pointer",
+      "darkHeaderMatches": true,
+      "sticky": true,
+      "totalUpdates": true,
+      "includedTripOpens": true,
+      "includedTripCloses": true
+    }
+  ],
+  "comparison": [
+    {
+      "path": "/it/tours/ras_mohammed_white_island_vip/",
+      "width": 375,
+      "preserved": true,
+      "overlap": false,
+      "overflow": false
+    },
+    {
+      "path": "/it/tours/ras_mohammed_white_island_vip/",
+      "width": 768,
+      "preserved": true,
+      "overlap": false,
+      "overflow": false
+    },
+    {
+      "path": "/it/tours/ras_mohammed_white_island_vip/",
+      "width": 1280,
+      "preserved": true,
+      "overlap": false,
+      "overflow": false
+    },
+    {
+      "path": "/it/packages/sharm_confidential/",
+      "width": 375,
+      "preserved": true,
+      "overlap": false,
+      "overflow": false
+    },
+    {
+      "path": "/it/packages/sharm_confidential/",
+      "width": 768,
+      "preserved": true,
+      "overlap": false,
+      "overflow": false
+    },
+    {
+      "path": "/it/packages/sharm_confidential/",
+      "width": 1280,
+      "preserved": true,
+      "overlap": false,
+      "overflow": false
+    },
+    {
+      "path": "/en/tours/ras_mohammed_white_island_vip/",
+      "width": 375,
+      "preserved": true,
+      "overlap": false,
+      "overflow": false
+    },
+    {
+      "path": "/en/tours/ras_mohammed_white_island_vip/",
+      "width": 768,
+      "preserved": true,
+      "overlap": false,
+      "overflow": false
+    },
+    {
+      "path": "/en/tours/ras_mohammed_white_island_vip/",
+      "width": 1280,
+      "preserved": true,
+      "overlap": false,
+      "overflow": false
+    },
+    {
+      "path": "/en/packages/sharm_confidential/",
+      "width": 375,
+      "preserved": true,
+      "overlap": false,
+      "overflow": false
+    },
+    {
+      "path": "/en/packages/sharm_confidential/",
+      "width": 768,
+      "preserved": true,
+      "overlap": false,
+      "overflow": false
+    },
+    {
+      "path": "/en/packages/sharm_confidential/",
+      "width": 1280,
+      "preserved": true,
+      "overlap": false,
+      "overflow": false
+    }
+  ]
+}

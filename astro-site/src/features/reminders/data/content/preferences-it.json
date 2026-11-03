@@ -1,0 +1,17 @@
+{
+  "title": "Promemoria via email",
+  "languageLabel": "Lingua dei promemoria",
+  "languageNote": "Le email future seguono l’ultima lingua del sito usata con il tuo account. Cambiare lingua non attiva i promemoria e non ne riavvia il conteggio.",
+  "label": "Desidero ricevere un promemoria via email sui miei preferiti",
+  "description": "Facoltativo. Al massimo un promemoria per account, 24 ore dopo l’ultima aggiunta o l’attivazione dei promemoria, a seconda di quale avviene dopo. Svuotare i preferiti annulla l’attesa. Puoi disattivare i promemoria in qualsiasi momento.",
+  "save": "Salva preferenza",
+  "loading": "Caricamento della preferenza per i promemoria…",
+  "saving": "Salvataggio della preferenza per i promemoria…",
+  "enabled": "I promemoria via email sono attivi per questo account.",
+  "disabled": "I promemoria via email sono disattivati. I tuoi preferiti restano salvati.",
+  "error": "Non è stato possibile confermare la preferenza per i promemoria. Riprova.",
+  "outdated": "Le informazioni sui promemoria sono cambiate. Ricarica la preferenza prima di scegliere di nuovo.",
+  "retry": "Riprova",
+  "reload": "Ricarica preferenza",
+  "privacy": "Informativa sulla privacy"
+}

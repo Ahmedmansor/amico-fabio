@@ -1,0 +1,85 @@
+{
+  "origin": "https://amico-fabio-iyzo.vercel.app",
+  "results": [
+    {
+      "locale": "es",
+      "width": 390,
+      "route": "",
+      "h1": true,
+      "noOverflow": true,
+      "languageLinks": true,
+      "packageInteraction": false,
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "width": 390,
+      "route": "packages/dolce_vita_family/",
+      "h1": true,
+      "noOverflow": true,
+      "languageLinks": true,
+      "packageInteraction": true,
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "width": 1440,
+      "route": "",
+      "h1": true,
+      "noOverflow": true,
+      "languageLinks": true,
+      "packageInteraction": false,
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "width": 1440,
+      "route": "packages/dolce_vita_family/",
+      "h1": true,
+      "noOverflow": true,
+      "languageLinks": true,
+      "packageInteraction": true,
+      "errors": []
+    },
+    {
+      "locale": "pt",
+      "width": 390,
+      "route": "",
+      "h1": true,
+      "noOverflow": true,
+      "languageLinks": true,
+      "packageInteraction": false,
+      "errors": []
+    },
+    {
+      "locale": "pt",
+      "width": 390,
+      "route": "packages/dolce_vita_family/",
+      "h1": true,
+      "noOverflow": true,
+      "languageLinks": true,
+      "packageInteraction": true,
+      "errors": []
+    },
+    {
+      "locale": "pt",
+      "width": 1440,
+      "route": "",
+      "h1": true,
+      "noOverflow": true,
+      "languageLinks": true,
+      "packageInteraction": false,
+      "errors": []
+    },
+    {
+      "locale": "pt",
+      "width": 1440,
+      "route": "packages/dolce_vita_family/",
+      "h1": true,
+      "noOverflow": true,
+      "languageLinks": true,
+      "packageInteraction": true,
+      "errors": []
+    }
+  ]
+}

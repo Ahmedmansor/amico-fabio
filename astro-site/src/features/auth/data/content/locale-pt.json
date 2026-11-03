@@ -1,0 +1,14 @@
+{
+  "title": "Idioma dos e-mails",
+  "followSite": "Seguir o idioma do site",
+  "save": "Guardar idioma",
+  "retry": "Continuar a guardar",
+  "noPreference": "O último idioma do site utilizado com a sua conta será também o idioma dos próximos e-mails. Alterar o idioma não ativa lembretes nem modifica o consentimento.",
+  "loading": "A carregar as definições de idioma…",
+  "saving": "A guardar o idioma…",
+  "saved": "Idioma guardado.",
+  "uncertain": "A sua escolha aguarda confirmação. Continue a guardar para verificar o resultado.",
+  "conflict": "As definições de idioma foram alteradas noutro local. Reveja o idioma selecionado antes de guardar novamente.",
+  "failed": "Não foi possível carregar as definições de idioma. Tente novamente.",
+  "storageFailed": "O seu navegador não conseguiu guardar a escolha pendente. Mantenha este separador aberto e tente novamente."
+}

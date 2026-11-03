@@ -1,0 +1,150 @@
+{
+  "origin": "https://fabioegypt.com",
+  "release": {
+    "artifact": "Astro static production",
+    "rollbackTag": "legacy-pages-before-astro-2026-11-03",
+    "sourceCommit": "75ceba8fb639ba953db835d815144d55fed59663",
+    "date": "2026-11-03",
+    "origin": "https://fabioegypt.com",
+    "sourceBranch": "try-to-refactoring-to-astro",
+    "verifiedSitemapUrls": 230,
+    "pages": 248
+  },
+  "rows": [
+    {
+      "route": "/it/",
+      "status": 200,
+      "language": "it",
+      "currencyOptions": 3,
+      "menuNotice": false
+    },
+    {
+      "route": "/it/login/",
+      "status": 200,
+      "language": "it",
+      "currencyOptions": 3,
+      "menuNotice": false
+    },
+    {
+      "route": "/it/wishlist/",
+      "status": 200,
+      "language": "it",
+      "currencyOptions": 3,
+      "menuNotice": false
+    },
+    {
+      "route": "/en/",
+      "status": 200,
+      "language": "en",
+      "currencyOptions": 3,
+      "menuNotice": false
+    },
+    {
+      "route": "/en/login/",
+      "status": 200,
+      "language": "en",
+      "currencyOptions": 3,
+      "menuNotice": false
+    },
+    {
+      "route": "/en/wishlist/",
+      "status": 200,
+      "language": "en",
+      "currencyOptions": 3,
+      "menuNotice": false
+    },
+    {
+      "route": "/es/",
+      "status": 200,
+      "language": "es",
+      "currencyOptions": 3,
+      "menuNotice": false
+    },
+    {
+      "route": "/es/login/",
+      "status": 200,
+      "language": "es",
+      "currencyOptions": 3,
+      "menuNotice": false
+    },
+    {
+      "route": "/es/wishlist/",
+      "status": 200,
+      "language": "es",
+      "currencyOptions": 3,
+      "menuNotice": false
+    },
+    {
+      "route": "/pt/",
+      "status": 200,
+      "language": "pt",
+      "currencyOptions": 3,
+      "menuNotice": false
+    },
+    {
+      "route": "/pt/login/",
+      "status": 200,
+      "language": "pt",
+      "currencyOptions": 3,
+      "menuNotice": false
+    },
+    {
+      "route": "/pt/wishlist/",
+      "status": 200,
+      "language": "pt",
+      "currencyOptions": 3,
+      "menuNotice": false
+    },
+    {
+      "route": "/de/",
+      "status": 200,
+      "language": "de",
+      "currencyOptions": 3,
+      "menuNotice": false
+    },
+    {
+      "route": "/de/login/",
+      "status": 200,
+      "language": "de",
+      "currencyOptions": 3,
+      "menuNotice": false
+    },
+    {
+      "route": "/de/wishlist/",
+      "status": 200,
+      "language": "de",
+      "currencyOptions": 3,
+      "menuNotice": false
+    },
+    {
+      "route": "/it/tours/ras_mohammed_bus_half_day/",
+      "status": 200
+    },
+    {
+      "route": "/en/packages/il_grande_blu/",
+      "status": 200
+    },
+    {
+      "route": "/offerta-sharm/",
+      "status": 200
+    },
+    {
+      "route": "/welcome/",
+      "status": 200
+    }
+  ],
+  "sitemapUrls": 230,
+  "assetsChecked": [
+    "/_astro/logo-fabio-square.Dcsv3mzy_ZtTuTE.webp",
+    "/_astro/global.Qhm0qbEu.css",
+    "/_astro/legacy-shell.C50UOPZq.css",
+    "/_astro/DesktopPolish.f7RQxacf.css",
+    "/_astro/DocumentShell.0B-SB3xW.css",
+    "/_astro/index.BNdbZvsl.css",
+    "/_astro/fabio-header-logo.zp1nciIO_Z1ER99S.webp",
+    "/_astro/WishlistLink.astro_astro_type_script_index_0_lang.Ck7bOO1T.js"
+  ],
+  "unknownRouteStatus": 404,
+  "realEmailsSent": 0,
+  "authenticatedUserTests": false
+}

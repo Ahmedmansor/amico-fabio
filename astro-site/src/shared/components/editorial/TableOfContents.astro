@@ -1,0 +1,11 @@
+---
+import type {ReadingHeading} from '../../data/reading-outline';
+import type {Locale} from '../../config/languages';
+import {getSharedMessages} from '../../i18n/shared';
+interface Props {locale:Locale;headings:ReadingHeading[]}
+const {locale,headings}=Astro.props,m=getSharedMessages(locale).blog;
+---
+<nav class="editorial-toc" aria-label={m.inThisArticle} data-editorial-toc>
+  <p class="blog-kicker">{m.readingGuide}</p><h2>{m.inThisArticle}</h2>
+  <ol>{(headings.length?headings:[{slug:'editorial-introduction',depth:2,text:m.overview}]).map(heading=><li class:list={{'editorial-toc-sub':heading.depth===3}}><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ol>
+</nav>

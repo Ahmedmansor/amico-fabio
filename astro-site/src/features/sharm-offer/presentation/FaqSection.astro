@@ -1,0 +1,113 @@
+---
+import type {OfferCampaign} from '../domain/campaign';
+interface Props {campaign:OfferCampaign}
+const {campaign}=Astro.props;
+const copy=campaign.copy;
+---
+<div id="faq-section">
+    <section class="osh-section osh-section--alt" id="faq-block">
+      <div class="osh-container osh-faq-container">
+        <div class="osh-section-header">
+          <h2 class="osh-section-title">{copy["FaqSection.text.0"]}</h2>
+          <p class="osh-section-subtitle">{copy["FaqSection.text.1"]}</p>
+        </div>
+
+        <div class="osh-faq-list" role="region" aria-label={copy["FaqSection.aria-label.2"]}>
+
+            <div class="osh-faq-item is-open" id="faq-item-faq-1">
+              <button type="button"
+                      class="osh-faq-question"
+                      aria-expanded="true"
+                      aria-controls="faq-ans-faq-1"
+                      id="faq-btn-faq-1">
+                <span class="osh-faq-q-text">{copy["FaqSection.text.3"]}</span>
+                <span class="osh-faq-icon-wrap">
+  <svg class="osh-faq-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <polyline points="6 9 12 15 18 9"></polyline>
+  </svg>
+</span>
+              </button>
+              <div class="osh-faq-answer"
+                   id="faq-ans-faq-1"
+                   role="region"
+                   aria-labelledby="faq-btn-faq-1">
+                <div class="osh-faq-answer-inner">
+                  <p>{copy["FaqSection.text.4"]}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="osh-faq-item " id="faq-item-faq-2">
+              <button type="button"
+                      class="osh-faq-question"
+                      aria-expanded="false"
+                      aria-controls="faq-ans-faq-2"
+                      id="faq-btn-faq-2">
+                <span class="osh-faq-q-text">{copy["FaqSection.text.5"]}</span>
+                <span class="osh-faq-icon-wrap">
+  <svg class="osh-faq-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <polyline points="6 9 12 15 18 9"></polyline>
+  </svg>
+</span>
+              </button>
+              <div class="osh-faq-answer"
+                   id="faq-ans-faq-2"
+                   role="region"
+                   aria-labelledby="faq-btn-faq-2">
+                <div class="osh-faq-answer-inner">
+                  <p>{copy["FaqSection.text.6"]}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="osh-faq-item " id="faq-item-faq-3">
+              <button type="button"
+                      class="osh-faq-question"
+                      aria-expanded="false"
+                      aria-controls="faq-ans-faq-3"
+                      id="faq-btn-faq-3">
+                <span class="osh-faq-q-text">{copy["FaqSection.text.7"]}</span>
+                <span class="osh-faq-icon-wrap">
+  <svg class="osh-faq-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <polyline points="6 9 12 15 18 9"></polyline>
+  </svg>
+</span>
+              </button>
+              <div class="osh-faq-answer"
+                   id="faq-ans-faq-3"
+                   role="region"
+                   aria-labelledby="faq-btn-faq-3">
+                <div class="osh-faq-answer-inner">
+                  <p>{copy["FaqSection.text.8"]}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="osh-faq-item " id="faq-item-faq-4">
+              <button type="button"
+                      class="osh-faq-question"
+                      aria-expanded="false"
+                      aria-controls="faq-ans-faq-4"
+                      id="faq-btn-faq-4">
+                <span class="osh-faq-q-text">{copy["FaqSection.text.9"]}</span>
+                <span class="osh-faq-icon-wrap">
+  <svg class="osh-faq-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <polyline points="6 9 12 15 18 9"></polyline>
+  </svg>
+</span>
+              </button>
+              <div class="osh-faq-answer"
+                   id="faq-ans-faq-4"
+                   role="region"
+                   aria-labelledby="faq-btn-faq-4">
+                <div class="osh-faq-answer-inner">
+                  <p>{copy["FaqSection.text.10"]}</p>
+                </div>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </section>
+
+</div>

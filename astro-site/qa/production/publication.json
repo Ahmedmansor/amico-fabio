@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-03",
+  "origin": "https://fabioegypt.com",
+  "status": "live-verified",
+  "sourceCommit": "75ceba8fb639ba953db835d815144d55fed59663",
+  "artifactCommit": "f8355f7327aae64d5b80c347b690a63d660ceb2c",
+  "publishingSource": "gh-pages / (root)",
+  "pagesSettingsChanged": false,
+  "dnsChanged": false,
+  "billingChanged": false,
+  "rollbackTag": "legacy-pages-before-astro-2026-11-03",
+  "rollbackCommit": "70dc9d2e292d91385ffa1d55eb1a5b0537a893e3",
+  "deployment": {
+    "runId": 41570779052,
+    "url": "https://github.com/Ahmedmansor/amico-fabio/actions/runs/41570779052",
+    "name": "pages build and deployment",
+    "conclusion": "success"
+  },
+  "artifactVerification": {
+    "copiedFiles": 1386,
+    "copiedBytesMatchedBuild": true,
+    "additionalFiles": [
+      ".nojekyll",
+      "release.json"
+    ],
+    "productionCnamePreserved": true,
+    "generatedWhitespacePreserved": true
+  },
+  "liveVerification": {
+    "publicPages": 19,
+    "languages": [
+      "it",
+      "en",
+      "es",
+      "pt",
+      "de"
+    ],
+    "sitemapUrls": 230,
+    "sampledAssets": 8,
+    "currencyMenuNotice": false,
+    "unknownRouteStatus": 404,
+    "report": "live.json"
+  },
+  "automatedRebuildLimitation": "The custom Astro workflow still has the account billing lock. Managed branch publication succeeded; future source changes require a validated production build and explicit gh-pages update until custom Actions are available.",
+  "realEmailOrBookingSubmissions": 0,
+  "authenticatedCustomerTesting": false,
+  "mainMerge": "Source reconciliation is tracked in pull request #2; it follows the successful artifact publication and this evidence commit.",
+  "sourcePullRequest": "https://github.com/Ahmedmansor/amico-fabio/pull/2",
+  "finalLocalChecks": {
+    "astro": "718 files; 0 errors, 0 warnings, 0 hints",
+    "build": "248 pages; complete",
+    "artifact": "230 sitemap URLs; 5 login/wishlist languages; 321 text artifacts"
+  },
+  "liveBrowser": {
+    "page": "https://fabioegypt.com/it/",
+    "currencyMenu": [
+      "EUR",
+      "USD",
+      "GBP"
+    ],
+    "noticeAbsent": true,
+    "switchedToUsd": true,
+    "restoredEur": true,
+    "optionalCookiesRejected": true,
+    "accountFormsSubmitted": false
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "origin": "https://amico-fabio-iyzo.vercel.app",
+  "results": [
+    {
+      "locale": "es",
+      "route": "egypt/",
+      "status": 200,
+      "language": true,
+      "noindex": true
+    },
+    {
+      "locale": "es",
+      "route": "login/",
+      "status": 200,
+      "language": true,
+      "noindex": true
+    },
+    {
+      "locale": "es",
+      "route": "blog/",
+      "status": 404,
+      "excluded": true
+    },
+    {
+      "locale": "pt",
+      "route": "egypt/",
+      "status": 200,
+      "language": true,
+      "noindex": true
+    },
+    {
+      "locale": "pt",
+      "route": "login/",
+      "status": 200,
+      "language": true,
+      "noindex": true
+    },
+    {
+      "locale": "pt",
+      "route": "blog/",
+      "status": 404,
+      "excluded": true
+    }
+  ]
+}

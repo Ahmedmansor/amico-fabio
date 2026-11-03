@@ -1,0 +1,18 @@
+{
+  "route": "/it/tours/ras_mohammed_bus_half_day/",
+  "travelers": {
+    "adults": 2,
+    "children": 1,
+    "total": "€73"
+  },
+  "requiredErrorsVisible": true,
+  "invoice": {
+    "name": "Mario <b>Rossi</b>",
+    "nationality": "Italian",
+    "date": "2026-12-31",
+    "total": "€73",
+    "insertedBoldElements": 0
+  },
+  "cancelled": true,
+  "whatsappConfirmationClicked": false
+}

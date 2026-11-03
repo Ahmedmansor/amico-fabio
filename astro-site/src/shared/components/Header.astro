@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logos/fabio-header-logo.webp';
+import { languages, blogLocales, supportedLocales, type Locale } from '../config/languages';
+import { getSharedMessages } from '../i18n/shared';
+import WishlistLink from '../../features/wishlist/presentation/WishlistLink.astro';
+import AuthTrigger from '../../features/auth/presentation/AuthTrigger.astro';
+import { getPlaceNavigation } from '../../features/places/data/navigation';
+import PlannerLink from './PlannerLink.astro';
+import CurrencySwitcher from '../../features/currency/presentation/CurrencySwitcher.astro';
+import ThemeSwitcher from '../../features/theme/presentation/ThemeSwitcher.astro';
+import ThemeOptions from '../../features/theme/presentation/ThemeOptions.astro';
+interface Props { locale: Locale; route: string; navigation?: Partial<Record<Locale,string>> }
+const { locale, route, navigation } = Astro.props;
+const messages = getSharedMessages(locale);
+const guide = await getPlaceNavigation(locale);
+const section = route.split('/')[0];
+const active = (key:string) => key===section || (key==='explore'&&['tours','packages'].includes(section));
+const nav = [
+  { key: '', label: messages.menu.home, href: `/${locale}/` },
+  { key: 'explore', label: messages.menu.trips, href: `/${locale}/explore/` },
+  ...(guide?[{key:'egypt',label:messages.blog.egyptGuide,href:guide}]:[]),
+  { key: 'blog', label: messages.menu.blog, href: `/${blogLocales.includes(locale)?locale:'en'}/blog/` },
+];
+const languageLinks=navigation??Object.fromEntries(supportedLocales.map(lang=>[lang,`/${lang}/${route?`${route}/`:''}`]));
+---
+<header id="global-header" class="site-header">
+  <div class="site-container site-header-inner">
+    <a class="site-brand" href={`/${locale}/`} aria-label="Fabio Egypt">
+      <Image src={logo} alt="" width={54} height={52} loading="eager"/>
+      <span>Fabio <strong>Egypt</strong><small>{messages.global.brand_subtitle}</small></span>
+    </a>
+    <nav class="site-desktop-nav" aria-label={messages.blog.navigation}>{nav.map(item=><a href={item.href} data-lang-fallback={item.key==='blog'&&!blogLocales.includes(locale)?'en':undefined} aria-current={active(item.key)?'page':undefined}>{item.label}</a>)}</nav>
+    <div class="site-header-actions">
+      <WishlistLink locale={locale} active={route === 'wishlist'}/>
+      <AuthTrigger locale={locale}/>
+      <details class="site-language" data-header-disclosure>
+        <summary aria-label={`${messages.blog.language}: ${languages[locale].label}`}><img class="site-flag" src={`/assets/images/icons/languages/${locale}.svg`} width="24" height="18" alt=""/><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+        <nav class="site-popover" aria-label={messages.blog.language}>{Object.entries(languageLinks).map(([lang,url])=>url&&<a href={url} data-lang={lang} data-lang-switch hreflang={lang} aria-current={lang===locale?'true':undefined}><img class="site-flag" src={`/assets/images/icons/languages/${lang}.svg`} width="24" height="18" alt=""/>{languages[lang as Locale].label}</a>)}</nav>
+      </details>
+      <CurrencySwitcher locale={locale}/>
+      <ThemeSwitcher locale={locale}/>
+      <PlannerLink locale={locale} class="site-header-planner"/>
+      <details class="site-menu" data-header-disclosure>
+        <summary aria-label={messages.labels.menu}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></summary>
+        <nav class="site-popover site-menu-panel" aria-label={messages.blog.navigation}>
+          {nav.map(item=><a href={item.href} data-lang-fallback={item.key==='blog'&&!blogLocales.includes(locale)?'en':undefined} aria-current={active(item.key)?'page':undefined}>{item.label}</a>)}
+          <a href={`/${locale}/#reviews-section`}>{messages.menu.reviews}</a>
+          <a href={`/${locale}/sharm-secrets/`}>{messages.menu.commandments}</a>
+          <PlannerLink locale={locale}/>
+          <ThemeOptions locale={locale}/>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+<!-- Parsing this marker means every header control and its inline guest count exists. -->
+<span id="site-header-ready" hidden></span>
+<script>
+  import './header-interactions';
+</script>

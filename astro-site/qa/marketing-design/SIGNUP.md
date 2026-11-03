@@ -1,0 +1,9 @@
+# Registration offers choice — 2026-11-01
+
+The user clarified that offers consent should be requested while registering an account to save favorites. The existing gated signup checkbox is now `SignupOffers.astro`, with the shared transparent Fabio portrait, optional badge, explicit unchecked native checkbox, full clickable label and privacy link. New IT/EN signup-specific supporting text explains that account/favorites do not require accepting offers and distinguishes favorites reminders. Account preference controls and the one-time reminder welcome retain their separate purposes.
+
+No extra runtime script or dependency. Uses the same project tokens and public 21st newsletter composition reference documented in REVIEW.md; no React or cloud source upload. UI UX Pro Max accessibility and touch guidance applied. Signup intent metadata/coordinator/backend behavior remains unchanged; a checkbox is not proof of a verified grant.
+
+Verification: Astro check 583 files, 0 errors/warnings/hints; normal build 171 pages complete. Isolated preview build 173 pages complete, with temporary route removed. IT/EN at 375/1280px: signup unchecked by default, not required, Space toggles, original Fabio portrait loads, no overflow/page errors/remote requests. Existing account preference loading/error/unverified/retry UI also passed. See updated review.json. Desktop and mobile screenshots manually inspected, local and ignored.
+
+The normal build's marketing gate is still off. This verifies the registration component's design in the labeled preview, not actual promotional-consent storage, Google registration onboarding or email delivery. No schema/provider/hosting changes, account creation, consent writes or emails were performed. Preview: http://127.0.0.1:4338/en/qa-marketing-card/ (Italian equivalent available).

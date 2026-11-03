@@ -1,0 +1,12 @@
+---
+import {emailCodeLength} from '../domain/login';
+interface Props {label:string}
+const {label}=Astro.props;
+---
+<label for="login-code">{label}</label>
+<div class="auth-code-widget" data-code-widget dir="ltr">
+  <div class="auth-code-cells" aria-hidden="true">
+    {Array.from({length:emailCodeLength},()=> <span class="auth-code-cell" data-code-cell></span>)}
+  </div>
+  <input id="login-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength={emailCodeLength} pattern={`[0-9]{${emailCodeLength}}`} required aria-describedby="login-code-error"/>
+</div>

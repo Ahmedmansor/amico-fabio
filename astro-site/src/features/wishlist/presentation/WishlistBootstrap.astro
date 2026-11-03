@@ -1,0 +1,10 @@
+---
+import type { Locale } from '../../../shared/config/languages';
+import { getWishlistBootstrap } from '../data/build-config';
+import { getWishlistMessages } from '../data/messages';
+interface Props { locale:Locale }
+const {locale}=Astro.props;
+const config=await getWishlistBootstrap(locale);
+const json=config?JSON.stringify({...config,messages:getWishlistMessages(locale)}).replace(/</g,'\\u003c'):null;
+---
+{json && <script type="application/json" id="wishlist-config" set:html={json}/>}

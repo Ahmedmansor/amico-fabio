@@ -1,0 +1,179 @@
+{
+  "seo": {
+    "title": "Fabio Egypt | Privater italienischsprachiger Guide – Sharm, Kairo und Luxor",
+    "description": "Entdecke das echte Ägypten mit Fabio. Private VIP-Ausflüge in Sharm El Sheikh, zu den Pyramiden von Kairo sowie nach Luxor und Assuan. Authentische Erlebnisse ohne Stress. Buche jetzt dein Abenteuer."
+  },
+  "hero": {
+    "vip_title": "Hinweis: Fabios 10 Gebote",
+    "vip_desc": "Das umfassende Handbuch für Sharm. Vermeide Touristenfallen und erlebe deinen Urlaub wie ein Insider.",
+    "vip_btn": "VIP-HANDBUCH ENTDECKEN"
+  },
+  "global": {
+    "brand_title": "FABIO TOURS",
+    "vip_experiences": "VIP-Erlebnisse in Sharm El Sheikh",
+    "who_is_fabio_btn": "Wer ist Fabio",
+    "who_is_fabio_content": "<p>Liebe Gäste,</p><p>In Sharm El Sheikh bieten euch Hunderte Verkäufer „den niedrigsten Preis“ an. Ich habe mich anders entschieden: <strong>euch die höchste Qualität zu bieten</strong>.</p><p>Mein Katalog enthält nicht alles, sondern nur das Beste. Ich habe jedes Boot, jeden Guide und jeden Winkel der Wüste persönlich ausgewählt, um euch drei unbezahlbare Dinge zu garantieren: <strong>Sicherheit, Privatsphäre und Magie</strong>.</p><p style=\"margin-top: 20px; font-style: italic; color: #fff;\">Wer ist Fabio? Mehr als ein Freund, eine Institution.</p><p>Wem man seinen Urlaub anvertraut, ist Vertrauenssache. Deshalb bin ich anders:</p><span class=\"wf-text-highlight\">Qualität und Rechtmäßigkeit</span><p>Sprachstudium an der Al-Alsun und vom Ministerium zugelassener offizieller Guide. In Sharm, wo nicht zugelassene Anbieter häufig sind, entscheidet ihr euch mit mir für geprüfte Kompetenz.</p><span class=\"wf-text-highlight\">VIP-Service (Flugbegleiter)</span><p>Mein anderes Büro ist „der Himmel“. Als Flugbegleiter verbinde ich ägyptische Gastfreundschaft mit der Genauigkeit internationaler Standards.</p><span class=\"wf-text-highlight\">Gäste, keine Nummern</span><p>Während andere euch in volle Busse drängen, setze ich auf private Autos, volle Flexibilität und keine Überraschungen.</p><span class=\"wf-text-highlight\">Der Wert der Erinnerungen</span><p>Denkt daran: Ein Ausflug, der wegen ein paar gesparter Euro misslingt, kann am Ende sehr teuer werden.</p><span class=\"wf-quote\">„Qualität hat ihren Preis, aber eure schönsten Erinnerungen sind unbezahlbar.“</span>",
+    "discover": "Entdecken",
+    "locations": {
+      "sharm": "Sharm El Sheikh",
+      "cairo": "Kairo",
+      "luxor_aswan": "Luxor und Assuan"
+    }
+  },
+  "reviews": {
+    "title": "Gästebewertungen",
+    "subtitle": "Was unsere Gäste auf Facebook sagen",
+    "facebook_btn": "Auf Facebook lesen",
+    "items": [
+      {
+        "name": "Siciliano Irene Veronica",
+        "date": "5. Februar 2026",
+        "text": "Wunderbares Erlebnis, großartige Organisation. Fabio ist ein wunderbarer Mensch und vor allem sehr hilfsbereit. Ich empfehle es sehr.",
+        "rating": 5,
+        "source": "facebook"
+      },
+      {
+        "name": "Federico Selmi",
+        "date": "23. November 2024",
+        "text": "Cross Roots. Fabio: EIN NAME, DEM MAN VERTRAUT. Der perfekte Guide für schöne Ausflüge. Fabio begleitete uns auf unserer wunderbaren Reise schon vor der Abfahrt bis zur Rückkehr. Wir verbrachten eine wunderbare Woche mit vielen Ausflügen… Danke Fabio!",
+        "rating": 5,
+        "source": "facebook"
+      },
+      {
+        "name": "Vittorio Mazzullo",
+        "date": "27. September 2022",
+        "text": "Ich empfehle Cross Roots Travel sehr. Fabio ist sehr freundlich und immer erreichbar, auch nachts… er lässt dich nie allein! Obwohl das Hotelpersonal davon abriet, Außenstehenden zu vertrauen, sparte ich durch mein Vertrauen in Fathy viel Geld und erlebte einzigartige Dinge!",
+        "rating": 5,
+        "source": "facebook"
+      },
+      {
+        "name": "Brandon Rigano",
+        "date": "6. September 2022",
+        "text": "Wir danken Fabio unendlich für diesen fantastischen Urlaub. Ein großartiger Organisator, der jeden Ausflug bis ins kleinste Detail plante. Er bietet hervorragende Leistungen und erfüllt Wünsche und löst Probleme zu jeder Uhrzeit.",
+        "rating": 5,
+        "source": "facebook"
+      },
+      {
+        "name": "Francesca Mannelli",
+        "date": "30. August 2022",
+        "text": "Ich kontaktierte Fathy aus Italien und er empfahl mir die besten Ausflüge, die wirklich großartig waren. Er war Tag und Nacht erreichbar und vertraute uns bestens vorbereiteten Guides an. Wir fühlten uns jede Sekunde gut aufgehoben.",
+        "rating": 5,
+        "source": "facebook"
+      },
+      {
+        "name": "Lorenzo Alberti",
+        "date": "23. Oktober 2019",
+        "text": "Ich empfehle die Ausflüge sehr. Fabio ist ein großartiger, kompetenter und freundlicher Mensch… Wenn ich nach Sharm zurückkomme, werde ich mich wieder an ihn wenden. Einsatz und Seriosität sind garantiert, dazu absoluter Spaß.",
+        "rating": 5,
+        "source": "facebook"
+      },
+      {
+        "name": "Vincenzo Novacco",
+        "date": "10. Oktober 2019",
+        "text": "Wer die altägyptische Kultur tiefgehend kennenlernen möchte, dem empfehle ich voller Überzeugung CROSS ROOTS Travel von Fathy (Fabio) Mansur. Gut vorbereitet, zu jeder Erklärung bereit und offen für kulturellen Austausch.",
+        "rating": 5,
+        "source": "facebook"
+      },
+      {
+        "name": "Antonella Testa",
+        "date": "10. Oktober 2019",
+        "text": "Ich habe Fabio die Sinai-Ausflüge für eine Gruppe von 30 Personen anvertraut. Wir hatten eine tolle Zeit, er war sehr pünktlich, erklärte ausführlich, professionell und zuverlässig. Ich empfehle ihn auf jeden Fall.",
+        "rating": 5,
+        "source": "facebook"
+      },
+      {
+        "name": "Verdiana Troìa",
+        "date": "9. Oktober 2019",
+        "text": "Ich vertraute Fabio die Ausflüge in Sharm an. Pünktlich, gut vorbereitet und immer erreichbar. Hervorragendes Team, besonders der Archäologe Ali: lustig, kenntnisreich und bereit, jede Frage zu beantworten.",
+        "rating": 5,
+        "source": "facebook"
+      },
+      {
+        "name": "Katia Rusciano",
+        "date": "4. September 2019",
+        "text": "Ein wunderbarer Urlaub… durch unseren Guide noch schöner geworden… danke Fabio für die herrlichen Tage… bis bald! 😘",
+        "rating": 5,
+        "source": "facebook"
+      },
+      {
+        "name": "Francesca Delfine",
+        "date": "24. September 2019",
+        "text": "Ein schöner Urlaub in Sharm mit einem hervorragenden Guide, Fabio. Danke, dass du unseren Urlaub besonders gemacht hast. Wir kommen sicher wieder! 😘",
+        "rating": 5,
+        "source": "facebook"
+      },
+      {
+        "name": "Annalaura Borrelli",
+        "date": "23. September 2019",
+        "text": "Danke, dass unser Aufenthalt in Sharm unvergesslich wurde. Danke für die Betreuung in allem und die schönen empfohlenen Ausflüge. Fathy, ein Name, eine Garantie. Bis bald ❤️",
+        "rating": 5,
+        "source": "facebook"
+      },
+      {
+        "name": "Oliva Duran",
+        "date": "27. Mai 2019",
+        "text": "Hervorragender Service für jede Gruppe und Einzelperson, die Ägypten erkunden möchte. Von der Ankunft bis zur Abreise! Hochgebildete mehrsprachige Guides sind perfekt organisiert.",
+        "rating": 5,
+        "source": "facebook"
+      }
+    ]
+  },
+  "journey": {
+    "whyTitle": "Warum Fabio Egypt wählen?",
+    "why": [
+      {
+        "title": "In Ägypten zu Hause",
+        "text": "Wir arbeiten vor Ort, um dir die besten Leistungen in Ägypten zu bieten."
+      },
+      {
+        "title": "Italienischsprachige Betreuung",
+        "text": "Persönliche Unterstützung während deiner Ägyptenreise."
+      },
+      {
+        "title": "Individuelle Ausflüge, transparente Preise",
+        "text": "Persönliche Erlebnisse mit Liebe zum Detail und ohne versteckte Kosten."
+      }
+    ],
+    "stepsTitle": "So buchst du deine Reise",
+    "steps": [
+      {
+        "title": "Kontaktiere uns auf WhatsApp",
+        "text": "Schreib uns, wann du möchtest. Wir sind für dich da."
+      },
+      {
+        "title": "Wähle dein Reiseziel",
+        "text": "Sag uns, wohin du möchtest und was du erleben willst."
+      },
+      {
+        "title": "Bestätige dein Ankunftsdatum",
+        "text": "Wir stimmen alles auf deine Flüge und deinen Zeitplan ab."
+      },
+      {
+        "title": "Wir begrüßen dich bei der Ankunft",
+        "text": "Wir sind da, um dich zu begrüßen und auf deiner Reise zu begleiten."
+      }
+    ],
+    "videoTitle": "Unsere Gäste auf Reisen",
+    "videoIntro": "Stimmen und Momente unserer Gäste in Ägypten.",
+    "videoLanguage": "Videos auf Italienisch",
+    "playVideo": "Video ansehen",
+    "closeVideo": "Video schließen",
+    "videoConsent": "Aktiviere externe Medien in deinen Datenschutzeinstellungen und wähle dann ein Video, um es anzusehen.",
+    "manageVideoConsent": "Video-Einstellungen",
+    "videoTitles": {
+      "1214756632": "Ras-Mohamed-Meerespark",
+      "1214757531": "Ras-Mohamed-Meerespark",
+      "1214757761": "Soho Square",
+      "1214758307": "Der Safari-Ausflug",
+      "1214758552": "Unser privates VIP-Auto",
+      "1214760129": "Das magische Dahab"
+    },
+    "previousReview": "Vorherige Bewertung",
+    "nextReview": "Nächste Bewertung",
+    "pauseReviews": "Pausieren",
+    "resumeReviews": "Fortsetzen",
+    "reviewControls": "Bewertungen steuern",
+    "posterIntro": "Deine Reise in Ägypten, mit Fabio.",
+    "openOnVimeo": "Auf Vimeo öffnen"
+  }
+}

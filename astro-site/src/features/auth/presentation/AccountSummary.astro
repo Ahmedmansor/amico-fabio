@@ -1,0 +1,16 @@
+---
+import { getAuthMessages } from '../data/messages';
+import type { Locale } from '../../../shared/config/languages';
+interface Props { locale: Locale }
+const m = getAuthMessages(Astro.props.locale);
+---
+<div class="auth-profile" data-auth-profile hidden>
+  <div class="auth-avatar">
+    <img data-auth-avatar alt={m.avatar} width="64" height="64" referrerpolicy="no-referrer" decoding="async" hidden/>
+    <span data-auth-avatar-fallback aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 22v-2a8 8 0 0 1 16 0v2"/></svg></span>
+  </div>
+  <dl>
+    <div data-auth-name-row hidden><dt>{m.name}</dt><dd data-auth-name></dd></div>
+    <div data-auth-email-row hidden><dt>{m.email}</dt><dd data-auth-email></dd></div>
+  </dl>
+</div>

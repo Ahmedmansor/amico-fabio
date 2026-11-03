@@ -1,0 +1,19 @@
+{
+  "mode": "mobile",
+  "url": "http://127.0.0.1:4333/en/egypt/aswan/",
+  "fetchTime": "2026-10-29T03:13:46.812Z",
+  "performance": 0.86,
+  "accessibility": 1,
+  "metrics": {
+    "first-contentful-paint": "1.1 s",
+    "largest-contentful-paint": "4.2 s",
+    "total-blocking-time": "0 ms",
+    "cumulative-layout-shift": "0"
+  },
+  "issues": [
+    "unused-javascript",
+    "image-delivery-insight",
+    "network-dependency-tree-insight",
+    "render-blocking-insight"
+  ]
+}

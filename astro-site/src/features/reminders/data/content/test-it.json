@@ -1,0 +1,13 @@
+{
+  "title": "Test email del promemoria",
+  "description": "Usa la lingua salvata del tuo account e il modello reale del promemoria, inclusi i link alle preferenze e alla disiscrizione. Un test per lingua salvata in questa finestra di prova; non consuma il promemoria automatico.",
+  "send": "Invia email di prova",
+  "sending": "Invio dei preferiti…",
+  "accepted": "Promemoria di prova accettato in {language}. Controlla Posta in arrivo, Promozioni e Spam.",
+  "alreadySent": "Il test in {language} è già stato inviato in questa finestra. Non è stata inviata una nuova email.",
+  "reminderDisabled": "Salva il consenso e la lingua del promemoria qui sotto prima del test. Poi riprova.",
+  "failed": "Non è stato possibile inviare l’email di prova. Verifica di usare l’account di prova autorizzato.",
+  "unknown": "Non è stato possibile confermare l’invio. Controlla la posta prima di riprovare.",
+  "expired": "Questo test è scaduto. È necessario un nuovo test autorizzato.",
+  "localeUnavailable": "Questa finestra di prova usa un’altra lingua. Per la lingua selezionata è necessario un nuovo test autorizzato."
+}

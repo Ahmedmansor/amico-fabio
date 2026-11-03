@@ -1,0 +1,7 @@
+# Reviewed selective Auth setting, applied 2026-10-28. No secrets.
+# Copy into an isolated ignored workdir's supabase/config.toml for config diff/push.
+# Undeclared remote properties must remain unchanged. Previous OTP length: 8.
+project_id = "fabio-email-code-length"
+
+[auth.email]
+otp_length = 6

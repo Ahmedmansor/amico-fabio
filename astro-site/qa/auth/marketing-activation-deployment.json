@@ -1,0 +1,72 @@
+{
+  "origin": "https://amico-fabio-iyzo.vercel.app",
+  "sourceCommit": "78b6ca5ad00eb740f9ef7b3828da33e4f2218c8e",
+  "artifacts": [
+    {
+      "locale": "it",
+      "route": "login/",
+      "status": 200,
+      "noindex": true,
+      "marketingEnabled": true
+    },
+    {
+      "locale": "it",
+      "route": "wishlist/",
+      "status": 200,
+      "noindex": true,
+      "marketingEnabled": true
+    },
+    {
+      "locale": "en",
+      "route": "login/",
+      "status": 200,
+      "noindex": true,
+      "marketingEnabled": true
+    },
+    {
+      "locale": "en",
+      "route": "wishlist/",
+      "status": 200,
+      "noindex": true,
+      "marketingEnabled": true
+    }
+  ],
+  "ui": [
+    {
+      "locale": "it",
+      "width": 375,
+      "portraitLoads": true,
+      "uncheckedOptional": true,
+      "keyboardToggle": true,
+      "authSends": 0
+    },
+    {
+      "locale": "it",
+      "width": 1280,
+      "portraitLoads": true,
+      "uncheckedOptional": true,
+      "keyboardToggle": true,
+      "authSends": 0
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "portraitLoads": true,
+      "uncheckedOptional": true,
+      "keyboardToggle": true,
+      "authSends": 0
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "portraitLoads": true,
+      "uncheckedOptional": true,
+      "keyboardToggle": true,
+      "authSends": 0
+    }
+  ],
+  "anonymousRpcStatus": 401,
+  "authenticatedNativeEvidence": "../../supabase/marketing-consent/native-overlap-2026-11-02.json",
+  "realBrowserAccountOrInboxTest": false,
+  "promotionalEmailsSent": 0
+}

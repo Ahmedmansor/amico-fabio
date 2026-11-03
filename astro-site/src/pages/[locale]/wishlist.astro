@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../shared/layouts/BaseLayout.astro';
+import { supportedLocales } from '../../shared/config/languages';
+import { getTrips } from '../../features/tours/data/trips.mjs';
+import { getPackages } from '../../features/packages/data/packages.mjs';
+import { getWishlistMessages } from '../../features/wishlist/data/messages';
+import WishlistPage from '../../features/wishlist/presentation/WishlistPage.astro';
+import SummaryEmailTest from '../../features/reminders/presentation/SummaryEmailTest.astro';
+import PreferenceBootstrap from '../../features/reminders/presentation/PreferenceBootstrap.astro';
+import {preferenceBrowserConfig} from '../../features/reminders/data/preferences-build-config';
+import MarketingConsent from '../../features/marketing/presentation/MarketingConsent.astro';
+export async function getStaticPaths() {
+  const [trips, packages] = await Promise.all([getTrips(), getPackages()]);
+  return supportedLocales.map(locale => ({ params: { locale }, props: { locale, trips, packages } }));
+}
+const { locale, trips, packages } = Astro.props;
+const m = getWishlistMessages(locale);
+---
+<BaseLayout locale={locale} route="wishlist" title={`${m.title} | Fabio Egypt`} description={m.local} bodyClass="wishlist-site font-sans">
+  <WishlistPage locale={locale} trips={trips} packages={packages}>
+    <SummaryEmailTest slot="email-test" locale={locale}/>
+    <MarketingConsent slot="marketing-consent" locale={locale}/>
+    {preferenceBrowserConfig && <PreferenceBootstrap slot="reminder-preferences" locale={locale} config={preferenceBrowserConfig}/>}
+  </WishlistPage>
+</BaseLayout>

@@ -1,0 +1,91 @@
+{
+  "origin": "https://amico-fabio-iyzo.vercel.app",
+  "sourceCommit": "53952b7b20528bed5b55fdaa65c17245680ca065",
+  "posts": [
+    {
+      "path": "/en/blog/common-tourist-traps-egypt/",
+      "status": 200,
+      "noindex": true,
+      "inListing": true
+    },
+    {
+      "path": "/en/blog/diving-red-sea-seven-spots/",
+      "status": 200,
+      "noindex": true,
+      "inListing": true
+    },
+    {
+      "path": "/en/blog/exploring-cairo-beyond-giza/",
+      "status": 200,
+      "noindex": true,
+      "inListing": true
+    },
+    {
+      "path": "/en/blog/luxor-hot-air-balloon-guide/",
+      "status": 200,
+      "noindex": true,
+      "inListing": true
+    },
+    {
+      "path": "/en/blog/nile-cruise-vs-dahabiya/",
+      "status": 200,
+      "noindex": true,
+      "inListing": true
+    },
+    {
+      "path": "/en/blog/when-to-go-egypt-month-by-month/",
+      "status": 200,
+      "noindex": true,
+      "inListing": true
+    },
+    {
+      "path": "/it/blog/cosa-mangiare-egitto/",
+      "status": 200,
+      "noindex": true,
+      "inListing": true
+    },
+    {
+      "path": "/it/blog/dentro-grande-museo-egizio/",
+      "status": 200,
+      "noindex": true,
+      "inListing": true
+    },
+    {
+      "path": "/it/blog/dizionario-arabo-egiziano-viaggio/",
+      "status": 200,
+      "noindex": true,
+      "inListing": true
+    },
+    {
+      "path": "/it/blog/egitto-ad-aprile/",
+      "status": 200,
+      "noindex": true,
+      "inListing": true
+    },
+    {
+      "path": "/it/blog/errori-da-evitare-egitto/",
+      "status": 200,
+      "noindex": true,
+      "inListing": true
+    },
+    {
+      "path": "/it/blog/pianificare-viaggio-egitto-2027/",
+      "status": 200,
+      "noindex": true,
+      "inListing": true
+    }
+  ],
+  "guides": [
+    {
+      "path": "/it/egypt/aswan/",
+      "status": 200,
+      "noindex": true
+    },
+    {
+      "path": "/en/egypt/aswan/",
+      "status": 200,
+      "noindex": true
+    }
+  ],
+  "sitemapEmpty": true
+}

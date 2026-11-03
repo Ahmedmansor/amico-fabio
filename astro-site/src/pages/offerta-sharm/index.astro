@@ -1,0 +1,6 @@
+---
+import {getOfferCampaign} from '../../features/sharm-offer/data/campaign';
+import OfferPage from '../../features/sharm-offer/presentation/OfferPage.astro';
+const campaign=getOfferCampaign();
+---
+<OfferPage campaign={campaign}/>

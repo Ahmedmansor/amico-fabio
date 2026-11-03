@@ -1,0 +1,17 @@
+{
+  "title": "Lembrete por e-mail",
+  "languageLabel": "Idioma do lembrete",
+  "languageNote": "Os próximos e-mails seguem o último idioma do site utilizado com a sua conta. Alterar o idioma não ativa lembretes nem reinicia o prazo.",
+  "label": "Receber um lembrete por e-mail sobre os meus favoritos",
+  "description": "Opcional. No máximo um lembrete por conta, 24 horas após a última adição ou a ativação dos lembretes, consoante o que ocorrer mais tarde. Uma lista de favoritos vazia cancela a espera. Pode desativar os lembretes a qualquer momento.",
+  "save": "Guardar preferência",
+  "loading": "A carregar a sua preferência de lembretes…",
+  "saving": "A guardar a sua preferência de lembretes…",
+  "enabled": "Os lembretes por e-mail estão ativados para esta conta.",
+  "disabled": "Os lembretes por e-mail estão desativados. Os seus favoritos continuam guardados.",
+  "error": "Não foi possível confirmar a sua preferência de lembretes. Tente novamente.",
+  "outdated": "A informação do lembrete foi alterada. Volte a carregar a sua preferência antes de escolher novamente.",
+  "retry": "Tentar novamente",
+  "reload": "Recarregar preferência",
+  "privacy": "Política de privacidade"
+}

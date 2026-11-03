@@ -1,0 +1,57 @@
+import './who-fabio.js';
+import {mountPosterMotion} from './poster-motion';
+
+const poster=document.querySelector<HTMLElement>('.wf-container');
+const posterMedia=matchMedia('(prefers-reduced-motion:no-preference)');
+let cleanupPoster:(()=>void)|undefined;
+function synchronizePoster(){if(posterMedia.matches&&poster&&!cleanupPoster)cleanupPoster=mountPosterMotion(poster);else if(!posterMedia.matches){cleanupPoster?.();cleanupPoster=undefined;}}
+synchronizePoster();posterMedia.addEventListener('change',synchronizePoster);
+
+const hero=document.querySelector<HTMLElement>('.hero-slider-bg');
+function hydrateHero(){
+  hero?.querySelectorAll<HTMLTemplateElement>('template[data-hero-slide]').forEach(template=>template.replaceWith(template.content));
+}
+// Native lazy-loading may fetch horizontal neighbours during first paint.
+// Preserve swipe slots; populate their images as soon as the visitor interacts.
+hero?.addEventListener('pointerdown',hydrateHero,{once:true,passive:true});
+hero?.addEventListener('keydown',hydrateHero,{once:true});
+hero?.addEventListener('scroll',hydrateHero,{once:true,passive:true});
+
+const track=document.getElementById('reviewsTrack');
+const pause=document.querySelector<HTMLButtonElement>('[data-review-pause]');
+if(track&&pause){
+  const stop=()=>{
+    pause.dataset.paused='true';pause.setAttribute('aria-pressed','true');
+    pause.querySelector('span')!.textContent=pause.dataset.resumeLabel!;
+    track.dispatchEvent(new Event('home:reviews-state'));
+  };
+  const move=(direction:number)=>{
+    stop();
+    const card=track.querySelector<HTMLElement>('.review-card')!;
+    const gap=Number.parseFloat(getComputedStyle(track).columnGap)||20;
+    track.scrollBy({left:direction*(card.offsetWidth+gap),behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'});
+  };
+  document.querySelector('[data-review-prev]')?.addEventListener('click',()=>move(-1));
+  document.querySelector('[data-review-next]')?.addEventListener('click',()=>move(1));
+}
+
+// Requested mobile autoplay shares a small native-API chunk; reduced motion stays manual.
+const motion=matchMedia('(prefers-reduced-motion:no-preference)');
+let cleanup:(()=>void)|undefined;
+async function synchronizeMotion(){
+  if(!motion.matches){cleanup?.();cleanup=undefined;return;}
+  const first=hero?.querySelector<HTMLImageElement>('img');
+  await first?.decode().catch(()=>{});
+  await new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve())));
+  if(!motion.matches)return;
+  const {mountHomeMotion}=await import('./home-motion');
+  if(motion.matches&&!cleanup)cleanup=mountHomeMotion();
+}
+void synchronizeMotion();
+motion.addEventListener('change',()=>void synchronizeMotion());
+
+const footer=document.getElementById('global-footer');
+if(footer)new IntersectionObserver(entries=>document.body.classList.toggle('hide-floating-widgets',entries[0].isIntersecting),{threshold:.1}).observe(footer);
+document.querySelector('[data-dismiss-promo]')?.addEventListener('click',()=>{
+  const promo=document.getElementById('promo-banner-container');if(promo)promo.hidden=true;
+});

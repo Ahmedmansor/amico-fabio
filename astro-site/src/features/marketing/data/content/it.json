@@ -1,0 +1,15 @@
+{
+  "title": "Offerte sui viaggi, da Fabio",
+  "label": "Sì, desidero ricevere da Fabio via email offerte e sconti relativi ai miei preferiti (facoltativo).",
+  "description": "Questa scelta è separata dal promemoria dei preferiti. Puoi revocarla qui in qualsiasi momento. Account e preferiti funzionano anche senza consenso.",
+  "save": "Salva scelta",
+  "saved": "La tua scelta è stata salvata.",
+  "loading": "Caricamento della tua scelta…",
+  "failed": "Impossibile confermare la tua scelta. Ricaricala prima di riprovare.",
+  "retry": "Ricarica scelta",
+  "verify": "Verifica la tua email prima di salvare questa scelta.",
+  "intro": "Ti va di ricevere una email da Fabio quando ci sono offerte speciali per i viaggi che hai salvato?",
+  "optional": "Facoltativo",
+  "privacy": "Informativa privacy",
+  "signupDescription": "Puoi creare un account e salvare viaggi senza accettare le offerte. Questa scelta è separata dal promemoria dei preferiti. Puoi revocare il consenso dal tuo account."
+}

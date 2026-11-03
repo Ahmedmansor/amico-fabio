@@ -245,7 +245,9 @@
       },
       social: {
         facebook: p('assets/images/icons/social/facebook.svg'),
-        instagram: p('assets/images/icons/social/instagram.svg')
+        instagram: p('assets/images/icons/social/instagram.svg'),
+        tiktok: p('assets/images/icons/social/tiktok.svg'),
+        youtube: p('assets/images/icons/social/youtube.svg')
       }
     },
     pickCI,

@@ -1,0 +1,8 @@
+{
+  "repository": "disposable-email-domains/disposable-email-domains",
+  "revision": "e4f0910adf5ab418dc998a1d8e6c15906ca04864",
+  "url": "https://raw.githubusercontent.com/disposable-email-domains/disposable-email-domains/e4f0910adf5ab418dc998a1d8e6c15906ca04864/disposable_email_blocklist.conf",
+  "sha256": "acb14963f88689009907aee11e2c9fab0df8355b6721859a0cc813ae03cdecb8",
+  "retrievedAt": "2026-10-27T01:10:58.964Z",
+  "license": "CC0-1.0; upstream LICENSE.txt vendored"
+}

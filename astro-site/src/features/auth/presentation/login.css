@@ -1,0 +1,31 @@
+/* Account pages share the editorial palette; no provider behavior here. */
+.auth-login.auth-content{width:min(560px,calc(100% - 32px));max-width:none;min-height:0;margin:48px auto 64px;padding:40px;background:var(--surface-card);color:var(--text-main);border:1px solid var(--border-color);border-radius:24px;box-shadow:var(--site-shadow)}
+.auth-login.auth-content h1{font-family:'Playfair Display',Georgia,serif;color:var(--text-heading);font-size:clamp(1.9rem,4vw,2.5rem);letter-spacing:-.03em;line-height:1.2;margin:0 0 16px}
+.auth-login.auth-content h2,.auth-login.auth-content h3{color:var(--text-heading)}
+.auth-login.auth-content p{color:var(--text-secondary);font-size:14px;line-height:1.7}
+.auth-login.auth-content label{color:var(--text-heading);font-size:13px;font-weight:600;margin-top:20px}
+.auth-login.auth-content input{background:var(--surface-card);color:var(--text-main);border:1px solid var(--border-color);border-radius:var(--radius-control);min-height:50px;transition:border-color var(--motion-fast)}
+.auth-login.auth-content input:focus{border-color:var(--focus-ring)}
+.auth-login .auth-tabs{padding:5px;gap:4px;background:var(--surface-soft);border:1px solid var(--border-color);border-radius:12px;margin-block:24px}
+.auth-login .auth-tabs button{border:0;color:var(--text-secondary);background:transparent;border-radius:8px;font-size:14px;font-weight:600;min-height:44px}
+.auth-login .auth-tabs button[aria-pressed="true"]{background:var(--color-primary);color:var(--bg-white)}
+.auth-login .auth-button{border:0;border-radius:var(--radius-control);background:var(--color-accent-orange);color:var(--on-accent);min-height:50px;font-size:14px;font-weight:700}
+.auth-login .auth-button:hover{background:var(--color-accent-orange-hover)}
+.auth-login .auth-secondary{background:var(--surface-card);border:1px solid var(--border-color);color:var(--text-heading)}
+.auth-login .auth-secondary:hover{background:var(--surface-brand-soft)}
+.auth-login .auth-google{gap:12px}.auth-login .auth-google svg{position:static}
+.auth-login .auth-close,.auth-login .auth-password-toggle,.auth-login .auth-legal-acknowledgement a,.auth-login .auth-password-settings summary{color:var(--text-heading)}
+.auth-login .auth-password-toggle{border:0}
+.auth-login .auth-code-cell{background:var(--surface-card);color:var(--text-heading);border-color:var(--border-color)}
+.auth-login .auth-code-cell.is-active{outline-color:var(--focus-ring)}
+.auth-login .auth-error,.auth-login.auth-content input[aria-invalid="true"]{color:var(--text-danger);border-color:var(--text-danger)}
+.auth-login [data-login-name-row]{display:grid;grid-template-columns:1fr}
+.auth-login .auth-suggestion{background:var(--surface-action-soft);color:var(--text-heading);border-color:var(--border-color)}
+.auth-login .auth-suggestion-button{color:var(--text-heading)}
+.auth-login :focus-visible{outline:3px solid var(--focus-ring);outline-offset:3px}
+.auth-login [data-login-captcha]{margin-top:20px;min-height:65px}
+.auth-login [data-login-captcha],.auth-login [data-login-resend-captcha]{display:flex;justify-content:center}
+@media(max-width:359px){.auth-login [data-login-captcha],.auth-login [data-login-resend-captcha]{min-height:140px}}
+.auth-login [data-login-status]:empty{display:none}
+@media(max-width:639px){.auth-login.auth-content{padding:28px 20px;margin-block:24px 40px;border-radius:16px}.auth-login.auth-content h1{font-size:1.9rem}}
+@media(prefers-reduced-motion:reduce){.auth-login *{transition:none!important}}

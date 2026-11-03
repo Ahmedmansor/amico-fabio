@@ -1,0 +1,31 @@
+---
+import DocumentShell from '../../../shared/layouts/DocumentShell.astro';
+import PageHead from '../../../shared/seo/PageHead.astro';
+import type {OfferCampaign} from '../domain/campaign';
+import type {Locale} from '../../../shared/config/languages';
+import LandingHeader from './LandingHeader.astro';
+import HeroSection from './HeroSection.astro';
+import WhatsAppFloat from './WhatsAppFloat.astro';
+import WhyChooseUs from './WhyChooseUs.astro';
+import ProgramsCards from './ProgramsCards.astro';
+import TimelineSteps from './TimelineSteps.astro';
+import VideoTestimonials from './VideoTestimonials.astro';
+import FaqSection from './FaqSection.astro';
+import BookingFormWidget from './BookingFormWidget.astro';
+import TrustBadges from './TrustBadges.astro';
+import LandingFooter from './LandingFooter.astro';
+import './offer.css';
+interface Props {campaign:OfferCampaign}
+const {campaign}=Astro.props;
+const locale=campaign.locale as Locale;
+const message=JSON.stringify(campaign.message).replaceAll('<','\\u003c');
+---
+<DocumentShell locale={locale} campaign={campaign.id}>
+  <PageHead slot="head" locale={locale} route="offerta-sharm" canonicalPath={campaign.path} alternatePaths={{it:campaign.path}} {...campaign.seo}/>
+  <LandingHeader campaign={campaign}/><HeroSection campaign={campaign}/><WhatsAppFloat campaign={campaign}/>
+  <WhyChooseUs campaign={campaign}/><ProgramsCards campaign={campaign}/><TimelineSteps campaign={campaign}/>
+  <VideoTestimonials campaign={campaign}/><FaqSection campaign={campaign}/><BookingFormWidget campaign={campaign}/>
+  <TrustBadges campaign={campaign}/><LandingFooter campaign={campaign}/>
+  <script id="offer-message" type="application/json" is:inline set:html={message}/>
+</DocumentShell>
+<script>import './navigation';import './videos';import './lead-form';</script>

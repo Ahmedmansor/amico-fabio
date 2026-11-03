@@ -1,0 +1,17 @@
+{
+  "title": "Recordatorio por correo",
+  "languageLabel": "Idioma del recordatorio",
+  "languageNote": "Los próximos correos siguen el último idioma del sitio web utilizado con tu cuenta. Cambiar el idioma no activa los recordatorios ni reinicia su plazo.",
+  "label": "Enviarme un recordatorio por correo sobre mis favoritos",
+  "description": "Opcional. Como máximo un recordatorio por cuenta, 24 horas después de añadir el último favorito o de activar los recordatorios, lo que ocurra más tarde. Si la lista queda vacía, se cancela la espera. Puedes desactivar los recordatorios en cualquier momento.",
+  "save": "Guardar preferencia",
+  "loading": "Cargando tu preferencia de recordatorios…",
+  "saving": "Guardando tu preferencia de recordatorios…",
+  "enabled": "Los recordatorios por correo están activados para esta cuenta.",
+  "disabled": "Los recordatorios por correo están desactivados. Tus favoritos siguen guardados.",
+  "error": "No se ha podido confirmar tu preferencia de recordatorios. Inténtalo de nuevo.",
+  "outdated": "La información del recordatorio ha cambiado. Vuelve a cargar tu preferencia antes de elegir de nuevo.",
+  "retry": "Reintentar",
+  "reload": "Volver a cargar la preferencia",
+  "privacy": "Aviso de privacidad"
+}

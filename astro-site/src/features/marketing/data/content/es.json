@@ -1,0 +1,15 @@
+{
+  "title": "Ofertas especiales de viaje, de Fabio",
+  "label": "Sí, quiero que Fabio me envíe por correo ofertas y descuentos relacionados con mis favoritos (opcional).",
+  "description": "Esta elección es independiente del recordatorio de favoritos. Puedes retirarla aquí en cualquier momento. Tu cuenta y tus favoritos funcionan sin ella.",
+  "save": "Guardar elección",
+  "saved": "Tu elección se ha guardado.",
+  "loading": "Cargando tu elección…",
+  "failed": "No se ha podido confirmar tu elección. Vuelve a cargarla antes de intentarlo de nuevo.",
+  "retry": "Volver a cargar la elección",
+  "verify": "Verifica tu correo electrónico antes de guardar esta elección.",
+  "intro": "¿Quieres recibir un correo de Fabio cuando haya una oferta especial para tus excursiones guardadas?",
+  "optional": "Opcional",
+  "privacy": "Aviso de privacidad",
+  "signupDescription": "Puedes crear una cuenta y guardar excursiones sin aceptar ofertas. Esta elección es independiente del recordatorio de favoritos. Puedes retirar tu consentimiento desde tu cuenta."
+}

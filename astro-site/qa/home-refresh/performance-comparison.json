@@ -1,0 +1,31 @@
+{
+  "note": "Single same-origin local cold mobile lab runs, not field data.",
+  "results": [
+    {
+      "phase": "before",
+      "url": "http://127.0.0.1:4340/en/",
+      "fetchTime": "2026-11-02T00:30:08.413Z",
+      "performance": 0.86,
+      "accessibility": 1,
+      "metrics": {
+        "largest-contentful-paint": "4.0\u00a0s",
+        "total-blocking-time": "140\u00a0ms",
+        "cumulative-layout-shift": "0.001"
+      },
+      "imageTransferBytes": 326489
+    },
+    {
+      "phase": "after",
+      "url": "http://127.0.0.1:4340/en/",
+      "fetchTime": "2026-11-02T00:34:45.073Z",
+      "performance": 0.88,
+      "accessibility": 1,
+      "metrics": {
+        "largest-contentful-paint": "3.9\u00a0s",
+        "total-blocking-time": "0\u00a0ms",
+        "cumulative-layout-shift": "0.001"
+      },
+      "imageTransferBytes": 239785
+    }
+  ]
+}

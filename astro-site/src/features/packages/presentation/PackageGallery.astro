@@ -1,0 +1,11 @@
+---
+import {Image,getImage} from 'astro:assets';
+import type {Locale} from '../../../shared/config/languages';
+import {getSharedMessages} from '../../../shared/i18n/shared';
+import {imageAssets} from './images';
+interface Props {gallery:string[];locale:Locale;title:string}
+const {gallery,locale,title}=Astro.props;
+const photo=getSharedMessages(locale).productDetail.photo;
+const slides=await Promise.all(gallery.map(async src=>({src,optimized:await getImage({src:imageAssets[src],width:Math.min(1200,imageAssets[src].width),format:'webp'})})));
+---
+{slides.map((slide,index)=><button type="button" data-gallery-src={slide.optimized.src} aria-label={`${title.replace(/<[^>]*>/g,'')} — ${photo.replace('{index}',String(index+1)).replace('{total}',String(gallery.length))}`} aria-pressed={index===0?'true':'false'}><Image src={imageAssets[slide.src]} alt="" widths={[96,192]} sizes="80px" loading="lazy"/></button>)}

@@ -1,0 +1,523 @@
+{
+  "origin": "http://127.0.0.1:4327",
+  "results": [
+    {
+      "route": "/en/blog/common-tourist-traps-egypt/",
+      "width": 375,
+      "h1": 1,
+      "overflow": false,
+      "toc": [
+        {
+          "href": "#the-quick-version-a-better-travel-rhythm",
+          "exists": true,
+          "text": "The quick version: a better travel rhythm"
+        },
+        {
+          "href": "#1-turning-arrival-day-into-a-race",
+          "exists": true,
+          "text": "1. Turning arrival day into a race"
+        },
+        {
+          "href": "#2-choosing-an-itinerary-by-the-number-of-stops",
+          "exists": true,
+          "text": "2. Choosing an itinerary by the number of stops"
+        },
+        {
+          "href": "#3-assuming-a-beautiful-product-name-explains-the-booking",
+          "exists": true,
+          "text": "3. Assuming a beautiful product name explains the booking"
+        },
+        {
+          "href": "#4-trying-to-see-every-gallery",
+          "exists": true,
+          "text": "4. Trying to see every gallery"
+        },
+        {
+          "href": "#5-treating-every-price-as-a-buying-decision",
+          "exists": true,
+          "text": "5. Treating every price as a buying decision"
+        },
+        {
+          "href": "#6-forgetting-that-a-transfer-is-part-of-the-day",
+          "exists": true,
+          "text": "6. Forgetting that a transfer is part of the day"
+        },
+        {
+          "href": "#7-packing-for-a-photograph-rather-than-a-holiday",
+          "exists": true,
+          "text": "7. Packing for a photograph rather than a holiday"
+        },
+        {
+          "href": "#8-expecting-the-same-day-on-every-boat",
+          "exists": true,
+          "text": "8. Expecting the same day on every boat"
+        },
+        {
+          "href": "#9-leaving-your-questions-until-the-last-minute",
+          "exists": true,
+          "text": "9. Leaving your questions until the last minute"
+        },
+        {
+          "href": "#10-following-old-practical-information-without-checking-it",
+          "exists": true,
+          "text": "10. Following old practical information without checking it"
+        },
+        {
+          "href": "#make-the-itinerary-feel-like-yours",
+          "exists": true,
+          "text": "Make the itinerary feel like yours"
+        }
+      ],
+      "inlineCtas": 1,
+      "afterFirstBodyImage": true,
+      "contactCards": 1,
+      "faq": 3,
+      "unresolved": false,
+      "products": [],
+      "relatedPosts": [
+        "/en/blog/exploring-cairo-beyond-giza/",
+        "/en/blog/nile-cruise-vs-dahabiya/"
+      ],
+      "errors": [],
+      "screenshot": "qa/blog/screenshots/editorial-en-blog-common-tourist-traps-egypt-375.png"
+    },
+    {
+      "route": "/it/blog/dizionario-arabo-egiziano-viaggio/",
+      "width": 375,
+      "h1": 1,
+      "overflow": false,
+      "toc": [
+        {
+          "href": "#i-saluti-che-aprono-una-conversazione",
+          "exists": true,
+          "text": "I saluti che aprono una conversazione"
+        },
+        {
+          "href": "#aggiungi-una-parola-di-cortesia",
+          "exists": true,
+          "text": "Aggiungi una parola di cortesia"
+        },
+        {
+          "href": "#al-mercato-una-domanda-poi-il-tempo-di-capire",
+          "exists": true,
+          "text": "Al mercato: una domanda, poi il tempo di capire"
+        },
+        {
+          "href": "#a-tavola-parti-dal-dialogo",
+          "exists": true,
+          "text": "A tavola: parti dal dialogo"
+        },
+        {
+          "href": "#quando-non-hai-capito-rallenta",
+          "exists": true,
+          "text": "Quando non hai capito, rallenta"
+        },
+        {
+          "href": "#porta-le-parole-nei-luoghi",
+          "exists": true,
+          "text": "Porta le parole nei luoghi"
+        },
+        {
+          "href": "#un-vocabolario-piccolo-usato-bene",
+          "exists": true,
+          "text": "Un vocabolario piccolo, usato bene"
+        }
+      ],
+      "inlineCtas": 1,
+      "afterFirstBodyImage": true,
+      "contactCards": 1,
+      "faq": 0,
+      "unresolved": false,
+      "products": [],
+      "relatedPosts": [
+        "/it/blog/cosa-mangiare-egitto/",
+        "/it/blog/errori-da-evitare-egitto/"
+      ],
+      "errors": [],
+      "screenshot": "qa/blog/screenshots/editorial-it-blog-dizionario-arabo-egiziano-viaggio-375.png"
+    },
+    {
+      "route": "/en/egypt/giza-pyramids/",
+      "width": 375,
+      "h1": 1,
+      "overflow": false,
+      "toc": [
+        {
+          "href": "#a-landscape-not-a-single-object",
+          "exists": true,
+          "text": "A landscape, not a single object"
+        },
+        {
+          "href": "#bring-context-to-the-visit",
+          "exists": true,
+          "text": "Bring context to the visit"
+        },
+        {
+          "href": "#further-reading",
+          "exists": true,
+          "text": "Further reading"
+        }
+      ],
+      "inlineCtas": 1,
+      "afterFirstBodyImage": true,
+      "contactCards": 1,
+      "faq": 0,
+      "unresolved": false,
+      "products": [
+        "/en/tours/cairo_plane_flexible_museum/",
+        "/en/packages/cairo_piramidi_saqqara_vip/"
+      ],
+      "relatedPosts": [],
+      "errors": [],
+      "screenshot": "qa/blog/screenshots/editorial-en-egypt-giza-pyramids-375.png"
+    },
+    {
+      "route": "/it/egypt/luxor/",
+      "width": 375,
+      "h1": 1,
+      "overflow": false,
+      "toc": [
+        {
+          "href": "#due-rive-racconti-diversi",
+          "exists": true,
+          "text": "Due rive, racconti diversi"
+        },
+        {
+          "href": "#un-percorso-costruito-sui-tuoi-interessi",
+          "exists": true,
+          "text": "Un percorso costruito sui tuoi interessi"
+        },
+        {
+          "href": "#per-approfondire",
+          "exists": true,
+          "text": "Per approfondire"
+        }
+      ],
+      "inlineCtas": 1,
+      "afterFirstBodyImage": true,
+      "contactCards": 1,
+      "faq": 0,
+      "unresolved": false,
+      "products": [
+        "/it/tours/luxor_plane_classic/",
+        "/it/packages/nile_cruise_luxor_aswan_5d4n/"
+      ],
+      "relatedPosts": [],
+      "errors": [],
+      "screenshot": "qa/blog/screenshots/editorial-it-egypt-luxor-375.png"
+    },
+    {
+      "route": "/en/blog/common-tourist-traps-egypt/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "toc": [
+        {
+          "href": "#the-quick-version-a-better-travel-rhythm",
+          "exists": true,
+          "text": "The quick version: a better travel rhythm"
+        },
+        {
+          "href": "#1-turning-arrival-day-into-a-race",
+          "exists": true,
+          "text": "1. Turning arrival day into a race"
+        },
+        {
+          "href": "#2-choosing-an-itinerary-by-the-number-of-stops",
+          "exists": true,
+          "text": "2. Choosing an itinerary by the number of stops"
+        },
+        {
+          "href": "#3-assuming-a-beautiful-product-name-explains-the-booking",
+          "exists": true,
+          "text": "3. Assuming a beautiful product name explains the booking"
+        },
+        {
+          "href": "#4-trying-to-see-every-gallery",
+          "exists": true,
+          "text": "4. Trying to see every gallery"
+        },
+        {
+          "href": "#5-treating-every-price-as-a-buying-decision",
+          "exists": true,
+          "text": "5. Treating every price as a buying decision"
+        },
+        {
+          "href": "#6-forgetting-that-a-transfer-is-part-of-the-day",
+          "exists": true,
+          "text": "6. Forgetting that a transfer is part of the day"
+        },
+        {
+          "href": "#7-packing-for-a-photograph-rather-than-a-holiday",
+          "exists": true,
+          "text": "7. Packing for a photograph rather than a holiday"
+        },
+        {
+          "href": "#8-expecting-the-same-day-on-every-boat",
+          "exists": true,
+          "text": "8. Expecting the same day on every boat"
+        },
+        {
+          "href": "#9-leaving-your-questions-until-the-last-minute",
+          "exists": true,
+          "text": "9. Leaving your questions until the last minute"
+        },
+        {
+          "href": "#10-following-old-practical-information-without-checking-it",
+          "exists": true,
+          "text": "10. Following old practical information without checking it"
+        },
+        {
+          "href": "#make-the-itinerary-feel-like-yours",
+          "exists": true,
+          "text": "Make the itinerary feel like yours"
+        }
+      ],
+      "inlineCtas": 1,
+      "afterFirstBodyImage": true,
+      "contactCards": 1,
+      "faq": 3,
+      "unresolved": false,
+      "products": [],
+      "relatedPosts": [
+        "/en/blog/exploring-cairo-beyond-giza/",
+        "/en/blog/nile-cruise-vs-dahabiya/"
+      ],
+      "errors": [],
+      "screenshot": "qa/blog/screenshots/editorial-en-blog-common-tourist-traps-egypt-1280.png"
+    },
+    {
+      "route": "/it/blog/dizionario-arabo-egiziano-viaggio/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "toc": [
+        {
+          "href": "#i-saluti-che-aprono-una-conversazione",
+          "exists": true,
+          "text": "I saluti che aprono una conversazione"
+        },
+        {
+          "href": "#aggiungi-una-parola-di-cortesia",
+          "exists": true,
+          "text": "Aggiungi una parola di cortesia"
+        },
+        {
+          "href": "#al-mercato-una-domanda-poi-il-tempo-di-capire",
+          "exists": true,
+          "text": "Al mercato: una domanda, poi il tempo di capire"
+        },
+        {
+          "href": "#a-tavola-parti-dal-dialogo",
+          "exists": true,
+          "text": "A tavola: parti dal dialogo"
+        },
+        {
+          "href": "#quando-non-hai-capito-rallenta",
+          "exists": true,
+          "text": "Quando non hai capito, rallenta"
+        },
+        {
+          "href": "#porta-le-parole-nei-luoghi",
+          "exists": true,
+          "text": "Porta le parole nei luoghi"
+        },
+        {
+          "href": "#un-vocabolario-piccolo-usato-bene",
+          "exists": true,
+          "text": "Un vocabolario piccolo, usato bene"
+        }
+      ],
+      "inlineCtas": 1,
+      "afterFirstBodyImage": true,
+      "contactCards": 1,
+      "faq": 0,
+      "unresolved": false,
+      "products": [],
+      "relatedPosts": [
+        "/it/blog/cosa-mangiare-egitto/",
+        "/it/blog/errori-da-evitare-egitto/"
+      ],
+      "errors": [],
+      "screenshot": "qa/blog/screenshots/editorial-it-blog-dizionario-arabo-egiziano-viaggio-1280.png"
+    },
+    {
+      "route": "/en/egypt/giza-pyramids/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "toc": [
+        {
+          "href": "#a-landscape-not-a-single-object",
+          "exists": true,
+          "text": "A landscape, not a single object"
+        },
+        {
+          "href": "#bring-context-to-the-visit",
+          "exists": true,
+          "text": "Bring context to the visit"
+        },
+        {
+          "href": "#further-reading",
+          "exists": true,
+          "text": "Further reading"
+        }
+      ],
+      "inlineCtas": 1,
+      "afterFirstBodyImage": true,
+      "contactCards": 1,
+      "faq": 0,
+      "unresolved": false,
+      "products": [
+        "/en/tours/cairo_plane_flexible_museum/",
+        "/en/packages/cairo_piramidi_saqqara_vip/"
+      ],
+      "relatedPosts": [],
+      "errors": [],
+      "screenshot": "qa/blog/screenshots/editorial-en-egypt-giza-pyramids-1280.png"
+    },
+    {
+      "route": "/it/egypt/luxor/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "toc": [
+        {
+          "href": "#due-rive-racconti-diversi",
+          "exists": true,
+          "text": "Due rive, racconti diversi"
+        },
+        {
+          "href": "#un-percorso-costruito-sui-tuoi-interessi",
+          "exists": true,
+          "text": "Un percorso costruito sui tuoi interessi"
+        },
+        {
+          "href": "#per-approfondire",
+          "exists": true,
+          "text": "Per approfondire"
+        }
+      ],
+      "inlineCtas": 1,
+      "afterFirstBodyImage": true,
+      "contactCards": 1,
+      "faq": 0,
+      "unresolved": false,
+      "products": [
+        "/it/tours/luxor_plane_classic/",
+        "/it/packages/nile_cruise_luxor_aswan_5d4n/"
+      ],
+      "relatedPosts": [],
+      "errors": [],
+      "screenshot": "qa/blog/screenshots/editorial-it-egypt-luxor-1280.png"
+    },
+    {
+      "route": "/en/blog/nile-cruise-vs-dahabiya/",
+      "width": 768,
+      "h1": 1,
+      "overflow": false,
+      "toc": [
+        {
+          "href": "#begin-with-the-atmosphere-you-want",
+          "exists": true,
+          "text": "Begin with the atmosphere you want"
+        },
+        {
+          "href": "#a-comparison-that-asks-the-right-questions",
+          "exists": true,
+          "text": "A comparison that asks the right questions"
+        },
+        {
+          "href": "#look-at-the-route-before-the-room",
+          "exists": true,
+          "text": "Look at the route before the room"
+        },
+        {
+          "href": "#read-the-quiet-details-of-the-booking",
+          "exists": true,
+          "text": "Read the quiet details of the booking"
+        },
+        {
+          "href": "#match-the-boat-to-the-people-travelling",
+          "exists": true,
+          "text": "Match the boat to the people travelling"
+        },
+        {
+          "href": "#give-the-river-some-unscheduled-attention",
+          "exists": true,
+          "text": "Give the river some unscheduled attention"
+        },
+        {
+          "href": "#make-a-decision-you-can-explain",
+          "exists": true,
+          "text": "Make a decision you can explain"
+        }
+      ],
+      "inlineCtas": 1,
+      "afterFirstBodyImage": true,
+      "contactCards": 1,
+      "faq": 0,
+      "unresolved": false,
+      "products": [],
+      "relatedPosts": [
+        "/en/blog/common-tourist-traps-egypt/"
+      ],
+      "errors": [],
+      "screenshot": "qa/blog/screenshots/editorial-en-blog-nile-cruise-vs-dahabiya-768.png"
+    },
+    {
+      "route": "/it/blog/cosa-mangiare-egitto/",
+      "width": 768,
+      "h1": 1,
+      "overflow": false,
+      "toc": [
+        {
+          "href": "#ful-medames-partire-dalle-cose-quotidiane",
+          "exists": true,
+          "text": "Ful medames: partire dalle cose quotidiane"
+        },
+        {
+          "href": "#taameya-un-piccolo-assaggio-da-capire",
+          "exists": true,
+          "text": "Taameya: un piccolo assaggio da capire"
+        },
+        {
+          "href": "#koshary-osservare-lincontro-delle-consistenze",
+          "exists": true,
+          "text": "Koshary: osservare l’incontro delle consistenze"
+        },
+        {
+          "href": "#molokheya-fare-una-domanda-prima-del-primo-cucchiaio",
+          "exists": true,
+          "text": "Molokheya: fare una domanda prima del primo cucchiaio"
+        },
+        {
+          "href": "#pane-contorni-e-il-tempo-di-condividere",
+          "exists": true,
+          "text": "Pane, contorni e il tempo di condividere"
+        },
+        {
+          "href": "#dolci-e-una-sosta-senza-fretta",
+          "exists": true,
+          "text": "Dolci e una sosta senza fretta"
+        },
+        {
+          "href": "#trasforma-la-lista-in-un-percorso-personale",
+          "exists": true,
+          "text": "Trasforma la lista in un percorso personale"
+        }
+      ],
+      "inlineCtas": 1,
+      "afterFirstBodyImage": true,
+      "contactCards": 1,
+      "faq": 2,
+      "unresolved": false,
+      "products": [],
+      "relatedPosts": [
+        "/it/blog/dizionario-arabo-egiziano-viaggio/"
+      ],
+      "errors": [],
+      "screenshot": "qa/blog/screenshots/editorial-it-blog-cosa-mangiare-egitto-768.png"
+    }
+  ]
+}

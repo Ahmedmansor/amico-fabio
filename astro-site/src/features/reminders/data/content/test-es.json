@@ -1,0 +1,13 @@
+{
+  "title": "Prueba del correo de recordatorio",
+  "description": "Utiliza el idioma guardado de tu cuenta y la plantilla real del recordatorio, incluidos los enlaces de preferencias y cancelación. Una prueba por idioma guardado durante este periodo de prueba; no consume tu recordatorio automático.",
+  "send": "Enviar correo de prueba",
+  "sending": "Enviando tus favoritos…",
+  "accepted": "Recordatorio de prueba aceptado en {language}. Revisa tu bandeja de entrada, Promociones y spam.",
+  "alreadySent": "La prueba en {language} ya se ha enviado durante este periodo de prueba. No se ha enviado otro correo.",
+  "reminderDisabled": "Guarda abajo tu consentimiento y el idioma del recordatorio antes de la prueba. Después inténtalo de nuevo.",
+  "failed": "No se ha podido enviar el correo de prueba. Comprueba que utilizas la cuenta de prueba autorizada.",
+  "unknown": "No se ha podido confirmar el resultado del envío. Revisa tu bandeja de entrada antes de volver a intentarlo.",
+  "expired": "Esta prueba ha caducado. Se necesita una nueva prueba autorizada.",
+  "localeUnavailable": "Este periodo de prueba utiliza otro idioma. Se necesita una nueva prueba autorizada para el idioma seleccionado."
+}

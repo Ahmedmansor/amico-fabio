@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "project": {
+    "name": "fabio-egypt-astro",
+    "productType": "Egypt travel and private tours",
+    "stack": [
+      "astro",
+      "tailwind-v4"
+    ]
+  },
+  "sources": {
+    "tokens": [
+      "src/shared/styles/theme.css"
+    ],
+    "components": [
+      "src/shared/components",
+      "src/features/home/presentation"
+    ],
+    "assets": [
+      "src/features/home/presentation/assets",
+      "src/features/sharm-offer/presentation/assets"
+    ],
+    "instructions": [
+      "../AGENTS.md",
+      "UI_REFACTOR_PLAN.md"
+    ]
+  },
+  "design": {
+    "colorMode": "light with charcoal video section",
+    "colors": {
+      "brand": "var(--color-primary)",
+      "action": "var(--color-accent-orange)",
+      "surface": "var(--bg-white)",
+      "darkSurface": "var(--surface-detail)"
+    },
+    "typography": {
+      "body": "Local Montserrat",
+      "heading": "Local Playfair Display"
+    },
+    "spacing": {},
+    "radius": {},
+    "shadows": {},
+    "motion": {
+      "scope": "All main-site widths with prefers-reduced-motion:no-preference",
+      "mobile": "Visible-only 5s hero, 6s Facebook reviews and 7s video-card native scroll; short once-only card entrances; touch/focus/modal/hidden-tab pauses and explicit controls"
+    },
+    "density": "unknown"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": [],
+    "patterns": []
+  },
+  "constraints": {
+    "must": [
+      "Astro static HTML, Tailwind and Vanilla JS",
+      "Use theme.css palette and existing real assets/copy",
+      "IT/EN keys match",
+      "Gate Vimeo embedding behind external-media consent and explicit play",
+      "Use existing data access functions"
+    ],
+    "avoid": [
+      "React, Framer Motion, WebGL, device sensors",
+      "Motion frameworks, continuous JS animation loops or offscreen timers",
+      "Fake review counts, guest faces, claims or videos",
+      "Changes to the campaign design or lead flow"
+    ]
+  },
+  "decisions": [
+    {
+      "choice": "Layered pointer tilt for the existing transparent Fabio portrait",
+      "reference": "https://mcp.21st.dev/@tom_ui/components/tilt-card/evade",
+      "implementation": "Own Vanilla JS with CSS perspective/translateZ; public 21st reference, no component source copied."
+    },
+    {
+      "choice": "Horizontal Facebook review rotator with manual arrows and pause",
+      "reference": "https://news.21st.dev/blog/react-testimonial-section-components",
+      "implementation": "Existing real reviews; auto only while visible, pause on hover/focus/user control; manual mobile."
+    },
+    {
+      "choice": "Optional offers preference card with Fabio portrait",
+      "reference": "https://contact_2a72bbaa.21st.dev/@f0rextasy/components/newsletter-signup-ticket",
+      "source": "https://raw.githubusercontent.com/F0Rextasy/bigbullui/main/src/components/blocks/block-newsletter.tsx",
+      "implementation": "Read public source, adapt card composition to existing Astro checkbox and confirmed save controller. Original portrait, theme tokens, no React or local-only success. Do not merge marketing and reminder consent."
+    },
+    {
+      "choice": "Desktop/tablet native once-only scroll reveal; clean biography reading dialog",
+      "reference": "https://docs.21st.dev/@cnippet-dev/components/scroll-reveal-2",
+      "dialogReference": "https://preview.21st.dev/@originui/components/dialog",
+      "implementation": "MIT-listed public patterns adapted with own Astro/native dialog, IntersectionObserver and Web Animations. No component source copied, React, paid generation or cloud source upload. Entry excludes below-768px and reduced-motion. Mobile portrait now has explicitly requested small visible-only CSS 3D drift and passive touch tilt."
+    },
+    {
+      "choice": "Premium desktop and iPad home composition requested 2026-11-02",
+      "reference": "https://21st.dev/@felipemenezes098/components/hero-07",
+      "implementation": "Authenticated 21st CLI search and get 19077 succeeded. Original Astro/CSS adaptation: framed split hero on desktop, landscape image above editorial copy on portrait tablets, existing palette/assets/copy, aligned destination/review cards and quiet hover feedback. No React, Motion or new dependency."
+    },
+    {
+      "choice": "Extend premium light home design to explore, tours, packages and included-trip previews without content changes",
+      "date": "2026-11-02",
+      "references": [
+        "https://21st.dev/@patrick-xin/components/unsplash-gallery-dialog",
+        "https://21st.dev/@kavikatiyar/components/product-detail-page",
+        "https://21st.dev/@ravikatiyar162/components/card-22"
+      ],
+      "implementation": "Contextual catalog searches succeeded; own Astro/CSS/native dialog with existing real assets and IT/EN dictionaries. Light product reading surfaces, fixed modal toolbar, full included-trip cards, tablet two-column listing and wrapping filters. Original pricing, ordering, booking config and content preserved against browser baselines. No React, new dependency, fabricated ratings or cloud source upload."
+    },
+    {
+      "choice": "User explicitly enabled mobile autoplay and shared card entrances, 2026-11-02",
+      "reference": "https://21st.dev/@bundui/components/carousel4",
+      "implementation": "Contextual search succeeded. Original native scroll/Web Animations and visible-only timeout scheduling; no Embla/React/motion dependency. Pause on touch/focus/dialog/tab hiding/reduced motion; manually controllable, deferred hero neighbours, no pre-play Vimeo access. Supersedes earlier mobile-static and desktop-only loading decisions."
+    },
+    {
+      "choice": "Deeper portrait and unified animated WhatsApp contact control, 2026-11-02",
+      "implementation": "User requested stronger desktop hover/mobile depth. Independently clipped portrait viewport, mobile copy/CTA in their own grid row, 110px desktop/70px mobile foreground depth, stronger pointer rotation and layered shift. Existing contact text/link inside one white/orange pill; brief 8s icon nudge, pause on dialog/consent/hidden tab/footer state and reduced-motion fallback. No sensors, frame loop, new copy or dependencies."
+    },
+    {
+      "choice": "Clean Sharm Secrets editorial guide and SVG icons, 2026-11-02",
+      "reference": "https://21st.dev/@mohammadshehadeh/components/toc",
+      "implementation": "Contextual 21st search; own Astro/native dialog. Remove six decorative background renders, retain original content images/words, Montserrat body and Playfair headings. Independent card heights, 360px image cap; replace decorative emoji with inline SVG without editing source dictionaries. Unify floating index pill with WhatsApp. Reuse visible-only gallery scheduler; four focused local cases, no broad testing or new dependencies."
+    }
+  ],
+  "evidence": [
+    {
+      "fact": "project.stack:astro",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:tailwind-v4",
+      "source": "package.json"
+    }
+  ],
+  "generatedAt": "2026-10-29T03:24:38.899Z"
+}

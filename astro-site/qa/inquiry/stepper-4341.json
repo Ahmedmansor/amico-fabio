@@ -1,0 +1,45 @@
+{
+  "origin": "http://127.0.0.1:4341",
+  "results": [
+    {
+      "locale": "it",
+      "width": 375,
+      "analyticsUnavailable": true,
+      "increment": true,
+      "decrementAndMinima": true,
+      "synchronizedDraft": true,
+      "localReview": true,
+      "externalHandoff": false
+    },
+    {
+      "locale": "it",
+      "width": 1280,
+      "analyticsUnavailable": true,
+      "increment": true,
+      "decrementAndMinima": true,
+      "synchronizedDraft": true,
+      "localReview": true,
+      "externalHandoff": false
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "analyticsUnavailable": true,
+      "increment": true,
+      "decrementAndMinima": true,
+      "synchronizedDraft": true,
+      "localReview": true,
+      "externalHandoff": false
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "analyticsUnavailable": true,
+      "increment": true,
+      "decrementAndMinima": true,
+      "synchronizedDraft": true,
+      "localReview": true,
+      "externalHandoff": false
+    }
+  ]
+}

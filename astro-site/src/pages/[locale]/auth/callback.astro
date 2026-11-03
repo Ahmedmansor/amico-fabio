@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../../shared/layouts/BaseLayout.astro';
+import { supportedLocales } from '../../../shared/config/languages';
+import { getAuthMessages } from '../../../features/auth/data/messages';
+import AuthCallback from '../../../features/auth/presentation/AuthCallback.astro';
+import CallbackBootstrap from '../../../features/auth/presentation/CallbackBootstrap.astro';
+export function getStaticPaths() { return supportedLocales.map(locale => ({ params: { locale }, props: { locale } })); }
+const { locale } = Astro.props;
+const m = getAuthMessages(locale);
+---
+<BaseLayout locale={locale} route="auth/callback" title={`${m.callbackTitle} | Fabio Egypt`} description={m.callbackIntro} noindex={true} bodyClass="bg-black font-sans text-gray-200">
+  <CallbackBootstrap slot="head-start"/>
+  <AuthCallback locale={locale}/>
+</BaseLayout>

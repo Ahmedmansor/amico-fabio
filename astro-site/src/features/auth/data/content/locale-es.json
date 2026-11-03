@@ -1,0 +1,14 @@
+{
+  "title": "Idioma del correo electrónico",
+  "followSite": "Usar el idioma del sitio web",
+  "save": "Guardar idioma",
+  "retry": "Continuar guardando",
+  "noPreference": "El último idioma del sitio web utilizado con tu cuenta será también el de los próximos correos. Cambiar el idioma no activa los recordatorios ni modifica el consentimiento.",
+  "loading": "Cargando la configuración de idioma…",
+  "saving": "Guardando el idioma…",
+  "saved": "Idioma guardado.",
+  "uncertain": "Tu elección está pendiente de confirmación. Continúa guardando para comprobar el resultado.",
+  "conflict": "La configuración de idioma ha cambiado en otro lugar. Revisa el idioma seleccionado antes de volver a guardarlo.",
+  "failed": "No se ha podido cargar la configuración de idioma. Inténtalo de nuevo.",
+  "storageFailed": "Tu navegador no ha podido conservar la elección pendiente. Mantén esta pestaña abierta e inténtalo de nuevo."
+}

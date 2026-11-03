@@ -1,0 +1,15 @@
+{
+  "title": "Besondere Reiseangebote von Fabio",
+  "label": "Ja, ich möchte von Fabio Angebote und Rabatte zu meinen Favoriten per E-Mail erhalten (optional).",
+  "description": "Diese Auswahl ist unabhängig von der Favoritenerinnerung. Du kannst sie hier jederzeit widerrufen. Konto und Favoriten funktionieren auch ohne diese Auswahl.",
+  "save": "Auswahl speichern",
+  "saved": "Deine Auswahl wurde gespeichert.",
+  "loading": "Deine Auswahl wird geladen…",
+  "failed": "Deine Auswahl konnte nicht bestätigt werden. Lade sie neu, bevor du es erneut versuchst.",
+  "retry": "Auswahl neu laden",
+  "verify": "Bestätige deine E-Mail-Adresse, bevor du diese Auswahl speicherst.",
+  "intro": "Möchtest du eine E-Mail von Fabio erhalten, wenn es ein besonderes Angebot für deine gespeicherten Ausflüge gibt?",
+  "optional": "Optional",
+  "privacy": "Datenschutzhinweise",
+  "signupDescription": "Du kannst ein Konto erstellen und Ausflüge speichern, ohne Angeboten zuzustimmen. Diese Auswahl ist unabhängig von der Favoritenerinnerung. Du kannst deine Einwilligung in deinem Konto widerrufen."
+}

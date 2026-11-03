@@ -1,0 +1,62 @@
+{
+  "capturedAt": "2026-10-15T03:16:15.747Z",
+  "observations": [
+    {
+      "locale": "it",
+      "size": "desktop",
+      "discountMarkers": 0,
+      "height": 900,
+      "lang": "it",
+      "overflow": false,
+      "price": "€40",
+      "title": "Ras Mohammed & White Island: L'Esperienza VIP",
+      "total": "€40",
+      "width": 1440
+    },
+    {
+      "locale": "en",
+      "size": "desktop",
+      "discountMarkers": 0,
+      "height": 900,
+      "lang": "en",
+      "overflow": false,
+      "price": "€40",
+      "title": "Ras Mohammed & White Island: The VIP Experience",
+      "total": "€40",
+      "width": 1440
+    },
+    {
+      "locale": "it",
+      "size": "mobile",
+      "discountMarkers": 0,
+      "height": 844,
+      "lang": "it",
+      "overflow": false,
+      "price": "€40",
+      "title": "Ras Mohammed & White Island: L'Esperienza VIP",
+      "total": "€40",
+      "width": 390
+    },
+    {
+      "locale": "en",
+      "size": "mobile",
+      "discountMarkers": 0,
+      "height": 844,
+      "lang": "en",
+      "overflow": false,
+      "price": "€40",
+      "title": "Ras Mohammed & White Island: The VIP Experience",
+      "total": "€40",
+      "width": 390
+    }
+  ],
+  "interaction": {
+    "adults": 2,
+    "children": 1,
+    "addon": "Scuba Diving Option",
+    "total": "€144.5",
+    "expected": "€144.5",
+    "passed": true,
+    "submitted": false
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "url": "https://amico-fabio-iyzo.vercel.app/en/",
+  "fetchTime": "2026-11-02T00:37:00.389Z",
+  "scores": {
+    "performance": 0.97,
+    "accessibility": 1
+  },
+  "metrics": {
+    "largest-contentful-paint": "2.3\u00a0s",
+    "total-blocking-time": "40\u00a0ms",
+    "cumulative-layout-shift": "0.001"
+  }
+}

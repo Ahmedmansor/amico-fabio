@@ -1,0 +1,5 @@
+.fabio-portrait{position:relative;width:160px;height:176px;flex-shrink:0;isolation:isolate}
+.fabio-portrait-orbit{position:absolute;inset:12px 0 0;border:1px solid var(--border-color);border-radius:80px 80px 28px 28px;transform:rotate(7deg);background:var(--surface-card)}
+.fabio-portrait-photo{position:absolute;inset:8px;border-radius:72px 72px 24px 24px;overflow:hidden;background:var(--surface-action-soft)}
+.fabio-portrait-photo img{position:absolute;top:-22px;left:50%;transform:translateX(-50%);width:180px;height:auto;max-width:none}
+.fabio-portrait-badge{position:absolute;bottom:0;right:-2px;display:grid;place-items:center;width:44px;height:44px;border:3px solid var(--bg-white);border-radius:14px;background:var(--color-primary);color:var(--bg-white)}

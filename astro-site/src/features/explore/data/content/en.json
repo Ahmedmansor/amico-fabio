@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Explore Tours | Fabio Egypt Tours",
+    "description": "Choose your next adventure in Egypt. Private tours in Sharm, Cairo, Luxor and Aswan. The best prices and VIP service.",
+    "destinations": {
+      "sharm": {
+        "title": "Explore Tours: Sharm El Sheikh | Fabio Egypt Tours",
+        "description": "Choose your next adventure in Egypt. Private tours in Sharm El Sheikh. The best prices and VIP service."
+      },
+      "cairo": {
+        "title": "Explore Tours: Cairo | Fabio Egypt Tours",
+        "description": "Choose your next adventure in Egypt. Private tours in Cairo. The best prices and VIP service."
+      },
+      "luxor_and_aswan": {
+        "title": "Explore Tours: Luxor and Aswan | Fabio Egypt Tours",
+        "description": "Choose your next adventure in Egypt. Private tours in Luxor and Aswan. The best prices and VIP service."
+      }
+    }
+  },
+  "title": "Explore Tours",
+  "sort": {
+    "sort_label": "Sort by price",
+    "sort_recommended": "Recommended (VIP)",
+    "sort_low_high": "Price: Low → High",
+    "sort_high_low": "Price: High → Low"
+  },
+  "filters": {
+    "all": "All",
+    "sea": "Sea",
+    "culture": "Culture",
+    "desert": "Desert",
+    "packages": "Packages"
+  },
+  "badges": {
+    "BEST_SELLER": "Best seller",
+    "LIMITED_TIME": "Limited time only",
+    "NEW": "New",
+    "TOP_RATED": "Top rated",
+    "FAMILY_FRIENDLY": "Family friendly",
+    "VIP_EXCLUSIVE": "VIP exclusive",
+    "CHEAPEST_PRICE": "Cheapest price",
+    "RECOMMENDED": "Recommended",
+    "POPULAR": "Popular choice"
+  },
+  "labels": {
+    "destination": "Destination",
+    "all_destinations": "All cities",
+    "price_from": "Starts from",
+    "discover": "Discover",
+    "discover_package": "Discover package",
+    "premium_package": "Premium Package",
+    "no_exclusive_experiences": "No exclusive experiences available at the moment."
+  },
+  "pagination": {
+    "page": "Page",
+    "of": "of",
+    "previous": "←",
+    "next": "→"
+  }
+}

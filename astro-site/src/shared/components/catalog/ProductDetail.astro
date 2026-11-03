@@ -1,0 +1,49 @@
+---
+import type {Locale} from '../../config/languages';
+import {getSharedMessages} from '../../i18n/shared';
+import './product-details.css';
+import MobileFormCta from '../form-widgets/MobileFormCta.astro';
+import Price from '../../../features/currency/presentation/Price.astro';
+interface Props {locale:Locale;title:string;duration:string;adultPrice:number;minPax:number;bookLabel:string;badge?:string}
+const {locale,title,duration,adultPrice,minPax,bookLabel,badge}=Astro.props;
+const m=getSharedMessages(locale),p=m.productDetail;
+---
+<main class="product-detail">
+  <header class="product-heading product-width">
+    <nav class="product-breadcrumb" aria-label={p.breadcrumb}><a href={`/${locale}/`}>{m.menu.home}</a><span aria-hidden="true">/</span><a href={`/${locale}/explore/`}>{m.menu.trips}</a></nav>
+    <div class="product-title-row"><div>{badge&&<span id="detail-badge" class="product-badge">{badge}</span>}<h1 id="detail-title" set:html={title}></h1></div><slot name="favorite"/></div>
+  </header>
+  <div class="product-width"><slot name="gallery"/>
+    <dl class="product-facts">
+      <div data-desktop-reveal><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>{p.duration}</dt><dd id="detail-duration" set:html={duration}></dd></div>
+      <div data-desktop-reveal><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 5a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v2"/></svg>{m.global.pricing.min_pax}</dt><dd>{minPax}</dd></div>
+      <div data-desktop-reveal><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5a7 7 0 1 0 0 14M3 10h12M3 14h11"/></svg>{m.global.price_from}</dt><dd><Price amount={adultPrice}/><small>{m.global.per_person}</small></dd></div>
+    </dl>
+    <div class="product-layout">
+      <div class="product-content">
+        <nav class="product-section-nav" aria-label={p.sections}><a href="#product-description">{m.global.description}</a><a href="#detail-info-card">{m.global.included}</a><a href="#product-itinerary">{m.global.itinerary_details}</a>{Astro.slots.has('included-trips')&&<a href="#product-included-trips">{m.global.included_trips}</a>}<a href="#booking-card-container">{bookLabel}</a></nav>
+        <section id="product-description" class="product-section"><h2 id="label-desc">{m.global.description}</h2><slot name="description"/></section>
+        <section class="product-section"><h2 id="label-highlights">{m.global.highlights}</h2><slot name="highlights"/></section>
+        <section id="detail-info-card" class="product-section product-inclusions">
+          <div><h2 id="label-includes">{m.global.included}</h2><slot name="includes"/></div>
+          <div><h2 id="label-excludes">{m.global.not_included}</h2><slot name="excludes"/></div>
+        </section>
+        <section id="product-itinerary" class="product-section"><h2 id="label-itinerary">{m.global.itinerary_details}</h2><slot name="itinerary"/></section>
+        {Astro.slots.has('included-trips')&&<section id="product-included-trips" class="product-section"><h2 id="label-included-trips">{m.global.included_trips}</h2><slot name="included-trips"/></section>}
+        <section class="product-section product-important"><h2 id="label-important">{m.global.important}</h2><slot name="important"/></section>
+        <slot name="faq"/>
+      </div>
+      <aside class="product-booking-column sticky-form-panel" aria-label={bookLabel}>
+        <section id="booking-card-container" class="product-booking-card">
+          <div class="product-booking-price"><span>{m.global.price_from}</span><div id="card-price"><Price amount={adultPrice}/></div><span>{m.global.per_person}</span></div>
+          <p data-currency-notice hidden>{m.currency.notice}</p>
+          <slot name="breakdown"/>
+          <h2 class="product-booking-title">{bookLabel}</h2>
+          <slot name="booking"/>
+        </section>
+      </aside>
+    </div>
+  </div>
+  <MobileFormCta target="booking-card-container" label={bookLabel}/>
+</main>
+<script>import './product-details';</script>

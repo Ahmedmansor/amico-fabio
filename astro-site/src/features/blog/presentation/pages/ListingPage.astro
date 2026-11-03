@@ -1,0 +1,37 @@
+---
+import {Image} from 'astro:assets';
+import type {ImageMetadata} from 'astro';
+import type {BlogListing} from '../../data/views';
+import type {BlogAlternates,BlogPost} from '../../domain/models';
+import type {getBlogDiscovery} from '../../data/views';
+import {interestImages} from '../../data/taxonomy-assets';
+import {listingUrl} from '../../domain/listings';
+import {articleUrl} from '../../domain/translations';
+import {readingTimeMinutes} from '../../domain/reading-time';
+import {getSharedMessages} from '../../../../shared/i18n/shared';
+import BlogLayout from '../../../../shared/layouts/EditorialLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import CtaCard from '../components/CtaCard.astro';
+interface Props {group:BlogListing;posts:BlogPost[];currentPage:number;lastPage:number;alternates:BlogAlternates;navigation:BlogAlternates;images:Record<string,ImageMetadata>;discovery:Awaited<ReturnType<typeof getBlogDiscovery>>}
+const {group,posts,currentPage,lastPage,alternates,navigation,images,discovery}=Astro.props;
+const {lang,kind}=group,m=getSharedMessages(lang).blog,home=kind==='home';
+const featured=currentPage===1&&home?discovery.featured:undefined;
+const fixture=group.posts.some(post=>post.fixture);
+---
+<BlogLayout locale={lang} title={currentPage>1?`${group.title} — ${m.pageLabel.replace('{n}',String(currentPage))}`:group.title} description={group.description} path={listingUrl(lang,kind,group.slug,currentPage)} alternates={alternates} navigation={navigation} fixture={fixture}>
+  <Fragment slot="head">
+    {currentPage>1&&<link rel="prev" href={listingUrl(lang,kind,group.slug,currentPage-1)}/>}
+    {currentPage<lastPage&&<link rel="next" href={listingUrl(lang,kind,group.slug,currentPage+1)}/>}
+  </Fragment>
+  <main id="blog-main">
+    <section class="blog-container blog-intro"><p class="blog-kicker">{m.eyebrow}</p><h1>{home?m.headline:group.title}</h1><p>{group.description}</p>{!home&&<nav class="blog-breadcrumbs" aria-label={m.navigation}><a href={`/${lang}/`}>{m.home}</a><span aria-hidden="true">/</span><a href={listingUrl(lang)}>{m.journal}</a><span aria-hidden="true">/</span><span>{group.title}</span></nav>}</section>
+    {featured&&<section class="blog-container"><a class="blog-featured" href={articleUrl(featured)}><div class="blog-featured-image"><Image src={images[featured.id]} alt={featured.hero.alt} widths={[640,960,1280]} sizes="(min-width:1024px) 60vw, 100vw" format="webp" loading="eager" fetchpriority="high"/></div><div class="blog-featured-copy"><span class="blog-featured-label">{m.featured}</span><p class="blog-kicker">{featured.interests.map(interest=>m.interestLabels[interest]).join(' · ')}</p><h2>{featured.title}</h2><p>{featured.description}</p><div class="blog-meta"><time datetime={featured.pubDate}>{new Intl.DateTimeFormat(lang,{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(featured.pubDate))}</time><span>·</span><span>{m.readingTime.replace('{n}',String(readingTimeMinutes(featured.body)))}</span></div><span class="blog-text-link">{m.read}<span aria-hidden="true">↗</span></span></div></a></section>}
+    {home&&currentPage===1&&discovery.taxonomy.interests.length>0&&<section class="blog-container blog-section"><div class="blog-section-heading"><div><p class="blog-kicker">{m.journal}</p><h2>{m.interests}</h2></div><p>{m.interestsIntro}</p></div><div class="blog-interest-grid">{discovery.taxonomy.interests.map(({slug,count})=><a class="blog-interest-card" href={listingUrl(lang,'interests',slug)}><Image src={interestImages[slug]} alt="" widths={[240,400]} sizes="(min-width:1024px) 16vw, (min-width:640px) 33vw, 50vw" format="webp" loading="lazy"/><h3>{m.interestLabels[slug]}</h3><span>{m.articleCount.replace('{n}',String(count))}</span></a>)}</div></section>}
+    {home&&currentPage===1&&discovery.taxonomy.destinations.length>0&&<section class="blog-destinations"><div class="blog-container blog-section"><div class="blog-section-heading"><div><p class="blog-kicker">Fabio Egypt</p><h2>{m.destinations}</h2></div><p>{m.destinationsIntro}</p></div><div class="blog-city-grid">{discovery.taxonomy.destinations.map(({slug,count})=>{const post=group.posts.find(post=>post.destination===slug)!;return <a class="blog-city-card" href={listingUrl(lang,'destinations',slug)}><Image src={images[post.id]} alt="" widths={[400,640]} sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw" format="webp" loading="lazy"/><div><h3>{m.destinationLabels[slug]}</h3><span>{m.articleCount.replace('{n}',String(count))} <span aria-hidden="true">↗</span></span></div></a>;})}</div></div></section>}
+    <section class="blog-container blog-section" id="blog-stories"><div class="blog-section-heading"><h2>{home?m.latest:group.title}</h2>{!home&&<a class="blog-text-link" href={listingUrl(lang)}>{m.allStories}<span aria-hidden="true">↗</span></a>}</div>
+      {posts.length?<div class="blog-post-grid">{posts.map(post=><PostCard post={post} image={images[post.id]}/>)}</div>:<div class="blog-empty"><h2>{m.empty}</h2><p>{m.emptyText}</p><a class="blog-button" href={`/${lang}/explore/`}>{m.trips}<span aria-hidden="true">↗</span></a></div>}
+      {lastPage>1&&<nav class="blog-pagination" aria-label={m.pagination}>{currentPage>1&&<a href={listingUrl(lang,kind,group.slug,currentPage-1)} rel="prev">← {m.previous}</a>}{Array.from({length:lastPage},(_,index)=><a href={listingUrl(lang,kind,group.slug,index+1)} aria-label={m.pageLabel.replace('{n}',String(index+1))} aria-current={currentPage===index+1?'page':undefined}>{index+1}</a>)}{currentPage<lastPage&&<a href={listingUrl(lang,kind,group.slug,currentPage+1)} rel="next">{m.next} →</a>}</nav>}
+    </section>
+    <div class="blog-container blog-section"><CtaCard locale={lang}/></div>
+  </main>
+</BlogLayout>

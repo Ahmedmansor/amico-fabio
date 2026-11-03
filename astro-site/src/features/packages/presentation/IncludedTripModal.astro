@@ -1,0 +1,47 @@
+---
+import {Image} from 'astro:assets';
+import type {TourPage} from '../../tours/domain/details';
+import type {Locale} from '../../../shared/config/languages';
+import {getSharedMessages} from '../../../shared/i18n/shared';
+import {imageAssets} from './images';
+import {listHtml} from './markup';
+import PackageGallery from './PackageGallery.astro';
+import './included-trips.css';
+interface Props {included:TourPage[];locale:Locale}
+const {included,locale}=Astro.props,m=getSharedMessages(locale);
+---
+<dialog id="included-trip-modal" class="included-trip-dialog" aria-labelledby="included-trip-active-title">
+  <header class="included-trip-toolbar"><span>{m.global.included_trips}</span><button id="included-trip-modal-close" type="button" aria-label={m.labels.close} autofocus><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></header>
+  <div class="included-trip-scroll"><div id="included-trip-content"></div></div>
+</dialog>
+{included.map(item=>{const text=item.text;return <template id={`included-template-${item.trip.id}`}>
+  <article class="included-trip-article">
+    <div class="included-trip-intro">
+      <div class="included-trip-media">
+        <div class="included-trip-photo">
+          <Image data-field="included-trip-modal-hero-img" src={imageAssets[item.gallery[0]]} alt={m.detailLabels.heroAlt} widths={[600,1200]} sizes="(min-width:1024px) 600px, 100vw"/>
+          <span data-field="included-trip-badge" class="included-trip-badge" hidden={!item.trip.badges?.[locale]}>{item.trip.badges?.[locale]}</span>
+        </div>
+        <div data-field="included-trip-modal-gallery" class="included-trip-thumbs"><PackageGallery gallery={item.gallery} locale={locale} title={text.title}/></div>
+      </div>
+      <div class="included-trip-summary">
+        <p class="included-trip-duration"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-field="included-trip-duration" set:html={text.duration}></span></p>
+        <h2 id="included-trip-active-title" data-field="included-trip-title" set:html={text.title}></h2>
+        <p data-field="included-trip-desc" class="included-trip-description" set:html={text.short_desc}></p>
+      </div>
+    </div>
+    <div class="included-trip-details">
+      <div class="included-trip-main">
+        <section class="included-trip-section"><h3>{m.global.highlights}</h3><ul data-field="included-trip-highlights" class="included-trip-list" set:html={listHtml(text.highlights)}></ul></section>
+        <section class="included-trip-section"><h3>{m.global.itinerary_details}</h3><div data-field="included-trip-full-desc" class="included-trip-prose" set:html={text.full_description}></div>
+          <ol data-field="included-trip-program" class="included-trip-program">{text.program.map(step=><li><span>{step.time}</span><div><h4>{step.activity}</h4><p>{step.details}</p></div></li>)}</ol>
+        </section>
+      </div>
+      <div class="included-trip-aside">
+        <section class="included-trip-section included-trip-panel"><h3>{m.global.included}</h3><ul data-field="included-trip-includes" class="included-trip-list" set:html={listHtml(text.includes,true,'check')}></ul></section>
+        <section class="included-trip-section included-trip-panel"><h3>{m.global.not_included}</h3><ul data-field="included-trip-excludes" class="included-trip-list" set:html={listHtml(text.not_included,true,'cross')}></ul></section>
+        <section class="included-trip-section included-trip-notes"><h3>{m.global.important}</h3><p data-field="included-trip-important" set:html={text.important_notes}></p></section>
+      </div>
+    </div>
+  </article>
+</template>;})}

@@ -1,0 +1,39 @@
+{
+  "name": "fabio-egypt-astro",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.21.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "check:content": "astro sync",
+    "check:blog": "tsc --noEmit --project scripts/blog/tsconfig.json",
+    "check:fixtures": "node scripts/blog/check-fixtures.mjs",
+    "check:links": "node scripts/blog/check-links.mjs",
+    "blog:new": "node scripts/blog/new-post.mjs",
+    "blog:references": "astro sync && node scripts/blog/references.mjs",
+    "test": "node scripts/run-tests.mjs",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test:domain": "vitest run"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.118.0",
+    "astro": "7.3.8",
+    "vanilla-cookieconsent": "3.1.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@astrojs/markdown-satteri": "0.4.3",
+    "@tailwindcss/vite": "4.3.3",
+    "@types/node": "24.10.1",
+    "satteri": "0.10.5",
+    "sharp": "0.35.5",
+    "tailwindcss": "4.3.3",
+    "typescript": "6.0.3",
+    "vitest": "5.0.4"
+  }
+}

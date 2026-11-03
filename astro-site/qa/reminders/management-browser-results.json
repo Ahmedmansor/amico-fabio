@@ -1,0 +1,33 @@
+{
+  "syntheticOnly": true,
+  "cases": [
+    {
+      "locale": "it",
+      "width": 375,
+      "passed": true,
+      "requests": 6,
+      "errors": []
+    },
+    {
+      "locale": "it",
+      "width": 1440,
+      "passed": true,
+      "requests": 6,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "passed": true,
+      "requests": 6,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "passed": true,
+      "requests": 6,
+      "errors": []
+    }
+  ]
+}

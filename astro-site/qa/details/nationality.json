@@ -1,0 +1,43 @@
+{
+  "results": [
+    {
+      "width": 375,
+      "route": "en/egypt/aswan/",
+      "flag": true,
+      "keyboard": true,
+      "formValue": true,
+      "sharedDraft": true,
+      "errors": []
+    },
+    {
+      "width": 375,
+      "route": "it/tailor-your-trip/",
+      "flag": true,
+      "keyboard": true,
+      "formValue": true,
+      "sharedDraft": false,
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "route": "en/egypt/aswan/",
+      "flag": true,
+      "keyboard": true,
+      "formValue": true,
+      "sharedDraft": true,
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "route": "it/tailor-your-trip/",
+      "flag": true,
+      "keyboard": true,
+      "formValue": true,
+      "sharedDraft": false,
+      "errors": []
+    },
+    {
+      "nativeFallback": true
+    }
+  ]
+}

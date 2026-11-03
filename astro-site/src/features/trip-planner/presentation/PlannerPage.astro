@@ -1,0 +1,48 @@
+---
+import {Image} from 'astro:assets';
+import type {Locale} from '../../../shared/config/languages';
+import {supportedLocales,blogLocales} from '../../../shared/config/languages';
+import {getSharedMessages} from '../../../shared/i18n/shared';
+import {siteConfig} from '../../../shared/config/site';
+import EditorialLayout from '../../../shared/layouts/EditorialLayout.astro';
+import {getPlannerNationalities} from '../data/options';
+import {plannerPlaces,budgetCurrencies} from '../domain/planner';
+import illustration from '../../blog/data/assets/egypt-illustration.webp';
+import './planner.css';
+import NationalitySelect from '../../../shared/components/forms/NationalitySelect.astro';
+interface Props {locale:Locale}
+const {locale}=Astro.props,m=getSharedMessages(locale).planner,nationalities=getPlannerNationalities(locale);
+const path=`/${locale}/tailor-your-trip/`,alternates=Object.fromEntries(supportedLocales.map(lang=>[lang,`/${lang}/tailor-your-trip/`]));
+const id=(name:string)=>`planner-${name}`;
+const required=['name','email','nationality','phone','arrival','departure','budget','details'];
+---
+<EditorialLayout locale={locale} title={m.title} description={m.description} path={path} alternates={alternates} navigation={alternates} section="planner">
+ <main id="blog-main" class="planner-page">
+  <header class="blog-container planner-heading"><p class="blog-kicker">{m.eyebrow}</p><h1>{m.title}</h1><p>{m.description}</p></header>
+  <div class="blog-container planner-grid">
+   <div class="planner-main">
+    <div class="planner-country"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 20 7-14 7 14H2Zm11-6 3-5 6 11h-6"/></svg><div><strong>{m.country}</strong><p>{m.countryHint}</p></div><span aria-hidden="true">✓</span></div>
+    <form class="planner-form" data-trip-planner method="dialog" novalidate>
+     <h2>{m.formTitle}</h2><p class="planner-required">{m.requiredHint}</p>
+     <fieldset><legend><span>01</span>{m.contactTitle}</legend><div class="planner-fields">
+      {(['name','email','nationality','phone'] as const).map(name=><div class:list={['planner-field',{'planner-full':name==='name'||name==='phone'}]}><label for={id(name)}>{m[name]} <span aria-hidden="true">*</span></label>{name==='nationality'?<NationalitySelect id={id(name)} label={m.nationality} placeholder={m.chooseNationality} describedBy={id(name)+"-error"} options={nationalities}/>:<input id={id(name)} name={name} type={name==='email'?'email':name==='phone'?'tel':'text'} autocomplete={name==='phone'?'tel':name} required maxlength={name==='email'?254:120} aria-describedby={`${id(name)}-error${name==='phone'?` ${id(name)}-hint`:''}`}/ >}{name==='phone'&&<small id={`${id(name)}-hint`}>{m.phoneHint}</small>}<span class="planner-error" id={`${id(name)}-error`} data-planner-error={name} hidden></span></div>)}
+     </div></fieldset>
+     <fieldset><legend><span>02</span>{m.datesTitle}</legend><div class="planner-fields">{(['arrival','departure'] as const).map(name=><div class="planner-field"><label for={id(name)}>{m[name]} <span aria-hidden="true">*</span></label><input id={id(name)} type="date" name={name} required aria-describedby={`${id(name)}-error`}/><span class="planner-error" id={`${id(name)}-error`} data-planner-error={name} hidden></span></div>)}</div></fieldset>
+     <fieldset><legend><span>03</span>{m.partyTitle}</legend><div class="planner-party">{(['adults','children','infants'] as const).map(name=><div class="planner-field"><label for={id(name)}>{m[name]} <span aria-hidden="true">*</span></label><input id={id(name)} type="number" name={name} min={name==='adults'?1:0} max="99" step="1" value={name==='adults'?2:0} required inputmode="numeric" aria-describedby={`${id(name)}-error`}/><span class="planner-error" id={`${id(name)}-error`} data-planner-error={name} hidden></span></div>)}</div>
+      <div class="planner-fields planner-budget"><div class="planner-field"><label for={id('budget')}>{m.budget} <span aria-hidden="true">*</span></label><input id={id('budget')} name="budget" type="text" inputmode="decimal" required maxlength="12" placeholder={m.budgetPlaceholder} aria-describedby="planner-budget-note planner-budget-error"/><span class="planner-error" id="planner-budget-error" data-planner-error="budget" hidden></span></div><div class="planner-field"><label for={id('currency')}>{m.currency}</label><select id={id('currency')} name="currency">{budgetCurrencies.map(currency=><option value={currency}>{currency}</option>)}</select></div></div><p id="planner-budget-note" class="planner-hint">{m.budgetNote}</p>
+     </fieldset>
+     <fieldset><legend><span>04</span>{m.ideasTitle}</legend><div class="planner-fields">{(['startCity','finishCity'] as const).map(name=><div class="planner-field"><label for={id(name)}>{m[name]}</label><input id={id(name)} name={name} type="text" maxlength="100" placeholder={m.cityPlaceholder} aria-describedby={`${id(name)}-error`}/><span class="planner-error" id={`${id(name)}-error`} data-planner-error={name} hidden></span></div>)}</div>
+      <fieldset class="planner-interests"><legend>{m.places}</legend><p class="planner-hint">{m.optional}</p><div class="planner-chips">{plannerPlaces.map(place=><label><input type="checkbox" name="places" value={place}/><span>{m.placeLabels[place]}</span></label>)}</div></fieldset>
+      <div class="planner-field"><label for={id('details')}>{m.details} <span aria-hidden="true">*</span></label><p class="planner-hint" id="planner-details-hint">{m.detailsHint}</p><textarea id={id('details')} name="details" required minlength="10" maxlength="4000" rows="6" placeholder={m.detailsPlaceholder} aria-describedby="planner-details-hint planner-details-error"></textarea><span class="planner-error" id="planner-details-error" data-planner-error="details" hidden></span></div>
+     </fieldset>
+     <p class="planner-status" data-planner-status aria-live="polite">{m.formHelp}</p><button class="blog-button planner-review-button" type="submit" disabled>{m.review}<span aria-hidden="true">↗</span></button><p class="planner-privacy"><a href={`/${locale}/legal/`}>{m.privacy}</a></p>
+    </form>
+    <section class="planner-review" data-planner-review hidden tabindex="-1" aria-labelledby="planner-review-title"><p class="blog-kicker">{m.countryName}</p><h2 id="planner-review-title">{m.reviewTitle}</h2><p>{m.reviewHint}</p><div class="planner-summary" data-planner-summary></div><button type="button" class="blog-button" data-planner-handoff>{m.openWhatsApp}<span aria-hidden="true">↗</span></button><p><a href={`https://wa.me/${siteConfig.whatsapp.number}`} data-planner-fallback>{m.fallback}</a></p><button type="button" class="planner-edit" data-planner-edit>{m.edit}</button></section>
+    <noscript><style is:inline>.planner-form{display:none}</style><a class="blog-button" href={`https://wa.me/${siteConfig.whatsapp.number}`}>{m.openWhatsApp}</a></noscript>
+   </div>
+   <aside class="planner-aside"><div class="planner-illustration"><Image src={illustration} alt="" widths={[400,640]} sizes="(min-width:1024px) 360px, 100vw" format="webp" loading="lazy"/></div><div class="planner-side-copy"><p class="blog-kicker">Fabio Egypt</p><h2>{m.sideTitle}</h2><p>{m.sideText}</p><ul>{m.sideItems.map(item=><li><span aria-hidden="true">✓</span>{item}</li>)}</ul><a href={`/${blogLocales.includes(locale)?locale:'en'}/blog/`} data-lang-fallback={!blogLocales.includes(locale)?'en':undefined} class="blog-text-link">{m.backJournal}<span aria-hidden="true">↗</span></a></div></aside>
+  </div>
+ </main>
+ <script id="trip-planner-config" type="application/json" set:html={JSON.stringify({locale,m,nationalities:nationalities.map(item=>item.value),required,number:siteConfig.whatsapp.number}).replaceAll('<','\\u003c')}/>
+ <script>import './planner';</script>
+</EditorialLayout>

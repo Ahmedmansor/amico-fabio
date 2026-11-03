@@ -1,0 +1,46 @@
+---
+import type {OfferCampaign} from '../domain/campaign';
+interface Props {campaign:OfferCampaign}
+const {campaign}=Astro.props;
+const copy=campaign.copy;
+import {Image} from 'astro:assets';
+import {offerImage} from './images';
+const images=campaign.images;
+---
+<div id="landing-header">
+      <header class="osh-header" id="osh-main-header">
+        <div class="osh-scroll-progress" id="osh-scroll-progress"></div>
+        <div class="osh-header-inner">
+          <a href={campaign.path} class="osh-header-logo-wrap" aria-label={copy["LandingHeader.aria-label.0"]}>
+            <Image class="osh-header-logo"
+                 src={offerImage(images["LandingHeader.image.0"])}
+                 alt={copy["LandingHeader.alt.1"]}
+                 width="42" height="40" loading="eager" decoding="async" widths={[42,84]} sizes="42px" />
+            <div class="osh-header-brand">
+              <span class="osh-header-brand-name">{copy["LandingHeader.text.2"]}<span>{copy["LandingHeader.text.3"]}</span></span>
+            </div>
+          </a>
+
+          <button class="osh-hamburger" id="osh-hamburger-btn" aria-label={copy["LandingHeader.aria-label.4"]}>
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </header>
+
+
+      <div class="osh-menu-overlay" id="osh-menu-overlay"></div>
+
+
+      <nav class="osh-mobile-menu" id="osh-mobile-menu" aria-label={copy["LandingHeader.aria-label.5"]}>
+        <button class="osh-mobile-menu-close" id="osh-menu-close" aria-label={copy["LandingHeader.aria-label.6"]}>{copy["LandingHeader.text.7"]}</button>
+        <div class="osh-mobile-menu-nav">
+          <a href="#why-section">{copy["LandingHeader.text.8"]}</a>
+          <a href="#programs-section">{copy["LandingHeader.text.9"]}</a>
+          <a href="#timeline-section">{copy["LandingHeader.text.10"]}</a>
+          <a href="#videos-section">{copy["LandingHeader.text.11"]}</a>
+          <a href="#faq-section">{copy["LandingHeader.text.12"]}</a>
+          <a href="#booking-section">{copy["LandingHeader.text.13"]}</a>
+        </div>
+      </nav>
+
+</div>

@@ -1,0 +1,44 @@
+{
+  "origin": "https://amico-fabio-iyzo.vercel.app",
+  "sourceCommit": "581f4f375722ec5def9d69d2ffa6f8c65fbaae0e",
+  "deployment": "https://amico-fabio-test-5wx9ys11g-fabio-landing-pages.vercel.app",
+  "rows": [
+    {
+      "locale": "it",
+      "status": 200,
+      "noindex": true,
+      "canonical": true,
+      "passwordEnabled": true,
+      "emailEnabled": true,
+      "googleEnabled": true,
+      "captchaConfigured": true,
+      "siteOrigin": "https://amico-fabio-iyzo.vercel.app",
+      "otpCells": 6,
+      "passwordToggles": 4,
+      "signupNames": true,
+      "passwordConfirmation": true,
+      "azureAbsent": true
+    },
+    {
+      "locale": "en",
+      "status": 200,
+      "noindex": true,
+      "canonical": true,
+      "passwordEnabled": true,
+      "emailEnabled": true,
+      "googleEnabled": true,
+      "captchaConfigured": true,
+      "siteOrigin": "https://amico-fabio-iyzo.vercel.app",
+      "otpCells": 6,
+      "passwordToggles": 4,
+      "signupNames": true,
+      "passwordConfirmation": true,
+      "azureAbsent": true
+    }
+  ],
+  "homepageHasNoGuestLoginForm": true,
+  "loginAlias": true,
+  "emptyNoindexSitemap": true,
+  "liveEmailsSent": 0,
+  "realCaptchaOrInboxTest": false
+}

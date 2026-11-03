@@ -1,0 +1,19 @@
+{
+  "title": "E-Mail-Einstellungen",
+  "intro": "Verwalte Favoritenerinnerungen ohne Anmeldung.",
+  "noScript": "Aktiviere JavaScript, um diesen Link zu nutzen, oder verwalte Erinnerungen in deinem Konto.",
+  "language": "Sprache der Erinnerung",
+  "save": "Sprache speichern",
+  "unsubscribe": "Erinnerungen abbestellen",
+  "retry": "Erneut versuchen",
+  "loading": "E-Mail-Einstellungen werden geladen…",
+  "saving": "Deine Auswahl wird gespeichert…",
+  "saved": "Deine E-Mail-Sprache wurde gespeichert.",
+  "stopped": "Erinnerungen sind deaktiviert. Ein Sprachwechsel aktiviert sie nicht erneut.",
+  "enabled": "Erinnerungen sind aktiviert. Du kannst sie hier abbestellen.",
+  "invalid": "Dieser Link ist ungültig oder nicht mehr verfügbar. Öffne einen gültigen Link aus deiner Erinnerungs-E-Mail oder verwalte Erinnerungen in deinem Konto.",
+  "error": "Deine Auswahl konnte nicht bestätigt werden. Versuche es erneut, um das Ergebnis zu prüfen.",
+  "conflict": "Die Sprache wurde an anderer Stelle geändert. Prüfe die aktuelle Auswahl und speichere sie bei Bedarf erneut.",
+  "disabled": "Links zu E-Mail-Einstellungen sind noch nicht verfügbar. Du kannst Erinnerungen in deinem Konto verwalten.",
+  "back": "Zurück zu den Favoriten"
+}
