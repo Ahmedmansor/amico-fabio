@@ -1,0 +1,78 @@
+{
+  "origin": "https://fabioegypt.com",
+  "checks": [
+    {
+      "name": "account-locale",
+      "kind": "preflight",
+      "origin": "https://fabioegypt.com",
+      "status": 204
+    },
+    {
+      "name": "account-locale",
+      "kind": "preflight",
+      "origin": "https://amico-fabio-iyzo.vercel.app",
+      "status": 204
+    },
+    {
+      "name": "account-locale",
+      "kind": "hostile-origin-rejected",
+      "status": 403
+    },
+    {
+      "name": "account-locale",
+      "kind": "unauthenticated-denied",
+      "status": 401
+    },
+    {
+      "name": "wishlist-email-preferences",
+      "kind": "preflight",
+      "origin": "https://fabioegypt.com",
+      "status": 204
+    },
+    {
+      "name": "wishlist-email-preferences",
+      "kind": "preflight",
+      "origin": "https://amico-fabio-iyzo.vercel.app",
+      "status": 204
+    },
+    {
+      "name": "wishlist-email-preferences",
+      "kind": "hostile-origin-rejected",
+      "status": 403
+    },
+    {
+      "name": "wishlist-email-preferences",
+      "kind": "unauthenticated-denied",
+      "status": 401
+    },
+    {
+      "name": "wishlist-email-management",
+      "kind": "preflight",
+      "origin": "https://fabioegypt.com",
+      "status": 204
+    },
+    {
+      "name": "wishlist-email-management",
+      "kind": "preflight",
+      "origin": "https://amico-fabio-iyzo.vercel.app",
+      "status": 204
+    },
+    {
+      "name": "wishlist-email-management",
+      "kind": "hostile-origin-rejected",
+      "status": 403
+    },
+    {
+      "name": "wishlist-email-management",
+      "kind": "unauthenticated-denied",
+      "status": 405
+    },
+    {
+      "name": "auth-send-email",
+      "kind": "unsigned-hook-denied",
+      "status": 401
+    }
+  ],
+  "realEmailsSent": 0,
+  "authenticatedWrites": 0
+}

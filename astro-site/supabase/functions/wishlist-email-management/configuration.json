@@ -1,7 +1,7 @@
 {
   "status": "local-disabled-review-required",
   "enabled": false,
-  "WISHLIST_MANAGEMENT_ALLOWED_ORIGINS": "http://127.0.0.1:4322",
+  "WISHLIST_MANAGEMENT_ALLOWED_ORIGINS": "http://127.0.0.1:4322,https://amico-fabio-iyzo.vercel.app,https://fabioegypt.com",
   "WISHLIST_MANAGEMENT_INGRESS_LIMIT": "",
   "WISHLIST_MANAGEMENT_INGRESS_WINDOW_SECONDS": "",
   "WISHLIST_MANAGEMENT_MAX_BODY_BYTES": "4096",

@@ -1,5 +1,18 @@
 # Production and test flavors
 
+## Production cutover authorized — 2026-11-03
+
+The owner now explicitly requests merging the migration branch into `main` and
+launching Astro at `https://fabioegypt.com`. This supersedes earlier test-only
+restrictions for this launch. Hosting remains static GitHub Pages; Vercel stays
+a separate test environment. Existing Pages currently publishes `gh-pages /`
+with the production CNAME. The new `Astro production Pages` workflow prepares
+an independently validated `astro-site/dist` artifact and deploys only `main`.
+Preparation is verified locally; frontend cutover is not yet claimed complete.
+See `qa/production/README.md` and `preparation.json` for public build-variable
+configuration, backend origin verification, real check outputs and rollback.
+Earlier dated entries below describe the preceding test-only state.
+
 ## German main site and catalog SEO — 2026-11-03
 
 Application `b085118` is Ready on existing `amico-fabio-test`, deployment

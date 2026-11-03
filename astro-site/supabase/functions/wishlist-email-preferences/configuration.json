@@ -1,7 +1,7 @@
 {
   "status": "approved-2026-10-24",
   "enabled": true,
-  "REMINDER_PREFERENCE_ALLOWED_ORIGINS": "http://127.0.0.1:4322",
+  "REMINDER_PREFERENCE_ALLOWED_ORIGINS": "http://127.0.0.1:4322,https://amico-fabio-iyzo.vercel.app,https://fabioegypt.com",
   "REMINDER_PREFERENCE_READ_LIMIT": "30",
   "REMINDER_PREFERENCE_READ_WINDOW_SECONDS": "60",
   "REMINDER_PREFERENCE_WRITE_LIMIT": "10",

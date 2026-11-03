@@ -59,7 +59,7 @@ test('missing/invalid Auth and Auth outages fail closed',async()=>{
 });
 test('forged owner/consent/unsupported locale never reaches persistence',async()=>{
   const f=fixture(),handler=createLocaleHandler(f.options);
-  for(const extra of [{userId:'other'},{enabled:true},{locale:'pt'}])assert.equal((await handler(f.req('PATCH',{...command,...extra}))).status,400);
+  for(const extra of [{userId:'other'},{enabled:true},{locale:'fr'}])assert.equal((await handler(f.req('PATCH',{...command,...extra}))).status,400);
   assert.equal(f.changes.length,0);
 });
 test('rate limiting and unavailable limiter prevent reads/writes',async()=>{

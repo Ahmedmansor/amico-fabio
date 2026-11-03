@@ -5,7 +5,8 @@
   "timeoutMs": 1500,
   "allowedOrigins": [
     "http://127.0.0.1:4322",
-    "https://amico-fabio-iyzo.vercel.app"
+    "https://amico-fabio-iyzo.vercel.app",
+    "https://fabioegypt.com"
   ],
   "limits": {
     "hourly": 30,
