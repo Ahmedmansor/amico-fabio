@@ -1,4 +1,12 @@
 /* Shared site chrome. Campaigns keep their own presentation. */
+/* Native full-document transitions: no client router, prefetch or persistent JS.
+   Keep the previous frame until the new header is parsed, then replace without
+   fading icons or moving content (also respects reduced-motion preferences). */
+@view-transition{navigation:auto}
+.site-header{view-transition-name:fabio-header}
+::view-transition-group(root),::view-transition-group(fabio-header){animation:none}
+::view-transition-old(root),::view-transition-old(fabio-header){animation:none;opacity:0}
+::view-transition-new(root),::view-transition-new(fabio-header){animation:none;opacity:1;mix-blend-mode:normal}
 .site-container{width:min(var(--site-container),calc(100% - var(--site-gutter)*2));margin-inline:auto}
 .site-header{position:sticky;top:0;z-index:50;background:var(--surface-card);color:var(--text-heading);border-bottom:1px solid var(--border-color);font-family:Montserrat,Arial,sans-serif;letter-spacing:normal}
 .site-header *,.site-footer *{box-sizing:border-box}
@@ -16,10 +24,14 @@
 .site-header .wishlist-link,.site-header .auth-trigger{display:flex;align-items:center;justify-content:center;color:var(--text-heading);background:transparent;min-width:44px;min-height:44px;border:0;box-shadow:none;border-radius:var(--radius-control)}
 .site-header .auth-trigger{width:44px;padding:8px}
 .site-header .auth-trigger-label,.site-header .auth-trigger-loading{display:none!important}
-.site-header .auth-trigger-avatar{width:24px;height:24px;flex-basis:24px}
-.site-header .wishlist-loading{background:var(--surface-brand-soft)}
+.site-header .auth-trigger-avatar{position:relative;display:grid;place-items:center;flex:0 0 24px;width:24px;height:24px;overflow:hidden;border-radius:50%}
+.site-header .auth-trigger-avatar img{width:100%;height:100%;object-fit:cover}
+.site-header .auth-trigger-avatar [hidden],.site-header .wishlist-count[hidden]{display:none!important}
+.site-header .wishlist-link{position:relative;flex-shrink:0}
+.site-header .wishlist-loading{display:none;background:var(--surface-brand-soft)}
 .site-header .wishlist-loading::after{background:linear-gradient(90deg,transparent,var(--surface-action-soft),transparent)}
-.site-header .wishlist-count{background:var(--color-accent-orange);color:var(--on-accent)}
+.site-header .wishlist-count{position:absolute;top:0;right:0;display:flex;align-items:center;justify-content:center;min-width:18px;height:18px;padding:0 4px;border-radius:999px;font:700 11px/1 Montserrat,Arial,sans-serif;pointer-events:none;background:var(--color-accent-orange);color:var(--on-accent)}
+.site-header .site-currency summary{padding-inline:7px}
 .site-header details{position:relative}.site-header summary{display:flex;align-items:center;justify-content:center;gap:5px;min-width:44px;min-height:44px;cursor:pointer;list-style:none;border-radius:var(--radius-control);font-size:12px;font-weight:600}
 .site-header summary::-webkit-details-marker{display:none}
 .site-popover{position:absolute;right:0;top:calc(100% + 12px);min-width:160px;padding:8px;background:var(--surface-card);border:1px solid var(--border-color);box-shadow:var(--site-shadow);border-radius:var(--radius-card);display:grid;gap:4px;max-height:calc(100dvh - var(--site-header-height) - 32px);overflow:auto}
@@ -45,7 +57,7 @@
 .af-legacy{display:flex;align-items:center;justify-content:center;gap:16px;padding-top:32px;margin-top:32px;border-top:1px solid color-mix(in srgb,var(--bg-white) 16%,transparent)}
 .af-legacy-logo{width:60px;height:40px;object-fit:contain}.af-legacy-text{font-size:11px;color:var(--on-brand-muted)}
 @media(hover:hover) and (pointer:fine){.site-desktop-nav a:hover::after{transform:scaleX(1)}.site-popover a:hover,.site-header summary:hover,.site-header .auth-trigger:hover,.site-header .wishlist-link:hover{background:var(--surface-brand-soft)}.editorial-tailor-link:hover{background:var(--color-accent-orange-hover)}.af-link:hover{color:var(--color-accent-orange)}.af-social-btn:hover{transform:translateY(-2px);background:color-mix(in srgb,var(--bg-white) 10%,transparent)}.af-social-btn{transition:transform var(--motion-fast),background var(--motion-fast)}}
-@media(max-width:1199px){.site-desktop-nav{display:none}.site-header .site-menu{display:block}.site-header-inner{gap:16px}.af-grid{gap:32px}}
+@media(max-width:1199px){.site-desktop-nav{display:none}.site-header .site-menu{display:block}.site-header .site-theme{display:none}.site-header-inner{gap:16px}.af-grid{gap:32px}}
 @media(max-width:767px){.site-header-inner{gap:4px}.site-header-actions{gap:2px}.site-brand{gap:5px}.site-brand img{width:38px;height:38px}.site-brand>span{font-size:15px}.site-brand small{display:none}.site-header-planner{display:none}.site-menu-panel{width:min(290px,calc(100vw - 32px))}.af-grid{grid-template-columns:1fr;gap:28px}.af-footer-inner{padding-top:36px}.site-footer{margin-top:40px}.af-legacy{flex-direction:column;text-align:center;gap:12px;margin-top:28px;padding-top:24px}.af-social{gap:12px;margin-block:20px 16px}}
 /* Compact mobile icons preserve the Fabio Egypt wordmark beside all controls. */
 @media(max-width:767px){

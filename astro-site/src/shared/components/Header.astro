@@ -10,7 +10,6 @@ import PlannerLink from './PlannerLink.astro';
 import CurrencySwitcher from '../../features/currency/presentation/CurrencySwitcher.astro';
 import ThemeSwitcher from '../../features/theme/presentation/ThemeSwitcher.astro';
 import ThemeOptions from '../../features/theme/presentation/ThemeOptions.astro';
-import '../styles/site-shell.css';
 interface Props { locale: Locale; route: string; navigation?: Partial<Record<Locale,string>> }
 const { locale, route, navigation } = Astro.props;
 const messages = getSharedMessages(locale);
@@ -55,6 +54,8 @@ const languageLinks=navigation??Object.fromEntries(supportedLocales.map(lang=>[l
     </div>
   </div>
 </header>
+<!-- Parsing this marker means every header control and its inline guest count exists. -->
+<span id="site-header-ready" hidden></span>
 <script>
   import './header-interactions';
 </script>

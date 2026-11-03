@@ -22,7 +22,7 @@ const {locale,title,description,path,alternates,navigation,fixture=false,article
 const m=getSharedMessages(locale).blog;
 const section=Astro.props.section??'blog';
 ---
-<DocumentShell locale={locale} bodyClass="blog-site">
+<DocumentShell locale={locale} bodyClass="blog-site" hasHeader>
   <Fragment slot="head">
     <PageHead locale={locale} route="blog" title={`${title} | Fabio Egypt`} description={description} canonicalPath={path} alternatePaths={alternates} noindexOverride={fixture} ogType={article?'article':'website'} shareImage={shareImage} fontPreloads={['montserrat-v31-latin-regular.woff2','playfair-display-v40-latin-regular.woff2']}/>
     <slot name="head"/>

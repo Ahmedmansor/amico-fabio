@@ -1,0 +1,86 @@
+[
+  {
+    "width": 1280,
+    "reducedMotion": false,
+    "nativeSwaps": [
+      {
+        "path": "/en/explore/",
+        "native": true,
+        "marker": true,
+        "name": "fabio-header",
+        "count": "1",
+        "visible": true
+      },
+      {
+        "path": "/en/blog/",
+        "native": true,
+        "marker": true,
+        "name": "fabio-header",
+        "count": "1",
+        "visible": true
+      },
+      {
+        "path": "/en/egypt/",
+        "native": true,
+        "marker": true,
+        "name": "fabio-header",
+        "count": "1",
+        "visible": true
+      },
+      {
+        "path": "/en/wishlist/",
+        "native": true,
+        "marker": true,
+        "name": "fabio-header",
+        "count": "1",
+        "visible": true
+      }
+    ],
+    "frames": 0,
+    "blankFrames": 0,
+    "postersLoaded": true,
+    "errors": []
+  },
+  {
+    "width": 375,
+    "reducedMotion": true,
+    "nativeSwaps": [
+      {
+        "path": "/en/explore/",
+        "native": true,
+        "marker": true,
+        "name": "fabio-header",
+        "count": "1",
+        "visible": true
+      },
+      {
+        "path": "/en/blog/",
+        "native": true,
+        "marker": true,
+        "name": "fabio-header",
+        "count": "1",
+        "visible": true
+      },
+      {
+        "path": "/en/egypt/",
+        "native": true,
+        "marker": true,
+        "name": "fabio-header",
+        "count": "1",
+        "visible": true
+      },
+      {
+        "path": "/en/wishlist/",
+        "native": true,
+        "marker": true,
+        "name": "fabio-header",
+        "count": "1",
+        "visible": true
+      }
+    ],
+    "frames": 0,
+    "blankFrames": 0,
+    "postersLoaded": true,
+    "errors": []
+  }
+]

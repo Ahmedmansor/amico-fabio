@@ -1,13 +1,14 @@
 ---
-import '../styles/theme.css';
+import themeStyles from '../styles/theme.css?raw';
 import {languages,type Locale} from '../config/languages';
 import CookieConsent from '../components/CookieConsent.astro';
 import ThemeBootstrap from '../../features/theme/presentation/ThemeBootstrap.astro';
-interface Props {locale:Locale;bodyClass?:string;campaign?:string}
-const {locale,bodyClass,campaign}=Astro.props;
+import headerStyles from '../styles/site-shell.css?raw';
+interface Props {locale:Locale;bodyClass?:string;campaign?:string;hasHeader?:boolean}
+const {locale,bodyClass,campaign,hasHeader=false}=Astro.props;
 ---
 <!doctype html>
 <html lang={locale} dir={languages[locale].direction} data-campaign={campaign}>
-  <head>{!campaign&&<ThemeBootstrap/>}<slot name="head"/></head>
+  <head><style is:inline set:html={themeStyles}/>{!campaign&&<ThemeBootstrap/>}{hasHeader&&<><style is:inline set:html={headerStyles}/><link rel="expect" href="#site-header-ready" blocking="render"/></>}<slot name="head"/></head>
   <body class={bodyClass} data-campaign={campaign}><slot/><CookieConsent locale={locale}/></body>
 </html>
