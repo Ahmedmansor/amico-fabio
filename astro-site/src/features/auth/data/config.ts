@@ -1,4 +1,5 @@
 import { supportedLocales, type Locale } from '../../../shared/config/languages.ts';
+import {catalogSection} from '../../../shared/domain/catalog-routes.ts';
 export interface AuthConfig {
   url: string;
   publishableKey: string;
@@ -14,7 +15,7 @@ export function authReturnPaths(requested?: unknown): string[] {
   // Only known static content namespaces, a single conservative slug, no query,
   // fragment, encoding, dot segments, login loops or arbitrary same-origin URLs.
   if (typeof requested === 'string' && supportedLocales.some(locale =>
-    new RegExp(`^/${locale}/(?:tours|packages|explore)/[a-z0-9][a-z0-9_-]{0,199}/$`).test(requested))) paths.push(requested);
+    new RegExp(`^/${locale}/(?:${catalogSection(locale,'tours')}|${catalogSection(locale,'packages')}|tours|packages|explore)/[a-z0-9][a-z0-9_-]{0,199}/$`).test(requested))) paths.push(requested);
   return paths;
 }
 export function defaultAuthReturn(locale: Locale): string { return `/${locale}/`; }

@@ -3,7 +3,7 @@ import {readFile,readdir,writeFile} from 'node:fs/promises';
 import {getTrips} from '../../src/features/tours/data/trips.mjs';
 import {getPackages} from '../../src/features/packages/data/packages.mjs';
 import {supportedLocales} from '../../src/shared/config/languages.ts';
-import {catalogPath,catalogSlug} from '../../src/shared/domain/catalog-routes.ts';
+import {catalogPath,catalogSlug,catalogAliases,catalogSections} from '../../src/shared/domain/catalog-routes.ts';
 // Read the same build-time provider as the build, never customer/Auth data.
 const groups=[['tours',await getTrips()],['packages',await getPackages()]];
 const read=path=>readFile(`dist${path}index.html`,'utf8');
@@ -25,13 +25,13 @@ for(const [kind,records] of groups)for(const record of records)for(const locale 
     assert.ok(html.includes(`href="${target}" data-lang="${other}"`),path+' switch '+other);
   }
   const legacy=`/${locale}/${kind}/${record.slug}/`;
-  if(path!==legacy){
-    aliases.add(legacy);const redirect=await read(legacy);
-    assert.ok(redirect.includes(`http-equiv="refresh" content="0;url=${path}"`),legacy);
+  for(const alias of catalogAliases(record,locale,kind)){
+    aliases.add(alias);const redirect=await read(alias);
+    assert.ok(redirect.includes(`http-equiv="refresh" content="0;url=${path}"`),alias);
     assert.ok(redirect.includes(`rel="canonical" href="${canonical}"`));
     assert.ok(redirect.includes('content="noindex, follow"'));
     assert.ok(redirect.includes('property="og:image"'));
-    assert.ok(!sitemap.includes(`<loc>https://fabioegypt.com${legacy}</loc>`));
+    assert.ok(!sitemap.includes(`<loc>https://fabioegypt.com${alias}</loc>`));
   }
   const item=manifest.items.find(item=>item.kind===(kind==='tours'?'trip':'package')&&item.id===record.id);
   assert.equal(item.localized[locale].canonical_url,new URL(path,manifest.origin).href);
@@ -43,7 +43,9 @@ async function visit(folder){for(const entry of await readdir(folder,{withFileTy
   const file=`${folder}/${entry.name}`;if(entry.isDirectory()){await visit(file);continue;}
   if(!file.endsWith('.html'))continue;const html=await readFile(file,'utf8');
   if(/http-equiv="refresh"/.test(html))continue;
-  for(const match of html.matchAll(/<a\b[^>]*href="(\/[^"?#]+\/(?:tours|packages)\/[^"?#]+\/)"/g)){
+  for(const match of html.matchAll(/<a\b[^>]*href="(\/[^"?#]+\/[^"?#]+\/[^"?#]+\/)"/g)){
+    const section=match[1].split('/')[2];
+    if(!new Set(['tours','packages',...Object.values(catalogSections).flatMap(value=>Object.values(value))]).has(section))continue;
     assert.ok(canonicalPaths.has(match[1]),`${file}: noncanonical catalog link ${match[1]}`);links++;
   }
 }}

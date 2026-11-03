@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import {siteConfig} from '../config/site.ts';
 import {supportedLocales} from '../config/languages.ts';
+import {catalogSection} from '../domain/catalog-routes.ts';
 const xml=value=>value.replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c]));
 export function seoFiles({noindex=false,assetOrigin=siteConfig.url}={}){return {name:'fabio-seo',hooks:{'astro:build:done':async({dir,logger})=>{
  const entries=[];
@@ -24,7 +25,7 @@ export function seoFiles({noindex=false,assetOrigin=siteConfig.url}={}){return {
  if(urls.size!==entries.length)throw new Error('[SEO] Duplicate canonical URL.');
  for(const entry of entries){const path=new URL(entry.canonical).pathname,locale=path.split('/')[1];
   const blog=supportedLocales.includes(locale)&&(path.startsWith(`/${locale}/blog/`)||path.startsWith(`/${locale}/egypt/`));
-  const catalog=/^\/[^/]+\/(tours|packages)\//.test(path);
+  const catalog=supportedLocales.includes(locale)&&[catalogSection(locale,'tours'),catalogSection(locale,'packages'),'tours','packages'].includes(path.split('/')[2]);
   if(supportedLocales.includes(locale)&&!blog)for(const language of supportedLocales){const expected=new URL(path.replace(/^\/[^/]+\//,`/${language}/`),siteConfig.url).href;if(!entry.alternates.some(a=>a.locale===language&&(catalog||a.href===expected)))throw new Error(`[SEO:${path}] Missing equivalent ${language} hreflang.`);}
   if(catalog&&!entry.alternates.some(a=>a.locale===locale&&a.href===entry.canonical))throw new Error(`[SEO:${path}] Catalog hreflang must include self-reference.`);
   if(blog&&entry.alternates.length&&!entry.alternates.some(a=>a.locale===locale&&a.href===entry.canonical))throw new Error(`[SEO:${path}] Blog hreflang must include self-reference.`);

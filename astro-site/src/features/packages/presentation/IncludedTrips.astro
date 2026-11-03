@@ -1,5 +1,5 @@
 ---
-import {catalogSlug} from "../../../shared/domain/catalog-routes";
+import {catalogPath} from "../../../shared/domain/catalog-routes";
 import {Image,getImage} from 'astro:assets';
 import type {TourPage} from '../../tours/domain/details';
 import type {Locale} from '../../../shared/config/languages';
@@ -10,7 +10,7 @@ const {included,locale}=Astro.props;
 const messages=getSharedMessages(locale);
 const cards=await Promise.all(included.map(async item=>({item,slides:await Promise.all(item.gallery.map(async src=>(await getImage({src:imageAssets[src],width:192,format:'webp'})).src))})));
 ---
-{cards.map(({item,slides})=><div class="included-trip-entry"><button type="button" data-trip-id={item.trip.id} data-slides={JSON.stringify(slides)} class="included-trip-card" aria-haspopup="dialog" aria-controls="included-trip-modal"><div class="included-trip-card-photo"><Image id={`trip-img-${item.trip.id}`} src={imageAssets[item.gallery[0]]} widths={[96,192]} sizes="96px" loading="lazy" alt={item.text.title}/></div><div class="included-trip-card-copy"><h4>{item.text.title}</h4><p class="included-trip-card-duration">{item.text.duration}</p><p>{item.text.short_desc}</p></div><svg class="included-trip-card-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button><a class="included-trip-page-link" href={`/${locale}/tours/${catalogSlug(item.trip,locale)}/`}>{messages.global.discover}: {item.text.title}</a></div>)}
+{cards.map(({item,slides})=><div class="included-trip-entry"><button type="button" data-trip-id={item.trip.id} data-slides={JSON.stringify(slides)} class="included-trip-card" aria-haspopup="dialog" aria-controls="included-trip-modal"><div class="included-trip-card-photo"><Image id={`trip-img-${item.trip.id}`} src={imageAssets[item.gallery[0]]} widths={[96,192]} sizes="96px" loading="lazy" alt={item.text.title}/></div><div class="included-trip-card-copy"><h4>{item.text.title}</h4><p class="included-trip-card-duration">{item.text.duration}</p><p>{item.text.short_desc}</p></div><svg class="included-trip-card-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button><a class="included-trip-page-link" href={catalogPath(item.trip,locale,'tours')}>{messages.global.discover}: {item.text.title}</a></div>)}
 
 <style>
   .included-trip-page-link{display:flex;align-items:center;min-height:44px;padding:8px 16px;color:var(--text-heading);font-size:12px;line-height:1.6;text-decoration:underline;text-underline-offset:3px}

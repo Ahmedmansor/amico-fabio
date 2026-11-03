@@ -1,5 +1,9 @@
 # Localized catalog URLs — 2026-11-03
 
+Follow-up: section names are now translated too. See LOCALIZED_SECTIONS.md for
+the current paths and verification (324 aliases). The checkpoint below records
+the preceding slug-only implementation.
+
 Implemented on `codex/localized-catalog-urls`; not published to production by
 this task. Supabase schema, source IDs/slugs, prices, Auth, production hosting
 and the live domain are unchanged.

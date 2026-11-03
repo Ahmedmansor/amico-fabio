@@ -1,13 +1,13 @@
 {
   "pages": 180,
-  "aliases": 180,
+  "aliases": 324,
   "links": 1900,
   "results": [
     {
       "id": "ras_mohammed_white_island_vip",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/ras-mohammed-white-island-l-esperienza-vip/",
+      "path": "/it/escursioni/ras-mohammed-white-island-l-esperienza-vip/",
       "legacy": "/it/tours/ras_mohammed_white_island_vip/",
       "slug": "ras-mohammed-white-island-l-esperienza-vip"
     },
@@ -23,7 +23,7 @@
       "id": "ras_mohammed_white_island_vip",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/ras-mohammed-e-isla-blanca-la-experiencia-vip/",
+      "path": "/es/excursiones/ras-mohammed-e-isla-blanca-la-experiencia-vip/",
       "legacy": "/es/tours/ras_mohammed_white_island_vip/",
       "slug": "ras-mohammed-e-isla-blanca-la-experiencia-vip"
     },
@@ -31,7 +31,7 @@
       "id": "ras_mohammed_white_island_vip",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/ras-mohammed-e-ilha-branca-a-experiencia-vip/",
+      "path": "/pt/excursoes/ras-mohammed-e-ilha-branca-a-experiencia-vip/",
       "legacy": "/pt/tours/ras_mohammed_white_island_vip/",
       "slug": "ras-mohammed-e-ilha-branca-a-experiencia-vip"
     },
@@ -39,7 +39,7 @@
       "id": "ras_mohammed_white_island_vip",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/ras-mohammed-und-die-weisse-insel-das-vip-erlebnis/",
+      "path": "/de/ausfluege/ras-mohammed-und-die-weisse-insel-das-vip-erlebnis/",
       "legacy": "/de/tours/ras_mohammed_white_island_vip/",
       "slug": "ras-mohammed-und-die-weisse-insel-das-vip-erlebnis"
     },
@@ -47,7 +47,7 @@
       "id": "ras_mohammed_bus_half_day",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/ras-mohammed-nature-explorer-il-parco-via-terra/",
+      "path": "/it/escursioni/ras-mohammed-nature-explorer-il-parco-via-terra/",
       "legacy": "/it/tours/ras_mohammed_bus_half_day/",
       "slug": "ras-mohammed-nature-explorer-il-parco-via-terra"
     },
@@ -63,7 +63,7 @@
       "id": "ras_mohammed_bus_half_day",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/explora-la-naturaleza-de-ras-mohammed-el-parque-por-tierra/",
+      "path": "/es/excursiones/explora-la-naturaleza-de-ras-mohammed-el-parque-por-tierra/",
       "legacy": "/es/tours/ras_mohammed_bus_half_day/",
       "slug": "explora-la-naturaleza-de-ras-mohammed-el-parque-por-tierra"
     },
@@ -71,7 +71,7 @@
       "id": "ras_mohammed_bus_half_day",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/explorar-a-natureza-de-ras-mohammed-o-parque-por-terra/",
+      "path": "/pt/excursoes/explorar-a-natureza-de-ras-mohammed-o-parque-por-terra/",
       "legacy": "/pt/tours/ras_mohammed_bus_half_day/",
       "slug": "explorar-a-natureza-de-ras-mohammed-o-parque-por-terra"
     },
@@ -79,7 +79,7 @@
       "id": "ras_mohammed_bus_half_day",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/ras-mohammed-nature-explorer-den-nationalpark-an-land-entdecken/",
+      "path": "/de/ausfluege/ras-mohammed-nature-explorer-den-nationalpark-an-land-entdecken/",
       "legacy": "/de/tours/ras_mohammed_bus_half_day/",
       "slug": "ras-mohammed-nature-explorer-den-nationalpark-an-land-entdecken"
     },
@@ -87,7 +87,7 @@
       "id": "tiran_island_boat_vip",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/isola-di-tiran-vip-relitti-e-barriere-coralline/",
+      "path": "/it/escursioni/isola-di-tiran-vip-relitti-e-barriere-coralline/",
       "legacy": "/it/tours/tiran_island_boat_vip/",
       "slug": "isola-di-tiran-vip-relitti-e-barriere-coralline"
     },
@@ -103,7 +103,7 @@
       "id": "tiran_island_boat_vip",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/isla-de-tiran-vip-pecios-y-arrecifes-de-coral/",
+      "path": "/es/excursiones/isla-de-tiran-vip-pecios-y-arrecifes-de-coral/",
       "legacy": "/es/tours/tiran_island_boat_vip/",
       "slug": "isla-de-tiran-vip-pecios-y-arrecifes-de-coral"
     },
@@ -111,7 +111,7 @@
       "id": "tiran_island_boat_vip",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/ilha-de-tiran-vip-naufragios-e-recifes-de-coral/",
+      "path": "/pt/excursoes/ilha-de-tiran-vip-naufragios-e-recifes-de-coral/",
       "legacy": "/pt/tours/tiran_island_boat_vip/",
       "slug": "ilha-de-tiran-vip-naufragios-e-recifes-de-coral"
     },
@@ -119,7 +119,7 @@
       "id": "tiran_island_boat_vip",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/tiran-insel-vip-schiffswracks-und-korallenriffe/",
+      "path": "/de/ausfluege/tiran-insel-vip-schiffswracks-und-korallenriffe/",
       "legacy": "/de/tours/tiran_island_boat_vip/",
       "slug": "tiran-insel-vip-schiffswracks-und-korallenriffe"
     },
@@ -127,7 +127,7 @@
       "id": "dahab_blue_hole_super_safari",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/dahab-adventure-blue-hole-cammelli-canyon/",
+      "path": "/it/escursioni/dahab-adventure-blue-hole-cammelli-canyon/",
       "legacy": "/it/tours/dahab_blue_hole_super_safari/",
       "slug": "dahab-adventure-blue-hole-cammelli-canyon"
     },
@@ -143,7 +143,7 @@
       "id": "dahab_blue_hole_super_safari",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/aventura-en-dahab-blue-hole-camellos-y-canon/",
+      "path": "/es/excursiones/aventura-en-dahab-blue-hole-camellos-y-canon/",
       "legacy": "/es/tours/dahab_blue_hole_super_safari/",
       "slug": "aventura-en-dahab-blue-hole-camellos-y-canon"
     },
@@ -151,7 +151,7 @@
       "id": "dahab_blue_hole_super_safari",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/aventura-em-dahab-blue-hole-camelos-e-desfiladeiro/",
+      "path": "/pt/excursoes/aventura-em-dahab-blue-hole-camelos-e-desfiladeiro/",
       "legacy": "/pt/tours/dahab_blue_hole_super_safari/",
       "slug": "aventura-em-dahab-blue-hole-camelos-e-desfiladeiro"
     },
@@ -159,7 +159,7 @@
       "id": "dahab_blue_hole_super_safari",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/dahab-abenteuer-blue-hole-kamele-und-canyon/",
+      "path": "/de/ausfluege/dahab-abenteuer-blue-hole-kamele-und-canyon/",
       "legacy": "/de/tours/dahab_blue_hole_super_safari/",
       "slug": "dahab-abenteuer-blue-hole-kamele-und-canyon"
     },
@@ -167,7 +167,7 @@
       "id": "private_boat_vip_king",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/private-boat-vip-the-king-of-red-sea/",
+      "path": "/it/escursioni/private-boat-vip-the-king-of-red-sea/",
       "legacy": "/it/tours/private_boat_vip_king/",
       "slug": "private-boat-vip-the-king-of-red-sea"
     },
@@ -183,7 +183,7 @@
       "id": "private_boat_vip_king",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/barco-privado-vip-el-rey-del-mar-rojo/",
+      "path": "/es/excursiones/barco-privado-vip-el-rey-del-mar-rojo/",
       "legacy": "/es/tours/private_boat_vip_king/",
       "slug": "barco-privado-vip-el-rey-del-mar-rojo"
     },
@@ -191,7 +191,7 @@
       "id": "private_boat_vip_king",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/barco-privado-vip-o-rei-do-mar-vermelho/",
+      "path": "/pt/excursoes/barco-privado-vip-o-rei-do-mar-vermelho/",
       "legacy": "/pt/tours/private_boat_vip_king/",
       "slug": "barco-privado-vip-o-rei-do-mar-vermelho"
     },
@@ -199,7 +199,7 @@
       "id": "private_boat_vip_king",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/privatboot-vip-der-konig-des-roten-meeres/",
+      "path": "/de/ausfluege/privatboot-vip-der-konig-des-roten-meeres/",
       "legacy": "/de/tours/private_boat_vip_king/",
       "slug": "privatboot-vip-der-konig-des-roten-meeres"
     },
@@ -207,7 +207,7 @@
       "id": "dolphin_show_family",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/dolphin-show-emozioni-per-tutta-la-famiglia/",
+      "path": "/it/escursioni/dolphin-show-emozioni-per-tutta-la-famiglia/",
       "legacy": "/it/tours/dolphin_show_family/",
       "slug": "dolphin-show-emozioni-per-tutta-la-famiglia"
     },
@@ -223,7 +223,7 @@
       "id": "dolphin_show_family",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/espectaculo-de-delfines-emociones-para-toda-la-familia/",
+      "path": "/es/excursiones/espectaculo-de-delfines-emociones-para-toda-la-familia/",
       "legacy": "/es/tours/dolphin_show_family/",
       "slug": "espectaculo-de-delfines-emociones-para-toda-la-familia"
     },
@@ -231,7 +231,7 @@
       "id": "dolphin_show_family",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/espetaculo-de-golfinhos-emocoes-para-toda-a-familia/",
+      "path": "/pt/excursoes/espetaculo-de-golfinhos-emocoes-para-toda-a-familia/",
       "legacy": "/pt/tours/dolphin_show_family/",
       "slug": "espetaculo-de-golfinhos-emocoes-para-toda-a-familia"
     },
@@ -239,7 +239,7 @@
       "id": "dolphin_show_family",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/delfinshow-begeisterung-fur-die-ganze-familie/",
+      "path": "/de/ausfluege/delfinshow-begeisterung-fur-die-ganze-familie/",
       "legacy": "/de/tours/dolphin_show_family/",
       "slug": "delfinshow-begeisterung-fur-die-ganze-familie"
     },
@@ -247,7 +247,7 @@
       "id": "swim_with_dolphins_vip",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/nuotare-con-i-delfini-amore-a-prima-vista/",
+      "path": "/it/escursioni/nuotare-con-i-delfini-amore-a-prima-vista/",
       "legacy": "/it/tours/swim_with_dolphins_vip/",
       "slug": "nuotare-con-i-delfini-amore-a-prima-vista"
     },
@@ -263,7 +263,7 @@
       "id": "swim_with_dolphins_vip",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/nadar-con-delfines-amor-a-primera-vista/",
+      "path": "/es/excursiones/nadar-con-delfines-amor-a-primera-vista/",
       "legacy": "/es/tours/swim_with_dolphins_vip/",
       "slug": "nadar-con-delfines-amor-a-primera-vista"
     },
@@ -271,7 +271,7 @@
       "id": "swim_with_dolphins_vip",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/nadar-com-golfinhos-amor-a-primeira-vista/",
+      "path": "/pt/excursoes/nadar-com-golfinhos-amor-a-primeira-vista/",
       "legacy": "/pt/tours/swim_with_dolphins_vip/",
       "slug": "nadar-com-golfinhos-amor-a-primeira-vista"
     },
@@ -279,7 +279,7 @@
       "id": "swim_with_dolphins_vip",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/schwimmen-mit-delfinen-liebe-auf-den-ersten-blick/",
+      "path": "/de/ausfluege/schwimmen-mit-delfinen-liebe-auf-den-ersten-blick/",
       "legacy": "/de/tours/swim_with_dolphins_vip/",
       "slug": "schwimmen-mit-delfinen-liebe-auf-den-ersten-blick"
     },
@@ -287,7 +287,7 @@
       "id": "sina_dream_vip_day",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/sina-dream-vip-il-veliero-di-lusso/",
+      "path": "/it/escursioni/sina-dream-vip-il-veliero-di-lusso/",
       "legacy": "/it/tours/sina_dream_vip_day/",
       "slug": "sina-dream-vip-il-veliero-di-lusso"
     },
@@ -303,7 +303,7 @@
       "id": "sina_dream_vip_day",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/sina-dream-vip-el-velero-de-lujo/",
+      "path": "/es/excursiones/sina-dream-vip-el-velero-de-lujo/",
       "legacy": "/es/tours/sina_dream_vip_day/",
       "slug": "sina-dream-vip-el-velero-de-lujo"
     },
@@ -311,7 +311,7 @@
       "id": "sina_dream_vip_day",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/sina-dream-vip-o-veleiro-de-luxo/",
+      "path": "/pt/excursoes/sina-dream-vip-o-veleiro-de-luxo/",
       "legacy": "/pt/tours/sina_dream_vip_day/",
       "slug": "sina-dream-vip-o-veleiro-de-luxo"
     },
@@ -319,7 +319,7 @@
       "id": "sina_dream_vip_day",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/sina-dream-vip-die-luxus-segelyacht/",
+      "path": "/de/ausfluege/sina-dream-vip-die-luxus-segelyacht/",
       "legacy": "/de/tours/sina_dream_vip_day/",
       "slug": "sina-dream-vip-die-luxus-segelyacht"
     },
@@ -327,7 +327,7 @@
       "id": "dinner_cruise_night_show",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/notte-magica-cena-di-pesce-show-orientale/",
+      "path": "/it/escursioni/notte-magica-cena-di-pesce-show-orientale/",
       "legacy": "/it/tours/dinner_cruise_night_show/",
       "slug": "notte-magica-cena-di-pesce-show-orientale"
     },
@@ -343,7 +343,7 @@
       "id": "dinner_cruise_night_show",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/noche-magica-cena-de-marisco-y-espectaculo-oriental/",
+      "path": "/es/excursiones/noche-magica-cena-de-marisco-y-espectaculo-oriental/",
       "legacy": "/es/tours/dinner_cruise_night_show/",
       "slug": "noche-magica-cena-de-marisco-y-espectaculo-oriental"
     },
@@ -351,7 +351,7 @@
       "id": "dinner_cruise_night_show",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/noite-magica-jantar-de-marisco-e-espetaculo-oriental/",
+      "path": "/pt/excursoes/noite-magica-jantar-de-marisco-e-espetaculo-oriental/",
       "legacy": "/pt/tours/dinner_cruise_night_show/",
       "slug": "noite-magica-jantar-de-marisco-e-espetaculo-oriental"
     },
@@ -359,7 +359,7 @@
       "id": "dinner_cruise_night_show",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/magic-night-meeresfruchte-dinner-und-orientalische-show/",
+      "path": "/de/ausfluege/magic-night-meeresfruchte-dinner-und-orientalische-show/",
       "legacy": "/de/tours/dinner_cruise_night_show/",
       "slug": "magic-night-meeresfruchte-dinner-und-orientalische-show"
     },
@@ -367,7 +367,7 @@
       "id": "water_sports_adrenaline_combo",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/adrenalina-sky-sea-parasailing-water-toys/",
+      "path": "/it/escursioni/adrenalina-sky-sea-parasailing-water-toys/",
       "legacy": "/it/tours/water_sports_adrenaline_combo/",
       "slug": "adrenalina-sky-sea-parasailing-water-toys"
     },
@@ -383,7 +383,7 @@
       "id": "water_sports_adrenaline_combo",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/adrenalina-entre-cielo-y-mar-parasailing-y-juegos-acuaticos/",
+      "path": "/es/excursiones/adrenalina-entre-cielo-y-mar-parasailing-y-juegos-acuaticos/",
       "legacy": "/es/tours/water_sports_adrenaline_combo/",
       "slug": "adrenalina-entre-cielo-y-mar-parasailing-y-juegos-acuaticos"
     },
@@ -391,7 +391,7 @@
       "id": "water_sports_adrenaline_combo",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/adrenalina-entre-ceu-e-mar-parasailing-e-diversoes-aquaticas/",
+      "path": "/pt/excursoes/adrenalina-entre-ceu-e-mar-parasailing-e-diversoes-aquaticas/",
       "legacy": "/pt/tours/water_sports_adrenaline_combo/",
       "slug": "adrenalina-entre-ceu-e-mar-parasailing-e-diversoes-aquaticas"
     },
@@ -399,7 +399,7 @@
       "id": "water_sports_adrenaline_combo",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/adrenalin-in-luft-und-wasser-parasailing-und-wasserspass/",
+      "path": "/de/ausfluege/adrenalin-in-luft-und-wasser-parasailing-und-wasserspass/",
       "legacy": "/de/tours/water_sports_adrenaline_combo/",
       "slug": "adrenalin-in-luft-und-wasser-parasailing-und-wasserspass"
     },
@@ -407,7 +407,7 @@
       "id": "albatros_aqua_park_full_day",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/albatros-aqua-park-il-regno-dell-acqua/",
+      "path": "/it/escursioni/albatros-aqua-park-il-regno-dell-acqua/",
       "legacy": "/it/tours/albatros_aqua_park_full_day/",
       "slug": "albatros-aqua-park-il-regno-dell-acqua"
     },
@@ -423,7 +423,7 @@
       "id": "albatros_aqua_park_full_day",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/albatros-aqua-park-el-reino-del-agua/",
+      "path": "/es/excursiones/albatros-aqua-park-el-reino-del-agua/",
       "legacy": "/es/tours/albatros_aqua_park_full_day/",
       "slug": "albatros-aqua-park-el-reino-del-agua"
     },
@@ -431,7 +431,7 @@
       "id": "albatros_aqua_park_full_day",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/albatros-aqua-park-o-reino-da-agua/",
+      "path": "/pt/excursoes/albatros-aqua-park-o-reino-da-agua/",
       "legacy": "/pt/tours/albatros_aqua_park_full_day/",
       "slug": "albatros-aqua-park-o-reino-da-agua"
     },
@@ -439,7 +439,7 @@
       "id": "albatros_aqua_park_full_day",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/albatros-aqua-park-das-wasserreich/",
+      "path": "/de/ausfluege/albatros-aqua-park-das-wasserreich/",
       "legacy": "/de/tours/albatros_aqua_park_full_day/",
       "slug": "albatros-aqua-park-das-wasserreich"
     },
@@ -447,7 +447,7 @@
       "id": "seascope_semi_submarine",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/sea-scope-il-cinema-sottomarino/",
+      "path": "/it/escursioni/sea-scope-il-cinema-sottomarino/",
       "legacy": "/it/tours/seascope_semi_submarine/",
       "slug": "sea-scope-il-cinema-sottomarino"
     },
@@ -463,7 +463,7 @@
       "id": "seascope_semi_submarine",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/sea-scope-el-cine-submarino/",
+      "path": "/es/excursiones/sea-scope-el-cine-submarino/",
       "legacy": "/es/tours/seascope_semi_submarine/",
       "slug": "sea-scope-el-cine-submarino"
     },
@@ -471,7 +471,7 @@
       "id": "seascope_semi_submarine",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/sea-scope-o-cinema-subaquatico/",
+      "path": "/pt/excursoes/sea-scope-o-cinema-subaquatico/",
       "legacy": "/pt/tours/seascope_semi_submarine/",
       "slug": "sea-scope-o-cinema-subaquatico"
     },
@@ -479,7 +479,7 @@
       "id": "seascope_semi_submarine",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/sea-scope-das-unterwasserkino/",
+      "path": "/de/ausfluege/sea-scope-das-unterwasserkino/",
       "legacy": "/de/tours/seascope_semi_submarine/",
       "slug": "sea-scope-das-unterwasserkino"
     },
@@ -487,7 +487,7 @@
       "id": "super_safari_5_senses",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/super-safari-i-5-sensi-del-sinai/",
+      "path": "/it/escursioni/super-safari-i-5-sensi-del-sinai/",
       "legacy": "/it/tours/super_safari_5_senses/",
       "slug": "super-safari-i-5-sensi-del-sinai"
     },
@@ -503,7 +503,7 @@
       "id": "super_safari_5_senses",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/super-safari-los-5-sentidos-del-sinai/",
+      "path": "/es/excursiones/super-safari-los-5-sentidos-del-sinai/",
       "legacy": "/es/tours/super_safari_5_senses/",
       "slug": "super-safari-los-5-sentidos-del-sinai"
     },
@@ -511,7 +511,7 @@
       "id": "super_safari_5_senses",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/super-safari-os-5-sentidos-do-sinai/",
+      "path": "/pt/excursoes/super-safari-os-5-sentidos-do-sinai/",
       "legacy": "/pt/tours/super_safari_5_senses/",
       "slug": "super-safari-os-5-sentidos-do-sinai"
     },
@@ -519,7 +519,7 @@
       "id": "super_safari_5_senses",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/super-safari-die-5-sinne-des-sinai/",
+      "path": "/de/ausfluege/super-safari-die-5-sinne-des-sinai/",
       "legacy": "/de/tours/super_safari_5_senses/",
       "slug": "super-safari-die-5-sinne-des-sinai"
     },
@@ -527,7 +527,7 @@
       "id": "moto_safari_quad_echo",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/moto-safari-quad-tramonto-valle-dell-eco/",
+      "path": "/it/escursioni/moto-safari-quad-tramonto-valle-dell-eco/",
       "legacy": "/it/tours/moto_safari_quad_echo/",
       "slug": "moto-safari-quad-tramonto-valle-dell-eco"
     },
@@ -543,7 +543,7 @@
       "id": "moto_safari_quad_echo",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/moto-safari-quad-atardecer-y-valle-del-eco/",
+      "path": "/es/excursiones/moto-safari-quad-atardecer-y-valle-del-eco/",
       "legacy": "/es/tours/moto_safari_quad_echo/",
       "slug": "moto-safari-quad-atardecer-y-valle-del-eco"
     },
@@ -551,7 +551,7 @@
       "id": "moto_safari_quad_echo",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/moto-safari-moto-quatro-por-do-sol-e-vale-do-eco/",
+      "path": "/pt/excursoes/moto-safari-moto-quatro-por-do-sol-e-vale-do-eco/",
       "legacy": "/pt/tours/moto_safari_quad_echo/",
       "slug": "moto-safari-moto-quatro-por-do-sol-e-vale-do-eco"
     },
@@ -559,7 +559,7 @@
       "id": "moto_safari_quad_echo",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/moto-safari-quad-sonnenuntergang-und-echotal/",
+      "path": "/de/ausfluege/moto-safari-quad-sonnenuntergang-und-echotal/",
       "legacy": "/de/tours/moto_safari_quad_echo/",
       "slug": "moto-safari-quad-sonnenuntergang-und-echotal"
     },
@@ -567,7 +567,7 @@
       "id": "vip_cena_romantica",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/cena-romantica-vip-mille-e-una-notte/",
+      "path": "/it/escursioni/cena-romantica-vip-mille-e-una-notte/",
       "legacy": "/it/tours/vip_cena_romantica/",
       "slug": "cena-romantica-vip-mille-e-una-notte"
     },
@@ -583,7 +583,7 @@
       "id": "vip_cena_romantica",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/cena-romantica-vip-1001-noches/",
+      "path": "/es/excursiones/cena-romantica-vip-1001-noches/",
       "legacy": "/es/tours/vip_cena_romantica/",
       "slug": "cena-romantica-vip-1001-noches"
     },
@@ -591,7 +591,7 @@
       "id": "vip_cena_romantica",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/jantar-romantico-vip-1001-noites/",
+      "path": "/pt/excursoes/jantar-romantico-vip-1001-noites/",
       "legacy": "/pt/tours/vip_cena_romantica/",
       "slug": "jantar-romantico-vip-1001-noites"
     },
@@ -599,7 +599,7 @@
       "id": "vip_cena_romantica",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/romantisches-vip-dinner-1001-nacht/",
+      "path": "/de/ausfluege/romantisches-vip-dinner-1001-nacht/",
       "legacy": "/de/tours/vip_cena_romantica/",
       "slug": "romantisches-vip-dinner-1001-nacht"
     },
@@ -607,7 +607,7 @@
       "id": "cairo_plane_flexible_museum",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/il-cairo-in-aereo-piramidi-tu-scegli-il-museo/",
+      "path": "/it/escursioni/il-cairo-in-aereo-piramidi-tu-scegli-il-museo/",
       "legacy": "/it/tours/cairo_plane_flexible_museum/",
       "slug": "il-cairo-in-aereo-piramidi-tu-scegli-il-museo"
     },
@@ -623,7 +623,7 @@
       "id": "cairo_plane_flexible_museum",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/el-cairo-en-avion-piramides-y-el-museo-que-tu-elijas/",
+      "path": "/es/excursiones/el-cairo-en-avion-piramides-y-el-museo-que-tu-elijas/",
       "legacy": "/es/tours/cairo_plane_flexible_museum/",
       "slug": "el-cairo-en-avion-piramides-y-el-museo-que-tu-elijas"
     },
@@ -631,7 +631,7 @@
       "id": "cairo_plane_flexible_museum",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/cairo-de-aviao-piramides-e-o-museu-que-escolher/",
+      "path": "/pt/excursoes/cairo-de-aviao-piramides-e-o-museu-que-escolher/",
       "legacy": "/pt/tours/cairo_plane_flexible_museum/",
       "slug": "cairo-de-aviao-piramides-e-o-museu-que-escolher"
     },
@@ -639,7 +639,7 @@
       "id": "cairo_plane_flexible_museum",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/kairo-per-flugzeug-pyramiden-und-dein-wunschmuseum/",
+      "path": "/de/ausfluege/kairo-per-flugzeug-pyramiden-und-dein-wunschmuseum/",
       "legacy": "/de/tours/cairo_plane_flexible_museum/",
       "slug": "kairo-per-flugzeug-pyramiden-und-dein-wunschmuseum"
     },
@@ -647,7 +647,7 @@
       "id": "cairo_bus_adventure_choice",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/il-cairo-in-bus-l-avventura-smart-la-tua-scelta/",
+      "path": "/it/escursioni/il-cairo-in-bus-l-avventura-smart-la-tua-scelta/",
       "legacy": "/it/tours/cairo_bus_adventure_choice/",
       "slug": "il-cairo-in-bus-l-avventura-smart-la-tua-scelta"
     },
@@ -663,7 +663,7 @@
       "id": "cairo_bus_adventure_choice",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/el-cairo-en-autobus-aventura-inteligente-y-tu-eleccion/",
+      "path": "/es/excursiones/el-cairo-en-autobus-aventura-inteligente-y-tu-eleccion/",
       "legacy": "/es/tours/cairo_bus_adventure_choice/",
       "slug": "el-cairo-en-autobus-aventura-inteligente-y-tu-eleccion"
     },
@@ -671,7 +671,7 @@
       "id": "cairo_bus_adventure_choice",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/cairo-de-autocarro-aventura-inteligente-e-a-sua-escolha/",
+      "path": "/pt/excursoes/cairo-de-autocarro-aventura-inteligente-e-a-sua-escolha/",
       "legacy": "/pt/tours/cairo_bus_adventure_choice/",
       "slug": "cairo-de-autocarro-aventura-inteligente-e-a-sua-escolha"
     },
@@ -679,7 +679,7 @@
       "id": "cairo_bus_adventure_choice",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/kairo-mit-dem-bus-preisbewusstes-abenteuer-nach-deiner-wahl/",
+      "path": "/de/ausfluege/kairo-mit-dem-bus-preisbewusstes-abenteuer-nach-deiner-wahl/",
       "legacy": "/de/tours/cairo_bus_adventure_choice/",
       "slug": "kairo-mit-dem-bus-preisbewusstes-abenteuer-nach-deiner-wahl"
     },
@@ -687,7 +687,7 @@
       "id": "santa_caterina_monastery_morning",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/santa-caterina-il-monastero-sacro-classic-vip/",
+      "path": "/it/escursioni/santa-caterina-il-monastero-sacro-classic-vip/",
       "legacy": "/it/tours/santa_caterina_monastery_morning/",
       "slug": "santa-caterina-il-monastero-sacro-classic-vip"
     },
@@ -703,7 +703,7 @@
       "id": "santa_caterina_monastery_morning",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/santa-catalina-el-monasterio-sagrado-clasico-y-vip/",
+      "path": "/es/excursiones/santa-catalina-el-monasterio-sagrado-clasico-y-vip/",
       "legacy": "/es/tours/santa_caterina_monastery_morning/",
       "slug": "santa-catalina-el-monasterio-sagrado-clasico-y-vip"
     },
@@ -711,7 +711,7 @@
       "id": "santa_caterina_monastery_morning",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/santa-catarina-o-mosteiro-sagrado-classico-e-vip/",
+      "path": "/pt/excursoes/santa-catarina-o-mosteiro-sagrado-classico-e-vip/",
       "legacy": "/pt/tours/santa_caterina_monastery_morning/",
       "slug": "santa-catarina-o-mosteiro-sagrado-classico-e-vip"
     },
@@ -719,7 +719,7 @@
       "id": "santa_caterina_monastery_morning",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/katharinenkloster-das-heilige-kloster-klassisch-und-vip/",
+      "path": "/de/ausfluege/katharinenkloster-das-heilige-kloster-klassisch-und-vip/",
       "legacy": "/de/tours/santa_caterina_monastery_morning/",
       "slug": "katharinenkloster-das-heilige-kloster-klassisch-und-vip"
     },
@@ -727,7 +727,7 @@
       "id": "mount_sinai_sunrise_adventure",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/monte-sinai-adventure-l-alba-sacra-monastero/",
+      "path": "/it/escursioni/monte-sinai-adventure-l-alba-sacra-monastero/",
       "legacy": "/it/tours/mount_sinai_sunrise_adventure/",
       "slug": "monte-sinai-adventure-l-alba-sacra-monastero"
     },
@@ -743,7 +743,7 @@
       "id": "mount_sinai_sunrise_adventure",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/aventura-en-el-monte-sinai-amanecer-sagrado-y-monasterio/",
+      "path": "/es/excursiones/aventura-en-el-monte-sinai-amanecer-sagrado-y-monasterio/",
       "legacy": "/es/tours/mount_sinai_sunrise_adventure/",
       "slug": "aventura-en-el-monte-sinai-amanecer-sagrado-y-monasterio"
     },
@@ -751,7 +751,7 @@
       "id": "mount_sinai_sunrise_adventure",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/aventura-no-monte-sinai-nascer-do-sol-sagrado-e-mosteiro/",
+      "path": "/pt/excursoes/aventura-no-monte-sinai-nascer-do-sol-sagrado-e-mosteiro/",
       "legacy": "/pt/tours/mount_sinai_sunrise_adventure/",
       "slug": "aventura-no-monte-sinai-nascer-do-sol-sagrado-e-mosteiro"
     },
@@ -759,7 +759,7 @@
       "id": "mount_sinai_sunrise_adventure",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/sinai-abenteuer-heiliger-sonnenaufgang-und-kloster/",
+      "path": "/de/ausfluege/sinai-abenteuer-heiliger-sonnenaufgang-und-kloster/",
       "legacy": "/de/tours/mount_sinai_sunrise_adventure/",
       "slug": "sinai-abenteuer-heiliger-sonnenaufgang-und-kloster"
     },
@@ -767,7 +767,7 @@
       "id": "luxor_plane_classic",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/luxor-in-aereo-la-valle-dei-re-i-templi-d-oro/",
+      "path": "/it/escursioni/luxor-in-aereo-la-valle-dei-re-i-templi-d-oro/",
       "legacy": "/it/tours/luxor_plane_classic/",
       "slug": "luxor-in-aereo-la-valle-dei-re-i-templi-d-oro"
     },
@@ -783,7 +783,7 @@
       "id": "luxor_plane_classic",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/luxor-en-avion-valle-de-los-reyes-y-templos-dorados/",
+      "path": "/es/excursiones/luxor-en-avion-valle-de-los-reyes-y-templos-dorados/",
       "legacy": "/es/tours/luxor_plane_classic/",
       "slug": "luxor-en-avion-valle-de-los-reyes-y-templos-dorados"
     },
@@ -791,7 +791,7 @@
       "id": "luxor_plane_classic",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/luxor-de-aviao-vale-dos-reis-e-templos-dourados/",
+      "path": "/pt/excursoes/luxor-de-aviao-vale-dos-reis-e-templos-dourados/",
       "legacy": "/pt/tours/luxor_plane_classic/",
       "slug": "luxor-de-aviao-vale-dos-reis-e-templos-dourados"
     },
@@ -799,7 +799,7 @@
       "id": "luxor_plane_classic",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/luxor-per-flugzeug-tal-der-konige-und-goldene-tempel/",
+      "path": "/de/ausfluege/luxor-per-flugzeug-tal-der-konige-und-goldene-tempel/",
       "legacy": "/de/tours/luxor_plane_classic/",
       "slug": "luxor-per-flugzeug-tal-der-konige-und-goldene-tempel"
     },
@@ -807,7 +807,7 @@
       "id": "petra_jordan_expedition",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/petra-la-citta-rosa-una-delle-7-meraviglie-del-mondo/",
+      "path": "/it/escursioni/petra-la-citta-rosa-una-delle-7-meraviglie-del-mondo/",
       "legacy": "/it/tours/petra_jordan_expedition/",
       "slug": "petra-la-citta-rosa-una-delle-7-meraviglie-del-mondo"
     },
@@ -823,7 +823,7 @@
       "id": "petra_jordan_expedition",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/petra-la-ciudad-rosa-una-de-las-7-maravillas-del-mundo/",
+      "path": "/es/excursiones/petra-la-ciudad-rosa-una-de-las-7-maravillas-del-mundo/",
       "legacy": "/es/tours/petra_jordan_expedition/",
       "slug": "petra-la-ciudad-rosa-una-de-las-7-maravillas-del-mundo"
     },
@@ -831,7 +831,7 @@
       "id": "petra_jordan_expedition",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/petra-a-cidade-rosa-uma-das-7-maravilhas-do-mundo/",
+      "path": "/pt/excursoes/petra-a-cidade-rosa-uma-das-7-maravilhas-do-mundo/",
       "legacy": "/pt/tours/petra_jordan_expedition/",
       "slug": "petra-a-cidade-rosa-uma-das-7-maravilhas-do-mundo"
     },
@@ -839,7 +839,7 @@
       "id": "petra_jordan_expedition",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/petra-die-rosarote-stadt-eines-der-7-weltwunder/",
+      "path": "/de/ausfluege/petra-die-rosarote-stadt-eines-der-7-weltwunder/",
       "legacy": "/de/tours/petra_jordan_expedition/",
       "slug": "petra-die-rosarote-stadt-eines-der-7-weltwunder"
     },
@@ -847,7 +847,7 @@
       "id": "sharm_old_market_ultimate_shopping",
       "locale": "it",
       "kind": "tours",
-      "path": "/it/tours/sharm-vecchia-moschea-fashion-l-india-d-egitto/",
+      "path": "/it/escursioni/sharm-vecchia-moschea-fashion-l-india-d-egitto/",
       "legacy": "/it/tours/sharm_old_market_ultimate_shopping/",
       "slug": "sharm-vecchia-moschea-fashion-l-india-d-egitto"
     },
@@ -863,7 +863,7 @@
       "id": "sharm_old_market_ultimate_shopping",
       "locale": "es",
       "kind": "tours",
-      "path": "/es/tours/viejo-sharm-mezquita-moda-y-la-india-de-egipto/",
+      "path": "/es/excursiones/viejo-sharm-mezquita-moda-y-la-india-de-egipto/",
       "legacy": "/es/tours/sharm_old_market_ultimate_shopping/",
       "slug": "viejo-sharm-mezquita-moda-y-la-india-de-egipto"
     },
@@ -871,7 +871,7 @@
       "id": "sharm_old_market_ultimate_shopping",
       "locale": "pt",
       "kind": "tours",
-      "path": "/pt/tours/velha-sharm-mesquita-moda-e-a-india-do-egito/",
+      "path": "/pt/excursoes/velha-sharm-mesquita-moda-e-a-india-do-egito/",
       "legacy": "/pt/tours/sharm_old_market_ultimate_shopping/",
       "slug": "velha-sharm-mesquita-moda-e-a-india-do-egito"
     },
@@ -879,7 +879,7 @@
       "id": "sharm_old_market_ultimate_shopping",
       "locale": "de",
       "kind": "tours",
-      "path": "/de/tours/alt-sharm-moschee-mode-und-das-indien-agyptens/",
+      "path": "/de/ausfluege/alt-sharm-moschee-mode-und-das-indien-agyptens/",
       "legacy": "/de/tours/sharm_old_market_ultimate_shopping/",
       "slug": "alt-sharm-moschee-mode-und-das-indien-agyptens"
     },
@@ -887,7 +887,7 @@
       "id": "sharm_confidential",
       "locale": "it",
       "kind": "packages",
-      "path": "/it/packages/sharm-confidential-l-esperienza-totale/",
+      "path": "/it/pacchetti/sharm-confidential-l-esperienza-totale/",
       "legacy": "/it/packages/sharm_confidential/",
       "slug": "sharm-confidential-l-esperienza-totale"
     },
@@ -903,7 +903,7 @@
       "id": "sharm_confidential",
       "locale": "es",
       "kind": "packages",
-      "path": "/es/packages/sharm-confidential-la-experiencia-total/",
+      "path": "/es/paquetes/sharm-confidential-la-experiencia-total/",
       "legacy": "/es/packages/sharm_confidential/",
       "slug": "sharm-confidential-la-experiencia-total"
     },
@@ -911,7 +911,7 @@
       "id": "sharm_confidential",
       "locale": "pt",
       "kind": "packages",
-      "path": "/pt/packages/sharm-confidential-a-experiencia-total/",
+      "path": "/pt/pacotes/sharm-confidential-a-experiencia-total/",
       "legacy": "/pt/packages/sharm_confidential/",
       "slug": "sharm-confidential-a-experiencia-total"
     },
@@ -919,7 +919,7 @@
       "id": "sharm_confidential",
       "locale": "de",
       "kind": "packages",
-      "path": "/de/packages/sharm-confidential-das-komplette-erlebnis/",
+      "path": "/de/reisepakete/sharm-confidential-das-komplette-erlebnis/",
       "legacy": "/de/packages/sharm_confidential/",
       "slug": "sharm-confidential-das-komplette-erlebnis"
     },
@@ -927,7 +927,7 @@
       "id": "dolce_vita_family",
       "locale": "it",
       "kind": "packages",
-      "path": "/it/packages/dolce-vita-family-relax/",
+      "path": "/it/pacchetti/dolce-vita-family-relax/",
       "legacy": "/it/packages/dolce_vita_family/",
       "slug": "dolce-vita-family-relax"
     },
@@ -943,7 +943,7 @@
       "id": "dolce_vita_family",
       "locale": "es",
       "kind": "packages",
-      "path": "/es/packages/dolce-vita-familia-y-relax/",
+      "path": "/es/paquetes/dolce-vita-familia-y-relax/",
       "legacy": "/es/packages/dolce_vita_family/",
       "slug": "dolce-vita-familia-y-relax"
     },
@@ -951,7 +951,7 @@
       "id": "dolce_vita_family",
       "locale": "pt",
       "kind": "packages",
-      "path": "/pt/packages/dolce-vita-familia-e-descanso/",
+      "path": "/pt/pacotes/dolce-vita-familia-e-descanso/",
       "legacy": "/pt/packages/dolce_vita_family/",
       "slug": "dolce-vita-familia-e-descanso"
     },
@@ -959,7 +959,7 @@
       "id": "dolce_vita_family",
       "locale": "de",
       "kind": "packages",
-      "path": "/de/packages/dolce-vita-familie-und-entspannung/",
+      "path": "/de/reisepakete/dolce-vita-familie-und-entspannung/",
       "legacy": "/de/packages/dolce_vita_family/",
       "slug": "dolce-vita-familie-und-entspannung"
     },
@@ -967,7 +967,7 @@
       "id": "mille_e_una_notte",
       "locale": "it",
       "kind": "packages",
-      "path": "/it/packages/mille-e-una-notte-fuga-romantica/",
+      "path": "/it/pacchetti/mille-e-una-notte-fuga-romantica/",
       "legacy": "/it/packages/mille_e_una_notte/",
       "slug": "mille-e-una-notte-fuga-romantica"
     },
@@ -983,7 +983,7 @@
       "id": "mille_e_una_notte",
       "locale": "es",
       "kind": "packages",
-      "path": "/es/packages/las-mil-y-una-noches-escapada-romantica/",
+      "path": "/es/paquetes/las-mil-y-una-noches-escapada-romantica/",
       "legacy": "/es/packages/mille_e_una_notte/",
       "slug": "las-mil-y-una-noches-escapada-romantica"
     },
@@ -991,7 +991,7 @@
       "id": "mille_e_una_notte",
       "locale": "pt",
       "kind": "packages",
-      "path": "/pt/packages/as-mil-e-uma-noites-escapadinha-romantica/",
+      "path": "/pt/pacotes/as-mil-e-uma-noites-escapadinha-romantica/",
       "legacy": "/pt/packages/mille_e_una_notte/",
       "slug": "as-mil-e-uma-noites-escapadinha-romantica"
     },
@@ -999,7 +999,7 @@
       "id": "mille_e_una_notte",
       "locale": "de",
       "kind": "packages",
-      "path": "/de/packages/tausendundeine-nacht-romantische-auszeit/",
+      "path": "/de/reisepakete/tausendundeine-nacht-romantische-auszeit/",
       "legacy": "/de/packages/mille_e_una_notte/",
       "slug": "tausendundeine-nacht-romantische-auszeit"
     },
@@ -1007,7 +1007,7 @@
       "id": "indiana_jones_adventure",
       "locale": "it",
       "kind": "packages",
-      "path": "/it/packages/indiana-jones-adrenalina-pura/",
+      "path": "/it/pacchetti/indiana-jones-adrenalina-pura/",
       "legacy": "/it/packages/indiana_jones_adventure/",
       "slug": "indiana-jones-adrenalina-pura"
     },
@@ -1023,7 +1023,7 @@
       "id": "indiana_jones_adventure",
       "locale": "es",
       "kind": "packages",
-      "path": "/es/packages/indiana-jones-adrenalina-pura/",
+      "path": "/es/paquetes/indiana-jones-adrenalina-pura/",
       "legacy": "/es/packages/indiana_jones_adventure/",
       "slug": "indiana-jones-adrenalina-pura"
     },
@@ -1031,7 +1031,7 @@
       "id": "indiana_jones_adventure",
       "locale": "pt",
       "kind": "packages",
-      "path": "/pt/packages/indiana-jones-adrenalina-pura/",
+      "path": "/pt/pacotes/indiana-jones-adrenalina-pura/",
       "legacy": "/pt/packages/indiana_jones_adventure/",
       "slug": "indiana-jones-adrenalina-pura"
     },
@@ -1039,7 +1039,7 @@
       "id": "indiana_jones_adventure",
       "locale": "de",
       "kind": "packages",
-      "path": "/de/packages/indiana-jones-pures-adrenalin/",
+      "path": "/de/reisepakete/indiana-jones-pures-adrenalin/",
       "legacy": "/de/packages/indiana_jones_adventure/",
       "slug": "indiana-jones-pures-adrenalin"
     },
@@ -1047,7 +1047,7 @@
       "id": "il_grande_blu",
       "locale": "it",
       "kind": "packages",
-      "path": "/it/packages/il-grande-blu-i-tesori-del-mar-rosso/",
+      "path": "/it/pacchetti/il-grande-blu-i-tesori-del-mar-rosso/",
       "legacy": "/it/packages/il_grande_blu/",
       "slug": "il-grande-blu-i-tesori-del-mar-rosso"
     },
@@ -1063,7 +1063,7 @@
       "id": "il_grande_blu",
       "locale": "es",
       "kind": "packages",
-      "path": "/es/packages/el-gran-azul-tesoros-del-mar-rojo/",
+      "path": "/es/paquetes/el-gran-azul-tesoros-del-mar-rojo/",
       "legacy": "/es/packages/il_grande_blu/",
       "slug": "el-gran-azul-tesoros-del-mar-rojo"
     },
@@ -1071,7 +1071,7 @@
       "id": "il_grande_blu",
       "locale": "pt",
       "kind": "packages",
-      "path": "/pt/packages/o-grande-azul-tesouros-do-mar-vermelho/",
+      "path": "/pt/pacotes/o-grande-azul-tesouros-do-mar-vermelho/",
       "legacy": "/pt/packages/il_grande_blu/",
       "slug": "o-grande-azul-tesouros-do-mar-vermelho"
     },
@@ -1079,7 +1079,7 @@
       "id": "il_grande_blu",
       "locale": "de",
       "kind": "packages",
-      "path": "/de/packages/das-grosse-blau-schatze-des-roten-meeres/",
+      "path": "/de/reisepakete/das-grosse-blau-schatze-des-roten-meeres/",
       "legacy": "/de/packages/il_grande_blu/",
       "slug": "das-grosse-blau-schatze-des-roten-meeres"
     },
@@ -1087,7 +1087,7 @@
       "id": "cairo_piramidi_saqqara_vip",
       "locale": "it",
       "kind": "packages",
-      "path": "/it/packages/l-eterna-grandezza-piramidi-di-giza-sfinge-e-saqqara/",
+      "path": "/it/pacchetti/l-eterna-grandezza-piramidi-di-giza-sfinge-e-saqqara/",
       "legacy": "/it/packages/cairo_piramidi_saqqara_vip/",
       "slug": "l-eterna-grandezza-piramidi-di-giza-sfinge-e-saqqara"
     },
@@ -1103,7 +1103,7 @@
       "id": "cairo_piramidi_saqqara_vip",
       "locale": "es",
       "kind": "packages",
-      "path": "/es/packages/grandeza-eterna-piramides-de-guiza-esfinge-y-saqqara/",
+      "path": "/es/paquetes/grandeza-eterna-piramides-de-guiza-esfinge-y-saqqara/",
       "legacy": "/es/packages/cairo_piramidi_saqqara_vip/",
       "slug": "grandeza-eterna-piramides-de-guiza-esfinge-y-saqqara"
     },
@@ -1111,7 +1111,7 @@
       "id": "cairo_piramidi_saqqara_vip",
       "locale": "pt",
       "kind": "packages",
-      "path": "/pt/packages/grandeza-eterna-piramides-de-gize-esfinge-e-sacara/",
+      "path": "/pt/pacotes/grandeza-eterna-piramides-de-gize-esfinge-e-sacara/",
       "legacy": "/pt/packages/cairo_piramidi_saqqara_vip/",
       "slug": "grandeza-eterna-piramides-de-gize-esfinge-e-sacara"
     },
@@ -1119,7 +1119,7 @@
       "id": "cairo_piramidi_saqqara_vip",
       "locale": "de",
       "kind": "packages",
-      "path": "/de/packages/ewige-grosse-pyramiden-von-gizeh-sphinx-und-sakkara/",
+      "path": "/de/reisepakete/ewige-grosse-pyramiden-von-gizeh-sphinx-und-sakkara/",
       "legacy": "/de/packages/cairo_piramidi_saqqara_vip/",
       "slug": "ewige-grosse-pyramiden-von-gizeh-sphinx-und-sakkara"
     },
@@ -1127,7 +1127,7 @@
       "id": "cairo_cuore_pulsante_museo_cittadella",
       "locale": "it",
       "kind": "packages",
-      "path": "/it/packages/il-cuore-pulsante-del-cairo-museo-egizio-cittadella-e-khan-el-khalili/",
+      "path": "/it/pacchetti/il-cuore-pulsante-del-cairo-museo-egizio-cittadella-e-khan-el-khalili/",
       "legacy": "/it/packages/cairo_cuore_pulsante_museo_cittadella/",
       "slug": "il-cuore-pulsante-del-cairo-museo-egizio-cittadella-e-khan-el-khalili"
     },
@@ -1143,7 +1143,7 @@
       "id": "cairo_cuore_pulsante_museo_cittadella",
       "locale": "es",
       "kind": "packages",
-      "path": "/es/packages/el-corazon-de-el-cairo-museo-egipcio-ciudadela-y-jan-el-jalili/",
+      "path": "/es/paquetes/el-corazon-de-el-cairo-museo-egipcio-ciudadela-y-jan-el-jalili/",
       "legacy": "/es/packages/cairo_cuore_pulsante_museo_cittadella/",
       "slug": "el-corazon-de-el-cairo-museo-egipcio-ciudadela-y-jan-el-jalili"
     },
@@ -1151,7 +1151,7 @@
       "id": "cairo_cuore_pulsante_museo_cittadella",
       "locale": "pt",
       "kind": "packages",
-      "path": "/pt/packages/o-coracao-do-cairo-museu-egipcio-cidadela-e-khan-el-khalili/",
+      "path": "/pt/pacotes/o-coracao-do-cairo-museu-egipcio-cidadela-e-khan-el-khalili/",
       "legacy": "/pt/packages/cairo_cuore_pulsante_museo_cittadella/",
       "slug": "o-coracao-do-cairo-museu-egipcio-cidadela-e-khan-el-khalili"
     },
@@ -1159,7 +1159,7 @@
       "id": "cairo_cuore_pulsante_museo_cittadella",
       "locale": "de",
       "kind": "packages",
-      "path": "/de/packages/kairos-pulsierendes-herz-agyptisches-museum-zitadelle-und-khan-el-khalili/",
+      "path": "/de/reisepakete/kairos-pulsierendes-herz-agyptisches-museum-zitadelle-und-khan-el-khalili/",
       "legacy": "/de/packages/cairo_cuore_pulsante_museo_cittadella/",
       "slug": "kairos-pulsierendes-herz-agyptisches-museum-zitadelle-und-khan-el-khalili"
     },
@@ -1167,7 +1167,7 @@
       "id": "cairo_crociera_nilo_cena",
       "locale": "it",
       "kind": "packages",
-      "path": "/it/packages/magia-notturna-sul-nilo-crociera-vip-con-cena-e-spettacolo/",
+      "path": "/it/pacchetti/magia-notturna-sul-nilo-crociera-vip-con-cena-e-spettacolo/",
       "legacy": "/it/packages/cairo_crociera_nilo_cena/",
       "slug": "magia-notturna-sul-nilo-crociera-vip-con-cena-e-spettacolo"
     },
@@ -1183,7 +1183,7 @@
       "id": "cairo_crociera_nilo_cena",
       "locale": "es",
       "kind": "packages",
-      "path": "/es/packages/magia-nocturna-en-el-nilo-crucero-vip-con-cena-y-espectaculo/",
+      "path": "/es/paquetes/magia-nocturna-en-el-nilo-crucero-vip-con-cena-y-espectaculo/",
       "legacy": "/es/packages/cairo_crociera_nilo_cena/",
       "slug": "magia-nocturna-en-el-nilo-crucero-vip-con-cena-y-espectaculo"
     },
@@ -1191,7 +1191,7 @@
       "id": "cairo_crociera_nilo_cena",
       "locale": "pt",
       "kind": "packages",
-      "path": "/pt/packages/magia-noturna-no-nilo-cruzeiro-vip-com-jantar-e-espetaculo/",
+      "path": "/pt/pacotes/magia-noturna-no-nilo-cruzeiro-vip-com-jantar-e-espetaculo/",
       "legacy": "/pt/packages/cairo_crociera_nilo_cena/",
       "slug": "magia-noturna-no-nilo-cruzeiro-vip-com-jantar-e-espetaculo"
     },
@@ -1199,7 +1199,7 @@
       "id": "cairo_crociera_nilo_cena",
       "locale": "de",
       "kind": "packages",
-      "path": "/de/packages/nachtliche-magie-auf-dem-nil-vip-dinner-bootsfahrt-und-show/",
+      "path": "/de/reisepakete/nachtliche-magie-auf-dem-nil-vip-dinner-bootsfahrt-und-show/",
       "legacy": "/de/packages/cairo_crociera_nilo_cena/",
       "slug": "nachtliche-magie-auf-dem-nil-vip-dinner-bootsfahrt-und-show"
     },
@@ -1207,7 +1207,7 @@
       "id": "cairo_mistico_copto_islamico",
       "locale": "it",
       "kind": "packages",
-      "path": "/it/packages/il-cairo-mistico-tra-cristianesimo-copto-e-fascino-islamico/",
+      "path": "/it/pacchetti/il-cairo-mistico-tra-cristianesimo-copto-e-fascino-islamico/",
       "legacy": "/it/packages/cairo_mistico_copto_islamico/",
       "slug": "il-cairo-mistico-tra-cristianesimo-copto-e-fascino-islamico"
     },
@@ -1223,7 +1223,7 @@
       "id": "cairo_mistico_copto_islamico",
       "locale": "es",
       "kind": "packages",
-      "path": "/es/packages/el-cairo-mistico-cristianismo-copto-y-patrimonio-islamico/",
+      "path": "/es/paquetes/el-cairo-mistico-cristianismo-copto-y-patrimonio-islamico/",
       "legacy": "/es/packages/cairo_mistico_copto_islamico/",
       "slug": "el-cairo-mistico-cristianismo-copto-y-patrimonio-islamico"
     },
@@ -1231,7 +1231,7 @@
       "id": "cairo_mistico_copto_islamico",
       "locale": "pt",
       "kind": "packages",
-      "path": "/pt/packages/cairo-mistico-cristianismo-copta-e-patrimonio-islamico/",
+      "path": "/pt/pacotes/cairo-mistico-cristianismo-copta-e-patrimonio-islamico/",
       "legacy": "/pt/packages/cairo_mistico_copto_islamico/",
       "slug": "cairo-mistico-cristianismo-copta-e-patrimonio-islamico"
     },
@@ -1239,7 +1239,7 @@
       "id": "cairo_mistico_copto_islamico",
       "locale": "de",
       "kind": "packages",
-      "path": "/de/packages/mystisches-kairo-koptisches-christentum-und-islamisches-erbe/",
+      "path": "/de/reisepakete/mystisches-kairo-koptisches-christentum-und-islamisches-erbe/",
       "legacy": "/de/packages/cairo_mistico_copto_islamico/",
       "slug": "mystisches-kairo-koptisches-christentum-und-islamisches-erbe"
     },
@@ -1247,7 +1247,7 @@
       "id": "cairo_safari_piramidi_tramonto",
       "locale": "it",
       "kind": "packages",
-      "path": "/it/packages/avventura-al-tramonto-quad-safari-e-cammelli-alle-piramidi/",
+      "path": "/it/pacchetti/avventura-al-tramonto-quad-safari-e-cammelli-alle-piramidi/",
       "legacy": "/it/packages/cairo_safari_piramidi_tramonto/",
       "slug": "avventura-al-tramonto-quad-safari-e-cammelli-alle-piramidi"
     },
@@ -1263,7 +1263,7 @@
       "id": "cairo_safari_piramidi_tramonto",
       "locale": "es",
       "kind": "packages",
-      "path": "/es/packages/aventura-al-atardecer-safari-en-quad-y-camellos-en-las-piramides/",
+      "path": "/es/paquetes/aventura-al-atardecer-safari-en-quad-y-camellos-en-las-piramides/",
       "legacy": "/es/packages/cairo_safari_piramidi_tramonto/",
       "slug": "aventura-al-atardecer-safari-en-quad-y-camellos-en-las-piramides"
     },
@@ -1271,7 +1271,7 @@
       "id": "cairo_safari_piramidi_tramonto",
       "locale": "pt",
       "kind": "packages",
-      "path": "/pt/packages/aventura-ao-por-do-sol-safari-de-moto-quatro-e-camelos-nas-piramides/",
+      "path": "/pt/pacotes/aventura-ao-por-do-sol-safari-de-moto-quatro-e-camelos-nas-piramides/",
       "legacy": "/pt/packages/cairo_safari_piramidi_tramonto/",
       "slug": "aventura-ao-por-do-sol-safari-de-moto-quatro-e-camelos-nas-piramides"
     },
@@ -1279,7 +1279,7 @@
       "id": "cairo_safari_piramidi_tramonto",
       "locale": "de",
       "kind": "packages",
-      "path": "/de/packages/abenteuer-im-sonnenuntergang-quad-safari-und-kamele-bei-den-pyramiden/",
+      "path": "/de/reisepakete/abenteuer-im-sonnenuntergang-quad-safari-und-kamele-bei-den-pyramiden/",
       "legacy": "/de/packages/cairo_safari_piramidi_tramonto/",
       "slug": "abenteuer-im-sonnenuntergang-quad-safari-und-kamele-bei-den-pyramiden"
     },
@@ -1287,7 +1287,7 @@
       "id": "alessandria_tour_giornata_intera",
       "locale": "it",
       "kind": "packages",
-      "path": "/it/packages/fuga-sul-mediterraneo-tour-di-un-giorno-ad-alessandria/",
+      "path": "/it/pacchetti/fuga-sul-mediterraneo-tour-di-un-giorno-ad-alessandria/",
       "legacy": "/it/packages/alessandria_tour_giornata_intera/",
       "slug": "fuga-sul-mediterraneo-tour-di-un-giorno-ad-alessandria"
     },
@@ -1303,7 +1303,7 @@
       "id": "alessandria_tour_giornata_intera",
       "locale": "es",
       "kind": "packages",
-      "path": "/es/packages/escapada-mediterranea-excursion-de-dia-completo-a-alejandria/",
+      "path": "/es/paquetes/escapada-mediterranea-excursion-de-dia-completo-a-alejandria/",
       "legacy": "/es/packages/alessandria_tour_giornata_intera/",
       "slug": "escapada-mediterranea-excursion-de-dia-completo-a-alejandria"
     },
@@ -1311,7 +1311,7 @@
       "id": "alessandria_tour_giornata_intera",
       "locale": "pt",
       "kind": "packages",
-      "path": "/pt/packages/escapadinha-mediterranica-excursao-de-dia-inteiro-a-alexandria/",
+      "path": "/pt/pacotes/escapadinha-mediterranica-excursao-de-dia-inteiro-a-alexandria/",
       "legacy": "/pt/packages/alessandria_tour_giornata_intera/",
       "slug": "escapadinha-mediterranica-excursao-de-dia-inteiro-a-alexandria"
     },
@@ -1319,7 +1319,7 @@
       "id": "alessandria_tour_giornata_intera",
       "locale": "de",
       "kind": "packages",
-      "path": "/de/packages/auszeit-am-mittelmeer-ganztagestour-nach-alexandria/",
+      "path": "/de/reisepakete/auszeit-am-mittelmeer-ganztagestour-nach-alexandria/",
       "legacy": "/de/packages/alessandria_tour_giornata_intera/",
       "slug": "auszeit-am-mittelmeer-ganztagestour-nach-alexandria"
     },
@@ -1327,7 +1327,7 @@
       "id": "gran_tour_egitto_cairo_crociera_8g7n",
       "locale": "it",
       "kind": "packages",
-      "path": "/it/packages/il-gran-tour-faraonico-il-cairo-e-magia-del-nilo-8-giorni/",
+      "path": "/it/pacchetti/il-gran-tour-faraonico-il-cairo-e-magia-del-nilo-8-giorni/",
       "legacy": "/it/packages/gran_tour_egitto_cairo_crociera_8g7n/",
       "slug": "il-gran-tour-faraonico-il-cairo-e-magia-del-nilo-8-giorni"
     },
@@ -1343,7 +1343,7 @@
       "id": "gran_tour_egitto_cairo_crociera_8g7n",
       "locale": "es",
       "kind": "packages",
-      "path": "/es/packages/el-gran-circuito-faraonico-el-cairo-y-la-magia-del-nilo-8-dias/",
+      "path": "/es/paquetes/el-gran-circuito-faraonico-el-cairo-y-la-magia-del-nilo-8-dias/",
       "legacy": "/es/packages/gran_tour_egitto_cairo_crociera_8g7n/",
       "slug": "el-gran-circuito-faraonico-el-cairo-y-la-magia-del-nilo-8-dias"
     },
@@ -1351,7 +1351,7 @@
       "id": "gran_tour_egitto_cairo_crociera_8g7n",
       "locale": "pt",
       "kind": "packages",
-      "path": "/pt/packages/o-grande-circuito-faraonico-cairo-e-a-magia-do-nilo-8-dias/",
+      "path": "/pt/pacotes/o-grande-circuito-faraonico-cairo-e-a-magia-do-nilo-8-dias/",
       "legacy": "/pt/packages/gran_tour_egitto_cairo_crociera_8g7n/",
       "slug": "o-grande-circuito-faraonico-cairo-e-a-magia-do-nilo-8-dias"
     },
@@ -1359,7 +1359,7 @@
       "id": "gran_tour_egitto_cairo_crociera_8g7n",
       "locale": "de",
       "kind": "packages",
-      "path": "/de/packages/die-grosse-pharaonenreise-kairo-und-nilzauber-8-tage/",
+      "path": "/de/reisepakete/die-grosse-pharaonenreise-kairo-und-nilzauber-8-tage/",
       "legacy": "/de/packages/gran_tour_egitto_cairo_crociera_8g7n/",
       "slug": "die-grosse-pharaonenreise-kairo-und-nilzauber-8-tage"
     },
@@ -1367,7 +1367,7 @@
       "id": "nile_cruise_luxor_aswan_5d4n",
       "locale": "it",
       "kind": "packages",
-      "path": "/it/packages/crociera-sul-nilo-reale-da-luxor-ad-aswan/",
+      "path": "/it/pacchetti/crociera-sul-nilo-reale-da-luxor-ad-aswan/",
       "legacy": "/it/packages/nile_cruise_luxor_aswan_5d4n/",
       "slug": "crociera-sul-nilo-reale-da-luxor-ad-aswan"
     },
@@ -1383,7 +1383,7 @@
       "id": "nile_cruise_luxor_aswan_5d4n",
       "locale": "es",
       "kind": "packages",
-      "path": "/es/packages/crucero-real-por-el-nilo-de-luxor-a-asuan/",
+      "path": "/es/paquetes/crucero-real-por-el-nilo-de-luxor-a-asuan/",
       "legacy": "/es/packages/nile_cruise_luxor_aswan_5d4n/",
       "slug": "crucero-real-por-el-nilo-de-luxor-a-asuan"
     },
@@ -1391,7 +1391,7 @@
       "id": "nile_cruise_luxor_aswan_5d4n",
       "locale": "pt",
       "kind": "packages",
-      "path": "/pt/packages/cruzeiro-real-no-nilo-de-luxor-a-assuao/",
+      "path": "/pt/pacotes/cruzeiro-real-no-nilo-de-luxor-a-assuao/",
       "legacy": "/pt/packages/nile_cruise_luxor_aswan_5d4n/",
       "slug": "cruzeiro-real-no-nilo-de-luxor-a-assuao"
     },
@@ -1399,7 +1399,7 @@
       "id": "nile_cruise_luxor_aswan_5d4n",
       "locale": "de",
       "kind": "packages",
-      "path": "/de/packages/konigliche-nilkreuzfahrt-von-luxor-nach-assuan/",
+      "path": "/de/reisepakete/konigliche-nilkreuzfahrt-von-luxor-nach-assuan/",
       "legacy": "/de/packages/nile_cruise_luxor_aswan_5d4n/",
       "slug": "konigliche-nilkreuzfahrt-von-luxor-nach-assuan"
     },
@@ -1407,7 +1407,7 @@
       "id": "nile_cruise_aswan_luxor_4d3n",
       "locale": "it",
       "kind": "packages",
-      "path": "/it/packages/magia-del-sud-crociera-da-aswan-a-luxor/",
+      "path": "/it/pacchetti/magia-del-sud-crociera-da-aswan-a-luxor/",
       "legacy": "/it/packages/nile_cruise_aswan_luxor_4d3n/",
       "slug": "magia-del-sud-crociera-da-aswan-a-luxor"
     },
@@ -1423,7 +1423,7 @@
       "id": "nile_cruise_aswan_luxor_4d3n",
       "locale": "es",
       "kind": "packages",
-      "path": "/es/packages/magia-del-sur-crucero-de-asuan-a-luxor/",
+      "path": "/es/paquetes/magia-del-sur-crucero-de-asuan-a-luxor/",
       "legacy": "/es/packages/nile_cruise_aswan_luxor_4d3n/",
       "slug": "magia-del-sur-crucero-de-asuan-a-luxor"
     },
@@ -1431,7 +1431,7 @@
       "id": "nile_cruise_aswan_luxor_4d3n",
       "locale": "pt",
       "kind": "packages",
-      "path": "/pt/packages/magia-do-sul-cruzeiro-de-assuao-a-luxor/",
+      "path": "/pt/pacotes/magia-do-sul-cruzeiro-de-assuao-a-luxor/",
       "legacy": "/pt/packages/nile_cruise_aswan_luxor_4d3n/",
       "slug": "magia-do-sul-cruzeiro-de-assuao-a-luxor"
     },
@@ -1439,7 +1439,7 @@
       "id": "nile_cruise_aswan_luxor_4d3n",
       "locale": "de",
       "kind": "packages",
-      "path": "/de/packages/zauber-des-sudens-kreuzfahrt-von-assuan-nach-luxor/",
+      "path": "/de/reisepakete/zauber-des-sudens-kreuzfahrt-von-assuan-nach-luxor/",
       "legacy": "/de/packages/nile_cruise_aswan_luxor_4d3n/",
       "slug": "zauber-des-sudens-kreuzfahrt-von-assuan-nach-luxor"
     }

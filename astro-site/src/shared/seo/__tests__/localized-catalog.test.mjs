@@ -6,9 +6,10 @@ import path from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {seoFiles} from '../build-seo.mjs';
 import {supportedLocales} from '../../config/languages.ts';
+import {catalogRoutePath} from '../../domain/catalog-routes.ts';
 async function scenario(check){
   const folder=await fs.mkdtemp(path.join(os.tmpdir(),'fabio-localized-'));
-  const paths=Object.fromEntries(supportedLocales.map(lang=>[lang,`/${lang}/tours/title-${lang}/`]));
+  const paths=Object.fromEntries(supportedLocales.map(lang=>[lang,catalogRoutePath(lang,'tours',`title-${lang}`)]));
   const put=async(route,html)=>{const file=path.join(folder,route,'index.html');await fs.mkdir(path.dirname(file),{recursive:true});await fs.writeFile(file,html);};
   const html=(lang,links=paths)=>`<title>Tour</title><meta name="description" content="Tour"><link rel="canonical" href="https://fabioegypt.com${paths[lang]}">${Object.entries(links).map(([language,url])=>`<link hreflang="${language}" href="https://fabioegypt.com${url}">`).join('')}`;
   const build=()=>seoFiles().hooks['astro:build:done']({dir:pathToFileURL(folder+path.sep),logger:{info(){}}});

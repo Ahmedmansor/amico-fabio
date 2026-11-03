@@ -2,7 +2,7 @@
   "pages": 180,
   "results": [
     {
-      "route": "/it/tours/adrenalina-sky-sea-parasailing-water-toys/",
+      "route": "/it/escursioni/adrenalina-sky-sea-parasailing-water-toys/",
       "price": 45,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -10,7 +10,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/albatros-aqua-park-il-regno-dell-acqua/",
+      "route": "/it/escursioni/albatros-aqua-park-il-regno-dell-acqua/",
       "price": 50,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -18,7 +18,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/cena-romantica-vip-mille-e-una-notte/",
+      "route": "/it/escursioni/cena-romantica-vip-mille-e-una-notte/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -26,7 +26,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/dahab-adventure-blue-hole-cammelli-canyon/",
+      "route": "/it/escursioni/dahab-adventure-blue-hole-cammelli-canyon/",
       "price": 40,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -34,7 +34,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/dolphin-show-emozioni-per-tutta-la-famiglia/",
+      "route": "/it/escursioni/dolphin-show-emozioni-per-tutta-la-famiglia/",
       "price": 25,
       "currency": "EUR",
       "itinerarySteps": 4,
@@ -42,7 +42,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/il-cairo-in-aereo-piramidi-tu-scegli-il-museo/",
+      "route": "/it/escursioni/il-cairo-in-aereo-piramidi-tu-scegli-il-museo/",
       "price": 230,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -50,7 +50,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/il-cairo-in-bus-l-avventura-smart-la-tua-scelta/",
+      "route": "/it/escursioni/il-cairo-in-bus-l-avventura-smart-la-tua-scelta/",
       "price": 80,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -58,7 +58,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/isola-di-tiran-vip-relitti-e-barriere-coralline/",
+      "route": "/it/escursioni/isola-di-tiran-vip-relitti-e-barriere-coralline/",
       "price": 40,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -66,7 +66,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/luxor-in-aereo-la-valle-dei-re-i-templi-d-oro/",
+      "route": "/it/escursioni/luxor-in-aereo-la-valle-dei-re-i-templi-d-oro/",
       "price": 240,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -74,7 +74,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/monte-sinai-adventure-l-alba-sacra-monastero/",
+      "route": "/it/escursioni/monte-sinai-adventure-l-alba-sacra-monastero/",
       "price": 70,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -82,7 +82,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/moto-safari-quad-tramonto-valle-dell-eco/",
+      "route": "/it/escursioni/moto-safari-quad-tramonto-valle-dell-eco/",
       "price": 30,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -90,7 +90,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/notte-magica-cena-di-pesce-show-orientale/",
+      "route": "/it/escursioni/notte-magica-cena-di-pesce-show-orientale/",
       "price": 35,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -98,7 +98,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/nuotare-con-i-delfini-amore-a-prima-vista/",
+      "route": "/it/escursioni/nuotare-con-i-delfini-amore-a-prima-vista/",
       "price": 75,
       "currency": "EUR",
       "itinerarySteps": 4,
@@ -106,7 +106,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/petra-la-citta-rosa-una-delle-7-meraviglie-del-mondo/",
+      "route": "/it/escursioni/petra-la-citta-rosa-una-delle-7-meraviglie-del-mondo/",
       "price": 270,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -114,7 +114,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/private-boat-vip-the-king-of-red-sea/",
+      "route": "/it/escursioni/private-boat-vip-the-king-of-red-sea/",
       "price": 80,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -122,7 +122,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/ras-mohammed-nature-explorer-il-parco-via-terra/",
+      "route": "/it/escursioni/ras-mohammed-nature-explorer-il-parco-via-terra/",
       "price": 30,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -130,7 +130,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/ras-mohammed-white-island-l-esperienza-vip/",
+      "route": "/it/escursioni/ras-mohammed-white-island-l-esperienza-vip/",
       "price": 40,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -138,7 +138,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/santa-caterina-il-monastero-sacro-classic-vip/",
+      "route": "/it/escursioni/santa-caterina-il-monastero-sacro-classic-vip/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -146,7 +146,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/sea-scope-il-cinema-sottomarino/",
+      "route": "/it/escursioni/sea-scope-il-cinema-sottomarino/",
       "price": 45,
       "currency": "EUR",
       "itinerarySteps": 4,
@@ -154,7 +154,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/sharm-vecchia-moschea-fashion-l-india-d-egitto/",
+      "route": "/it/escursioni/sharm-vecchia-moschea-fashion-l-india-d-egitto/",
       "price": 25,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -162,7 +162,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/sina-dream-vip-il-veliero-di-lusso/",
+      "route": "/it/escursioni/sina-dream-vip-il-veliero-di-lusso/",
       "price": 70,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -170,7 +170,7 @@
       "noindex": false
     },
     {
-      "route": "/it/tours/super-safari-i-5-sensi-del-sinai/",
+      "route": "/it/escursioni/super-safari-i-5-sensi-del-sinai/",
       "price": 55,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -178,7 +178,7 @@
       "noindex": false
     },
     {
-      "route": "/it/packages/avventura-al-tramonto-quad-safari-e-cammelli-alle-piramidi/",
+      "route": "/it/pacchetti/avventura-al-tramonto-quad-safari-e-cammelli-alle-piramidi/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -186,7 +186,7 @@
       "noindex": false
     },
     {
-      "route": "/it/packages/crociera-sul-nilo-reale-da-luxor-ad-aswan/",
+      "route": "/it/pacchetti/crociera-sul-nilo-reale-da-luxor-ad-aswan/",
       "price": 750,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -194,7 +194,7 @@
       "noindex": false
     },
     {
-      "route": "/it/packages/dolce-vita-family-relax/",
+      "route": "/it/pacchetti/dolce-vita-family-relax/",
       "price": 160,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -202,7 +202,7 @@
       "noindex": false
     },
     {
-      "route": "/it/packages/fuga-sul-mediterraneo-tour-di-un-giorno-ad-alessandria/",
+      "route": "/it/pacchetti/fuga-sul-mediterraneo-tour-di-un-giorno-ad-alessandria/",
       "price": 85,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -210,7 +210,7 @@
       "noindex": false
     },
     {
-      "route": "/it/packages/il-cairo-mistico-tra-cristianesimo-copto-e-fascino-islamico/",
+      "route": "/it/pacchetti/il-cairo-mistico-tra-cristianesimo-copto-e-fascino-islamico/",
       "price": 50,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -218,7 +218,7 @@
       "noindex": false
     },
     {
-      "route": "/it/packages/il-cuore-pulsante-del-cairo-museo-egizio-cittadella-e-khan-el-khalili/",
+      "route": "/it/pacchetti/il-cuore-pulsante-del-cairo-museo-egizio-cittadella-e-khan-el-khalili/",
       "price": 55,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -226,7 +226,7 @@
       "noindex": false
     },
     {
-      "route": "/it/packages/il-gran-tour-faraonico-il-cairo-e-magia-del-nilo-8-giorni/",
+      "route": "/it/pacchetti/il-gran-tour-faraonico-il-cairo-e-magia-del-nilo-8-giorni/",
       "price": 1450,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -234,7 +234,7 @@
       "noindex": false
     },
     {
-      "route": "/it/packages/il-grande-blu-i-tesori-del-mar-rosso/",
+      "route": "/it/pacchetti/il-grande-blu-i-tesori-del-mar-rosso/",
       "price": 180,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -242,7 +242,7 @@
       "noindex": false
     },
     {
-      "route": "/it/packages/indiana-jones-adrenalina-pura/",
+      "route": "/it/pacchetti/indiana-jones-adrenalina-pura/",
       "price": 160,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -250,7 +250,7 @@
       "noindex": false
     },
     {
-      "route": "/it/packages/l-eterna-grandezza-piramidi-di-giza-sfinge-e-saqqara/",
+      "route": "/it/pacchetti/l-eterna-grandezza-piramidi-di-giza-sfinge-e-saqqara/",
       "price": 65,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -258,7 +258,7 @@
       "noindex": false
     },
     {
-      "route": "/it/packages/magia-del-sud-crociera-da-aswan-a-luxor/",
+      "route": "/it/pacchetti/magia-del-sud-crociera-da-aswan-a-luxor/",
       "price": 650,
       "currency": "EUR",
       "itinerarySteps": 4,
@@ -266,7 +266,7 @@
       "noindex": false
     },
     {
-      "route": "/it/packages/magia-notturna-sul-nilo-crociera-vip-con-cena-e-spettacolo/",
+      "route": "/it/pacchetti/magia-notturna-sul-nilo-crociera-vip-con-cena-e-spettacolo/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -274,7 +274,7 @@
       "noindex": false
     },
     {
-      "route": "/it/packages/mille-e-una-notte-fuga-romantica/",
+      "route": "/it/pacchetti/mille-e-una-notte-fuga-romantica/",
       "price": 180,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -282,7 +282,7 @@
       "noindex": false
     },
     {
-      "route": "/it/packages/sharm-confidential-l-esperienza-totale/",
+      "route": "/it/pacchetti/sharm-confidential-l-esperienza-totale/",
       "price": 200,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -578,7 +578,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/adrenalina-entre-cielo-y-mar-parasailing-y-juegos-acuaticos/",
+      "route": "/es/excursiones/adrenalina-entre-cielo-y-mar-parasailing-y-juegos-acuaticos/",
       "price": 45,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -586,7 +586,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/albatros-aqua-park-el-reino-del-agua/",
+      "route": "/es/excursiones/albatros-aqua-park-el-reino-del-agua/",
       "price": 50,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -594,7 +594,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/aventura-en-dahab-blue-hole-camellos-y-canon/",
+      "route": "/es/excursiones/aventura-en-dahab-blue-hole-camellos-y-canon/",
       "price": 40,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -602,7 +602,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/aventura-en-el-monte-sinai-amanecer-sagrado-y-monasterio/",
+      "route": "/es/excursiones/aventura-en-el-monte-sinai-amanecer-sagrado-y-monasterio/",
       "price": 70,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -610,7 +610,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/barco-privado-vip-el-rey-del-mar-rojo/",
+      "route": "/es/excursiones/barco-privado-vip-el-rey-del-mar-rojo/",
       "price": 80,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -618,7 +618,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/cena-romantica-vip-1001-noches/",
+      "route": "/es/excursiones/cena-romantica-vip-1001-noches/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -626,7 +626,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/el-cairo-en-autobus-aventura-inteligente-y-tu-eleccion/",
+      "route": "/es/excursiones/el-cairo-en-autobus-aventura-inteligente-y-tu-eleccion/",
       "price": 80,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -634,7 +634,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/el-cairo-en-avion-piramides-y-el-museo-que-tu-elijas/",
+      "route": "/es/excursiones/el-cairo-en-avion-piramides-y-el-museo-que-tu-elijas/",
       "price": 230,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -642,7 +642,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/espectaculo-de-delfines-emociones-para-toda-la-familia/",
+      "route": "/es/excursiones/espectaculo-de-delfines-emociones-para-toda-la-familia/",
       "price": 25,
       "currency": "EUR",
       "itinerarySteps": 4,
@@ -650,7 +650,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/explora-la-naturaleza-de-ras-mohammed-el-parque-por-tierra/",
+      "route": "/es/excursiones/explora-la-naturaleza-de-ras-mohammed-el-parque-por-tierra/",
       "price": 30,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -658,7 +658,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/isla-de-tiran-vip-pecios-y-arrecifes-de-coral/",
+      "route": "/es/excursiones/isla-de-tiran-vip-pecios-y-arrecifes-de-coral/",
       "price": 40,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -666,7 +666,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/luxor-en-avion-valle-de-los-reyes-y-templos-dorados/",
+      "route": "/es/excursiones/luxor-en-avion-valle-de-los-reyes-y-templos-dorados/",
       "price": 240,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -674,7 +674,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/moto-safari-quad-atardecer-y-valle-del-eco/",
+      "route": "/es/excursiones/moto-safari-quad-atardecer-y-valle-del-eco/",
       "price": 30,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -682,7 +682,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/nadar-con-delfines-amor-a-primera-vista/",
+      "route": "/es/excursiones/nadar-con-delfines-amor-a-primera-vista/",
       "price": 75,
       "currency": "EUR",
       "itinerarySteps": 4,
@@ -690,7 +690,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/noche-magica-cena-de-marisco-y-espectaculo-oriental/",
+      "route": "/es/excursiones/noche-magica-cena-de-marisco-y-espectaculo-oriental/",
       "price": 35,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -698,7 +698,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/petra-la-ciudad-rosa-una-de-las-7-maravillas-del-mundo/",
+      "route": "/es/excursiones/petra-la-ciudad-rosa-una-de-las-7-maravillas-del-mundo/",
       "price": 270,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -706,7 +706,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/ras-mohammed-e-isla-blanca-la-experiencia-vip/",
+      "route": "/es/excursiones/ras-mohammed-e-isla-blanca-la-experiencia-vip/",
       "price": 40,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -714,7 +714,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/santa-catalina-el-monasterio-sagrado-clasico-y-vip/",
+      "route": "/es/excursiones/santa-catalina-el-monasterio-sagrado-clasico-y-vip/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -722,7 +722,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/sea-scope-el-cine-submarino/",
+      "route": "/es/excursiones/sea-scope-el-cine-submarino/",
       "price": 45,
       "currency": "EUR",
       "itinerarySteps": 4,
@@ -730,7 +730,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/sina-dream-vip-el-velero-de-lujo/",
+      "route": "/es/excursiones/sina-dream-vip-el-velero-de-lujo/",
       "price": 70,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -738,7 +738,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/super-safari-los-5-sentidos-del-sinai/",
+      "route": "/es/excursiones/super-safari-los-5-sentidos-del-sinai/",
       "price": 55,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -746,7 +746,7 @@
       "noindex": false
     },
     {
-      "route": "/es/tours/viejo-sharm-mezquita-moda-y-la-india-de-egipto/",
+      "route": "/es/excursiones/viejo-sharm-mezquita-moda-y-la-india-de-egipto/",
       "price": 25,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -754,7 +754,7 @@
       "noindex": false
     },
     {
-      "route": "/es/packages/aventura-al-atardecer-safari-en-quad-y-camellos-en-las-piramides/",
+      "route": "/es/paquetes/aventura-al-atardecer-safari-en-quad-y-camellos-en-las-piramides/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -762,7 +762,7 @@
       "noindex": false
     },
     {
-      "route": "/es/packages/crucero-real-por-el-nilo-de-luxor-a-asuan/",
+      "route": "/es/paquetes/crucero-real-por-el-nilo-de-luxor-a-asuan/",
       "price": 750,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -770,7 +770,7 @@
       "noindex": false
     },
     {
-      "route": "/es/packages/dolce-vita-familia-y-relax/",
+      "route": "/es/paquetes/dolce-vita-familia-y-relax/",
       "price": 160,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -778,7 +778,7 @@
       "noindex": false
     },
     {
-      "route": "/es/packages/el-cairo-mistico-cristianismo-copto-y-patrimonio-islamico/",
+      "route": "/es/paquetes/el-cairo-mistico-cristianismo-copto-y-patrimonio-islamico/",
       "price": 50,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -786,7 +786,7 @@
       "noindex": false
     },
     {
-      "route": "/es/packages/el-corazon-de-el-cairo-museo-egipcio-ciudadela-y-jan-el-jalili/",
+      "route": "/es/paquetes/el-corazon-de-el-cairo-museo-egipcio-ciudadela-y-jan-el-jalili/",
       "price": 55,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -794,7 +794,7 @@
       "noindex": false
     },
     {
-      "route": "/es/packages/el-gran-azul-tesoros-del-mar-rojo/",
+      "route": "/es/paquetes/el-gran-azul-tesoros-del-mar-rojo/",
       "price": 180,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -802,7 +802,7 @@
       "noindex": false
     },
     {
-      "route": "/es/packages/el-gran-circuito-faraonico-el-cairo-y-la-magia-del-nilo-8-dias/",
+      "route": "/es/paquetes/el-gran-circuito-faraonico-el-cairo-y-la-magia-del-nilo-8-dias/",
       "price": 1450,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -810,7 +810,7 @@
       "noindex": false
     },
     {
-      "route": "/es/packages/escapada-mediterranea-excursion-de-dia-completo-a-alejandria/",
+      "route": "/es/paquetes/escapada-mediterranea-excursion-de-dia-completo-a-alejandria/",
       "price": 85,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -818,7 +818,7 @@
       "noindex": false
     },
     {
-      "route": "/es/packages/grandeza-eterna-piramides-de-guiza-esfinge-y-saqqara/",
+      "route": "/es/paquetes/grandeza-eterna-piramides-de-guiza-esfinge-y-saqqara/",
       "price": 65,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -826,7 +826,7 @@
       "noindex": false
     },
     {
-      "route": "/es/packages/indiana-jones-adrenalina-pura/",
+      "route": "/es/paquetes/indiana-jones-adrenalina-pura/",
       "price": 160,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -834,7 +834,7 @@
       "noindex": false
     },
     {
-      "route": "/es/packages/las-mil-y-una-noches-escapada-romantica/",
+      "route": "/es/paquetes/las-mil-y-una-noches-escapada-romantica/",
       "price": 180,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -842,7 +842,7 @@
       "noindex": false
     },
     {
-      "route": "/es/packages/magia-del-sur-crucero-de-asuan-a-luxor/",
+      "route": "/es/paquetes/magia-del-sur-crucero-de-asuan-a-luxor/",
       "price": 650,
       "currency": "EUR",
       "itinerarySteps": 4,
@@ -850,7 +850,7 @@
       "noindex": false
     },
     {
-      "route": "/es/packages/magia-nocturna-en-el-nilo-crucero-vip-con-cena-y-espectaculo/",
+      "route": "/es/paquetes/magia-nocturna-en-el-nilo-crucero-vip-con-cena-y-espectaculo/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -858,7 +858,7 @@
       "noindex": false
     },
     {
-      "route": "/es/packages/sharm-confidential-la-experiencia-total/",
+      "route": "/es/paquetes/sharm-confidential-la-experiencia-total/",
       "price": 200,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -866,7 +866,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/adrenalina-entre-ceu-e-mar-parasailing-e-diversoes-aquaticas/",
+      "route": "/pt/excursoes/adrenalina-entre-ceu-e-mar-parasailing-e-diversoes-aquaticas/",
       "price": 45,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -874,7 +874,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/albatros-aqua-park-o-reino-da-agua/",
+      "route": "/pt/excursoes/albatros-aqua-park-o-reino-da-agua/",
       "price": 50,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -882,7 +882,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/aventura-em-dahab-blue-hole-camelos-e-desfiladeiro/",
+      "route": "/pt/excursoes/aventura-em-dahab-blue-hole-camelos-e-desfiladeiro/",
       "price": 40,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -890,7 +890,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/aventura-no-monte-sinai-nascer-do-sol-sagrado-e-mosteiro/",
+      "route": "/pt/excursoes/aventura-no-monte-sinai-nascer-do-sol-sagrado-e-mosteiro/",
       "price": 70,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -898,7 +898,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/barco-privado-vip-o-rei-do-mar-vermelho/",
+      "route": "/pt/excursoes/barco-privado-vip-o-rei-do-mar-vermelho/",
       "price": 80,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -906,7 +906,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/cairo-de-autocarro-aventura-inteligente-e-a-sua-escolha/",
+      "route": "/pt/excursoes/cairo-de-autocarro-aventura-inteligente-e-a-sua-escolha/",
       "price": 80,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -914,7 +914,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/cairo-de-aviao-piramides-e-o-museu-que-escolher/",
+      "route": "/pt/excursoes/cairo-de-aviao-piramides-e-o-museu-que-escolher/",
       "price": 230,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -922,7 +922,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/espetaculo-de-golfinhos-emocoes-para-toda-a-familia/",
+      "route": "/pt/excursoes/espetaculo-de-golfinhos-emocoes-para-toda-a-familia/",
       "price": 25,
       "currency": "EUR",
       "itinerarySteps": 4,
@@ -930,7 +930,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/explorar-a-natureza-de-ras-mohammed-o-parque-por-terra/",
+      "route": "/pt/excursoes/explorar-a-natureza-de-ras-mohammed-o-parque-por-terra/",
       "price": 30,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -938,7 +938,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/ilha-de-tiran-vip-naufragios-e-recifes-de-coral/",
+      "route": "/pt/excursoes/ilha-de-tiran-vip-naufragios-e-recifes-de-coral/",
       "price": 40,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -946,7 +946,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/jantar-romantico-vip-1001-noites/",
+      "route": "/pt/excursoes/jantar-romantico-vip-1001-noites/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -954,7 +954,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/luxor-de-aviao-vale-dos-reis-e-templos-dourados/",
+      "route": "/pt/excursoes/luxor-de-aviao-vale-dos-reis-e-templos-dourados/",
       "price": 240,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -962,7 +962,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/moto-safari-moto-quatro-por-do-sol-e-vale-do-eco/",
+      "route": "/pt/excursoes/moto-safari-moto-quatro-por-do-sol-e-vale-do-eco/",
       "price": 30,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -970,7 +970,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/nadar-com-golfinhos-amor-a-primeira-vista/",
+      "route": "/pt/excursoes/nadar-com-golfinhos-amor-a-primeira-vista/",
       "price": 75,
       "currency": "EUR",
       "itinerarySteps": 4,
@@ -978,7 +978,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/noite-magica-jantar-de-marisco-e-espetaculo-oriental/",
+      "route": "/pt/excursoes/noite-magica-jantar-de-marisco-e-espetaculo-oriental/",
       "price": 35,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -986,7 +986,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/petra-a-cidade-rosa-uma-das-7-maravilhas-do-mundo/",
+      "route": "/pt/excursoes/petra-a-cidade-rosa-uma-das-7-maravilhas-do-mundo/",
       "price": 270,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -994,7 +994,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/ras-mohammed-e-ilha-branca-a-experiencia-vip/",
+      "route": "/pt/excursoes/ras-mohammed-e-ilha-branca-a-experiencia-vip/",
       "price": 40,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -1002,7 +1002,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/santa-catarina-o-mosteiro-sagrado-classico-e-vip/",
+      "route": "/pt/excursoes/santa-catarina-o-mosteiro-sagrado-classico-e-vip/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1010,7 +1010,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/sea-scope-o-cinema-subaquatico/",
+      "route": "/pt/excursoes/sea-scope-o-cinema-subaquatico/",
       "price": 45,
       "currency": "EUR",
       "itinerarySteps": 4,
@@ -1018,7 +1018,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/sina-dream-vip-o-veleiro-de-luxo/",
+      "route": "/pt/excursoes/sina-dream-vip-o-veleiro-de-luxo/",
       "price": 70,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1026,7 +1026,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/super-safari-os-5-sentidos-do-sinai/",
+      "route": "/pt/excursoes/super-safari-os-5-sentidos-do-sinai/",
       "price": 55,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -1034,7 +1034,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/tours/velha-sharm-mesquita-moda-e-a-india-do-egito/",
+      "route": "/pt/excursoes/velha-sharm-mesquita-moda-e-a-india-do-egito/",
       "price": 25,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1042,7 +1042,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/packages/as-mil-e-uma-noites-escapadinha-romantica/",
+      "route": "/pt/pacotes/as-mil-e-uma-noites-escapadinha-romantica/",
       "price": 180,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1050,7 +1050,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/packages/aventura-ao-por-do-sol-safari-de-moto-quatro-e-camelos-nas-piramides/",
+      "route": "/pt/pacotes/aventura-ao-por-do-sol-safari-de-moto-quatro-e-camelos-nas-piramides/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1058,7 +1058,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/packages/cairo-mistico-cristianismo-copta-e-patrimonio-islamico/",
+      "route": "/pt/pacotes/cairo-mistico-cristianismo-copta-e-patrimonio-islamico/",
       "price": 50,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1066,7 +1066,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/packages/cruzeiro-real-no-nilo-de-luxor-a-assuao/",
+      "route": "/pt/pacotes/cruzeiro-real-no-nilo-de-luxor-a-assuao/",
       "price": 750,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1074,7 +1074,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/packages/dolce-vita-familia-e-descanso/",
+      "route": "/pt/pacotes/dolce-vita-familia-e-descanso/",
       "price": 160,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1082,7 +1082,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/packages/escapadinha-mediterranica-excursao-de-dia-inteiro-a-alexandria/",
+      "route": "/pt/pacotes/escapadinha-mediterranica-excursao-de-dia-inteiro-a-alexandria/",
       "price": 85,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -1090,7 +1090,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/packages/grandeza-eterna-piramides-de-gize-esfinge-e-sacara/",
+      "route": "/pt/pacotes/grandeza-eterna-piramides-de-gize-esfinge-e-sacara/",
       "price": 65,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1098,7 +1098,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/packages/indiana-jones-adrenalina-pura/",
+      "route": "/pt/pacotes/indiana-jones-adrenalina-pura/",
       "price": 160,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1106,7 +1106,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/packages/magia-do-sul-cruzeiro-de-assuao-a-luxor/",
+      "route": "/pt/pacotes/magia-do-sul-cruzeiro-de-assuao-a-luxor/",
       "price": 650,
       "currency": "EUR",
       "itinerarySteps": 4,
@@ -1114,7 +1114,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/packages/magia-noturna-no-nilo-cruzeiro-vip-com-jantar-e-espetaculo/",
+      "route": "/pt/pacotes/magia-noturna-no-nilo-cruzeiro-vip-com-jantar-e-espetaculo/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1122,7 +1122,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/packages/o-coracao-do-cairo-museu-egipcio-cidadela-e-khan-el-khalili/",
+      "route": "/pt/pacotes/o-coracao-do-cairo-museu-egipcio-cidadela-e-khan-el-khalili/",
       "price": 55,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1130,7 +1130,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/packages/o-grande-azul-tesouros-do-mar-vermelho/",
+      "route": "/pt/pacotes/o-grande-azul-tesouros-do-mar-vermelho/",
       "price": 180,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1138,7 +1138,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/packages/o-grande-circuito-faraonico-cairo-e-a-magia-do-nilo-8-dias/",
+      "route": "/pt/pacotes/o-grande-circuito-faraonico-cairo-e-a-magia-do-nilo-8-dias/",
       "price": 1450,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1146,7 +1146,7 @@
       "noindex": false
     },
     {
-      "route": "/pt/packages/sharm-confidential-a-experiencia-total/",
+      "route": "/pt/pacotes/sharm-confidential-a-experiencia-total/",
       "price": 200,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1154,7 +1154,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/adrenalin-in-luft-und-wasser-parasailing-und-wasserspass/",
+      "route": "/de/ausfluege/adrenalin-in-luft-und-wasser-parasailing-und-wasserspass/",
       "price": 45,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1162,7 +1162,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/albatros-aqua-park-das-wasserreich/",
+      "route": "/de/ausfluege/albatros-aqua-park-das-wasserreich/",
       "price": 50,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1170,7 +1170,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/alt-sharm-moschee-mode-und-das-indien-agyptens/",
+      "route": "/de/ausfluege/alt-sharm-moschee-mode-und-das-indien-agyptens/",
       "price": 25,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1178,7 +1178,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/dahab-abenteuer-blue-hole-kamele-und-canyon/",
+      "route": "/de/ausfluege/dahab-abenteuer-blue-hole-kamele-und-canyon/",
       "price": 40,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -1186,7 +1186,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/delfinshow-begeisterung-fur-die-ganze-familie/",
+      "route": "/de/ausfluege/delfinshow-begeisterung-fur-die-ganze-familie/",
       "price": 25,
       "currency": "EUR",
       "itinerarySteps": 4,
@@ -1194,7 +1194,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/kairo-mit-dem-bus-preisbewusstes-abenteuer-nach-deiner-wahl/",
+      "route": "/de/ausfluege/kairo-mit-dem-bus-preisbewusstes-abenteuer-nach-deiner-wahl/",
       "price": 80,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -1202,7 +1202,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/kairo-per-flugzeug-pyramiden-und-dein-wunschmuseum/",
+      "route": "/de/ausfluege/kairo-per-flugzeug-pyramiden-und-dein-wunschmuseum/",
       "price": 230,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1210,7 +1210,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/katharinenkloster-das-heilige-kloster-klassisch-und-vip/",
+      "route": "/de/ausfluege/katharinenkloster-das-heilige-kloster-klassisch-und-vip/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1218,7 +1218,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/luxor-per-flugzeug-tal-der-konige-und-goldene-tempel/",
+      "route": "/de/ausfluege/luxor-per-flugzeug-tal-der-konige-und-goldene-tempel/",
       "price": 240,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1226,7 +1226,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/magic-night-meeresfruchte-dinner-und-orientalische-show/",
+      "route": "/de/ausfluege/magic-night-meeresfruchte-dinner-und-orientalische-show/",
       "price": 35,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1234,7 +1234,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/moto-safari-quad-sonnenuntergang-und-echotal/",
+      "route": "/de/ausfluege/moto-safari-quad-sonnenuntergang-und-echotal/",
       "price": 30,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1242,7 +1242,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/petra-die-rosarote-stadt-eines-der-7-weltwunder/",
+      "route": "/de/ausfluege/petra-die-rosarote-stadt-eines-der-7-weltwunder/",
       "price": 270,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -1250,7 +1250,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/privatboot-vip-der-konig-des-roten-meeres/",
+      "route": "/de/ausfluege/privatboot-vip-der-konig-des-roten-meeres/",
       "price": 80,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1258,7 +1258,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/ras-mohammed-nature-explorer-den-nationalpark-an-land-entdecken/",
+      "route": "/de/ausfluege/ras-mohammed-nature-explorer-den-nationalpark-an-land-entdecken/",
       "price": 30,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1266,7 +1266,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/ras-mohammed-und-die-weisse-insel-das-vip-erlebnis/",
+      "route": "/de/ausfluege/ras-mohammed-und-die-weisse-insel-das-vip-erlebnis/",
       "price": 40,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -1274,7 +1274,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/romantisches-vip-dinner-1001-nacht/",
+      "route": "/de/ausfluege/romantisches-vip-dinner-1001-nacht/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1282,7 +1282,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/schwimmen-mit-delfinen-liebe-auf-den-ersten-blick/",
+      "route": "/de/ausfluege/schwimmen-mit-delfinen-liebe-auf-den-ersten-blick/",
       "price": 75,
       "currency": "EUR",
       "itinerarySteps": 4,
@@ -1290,7 +1290,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/sea-scope-das-unterwasserkino/",
+      "route": "/de/ausfluege/sea-scope-das-unterwasserkino/",
       "price": 45,
       "currency": "EUR",
       "itinerarySteps": 4,
@@ -1298,7 +1298,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/sina-dream-vip-die-luxus-segelyacht/",
+      "route": "/de/ausfluege/sina-dream-vip-die-luxus-segelyacht/",
       "price": 70,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1306,7 +1306,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/sinai-abenteuer-heiliger-sonnenaufgang-und-kloster/",
+      "route": "/de/ausfluege/sinai-abenteuer-heiliger-sonnenaufgang-und-kloster/",
       "price": 70,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1314,7 +1314,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/super-safari-die-5-sinne-des-sinai/",
+      "route": "/de/ausfluege/super-safari-die-5-sinne-des-sinai/",
       "price": 55,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -1322,7 +1322,7 @@
       "noindex": false
     },
     {
-      "route": "/de/tours/tiran-insel-vip-schiffswracks-und-korallenriffe/",
+      "route": "/de/ausfluege/tiran-insel-vip-schiffswracks-und-korallenriffe/",
       "price": 40,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1330,7 +1330,7 @@
       "noindex": false
     },
     {
-      "route": "/de/packages/abenteuer-im-sonnenuntergang-quad-safari-und-kamele-bei-den-pyramiden/",
+      "route": "/de/reisepakete/abenteuer-im-sonnenuntergang-quad-safari-und-kamele-bei-den-pyramiden/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1338,7 +1338,7 @@
       "noindex": false
     },
     {
-      "route": "/de/packages/auszeit-am-mittelmeer-ganztagestour-nach-alexandria/",
+      "route": "/de/reisepakete/auszeit-am-mittelmeer-ganztagestour-nach-alexandria/",
       "price": 85,
       "currency": "EUR",
       "itinerarySteps": 7,
@@ -1346,7 +1346,7 @@
       "noindex": false
     },
     {
-      "route": "/de/packages/das-grosse-blau-schatze-des-roten-meeres/",
+      "route": "/de/reisepakete/das-grosse-blau-schatze-des-roten-meeres/",
       "price": 180,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1354,7 +1354,7 @@
       "noindex": false
     },
     {
-      "route": "/de/packages/die-grosse-pharaonenreise-kairo-und-nilzauber-8-tage/",
+      "route": "/de/reisepakete/die-grosse-pharaonenreise-kairo-und-nilzauber-8-tage/",
       "price": 1450,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1362,7 +1362,7 @@
       "noindex": false
     },
     {
-      "route": "/de/packages/dolce-vita-familie-und-entspannung/",
+      "route": "/de/reisepakete/dolce-vita-familie-und-entspannung/",
       "price": 160,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1370,7 +1370,7 @@
       "noindex": false
     },
     {
-      "route": "/de/packages/ewige-grosse-pyramiden-von-gizeh-sphinx-und-sakkara/",
+      "route": "/de/reisepakete/ewige-grosse-pyramiden-von-gizeh-sphinx-und-sakkara/",
       "price": 65,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1378,7 +1378,7 @@
       "noindex": false
     },
     {
-      "route": "/de/packages/indiana-jones-pures-adrenalin/",
+      "route": "/de/reisepakete/indiana-jones-pures-adrenalin/",
       "price": 160,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1386,7 +1386,7 @@
       "noindex": false
     },
     {
-      "route": "/de/packages/kairos-pulsierendes-herz-agyptisches-museum-zitadelle-und-khan-el-khalili/",
+      "route": "/de/reisepakete/kairos-pulsierendes-herz-agyptisches-museum-zitadelle-und-khan-el-khalili/",
       "price": 55,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1394,7 +1394,7 @@
       "noindex": false
     },
     {
-      "route": "/de/packages/konigliche-nilkreuzfahrt-von-luxor-nach-assuan/",
+      "route": "/de/reisepakete/konigliche-nilkreuzfahrt-von-luxor-nach-assuan/",
       "price": 750,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1402,7 +1402,7 @@
       "noindex": false
     },
     {
-      "route": "/de/packages/mystisches-kairo-koptisches-christentum-und-islamisches-erbe/",
+      "route": "/de/reisepakete/mystisches-kairo-koptisches-christentum-und-islamisches-erbe/",
       "price": 50,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1410,7 +1410,7 @@
       "noindex": false
     },
     {
-      "route": "/de/packages/nachtliche-magie-auf-dem-nil-vip-dinner-bootsfahrt-und-show/",
+      "route": "/de/reisepakete/nachtliche-magie-auf-dem-nil-vip-dinner-bootsfahrt-und-show/",
       "price": 60,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1418,7 +1418,7 @@
       "noindex": false
     },
     {
-      "route": "/de/packages/sharm-confidential-das-komplette-erlebnis/",
+      "route": "/de/reisepakete/sharm-confidential-das-komplette-erlebnis/",
       "price": 200,
       "currency": "EUR",
       "itinerarySteps": 6,
@@ -1426,7 +1426,7 @@
       "noindex": false
     },
     {
-      "route": "/de/packages/tausendundeine-nacht-romantische-auszeit/",
+      "route": "/de/reisepakete/tausendundeine-nacht-romantische-auszeit/",
       "price": 180,
       "currency": "EUR",
       "itinerarySteps": 5,
@@ -1434,7 +1434,7 @@
       "noindex": false
     },
     {
-      "route": "/de/packages/zauber-des-sudens-kreuzfahrt-von-assuan-nach-luxor/",
+      "route": "/de/reisepakete/zauber-des-sudens-kreuzfahrt-von-assuan-nach-luxor/",
       "price": 650,
       "currency": "EUR",
       "itinerarySteps": 4,

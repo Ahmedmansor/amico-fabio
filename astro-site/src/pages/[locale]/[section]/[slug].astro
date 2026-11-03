@@ -1,0 +1,29 @@
+---
+import {getTourPages} from '../../../features/tours/data/details.mjs';
+import {getPackagePages} from '../../../features/packages/data/details.mjs';
+import {getAddons} from '../../../features/booking/data/addons.mjs';
+import TourCatalogPage from '../../../features/tours/presentation/TourCatalogPage.astro';
+import PackageCatalogPage from '../../../features/packages/presentation/PackageCatalogPage.astro';
+import {catalogPath,catalogAliases} from '../../../shared/domain/catalog-routes';
+export async function getStaticPaths(){
+  const [tours,packages,addons]=await Promise.all([getTourPages(),getPackagePages(),getAddons()]);
+  const tourRoutes=tours.flatMap(page=>{
+    const canonical=catalogPath(page.trip,page.locale,'tours');
+    return [canonical,...catalogAliases(page.trip,page.locale,'tours')].map(path=>{
+      const [,locale,section,slug]=path.split('/');
+      return {params:{locale,section,slug},props:{tourPage:page,packagePage:undefined,addons:addons.filter(addon=>addon.tripId===page.trip.id),redirect:path!==canonical}};
+    });
+  });
+  const packageRoutes=packages.flatMap(page=>{
+    const canonical=catalogPath(page.package,page.locale,'packages');
+    return [canonical,...catalogAliases(page.package,page.locale,'packages')].map(path=>{
+      const [,locale,section,slug]=path.split('/');
+      return {params:{locale,section,slug},props:{tourPage:undefined,packagePage:page,addons:addons.filter(addon=>addon.tripId===page.package.id),redirect:path!==canonical}};
+    });
+  });
+  return [...tourRoutes,...packageRoutes];
+}
+const {tourPage,packagePage,addons,redirect}=Astro.props;
+---
+{tourPage&&<TourCatalogPage page={tourPage} addons={addons} redirect={redirect}/>}
+{packagePage&&<PackageCatalogPage page={packagePage} addons={addons} redirect={redirect}/>}

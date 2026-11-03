@@ -1,3 +1,4 @@
+import {catalogRoutePath} from './catalog-routes.ts';
 /** Only verified catalog/page values enter the graph; no inferred dates or ratings. */
 export interface CatalogSeoInput {
   kind: 'tour' | 'package';
@@ -32,7 +33,7 @@ export function catalogStructuredData(input: CatalogSeoInput, context: CatalogSe
   if (!Number.isFinite(input.adultPrice) || input.adultPrice < 0) throw new Error(`[catalog-seo:${input.slug}] Invalid adultPrice.`);
   const absolute = (path: string) => new URL(path, context.site).href;
   const namespace = input.kind === 'tour' ? 'tours' : 'packages';
-  const url = absolute(`/${input.locale}/${namespace}/${input.slug}/`);
+  const url = absolute(catalogRoutePath(input.locale,namespace,input.slug));
   const name = catalogPlainText(input.title), description = catalogPlainText(input.description);
   const image = { '@type': 'ImageObject', url: new URL(context.image.src, context.assetOrigin).href,
     width: context.image.width, height: context.image.height, caption: name };
@@ -48,8 +49,8 @@ export function catalogStructuredData(input: CatalogSeoInput, context: CatalogSe
           item: { '@type': 'Thing', name: catalogPlainText(step.activity),
             description: catalogPlainText(`${step.time}: ${step.details}`) } })) },
       ...(input.included?.length ? { subTrip: input.included.map(trip => ({ '@type': 'TouristTrip',
-        '@id': `${absolute(`/${input.locale}/tours/${trip.slug}/`)}#trip`,
-        url: absolute(`/${input.locale}/tours/${trip.slug}/`), name: catalogPlainText(trip.title) })) } : {}),
+        '@id': `${absolute(catalogRoutePath(input.locale,'tours',trip.slug))}#trip`,
+        url: absolute(catalogRoutePath(input.locale,'tours',trip.slug)), name: catalogPlainText(trip.title) })) } : {}),
     },
     { '@type': 'BreadcrumbList', '@id': `${url}#breadcrumb`, itemListElement: [
       { name: context.homeLabel, item: absolute(`/${input.locale}/`) },

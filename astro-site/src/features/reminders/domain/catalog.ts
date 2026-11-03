@@ -1,4 +1,5 @@
 import { supportedLocales, type Locale } from '../../../shared/config/languages.ts';
+import {catalogSection} from '../../../shared/domain/catalog-routes.ts';
 
 export interface EmailCatalogItem {
   kind: 'trip' | 'package';
@@ -59,7 +60,7 @@ export function validateEmailCatalog(input: unknown): EmailCatalog {
       if(text?.url!==new URL(path,manifest.origin).href)
         throw new Error(`[email-catalog:${context}] Invalid ${locale} page URL.`);
       if(text.canonical_url!==undefined){
-        const prefix=`${manifest.origin}/${locale}/${item.kind==='trip'?'tours':'packages'}/`;
+        const prefix=`${manifest.origin}/${locale}/${catalogSection(locale,item.kind==='trip'?'tours':'packages')}/`;
         if(typeof text.canonical_url!=='string'||!text.canonical_url.startsWith(prefix)
           || !/^[a-z0-9]+(?:-[a-z0-9]+)*\/$/.test(text.canonical_url.slice(prefix.length))
           || canonicalRoutes.has(text.canonical_url))
