@@ -4,7 +4,8 @@ import vm from 'node:vm';
 import { test } from 'node:test';
 import { fixtureProvider } from '../../../../../qa/data/fixtures.mjs';
 import { getExploreCards, getExploreMessages } from '../../data/explore.mjs';
-import { exploreLocations, selectExploreItems, exploreCategories, paginateExplore, toExploreCard, cardBadge, categoryLabel, validateExploreMessages, restoreExploreState } from '../explore.ts';
+import { exploreLocations, exploreSeo, selectExploreItems, exploreCategories, paginateExplore, toExploreCard, cardBadge, categoryLabel, validateExploreMessages, restoreExploreState } from '../explore.ts';
+import { supportedLocales } from '../../../../shared/config/languages.ts';
 const cards = await getExploreCards(fixtureProvider());
 const context = { window: { addEventListener() {} } };
 vm.createContext(context);
@@ -65,4 +66,17 @@ test('fresh visits reset preferences, returning from details restores them, lang
   assert.deepEqual(restoreExploreState(empty,stored,true,['all','sea']), {sort:'price_desc',category:'sea',page:2});
   assert.deepEqual(restoreExploreState(stored,empty,false,['all','sea']), {sort:'price_desc',category:'sea',page:2});
   assert.deepEqual(restoreExploreState({sort:'invalid',category:'missing',page:'-2'},empty,false,['all']), {sort:'default',category:'all',page:-2});
+});
+
+test('destination metadata is distinct in every published language and missing destinations fail validation', () => {
+  for (const locale of supportedLocales) {
+    const messages = getExploreMessages(locale);
+    const metadata = exploreLocations.map(location => exploreSeo(messages,location));
+    assert.equal(new Set(metadata.map(value => value.title)).size,exploreLocations.length,locale);
+    assert.equal(new Set(metadata.map(value => value.description)).size,exploreLocations.length,locale);
+    assert.deepEqual(metadata[0], {title:messages.seo.title,description:messages.seo.description});
+    const broken = structuredClone(messages);
+    delete broken.seo.destinations.cairo;
+    assert.throws(() => validateExploreMessages(broken,locale), /messages.seo.destinations.cairo/);
+  }
 });

@@ -6,7 +6,7 @@ export type SortOrder = 'default' | 'price_asc' | 'price_desc';
 export interface ExploreSummary { id: string; location: string; category: string; displayPrice: number; score: number; sourceIndex: number }
 export interface ExploreCard extends ExploreSummary { kind: 'trip' | 'package'; offer: Offer }
 export interface ExploreMessages {
-  seo: { title: string; description: string }; title: string;
+  seo: { title: string; description: string; destinations: Record<Exclude<ExploreLocation, 'all'>, { title: string; description: string }> }; title: string;
   sort: { sort_label: string; sort_recommended: string; sort_low_high: string; sort_high_low: string };
   filters: Record<string,string>; badges: Record<string,string>;
   labels: { destination:string; all_destinations:string; price_from: string; discover: string; discover_package: string; premium_package: string; no_exclusive_experiences: string };
@@ -19,7 +19,15 @@ export function validateExploreMessages(messages: ExploreMessages, locale: strin
     else throw new Error(`[explore:${locale}] Invalid required text ${key}.`);
   }
   visit(messages,'messages');
+  for (const location of exploreLocations) {
+    if (location !== 'all' && (!messages.seo.destinations?.[location]?.title?.trim() || !messages.seo.destinations[location].description?.trim())) {
+      throw new Error(`[explore:${locale}] Missing required text messages.seo.destinations.${location}.`);
+    }
+  }
   return messages;
+}
+export function exploreSeo(messages: ExploreMessages, location: ExploreLocation) {
+  return location === 'all' ? { title: messages.seo.title, description: messages.seo.description } : messages.seo.destinations[location];
 }
 export function toExploreCard(offer: Offer, kind: 'trip' | 'package', sourceIndex = 0): ExploreCard {
   return { id: offer.id, location: offer.location, category: offer.category === 'packages' ? 'bundles' : offer.category,

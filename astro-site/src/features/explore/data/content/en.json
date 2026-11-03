@@ -1,7 +1,21 @@
 {
   "seo": {
     "title": "Explore Tours | Fabio Egypt Tours",
-    "description": "Choose your next adventure in Egypt. Private tours in Sharm, Cairo, Luxor and Aswan. The best prices and VIP service."
+    "description": "Choose your next adventure in Egypt. Private tours in Sharm, Cairo, Luxor and Aswan. The best prices and VIP service.",
+    "destinations": {
+      "sharm": {
+        "title": "Explore Tours: Sharm El Sheikh | Fabio Egypt Tours",
+        "description": "Choose your next adventure in Egypt. Private tours in Sharm El Sheikh. The best prices and VIP service."
+      },
+      "cairo": {
+        "title": "Explore Tours: Cairo | Fabio Egypt Tours",
+        "description": "Choose your next adventure in Egypt. Private tours in Cairo. The best prices and VIP service."
+      },
+      "luxor_and_aswan": {
+        "title": "Explore Tours: Luxor and Aswan | Fabio Egypt Tours",
+        "description": "Choose your next adventure in Egypt. Private tours in Luxor and Aswan. The best prices and VIP service."
+      }
+    }
   },
   "title": "Explore Tours",
   "sort": {

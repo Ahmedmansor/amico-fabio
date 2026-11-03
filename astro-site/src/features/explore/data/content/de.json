@@ -1,7 +1,21 @@
 {
   "seo": {
     "title": "Ausflüge entdecken | Fabio Egypt Tours",
-    "description": "Wähle dein nächstes Abenteuer in Ägypten. Private Ausflüge in Sharm, Kairo, Luxor und Assuan. Beste Preise und VIP-Service."
+    "description": "Wähle dein nächstes Abenteuer in Ägypten. Private Ausflüge in Sharm, Kairo, Luxor und Assuan. Beste Preise und VIP-Service.",
+    "destinations": {
+      "sharm": {
+        "title": "Ausflüge entdecken: Sharm El Sheikh | Fabio Egypt Tours",
+        "description": "Wähle dein nächstes Abenteuer in Ägypten. Private Ausflüge in Sharm El Sheikh. Beste Preise und VIP-Service."
+      },
+      "cairo": {
+        "title": "Ausflüge entdecken: Kairo | Fabio Egypt Tours",
+        "description": "Wähle dein nächstes Abenteuer in Ägypten. Private Ausflüge in Kairo. Beste Preise und VIP-Service."
+      },
+      "luxor_and_aswan": {
+        "title": "Ausflüge entdecken: Luxor und Assuan | Fabio Egypt Tours",
+        "description": "Wähle dein nächstes Abenteuer in Ägypten. Private Ausflüge in Luxor und Assuan. Beste Preise und VIP-Service."
+      }
+    }
   },
   "title": "Ausflüge entdecken",
   "sort": {
