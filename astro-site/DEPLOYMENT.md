@@ -8,7 +8,12 @@ restrictions for this launch. Hosting remains static GitHub Pages; Vercel stays
 a separate test environment. Existing Pages currently publishes `gh-pages /`
 with the production CNAME. The new `Astro production Pages` workflow prepares
 an independently validated `astro-site/dist` artifact and deploys only `main`.
-Preparation is verified locally; frontend cutover is not yet claimed complete.
+Preparation commit `a69b504` is pushed and verified locally. GitHub run
+`41559378646` could not start any build step: the account is locked due to a
+billing issue. Main is not merged and Pages still publishes the legacy
+`gh-pages` artifact. Resolve the account lock before rerunning the workflow and
+performing the cutover; no billing or Pages-source setting was changed.
+See `qa/production/github-blocker.json` for the exact API annotation.
 See `qa/production/README.md` and `preparation.json` for public build-variable
 configuration, backend origin verification, real check outputs and rollback.
 Earlier dated entries below describe the preceding test-only state.

@@ -6,6 +6,15 @@ authorization. The existing GitHub Pages hosting and static architecture stay.
 See `preparation.json` and `backend.json` for the actual pre-cutover evidence;
 frontend publication is pending until the Actions deployment is verified.
 
+Preparation commit `a69b504` was pushed. GitHub Actions run
+[41559378646](https://github.com/Ahmedmansor/amico-fabio/actions/runs/41559378646)
+failed before executing any step with: “The job was not started because your
+account is locked due to a billing issue.” See `github-blocker.json`. Main and
+Pages publishing source remain unchanged; no production artifact was replaced.
+The owner must resolve the GitHub account lock, then rerun the branch workflow.
+Only after a successful build should Pages switch to GitHub Actions and the
+migration merge into main. The separate Vercel test project remains unchanged.
+
 ## Release configuration
 
 `.github/workflows/astro-pages.yml` installs only `astro-site/package-lock.json`
