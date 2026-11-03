@@ -35,6 +35,9 @@ begin
 end;
 $$;
 
+-- Trigger-only function: clients must never invoke it directly.
+revoke execute on function public.handle_new_user_onboarding() from public, anon, authenticated;
+
 drop trigger if exists on_auth_user_created_onboarding on auth.users;
 create trigger on_auth_user_created_onboarding
   after insert on auth.users
