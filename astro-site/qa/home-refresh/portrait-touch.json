@@ -1,0 +1,35 @@
+{
+  "origin": "http://127.0.0.1:4347",
+  "results": [
+    {
+      "engine": "webkit",
+      "mode": "mobile",
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "mode": "reduced",
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "mode": "desktop",
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "mode": "mobile",
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "mode": "reduced",
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "mode": "desktop",
+      "passed": true
+    }
+  ]
+}
