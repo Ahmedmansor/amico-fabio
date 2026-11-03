@@ -1,6 +1,11 @@
 export const invitationDismissalMilliseconds = 7 * 24 * 60 * 60 * 1000;
 export const invitationThresholdCount = 2;
 
+export function invitationAllowedOnPath(pathname: string): boolean {
+  const parts=pathname.split('/').filter(Boolean);
+  return parts[0]!=='login'&&parts[1]!=='login'&&parts[1]!=='auth';
+}
+
 export function invitationSuppressed(dismissedAt: number | null, now: number): boolean {
   if (!Number.isSafeInteger(now) || now < 0) throw new Error('[wishlist] A valid current timestamp is required.');
   if (dismissedAt === null) return false;

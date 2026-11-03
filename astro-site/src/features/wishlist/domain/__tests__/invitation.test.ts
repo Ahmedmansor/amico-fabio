@@ -1,5 +1,15 @@
 import {describe,expect,it} from 'vitest';
-import {invitationDismissalMilliseconds,invitationSuppressed,invitationThresholdCount,canShowGuestInvitation} from '../invitation';
+import {invitationDismissalMilliseconds,invitationSuppressed,invitationThresholdCount,canShowGuestInvitation,invitationAllowedOnPath} from '../invitation';
+
+it('never invites users already entering or completing sign-in',()=>{
+  for(const locale of ['it','en','es','pt','de']){
+    expect(invitationAllowedOnPath(`/${locale}/login/`)).toBe(false);
+    expect(invitationAllowedOnPath(`/${locale}/auth/callback/`)).toBe(false);
+    expect(invitationAllowedOnPath(`/${locale}/wishlist/`)).toBe(true);
+    expect(invitationAllowedOnPath(`/${locale}/explore/`)).toBe(true);
+  }
+  expect(invitationAllowedOnPath('/login/')).toBe(false);
+});
 
 describe('optional sign-in invitation suppression',()=>{
   it('allows first invitation and respects exactly seven days after Not now',()=>{

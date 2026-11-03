@@ -106,11 +106,12 @@ export async function initializeAccountWishlist(){
       if(allowed.ok && allowed.value)invitation.hidden=false;
     }
   });
-  document.querySelector('[data-wishlist-invite-dismiss]')?.addEventListener('click',()=>{
+  function closeInvitation(){
     invitationClosed=true;if(invitation)invitation.hidden=true;
     dismissSignInInvitation(browserGuestStorage(),Date.now());
-  });
-  document.querySelector('[data-wishlist-invite-signin]')?.addEventListener('click',()=>{invitationClosed=true;if(invitation)invitation.hidden=true;});
+  }
+  document.querySelector('[data-wishlist-invite-dismiss]')?.addEventListener('click',closeInvitation);
+  document.querySelector('[data-wishlist-invite-signin]')?.addEventListener('click',closeInvitation);
   retry?.addEventListener('click',()=>{void coordinator.merge().then(result=>{if(result.ok)announce();});});
   let currentUser:string|null|undefined;
   function connect(userId:string|null){
