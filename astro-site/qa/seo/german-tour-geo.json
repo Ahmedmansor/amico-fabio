@@ -1,0 +1,189 @@
+{
+  "url": "https://amico-fabio-iyzo.vercel.app/de/tours/ras_mohammed_white_island_vip/",
+  "reachable": true,
+  "httpStatus": 200,
+  "responseMs": 46,
+  "score": 80,
+  "readiness": "Gut",
+  "breakdown": [
+    {
+      "category": "directAnswers",
+      "score": 22,
+      "maxScore": 25
+    },
+    {
+      "category": "structure",
+      "score": 15,
+      "maxScore": 20
+    },
+    {
+      "category": "schemaMarkup",
+      "score": 13,
+      "maxScore": 15
+    },
+    {
+      "category": "citations",
+      "score": 10,
+      "maxScore": 15
+    },
+    {
+      "category": "multimedia",
+      "score": 3,
+      "maxScore": 5
+    },
+    {
+      "category": "platformSpecific",
+      "score": 17,
+      "maxScore": 20
+    }
+  ],
+  "findings": [
+    {
+      "id": "reachable",
+      "label": "Seite erreichbar",
+      "status": "pass",
+      "detail": "HTTP 200 in 46 ms."
+    },
+    {
+      "id": "https",
+      "label": "HTTPS",
+      "status": "pass",
+      "detail": "Die Seite wird über HTTPS ausgeliefert."
+    },
+    {
+      "id": "speed",
+      "label": "Antwortzeit",
+      "status": "pass",
+      "detail": "Erste Antwort nach 46 ms."
+    },
+    {
+      "id": "indexable",
+      "label": "Indexierbar",
+      "status": "fail",
+      "detail": "Die robots-Angabe enthält \"noindex, follow\" - die Seite verbietet die Aufnahme in Suchindizes."
+    },
+    {
+      "id": "snippet",
+      "label": "Textauszüge erlaubt",
+      "status": "pass",
+      "detail": "Kein nosnippet oder max-snippet:0 - Text der Seite darf zitiert werden."
+    },
+    {
+      "id": "ai-bots",
+      "label": "KI-Crawler erlaubt",
+      "status": "pass",
+      "detail": "robots.txt sperrt keinen der relevanten KI-Crawler (GPTBot, ClaudeBot, PerplexityBot, Google-Extended) aus."
+    },
+    {
+      "id": "crawl-delay",
+      "label": "Kein Crawl-delay für Suchagenten",
+      "status": "pass",
+      "detail": "Kein Crawl-delay für Such- und KI-Suchagenten."
+    },
+    {
+      "id": "sitemap",
+      "label": "Sitemap angegeben",
+      "status": "pass",
+      "detail": "robots.txt nennt 1 Sitemap: https://amico-fabio-iyzo.vercel.app/sitemap.xml."
+    },
+    {
+      "id": "title",
+      "label": "Title-Tag",
+      "status": "pass",
+      "detail": "\"Ras Mohammed und die Weiße Insel: Das VIP-Erlebnis | Fabio Egypt\" (64 Zeichen)."
+    },
+    {
+      "id": "meta-description",
+      "label": "Meta-Description",
+      "status": "pass",
+      "detail": "127 Zeichen."
+    },
+    {
+      "id": "h1",
+      "label": "Genau eine H1",
+      "status": "pass",
+      "detail": "Die Seite hat genau eine H1."
+    },
+    {
+      "id": "canonical",
+      "label": "Canonical",
+      "status": "pass",
+      "detail": "Canonical zeigt auf https://fabioegypt.com/de/tours/ras_mohammed_white_island_vip/."
+    },
+    {
+      "id": "schema",
+      "label": "Strukturierte Daten (JSON-LD)",
+      "status": "pass",
+      "detail": "Gefundene Typen: WebPage, ImageObject, TouristTrip, Organization, Offer, ItemList."
+    },
+    {
+      "id": "llms-txt",
+      "label": "llms.txt",
+      "status": "warn",
+      "detail": "Keine llms.txt auf der Domain - optional, aber ein einfaches GEO-Signal."
+    },
+    {
+      "id": "content-volume",
+      "label": "Lesbarer Inhalt",
+      "status": "pass",
+      "detail": "991 Wörter."
+    },
+    {
+      "id": "js-visibility",
+      "label": "Inhalt ohne JavaScript lesbar",
+      "status": "pass",
+      "detail": "Der Inhalt steht im ausgelieferten HTML (991 Wörter) - auch ohne JavaScript lesbar."
+    },
+    {
+      "id": "viewport",
+      "label": "Mobile Viewport",
+      "status": "pass",
+      "detail": "Viewport-Meta vorhanden."
+    },
+    {
+      "id": "html-lang",
+      "label": "Sprache angegeben",
+      "status": "pass",
+      "detail": "Die Seite gibt ihre Sprache mit \"de\" an."
+    },
+    {
+      "id": "social-preview",
+      "label": "Link-Vorschau (Open Graph)",
+      "status": "pass",
+      "detail": "og:title, og:description und og:image sind gesetzt."
+    },
+    {
+      "id": "suggestion",
+      "label": "Indexierbar",
+      "status": "fail",
+      "detail": "Die robots-Angabe enthält \"noindex, follow\" - die Seite verbietet die Aufnahme in Suchindizes."
+    },
+    {
+      "id": "suggestion",
+      "label": "Tabelle",
+      "status": "warn",
+      "detail": "Keine Tabelle - bei Vergleichs- und Preisfragen zitieren KI-Antworten bevorzugt Tabellen."
+    },
+    {
+      "id": "suggestion",
+      "label": "Überschriften als Frage",
+      "status": "warn",
+      "detail": "Keine H2-H4-Überschrift ist als Frage formuliert - formuliere einige so, wie Leser fragen."
+    },
+    {
+      "id": "suggestion",
+      "label": "Unternehmen oder Person ausgewiesen",
+      "status": "warn",
+      "detail": "Organization \"Fabio Egypt\" mit 0 sameAs-Links - verlinke die offiziellen Profile (LinkedIn, Wikipedia, Wikidata), damit KI-Systeme die Marke wiedererkennen."
+    },
+    {
+      "id": "suggestion",
+      "label": "Wer hinter der Seite steht",
+      "status": "warn",
+      "detail": "Verlinkt: Datenschutz - Impressum, Kontakt und Über-uns-Seite zeigen, wer für den Inhalt einsteht."
+    }
+  ],
+  "blockedCrawlers": [],
+  "wordCount": 991,
+  "llmsTxt": false
+}

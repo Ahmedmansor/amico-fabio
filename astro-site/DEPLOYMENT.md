@@ -1,5 +1,23 @@
 # Production and test flavors
 
+## German main site and catalog SEO — 2026-11-03
+
+Application `b085118` is Ready on existing `amico-fabio-test`, deployment
+`dpl_EB6XtWHEAZ5sqqWJPDJF5ddrEsH8` (40s build), stable alias
+https://amico-fabio-iyzo.vercel.app . German entry: `/de/`; tours, packages,
+login, wishlist, planner, destination guides and six existing demo journal
+stories are translated. Campaigns remain Italian-only; fixture safeguards stay.
+
+Local Astro check: 714 files, zero diagnostics. Static noindex/demo build: 358
+pages, 355 canonical/reciprocal checks, 113 editorial link/metadata checks and
+83 editorial JSON-LD checks. All 180 catalog pages passed price/content/schema
+verification. Browser tests: 24 local and 24 deployed mobile/desktop cases.
+All five backend functions and account constraints support German with unchanged
+grants/configuration/consent/recipient scope; native disposable role tests rolled
+back completely. No real email was sent. Hosting variables, main, live domain
+and the production project remain unchanged. See `qa/i18n/GERMAN.md` and
+`supabase/german-language/VERIFICATION.md` for evidence and final user checks.
+
 ## Spanish and European Portuguese — 2026-11-02
 
 Application `062cb09` is Ready on the existing amico-fabio-test project,

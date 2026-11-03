@@ -33,3 +33,19 @@ EXECUTE notice and leaked-password protection warning. These are pre-existing;
 no permissions or Auth provider setting was changed by this language task.
 Reference: https://supabase.com/docs/guides/database/database-linter
 No signup, sign-in, reminder or promotional email was sent during verification.
+
+Final active versions: auth-send-email 9, account-locale 5,
+wishlist-email-preferences 7, wishlist-email-management 4,
+wishlist-reminder-dispatch 9. Each downloaded active file matches the exact
+reviewed deployment payload, including unchanged configuration.json bytes.
+The Auth hook rejects an unsigned POST with HTTP 401. The post-change security
+advisor names/counts match the pre-change snapshot (20 INFO findings, 1 anon
+definer, 5 authenticated definer and 1 leaked-password warning).
+
+Before dispatch activation, the actual hosted test manifest was verified to
+contain all five languages for every one of its 36 catalog records, with the
+expected origin and `test` environment. No sending endpoint was invoked.
+`rollback.sql` reinstates the original allowlists atomically; after customers
+persist German values, the old constraints will deliberately reject rollback
+until those values have a separately reviewed handling plan. Do not silently
+convert customer preferences or remove records to force rollback.
