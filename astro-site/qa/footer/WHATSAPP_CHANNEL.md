@@ -1,5 +1,9 @@
 # Fabio Egypt channel banner — 2026-11-03
 
+Later visual refinement: see CHANNEL_REFINEMENT.md. The rear photo is now a
+text-only channel screen and phones protrude beyond a shorter card. The original
+implementation checkpoint below is retained as verification history.
+
 Owner requested the supplied two-phone WhatsApp channel design above every site
 footer, using Fabio Egypt branding and the existing site theme. The channel does
 not yet exist; only the design is implemented. Not deployed to production.

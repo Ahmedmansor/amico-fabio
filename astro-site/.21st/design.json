@@ -121,7 +121,7 @@
     {
       "choice": "Sitewide Fabio Egypt WhatsApp channel card above every footer",
       "reference": "Owner-supplied two-phone WhatsApp channel HTML mockup, 2026-11-03",
-      "implementation": "Own static Astro feature with local Montserrat/Playfair, navy/gold theme tokens, real logo/catalog photo, scoped CSS and reduced-motion hover. All five site languages; Italian campaigns retain their shells. Empty public channel URL gives a genuine disabled coming-soon state; no fake verified badge, follower count, React, CDN or copied preview scripts."
+      "implementation": "Own static Astro feature with local Montserrat/Playfair, navy/gold theme tokens, real logo and text-only WhatsApp channel screens, a shorter navy card with protruding phones, scoped CSS and reduced-motion hover. All five site languages; Italian campaigns retain their shells. Empty public channel URL gives a genuine disabled coming-soon state; no fake verified badge, follower count, React, CDN or copied preview scripts."
     }
   ],
   "evidence": [

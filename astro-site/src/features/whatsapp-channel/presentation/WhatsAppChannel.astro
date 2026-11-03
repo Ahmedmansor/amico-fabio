@@ -3,7 +3,6 @@ import {Image} from 'astro:assets';
 import type {Locale} from '../../../shared/config/languages';
 import {getWhatsAppChannel} from '../data/channel';
 import logo from '../../../shared/assets/logos/logo-fabio-square.webp';
-import sea from '../../../shared/assets/catalog/trips/sharm/sea/ras_mohammed_white_island_vip/poster.webp';
 import './channel.css';
 interface Props {locale:Locale}
 const {locale}=Astro.props;
@@ -21,7 +20,19 @@ const {name,url,copy,subtitle}=getWhatsAppChannel(locale);
       </div>
     </div>
     <div class="fabio-channel-phones" aria-hidden="true" inert>
-      <div class="fabio-channel-phone fabio-channel-phone-back"><span class="fabio-channel-notch"></span><div class="fabio-channel-phone-top">WhatsApp <span>•••</span></div><Image src={sea} alt="" width={220} height={210} widths={[180,360]} sizes="180px" loading="lazy" class="fabio-channel-photo"/><div class="fabio-channel-photo-copy"><span>{copy.destinations}</span><strong>{name}</strong><p>{copy.description}</p></div><span class="fabio-channel-home"></span></div>
+      <div class="fabio-channel-phone fabio-channel-phone-back">
+        <span class="fabio-channel-notch"></span><div class="fabio-channel-phone-top">WhatsApp <span>•••</span></div>
+        <div class="fabio-channel-screen">
+          <span class="fabio-channel-screen-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m4 10 13-5v14L4 14zM4 10H2v4h2m3 1 1 5h3l-2-5M20 8l2-1m-2 9 2 1m-2-5h3"/></svg></span>
+          <strong class="fabio-channel-screen-title">{copy.label}</strong>
+          <div class="fabio-channel-topics">
+            <div><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m3 20 6-15 5 10 3-6 5 11z"/></svg><span><strong>{copy.phoneTours}</strong><small>{copy.destinations}</small></span></div>
+            <div><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="m15 9-2 4-4 2 2-4z"/></svg><span><strong>{copy.phoneTips}</strong></span></div>
+            <div><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 5h14v11H9l-4 4zM8 9h8m-8 3h5"/></svg><span><strong>{copy.phoneUpdates}</strong></span></div>
+          </div>
+          <span class="fabio-channel-phone-pill">{url?copy.join:copy.pending}</span>
+        </div><span class="fabio-channel-home"></span>
+      </div>
       <div class="fabio-channel-phone fabio-channel-phone-front"><span class="fabio-channel-notch"></span><div class="fabio-channel-phone-top"><span>‹</span>{name}<span>•••</span></div><div class="fabio-channel-profile"><Image src={logo} alt="" width={80} height={80} loading="lazy"/><strong>{name}</strong><span>{subtitle}</span><div class="fabio-channel-profile-rule"></div><p>{copy.description}</p><span class="fabio-channel-phone-pill">{url?copy.join:copy.pending}</span></div><span class="fabio-channel-home"></span></div>
     </div>
   </div>
