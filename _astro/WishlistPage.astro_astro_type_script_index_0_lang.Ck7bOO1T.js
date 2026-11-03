@@ -1,0 +1,1 @@
+import"./wishlist-interactions.Cbl7drvX.js";

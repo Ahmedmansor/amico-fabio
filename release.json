@@ -1,0 +1,10 @@
+{
+  "artifact": "Astro static production",
+  "rollbackTag": "legacy-pages-before-astro-2026-11-03",
+  "sourceCommit": "75ceba8fb639ba953db835d815144d55fed59663",
+  "date": "2026-11-03",
+  "origin": "https://fabioegypt.com",
+  "sourceBranch": "try-to-refactoring-to-astro",
+  "verifiedSitemapUrls": 230,
+  "pages": 248
+}

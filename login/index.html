@@ -1,0 +1,7 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="utf-8"><meta name="robots" content="noindex, follow"><meta http-equiv="refresh" content="0;url=/it/login/"><title>Accedi a Fabio Egypt</title></head><body><a href="/it/login/">Accedi</a><script>
+// Alias keeps only an explicit return-path input; the login page validates it.
+const destination=new URL('/it/login/',location.origin);
+const requested=new URLSearchParams(location.search).get('redirect');
+if(requested)destination.searchParams.set('redirect',requested);
+location.replace(destination.href);
+</script></body></html>
