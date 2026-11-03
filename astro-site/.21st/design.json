@@ -119,6 +119,11 @@
       "implementation": "Contextual 21st search; own Astro/native dialog. Remove six decorative background renders, retain original content images/words, Montserrat body and Playfair headings. Independent card heights, 360px image cap; replace decorative emoji with inline SVG without editing source dictionaries. Unify floating index pill with WhatsApp. Reuse visible-only gallery scheduler; four focused local cases, no broad testing or new dependencies."
     },
     {
+      "choice": "Clean legal reading page, 2026-11-03",
+      "reference": "https://21st.dev/@mohammadshehadeh/components/toc",
+      "implementation": "Owner-authorized legal-page redesign. Existing theme-aware surface/text/border roles, Montserrat/Playfair, restrained cards, 72ch reading measure, sticky desktop summary and native mobile disclosure. Preserve all five dictionaries, section IDs, paragraphs, data chips and icon sources. No React or new dependencies. 21st contextual search succeeded; remote source review was blocked by automatic approval review, so source and visual review stay local."
+    },
+    {
       "choice": "Sitewide Fabio Egypt WhatsApp channel card above every footer",
       "reference": "Owner-supplied two-phone WhatsApp channel HTML mockup, 2026-11-03",
       "implementation": "Own static Astro feature with local Montserrat/Playfair, navy/gold theme tokens, real logo and text-only WhatsApp channel screens, a shorter navy card with protruding phones, scoped CSS and reduced-motion hover. All five site languages; Italian campaigns retain their shells. Empty public channel URL gives a genuine disabled coming-soon state; no fake verified badge, follower count, React, CDN or copied preview scripts."
