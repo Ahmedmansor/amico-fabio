@@ -1,0 +1,52 @@
+{
+  "origin": "http://127.0.0.1:4337",
+  "engine": "WebKit 26.0",
+  "physicalDevice": false,
+  "externalSubmissions": 0,
+  "results": [
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "catalog",
+      "status": "pass",
+      "pageErrors": [],
+      "failedScripts": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "catalog",
+      "status": "pass",
+      "pageErrors": [],
+      "failedScripts": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "catalog",
+      "status": "pass",
+      "pageErrors": [],
+      "failedScripts": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "catalog",
+      "status": "fail",
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   'TypeError: Importing a module script failed.'\n+ ]\n- []\n",
+      "pageErrors": [
+        "TypeError: Importing a module script failed."
+      ],
+      "failedScripts": [
+        {
+          "path": "/_astro/onboarding-cache.DB7PYaMN.js",
+          "error": "Load request cancelled"
+        }
+      ],
+      "syntheticAuthRequests": 0
+    }
+  ]
+}
