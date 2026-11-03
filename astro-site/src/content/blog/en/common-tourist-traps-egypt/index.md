@@ -4,6 +4,7 @@ title: "10 Common Traps Tourists Fall Into in Egypt (And How to Dodge Them)"
 description: "A calmer way to plan Egypt: ten everyday travel pitfalls, practical alternatives and room for the moments that make a trip your own."
 pubDate: "2026-10-28"
 lang: "en"
+translationKey: "demo-common-tourist-traps-egypt"
 destination: "cairo"
 interests: ["tips","history"]
 heroImage: "./hero.webp"

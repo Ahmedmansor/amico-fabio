@@ -4,6 +4,7 @@ title: "When to Go to Egypt: A Month-by-Month Breakdown of Weather and Crowds"
 description: "Think about Egypt by season and travel style, with a month-by-month planning framework for city visits, Nile journeys and time on the coast."
 pubDate: "2026-10-26"
 lang: "en"
+translationKey: "demo-when-to-go-egypt-month-by-month"
 interests: ["tips","stories"]
 heroImage: "./hero.webp"
 heroAlt: "AI-generated editorial illustration for this travel story"

@@ -3,6 +3,7 @@ export const languages = {
   en: { label: 'English', direction: 'ltr', ogLocale: 'en_US', languageTag: 'en-US', blogPublished: true },
   es: { label: 'Español', direction: 'ltr', ogLocale: 'es_ES', languageTag: 'es-ES', blogPublished: false },
   pt: { label: 'Português', direction: 'ltr', ogLocale: 'pt_PT', languageTag: 'pt-PT', blogPublished: false },
+  de: { label: 'Deutsch', direction: 'ltr', ogLocale: 'de_DE', languageTag: 'de-DE', blogPublished: true },
 } as const satisfies Record<string, { label: string; direction: 'ltr' | 'rtl'; ogLocale: string; languageTag: string; blogPublished: boolean }>;
 
 export type Locale = keyof typeof languages;

@@ -33,7 +33,7 @@ describe('account language policy', () => {
   });
   it('rejects ownership, credentials, consent fields, unsupported languages and invalid revisions', () => {
     for (const extra of [{userId: requestId}, {enabled: true}, {token: 'fake'}, {updatedAt: 'fake'},
-      {locale: 'es'}, {locale: 'IT'}, {expectedRevision: -1}, {expectedRevision: 1.5},
+      {locale: 'fr'}, {locale: 'IT'}, {expectedRevision: -1}, {expectedRevision: 1.5},
       {expectedRevision: Number.MAX_SAFE_INTEGER + 1}, {requestId: 'bad'}])
       expect(parseLocaleCommand({...site, ...extra})).toBeNull();
     expect(parseLocaleCommand({...site, kind: 'email_follow_site'})).toBeNull();

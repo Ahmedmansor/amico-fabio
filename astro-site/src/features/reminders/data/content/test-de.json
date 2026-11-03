@@ -1,0 +1,13 @@
+{
+  "title": "Test der Erinnerungs-E-Mail",
+  "description": "Verwendet deine gespeicherte Kontosprache und die echte Erinnerungsvorlage einschließlich Einstellungs- und Abmeldelinks. Ein Test pro gespeicherter Sprache in diesem Testzeitraum; deine automatische Erinnerung wird nicht verbraucht.",
+  "send": "Test-E-Mail senden",
+  "sending": "Deine Favoriten werden gesendet…",
+  "accepted": "Testerinnerung auf {language} angenommen. Prüfe Posteingang, Werbung und Spamordner.",
+  "alreadySent": "Der Test auf {language} wurde in diesem Testzeitraum bereits gesendet. Keine neue E-Mail wurde versendet.",
+  "reminderDisabled": "Speichere unten deine Einwilligung zur Erinnerung und deine Sprache vor dem Test. Versuche es danach erneut.",
+  "failed": "Die Test-E-Mail konnte nicht gesendet werden. Prüfe, ob du das freigegebene Testkonto verwendest.",
+  "unknown": "Das Sendeergebnis konnte nicht bestätigt werden. Prüfe deinen Posteingang, bevor du es erneut versuchst.",
+  "expired": "Dieser Test ist abgelaufen. Ein neuer freigegebener Test ist erforderlich.",
+  "localeUnavailable": "Dieser Testzeitraum verwendet eine andere Sprache. Für die gewählte Sprache ist ein neuer freigegebener Test erforderlich."
+}

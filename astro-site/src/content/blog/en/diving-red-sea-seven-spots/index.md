@@ -4,6 +4,7 @@ title: "Diving the Red Sea: 7 Unmissable Underwater Spots in Egypt"
 description: "Seven names to begin your Red Sea research, with a focus on choosing the right operator, actual trip and experience for your own diving background."
 pubDate: "2026-10-23"
 lang: "en"
+translationKey: "demo-diving-red-sea-seven-spots"
 destination: "sharm"
 interests: ["diving","tips"]
 heroImage: "./hero.webp"

@@ -2,12 +2,13 @@ import it from './content/it.json' with { type: 'json' };
 import en from './content/en.json' with { type: 'json' };
 import es from './content/es.json' with { type: 'json' };
 import pt from './content/pt.json' with { type: 'json' };
+import de from './content/de.json' with { type: 'json' };
 import { defaultLocale, supportedLocales } from '../../../shared/config/languages.ts';
 import { validateTranslations } from '../../../shared/i18n/validate.ts';
 import { getTrips } from '../../tours/data/trips.mjs';
 import { getPackages } from '../../packages/data/packages.mjs';
 import { toExploreCard, categoryLabel, cardBadge, validateExploreMessages } from '../domain/explore.ts';
-const dictionaries = { it, en, es, pt };
+const dictionaries = { it, en, es, pt, de };
 export function getExploreMessages(locale) {
   validateTranslations(dictionaries, supportedLocales, defaultLocale);
   return validateExploreMessages(dictionaries[locale],locale);

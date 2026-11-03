@@ -1,0 +1,208 @@
+{
+  "title": "Rechtliches und Datenschutz",
+  "toc_title": "Übersicht",
+  "toc": [
+    {
+      "id": "intro",
+      "label": "Datenschutzerklärung (DSGVO)"
+    },
+    {
+      "id": "owner",
+      "label": "Verantwortlicher"
+    },
+    {
+      "id": "data_types",
+      "label": "Arten erhobener Daten"
+    },
+    {
+      "id": "method",
+      "label": "Verfahren und Ort der Verarbeitung"
+    },
+    {
+      "id": "purpose",
+      "label": "Zwecke der Datenverarbeitung"
+    },
+    {
+      "id": "cookies",
+      "label": "Cookie-Richtlinie"
+    },
+    {
+      "id": "third_party",
+      "label": "Einzelheiten zur Verarbeitung personenbezogener Daten"
+    },
+    {
+      "id": "motion_data",
+      "label": "Sensordaten"
+    },
+    {
+      "id": "rights",
+      "label": "Nutzerrechte (DSGVO)"
+    },
+    {
+      "id": "liability",
+      "label": "Haftungsbeschränkung und Bedingungen"
+    },
+    {
+      "id": "definitions",
+      "label": "Definitionen und Rechtsgrundlagen"
+    },
+    {
+      "id": "contact",
+      "label": "Kontakt und Anfragen"
+    }
+  ],
+  "summary_items": [
+    {
+      "id": "intro",
+      "label": "Datenschutzerklärung (DSGVO)"
+    },
+    {
+      "id": "owner",
+      "label": "Verantwortlicher"
+    },
+    {
+      "id": "data_types",
+      "label": "Arten erhobener Daten"
+    },
+    {
+      "id": "method",
+      "label": "Verfahren und Ort der Verarbeitung"
+    },
+    {
+      "id": "purpose",
+      "label": "Zwecke der Datenverarbeitung"
+    },
+    {
+      "id": "cookies",
+      "label": "Cookie-Richtlinie"
+    },
+    {
+      "id": "third_party",
+      "label": "Einzelheiten zur Verarbeitung personenbezogener Daten"
+    },
+    {
+      "id": "motion_data",
+      "label": "Sensordaten"
+    },
+    {
+      "id": "rights",
+      "label": "Nutzerrechte (DSGVO)"
+    },
+    {
+      "id": "liability",
+      "label": "Haftungsbeschränkung und Bedingungen"
+    },
+    {
+      "id": "definitions",
+      "label": "Definitionen und Rechtsgrundlagen"
+    },
+    {
+      "id": "contact",
+      "label": "Kontakt und Anfragen"
+    }
+  ],
+  "sections": [
+    {
+      "id": "intro",
+      "heading": "Datenschutzerklärung von www.fabioegypt.com",
+      "paragraphs": [
+        "Willkommen zu unserer Datenschutzerklärung. Sie wurde gemäß der Datenschutz-Grundverordnung (DSGVO – EU 2016/679) erstellt und erklärt, welche Daten wir erheben, warum wir sie erheben und welche Rechte du hast.",
+        "Letzte Aktualisierung: 31. Dezember 2025"
+      ]
+    },
+    {
+      "id": "owner",
+      "heading": "Verantwortlicher",
+      "paragraphs": [
+        "Fabio – Sharm El Sheikh, Ägypten. Der Verantwortliche schützt deine Daten und beantwortet Fragen unter info@fabioegypt.com."
+      ]
+    },
+    {
+      "id": "data_types",
+      "heading": "Arten erhobener Daten",
+      "paragraphs": [
+        "Zu den von dieser Website erhobenen personenbezogenen Daten gehören: Name, Telefonnummer, Nationalität, E-Mail, Nutzungsdaten, Tracking-Werkzeuge, Sitzungsstatistiken und Sensordaten (Gyroskop und Beschleunigungssensor). Daten werden vom Nutzer freiwillig über Formulare bereitgestellt oder automatisch über Google Analytics 4 erhoben."
+      ]
+    },
+    {
+      "id": "method",
+      "heading": "Verfahren und Ort der Verarbeitung erhobener Daten",
+      "paragraphs": [
+        "Der Verantwortliche ergreift geeignete Sicherheitsmaßnahmen gegen unbefugten Zugriff, Offenlegung oder Veränderung der Daten. Die Verarbeitung erfolgt mit IT- und/oder telematischen Werkzeugen.",
+        "Daten werden an den Betriebsstandorten des Verantwortlichen und überall dort verarbeitet, wo sich die beteiligten Parteien befinden (Google-Cloud-Server / GitHub Pages).",
+        "Daten werden so lange verarbeitet und gespeichert, wie es die Erhebungszwecke erfordern, für Marketingzwecke höchstens 24 Monate, sofern die Einwilligung nicht widerrufen wird."
+      ]
+    },
+    {
+      "id": "purpose",
+      "heading": "Zwecke der Datenverarbeitung",
+      "paragraphs": [
+        "Nutzerdaten werden erhoben, damit der Verantwortliche den Dienst anbieten, gesetzlichen Pflichten nachkommen und Anfragen beantworten kann, sowie für folgende Zwecke:",
+        "• Kontakt mit dem Nutzer: Kontaktformular (Google Sheets) und direkte WhatsApp-Integration.",
+        "• Analyse: Überwachung und Auswertung von Verkehrsdaten mit Google Analytics 4.",
+        "• Hosting und Backend-Infrastruktur: GitHub Pages.",
+        "• Anzeige von Inhalten externer Plattformen: Google Fonts und Social Widgets."
+      ]
+    },
+    {
+      "id": "cookies",
+      "heading": "Cookie-Richtlinie",
+      "paragraphs": [
+        "Notwendiger Browserspeicher merkt sich deine Spracheinstellungen. Das Cookie fabio_consent speichert deine Einwilligungsauswahl für 182 Tage.",
+        "Google Analytics wird erst nach deiner Zustimmung zur Analyse geladen. Vimeo-Player laden erst nach Zustimmung zu externen Videos und Auswahl eines Videos. Du kannst optionale Dienste ablehnen und deine Einwilligung über die Cookie-Einstellungen am Ende jeder Seite ändern oder widerrufen. Beim Widerruf der Analyse-Einwilligung wird die Seite neu geladen, um Analytics zu entladen."
+      ]
+    },
+    {
+      "id": "third_party",
+      "heading": "Einzelheiten zur Verarbeitung personenbezogener Daten",
+      "paragraphs": [
+        "Google Analytics 4 (Google LLC): Statistikdienst, der erhobene Daten nutzt, um die Nutzung dieser Website zu verfolgen und auszuwerten. IP-Adressen werden vor der Aufzeichnung anonymisiert.",
+        "WhatsApp Business API: Ermöglicht direkte Kommunikation und den Versand von Rechnungen oder Katalogen. Formulardaten werden an WhatsApp übertragen, um den Chat zu erzeugen.",
+        "Google-Sheets-Integration: Über das Formular „10 Gebote“ erhobene Daten werden zur Anfrageverwaltung auf sicheren Google-Servern gespeichert."
+      ]
+    },
+    {
+      "id": "motion_data",
+      "heading": "Sensordaten und 3D-Erlebnis",
+      "paragraphs": [
+        "Für ein hochwertiges visuelles 3D-Erlebnis bitten wir um Zugriff auf Bewegungssensoren. Diese Daten werden ausschließlich lokal verarbeitet und niemals gespeichert."
+      ]
+    },
+    {
+      "id": "rights",
+      "heading": "Nutzerrechte gemäß DSGVO",
+      "paragraphs": [
+        "Nutzer können bestimmte Rechte bezüglich ihrer verarbeiteten Daten ausüben. Insbesondere haben sie das Recht:",
+        "• Eine Einwilligung jederzeit zu widerrufen.",
+        "• Der Datenverarbeitung zu widersprechen, wenn sie auf einer anderen Rechtsgrundlage als der Einwilligung beruht.",
+        "• Auf ihre Daten zuzugreifen und eine Kopie zu erhalten.",
+        "• Ihre Daten zu prüfen und eine Berichtigung zu verlangen.",
+        "• Die Löschung oder Entfernung ihrer Daten zu verlangen (Recht auf Vergessenwerden).",
+        "• Beschwerde bei der zuständigen Datenschutzbehörde einzulegen."
+      ]
+    },
+    {
+      "id": "liability",
+      "heading": "Haftungsbeschränkung und Bedingungen",
+      "paragraphs": [
+        "Fabio ist Anbieter touristischer Erlebnisse. Wir haften nicht für Vorfälle aufgrund von Fahrlässigkeit der Nutzer oder für den Verlust persönlicher Gegenstände. WhatsApp-Buchungen unterliegen den bei der Kontaktaufnahme genannten Stornobedingungen."
+      ]
+    },
+    {
+      "id": "definitions",
+      "heading": "Definitionen und Rechtsgrundlagen",
+      "paragraphs": [
+        "Personenbezogene Daten: Informationen, die eine natürliche Person identifizieren oder identifizierbar machen. Cookies: kleine Datenmengen, die im Browser des Nutzers gespeichert werden. DSGVO: Datenschutz-Grundverordnung der EU.",
+        "Dieses Dokument betrifft ausschließlich www.fabioegypt.com und soll unseren Gästen größtmögliche Transparenz bieten."
+      ]
+    },
+    {
+      "id": "contact",
+      "heading": "Kontakt und Anfragen",
+      "paragraphs": [
+        "Für rechtliche, datenschutzbezogene oder dienstbezogene Anfragen kontaktiere uns über WhatsApp unter +20 106 323 9261.",
+        "Wir antworten zeitnah und professionell und wahren dabei höchste Servicestandards."
+      ]
+    }
+  ]
+}

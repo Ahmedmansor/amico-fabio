@@ -19,7 +19,7 @@ export function getBookingCountries(locale?:Locale) {
   if(!locale||locale==='it'||locale==='en')return countries;
   const display=new Intl.DisplayNames([languages[locale].languageTag],{type:'region'});
   return countries.map(country=>{
-    if(country.t==='Scotland')return {...country,t:locale==='es'?'Escocia':'Escócia'};
+    if(country.t==='Scotland')return {...country,t:locale==='es'?'Escocia':locale==='de'?'Schottland':'Escócia'};
     const code=countryRegions().get(country.t), label=code&&display.of(code);
     if(!label)throw Error(`[countries:${country.t}] Missing translation for ${locale}.`);
     return {...country,t:label};

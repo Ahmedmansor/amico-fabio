@@ -1,0 +1,14 @@
+{
+  "title": "E-Mail-Sprache",
+  "followSite": "Sprache der Website übernehmen",
+  "save": "Sprache speichern",
+  "retry": "Speichern fortsetzen",
+  "noPreference": "Die zuletzt mit deinem Konto verwendete Website-Sprache ist auch die Sprache zukünftiger E-Mails. Ein Sprachwechsel aktiviert keine Erinnerungen und ändert keine Einwilligung.",
+  "loading": "Spracheinstellungen werden geladen…",
+  "saving": "Sprache wird gespeichert…",
+  "saved": "Sprache gespeichert.",
+  "uncertain": "Deine Auswahl wartet auf Bestätigung. Setze das Speichern fort, um das Ergebnis zu prüfen.",
+  "conflict": "Die Spracheinstellungen wurden an anderer Stelle geändert. Prüfe deine Auswahl, bevor du erneut speicherst.",
+  "failed": "Die Spracheinstellungen konnten nicht geladen werden. Versuche es erneut.",
+  "storageFailed": "Dein Browser konnte die ausstehende Auswahl nicht behalten. Lass diesen Tab geöffnet und versuche es erneut."
+}

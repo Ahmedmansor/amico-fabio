@@ -2,9 +2,10 @@ import it from './content/it.json' with {type:'json'};
 import en from './content/en.json' with {type:'json'};
 import es from './content/es.json' with {type:'json'};
 import pt from './content/pt.json' with {type:'json'};
+import de from './content/de.json' with {type:'json'};
 import {supportedLocales,defaultLocale,isLocale} from '../../../shared/config/languages.ts';
 import {validateTranslations} from '../../../shared/i18n/validate.ts';
-const dictionaries={ it, en, es, pt };
+const dictionaries={ it, en, es, pt, de };
 validateTranslations(dictionaries,supportedLocales,defaultLocale);
 /** @param {import('../../../shared/config/languages.ts').Locale} locale
  * @returns {import('../domain/email.ts').EmailCopy} */

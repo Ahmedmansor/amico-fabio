@@ -4,6 +4,7 @@ title: "Soaring Over Ancient Thebes: The Complete Luxor Hot Air Balloon Guide"
 description: "A thoughtful planning guide to a balloon experience in Luxor: what to ask, how to leave room in your itinerary and what to do afterwards."
 pubDate: "2026-10-25"
 lang: "en"
+translationKey: "demo-luxor-hot-air-balloon-guide"
 destination: "luxor"
 interests: ["history","tips"]
 heroImage: "./hero.webp"

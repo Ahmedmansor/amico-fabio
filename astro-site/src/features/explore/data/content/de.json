@@ -1,0 +1,46 @@
+{
+  "seo": {
+    "title": "Ausflüge entdecken | Fabio Egypt Tours",
+    "description": "Wähle dein nächstes Abenteuer in Ägypten. Private Ausflüge in Sharm, Kairo, Luxor und Assuan. Beste Preise und VIP-Service."
+  },
+  "title": "Ausflüge entdecken",
+  "sort": {
+    "sort_label": "Nach Preis sortieren",
+    "sort_recommended": "Empfohlen (VIP)",
+    "sort_low_high": "Preis: aufsteigend",
+    "sort_high_low": "Preis: absteigend"
+  },
+  "filters": {
+    "all": "Alle",
+    "sea": "Meer",
+    "culture": "Kultur",
+    "desert": "Wüste",
+    "packages": "Reisepakete"
+  },
+  "badges": {
+    "BEST_SELLER": "Bestseller",
+    "LIMITED_TIME": "Nur für begrenzte Zeit",
+    "NEW": "Neu",
+    "TOP_RATED": "Bestbewertet",
+    "FAMILY_FRIENDLY": "Familienfreundlich",
+    "VIP_EXCLUSIVE": "VIP-exklusiv",
+    "CHEAPEST_PRICE": "Günstigster Preis",
+    "RECOMMENDED": "Empfohlen",
+    "POPULAR": "Beliebte Wahl"
+  },
+  "labels": {
+    "destination": "Reiseziel",
+    "all_destinations": "Alle Städte",
+    "price_from": "Ab",
+    "discover": "Entdecken",
+    "discover_package": "Reisepaket entdecken",
+    "premium_package": "Premium-Reisepaket",
+    "no_exclusive_experiences": "Derzeit sind keine exklusiven Erlebnisse verfügbar."
+  },
+  "pagination": {
+    "page": "Seite",
+    "of": "von",
+    "previous": "←",
+    "next": "→"
+  }
+}

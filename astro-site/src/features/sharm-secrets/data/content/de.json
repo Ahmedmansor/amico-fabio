@@ -1,0 +1,184 @@
+{
+  "seo": {
+    "title": "Fabios 10 Gebote – Sharm Secrets",
+    "description": "Entdecke die Geheimnisse von Sharm El Sheikh und vermeide Betrugsmaschen mit den Tipps deines erfahrenen Guides Fabio."
+  },
+  "labels": {
+    "closeIndex": "Inhaltsverzeichnis schließen",
+    "closeGallery": "Galerie schließen",
+    "heroAlt": "Fabio",
+    "farshaAlt": "Farsha Café mit Laternen",
+    "logoAlt": "Fabio-Sharm-Secrets-Logo"
+  },
+  "content": {
+    "nav_index": "Inhaltsverzeichnis",
+    "nav_lang": "DE",
+    "page1": {
+      "headline": "ÜBERLEBENSHANDBUCH",
+      "subtitle": "Die Geheimnisse von Sharm, die dir niemand erzählt. Willkommen im echten Sharm El Sheikh.",
+      "content": "Liebe Reisende, Sharm El Sheikh ist ein Paradies. Ich heiße Fabio, bin Flugbegleiter und offizieller Guide. Mein Handbuch entstand aus Respekt vor deiner Zeit und deinem Geld. Ich habe jedes Detail sorgfältig ausgewählt, damit dein Erlebnis unvergesslich wird. Aus jahrelanger Erfahrung und tiefem Ortswissen habe ich die wertvollsten Insidertipps zusammengestellt. Entdecke ein authentisches, exklusives Sharm ohne Überraschungen. Jeder Tipp beruht auf echter Begeisterung für dieses Land und dem Wunsch, dir das Beste zu zeigen.",
+      "hero_img": "/assets/images/10-comandamenti-images/fabio.webp",
+      "extra_title": "Vom Himmel bis zur Küste hat deine Sicherheit für mich höchste Priorität.",
+      "extra_desc": "Wenn du diese Präzision und Sorgfalt bei jedem Detail deiner Reise schätzt, bin ich für dich da. Wollen wir beginnen?"
+    },
+    "page2": {
+      "headline": "Transparenz und Sicherheit: Der Preis deiner Gelassenheit",
+      "intro": "Ich habe mich entschieden, bei deiner Sicherheit keine Kompromisse einzugehen. Deine Ruhe hat absolute Priorität. Vergiss Unsicherheit und vertraue einem Partner mit sehr hohen Standards: Reisequalität bedeutet vollkommenes Vertrauen, nicht nur Komfort.",
+      "services": [
+        {
+          "name": "🚗 Moderne, hygienisch gereinigte Privatwagen",
+          "desc": "Reise luxuriös und sauber in modernen Fahrzeugen mit einwandfreier Hygiene.",
+          "img": "/assets/images/10-comandamenti-images/modern-sanitized-private-cars.webp",
+          "extra_title": "Der Luxus, den du verdienst, ganz mühelos.",
+          "extra_desc": "Schätzt du reibungslose VIP-Reisen? Meine private Fahrzeugflotte steht bereit. Wähle einfach dein Ziel, ich kümmere mich um den Rest."
+        },
+        {
+          "name": "👮‍♂️ Professionelle Fahrer",
+          "desc": "Am Steuer sitzen ausschließlich erfahrene, vertrauenswürdige Mitarbeiter, die jeden Winkel von Sharm kennen und dich diskret begleiten.",
+          "img": "/assets/images/10-comandamenti-images/autisti-professionisti.webp"
+        },
+        {
+          "name": "⛵ VIP-Schiffe",
+          "desc": "Entdecke das Rote Meer auf exklusiven Yachten mit allem Komfort für unvergessliche Tage.",
+          "img": "/assets/images/10-comandamenti-images/imbarcazioni-vip.webp"
+        }
+      ]
+    },
+    "page3": {
+      "headline": "🛡️ DIE 10 GEBOTE VON FABIO",
+      "intro": "Für ein authentisches, sorgenfreies Erlebnis in Sharm El Sheikh helfen ein paar kleine, aber wichtige Regeln. Sie erklären dir die örtlichen Besonderheiten.",
+      "rules": [
+        {
+          "title": "1. Euromünzen: Nein!",
+          "desc": "Münzen werden hier weder gewechselt noch angenommen. Bring nur Geldscheine mit, auch kleine Stückelungen für tägliche Ausgaben.",
+          "img": "/assets/images/10-comandamenti-images/euro-coins-no.webp"
+        },
+        {
+          "title": "2. SIM-Karten: Nur offizielle Geschäfte",
+          "desc": "Kaufe nur bei autorisierten Händlern wie Orange oder Vodafone, um Überraschungen zu vermeiden und die beste Netzabdeckung zu erhalten.",
+          "img": "/assets/images/10-comandamenti-images/sim-card-solo-negozi-ufficiali.webp"
+        },
+        {
+          "title": "3. Taxis: Preis vorher vereinbaren",
+          "desc": "Vereinbare immer vorher den Preis oder nutze unseren privaten Service mit festen Preisen und Komfort.",
+          "img": "/assets/images/10-comandamenti-images/taxi-prezzo-concordato.webp",
+          "extra_title": "Vermeide Touristenfallen von Anfang an.",
+          "extra_desc": "Taxi? Nein danke. Reise wie ein Insider statt überhöhte Preise zu zahlen. Du suchst sorgenfreien Transport mit festen Preisen und voller Transparenz? Vertraue Fabios Privatservice: Deine Gelassenheit ist unbezahlbar."
+        },
+        {
+          "title": "4. Antinal: Das örtliche Mittel",
+          "desc": "Frage bei leichten Darmbeschwerden in der Apotheke nach Antinal. Ein sehr wirksamer, bekannter örtlicher „Lebensretter“.",
+          "img": "/assets/images/10-comandamenti-images/antinal.webp",
+          "extra_title": "Keine Überraschungen, nur unvergessliche Erinnerungen. Deine Gelassenheit ist mein Versprechen.",
+          "extra_desc": "Du möchtest die echte örtliche Küche sorgenfrei genießen? Halte meinen Kontakt griffbereit und betrachte mich als deinen persönlichen Schutzengel in Sharm."
+        },
+        {
+          "title": "5. Kleidung: Respekt und Stil",
+          "desc": "Außerhalb der Resorts empfiehlt sich dezente Kleidung aus Respekt vor der örtlichen Kultur. Im Resort kannst du deinen Urlaubsstil elegant zeigen.",
+          "img": "/assets/images/10-comandamenti-images/dress-code.webp",
+          "extra_title": "Erlebe die Stadt wie ein Insider.",
+          "extra_desc": "Du möchtest die Geheimnisse der Stadt mit Stil und Respekt entdecken? Lass dich von einem Experten führen, der jeden verborgenen Schatz und Winkel kennt."
+        },
+        {
+          "title": "6. Handeln: Ein unterhaltsames Spiel",
+          "desc": "Auf Souks und Märkten gehört Feilschen dazu. Mit einem Lächeln ist es eine schöne Möglichkeit, die örtliche Kultur kennenzulernen.",
+          "img": "/assets/images/10-comandamenti-images/negoziare.webp",
+          "extra_title": "Erlebe Sharm wie ein Einheimischer.",
+          "extra_desc": "Du möchtest versteckte Schätze mit Stil und Respekt entdecken? Lass dich von jemandem begleiten, der jeden geheimen Winkel dieses Landes kennt."
+        },
+        {
+          "title": "7. Korallen: Natur schützen",
+          "desc": "Korallen sind empfindliche Ökosysteme. Bewundere sie, berühre sie nicht und nimm nichts mit. So bleibt die Schönheit des Roten Meeres für alle erhalten.",
+          "img": "/assets/images/10-comandamenti-images/coralli.webp"
+        },
+        {
+          "title": "8. Bakschisch: Trinkgeldkultur",
+          "desc": "Trinkgeld gehört zur örtlichen Kultur und würdigt guten Service. Zeige deine Wertschätzung mit einer großzügigen Geste.",
+          "img": "/assets/images/10-comandamenti-images/baksheesh.webp"
+        },
+        {
+          "title": "9. WASSER: NUR AUS FLASCHEN",
+          "desc": "Ein freundlicher Rat: Vermeide Leitungswasser unbedingt. Bleib bei verschlossenen Flaschen – es sei denn, du möchtest Antinal als neuen besten Freund kennenlernen! 😉🧊",
+          "img": "/assets/images/10-comandamenti-images/water.webp"
+        },
+        {
+          "title": "10. ENTSPANNEN: LASS DIE UHR ZU HAUSE",
+          "desc": "In Ägypten hat die Zeit ihren eigenen Rhythmus. Vergiss die Eile und genieße das „piano piano“. Dauert etwas länger, begegne ihm mit einem Lächeln: Das gehört zum echten Charme und zur örtlichen Gastfreundschaft.",
+          "img": "/assets/images/10-comandamenti-images/relax.webp"
+        }
+      ]
+    },
+    "page4": {
+      "alert": "⚠️ Ein Rat unter Freunden: Wer den halben Preis verlangt, stiehlt oft deine wertvolle Zeit in Geschäften. Bei mir bezahlst du für Freiheit und einwandfreien Service. Dein Urlaub ist eine Investition in schöne Momente, nicht in anstrengende Verhandlungen.",
+      "list_title": "Deine wichtige Packliste",
+      "intro": "Gute Vorbereitung hilft, dein Abenteuer voll zu genießen. Mit dieser Liste vergisst du nichts Wesentliches.",
+      "items": [
+        {
+          "title": "Natürliche Stoffe",
+          "desc": "Leinen und leichte Baumwolle für stilvollen Komfort in der Hitze.",
+          "icon": "fa-shirt"
+        },
+        {
+          "title": "Wasserschuhe",
+          "desc": "Wichtig zum Schutz deiner Füße im kristallklaren Roten Meer.",
+          "icon": "fa-shoe-prints"
+        },
+        {
+          "title": "Sonnencreme",
+          "desc": "Mit hohem Lichtschutzfaktor, um die Sonne sicher zu genießen.",
+          "icon": "fa-sun"
+        },
+        {
+          "title": "Reisepass und Visa",
+          "desc": "Wichtige Dokumente immer griffbereit für eine reibungslose Reise.",
+          "icon": "fa-passport"
+        }
+      ]
+    },
+    "page5": {
+      "alert": "⚠️ Transparente Preise: Prüfe vor der Bestellung in örtlichen Lokalen immer Eintritts- und Getränkepreise, damit die Rechnung keine Überraschung bringt.",
+      "highlight": "📍 Unbedingt sehen: Farsha Café. Die Seele des alten Kairo.",
+      "body": "Tauche ein in die magische, zeitlose Atmosphäre des Farsha Café, wo ägyptische Geschichte und Kultur zu einem unvergesslichen Erlebnis verschmelzen. Dieses zwischen Felsen verborgene Juwel bietet einen atemberaubenden Blick auf das Rote Meer. Traditionelle Einrichtung und sanfte Beleuchtung schaffen eine einzigartige Stimmung. Genieße Minztee oder eine Wasserpfeife mit örtlicher Musik und Meeresbrise. Mehr als ein Café: eine Reise für die Sinne ins Herz Ägyptens, wo die Zeit stillzustehen scheint und jeder Moment zur wertvollen Erinnerung wird.",
+      "closing": "🌟 Fabio – Dein Freund in Sharm",
+      "img": "/assets/images/10-comandamenti-images/farsha-café.webp"
+    },
+    "page6": {
+      "title": "Die Welt vor Augen, Ägypten im Herzen",
+      "intro": "Warum Fabio wählen? Bevor ich dein Guide wurde, war ich selbst Reisender. Von den großen Boulevards von Paris über den Roten Platz in Moskau bis hoch über die Wolken als Flugbegleiter hat mich ein Leben auf Reisen eines gelehrt: Details machen den Unterschied. Ich biete nicht einfach einen Ausflug, sondern den Blick eines Menschen, der die Seele von Reisenden versteht, neugierig die Welt erkundet und höchste Qualität erwartet.",
+      "items": [
+        {
+          "cap": "✈️ Professionalität in großer Höhe",
+          "img": "/assets/images/adventures/pilot.webp"
+        },
+        {
+          "cap": "🌍 Weltbürger",
+          "img": "/assets/images/adventures/eiffel-tower.webp"
+        },
+        {
+          "cap": "🇷🇺 Neue Kulturen entdecken",
+          "img": "/assets/images/adventures/red-square.webp"
+        },
+        {
+          "cap": "🤿 Entdecker zweier Welten: Himmel und Meer",
+          "img": "/assets/images/adventures/diving.webp"
+        },
+        {
+          "cap": "Der Wildnis direkt begegnen",
+          "img": "/assets/images/adventures/dessert.webp"
+        },
+        {
+          "cap": "Stadtentdecker",
+          "img": "/assets/images/adventures/urbano.webp"
+        },
+        {
+          "cap": "Jede Stadt erzählt eine Geschichte",
+          "img": "/assets/images/adventures/ogni.webp"
+        },
+        {
+          "cap": "Geprüfte Leidenschaft: Advanced Open Water Diver",
+          "img": "/assets/images/adventures/advanced-open-water.webp"
+        }
+      ]
+    }
+  }
+}

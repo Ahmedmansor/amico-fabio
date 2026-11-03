@@ -4,6 +4,7 @@ title: "Exploring Cairo Beyond Giza: The Insider’s City Guide"
 description: "Find a more personal route through Cairo, from museum collections and neighbourhood details to a generous lunch and an evening by the river."
 pubDate: "2026-10-27"
 lang: "en"
+translationKey: "demo-exploring-cairo-beyond-giza"
 destination: "cairo"
 interests: ["history","food"]
 heroImage: "./hero.webp"

@@ -4,6 +4,7 @@ title: "Traditional Nile Cruise vs. Dahabiya: Which Boat Suits Your Travel Style
 description: "Compare the kind of time you want on the Nile, from larger cruise ships to smaller sailing vessels, before choosing an actual itinerary."
 pubDate: "2026-10-24"
 lang: "en"
+translationKey: "demo-nile-cruise-vs-dahabiya"
 destination: "aswan"
 interests: ["stories","tips"]
 heroImage: "./hero.webp"

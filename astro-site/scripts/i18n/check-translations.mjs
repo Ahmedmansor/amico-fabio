@@ -4,7 +4,7 @@ import { validateTranslations } from '../../src/shared/i18n/validate.ts';
 
 const root = resolve('src');
 const drafts = process.argv.includes('--drafts');
-const locales = ['es', 'pt'];
+const locales = ['es', 'pt', 'de'];
 const missing = [];
 let groups = 0;
 

@@ -17,6 +17,7 @@ export const setupMessages = {
   },
   es: { title: 'Fabio Egypt — Astro', status: 'Entorno Astro listo para la migración.' },
   pt: { title: 'Fabio Egypt — Astro', status: 'Ambiente Astro pronto para a migração.' },
+  de: { title: 'Fabio Egypt — Astro', status: 'Astro-Umgebung bereit für die Migration.' },
 } as const satisfies Record<Locale, SetupMessages>;
 
 // Runs during static page generation. A mismatch stops the build, not rendering.

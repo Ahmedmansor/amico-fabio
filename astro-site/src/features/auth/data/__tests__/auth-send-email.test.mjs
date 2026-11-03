@@ -43,7 +43,7 @@ function setup(overrides = {}) {
 }
 
 describe('signed Auth hook and durable delivery contract', () => {
-  for(const [locale,subject,label] of [['es','Tu código de acceso - Fabio Egypt','Tu código de un solo uso'],['pt','O seu código de acesso - Fabio Egypt','O seu código de utilização única']]) {
+  for(const [locale,subject,label] of [['es','Tu código de acceso - Fabio Egypt','Tu código de un solo uso'],['pt','O seu código de acesso - Fabio Egypt','O seu código de utilização única'],['de','Dein Anmeldecode - Fabio Egypt','Dein Einmalcode']]) {
     it(`keeps the signed one-use callback in ${locale} with localized mail`,async()=>{
       const app=setup(), request=event();
       request.email_data.redirect_to=`${origin}/${locale}/auth/callback/?next=%2F${locale}%2Fwishlist%2F`;

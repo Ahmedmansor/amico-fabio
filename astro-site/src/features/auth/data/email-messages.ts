@@ -26,6 +26,11 @@ const messages={
     signupIntro:'Pediu uma conta Fabio Egypt. Confirme o seu endereço de e-mail para iniciar sessão e gerir os seus favoritos.',signInIntro:'Recebemos um pedido para iniciar sessão na sua conta Fabio Egypt e guardar e gerir os seus favoritos.',signupButton:'Confirmar e-mail',signInButton:'Iniciar sessão',
     validityNotice:'O código e a ligação alternativa são de utilização única e expiram em breve. Ao utilizar um, o outro deixa de ser válido.',codeLabel:'O seu código de utilização única',codeHelp:'Introduza este código na página onde pediu o e-mail. Pode ler esta mensagem noutro dispositivo. Não partilhe o código.',alternative:'Em alternativa, esta ligação inicia sessão no navegador onde a abrir:',ignoreNotice:'Se não pediu esta ligação, pode ignorar este e-mail em segurança.',fallbackText:'Se o botão não funcionar, copie e cole esta ligação no seu navegador:'
   },
+  de:{
+    signupSubject:'Bestätige dein Konto - Fabio Egypt',signInSubject:'Dein Anmeldecode - Fabio Egypt',signupTitle:'Bestätige deine E-Mail-Adresse',signInTitle:'Bei Fabio Egypt anmelden',greeting:'Hallo,',
+    signupIntro:'Du hast ein Fabio-Egypt-Konto angefordert. Bestätige deine E-Mail-Adresse, um dich anzumelden und deine Favoriten zu verwalten.',signInIntro:'Wir haben eine Anfrage zur Anmeldung bei deinem Fabio-Egypt-Konto erhalten, um deine Favoriten zu speichern und zu verwalten.',signupButton:'E-Mail bestätigen',signInButton:'Jetzt anmelden',
+    validityNotice:'Code und alternativer Link sind nur einmal verwendbar und laufen bald ab. Sobald du einen verwendest, ist der andere ungültig.',codeLabel:'Dein Einmalcode',codeHelp:'Gib diesen Code auf der Seite ein, auf der du die E-Mail angefordert hast. Du kannst diese Nachricht auf einem anderen Gerät lesen. Teile den Code nicht.',alternative:'Alternativ meldet dich dieser Link in dem Browser an, in dem du ihn öffnest:',ignoreNotice:'Wenn du diesen Link nicht angefordert hast, kannst du diese E-Mail ignorieren.',fallbackText:'Falls die Schaltfläche nicht funktioniert, kopiere diesen Link in deinen Browser:'
+  },
 } satisfies Record<Locale,AuthEmailCopy>;
 export function getAuthEmailCopy(locale:Locale,signup:boolean){
   const m=messages[locale];
