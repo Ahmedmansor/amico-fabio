@@ -1,11 +1,11 @@
 import fs from 'node:fs/promises';
 import {siteConfig} from '../config/site.ts';
-import {supportedLocales} from '../config/languages.ts';
+import {supportedLocales,defaultLocale} from '../config/languages.ts';
 import {catalogSection} from '../domain/catalog-routes.ts';
 import {campaignLanguagePaths} from '../config/campaigns.ts';
 const xml=value=>value.replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c]));
 export function seoFiles({noindex=false,assetOrigin=siteConfig.url}={}){return {name:'fabio-seo',hooks:{'astro:build:done':async({dir,logger})=>{
- const entries=[];
+ const entries=[],rootAliases=[];
  async function visit(folder){for(const item of await fs.readdir(folder,{withFileTypes:true})){const url=new URL(item.name+(item.isDirectory()?'/':''),folder);if(item.isDirectory())await visit(url);else if(item.name.endsWith('.html')){
   const html=await fs.readFile(url,'utf8');
   if(item.name==='404.html'||/<meta\b[^>]*http-equiv="refresh"/i.test(html))continue;
@@ -15,15 +15,20 @@ export function seoFiles({noindex=false,assetOrigin=siteConfig.url}={}){return {
   const canonical=html.match(/<link\b[^>]*rel="canonical"[^>]*href="([^"]+)"/)?.[1];
   const relative=decodeURIComponent(url.pathname.slice(dir.pathname.length));
   const expected=new URL('/'+relative.replace(/index\.html$/,''),siteConfig.url).href;
-  if(canonical!==expected)throw new Error(`[SEO:${relative}] Missing or incorrect canonical: ${canonical}; expected ${expected}.`);
+  const rootAlias=relative==='index.html'&&canonical===new URL(`/${defaultLocale}/`,siteConfig.url).href;
+  if(canonical!==expected&&!rootAlias)throw new Error(`[SEO:${relative}] Missing or incorrect canonical: ${canonical}; expected ${expected}.`);
   if(!/<title>[^<]+<\/title>/.test(html)||!/<meta\b[^>]*name="description"[^>]*content="[^"]+"/.test(html))throw new Error(`[SEO:${relative}] Missing title or description.`);
   const alternates=Array.from(html.matchAll(/<link\b[^>]*hreflang="([^"]+)"[^>]*href="([^"]+)"/g),m=>({locale:m[1],href:m[2]}));
   if(new Set(alternates.map(a=>a.locale)).size!==alternates.length)throw new Error(`[SEO:${relative}] Duplicate hreflang.`);
-  entries.push({canonical,alternates});
+  (rootAlias?rootAliases:entries).push({canonical,alternates});
  }}}
  await visit(dir);
  const urls=new Map(entries.map(entry=>[entry.canonical,entry]));
  if(urls.size!==entries.length)throw new Error('[SEO] Duplicate canonical URL.');
+ for(const alias of rootAliases){
+  const target=urls.get(alias.canonical);
+  if(!target||alias.alternates.length!==target.alternates.length||alias.alternates.some(a=>!target.alternates.some(b=>b.locale===a.locale&&b.href===a.href)))throw new Error('[SEO:index.html] Root homepage must match the default-language canonical and hreflang.');
+ }
  for(const entry of entries){const path=new URL(entry.canonical).pathname,locale=path.split('/')[1];
   const blog=supportedLocales.includes(locale)&&(path.startsWith(`/${locale}/blog/`)||path.startsWith(`/${locale}/egypt/`));
   const catalog=supportedLocales.includes(locale)&&[catalogSection(locale,'tours'),catalogSection(locale,'packages'),'tours','packages'].includes(path.split('/')[2]);

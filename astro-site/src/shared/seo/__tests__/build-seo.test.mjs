@@ -11,6 +11,18 @@ test('sitemap includes actual canonical equivalents and excludes redirects and n
 }));
 test('build rejects missing canonical rather than silently publishing it',()=>scenario(async(folder,dir)=>{await page(folder,'it/index.html','<title>Fabio</title>');await assert.rejects(build(dir),/incorrect canonical/);}));
 test('build rejects absent language equivalents',()=>scenario(async(folder,dir)=>{await page(folder,'it/index.html',html('it',false));await assert.rejects(build(dir),/Missing equivalent en/);}));
+test('root renders the default homepage with its canonical and stays outside the sitemap',()=>scenario(async(folder,dir)=>{
+ for(const locale of supportedLocales)await page(folder,`${locale}/index.html`,html(locale));
+ await page(folder,'index.html',html('it'));await build(dir);
+ const sitemap=await fs.readFile(new URL('sitemap.xml',dir),'utf8');
+ assert.equal((sitemap.match(/<loc>/g)||[]).length,supportedLocales.length);
+ assert.ok(!sitemap.includes('<loc>https://fabioegypt.com/</loc>'));
+}));
+test('root alias cannot hide a missing default homepage or mismatched language links',()=>scenario(async(folder,dir)=>{
+ await page(folder,'index.html',html('it'));await assert.rejects(build(dir),/Root homepage/);
+ for(const locale of supportedLocales)await page(folder,`${locale}/index.html`,html(locale));
+ await page(folder,'index.html',html('it',false));await assert.rejects(build(dir),/Root homepage/);
+}));
 test('test flavor validates canonical equivalents but emits no indexable sitemap URLs',()=>scenario(async(folder,dir)=>{for(const locale of supportedLocales)await page(folder,`${locale}/index.html`,'<meta name="robots" content="noindex, follow">'+html(locale));await seoFiles({noindex:true}).hooks['astro:build:done']({dir,logger:{info(){}}});assert.ok(!(await fs.readFile(new URL('sitemap.xml',dir),'utf8')).includes('<loc>'));}));
 
 const blogHtml=(route,alternates=[])=>`<title>Article</title><meta name="description" content="Article"><link rel="canonical" href="https://fabioegypt.com${route}">${alternates.map(([locale,url])=>`<link hreflang="${locale}" href="https://fabioegypt.com${url}">`).join('')}`;

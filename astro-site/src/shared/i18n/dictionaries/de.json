@@ -1,4 +1,5 @@
 {
+  "languageEntry": {"question":"Möchtest du die Website auf Deutsch ansehen?","accept":"Auf Deutsch öffnen","stay":"Auf Italienisch bleiben","return":"Zur deutschen Version"},
   "theme": {
     "choose": "Darstellung",
     "system": "System",

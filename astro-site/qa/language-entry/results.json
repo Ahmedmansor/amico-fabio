@@ -1,0 +1,45 @@
+{
+  "results": [
+    {
+      "scenario": "first visit, explicit acceptance, new-tab return and direct Italian link",
+      "width": 390,
+      "passed": true
+    },
+    {
+      "scenario": "first visit, explicit acceptance, new-tab return and direct Italian link",
+      "width": 1440,
+      "passed": true
+    },
+    {
+      "scenario": "dismissal persists; explicit header choice supersedes it",
+      "passed": true
+    },
+    {
+      "scenario": "no unsupported or redundant suggestion",
+      "locale": "it-IT",
+      "passed": true
+    },
+    {
+      "scenario": "no unsupported or redundant suggestion",
+      "locale": "ar-EG",
+      "passed": true
+    },
+    {
+      "scenario": "first supported language in browser preference order",
+      "passed": true
+    },
+    {
+      "scenario": "denied storage does not prevent native language navigation",
+      "passed": true
+    },
+    {
+      "scenario": "no JavaScript: complete Italian homepage without redirect",
+      "passed": true
+    },
+    {
+      "scenario": "identical Italian main HTML; no redirect; transparent 96px favicon; canonical sitemap",
+      "passed": true
+    }
+  ],
+  "realExternalSubmissions": 0
+}

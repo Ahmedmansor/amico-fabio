@@ -24,7 +24,9 @@ async function initialize(){
   let session:AccountSession|null=null,ready=false,pending=false,opener:HTMLElement|null=null;
   const service=await browserAuth(config);
   const localeRoot=dialog.querySelector<HTMLElement>('[data-locale-settings]');
-  const localeBinding=service&&localeSettings&&localeRoot?(await import('./locale-interactions')).bindAccountLocale({root:localeRoot,service,activeLocale:locale,...localeSettings}):null;
+  // The default root homepage is not an explicit choice of account language.
+  const activeLocale=location.pathname==='/'?undefined:locale;
+  const localeBinding=service&&localeSettings&&localeRoot?(await import('./locale-interactions')).bindAccountLocale({root:localeRoot,service,activeLocale,...localeSettings}):null;
   function render(){
     if(ready)localeBinding?.setAccount(session?.userId??null);
     for(const entry of document.querySelectorAll<HTMLElement>('[data-auth-entry-guest]'))entry.hidden=!ready||!!session;

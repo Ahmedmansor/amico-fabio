@@ -1,3 +1,5 @@
+import {saveLanguageChoice} from '../../features/language-entry/data/preference';
+import {isLocale} from '../config/languages';
 // Native disclosures keep navigation usable without JavaScript.
 const header=document.getElementById('global-header');
 const disclosures=[...(header?.querySelectorAll<HTMLDetailsElement>('[data-header-disclosure]')??[])];
@@ -22,6 +24,6 @@ document.addEventListener('click',event=>{
  // default action, keeping the tapped link rendered throughout activation.
  if(destination.origin===location.origin&&destination.pathname===location.pathname&&destination.search===location.search&&destination.hash)setTimeout(()=>close(),0);
 });
-header?.querySelectorAll<HTMLAnchorElement>('[data-lang]').forEach(link=>link.addEventListener('click',()=>{const locale=link.dataset.lang;if(locale)try{localStorage.setItem('fabio_lang',locale);localStorage.setItem('preferredLanguage',locale);}catch{/* Navigation works without storage. */}}));
+header?.querySelectorAll<HTMLAnchorElement>('[data-lang]').forEach(link=>link.addEventListener('click',()=>{const locale=link.dataset.lang;if(isLocale(locale))saveLanguageChoice(locale);}));
 window.matchMedia('(min-width:1200px)').addEventListener('change',()=>close());
 export {};

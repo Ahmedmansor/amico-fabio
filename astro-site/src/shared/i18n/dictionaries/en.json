@@ -1,4 +1,5 @@
 {
+  "languageEntry": {"question":"Would you like to browse in English?","accept":"Open in English","stay":"Continue in Italian","return":"Back to the English version"},
   "theme":{"choose":"Appearance","system":"System","light":"Light","dark":"Dark"},
   "currency": {"choose":"Choose currency","notice":"Indicative conversion. The reference price is in EUR.","quote":"Indicative total","base":"Reference price in EUR"},
   "productDetail": {

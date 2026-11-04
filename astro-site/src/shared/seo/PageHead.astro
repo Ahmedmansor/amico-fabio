@@ -1,5 +1,6 @@
 ---
 import squareLogo from '../assets/logos/logo-fabio-square.webp';
+import fabioPortrait from '../assets/people/fabio.webp';
 import { siteConfig } from '../config/site';
 import { languages, supportedLocales, type Locale } from '../config/languages';
 import type {ShareImage} from './share-image';
@@ -11,6 +12,8 @@ const routePath = route ? `${route}/` : '';
 const canonical = new URL(canonicalPath||`/${locale}/${routePath}`, siteConfig.url).href;
 const alternates=alternatePaths||Object.fromEntries(supportedLocales.map(language=>[language,`/${language}/${routePath}`]));
 const logo=await getImage({src:squareLogo,width:squareLogo.width,format:'webp'});
+const favicon=await getImage({src:fabioPortrait,width:96,height:96,fit:'cover',format:'png'});
+const touchIcon=await getImage({src:fabioPortrait,width:180,height:180,fit:'cover',format:'png'});
 const assetOrigin=import.meta.env.PUBLIC_ASSET_ORIGIN;
 const image = new URL(shareImage?.src||logo.src, assetOrigin).href;
 const shareUrl=new URL(new URL(canonical).pathname,assetOrigin).href;
@@ -30,5 +33,5 @@ const noindex=noindexOverride||preventIndexing(import.meta.env.PUBLIC_NOINDEX);
 <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content={ogTitle}/><meta name="twitter:description" content={twitterDescription}/><meta name="twitter:image" content={image}/>
 <meta name="twitter:url" content={shareUrl}/>
 {shareImage&&<meta name="twitter:image:alt" content={shareImage.alt}/>}
-<link rel="icon" type="image/webp" href={logo.src}/><link rel="apple-touch-icon" href={logo.src}/>
+<link rel="icon" type="image/png" sizes="96x96" href={favicon.src}/><link rel="apple-touch-icon" sizes="180x180" href={touchIcon.src}/>
 {fontPreloads.map(font=><link rel="preload" href={`/assets/fonts/${font}`} as="font" type="font/woff2" crossorigin/>)}

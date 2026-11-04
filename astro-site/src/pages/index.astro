@@ -1,4 +1,16 @@
 ---
-import {defaultLocale} from '../shared/config/languages';
-return Astro.redirect(`/${defaultLocale}/`,301);
+import BaseLayout from '../shared/layouts/BaseLayout.astro';
+import HomePage from '../features/home/presentation/HomePage.astro';
+import LanguageSuggestion from '../features/language-entry/presentation/LanguageSuggestion.astro';
+import {defaultLocale as locale} from '../shared/config/languages';
+import {getHomeEvidence} from '../features/home/data/evidence';
+import {getHomeContent} from '../features/home/data/home';
+import {getGlobalSettings} from '../features/home/data/settings.mjs';
+const content=getHomeContent(locale);
+const promo=(await getGlobalSettings()).find(setting=>setting.key==='promo_banner');
+const evidence=getHomeEvidence(locale,content.journey);
 ---
+<BaseLayout locale={locale} route="" title={content.seo.title} description={content.seo.description} bodyClass="home-page">
+  <HomePage locale={locale} content={content} evidence={evidence} promo={promo}/>
+  <LanguageSuggestion/>
+</BaseLayout>

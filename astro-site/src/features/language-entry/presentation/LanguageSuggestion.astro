@@ -1,0 +1,24 @@
+---
+import {supportedLocales,languages} from '../../../shared/config/languages';
+import {getSharedMessages} from '../../../shared/i18n/shared';
+---
+<div data-language-entry>
+  {supportedLocales.filter(locale=>locale!=='it').map(locale=>{
+    const m=getSharedMessages(locale).languageEntry;
+    return <aside hidden data-language-offer={locale} lang={locale} dir={languages[locale].direction} class="language-offer" aria-labelledby={`language-offer-${locale}`}>
+      <p id={`language-offer-${locale}`} data-language-question>{m.question}</p>
+      <a href={`/${locale}/`} hreflang={locale} data-language-accept data-language-return={m.return}>{m.accept}</a>
+      <button type="button" data-language-dismiss>{m.stay}</button>
+    </aside>;
+  })}
+</div>
+<style>
+  .language-offer[hidden],.language-offer [hidden]{display:none}
+  .language-offer{position:fixed;z-index:60;inset:calc(var(--site-header-height) + 1rem) 1rem auto;margin-inline:auto;max-width:30rem;padding:1rem;display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;border:1px solid var(--border-color);border-radius:var(--radius-card);background:var(--surface-card);color:var(--text-heading);box-shadow:var(--site-shadow);font-family:Montserrat,sans-serif}
+  .language-offer p{flex-basis:100%;margin:0;font-weight:600}
+  .language-offer a,.language-offer button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.625rem 1rem;border-radius:var(--radius-control);font:inherit;font-weight:600;text-decoration:none;cursor:pointer}
+  .language-offer a{background:var(--color-accent-orange);color:var(--on-accent)}
+  .language-offer button{border:1px solid var(--border-color);background:var(--surface-card);color:var(--text-heading)}
+  .language-offer :is(a,button):focus-visible{outline:3px solid var(--focus-ring);outline-offset:3px}
+</style>
+<script>import './suggestion';</script>

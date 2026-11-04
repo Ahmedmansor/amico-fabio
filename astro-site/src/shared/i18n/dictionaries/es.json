@@ -1,4 +1,5 @@
 {
+  "languageEntry": {"question":"¿Quieres visitar el sitio en español?","accept":"Abrir en español","stay":"Continuar en italiano","return":"Volver a la versión en español"},
   "theme":{"choose":"Apariencia","system":"Automático","light":"Claro","dark":"Oscuro"},
   "currency": {"choose":"Elegir moneda","notice":"Conversión orientativa. El precio de referencia está en EUR.","quote":"Total orientativo","base":"Precio de referencia en EUR"},
   "productDetail": {
