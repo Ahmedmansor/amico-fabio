@@ -7,7 +7,7 @@ import sponge from './assets/sponge.svg?raw';
 import squid from './assets/squid-illustration.png';
 import patrick from './assets/patrick.svg?raw';
 import krabs from './assets/krabs-illustration.png';
-import plankton from './assets/plankton.svg?raw';
+import plankton from './assets/plankton-illustration.png';
 import puff from './assets/puff.svg?raw';
 import sandy from './assets/sandy.svg?raw';
 interface Props {campaign:BluCampaign}
@@ -18,7 +18,7 @@ const illustrations={sponge,patrick,puff,sandy};
  <div class="blu-section-heading"><span class="blu-eyebrow">{copy.sec2Badge}</span><h2 id="blu-experience-title">{copy.sec2Title}</h2><p>{copy.sec2Sub}</p></div>
  <div class="blu-cards">
   {experiences.map((experience,index)=><article class={`blu-card blu-box blu-card-${experience.id}`} data-experience-card>
-   <div class="blu-card-art" aria-hidden="true"><span class="blu-card-number">0{index+1}</span>{experience.id==='treasure'?<div class="blu-krabs-pair"><Image src={krabs} alt={copy.krabsImageAlt} widths={[240,400]} sizes="(min-width:768px) 220px, 55vw" loading="lazy" format="webp"/><span set:html={plankton}/></div>:experience.id==='squid'?<div class="blu-squid-portrait"><Image src={squid} alt="" widths={[240,400]} sizes="200px" loading="lazy" format="webp"/></div>:<div set:html={illustrations[experience.id]}/>}</div>
+   <div class="blu-card-art" aria-hidden="true"><span class="blu-card-number">0{index+1}</span>{experience.id==='treasure'?<div class="blu-krabs-pair"><Image src={krabs} alt={copy.krabsImageAlt} widths={[240,400]} sizes="(min-width:768px) 220px, 55vw" loading="lazy" format="webp"/><span><Image src={plankton} alt="" widths={[160,240]} sizes="110px" loading="lazy" format="webp"/></span></div>:experience.id==='squid'?<div class="blu-squid-portrait"><Image src={squid} alt="" widths={[240,400]} sizes="200px" loading="lazy" format="webp"/></div>:<div set:html={illustrations[experience.id]}/>}</div>
    <h3>{experience.title}</h3><p>{experience.description}</p>
    <div class="blu-card-bottom"><span class="blu-card-tag">{experience.tag}</span>
     <a class="blu-button blu-button-yellow" href={buildBluWhatsApp(siteConfig.whatsapp.number,buildBluMessage(copy.waDefaultMsg,copy.selectedLabel,experience.title))} target="_blank" rel="noopener noreferrer" data-experience={experience.id}>{experience.button}<span aria-hidden="true">↗</span></a>

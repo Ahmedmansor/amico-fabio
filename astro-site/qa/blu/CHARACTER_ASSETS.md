@@ -2,7 +2,7 @@
 
 Installed the previously generated transparent Squidward portrait in both Blu languages, replacing the inline SVG. Astro generates responsive WebP derivatives. The presentation clips the bottom 1% to hide a generation artifact at the image edge; the source image is retained unchanged. Decorative artwork remains hidden from assistive technology alongside the existing card title.
 
-Plankton replacement is incomplete: built-in ImageGen rejected output with `moderation_blocked` / `other`. Existing Plankton SVG remains; no replacement or completed generation is claimed.
+The initial Plankton generation was rejected with `moderation_blocked` / `other`. A user-requested retry with the same prompt succeeded. Installed the transparent `plankton-illustration.png` with responsive Astro WebP derivatives, replacing the old SVG. The user then requested closer spacing: the pair now uses centered 170px/85px maximum grid columns with no gap instead of filling the entire card width.
 
 Attempted Plankton prompt: Create a standalone cheerful Plankton illustration inspired by the reference: green body, single yellow eye with red pupil, long antennae, happy open smile, both arms raised. Clean cartoon ink outlines. Entire character including antennae visible, centered with padding. Transparent background. No stool, scenery, lettering or border. Website character cutout.
 
@@ -14,3 +14,5 @@ Verification on the final source:
 - `git diff --check`: passed. Unrelated legacy home image change excluded.
 
 The initial sandbox check could not reach the catalog; the subsequent authorized network-enabled check and build above succeeded.
+
+Plankton follow-up: the four browser cases passed after image replacement, before the final spacing adjustment. After spacing, Astro check again reported 772 files with zero diagnostics and the build completed with 575 pages. The user visually approved the final spacing; the browser suite was not repeated for that adjustment.
