@@ -88,12 +88,14 @@ function initialize(root:HTMLElement,config:BrowserConfig) {
     stop();
     if(disposed||degraded||blocked()||!canEnhanceMotion(preference,signals()))return;
     const token=generation;
-    if(!await sample(token,30)||token!==generation)return;
+    if(preference==='auto'&&(!await sample(token,30)||token!==generation))return;
     try{
       const {createBluEffects}=await import('./effects');
       if(token!==generation||blocked()||!canEnhanceMotion(preference,signals()))return;
       effects=createBluEffects(root);root.dataset.effects='full';
       const status=root.querySelector<HTMLElement>('[data-motion-status]');if(status)status.textContent=copy.motionStatusFull;
+      // Full is an explicit user choice. Only Auto adapts to measured performance.
+      if(preference==='full')return;
       // Check actual animation cost once; no permanent FPS or timer loop.
       if(!await sample(token,90)&&token===generation){degraded=true;stop();return;}
       if(token!==generation)return;

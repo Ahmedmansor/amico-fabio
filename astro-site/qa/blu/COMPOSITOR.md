@@ -37,3 +37,17 @@ the Lite control. They do not establish a reliable percentage improvement,
 physical laptop smoothness, battery use or compositor/GPU execution on every
 browser. The owner should retry the reported scroll on their actual laptop.
 The preview is local at http://127.0.0.1:4387/en/blu/.
+
+## Explicit Full selection — 2026-11-04
+
+The owner reported that selecting Full could leave the ocean effects absent.
+Full previously went through the initial frame gate and all automatic downgrade
+checks, while the select still displayed Full. Explicit Full now starts the
+effects directly and skips performance-driven downgrades. Automatic retains its
+hardware checks, initial/scroll frame samples and long-task downgrade. Both
+continue respecting OS reduced motion, save-data, hidden tabs and consent panels.
+
+scroll-budget.mjs now reproduces automatic slow-frame downgrade, selects Full
+under the same synthetic slow frames, verifies 26 bubbles remain, then activates
+OS reduced motion and verifies cleanup. The check is synthetic lifecycle
+verification, not a claim that Full is smooth on every device.

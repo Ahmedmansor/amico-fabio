@@ -22,5 +22,14 @@ try{
  await page.waitForSelector('body[data-effects="lite"]',{timeout:10000});
  assert.equal(await page.locator('.blu-bubble').count(),0);
  assert.equal(await page.evaluate(()=>document.getAnimations().filter(animation=>animation.effect?.target?.closest?.('.blu-underwater')).length),0);
- console.log('Fresh visitor Auto enabled native ocean effects; synthetic slow scrolling triggered Reduced and cancelled native ocean animations.');
+ await page.locator('#blu-effects').selectOption('full');
+ await page.waitForSelector('body[data-effects="full"]');
+ await page.evaluate(()=>window.scrollBy(0,40));
+ await page.waitForTimeout(1600);
+ assert.equal(await page.locator('body').getAttribute('data-effects'),'full');
+ assert.equal(await page.locator('.blu-bubble').count(),26);
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.waitForSelector('body[data-effects="lite"]');
+ assert.equal(await page.locator('.blu-bubble').count(),0);
+ console.log('Auto downgraded synthetic slow scrolling; explicit Full survived slow frame samples; OS reduced motion still stopped effects.');
 }finally{await browser.close()}
