@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "suggestions": 9
+  },
+  "filesReviewed": 2,
+  "findings": [
+    {
+      "ruleId": "design-hardcoded-color",
+      "severity": "info",
+      "category": "design-system",
+      "file": "src\\features\\blu\\presentation\\ocean.css",
+      "line": 2,
+      "column": 75,
+      "message": "Hardcoded color may drift from project design tokens.",
+      "confidence": 0.9,
+      "autofix": false,
+      "fixable": false
+    },
+    {
+      "ruleId": "design-hardcoded-color",
+      "severity": "info",
+      "category": "design-system",
+      "file": "src\\features\\blu\\presentation\\ocean.css",
+      "line": 5,
+      "column": 32,
+      "message": "Hardcoded color may drift from project design tokens.",
+      "confidence": 0.9,
+      "autofix": false,
+      "fixable": false
+    },
+    {
+      "ruleId": "design-hardcoded-color",
+      "severity": "info",
+      "category": "design-system",
+      "file": "src\\features\\blu\\presentation\\ocean.css",
+      "line": 6,
+      "column": 32,
+      "message": "Hardcoded color may drift from project design tokens.",
+      "confidence": 0.9,
+      "autofix": false,
+      "fixable": false
+    },
+    {
+      "ruleId": "design-hardcoded-color",
+      "severity": "info",
+      "category": "design-system",
+      "file": "src\\features\\blu\\presentation\\ocean.css",
+      "line": 7,
+      "column": 34,
+      "message": "Hardcoded color may drift from project design tokens.",
+      "confidence": 0.9,
+      "autofix": false,
+      "fixable": false
+    },
+    {
+      "ruleId": "design-hardcoded-color",
+      "severity": "info",
+      "category": "design-system",
+      "file": "src\\features\\blu\\presentation\\ocean.css",
+      "line": 9,
+      "column": 49,
+      "message": "Hardcoded color may drift from project design tokens.",
+      "confidence": 0.9,
+      "autofix": false,
+      "fixable": false
+    },
+    {
+      "ruleId": "design-hardcoded-color",
+      "severity": "info",
+      "category": "design-system",
+      "file": "src\\features\\blu\\presentation\\ocean.css",
+      "line": 12,
+      "column": 95,
+      "message": "Hardcoded color may drift from project design tokens.",
+      "confidence": 0.9,
+      "autofix": false,
+      "fixable": false
+    },
+    {
+      "ruleId": "design-hardcoded-color",
+      "severity": "info",
+      "category": "design-system",
+      "file": "src\\features\\blu\\presentation\\ocean.css",
+      "line": 15,
+      "column": 19,
+      "message": "Hardcoded color may drift from project design tokens.",
+      "confidence": 0.9,
+      "autofix": false,
+      "fixable": false
+    },
+    {
+      "ruleId": "design-hardcoded-color",
+      "severity": "info",
+      "category": "design-system",
+      "file": "src\\features\\blu\\presentation\\ocean.css",
+      "line": 16,
+      "column": 59,
+      "message": "Hardcoded color may drift from project design tokens.",
+      "confidence": 0.9,
+      "autofix": false,
+      "fixable": false
+    },
+    {
+      "ruleId": "design-hardcoded-color",
+      "severity": "info",
+      "category": "design-system",
+      "file": "src\\features\\blu\\presentation\\ocean.css",
+      "line": 17,
+      "column": 33,
+      "message": "Hardcoded color may drift from project design tokens.",
+      "confidence": 0.9,
+      "autofix": false,
+      "fixable": false
+    }
+  ],
+  "fixed": []
+}
