@@ -1,0 +1,1 @@
+import"./wishlist-interactions.CHZ7cs6s.js";
