@@ -1,0 +1,655 @@
+{
+  "date": "2026-11-03",
+  "sourceCommit": "c521282",
+  "engine": "WebKit 26.0",
+  "physicalDevice": false,
+  "deployed": false,
+  "externalSubmissions": 0,
+  "methodology": "Latest result per distinct device/language/journey; retained original runs and focused reruns. Synthetic Auth and campaign responses, blocked external traffic.",
+  "runs": [
+    {
+      "file": "iphone-audit-final.json",
+      "cases": 47,
+      "passed": 46,
+      "failed": 1
+    },
+    {
+      "file": "iphone-audit-catalog-verified.json",
+      "cases": 4,
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "file": "iphone-audit-recovery-verified.json",
+      "cases": 4,
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "file": "iphone-extra-final.json",
+      "cases": 9,
+      "passed": 9,
+      "failed": 0
+    }
+  ],
+  "total": 60,
+  "passed": 60,
+  "failed": 0,
+  "cases": [
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "home",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "guideLegal",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "navigation",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "catalog",
+      "status": "pass",
+      "pageErrors": [],
+      "failedScripts": [],
+      "navigationCancellations": 0,
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-catalog-verified.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "booking",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "package",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "planner",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "login",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 2,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "home",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "guideLegal",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "navigation",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "catalog",
+      "status": "pass",
+      "pageErrors": [],
+      "failedScripts": [],
+      "navigationCancellations": 0,
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-catalog-verified.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "booking",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "package",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "planner",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "login",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 2,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "home",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "guideLegal",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "navigation",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "catalog",
+      "status": "pass",
+      "pageErrors": [],
+      "failedScripts": [],
+      "navigationCancellations": 0,
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-catalog-verified.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "booking",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "package",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "planner",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "login",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 2,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "home",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "guideLegal",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "navigation",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "catalog",
+      "status": "pass",
+      "pageErrors": [],
+      "failedScripts": [],
+      "navigationCancellations": 0,
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-catalog-verified.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "booking",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "package",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "planner",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "login",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 2,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone SE",
+      "locale": "it",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone SE",
+      "locale": "en",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone SE",
+      "locale": "es",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone SE",
+      "locale": "pt",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone SE",
+      "locale": "de",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "es",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "pt",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "de",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "es",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "pt",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "de",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0,
+      "evidence": "iphone-audit-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "recovery",
+      "status": "pass",
+      "pageErrors": [],
+      "failedScripts": [],
+      "syntheticAuthRequests": 2,
+      "evidence": "iphone-audit-recovery-verified.json"
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "recovery",
+      "status": "pass",
+      "pageErrors": [],
+      "failedScripts": [],
+      "syntheticAuthRequests": 2,
+      "evidence": "iphone-audit-recovery-verified.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "recovery",
+      "status": "pass",
+      "pageErrors": [],
+      "failedScripts": [],
+      "syntheticAuthRequests": 2,
+      "evidence": "iphone-audit-recovery-verified.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "recovery",
+      "status": "pass",
+      "pageErrors": [],
+      "failedScripts": [],
+      "syntheticAuthRequests": 2,
+      "evidence": "iphone-audit-recovery-verified.json"
+    },
+    {
+      "device": "iPhone SE",
+      "kind": "invoice",
+      "status": "pass",
+      "details": {
+        "top": 49,
+        "bottom": 519,
+        "height": 470,
+        "viewport": 568,
+        "scrollable": "visible"
+      },
+      "pageErrors": [],
+      "syntheticLeadPosts": 0,
+      "externalLeadPosts": 0,
+      "evidence": "iphone-extra-final.json"
+    },
+    {
+      "device": "iPhone SE",
+      "kind": "offer",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticLeadPosts": 0,
+      "externalLeadPosts": 0,
+      "evidence": "iphone-extra-final.json"
+    },
+    {
+      "device": "iPhone SE",
+      "kind": "welcome",
+      "status": "pass",
+      "details": {
+        "text": [
+          13,
+          36,
+          70
+        ],
+        "background": [
+          249,
+          250,
+          251
+        ],
+        "contrast": 14.8,
+        "preferencesReopenedAndClosed": true
+      },
+      "pageErrors": [],
+      "syntheticLeadPosts": 2,
+      "externalLeadPosts": 0,
+      "evidence": "iphone-extra-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "kind": "invoice",
+      "status": "pass",
+      "details": {
+        "top": 97,
+        "bottom": 567,
+        "height": 470,
+        "viewport": 664,
+        "scrollable": "visible"
+      },
+      "pageErrors": [],
+      "syntheticLeadPosts": 0,
+      "externalLeadPosts": 0,
+      "evidence": "iphone-extra-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "kind": "offer",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticLeadPosts": 0,
+      "externalLeadPosts": 0,
+      "evidence": "iphone-extra-final.json"
+    },
+    {
+      "device": "iPhone 13",
+      "kind": "welcome",
+      "status": "pass",
+      "details": {
+        "text": [
+          13,
+          36,
+          70
+        ],
+        "background": [
+          249,
+          250,
+          251
+        ],
+        "contrast": 14.8,
+        "preferencesReopenedAndClosed": true
+      },
+      "pageErrors": [],
+      "syntheticLeadPosts": 2,
+      "externalLeadPosts": 0,
+      "evidence": "iphone-extra-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "kind": "invoice",
+      "status": "pass",
+      "details": {
+        "top": 315,
+        "bottom": 765,
+        "height": 450,
+        "viewport": 1080,
+        "scrollable": "visible"
+      },
+      "pageErrors": [],
+      "syntheticLeadPosts": 0,
+      "externalLeadPosts": 0,
+      "evidence": "iphone-extra-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "kind": "offer",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticLeadPosts": 0,
+      "externalLeadPosts": 0,
+      "evidence": "iphone-extra-final.json"
+    },
+    {
+      "device": "iPad (gen 7)",
+      "kind": "welcome",
+      "status": "pass",
+      "details": {
+        "text": [
+          13,
+          36,
+          70
+        ],
+        "background": [
+          249,
+          250,
+          251
+        ],
+        "contrast": 14.8,
+        "preferencesReopenedAndClosed": true
+      },
+      "pageErrors": [],
+      "syntheticLeadPosts": 2,
+      "externalLeadPosts": 0,
+      "evidence": "iphone-extra-final.json"
+    }
+  ]
+}

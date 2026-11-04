@@ -67,7 +67,8 @@
       "Bootsausflug Sharm",
       "Schnorcheln im Roten Meer",
       "Amico Fabio Ausflüge"
-    ]
+    ],
+    "route_slug": "ras-mohammed-und-die-weisse-insel-das-vip-erlebnis"
   },
   "ras_mohammed_bus_half_day": {
     "tour_id": "ras_mohammed_bus_half_day",
@@ -131,7 +132,8 @@
       "Tor Allahs",
       "Schnorcheln vom Strand",
       "Halbtagesausflug"
-    ]
+    ],
+    "route_slug": "ras-mohammed-nature-explorer-den-nationalpark-an-land-entdecken"
   },
   "tiran_island_boat_vip": {
     "tour_id": "tiran_island_boat_vip",
@@ -196,7 +198,8 @@
       "Schnorcheln am Gordon Reef",
       "Delfine im Roten Meer",
       "Bootsausflug Tiran"
-    ]
+    ],
+    "route_slug": "tiran-insel-vip-schiffswracks-und-korallenriffe"
   },
   "dahab_blue_hole_super_safari": {
     "tour_id": "dahab_blue_hole_super_safari",
@@ -267,7 +270,8 @@
       "Colored Canyon",
       "Sinai-Safari",
       "Kamelreiten Dahab"
-    ]
+    ],
+    "route_slug": "dahab-abenteuer-blue-hole-kamele-und-canyon"
   },
   "private_boat_vip_king": {
     "tour_id": "private_boat_vip_king",
@@ -329,7 +333,8 @@
       "Privatboot Ras Mohammed",
       "VIP Sharm el Sheikh",
       "Bootsparty Sharm"
-    ]
+    ],
+    "route_slug": "privatboot-vip-der-konig-des-roten-meeres"
   },
   "dolphin_show_family": {
     "tour_id": "dolphin_show_family",
@@ -382,7 +387,8 @@
       "Delfinshow Ägypten",
       "Aktivitäten für Kinder Sharm",
       "Delfinarium Sharm"
-    ]
+    ],
+    "route_slug": "delfinshow-begeisterung-fur-die-ganze-familie"
   },
   "swim_with_dolphins_vip": {
     "tour_id": "swim_with_dolphins_vip",
@@ -435,7 +441,8 @@
       "Delfinbegegnung Ägypten",
       "Delfinschwimmen Sharm",
       "VIP-Erlebnis Sharm"
-    ]
+    ],
+    "route_slug": "schwimmen-mit-delfinen-liebe-auf-den-ersten-blick"
   },
   "sina_dream_vip_day": {
     "tour_id": "sina_dream_vip_day",
@@ -499,7 +506,8 @@
       "Segeln Ägypten",
       "Meeresfrüchte-Mittagessen Sharm",
       "VIP-Ausflug Sharm"
-    ]
+    ],
+    "route_slug": "sina-dream-vip-die-luxus-segelyacht"
   },
   "dinner_cruise_night_show": {
     "tour_id": "dinner_cruise_night_show",
@@ -557,7 +565,8 @@
       "Orientalische Show auf dem Boot",
       "Nachtleben Sharm",
       "Dinner-Bootsfahrt Ägypten"
-    ]
+    ],
+    "route_slug": "magic-night-meeresfruchte-dinner-und-orientalische-show"
   },
   "water_sports_adrenaline_combo": {
     "tour_id": "water_sports_adrenaline_combo",
@@ -616,7 +625,8 @@
       "Bananenboot Ägypten",
       "Wassersport Sharm",
       "Fallschirm Rotes Meer"
-    ]
+    ],
+    "route_slug": "adrenalin-in-luft-und-wasser-parasailing-und-wasserspass"
   },
   "albatros_aqua_park_full_day": {
     "tour_id": "albatros_aqua_park_full_day",
@@ -674,7 +684,8 @@
       "Wasserparks Sharm",
       "Wasserrutschen Sharm el Sheikh",
       "Familienspaß Ägypten"
-    ]
+    ],
+    "route_slug": "albatros-aqua-park-das-wasserreich"
   },
   "seascope_semi_submarine": {
     "tour_id": "seascope_semi_submarine",
@@ -728,7 +739,8 @@
       "Familienausflug Sharm",
       "Korallenriff trocken erleben",
       "Fische sehen ohne Schwimmen"
-    ]
+    ],
+    "route_slug": "sea-scope-das-unterwasserkino"
   },
   "super_safari_5_senses": {
     "tour_id": "super_safari_5_senses",
@@ -801,7 +813,8 @@
       "Beduinen-Abendessen Ägypten",
       "Sterne beobachten Sinai",
       "Beste Ausflüge Sharm"
-    ]
+    ],
+    "route_slug": "super-safari-die-5-sinne-des-sinai"
   },
   "moto_safari_quad_echo": {
     "tour_id": "moto_safari_quad_echo",
@@ -868,7 +881,8 @@
       "Echotal",
       "Sonnenuntergang Wüste",
       "Abenteuerausflug"
-    ]
+    ],
+    "route_slug": "moto-safari-quad-sonnenuntergang-und-echotal"
   },
   "vip_cena_romantica": {
     "tour_id": "vip_cena_romantica",
@@ -935,7 +949,8 @@
       "Heiratsantrag Ägypten",
       "Privater Abend Sharm",
       "Luxuserlebnis Sinai"
-    ]
+    ],
+    "route_slug": "romantisches-vip-dinner-1001-nacht"
   },
   "sharm_old_market_ultimate_shopping": {
     "tour_id": "sharm_old_market_ultimate_shopping",
@@ -995,7 +1010,8 @@
       "Parfüms Sharm",
       "Ledertaschen Sharm",
       "Al-Sahaba-Moschee"
-    ]
+    ],
+    "route_slug": "alt-sharm-moschee-mode-und-das-indien-agyptens"
   },
   "cairo_plane_flexible_museum": {
     "tour_id": "cairo_plane_flexible_museum",
@@ -1058,7 +1074,8 @@
       "Ägyptisches Museum Tahrir",
       "Grand Egyptian Museum GEM",
       "Pyramiden von Gizeh"
-    ]
+    ],
+    "route_slug": "kairo-per-flugzeug-pyramiden-und-dein-wunschmuseum"
   },
   "cairo_bus_adventure_choice": {
     "tour_id": "cairo_bus_adventure_choice",
@@ -1130,7 +1147,8 @@
       "Günstiger Pyramidenausflug",
       "Neues Museum GEM mit dem Bus",
       "Pyramiden Gizeh günstig"
-    ]
+    ],
+    "route_slug": "kairo-mit-dem-bus-preisbewusstes-abenteuer-nach-deiner-wahl"
   },
   "santa_caterina_monastery_morning": {
     "tour_id": "santa_caterina_monastery_morning",
@@ -1190,7 +1208,8 @@
       "Privater Sinai-Ausflug",
       "Katharinenkloster VIP",
       "Heiliges Land Ägypten"
-    ]
+    ],
+    "route_slug": "katharinenkloster-das-heilige-kloster-klassisch-und-vip"
   },
   "mount_sinai_sunrise_adventure": {
     "tour_id": "mount_sinai_sunrise_adventure",
@@ -1258,7 +1277,8 @@
       "Ausflug Katharinenkloster",
       "Wandern Ägypten",
       "Abenteuerausflug Sharm"
-    ]
+    ],
+    "route_slug": "sinai-abenteuer-heiliger-sonnenaufgang-und-kloster"
   },
   "luxor_plane_classic": {
     "tour_id": "luxor_plane_classic",
@@ -1327,7 +1347,8 @@
       "Karnak-Tempel",
       "Flug Sharm Luxor",
       "Alabaster Ägypten"
-    ]
+    ],
+    "route_slug": "luxor-per-flugzeug-tal-der-konige-und-goldene-tempel"
   },
   "petra_jordan_expedition": {
     "tour_id": "petra_jordan_expedition",
@@ -1399,7 +1420,8 @@
       "Petra Jordanien Tour",
       "Siq und Schatzhaus Petra",
       "Weltwunder"
-    ]
+    ],
+    "route_slug": "petra-die-rosarote-stadt-eines-der-7-weltwunder"
   },
   "cairo_pyramids_classic_dummy": {
     "tour_id": "cairo_pyramids_classic_dummy",
@@ -1458,7 +1480,8 @@
       "Sphinx-Tour",
       "Gizeh-Plateau",
       "Geschichte Ägyptens"
-    ]
+    ],
+    "route_slug": "pyramiden-von-gizeh-und-sphinx-die-antiken-wahrzeichen"
   },
   "cairo_nile_dinner_dummy": {
     "tour_id": "cairo_nile_dinner_dummy",
@@ -1509,7 +1532,8 @@
       "Nil-Bootsfahrt Kairo",
       "Abendessen auf dem Nil",
       "Nachtleben Kairo"
-    ]
+    ],
+    "route_slug": "nile-maxim-5-sterne-dinner-bootsfahrt-und-show"
   },
   "cairo_quad_pyramids_dummy": {
     "tour_id": "cairo_quad_pyramids_dummy",
@@ -1559,7 +1583,8 @@
       "Quad Kairo",
       "ATV Pyramiden",
       "Wüstenabenteuer Kairo"
-    ]
+    ],
+    "route_slug": "quadfahrt-an-den-pyramiden-adrenalin-und-geschichte"
   },
   "luxor_kings_valley_dummy": {
     "tour_id": "luxor_kings_valley_dummy",
@@ -1614,7 +1639,8 @@
       "Tal der Könige",
       "Luxor-Tour",
       "Hatschepsut-Tempel"
-    ]
+    ],
+    "route_slug": "westufer-tal-der-konige-und-hatschepsut"
   },
   "aswan_felucca_dummy": {
     "tour_id": "aswan_felucca_dummy",
@@ -1663,6 +1689,7 @@
       "Felukke Assuan",
       "Segeln auf dem Nil",
       "Nubisches Assuan"
-    ]
+    ],
+    "route_slug": "felukke-in-assuan-sonnenuntergang-und-botanische-garten"
   }
 }

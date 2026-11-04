@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import logo from '../assets/logos/fabio-header-logo.webp';
 import { languages, blogLocales, supportedLocales, type Locale } from '../config/languages';
 import { getSharedMessages } from '../i18n/shared';
+import {catalogSection} from '../domain/catalog-routes';
 import WishlistLink from '../../features/wishlist/presentation/WishlistLink.astro';
 import AuthTrigger from '../../features/auth/presentation/AuthTrigger.astro';
 import { getPlaceNavigation } from '../../features/places/data/navigation';
@@ -15,7 +16,7 @@ const { locale, route, navigation } = Astro.props;
 const messages = getSharedMessages(locale);
 const guide = await getPlaceNavigation(locale);
 const section = route.split('/')[0];
-const active = (key:string) => key===section || (key==='explore'&&['tours','packages'].includes(section));
+const active = (key:string) => key===section || (key==='explore'&&[catalogSection(locale,'tours'),catalogSection(locale,'packages')].includes(section));
 const nav = [
   { key: '', label: messages.menu.home, href: `/${locale}/` },
   { key: 'explore', label: messages.menu.trips, href: `/${locale}/explore/` },

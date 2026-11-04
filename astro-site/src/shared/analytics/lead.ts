@@ -24,3 +24,9 @@ export function trackPlannerInquiry(locale:string){
  const gtag=(window as unknown as {gtag?:(...args:unknown[])=>void}).gtag;
  if(typeof gtag==='function')gtag('event','generate_lead',{event_category:'TripPlanner',channel:'whatsapp',site_language:locale});
 }
+/** Explicit campaign WhatsApp handoff; never message text or personal values. */
+export function trackBluInquiry(locale:string){
+ if(!acceptedCategory('analytics'))return;
+ const gtag=(window as unknown as {gtag?:(...args:unknown[])=>void}).gtag;
+ if(typeof gtag==='function')gtag('event','generate_lead',{event_category:'LandingCampaign',campaign_id:'red-sea-cartoon',channel:'whatsapp',site_language:locale});
+}

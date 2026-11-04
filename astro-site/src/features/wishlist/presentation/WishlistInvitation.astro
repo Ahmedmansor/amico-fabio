@@ -3,10 +3,11 @@ import type {Locale} from '../../../shared/config/languages';
 import {accountSyncEnabled} from '../data/build-config';
 import {getWishlistMessages} from '../data/messages';
 import {getAuthMessages} from '../../auth/data/messages';
+import {invitationAllowedOnPath} from '../domain/invitation';
 interface Props {locale:Locale}
 const m=getWishlistMessages(Astro.props.locale),auth=getAuthMessages(Astro.props.locale);
 ---
-{accountSyncEnabled && <aside class="wishlist-invitation" data-wishlist-invitation aria-labelledby="wishlist-invitation-title" hidden>
+{accountSyncEnabled && invitationAllowedOnPath(Astro.url.pathname) && <aside class="wishlist-invitation" data-wishlist-invitation aria-labelledby="wishlist-invitation-title" hidden>
   <h2 id="wishlist-invitation-title">{m.invitationTitle}</h2>
   <p role="status">{m.invitationBody}</p>
   <div class="wishlist-invitation-actions">

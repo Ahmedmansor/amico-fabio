@@ -64,7 +64,8 @@
       "Blue Hole Dahab Ausflug",
       "Wüstensafari Sharm",
       "Beste Ausflüge Sharm"
-    ]
+    ],
+    "route_slug": "sharm-confidential-das-komplette-erlebnis"
   },
   "dolce_vita_family": {
     "tour_id": "dolce_vita_family",
@@ -125,7 +126,8 @@
       "Dolce Vita Familienpaket",
       "Sichere Ausflüge Sharm",
       "Delfine und Halbtauchboot Sharm"
-    ]
+    ],
+    "route_slug": "dolce-vita-familie-und-entspannung"
   },
   "mille_e_una_notte": {
     "tour_id": "mille_e_una_notte",
@@ -186,7 +188,8 @@
       "Romantisches Abendessen Wüste",
       "Segeln Weiße Insel",
       "Paarreise Sharm El Sheikh"
-    ]
+    ],
+    "route_slug": "tausendundeine-nacht-romantische-auszeit"
   },
   "indiana_jones_adventure": {
     "tour_id": "indiana_jones_adventure",
@@ -247,7 +250,8 @@
       "Colored Canyon Tour",
       "Quad-Safari Sharm",
       "Schnuppertauchen Rotes Meer"
-    ]
+    ],
+    "route_slug": "indiana-jones-pures-adrenalin"
   },
   "il_grande_blu": {
     "tour_id": "il_grande_blu",
@@ -313,7 +317,8 @@
       "Blue Hole Dahab",
       "Tiran-Insel Ausflug",
       "Tauchreisen Ägypten"
-    ]
+    ],
+    "route_slug": "das-grosse-blau-schatze-des-roten-meeres"
   },
   "cairo_piramidi_saqqara_vip": {
     "tour_id": "cairo_piramidi_saqqara_vip",
@@ -377,7 +382,8 @@
       "Sphinx Ägypten",
       "Kairo VIP-Tour",
       "Fabio Egypt"
-    ]
+    ],
+    "route_slug": "ewige-grosse-pyramiden-von-gizeh-sphinx-und-sakkara"
   },
   "cairo_cuore_pulsante_museo_cittadella": {
     "tour_id": "cairo_cuore_pulsante_museo_cittadella",
@@ -441,7 +447,8 @@
       "Khan el-Khalili",
       "Sehenswürdigkeiten Kairo",
       "Kairo Stadttour"
-    ]
+    ],
+    "route_slug": "kairos-pulsierendes-herz-agyptisches-museum-zitadelle-und-khan-el-khalili"
   },
   "cairo_crociera_nilo_cena": {
     "tour_id": "cairo_crociera_nilo_cena",
@@ -499,7 +506,8 @@
       "Tanoura-Show",
       "Romantisches Abendessen Kairo",
       "Fabio Egypt Veranstaltungen"
-    ]
+    ],
+    "route_slug": "nachtliche-magie-auf-dem-nil-vip-dinner-bootsfahrt-und-show"
   },
   "cairo_mistico_copto_islamico": {
     "tour_id": "cairo_mistico_copto_islamico",
@@ -563,7 +571,8 @@
       "Hängende Kirche",
       "Islamisches Kairo",
       "Religiöse Tour Kairo"
-    ]
+    ],
+    "route_slug": "mystisches-kairo-koptisches-christentum-und-islamisches-erbe"
   },
   "cairo_safari_piramidi_tramonto": {
     "tour_id": "cairo_safari_piramidi_tramonto",
@@ -621,7 +630,8 @@
       "Kamelritt Sonnenuntergang Ägypten",
       "Abenteuer Kairo",
       "Fabio Egypt Safari"
-    ]
+    ],
+    "route_slug": "abenteuer-im-sonnenuntergang-quad-safari-und-kamele-bei-den-pyramiden"
   },
   "alessandria_tour_giornata_intera": {
     "tour_id": "alessandria_tour_giornata_intera",
@@ -690,7 +700,8 @@
       "Bibliothek von Alexandria",
       "Sehenswürdigkeiten Alexandria",
       "Fabio Egypt"
-    ]
+    ],
+    "route_slug": "auszeit-am-mittelmeer-ganztagestour-nach-alexandria"
   },
   "gran_tour_egitto_cairo_crociera_8g7n": {
     "tour_id": "gran_tour_egitto_cairo_crociera_8g7n",
@@ -758,7 +769,8 @@
       "Große Ägyptenreise",
       "Komplette Ägyptenreise",
       "Fabio Egypt Reisepakete"
-    ]
+    ],
+    "route_slug": "die-grosse-pharaonenreise-kairo-und-nilzauber-8-tage"
   },
   "nile_cruise_luxor_aswan_5d4n": {
     "tour_id": "nile_cruise_luxor_aswan_5d4n",
@@ -821,7 +833,8 @@
       "Nubisches Dorf",
       "Tal der Könige",
       "VIP-Reise Ägypten"
-    ]
+    ],
+    "route_slug": "konigliche-nilkreuzfahrt-von-luxor-nach-assuan"
   },
   "nile_cruise_aswan_luxor_4d3n": {
     "tour_id": "nile_cruise_aswan_luxor_4d3n",
@@ -877,6 +890,7 @@
       "Philae-Tempel",
       "Karnak",
       "Fabio Egypt Kreuzfahrten"
-    ]
+    ],
+    "route_slug": "zauber-des-sudens-kreuzfahrt-von-assuan-nach-luxor"
   }
 }

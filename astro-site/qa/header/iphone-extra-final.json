@@ -1,0 +1,140 @@
+{
+  "origin": "http://127.0.0.1:4337",
+  "results": [
+    {
+      "device": "iPhone SE",
+      "kind": "invoice",
+      "status": "pass",
+      "details": {
+        "top": 49,
+        "bottom": 519,
+        "height": 470,
+        "viewport": 568,
+        "scrollable": "visible"
+      },
+      "pageErrors": [],
+      "syntheticLeadPosts": 0,
+      "externalLeadPosts": 0
+    },
+    {
+      "device": "iPhone SE",
+      "kind": "offer",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticLeadPosts": 0,
+      "externalLeadPosts": 0
+    },
+    {
+      "device": "iPhone SE",
+      "kind": "welcome",
+      "status": "pass",
+      "details": {
+        "text": [
+          13,
+          36,
+          70
+        ],
+        "background": [
+          249,
+          250,
+          251
+        ],
+        "contrast": 14.8,
+        "preferencesReopenedAndClosed": true
+      },
+      "pageErrors": [],
+      "syntheticLeadPosts": 2,
+      "externalLeadPosts": 0
+    },
+    {
+      "device": "iPhone 13",
+      "kind": "invoice",
+      "status": "pass",
+      "details": {
+        "top": 97,
+        "bottom": 567,
+        "height": 470,
+        "viewport": 664,
+        "scrollable": "visible"
+      },
+      "pageErrors": [],
+      "syntheticLeadPosts": 0,
+      "externalLeadPosts": 0
+    },
+    {
+      "device": "iPhone 13",
+      "kind": "offer",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticLeadPosts": 0,
+      "externalLeadPosts": 0
+    },
+    {
+      "device": "iPhone 13",
+      "kind": "welcome",
+      "status": "pass",
+      "details": {
+        "text": [
+          13,
+          36,
+          70
+        ],
+        "background": [
+          249,
+          250,
+          251
+        ],
+        "contrast": 14.8,
+        "preferencesReopenedAndClosed": true
+      },
+      "pageErrors": [],
+      "syntheticLeadPosts": 2,
+      "externalLeadPosts": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "kind": "invoice",
+      "status": "pass",
+      "details": {
+        "top": 315,
+        "bottom": 765,
+        "height": 450,
+        "viewport": 1080,
+        "scrollable": "visible"
+      },
+      "pageErrors": [],
+      "syntheticLeadPosts": 0,
+      "externalLeadPosts": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "kind": "offer",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticLeadPosts": 0,
+      "externalLeadPosts": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "kind": "welcome",
+      "status": "pass",
+      "details": {
+        "text": [
+          13,
+          36,
+          70
+        ],
+        "background": [
+          249,
+          250,
+          251
+        ],
+        "contrast": 14.8,
+        "preferencesReopenedAndClosed": true
+      },
+      "pageErrors": [],
+      "syntheticLeadPosts": 2,
+      "externalLeadPosts": 0
+    }
+  ]
+}

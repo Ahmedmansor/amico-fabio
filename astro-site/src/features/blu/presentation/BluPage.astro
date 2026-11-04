@@ -1,0 +1,52 @@
+---
+import DocumentShell from '../../../shared/layouts/DocumentShell.astro';
+import PageHead from '../../../shared/seo/PageHead.astro';
+import {siteConfig} from '../../../shared/config/site';
+import {buildBluWhatsApp} from '../domain/campaign';
+import type {BluCampaign} from '../data/campaign';
+import type {BluProgram} from '../domain/programs';
+import LandingHeader from './LandingHeader.astro';
+import LandingFooter from './LandingFooter.astro';
+import Portal from './Portal.astro';
+import ExperienceCards from './ExperienceCards.astro';
+import SecretBottle from './SecretBottle.astro';
+import Programs from './Programs.astro';
+import UnderwaterDecor from './UnderwaterDecor.astro';
+
+import './blu.css';
+import './journey.css';
+import AdventurePicker from './AdventurePicker.astro';
+import FabioStory from './FabioStory.astro';
+import type {getBluJourney} from '../data/journey';
+interface Props {campaign:BluCampaign;programs:BluProgram[];journey:Awaited<ReturnType<typeof getBluJourney>>}
+const {campaign,programs,journey}=Astro.props;
+const {copy,locale}=campaign;
+const whatsapp=buildBluWhatsApp(siteConfig.whatsapp.number,copy.waDefaultMsg);
+const browserConfig={locale,number:siteConfig.whatsapp.number,copy,experiences:campaign.experiences};
+---
+<DocumentShell locale={locale} campaign="blu" bodyClass="blu-page">
+ <PageHead slot="head" locale={locale} route="blu" title={copy.title} description={copy.description} canonicalPath={campaign.path} alternatePaths={campaign.alternates} fontPreloads={[]}/>
+ <UnderwaterDecor/><LandingHeader campaign={campaign}/>
+ <main id="blu-main" class="blu-width" tabindex="-1">
+  <section class="blu-hero" aria-labelledby="blu-title">
+   <div class="blu-hero-copy"><p class="blu-mystery-badge"><span aria-hidden="true"></span>{copy.heroBadge}</p>
+    <h1 id="blu-title">{copy.heroTitle}</h1><p class="blu-hero-description">{copy.heroSub}</p>
+    <div class="blu-hero-actions"><a class="blu-button blu-button-yellow" href="#blu-adventure" data-programs-jump>{copy.btnExplore}<span aria-hidden="true">↓</span></a><a class="blu-button blu-button-green" href={whatsapp} target="_blank" rel="noopener noreferrer" data-blu-whatsapp>{copy.btnWhatsapp}<span aria-hidden="true">↗</span></a></div>
+
+   </div>
+   <Portal copy={copy}/>
+  </section>
+  <AdventurePicker copy={copy}/>
+  <div class="blu-content-layout">
+  <div class="blu-character-stories"><ExperienceCards campaign={campaign}/><FabioStory copy={copy} journey={journey}/></div>
+  <Programs copy={copy} locale={locale} programs={programs} matches={journey.programs}/>
+  </div>
+  <section class="blu-faq" aria-labelledby="blu-faq-title"><h2 id="blu-faq-title">{copy.faqTitle}</h2>
+   {[1,2,3].map(n=><details><summary>{copy[`faq${n}` as keyof typeof copy]}</summary><p>{copy[`faq${n}Answer` as keyof typeof copy]}</p></details>)}
+  </section>
+  <SecretBottle copy={copy} whatsapp={whatsapp}/>
+ </main>
+ <LandingFooter campaign={campaign} whatsapp={whatsapp}/>
+ <script id="blu-config" type="application/json" set:html={JSON.stringify(browserConfig).replaceAll('<','\u003c')}/>
+ <script>import './interactions';</script>
+</DocumentShell>

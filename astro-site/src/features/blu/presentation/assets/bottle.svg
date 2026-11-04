@@ -1,0 +1,18 @@
+<svg id="formula-bottle-svg" viewBox="0 0 160 160">
+                                <!-- Glowing Aura -->
+                                <circle cx="80" cy="85" r="56" fill="#FFE135" opacity="0.35"/>
+                                <!-- Cork Top (Animates up when clicked) -->
+                                <g id="bottle-cork">
+                                    <path d="M66 18 L94 18 L90 38 L70 38 Z" fill="#B45309" stroke="#0F172A" stroke-width="4"/>
+                                </g>
+                                <!-- Bottle Neck & Rim -->
+                                <rect x="62" y="34" width="36" height="10" rx="4" fill="#E0FBFC" stroke="#0F172A" stroke-width="4"/>
+                                <!-- Glass Bottle Body -->
+                                <path d="M66 44 L50 75 L50 135 C50 144, 110 144, 110 135 L110 75 L94 44 Z" fill="#A5F3FC" fill-opacity="0.75" stroke="#0F172A" stroke-width="4.5"/>
+                                <!-- Rolled Secret Parchment Scroll Inside Bottle -->
+                                <rect x="66" y="72" width="28" height="52" rx="4" fill="#FDE68A" stroke="#0F172A" stroke-width="3.5" transform="rotate(-6 80 98)"/>
+                                <!-- Red Ribbon around Scroll -->
+                                <rect x="65" y="94" width="30" height="7" fill="#E63946" stroke="#0F172A" stroke-width="2.5" transform="rotate(-6 80 98)"/>
+                                <!-- Glass Shine -->
+                                <path d="M58 80 L58 125" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+                            </svg>

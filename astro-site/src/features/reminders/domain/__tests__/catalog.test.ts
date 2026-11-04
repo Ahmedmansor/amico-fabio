@@ -9,6 +9,13 @@ function item(kind: EmailCatalogItem['kind']='trip'): EmailCatalogItem {
 }
 const build=(items: EmailCatalogItem[])=>buildEmailCatalog(items,origin,'2026-10-24T00:00:00Z','test');
 describe('published email catalog contract',()=>{
+  it('accepts localized canonical URLs alongside legacy worker-compatible URLs',()=>{
+    const entry=item();entry.localized.it.canonical_url=`${origin}/it/escursioni/titolo-italiano/`;
+    expect(build([entry]).items[0].localized.it.url).toBe(`${origin}/it/tours/public-slug/`);
+    for(const canonical_url of ['https://evil.test/it/tours/title/',`${origin}/en/tours/title/`,`${origin}/it/packages/title/`,`${origin}/it/tours/../login/`]){
+      entry.localized.it.canonical_url=canonical_url;expect(()=>build([entry])).toThrow(/canonical URL/);
+    }
+  });
   it('keeps explicit free prices, language equivalents and kind-specific identity',()=>{
     const manifest=build([item(),item('package')]);
     expect(manifest.items).toHaveLength(2);expect(manifest.items[0].adult_price).toBe(0);

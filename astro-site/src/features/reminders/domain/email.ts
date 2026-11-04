@@ -58,7 +58,7 @@ export function prepareWishlistEmail(input: {
   }
   // User decision, 2026-10-24: include every available saved tour/package.
   const items=eligible.map(item=>({kind:item.kind,
-    title:item.localized[locale].title,url:item.localized[locale].url,
+    title:item.localized[locale].title,url:item.localized[locale].canonical_url??item.localized[locale].url,
     price:item.adult_price,image:{...item.image},
   }));
   return {model:{locale,kind:input.kind,origin:catalog.origin,items,

@@ -1,0 +1,126 @@
+[data-campaign='blu'] .blu-hero {min-height:650px;gap:64px;padding-block:56px 90px}
+[data-campaign='blu'] h1 {font-size:clamp(3rem,5.6vw,5.4rem);line-height:1.02;max-width:760px}
+[data-campaign='blu'] .blu-hero-description {background:none;border:0;padding:0;max-width:540px;font-size:1.05rem;line-height:1.9}
+[data-campaign='blu'] .blu-mystery-badge {border:0;background:transparent;padding:0;box-shadow:none;color:var(--blu-light);font-weight:600}
+[data-campaign='blu'] .blu-hero-actions {margin-top:30px}
+[data-campaign='blu'] .blu-hero-actions .blu-button-green {background:transparent;color:white;border-color:#b5eeff80;box-shadow:none}
+[data-campaign='blu'] .blu-header-cta {background:transparent;color:var(--blu-yellow);box-shadow:none;border:1px solid #b5eeff80}
+[data-campaign='blu'] .blu-portal-panel {border:1px solid #b5eeff80;box-shadow:0 24px 70px #00172c66;padding:14px}
+[data-campaign='blu'] .blu-portal {border-width:2px;height:460px}
+[data-campaign='blu'] .blu-portal-title {background:none;color:var(--blu-light);border:0;padding:4px 2px}
+[data-campaign='blu'] .blu-toolbar {background:#031b3899;border:0}
+[data-campaign='blu'] .blu-toolbar-inner {min-height:44px}
+[data-campaign='blu'] .blu-motion-control select {min-height:36px;background:transparent;color:white;border:1px solid #b5eeff80;font-size:.7rem}
+[data-campaign='blu'] .blu-motion-control option {background:var(--blu-ink)}
+[data-campaign='blu'] .blu-reality {position:relative;isolation:isolate;min-height:520px;border-radius:32px;overflow:hidden;margin-bottom:100px;background:var(--blu-deep)}
+[data-campaign='blu'] .blu-reality>img {position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+[data-campaign='blu'] .blu-reality::after {content:'';position:absolute;inset:0;background:linear-gradient(0deg,#001e38ed,transparent 85%);z-index:0}
+[data-campaign='blu'] .blu-reality-caption {position:relative;z-index:1;padding:260px 56px 48px;max-width:800px}
+[data-campaign='blu'] .blu-reality h2 {font-size:clamp(2.4rem,5vw,4.5rem);margin-block:14px}
+[data-campaign='blu'] .blu-reality p {font-size:1.05rem;line-height:1.8}
+[data-campaign='blu'] .blu-adventure {scroll-margin-top:30px}
+[data-campaign='blu'] .blu-section-heading {max-width:780px;margin-bottom:32px}
+[data-campaign='blu'] .blu-section-heading h2 {font-size:clamp(2.2rem,4vw,3.5rem)}
+[data-campaign='blu'] .blu-choices {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+[data-campaign='blu'] .blu-choice {position:relative;isolation:isolate;min-height:350px;overflow:hidden;background:var(--blu-ink);color:white;text-align:left;border:2px solid #b5eeff55;border-radius:24px;padding:0;cursor:pointer;transition:transform .25s}
+[data-campaign='blu'] .blu-choice>img {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+[data-campaign='blu'] .blu-choice::after {content:'';position:absolute;inset:0;z-index:0;background:linear-gradient(0deg,#031b38 0%,#031b3877 55%,transparent)}
+[data-campaign='blu'] .blu-choice-content {position:relative;z-index:1;display:flex;flex-direction:column;gap:12px;padding:160px 24px 28px}
+[data-campaign='blu'] .blu-choice-number {font-size:.7rem;letter-spacing:.15em;color:var(--blu-yellow)}
+[data-campaign='blu'] .blu-choice strong {font-family:'Blu Fredoka',sans-serif;font-size:2rem;line-height:1.1}
+[data-campaign='blu'] .blu-choice-content>span:not(.blu-choice-number,.blu-choice-arrow) {font-size:.85rem;line-height:1.7;max-width:240px}
+[data-campaign='blu'] .blu-choice-arrow {position:absolute;right:20px;top:20px;width:42px;height:42px;display:grid;place-items:center;background:#071c3788;border:1px solid #ffffff66;border-radius:50%;font-size:1.3rem}
+[data-campaign='blu'] .blu-choice[aria-pressed='true'] {border-color:var(--blu-yellow);box-shadow:0 0 0 3px #ffe13533}
+[data-campaign='blu'] .blu-choice[aria-pressed='true'] .blu-choice-arrow {background:var(--blu-yellow);color:var(--blu-ink)}
+[data-campaign='blu'] .blu-choice-feedback {display:flex;align-items:center;flex-wrap:wrap;gap:14px 24px;padding-block:22px;color:var(--blu-light);font-size:.85rem}
+[data-campaign='blu'] .blu-choice-feedback button,[data-campaign='blu'] .blu-choice-feedback a {background:none;border:0;color:var(--blu-yellow);text-decoration:underline;text-underline-offset:5px;min-height:44px;display:inline-flex;align-items:center;cursor:pointer;font:inherit}
+[data-campaign='blu'] #blu-programs {margin-block:36px 100px;scroll-margin-top:25px}
+[data-campaign='blu'] .blu-related-inner {padding:0}
+[data-campaign='blu'] .blu-related h2 {font-size:clamp(2rem,3.5vw,3rem)}
+[data-campaign='blu'] .blu-related-inner>p {font-size:.95rem;max-width:720px}
+[data-campaign='blu'] .blu-related-cards {grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
+[data-campaign='blu'] .blu-program {background:#f5f0e4;border:0;box-shadow:0 16px 40px #00162c33;border-radius:24px}
+[data-campaign='blu'] .blu-program>img {height:280px;border:0}
+[data-campaign='blu'] .blu-program-copy {padding:28px}
+[data-campaign='blu'] .blu-program h3 {font-size:2rem}
+[data-campaign='blu'] .blu-program-copy>p {font-size:.95rem}
+[data-campaign='blu'] .blu-program[data-selected='true'] {outline:3px solid var(--blu-yellow);outline-offset:5px}
+[data-campaign='blu'] .blu-fabio-story {display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center;margin-block:100px}
+[data-campaign='blu'] .blu-fabio-photo {position:relative;border-radius:48% 48% 24px 24px;background:radial-gradient(ellipse at 50% 40%,#82ede5,#006f99);overflow:hidden}
+[data-campaign='blu'] .blu-fabio-photo img {display:block;width:100%;height:480px;object-fit:contain;object-position:bottom}
+[data-campaign='blu'] .blu-fabio-photo>span {position:absolute;bottom:20px;left:24px;color:var(--blu-yellow);font-family:'Blu Fredoka';font-size:1.8rem;text-shadow:0 2px 8px #031b38}
+[data-campaign='blu'] .blu-fabio-story h2 {font-size:3rem;margin-block:14px 24px}
+[data-campaign='blu'] .blu-fabio-story blockquote {font-size:1.3rem;line-height:1.85}
+[data-campaign='blu'] .blu-fabio-story details {margin-top:24px;border-top:1px solid #b5eeff66}
+[data-campaign='blu'] .blu-fabio-story summary,[data-campaign='blu'] .blu-faq summary {padding-block:20px;cursor:pointer;font-weight:700}
+[data-campaign='blu'] .blu-biography {line-height:1.9;color:var(--blu-light)}
+[data-campaign='blu'] .blu-biography p {margin-bottom:16px}
+[data-campaign='blu'] .blu-biography .wf-text-highlight {display:block;font-weight:800;color:var(--blu-yellow);margin-top:22px}
+[data-campaign='blu'] .blu-reviews {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+[data-campaign='blu'] .blu-reviews figure {background:#071e3bd9;border:1px solid #b5eeff44;border-radius:20px;padding:28px;display:flex;flex-direction:column;justify-content:space-between}
+[data-campaign='blu'] .blu-reviews blockquote {line-height:1.9;font-size:.95rem}
+[data-campaign='blu'] .blu-reviews figcaption {display:grid;gap:6px;margin-top:28px;font-size:.8rem}
+[data-campaign='blu'] .blu-reviews figcaption>span {color:var(--blu-light)}
+[data-campaign='blu'] .blu-guest-stories>a {display:inline-block;text-decoration:underline;text-underline-offset:5px;padding-block:22px}
+[data-campaign='blu'] .blu-character-stories {margin-block:60px;border-block:1px solid #b5eeff55}
+[data-campaign='blu'] .blu-character-stories .blu-cards {grid-template-columns:repeat(3,minmax(0,1fr))}
+[data-campaign='blu'] .blu-character-stories .blu-card {border:1px solid #b5eeff55;box-shadow:none}
+[data-campaign='blu'] .blu-faq {max-width:850px;margin:90px auto}
+[data-campaign='blu'] .blu-faq h2 {margin-bottom:25px}
+[data-campaign='blu'] .blu-faq details {border-bottom:1px solid #b5eeff55}
+[data-campaign='blu'] .blu-faq p {padding-bottom:24px;line-height:1.9;color:var(--blu-light)}
+[data-campaign='blu'] .blu-secret {margin-bottom:90px;border:1px solid #b5eeff66;border-radius:28px;box-shadow:none;padding:44px;gap:48px}
+[data-campaign='blu'] .blu-secret h2 {font-size:3rem}
+[data-campaign='blu'] .blu-bottle-card {border:0}
+@media(hover:hover) and (prefers-reduced-motion:no-preference) {
+ [data-campaign='blu'][data-effects='full'] .blu-choice:hover>img {transform:scale(1.05)}
+}
+@media(max-width:767px) {
+ [data-campaign='blu'] .blu-hero {min-height:0;gap:36px;padding-block:30px 56px}
+ [data-campaign='blu'] h1 {font-size:clamp(2.8rem,11vw,4rem)}
+ [data-campaign='blu'] .blu-hero-description {font-size:.95rem;text-align:center}
+ [data-campaign='blu'] .blu-hero-copy {text-align:center}
+ [data-campaign='blu'] .blu-portal {height:370px}
+ [data-campaign='blu'] .blu-reality {min-height:380px;margin-bottom:60px;border-radius:22px}
+ [data-campaign='blu'] .blu-reality-caption {padding:180px 24px 28px}
+ [data-campaign='blu'] .blu-reality h2 {font-size:2.5rem}
+ [data-campaign='blu'] .blu-reality p {font-size:.9rem}
+ [data-campaign='blu'] .blu-choices {grid-template-columns:1fr;gap:14px}
+ [data-campaign='blu'] .blu-choice {min-height:190px}
+ [data-campaign='blu'] .blu-choice-content {padding:60px 22px 24px}
+ [data-campaign='blu'] .blu-choice strong {font-size:1.75rem}
+ [data-campaign='blu'] .blu-related-cards {grid-template-columns:1fr}
+ [data-campaign='blu'] .blu-program>img {height:230px}
+ [data-campaign='blu'] .blu-program-copy {padding:24px}
+ [data-campaign='blu'] .blu-fabio-story {grid-template-columns:1fr;gap:30px;margin-block:60px}
+ [data-campaign='blu'] .blu-fabio-photo {max-width:380px;width:100%;margin:auto}
+ [data-campaign='blu'] .blu-fabio-photo img {height:370px}
+ [data-campaign='blu'] .blu-fabio-story h2 {font-size:2.4rem}
+ [data-campaign='blu'] .blu-fabio-story blockquote {font-size:1.1rem}
+ [data-campaign='blu'] .blu-reviews {grid-template-columns:1fr}
+ [data-campaign='blu'] .blu-character-stories .blu-cards {grid-template-columns:1fr}
+ [data-campaign='blu'] .blu-secret {padding:24px 18px;gap:26px}
+ [data-campaign='blu'] .blu-secret h2 {font-size:2.3rem}
+}
+
+@media(min-width:1100px) {
+ [data-campaign='blu'] .blu-content-layout {display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:36px;align-items:start;margin-block:50px 90px}
+ [data-campaign='blu'] .blu-content-layout .blu-character-stories {margin:0;border:0;min-width:0}
+ [data-campaign='blu'] .blu-content-layout .blu-cards {grid-template-columns:repeat(2,minmax(0,1fr))}
+ [data-campaign='blu'] .blu-content-layout #blu-programs {margin:0;padding:26px 20px;background:#051f3b88;border:1px solid #b5eeff44;border-radius:24px}
+ [data-campaign='blu'] .blu-content-layout .blu-related h2 {font-size:1.8rem}
+ [data-campaign='blu'] .blu-content-layout .blu-related-inner>p {font-size:.85rem}
+ [data-campaign='blu'] .blu-content-layout .blu-related-cards {grid-template-columns:1fr;gap:24px}
+ [data-campaign='blu'] .blu-content-layout .blu-program>img {height:185px}
+ [data-campaign='blu'] .blu-content-layout .blu-program-copy {padding:20px}
+ [data-campaign='blu'] .blu-content-layout .blu-program h3 {font-size:1.5rem}
+ [data-campaign='blu'] .blu-content-layout .blu-program-copy>p {font-size:.85rem}
+ [data-campaign='blu'] .blu-content-layout .blu-planner-link {padding:16px}
+}
+
+@media(min-width:1100px) {
+ [data-campaign='blu'] .blu-content-layout .blu-fabio-story {gap:28px;margin-block:56px;grid-template-columns:.8fr 1.2fr}
+ [data-campaign='blu'] .blu-content-layout .blu-fabio-photo img {height:360px}
+ [data-campaign='blu'] .blu-content-layout .blu-fabio-story h2 {font-size:2.5rem}
+ [data-campaign='blu'] .blu-content-layout .blu-reviews {grid-template-columns:1fr}
+}

@@ -1,0 +1,387 @@
+{
+  "origin": "http://127.0.0.1:4337",
+  "engine": "WebKit 26.0",
+  "physicalDevice": false,
+  "externalSubmissions": 0,
+  "results": [
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "home",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "guideLegal",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "navigation",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "catalog",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "booking",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "package",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "planner",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "login",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 2
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "home",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "guideLegal",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "navigation",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "catalog",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "booking",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "package",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "planner",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "login",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 2
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "home",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "guideLegal",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "navigation",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "catalog",
+      "status": "fail",
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   'TypeError: Importing a module script failed.'\n+ ]\n- []\n",
+      "pageErrors": [
+        "TypeError: Importing a module script failed."
+      ],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "booking",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "package",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "planner",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "login",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 2
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "home",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "guideLegal",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "navigation",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "catalog",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "booking",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "package",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "planner",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "login",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 2
+    },
+    {
+      "device": "iPhone SE",
+      "locale": "it",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone SE",
+      "locale": "en",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone SE",
+      "locale": "es",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone SE",
+      "locale": "pt",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone SE",
+      "locale": "de",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "es",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "pt",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "de",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "es",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "pt",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "de",
+      "name": "layout",
+      "status": "pass",
+      "pageErrors": [],
+      "syntheticAuthRequests": 0
+    }
+  ]
+}

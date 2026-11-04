@@ -1,3 +1,4 @@
+import {catalogPath} from "../domain/catalog-routes";
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -35,8 +36,8 @@ export function editorialLoaders(policy:PublicationPolicy):{blog:Loader;places:L
       ...posts.filter(post=>isPublished(post,policy)).map(post=>({kind:'post' as const,id:post.id,lang:post.lang,title:post.title,url:`/${post.lang}/blog/${post.slug}/`,aliases:getAutomaticLinkPhrases(post),source:`blog/${post.sourcePath}`})),
       ...publishedPlaces.map(place=>({kind:'place' as const,id:place.placeId,lang:place.lang,title:place.title,url:placeUrl(place),aliases:[place.title,...place.linkKeywords],source:`places/${place.sourcePath}`})),
       ...supportedLocales.flatMap(lang=>[
-        ...trips.map(trip=>({kind:'tour' as const,id:trip.id,lang,title:trip.text[lang].title,url:`/${lang}/tours/${trip.slug}/`,aliases:[],source:`catalog tour:${trip.id}`})),
-        ...packages.map(item=>({kind:'package' as const,id:item.id,lang,title:item.text[lang].title,url:`/${lang}/packages/${item.slug}/`,aliases:[],source:`catalog package:${item.id}`})),
+        ...trips.map(trip=>({kind:'tour' as const,id:trip.id,lang,title:trip.text[lang].title,url:catalogPath(trip,lang,'tours'),aliases:[],source:`catalog tour:${trip.id}`})),
+        ...packages.map(item=>({kind:'package' as const,id:item.id,lang,title:item.text[lang].title,url:catalogPath(item,lang,'packages'),aliases:[],source:`catalog package:${item.id}`})),
       ]),
     ];validateTargets(targets);
     const context=contexts.get('blog')!;

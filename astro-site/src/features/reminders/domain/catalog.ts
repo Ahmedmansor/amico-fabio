@@ -1,11 +1,12 @@
 import { supportedLocales, type Locale } from '../../../shared/config/languages.ts';
+import {catalogSection} from '../../../shared/domain/catalog-routes.ts';
 
 export interface EmailCatalogItem {
   kind: 'trip' | 'package';
   id: string;
   slug: string;
   adult_price: number;
-  localized: Record<Locale, { title: string; url: string }>;
+  localized: Record<Locale, { title: string; url: string; canonical_url?: string }>;
   image: { url: string; width: number; height: number };
 }
 export interface EmailCatalog {
@@ -40,7 +41,7 @@ export function validateEmailCatalog(input: unknown): EmailCatalog {
   if(emailOrigin(manifest.origin)!==manifest.origin) throw new Error('[email-catalog] Noncanonical origin.');
   required(manifest.generated_at,'generated_at');
   if(!Number.isFinite(Date.parse(manifest.generated_at))) throw new Error('[email-catalog] Invalid generated_at.');
-  const ids=new Set<string>(),slugs=new Set<string>();
+  const ids=new Set<string>(),slugs=new Set<string>(),canonicalRoutes=new Set<string>();
   for(const item of manifest.items){
     if(!item || !['trip','package'].includes(item.kind)) throw new Error('[email-catalog] Invalid item kind.');
     const context=`${item.kind}:${item.id}`;
@@ -58,6 +59,14 @@ export function validateEmailCatalog(input: unknown): EmailCatalog {
       const path=`/${locale}/${item.kind==='trip'?'tours':'packages'}/${item.slug}/`;
       if(text?.url!==new URL(path,manifest.origin).href)
         throw new Error(`[email-catalog:${context}] Invalid ${locale} page URL.`);
+      if(text.canonical_url!==undefined){
+        const prefix=`${manifest.origin}/${locale}/${catalogSection(locale,item.kind==='trip'?'tours':'packages')}/`;
+        if(typeof text.canonical_url!=='string'||!text.canonical_url.startsWith(prefix)
+          || !/^[a-z0-9]+(?:-[a-z0-9]+)*\/$/.test(text.canonical_url.slice(prefix.length))
+          || canonicalRoutes.has(text.canonical_url))
+          throw new Error(`[email-catalog:${context}] Invalid or duplicate ${locale} canonical URL.`);
+        canonicalRoutes.add(text.canonical_url);
+      }
     }
     if(!item.image || !Number.isSafeInteger(item.image.width) || !Number.isSafeInteger(item.image.height)
       || item.image.width<1 || item.image.height<1) throw new Error(`[email-catalog:${context}] Invalid image dimensions.`);

@@ -1,0 +1,17 @@
+---
+import type {BluCampaign} from '../data/campaign';
+import {siteConfig} from '../../../shared/config/site';
+import bottle from './assets/bottle.svg?raw';
+interface Props {campaign:BluCampaign;whatsapp:string}
+const {campaign:{copy,locale},whatsapp}=Astro.props;
+// Prefix IDs in the second instance so the animated desktop bottle stays unique.
+const mobileBottle=bottle.replaceAll('formula-bottle-svg','mobile-formula-bottle').replaceAll('bottle-cork','mobile-bottle-cork');
+---
+<footer class="blu-footer">
+ <div class="blu-width blu-footer-inner"><div><strong>FABIO EGYPT</strong><p>{copy.footerNote}</p></div>
+  <nav><a href={`/${locale}/`}>{copy.siteLink}</a><a href={`/${locale}/legal/`}>{copy.legalLink}</a><a href={`mailto:${siteConfig.email}`}>{copy.contactLink}</a><a href="#blu-top">{copy.backToTop} ↑</a></nav>
+ </div>
+</footer>
+<a class="blu-mobile-bottle" href={whatsapp} target="_blank" rel="noopener noreferrer" data-blu-whatsapp data-mobile-bottle>
+ <span class="blu-mobile-bottle-art" aria-hidden="true" set:html={mobileBottle}/><span><small>{copy.mobileBottleHint}</small><strong>{copy.mobileBottle}</strong></span><span aria-hidden="true">↗</span>
+</a>

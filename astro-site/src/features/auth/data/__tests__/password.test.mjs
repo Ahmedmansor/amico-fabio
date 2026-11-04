@@ -70,7 +70,7 @@ test('flags remain off by default and password activation requires Turnstile',()
   assert.throws(()=>readAuthConfig({...env,PUBLIC_AUTH_PASSWORD_ENABLED:'1'}),/Turnstile/);
 });
 test('return path preserves catalog detail destinations without opening redirect or login loops',()=>{
-  for(const path of ['/it/tours/boat-trip/','/en/packages/sharm_2026/'])assert.equal(safeReturnPath(path,authReturnPaths(path),'/it/'),path);
+  for(const path of ['/it/tours/boat-trip/','/en/packages/sharm_2026/','/it/escursioni/safari/','/it/pacchetti/vacanza/','/es/excursiones/safari/','/es/paquetes/viaje/','/pt/excursoes/safari/','/pt/pacotes/viagem/','/de/ausfluege/safari/','/de/reisepakete/reise/'])assert.equal(safeReturnPath(path,authReturnPaths(path),'/it/'),path);
   for(const path of ['//evil.test','/it/login/','/it/tours/../login/','/it/tours/%2e%2e/','/it/tours/boat/?next=evil','/ar/tours/boat/','/it/unknown/'])assert.equal(safeReturnPath(path,authReturnPaths(path),'/it/'),'/it/');
 });
 test('email OTP is verified against the captured email without verifier storage or extra mail',async()=>{

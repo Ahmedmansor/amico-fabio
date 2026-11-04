@@ -14,6 +14,7 @@ import FaqSection from './FaqSection.astro';
 import BookingFormWidget from './BookingFormWidget.astro';
 import TrustBadges from './TrustBadges.astro';
 import LandingFooter from './LandingFooter.astro';
+import WhatsAppChannel from '../../whatsapp-channel/presentation/WhatsAppChannel.astro';
 import './offer.css';
 interface Props {campaign:OfferCampaign}
 const {campaign}=Astro.props;
@@ -25,7 +26,7 @@ const message=JSON.stringify(campaign.message).replaceAll('<','\\u003c');
   <LandingHeader campaign={campaign}/><HeroSection campaign={campaign}/><WhatsAppFloat campaign={campaign}/>
   <WhyChooseUs campaign={campaign}/><ProgramsCards campaign={campaign}/><TimelineSteps campaign={campaign}/>
   <VideoTestimonials campaign={campaign}/><FaqSection campaign={campaign}/><BookingFormWidget campaign={campaign}/>
-  <TrustBadges campaign={campaign}/><LandingFooter campaign={campaign}/>
+  <TrustBadges campaign={campaign}/><WhatsAppChannel locale={locale}/><LandingFooter campaign={campaign}/>
   <script id="offer-message" type="application/json" is:inline set:html={message}/>
 </DocumentShell>
 <script>import './navigation';import './videos';import './lead-form';</script>

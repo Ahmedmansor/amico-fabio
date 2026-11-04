@@ -3,15 +3,17 @@ import {readFile,readdir,mkdir,writeFile} from 'node:fs/promises';
 import {supportedLocales} from '../src/shared/config/languages.ts';
 import {siteConfig} from '../src/shared/config/site.ts';
 import {catalogPlainText} from '../src/shared/domain/catalog-seo.ts';
+import {catalogSection} from '../src/shared/domain/catalog-routes.ts';
 
 const results=[];
 for(const locale of supportedLocales)for(const kind of ['tours','packages']){
-  const root=`dist/${locale}/${kind}`;
+  const root=`dist/${locale}/${catalogSection(locale,kind)}`;
   const dictionary=JSON.parse(await readFile(`src/features/${kind}/data/content/${locale}.json`,'utf8'));
   for(const entry of await readdir(root,{withFileTypes:true})){
     if(!entry.isDirectory())continue;
-    const route=`/${locale}/${kind}/${entry.name}/`;
+    const route=`/${locale}/${catalogSection(locale,kind)}/${entry.name}/`;
     const html=await readFile(`${root}/${entry.name}/index.html`,'utf8');
+    if(/http-equiv="refresh"/.test(html))continue;
     const match=html.match(/<script\b[^>]*type="application\/ld\+json"[^>]*data-catalog-schema[^>]*>([\s\S]*?)<\/script>/);
     assert.ok(match,`${route}: missing catalog JSON-LD`);
     assert.ok(html.indexOf(match[0])<html.indexOf('</head>'),`${route}: graph must be in the document head`);
@@ -39,12 +41,14 @@ for(const locale of supportedLocales)for(const kind of ['tours','packages']){
     assert.deepEqual(trip.itinerary.itemListElement.map(step=>step.item.name),source.program.map(step=>catalogPlainText(step.activity)));
     assert.equal(crumbs.itemListElement.at(-1).item,canonical);
     for(const language of supportedLocales){
-      const target=new URL(`/${language}/${kind}/${entry.name}/`,siteConfig.url).href;
+      const translated=JSON.parse(await readFile(`src/features/${kind}/data/content/${language}.json`,'utf8'));
+      const stableId=Object.keys(dictionary).find(id=>dictionary[id]===source);
+      const target=new URL(`/${language}/${catalogSection(language,kind)}/${translated[stableId].route_slug}/`,siteConfig.url).href;
       assert.ok(html.includes(`hreflang="${language}" href="${target}"`),`${route}: missing ${language} equivalent`);
     }
     for(const included of trip.subTrip||[]){
       const target=new URL(included.url);
-      assert.ok(target.pathname.startsWith(`/${locale}/tours/`));
+      assert.ok(target.pathname.startsWith(`/${locale}/${catalogSection(locale,'tours')}/`));
       await readFile(`dist${target.pathname}index.html`,'utf8');
       assert.ok(html.includes(included.name)||html.includes(included.name.replaceAll('&','&amp;')),`${route}: included tour absent from page`);
     }

@@ -1,0 +1,44 @@
+{
+  "origin": "http://127.0.0.1:4337",
+  "engine": "WebKit 26.0",
+  "physicalDevice": false,
+  "externalSubmissions": 0,
+  "results": [
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "name": "recovery",
+      "status": "pass",
+      "pageErrors": [],
+      "failedScripts": [],
+      "syntheticAuthRequests": 2
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "name": "recovery",
+      "status": "pass",
+      "pageErrors": [],
+      "failedScripts": [],
+      "syntheticAuthRequests": 2
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "name": "recovery",
+      "status": "pass",
+      "pageErrors": [],
+      "failedScripts": [],
+      "syntheticAuthRequests": 2
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "name": "recovery",
+      "status": "pass",
+      "pageErrors": [],
+      "failedScripts": [],
+      "syntheticAuthRequests": 2
+    }
+  ]
+}

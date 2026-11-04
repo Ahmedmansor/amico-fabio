@@ -1,0 +1,39 @@
+---
+import {Image} from 'astro:assets';
+import type {Locale} from '../../../shared/config/languages';
+import {getWhatsAppChannel} from '../data/channel';
+import logo from '../../../shared/assets/logos/logo-fabio-square.webp';
+import './channel.css';
+interface Props {locale:Locale}
+const {locale}=Astro.props;
+const {name,url,copy,subtitle}=getWhatsAppChannel(locale);
+---
+<section id="whatsapp-channel" class="fabio-channel" aria-label={copy.label} data-whatsapp-channel data-channel-state={url?'ready':'coming-soon'}>
+  <div class="fabio-channel-card">
+    <div class="fabio-channel-copy">
+      <div class="fabio-channel-eyebrow"><svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M16 .5A15.3 15.3 0 0 0 2.7 23.4L.5 31.5l8.3-2.2A15.5 15.5 0 1 0 16 .5Zm0 28a12.8 12.8 0 0 1-6.5-1.8l-.5-.3-4.9 1.3 1.3-4.8-.3-.5A12.8 12.8 0 1 1 16 28.5Zm7-9.5c-.4-.2-2.3-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.4-.2.3-.5.3-.9.1-2.1-1-3.5-1.9-4.9-4.3-.4-.6.4-.6 1.1-2 .1-.3.1-.5 0-.7l-1.2-2.9c-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1 .5-3 3.3-.4 7.1.5 8.3 2.5 3.6 5.4 5 8.3 5.7 1 .3 1.9.2 2.7.2.8-.1 2.3-1 2.6-1.9.3-1 .3-1.8.2-2-.1-.2-.4-.3-.8-.5Z"/></svg><span>{name} <span class="fabio-channel-dot">/</span> WhatsApp</span></div>
+      <h2>{copy.title}</h2>
+      <p class="fabio-channel-description">{copy.description}</p>
+      <div class="fabio-channel-action">
+        {url?<a href={url} target="_blank" rel="noopener noreferrer" class="fabio-channel-button">{copy.join}<span aria-hidden="true">↗</span></a>:<button type="button" disabled class="fabio-channel-button">{copy.pending}<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></button>}
+        {!url&&<p class="fabio-channel-note">{copy.note}</p>}
+      </div>
+    </div>
+    <div class="fabio-channel-phones" aria-hidden="true" inert>
+      <div class="fabio-channel-phone fabio-channel-phone-back">
+        <span class="fabio-channel-notch"></span><div class="fabio-channel-phone-top">WhatsApp <span>•••</span></div>
+        <div class="fabio-channel-screen">
+          <span class="fabio-channel-screen-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m4 10 13-5v14L4 14zM4 10H2v4h2m3 1 1 5h3l-2-5M20 8l2-1m-2 9 2 1m-2-5h3"/></svg></span>
+          <strong class="fabio-channel-screen-title">{copy.label}</strong>
+          <div class="fabio-channel-topics">
+            <div><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m3 20 6-15 5 10 3-6 5 11z"/></svg><span><strong>{copy.phoneTours}</strong><small>{copy.destinations}</small></span></div>
+            <div><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="m15 9-2 4-4 2 2-4z"/></svg><span><strong>{copy.phoneTips}</strong></span></div>
+            <div><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 5h14v11H9l-4 4zM8 9h8m-8 3h5"/></svg><span><strong>{copy.phoneUpdates}</strong></span></div>
+          </div>
+          <span class="fabio-channel-phone-pill">{url?copy.join:copy.pending}</span>
+        </div><span class="fabio-channel-home"></span>
+      </div>
+      <div class="fabio-channel-phone fabio-channel-phone-front"><span class="fabio-channel-notch"></span><div class="fabio-channel-phone-top"><span>‹</span>{name}<span>•••</span></div><div class="fabio-channel-profile"><Image src={logo} alt="" width={80} height={80} loading="lazy"/><strong>{name}</strong><span>{subtitle}</span><div class="fabio-channel-profile-rule"></div><p>{copy.description}</p><span class="fabio-channel-phone-pill">{url?copy.join:copy.pending}</span></div><span class="fabio-channel-home"></span></div>
+    </div>
+  </div>
+</section>

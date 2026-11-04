@@ -411,5 +411,17 @@
       "red-sea": "Costa do Mar Vermelho",
       "desert": "Experiências no deserto"
     }
+  },
+  "whatsappChannel": {
+    "label": "Canal WhatsApp da Fabio Egypt",
+    "title": "O Egito, sempre consigo.",
+    "description": "Excursões, dicas e novidades do Egito, diretamente no WhatsApp.",
+    "join": "Seguir o canal",
+    "pending": "Canal em breve",
+    "note": "Estamos a preparar o canal da Fabio Egypt.",
+    "destinations": "Sharm · Cairo · Luxor",
+    "phoneTours": "Excursões no Egito",
+    "phoneTips": "Dicas de viagem",
+    "phoneUpdates": "Novidades da Fabio Egypt"
   }
 }

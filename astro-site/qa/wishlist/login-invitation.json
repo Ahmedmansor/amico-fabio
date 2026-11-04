@@ -1,0 +1,47 @@
+{
+  "origin": "http://127.0.0.1:4347",
+  "engine": "WebKit",
+  "externalSubmissions": 0,
+  "results": [
+    {
+      "locale": "it",
+      "threshold": true,
+      "acceptancePersists": true,
+      "loginAndReloadExcluded": true,
+      "directLoginExcluded": true,
+      "guestFavoritesRetained": true
+    },
+    {
+      "locale": "en",
+      "threshold": true,
+      "acceptancePersists": true,
+      "loginAndReloadExcluded": true,
+      "directLoginExcluded": true,
+      "guestFavoritesRetained": true
+    },
+    {
+      "locale": "es",
+      "threshold": true,
+      "acceptancePersists": true,
+      "loginAndReloadExcluded": true,
+      "directLoginExcluded": true,
+      "guestFavoritesRetained": true
+    },
+    {
+      "locale": "pt",
+      "threshold": true,
+      "acceptancePersists": true,
+      "loginAndReloadExcluded": true,
+      "directLoginExcluded": true,
+      "guestFavoritesRetained": true
+    },
+    {
+      "locale": "de",
+      "threshold": true,
+      "acceptancePersists": true,
+      "loginAndReloadExcluded": true,
+      "directLoginExcluded": true,
+      "guestFavoritesRetained": true
+    }
+  ]
+}

@@ -6,11 +6,16 @@ document.querySelectorAll<HTMLElement>('[data-nationality-select]').forEach(root
   const options=[...list.querySelectorAll<HTMLButtonElement>('[data-nationality-value]')];
   const selected=trigger.querySelector<HTMLElement>('[data-nationality-selected]')!;
   const placeholder=selected.textContent!;
-  let search='',lastKey=0,anchorTop=0;
+  let search='',lastKey=0,anchorTop=0,renderedValue:string|undefined;
   function render() {
     const choice=options.find(option=>option.dataset.nationalityValue===select.value);
-    if(choice)selected.replaceChildren(...[...choice.childNodes].map(node=>node.cloneNode(true)));
-    else selected.textContent=placeholder;
+    // Form validation can change aria-invalid while a touch is activating this
+    // label. Replacing its nodes on every validation consumes clicks in WebKit.
+    if(renderedValue!==select.value){
+      if(choice)selected.replaceChildren(...[...choice.childNodes].map(node=>node.cloneNode(true)));
+      else selected.textContent=placeholder;
+      renderedValue=select.value;
+    }
     options.forEach(option=>option.setAttribute('aria-selected',String(option===choice)));
     if(select.hasAttribute('aria-invalid'))trigger.setAttribute('aria-invalid',select.getAttribute('aria-invalid')!);
     else trigger.removeAttribute('aria-invalid');

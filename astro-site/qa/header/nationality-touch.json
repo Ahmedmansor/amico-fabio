@@ -1,0 +1,38 @@
+{
+  "origin": "http://127.0.0.1:4337",
+  "engine": "WebKit",
+  "results": [
+    {
+      "device": "iPhone 13",
+      "locale": "it",
+      "firstTouchOpens": true,
+      "selection": true,
+      "reopenAfterValidation": true,
+      "changeSelection": true
+    },
+    {
+      "device": "iPhone 13",
+      "locale": "en",
+      "firstTouchOpens": true,
+      "selection": true,
+      "reopenAfterValidation": true,
+      "changeSelection": true
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "it",
+      "firstTouchOpens": true,
+      "selection": true,
+      "reopenAfterValidation": true,
+      "changeSelection": true
+    },
+    {
+      "device": "iPad (gen 7)",
+      "locale": "en",
+      "firstTouchOpens": true,
+      "selection": true,
+      "reopenAfterValidation": true,
+      "changeSelection": true
+    }
+  ]
+}

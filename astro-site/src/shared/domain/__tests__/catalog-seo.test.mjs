@@ -16,8 +16,8 @@ test('catalog graph uses the final price, canonical locale, visible itinerary an
 });
 test('packages link existing included tours in the same language, without losing their route namespace',()=>{
   const graph=catalogStructuredData({...input,kind:'package',locale:'pt',included:[{slug:'actual-tour',title:'Excursão'}]},context)['@graph'];
-  assert.equal(graph[0].url,'https://fabioegypt.com/pt/packages/existing-slug/');
-  assert.equal(graph[1].subTrip[0].url,'https://fabioegypt.com/pt/tours/actual-tour/');
+  assert.equal(graph[0].url,'https://fabioegypt.com/pt/pacotes/existing-slug/');
+  assert.equal(graph[1].subTrip[0].url,'https://fabioegypt.com/pt/excursoes/actual-tour/');
 });
 test('HTML and character references become plain metadata without unsafe inline scripts',()=>{
   assert.equal(catalogPlainText(' A&nbsp;<strong>trip</strong> &#38; &#x26; '),'A trip & &');

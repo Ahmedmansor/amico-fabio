@@ -1,0 +1,18 @@
+---
+import {Image} from 'astro:assets';
+import type {BluCopy} from '../data/campaign';
+import type {getBluJourney} from '../data/journey';
+import {siteConfig} from '../../../shared/config/site';
+import portrait from '../../../shared/assets/people/fabio.webp';
+const {copy,journey}=Astro.props as {copy:BluCopy;journey:Awaited<ReturnType<typeof getBluJourney>>};
+---
+<section class="blu-fabio-story" aria-labelledby="blu-fabio-title">
+ <div class="blu-fabio-photo"><Image src={portrait} alt="Fabio" widths={[360,600]} sizes="(min-width:768px) 35vw, 85vw" loading="lazy" format="webp"/><span>FABIO EGYPT</span></div>
+ <div><span class="blu-eyebrow">{copy.bioIntro}</span><h2 id="blu-fabio-title">{journey.biographyTitle}</h2><div class="blu-biography" set:html={journey.biographyLead}/>
+  <details><summary>{copy.bioMore}</summary><div class="blu-biography" set:html={journey.biography}/></details>
+ </div>
+</section>
+<section class="blu-guest-stories" aria-labelledby="blu-guests-title"><div class="blu-section-heading"><span class="blu-eyebrow">{journey.reviews.subtitle}</span><h2 id="blu-guests-title">{journey.reviews.title}</h2></div>
+ <div class="blu-reviews">{journey.reviews.items.slice(0,3).map(review=><figure><blockquote>“{review.text}”</blockquote><figcaption><strong>{review.name}</strong><span>{review.date}</span></figcaption></figure>)}</div>
+ <a href={siteConfig.reviewsUrl} target="_blank" rel="noopener noreferrer">{journey.reviews.facebook_btn} ↗</a>
+</section>

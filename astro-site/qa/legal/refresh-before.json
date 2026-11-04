@@ -1,0 +1,3329 @@
+{
+  "origin": "http://127.0.0.1:4346",
+  "results": [
+    {
+      "locale": "it",
+      "width": 390,
+      "theme": "light",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Privacy Policy di www.fabioegypt.com",
+          "paragraphs": [
+            "Benvenuto nella nostra informativa sulla privacy. Questa policy è redatta in conformità al Regolamento Generale sulla Protezione dei Dati (GDPR - UE 2016/679) e ti aiuterà a comprendere quali dati raccogliamo, perché li raccogliamo e quali sono i tuoi diritti.",
+            "Ultima modifica: 31 Dicembre 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Titolare del Trattamento dei Dati",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egitto. Il Titolare è responsabile della protezione dei tuoi dati e può essere contattato per qualsiasi chiarimento all'indirizzo email: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Tipologie di Dati raccolti",
+          "paragraphs": [
+            "Fra i Dati Personali raccolti da questo Sito Web ci sono: Nome, Numero di telefono, Nazionalità, Email, Dati di utilizzo, Strumenti di Tracciamento e statistiche delle sessioni, Dati dei sensori (Giroscopio e Accelerometro). I dati possono essere forniti liberamente dall'Utente (tramite moduli) o raccolti automaticamente (tramite Google Analytics 4)."
+          ],
+          "chips": [
+            "Nome",
+            "Numero di telefono",
+            "Nazionalità",
+            "Email",
+            "Dati di utilizzo",
+            "Strumenti di Tracciamento e statistiche delle sessioni",
+            "Dati dei sensori (Giroscopio e Accelerometro)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Modalità e luogo del trattamento dei Dati raccolti",
+          "paragraphs": [
+            "Il Titolare adotta le opportune misure di sicurezza volte ad impedire l’accesso, la divulgazione o la modifica non autorizzate dei Dati. Il trattamento viene effettuato mediante strumenti informatici e/o telematici.",
+            "I Dati sono trattati presso le sedi operative del Titolare e in ogni altro luogo in cui le parti coinvolte nel trattamento siano localizzate (Server Google Cloud / GitHub Pages).",
+            "I Dati sono trattati e conservati per il tempo richiesto dalla finalità per la quale sono stati raccolti (massimo 24 mesi per scopi di marketing, salvo revoca)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Finalità del Trattamento dei Dati raccolti",
+          "paragraphs": [
+            "I Dati dell’Utente sono raccolti per consentire al Titolare di fornire il Servizio, adempiere agli obblighi di legge, rispondere a richieste o azioni esecutive, nonché per le seguenti finalità:",
+            "Contattare l'Utente: Modulo di contatto (Google Sheets) e integrazione diretta WhatsApp.",
+            "Statistica: Monitoraggio e analisi dei dati di traffico tramite Google Analytics 4.",
+            "Hosting ed infrastruttura di backend: GitHub Pages.",
+            "Visualizzazione di contenuti da piattaforme esterne: Google Fonts e Widget Social."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Cookie Policy",
+          "paragraphs": [
+            "Lo spazio di archiviazione necessario del browser ricorda le preferenze di lingua. Il cookie fabio_consent registra le scelte sul consenso per 182 giorni.",
+            "Google Analytics viene caricato solo dopo il consenso alle statistiche. I lettori Vimeo vengono caricati solo dopo il consenso ai video esterni e la selezione di un video. Puoi rifiutare i servizi facoltativi oppure modificare e revocare il consenso tramite Preferenze cookie in fondo a ogni pagina. La revoca del consenso alle statistiche ricarica la pagina per disattivare Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Dettagli sul trattamento dei Dati Personali",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): Un servizio di statistica che utilizza i Dati raccolti allo scopo di tracciare ed esaminare l’utilizzo di questo Sito Web. Gli indirizzi IP vengono anonimizzati prima della registrazione.",
+            "WhatsApp Business API: Utilizziamo questa piattaforma per facilitare la comunicazione diretta e l'invio di fatture o cataloghi. I dati inseriti nei moduli vengono trasferiti a WhatsApp per generare la chat.",
+            "Google Sheets Integration: I dati raccolti tramite il modulo '10 Comandamenti' vengono archiviati su server sicuri di Google per la gestione delle richieste."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Dati dei Sensori e Esperienza 3D",
+          "paragraphs": [
+            "Per offrire un'esperienza visiva 3D premium, richiediamo l'accesso ai sensori di movimento. Questi dati vengono elaborati solo localmente e mai memorizzati."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Diritti dell’Utente sulla base del GDPR",
+          "paragraphs": [
+            "Gli Utenti possono esercitare determinati diritti con riferimento ai Dati trattati dal Titolare. In particolare, l’Utente ha il diritto di:",
+            "Revocare il consenso in ogni momento.",
+            "Opporsi al trattamento dei propri Dati quando esso avviene su una base giuridica diversa dal consenso.",
+            "Accedere ai propri Dati e ottenerne una copia.",
+            "Verificare e chiedere la rettificazione dei propri Dati.",
+            "Ottenere la cancellazione o rimozione dei propri Dati (Diritto all'oblio).",
+            "Proporre reclamo all’autorità di controllo della protezione dei dati personali competente."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitazione di Responsabilità e Termini",
+          "paragraphs": [
+            "Fabio opera come fornitore di esperienze turistiche. Non si assume responsabilità per incidenti derivanti da negligenza dell'utente o per smarrimento di oggetti personali. Le prenotazioni via WhatsApp sono soggette a termini di cancellazione specificati al momento del contatto."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definizioni e riferimenti legali",
+          "paragraphs": [
+            "Dati Personali (o Dati): qualunque informazione che renda identificata o identificabile una persona fisica. Cookie: piccole porzioni di dati conservate all'interno del browser dell'Utente. GDPR: Regolamento Generale sulla Protezione dei Dati (UE).",
+            "Questo documento riguarda esclusivamente il sito www.fabioegypt.com ed è redatto per garantire la massima trasparenza ai nostri ospiti."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contatti & Richieste",
+          "paragraphs": [
+            "Per qualsiasi richiesta legale, privacy o relativa ai servizi, contattaci su WhatsApp al +20 106 323 9261.",
+            "Rispondiamo con prontezza e professionalità, mantenendo i più alti standard di servizio."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "it",
+      "width": 390,
+      "theme": "dark",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Privacy Policy di www.fabioegypt.com",
+          "paragraphs": [
+            "Benvenuto nella nostra informativa sulla privacy. Questa policy è redatta in conformità al Regolamento Generale sulla Protezione dei Dati (GDPR - UE 2016/679) e ti aiuterà a comprendere quali dati raccogliamo, perché li raccogliamo e quali sono i tuoi diritti.",
+            "Ultima modifica: 31 Dicembre 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Titolare del Trattamento dei Dati",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egitto. Il Titolare è responsabile della protezione dei tuoi dati e può essere contattato per qualsiasi chiarimento all'indirizzo email: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Tipologie di Dati raccolti",
+          "paragraphs": [
+            "Fra i Dati Personali raccolti da questo Sito Web ci sono: Nome, Numero di telefono, Nazionalità, Email, Dati di utilizzo, Strumenti di Tracciamento e statistiche delle sessioni, Dati dei sensori (Giroscopio e Accelerometro). I dati possono essere forniti liberamente dall'Utente (tramite moduli) o raccolti automaticamente (tramite Google Analytics 4)."
+          ],
+          "chips": [
+            "Nome",
+            "Numero di telefono",
+            "Nazionalità",
+            "Email",
+            "Dati di utilizzo",
+            "Strumenti di Tracciamento e statistiche delle sessioni",
+            "Dati dei sensori (Giroscopio e Accelerometro)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Modalità e luogo del trattamento dei Dati raccolti",
+          "paragraphs": [
+            "Il Titolare adotta le opportune misure di sicurezza volte ad impedire l’accesso, la divulgazione o la modifica non autorizzate dei Dati. Il trattamento viene effettuato mediante strumenti informatici e/o telematici.",
+            "I Dati sono trattati presso le sedi operative del Titolare e in ogni altro luogo in cui le parti coinvolte nel trattamento siano localizzate (Server Google Cloud / GitHub Pages).",
+            "I Dati sono trattati e conservati per il tempo richiesto dalla finalità per la quale sono stati raccolti (massimo 24 mesi per scopi di marketing, salvo revoca)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Finalità del Trattamento dei Dati raccolti",
+          "paragraphs": [
+            "I Dati dell’Utente sono raccolti per consentire al Titolare di fornire il Servizio, adempiere agli obblighi di legge, rispondere a richieste o azioni esecutive, nonché per le seguenti finalità:",
+            "Contattare l'Utente: Modulo di contatto (Google Sheets) e integrazione diretta WhatsApp.",
+            "Statistica: Monitoraggio e analisi dei dati di traffico tramite Google Analytics 4.",
+            "Hosting ed infrastruttura di backend: GitHub Pages.",
+            "Visualizzazione di contenuti da piattaforme esterne: Google Fonts e Widget Social."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Cookie Policy",
+          "paragraphs": [
+            "Lo spazio di archiviazione necessario del browser ricorda le preferenze di lingua. Il cookie fabio_consent registra le scelte sul consenso per 182 giorni.",
+            "Google Analytics viene caricato solo dopo il consenso alle statistiche. I lettori Vimeo vengono caricati solo dopo il consenso ai video esterni e la selezione di un video. Puoi rifiutare i servizi facoltativi oppure modificare e revocare il consenso tramite Preferenze cookie in fondo a ogni pagina. La revoca del consenso alle statistiche ricarica la pagina per disattivare Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Dettagli sul trattamento dei Dati Personali",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): Un servizio di statistica che utilizza i Dati raccolti allo scopo di tracciare ed esaminare l’utilizzo di questo Sito Web. Gli indirizzi IP vengono anonimizzati prima della registrazione.",
+            "WhatsApp Business API: Utilizziamo questa piattaforma per facilitare la comunicazione diretta e l'invio di fatture o cataloghi. I dati inseriti nei moduli vengono trasferiti a WhatsApp per generare la chat.",
+            "Google Sheets Integration: I dati raccolti tramite il modulo '10 Comandamenti' vengono archiviati su server sicuri di Google per la gestione delle richieste."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Dati dei Sensori e Esperienza 3D",
+          "paragraphs": [
+            "Per offrire un'esperienza visiva 3D premium, richiediamo l'accesso ai sensori di movimento. Questi dati vengono elaborati solo localmente e mai memorizzati."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Diritti dell’Utente sulla base del GDPR",
+          "paragraphs": [
+            "Gli Utenti possono esercitare determinati diritti con riferimento ai Dati trattati dal Titolare. In particolare, l’Utente ha il diritto di:",
+            "Revocare il consenso in ogni momento.",
+            "Opporsi al trattamento dei propri Dati quando esso avviene su una base giuridica diversa dal consenso.",
+            "Accedere ai propri Dati e ottenerne una copia.",
+            "Verificare e chiedere la rettificazione dei propri Dati.",
+            "Ottenere la cancellazione o rimozione dei propri Dati (Diritto all'oblio).",
+            "Proporre reclamo all’autorità di controllo della protezione dei dati personali competente."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitazione di Responsabilità e Termini",
+          "paragraphs": [
+            "Fabio opera come fornitore di esperienze turistiche. Non si assume responsabilità per incidenti derivanti da negligenza dell'utente o per smarrimento di oggetti personali. Le prenotazioni via WhatsApp sono soggette a termini di cancellazione specificati al momento del contatto."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definizioni e riferimenti legali",
+          "paragraphs": [
+            "Dati Personali (o Dati): qualunque informazione che renda identificata o identificabile una persona fisica. Cookie: piccole porzioni di dati conservate all'interno del browser dell'Utente. GDPR: Regolamento Generale sulla Protezione dei Dati (UE).",
+            "Questo documento riguarda esclusivamente il sito www.fabioegypt.com ed è redatto per garantire la massima trasparenza ai nostri ospiti."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contatti & Richieste",
+          "paragraphs": [
+            "Per qualsiasi richiesta legale, privacy o relativa ai servizi, contattaci su WhatsApp al +20 106 323 9261.",
+            "Rispondiamo con prontezza e professionalità, mantenendo i più alti standard di servizio."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "it",
+      "width": 1280,
+      "theme": "light",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Privacy Policy di www.fabioegypt.com",
+          "paragraphs": [
+            "Benvenuto nella nostra informativa sulla privacy. Questa policy è redatta in conformità al Regolamento Generale sulla Protezione dei Dati (GDPR - UE 2016/679) e ti aiuterà a comprendere quali dati raccogliamo, perché li raccogliamo e quali sono i tuoi diritti.",
+            "Ultima modifica: 31 Dicembre 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Titolare del Trattamento dei Dati",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egitto. Il Titolare è responsabile della protezione dei tuoi dati e può essere contattato per qualsiasi chiarimento all'indirizzo email: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Tipologie di Dati raccolti",
+          "paragraphs": [
+            "Fra i Dati Personali raccolti da questo Sito Web ci sono: Nome, Numero di telefono, Nazionalità, Email, Dati di utilizzo, Strumenti di Tracciamento e statistiche delle sessioni, Dati dei sensori (Giroscopio e Accelerometro). I dati possono essere forniti liberamente dall'Utente (tramite moduli) o raccolti automaticamente (tramite Google Analytics 4)."
+          ],
+          "chips": [
+            "Nome",
+            "Numero di telefono",
+            "Nazionalità",
+            "Email",
+            "Dati di utilizzo",
+            "Strumenti di Tracciamento e statistiche delle sessioni",
+            "Dati dei sensori (Giroscopio e Accelerometro)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Modalità e luogo del trattamento dei Dati raccolti",
+          "paragraphs": [
+            "Il Titolare adotta le opportune misure di sicurezza volte ad impedire l’accesso, la divulgazione o la modifica non autorizzate dei Dati. Il trattamento viene effettuato mediante strumenti informatici e/o telematici.",
+            "I Dati sono trattati presso le sedi operative del Titolare e in ogni altro luogo in cui le parti coinvolte nel trattamento siano localizzate (Server Google Cloud / GitHub Pages).",
+            "I Dati sono trattati e conservati per il tempo richiesto dalla finalità per la quale sono stati raccolti (massimo 24 mesi per scopi di marketing, salvo revoca)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Finalità del Trattamento dei Dati raccolti",
+          "paragraphs": [
+            "I Dati dell’Utente sono raccolti per consentire al Titolare di fornire il Servizio, adempiere agli obblighi di legge, rispondere a richieste o azioni esecutive, nonché per le seguenti finalità:",
+            "Contattare l'Utente: Modulo di contatto (Google Sheets) e integrazione diretta WhatsApp.",
+            "Statistica: Monitoraggio e analisi dei dati di traffico tramite Google Analytics 4.",
+            "Hosting ed infrastruttura di backend: GitHub Pages.",
+            "Visualizzazione di contenuti da piattaforme esterne: Google Fonts e Widget Social."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Cookie Policy",
+          "paragraphs": [
+            "Lo spazio di archiviazione necessario del browser ricorda le preferenze di lingua. Il cookie fabio_consent registra le scelte sul consenso per 182 giorni.",
+            "Google Analytics viene caricato solo dopo il consenso alle statistiche. I lettori Vimeo vengono caricati solo dopo il consenso ai video esterni e la selezione di un video. Puoi rifiutare i servizi facoltativi oppure modificare e revocare il consenso tramite Preferenze cookie in fondo a ogni pagina. La revoca del consenso alle statistiche ricarica la pagina per disattivare Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Dettagli sul trattamento dei Dati Personali",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): Un servizio di statistica che utilizza i Dati raccolti allo scopo di tracciare ed esaminare l’utilizzo di questo Sito Web. Gli indirizzi IP vengono anonimizzati prima della registrazione.",
+            "WhatsApp Business API: Utilizziamo questa piattaforma per facilitare la comunicazione diretta e l'invio di fatture o cataloghi. I dati inseriti nei moduli vengono trasferiti a WhatsApp per generare la chat.",
+            "Google Sheets Integration: I dati raccolti tramite il modulo '10 Comandamenti' vengono archiviati su server sicuri di Google per la gestione delle richieste."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Dati dei Sensori e Esperienza 3D",
+          "paragraphs": [
+            "Per offrire un'esperienza visiva 3D premium, richiediamo l'accesso ai sensori di movimento. Questi dati vengono elaborati solo localmente e mai memorizzati."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Diritti dell’Utente sulla base del GDPR",
+          "paragraphs": [
+            "Gli Utenti possono esercitare determinati diritti con riferimento ai Dati trattati dal Titolare. In particolare, l’Utente ha il diritto di:",
+            "Revocare il consenso in ogni momento.",
+            "Opporsi al trattamento dei propri Dati quando esso avviene su una base giuridica diversa dal consenso.",
+            "Accedere ai propri Dati e ottenerne una copia.",
+            "Verificare e chiedere la rettificazione dei propri Dati.",
+            "Ottenere la cancellazione o rimozione dei propri Dati (Diritto all'oblio).",
+            "Proporre reclamo all’autorità di controllo della protezione dei dati personali competente."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitazione di Responsabilità e Termini",
+          "paragraphs": [
+            "Fabio opera come fornitore di esperienze turistiche. Non si assume responsabilità per incidenti derivanti da negligenza dell'utente o per smarrimento di oggetti personali. Le prenotazioni via WhatsApp sono soggette a termini di cancellazione specificati al momento del contatto."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definizioni e riferimenti legali",
+          "paragraphs": [
+            "Dati Personali (o Dati): qualunque informazione che renda identificata o identificabile una persona fisica. Cookie: piccole porzioni di dati conservate all'interno del browser dell'Utente. GDPR: Regolamento Generale sulla Protezione dei Dati (UE).",
+            "Questo documento riguarda esclusivamente il sito www.fabioegypt.com ed è redatto per garantire la massima trasparenza ai nostri ospiti."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contatti & Richieste",
+          "paragraphs": [
+            "Per qualsiasi richiesta legale, privacy o relativa ai servizi, contattaci su WhatsApp al +20 106 323 9261.",
+            "Rispondiamo con prontezza e professionalità, mantenendo i più alti standard di servizio."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "it",
+      "width": 1280,
+      "theme": "dark",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Privacy Policy di www.fabioegypt.com",
+          "paragraphs": [
+            "Benvenuto nella nostra informativa sulla privacy. Questa policy è redatta in conformità al Regolamento Generale sulla Protezione dei Dati (GDPR - UE 2016/679) e ti aiuterà a comprendere quali dati raccogliamo, perché li raccogliamo e quali sono i tuoi diritti.",
+            "Ultima modifica: 31 Dicembre 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Titolare del Trattamento dei Dati",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egitto. Il Titolare è responsabile della protezione dei tuoi dati e può essere contattato per qualsiasi chiarimento all'indirizzo email: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Tipologie di Dati raccolti",
+          "paragraphs": [
+            "Fra i Dati Personali raccolti da questo Sito Web ci sono: Nome, Numero di telefono, Nazionalità, Email, Dati di utilizzo, Strumenti di Tracciamento e statistiche delle sessioni, Dati dei sensori (Giroscopio e Accelerometro). I dati possono essere forniti liberamente dall'Utente (tramite moduli) o raccolti automaticamente (tramite Google Analytics 4)."
+          ],
+          "chips": [
+            "Nome",
+            "Numero di telefono",
+            "Nazionalità",
+            "Email",
+            "Dati di utilizzo",
+            "Strumenti di Tracciamento e statistiche delle sessioni",
+            "Dati dei sensori (Giroscopio e Accelerometro)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Modalità e luogo del trattamento dei Dati raccolti",
+          "paragraphs": [
+            "Il Titolare adotta le opportune misure di sicurezza volte ad impedire l’accesso, la divulgazione o la modifica non autorizzate dei Dati. Il trattamento viene effettuato mediante strumenti informatici e/o telematici.",
+            "I Dati sono trattati presso le sedi operative del Titolare e in ogni altro luogo in cui le parti coinvolte nel trattamento siano localizzate (Server Google Cloud / GitHub Pages).",
+            "I Dati sono trattati e conservati per il tempo richiesto dalla finalità per la quale sono stati raccolti (massimo 24 mesi per scopi di marketing, salvo revoca)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Finalità del Trattamento dei Dati raccolti",
+          "paragraphs": [
+            "I Dati dell’Utente sono raccolti per consentire al Titolare di fornire il Servizio, adempiere agli obblighi di legge, rispondere a richieste o azioni esecutive, nonché per le seguenti finalità:",
+            "Contattare l'Utente: Modulo di contatto (Google Sheets) e integrazione diretta WhatsApp.",
+            "Statistica: Monitoraggio e analisi dei dati di traffico tramite Google Analytics 4.",
+            "Hosting ed infrastruttura di backend: GitHub Pages.",
+            "Visualizzazione di contenuti da piattaforme esterne: Google Fonts e Widget Social."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Cookie Policy",
+          "paragraphs": [
+            "Lo spazio di archiviazione necessario del browser ricorda le preferenze di lingua. Il cookie fabio_consent registra le scelte sul consenso per 182 giorni.",
+            "Google Analytics viene caricato solo dopo il consenso alle statistiche. I lettori Vimeo vengono caricati solo dopo il consenso ai video esterni e la selezione di un video. Puoi rifiutare i servizi facoltativi oppure modificare e revocare il consenso tramite Preferenze cookie in fondo a ogni pagina. La revoca del consenso alle statistiche ricarica la pagina per disattivare Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Dettagli sul trattamento dei Dati Personali",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): Un servizio di statistica che utilizza i Dati raccolti allo scopo di tracciare ed esaminare l’utilizzo di questo Sito Web. Gli indirizzi IP vengono anonimizzati prima della registrazione.",
+            "WhatsApp Business API: Utilizziamo questa piattaforma per facilitare la comunicazione diretta e l'invio di fatture o cataloghi. I dati inseriti nei moduli vengono trasferiti a WhatsApp per generare la chat.",
+            "Google Sheets Integration: I dati raccolti tramite il modulo '10 Comandamenti' vengono archiviati su server sicuri di Google per la gestione delle richieste."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Dati dei Sensori e Esperienza 3D",
+          "paragraphs": [
+            "Per offrire un'esperienza visiva 3D premium, richiediamo l'accesso ai sensori di movimento. Questi dati vengono elaborati solo localmente e mai memorizzati."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Diritti dell’Utente sulla base del GDPR",
+          "paragraphs": [
+            "Gli Utenti possono esercitare determinati diritti con riferimento ai Dati trattati dal Titolare. In particolare, l’Utente ha il diritto di:",
+            "Revocare il consenso in ogni momento.",
+            "Opporsi al trattamento dei propri Dati quando esso avviene su una base giuridica diversa dal consenso.",
+            "Accedere ai propri Dati e ottenerne una copia.",
+            "Verificare e chiedere la rettificazione dei propri Dati.",
+            "Ottenere la cancellazione o rimozione dei propri Dati (Diritto all'oblio).",
+            "Proporre reclamo all’autorità di controllo della protezione dei dati personali competente."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitazione di Responsabilità e Termini",
+          "paragraphs": [
+            "Fabio opera come fornitore di esperienze turistiche. Non si assume responsabilità per incidenti derivanti da negligenza dell'utente o per smarrimento di oggetti personali. Le prenotazioni via WhatsApp sono soggette a termini di cancellazione specificati al momento del contatto."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definizioni e riferimenti legali",
+          "paragraphs": [
+            "Dati Personali (o Dati): qualunque informazione che renda identificata o identificabile una persona fisica. Cookie: piccole porzioni di dati conservate all'interno del browser dell'Utente. GDPR: Regolamento Generale sulla Protezione dei Dati (UE).",
+            "Questo documento riguarda esclusivamente il sito www.fabioegypt.com ed è redatto per garantire la massima trasparenza ai nostri ospiti."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contatti & Richieste",
+          "paragraphs": [
+            "Per qualsiasi richiesta legale, privacy o relativa ai servizi, contattaci su WhatsApp al +20 106 323 9261.",
+            "Rispondiamo con prontezza e professionalità, mantenendo i più alti standard di servizio."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "theme": "light",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Privacy Policy of www.fabioegypt.com",
+          "paragraphs": [
+            "Welcome to our privacy policy. This policy is drafted in accordance with the General Data Protection Regulation (GDPR - EU 2016/679) and helps you understand which data we collect, why we collect it, and your rights.",
+            "Last update: December 31, 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Data Controller",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egypt. The Controller is responsible for the protection of your data and can be contacted for any clarification at: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Types of Data Collected",
+          "paragraphs": [
+            "Among the Personal Data collected by this Website are: Name, Phone number, Nationality, Email, Usage data, Tracking tools, session statistics, Sensor data (Gyroscope and Accelerometer). Data may be freely provided by the User (via forms) or collected automatically (via Google Analytics 4)."
+          ],
+          "chips": [
+            "Name",
+            "Phone number",
+            "Nationality",
+            "Email",
+            "Usage data",
+            "Tracking tools",
+            "session statistics",
+            "Sensor data (Gyroscope and Accelerometer)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Methods & Place of Processing of Collected Data",
+          "paragraphs": [
+            "The Controller takes appropriate security measures to prevent unauthorized access, disclosure, or alteration of the Data. Processing is carried out using IT and/or telematic tools.",
+            "Data is processed at the operational offices of the Controller and in any other place where the parties involved in the processing are located (Google Cloud servers / GitHub Pages).",
+            "Data is processed and stored for the time required by the purposes for which it was collected (maximum 24 months for marketing purposes, unless revoked)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Purposes of Data Processing",
+          "paragraphs": [
+            "User Data is collected to allow the Controller to provide the Service, comply with legal obligations, respond to requests, and for the following purposes:",
+            "Contacting the User: Contact form (Google Sheets) and direct WhatsApp integration.",
+            "Analytics: Monitoring and analysis of traffic data via Google Analytics 4.",
+            "Hosting and backend infrastructure: GitHub Pages.",
+            "Displaying content from external platforms: Google Fonts and Social Widgets."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Cookie Policy",
+          "paragraphs": [
+            "Necessary browser storage remembers your language preferences. The fabio_consent cookie records your consent choices for 182 days.",
+            "Google Analytics loads only after you accept analytics. Vimeo players load only after you accept external videos and select a video. You can reject optional services or change and withdraw consent using Cookie preferences at the bottom of every page. Withdrawing analytics consent reloads the page to unload Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Details on Personal Data Processing",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): A statistics service that uses collected Data to track and examine the use of this Website. IP addresses are anonymized before recording.",
+            "WhatsApp Business API: Used to facilitate direct communication and sending of invoices or catalogs. Data entered in forms is transferred to WhatsApp to generate the chat.",
+            "Google Sheets Integration: Data collected via the '10 Commandments' form is stored on secure Google servers for request management."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Sensor Data & 3D Experience",
+          "paragraphs": [
+            "To provide a premium 3D visual experience, we request access to motion sensors. This data is processed locally only and never stored."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "User Rights under GDPR",
+          "paragraphs": [
+            "Users may exercise certain rights regarding their processed Data. In particular, the User has the right to:",
+            "Withdraw consent at any time.",
+            "Object to the processing of their Data when it occurs on a legal basis other than consent.",
+            "Access their Data and obtain a copy.",
+            "Verify and request rectification of their Data.",
+            "Obtain the deletion or removal of their Data (Right to be forgotten).",
+            "Lodge a complaint with the competent data protection authority."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitation of Liability & Terms",
+          "paragraphs": [
+            "Fabio operates as a provider of tourist experiences. We are not responsible for incidents arising from user negligence or loss of personal belongings. WhatsApp bookings are subject to cancellation terms specified at the time of contact."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definitions & Legal References",
+          "paragraphs": [
+            "Personal Data: any information that identifies or makes a natural person identifiable. Cookies: small portions of data stored within the User's browser. GDPR: General Data Protection Regulation (EU).",
+            "This document exclusively concerns the site www.fabioegypt.com and is drafted to ensure maximum transparency for our guests."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contact & Requests",
+          "paragraphs": [
+            "For any legal, privacy, or service-related request, contact us via WhatsApp at +20 106 323 9261.",
+            "We respond promptly and professionally, maintaining the highest standards of service."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "theme": "dark",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Privacy Policy of www.fabioegypt.com",
+          "paragraphs": [
+            "Welcome to our privacy policy. This policy is drafted in accordance with the General Data Protection Regulation (GDPR - EU 2016/679) and helps you understand which data we collect, why we collect it, and your rights.",
+            "Last update: December 31, 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Data Controller",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egypt. The Controller is responsible for the protection of your data and can be contacted for any clarification at: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Types of Data Collected",
+          "paragraphs": [
+            "Among the Personal Data collected by this Website are: Name, Phone number, Nationality, Email, Usage data, Tracking tools, session statistics, Sensor data (Gyroscope and Accelerometer). Data may be freely provided by the User (via forms) or collected automatically (via Google Analytics 4)."
+          ],
+          "chips": [
+            "Name",
+            "Phone number",
+            "Nationality",
+            "Email",
+            "Usage data",
+            "Tracking tools",
+            "session statistics",
+            "Sensor data (Gyroscope and Accelerometer)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Methods & Place of Processing of Collected Data",
+          "paragraphs": [
+            "The Controller takes appropriate security measures to prevent unauthorized access, disclosure, or alteration of the Data. Processing is carried out using IT and/or telematic tools.",
+            "Data is processed at the operational offices of the Controller and in any other place where the parties involved in the processing are located (Google Cloud servers / GitHub Pages).",
+            "Data is processed and stored for the time required by the purposes for which it was collected (maximum 24 months for marketing purposes, unless revoked)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Purposes of Data Processing",
+          "paragraphs": [
+            "User Data is collected to allow the Controller to provide the Service, comply with legal obligations, respond to requests, and for the following purposes:",
+            "Contacting the User: Contact form (Google Sheets) and direct WhatsApp integration.",
+            "Analytics: Monitoring and analysis of traffic data via Google Analytics 4.",
+            "Hosting and backend infrastructure: GitHub Pages.",
+            "Displaying content from external platforms: Google Fonts and Social Widgets."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Cookie Policy",
+          "paragraphs": [
+            "Necessary browser storage remembers your language preferences. The fabio_consent cookie records your consent choices for 182 days.",
+            "Google Analytics loads only after you accept analytics. Vimeo players load only after you accept external videos and select a video. You can reject optional services or change and withdraw consent using Cookie preferences at the bottom of every page. Withdrawing analytics consent reloads the page to unload Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Details on Personal Data Processing",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): A statistics service that uses collected Data to track and examine the use of this Website. IP addresses are anonymized before recording.",
+            "WhatsApp Business API: Used to facilitate direct communication and sending of invoices or catalogs. Data entered in forms is transferred to WhatsApp to generate the chat.",
+            "Google Sheets Integration: Data collected via the '10 Commandments' form is stored on secure Google servers for request management."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Sensor Data & 3D Experience",
+          "paragraphs": [
+            "To provide a premium 3D visual experience, we request access to motion sensors. This data is processed locally only and never stored."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "User Rights under GDPR",
+          "paragraphs": [
+            "Users may exercise certain rights regarding their processed Data. In particular, the User has the right to:",
+            "Withdraw consent at any time.",
+            "Object to the processing of their Data when it occurs on a legal basis other than consent.",
+            "Access their Data and obtain a copy.",
+            "Verify and request rectification of their Data.",
+            "Obtain the deletion or removal of their Data (Right to be forgotten).",
+            "Lodge a complaint with the competent data protection authority."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitation of Liability & Terms",
+          "paragraphs": [
+            "Fabio operates as a provider of tourist experiences. We are not responsible for incidents arising from user negligence or loss of personal belongings. WhatsApp bookings are subject to cancellation terms specified at the time of contact."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definitions & Legal References",
+          "paragraphs": [
+            "Personal Data: any information that identifies or makes a natural person identifiable. Cookies: small portions of data stored within the User's browser. GDPR: General Data Protection Regulation (EU).",
+            "This document exclusively concerns the site www.fabioegypt.com and is drafted to ensure maximum transparency for our guests."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contact & Requests",
+          "paragraphs": [
+            "For any legal, privacy, or service-related request, contact us via WhatsApp at +20 106 323 9261.",
+            "We respond promptly and professionally, maintaining the highest standards of service."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "theme": "light",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Privacy Policy of www.fabioegypt.com",
+          "paragraphs": [
+            "Welcome to our privacy policy. This policy is drafted in accordance with the General Data Protection Regulation (GDPR - EU 2016/679) and helps you understand which data we collect, why we collect it, and your rights.",
+            "Last update: December 31, 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Data Controller",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egypt. The Controller is responsible for the protection of your data and can be contacted for any clarification at: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Types of Data Collected",
+          "paragraphs": [
+            "Among the Personal Data collected by this Website are: Name, Phone number, Nationality, Email, Usage data, Tracking tools, session statistics, Sensor data (Gyroscope and Accelerometer). Data may be freely provided by the User (via forms) or collected automatically (via Google Analytics 4)."
+          ],
+          "chips": [
+            "Name",
+            "Phone number",
+            "Nationality",
+            "Email",
+            "Usage data",
+            "Tracking tools",
+            "session statistics",
+            "Sensor data (Gyroscope and Accelerometer)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Methods & Place of Processing of Collected Data",
+          "paragraphs": [
+            "The Controller takes appropriate security measures to prevent unauthorized access, disclosure, or alteration of the Data. Processing is carried out using IT and/or telematic tools.",
+            "Data is processed at the operational offices of the Controller and in any other place where the parties involved in the processing are located (Google Cloud servers / GitHub Pages).",
+            "Data is processed and stored for the time required by the purposes for which it was collected (maximum 24 months for marketing purposes, unless revoked)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Purposes of Data Processing",
+          "paragraphs": [
+            "User Data is collected to allow the Controller to provide the Service, comply with legal obligations, respond to requests, and for the following purposes:",
+            "Contacting the User: Contact form (Google Sheets) and direct WhatsApp integration.",
+            "Analytics: Monitoring and analysis of traffic data via Google Analytics 4.",
+            "Hosting and backend infrastructure: GitHub Pages.",
+            "Displaying content from external platforms: Google Fonts and Social Widgets."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Cookie Policy",
+          "paragraphs": [
+            "Necessary browser storage remembers your language preferences. The fabio_consent cookie records your consent choices for 182 days.",
+            "Google Analytics loads only after you accept analytics. Vimeo players load only after you accept external videos and select a video. You can reject optional services or change and withdraw consent using Cookie preferences at the bottom of every page. Withdrawing analytics consent reloads the page to unload Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Details on Personal Data Processing",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): A statistics service that uses collected Data to track and examine the use of this Website. IP addresses are anonymized before recording.",
+            "WhatsApp Business API: Used to facilitate direct communication and sending of invoices or catalogs. Data entered in forms is transferred to WhatsApp to generate the chat.",
+            "Google Sheets Integration: Data collected via the '10 Commandments' form is stored on secure Google servers for request management."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Sensor Data & 3D Experience",
+          "paragraphs": [
+            "To provide a premium 3D visual experience, we request access to motion sensors. This data is processed locally only and never stored."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "User Rights under GDPR",
+          "paragraphs": [
+            "Users may exercise certain rights regarding their processed Data. In particular, the User has the right to:",
+            "Withdraw consent at any time.",
+            "Object to the processing of their Data when it occurs on a legal basis other than consent.",
+            "Access their Data and obtain a copy.",
+            "Verify and request rectification of their Data.",
+            "Obtain the deletion or removal of their Data (Right to be forgotten).",
+            "Lodge a complaint with the competent data protection authority."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitation of Liability & Terms",
+          "paragraphs": [
+            "Fabio operates as a provider of tourist experiences. We are not responsible for incidents arising from user negligence or loss of personal belongings. WhatsApp bookings are subject to cancellation terms specified at the time of contact."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definitions & Legal References",
+          "paragraphs": [
+            "Personal Data: any information that identifies or makes a natural person identifiable. Cookies: small portions of data stored within the User's browser. GDPR: General Data Protection Regulation (EU).",
+            "This document exclusively concerns the site www.fabioegypt.com and is drafted to ensure maximum transparency for our guests."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contact & Requests",
+          "paragraphs": [
+            "For any legal, privacy, or service-related request, contact us via WhatsApp at +20 106 323 9261.",
+            "We respond promptly and professionally, maintaining the highest standards of service."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "theme": "dark",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Privacy Policy of www.fabioegypt.com",
+          "paragraphs": [
+            "Welcome to our privacy policy. This policy is drafted in accordance with the General Data Protection Regulation (GDPR - EU 2016/679) and helps you understand which data we collect, why we collect it, and your rights.",
+            "Last update: December 31, 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Data Controller",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egypt. The Controller is responsible for the protection of your data and can be contacted for any clarification at: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Types of Data Collected",
+          "paragraphs": [
+            "Among the Personal Data collected by this Website are: Name, Phone number, Nationality, Email, Usage data, Tracking tools, session statistics, Sensor data (Gyroscope and Accelerometer). Data may be freely provided by the User (via forms) or collected automatically (via Google Analytics 4)."
+          ],
+          "chips": [
+            "Name",
+            "Phone number",
+            "Nationality",
+            "Email",
+            "Usage data",
+            "Tracking tools",
+            "session statistics",
+            "Sensor data (Gyroscope and Accelerometer)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Methods & Place of Processing of Collected Data",
+          "paragraphs": [
+            "The Controller takes appropriate security measures to prevent unauthorized access, disclosure, or alteration of the Data. Processing is carried out using IT and/or telematic tools.",
+            "Data is processed at the operational offices of the Controller and in any other place where the parties involved in the processing are located (Google Cloud servers / GitHub Pages).",
+            "Data is processed and stored for the time required by the purposes for which it was collected (maximum 24 months for marketing purposes, unless revoked)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Purposes of Data Processing",
+          "paragraphs": [
+            "User Data is collected to allow the Controller to provide the Service, comply with legal obligations, respond to requests, and for the following purposes:",
+            "Contacting the User: Contact form (Google Sheets) and direct WhatsApp integration.",
+            "Analytics: Monitoring and analysis of traffic data via Google Analytics 4.",
+            "Hosting and backend infrastructure: GitHub Pages.",
+            "Displaying content from external platforms: Google Fonts and Social Widgets."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Cookie Policy",
+          "paragraphs": [
+            "Necessary browser storage remembers your language preferences. The fabio_consent cookie records your consent choices for 182 days.",
+            "Google Analytics loads only after you accept analytics. Vimeo players load only after you accept external videos and select a video. You can reject optional services or change and withdraw consent using Cookie preferences at the bottom of every page. Withdrawing analytics consent reloads the page to unload Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Details on Personal Data Processing",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): A statistics service that uses collected Data to track and examine the use of this Website. IP addresses are anonymized before recording.",
+            "WhatsApp Business API: Used to facilitate direct communication and sending of invoices or catalogs. Data entered in forms is transferred to WhatsApp to generate the chat.",
+            "Google Sheets Integration: Data collected via the '10 Commandments' form is stored on secure Google servers for request management."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Sensor Data & 3D Experience",
+          "paragraphs": [
+            "To provide a premium 3D visual experience, we request access to motion sensors. This data is processed locally only and never stored."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "User Rights under GDPR",
+          "paragraphs": [
+            "Users may exercise certain rights regarding their processed Data. In particular, the User has the right to:",
+            "Withdraw consent at any time.",
+            "Object to the processing of their Data when it occurs on a legal basis other than consent.",
+            "Access their Data and obtain a copy.",
+            "Verify and request rectification of their Data.",
+            "Obtain the deletion or removal of their Data (Right to be forgotten).",
+            "Lodge a complaint with the competent data protection authority."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitation of Liability & Terms",
+          "paragraphs": [
+            "Fabio operates as a provider of tourist experiences. We are not responsible for incidents arising from user negligence or loss of personal belongings. WhatsApp bookings are subject to cancellation terms specified at the time of contact."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definitions & Legal References",
+          "paragraphs": [
+            "Personal Data: any information that identifies or makes a natural person identifiable. Cookies: small portions of data stored within the User's browser. GDPR: General Data Protection Regulation (EU).",
+            "This document exclusively concerns the site www.fabioegypt.com and is drafted to ensure maximum transparency for our guests."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contact & Requests",
+          "paragraphs": [
+            "For any legal, privacy, or service-related request, contact us via WhatsApp at +20 106 323 9261.",
+            "We respond promptly and professionally, maintaining the highest standards of service."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "width": 390,
+      "theme": "light",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Política de privacidad de www.fabioegypt.com",
+          "paragraphs": [
+            "Bienvenido a nuestra política de privacidad. Esta política se ha redactado de conformidad con el Reglamento General de Protección de Datos (RGPD - UE 2016/679) y te ayuda a comprender qué datos recogemos, por qué lo hacemos y cuáles son tus derechos.",
+            "Última actualización: 31 de diciembre de 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Responsable del tratamiento",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egipto. El responsable del tratamiento se encarga de proteger tus datos y puedes contactar con él para cualquier aclaración en: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Tipos de datos recogidos",
+          "paragraphs": [
+            "Entre los datos personales recogidos por este sitio web se encuentran: nombre, número de teléfono, nacionalidad, correo electrónico, datos de uso, herramientas de seguimiento, estadísticas de sesión y datos de sensores (giroscopio y acelerómetro). El usuario puede facilitar los datos libremente (mediante formularios) o estos pueden recogerse automáticamente (mediante Google Analytics 4)."
+          ],
+          "chips": [
+            "nombre",
+            "número de teléfono",
+            "nacionalidad",
+            "correo electrónico",
+            "datos de uso",
+            "herramientas de seguimiento",
+            "estadísticas de sesión y datos de sensores (giroscopio y acelerómetro)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Métodos y lugar del tratamiento de los datos recogidos",
+          "paragraphs": [
+            "El responsable adopta las medidas de seguridad adecuadas para evitar el acceso, la divulgación o la modificación no autorizados de los datos. El tratamiento se realiza mediante herramientas informáticas y/o telemáticas.",
+            "Los datos se tratan en las oficinas operativas del responsable y en cualquier otro lugar donde se encuentren las partes implicadas en el tratamiento (servidores de Google Cloud / GitHub Pages).",
+            "Los datos se tratan y conservan durante el tiempo necesario para las finalidades para las que se recogieron (un máximo de 24 meses para fines de marketing, salvo revocación)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Finalidades del tratamiento",
+          "paragraphs": [
+            "Los datos del usuario se recogen para permitir al responsable prestar el servicio, cumplir las obligaciones legales, responder a solicitudes y para las siguientes finalidades:",
+            "Contactar con el usuario: formulario de contacto (Google Sheets) e integración directa con WhatsApp.",
+            "Analítica: seguimiento y análisis de los datos de tráfico mediante Google Analytics 4.",
+            "Alojamiento e infraestructura de backend: GitHub Pages.",
+            "Mostrar contenido de plataformas externas: Google Fonts y widgets sociales."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Política de cookies",
+          "paragraphs": [
+            "El almacenamiento necesario del navegador recuerda tus preferencias de idioma. La cookie fabio_consent registra tus elecciones de consentimiento durante 182 días.",
+            "Google Analytics solo se carga después de aceptar la analítica. Los reproductores de Vimeo solo se cargan después de aceptar los vídeos externos y seleccionar un vídeo. Puedes rechazar los servicios opcionales o cambiar y retirar tu consentimiento mediante Preferencias de cookies, al pie de cada página. Al retirar el consentimiento de analítica, la página se recarga para descargar Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Detalles del tratamiento de datos personales",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): servicio estadístico que utiliza los datos recogidos para seguir y examinar el uso de este sitio web. Las direcciones IP se anonimizan antes de registrarse.",
+            "WhatsApp Business API: se utiliza para facilitar la comunicación directa y el envío de facturas o catálogos. Los datos introducidos en los formularios se transfieren a WhatsApp para generar el chat.",
+            "Integración con Google Sheets: los datos recogidos mediante el formulario de los «10 mandamientos» se almacenan en servidores seguros de Google para gestionar las solicitudes."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Datos de sensores y experiencia 3D",
+          "paragraphs": [
+            "Para ofrecer una experiencia visual 3D premium, solicitamos acceso a los sensores de movimiento. Estos datos se procesan exclusivamente de forma local y nunca se almacenan."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Derechos del usuario según el RGPD",
+          "paragraphs": [
+            "Los usuarios pueden ejercer determinados derechos sobre sus datos tratados. En particular, el usuario tiene derecho a:",
+            "Retirar su consentimiento en cualquier momento.",
+            "Oponerse al tratamiento de sus datos cuando se base en un fundamento jurídico distinto del consentimiento.",
+            "Acceder a sus datos y obtener una copia.",
+            "Verificar sus datos y solicitar su rectificación.",
+            "Obtener la supresión o eliminación de sus datos (derecho al olvido).",
+            "Presentar una reclamación ante la autoridad de protección de datos competente."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitación de responsabilidad y condiciones",
+          "paragraphs": [
+            "Fabio actúa como proveedor de experiencias turísticas. No nos hacemos responsables de incidentes derivados de la negligencia del usuario ni de la pérdida de objetos personales. Las reservas por WhatsApp están sujetas a las condiciones de cancelación indicadas en el momento del contacto."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definiciones y referencias legales",
+          "paragraphs": [
+            "Datos personales: cualquier información que identifique o permita identificar a una persona física. Cookies: pequeñas porciones de datos almacenadas en el navegador del usuario. RGPD: Reglamento General de Protección de Datos (UE).",
+            "Este documento se refiere exclusivamente al sitio www.fabioegypt.com y se ha redactado para garantizar la máxima transparencia con nuestros viajeros."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contacto y solicitudes",
+          "paragraphs": [
+            "Para cualquier solicitud legal, de privacidad o relacionada con el servicio, contacta con nosotros por WhatsApp en el +20 106 323 9261.",
+            "Respondemos con prontitud y profesionalidad, manteniendo los más altos estándares de servicio."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "width": 390,
+      "theme": "dark",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Política de privacidad de www.fabioegypt.com",
+          "paragraphs": [
+            "Bienvenido a nuestra política de privacidad. Esta política se ha redactado de conformidad con el Reglamento General de Protección de Datos (RGPD - UE 2016/679) y te ayuda a comprender qué datos recogemos, por qué lo hacemos y cuáles son tus derechos.",
+            "Última actualización: 31 de diciembre de 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Responsable del tratamiento",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egipto. El responsable del tratamiento se encarga de proteger tus datos y puedes contactar con él para cualquier aclaración en: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Tipos de datos recogidos",
+          "paragraphs": [
+            "Entre los datos personales recogidos por este sitio web se encuentran: nombre, número de teléfono, nacionalidad, correo electrónico, datos de uso, herramientas de seguimiento, estadísticas de sesión y datos de sensores (giroscopio y acelerómetro). El usuario puede facilitar los datos libremente (mediante formularios) o estos pueden recogerse automáticamente (mediante Google Analytics 4)."
+          ],
+          "chips": [
+            "nombre",
+            "número de teléfono",
+            "nacionalidad",
+            "correo electrónico",
+            "datos de uso",
+            "herramientas de seguimiento",
+            "estadísticas de sesión y datos de sensores (giroscopio y acelerómetro)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Métodos y lugar del tratamiento de los datos recogidos",
+          "paragraphs": [
+            "El responsable adopta las medidas de seguridad adecuadas para evitar el acceso, la divulgación o la modificación no autorizados de los datos. El tratamiento se realiza mediante herramientas informáticas y/o telemáticas.",
+            "Los datos se tratan en las oficinas operativas del responsable y en cualquier otro lugar donde se encuentren las partes implicadas en el tratamiento (servidores de Google Cloud / GitHub Pages).",
+            "Los datos se tratan y conservan durante el tiempo necesario para las finalidades para las que se recogieron (un máximo de 24 meses para fines de marketing, salvo revocación)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Finalidades del tratamiento",
+          "paragraphs": [
+            "Los datos del usuario se recogen para permitir al responsable prestar el servicio, cumplir las obligaciones legales, responder a solicitudes y para las siguientes finalidades:",
+            "Contactar con el usuario: formulario de contacto (Google Sheets) e integración directa con WhatsApp.",
+            "Analítica: seguimiento y análisis de los datos de tráfico mediante Google Analytics 4.",
+            "Alojamiento e infraestructura de backend: GitHub Pages.",
+            "Mostrar contenido de plataformas externas: Google Fonts y widgets sociales."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Política de cookies",
+          "paragraphs": [
+            "El almacenamiento necesario del navegador recuerda tus preferencias de idioma. La cookie fabio_consent registra tus elecciones de consentimiento durante 182 días.",
+            "Google Analytics solo se carga después de aceptar la analítica. Los reproductores de Vimeo solo se cargan después de aceptar los vídeos externos y seleccionar un vídeo. Puedes rechazar los servicios opcionales o cambiar y retirar tu consentimiento mediante Preferencias de cookies, al pie de cada página. Al retirar el consentimiento de analítica, la página se recarga para descargar Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Detalles del tratamiento de datos personales",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): servicio estadístico que utiliza los datos recogidos para seguir y examinar el uso de este sitio web. Las direcciones IP se anonimizan antes de registrarse.",
+            "WhatsApp Business API: se utiliza para facilitar la comunicación directa y el envío de facturas o catálogos. Los datos introducidos en los formularios se transfieren a WhatsApp para generar el chat.",
+            "Integración con Google Sheets: los datos recogidos mediante el formulario de los «10 mandamientos» se almacenan en servidores seguros de Google para gestionar las solicitudes."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Datos de sensores y experiencia 3D",
+          "paragraphs": [
+            "Para ofrecer una experiencia visual 3D premium, solicitamos acceso a los sensores de movimiento. Estos datos se procesan exclusivamente de forma local y nunca se almacenan."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Derechos del usuario según el RGPD",
+          "paragraphs": [
+            "Los usuarios pueden ejercer determinados derechos sobre sus datos tratados. En particular, el usuario tiene derecho a:",
+            "Retirar su consentimiento en cualquier momento.",
+            "Oponerse al tratamiento de sus datos cuando se base en un fundamento jurídico distinto del consentimiento.",
+            "Acceder a sus datos y obtener una copia.",
+            "Verificar sus datos y solicitar su rectificación.",
+            "Obtener la supresión o eliminación de sus datos (derecho al olvido).",
+            "Presentar una reclamación ante la autoridad de protección de datos competente."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitación de responsabilidad y condiciones",
+          "paragraphs": [
+            "Fabio actúa como proveedor de experiencias turísticas. No nos hacemos responsables de incidentes derivados de la negligencia del usuario ni de la pérdida de objetos personales. Las reservas por WhatsApp están sujetas a las condiciones de cancelación indicadas en el momento del contacto."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definiciones y referencias legales",
+          "paragraphs": [
+            "Datos personales: cualquier información que identifique o permita identificar a una persona física. Cookies: pequeñas porciones de datos almacenadas en el navegador del usuario. RGPD: Reglamento General de Protección de Datos (UE).",
+            "Este documento se refiere exclusivamente al sitio www.fabioegypt.com y se ha redactado para garantizar la máxima transparencia con nuestros viajeros."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contacto y solicitudes",
+          "paragraphs": [
+            "Para cualquier solicitud legal, de privacidad o relacionada con el servicio, contacta con nosotros por WhatsApp en el +20 106 323 9261.",
+            "Respondemos con prontitud y profesionalidad, manteniendo los más altos estándares de servicio."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "width": 1280,
+      "theme": "light",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Política de privacidad de www.fabioegypt.com",
+          "paragraphs": [
+            "Bienvenido a nuestra política de privacidad. Esta política se ha redactado de conformidad con el Reglamento General de Protección de Datos (RGPD - UE 2016/679) y te ayuda a comprender qué datos recogemos, por qué lo hacemos y cuáles son tus derechos.",
+            "Última actualización: 31 de diciembre de 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Responsable del tratamiento",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egipto. El responsable del tratamiento se encarga de proteger tus datos y puedes contactar con él para cualquier aclaración en: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Tipos de datos recogidos",
+          "paragraphs": [
+            "Entre los datos personales recogidos por este sitio web se encuentran: nombre, número de teléfono, nacionalidad, correo electrónico, datos de uso, herramientas de seguimiento, estadísticas de sesión y datos de sensores (giroscopio y acelerómetro). El usuario puede facilitar los datos libremente (mediante formularios) o estos pueden recogerse automáticamente (mediante Google Analytics 4)."
+          ],
+          "chips": [
+            "nombre",
+            "número de teléfono",
+            "nacionalidad",
+            "correo electrónico",
+            "datos de uso",
+            "herramientas de seguimiento",
+            "estadísticas de sesión y datos de sensores (giroscopio y acelerómetro)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Métodos y lugar del tratamiento de los datos recogidos",
+          "paragraphs": [
+            "El responsable adopta las medidas de seguridad adecuadas para evitar el acceso, la divulgación o la modificación no autorizados de los datos. El tratamiento se realiza mediante herramientas informáticas y/o telemáticas.",
+            "Los datos se tratan en las oficinas operativas del responsable y en cualquier otro lugar donde se encuentren las partes implicadas en el tratamiento (servidores de Google Cloud / GitHub Pages).",
+            "Los datos se tratan y conservan durante el tiempo necesario para las finalidades para las que se recogieron (un máximo de 24 meses para fines de marketing, salvo revocación)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Finalidades del tratamiento",
+          "paragraphs": [
+            "Los datos del usuario se recogen para permitir al responsable prestar el servicio, cumplir las obligaciones legales, responder a solicitudes y para las siguientes finalidades:",
+            "Contactar con el usuario: formulario de contacto (Google Sheets) e integración directa con WhatsApp.",
+            "Analítica: seguimiento y análisis de los datos de tráfico mediante Google Analytics 4.",
+            "Alojamiento e infraestructura de backend: GitHub Pages.",
+            "Mostrar contenido de plataformas externas: Google Fonts y widgets sociales."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Política de cookies",
+          "paragraphs": [
+            "El almacenamiento necesario del navegador recuerda tus preferencias de idioma. La cookie fabio_consent registra tus elecciones de consentimiento durante 182 días.",
+            "Google Analytics solo se carga después de aceptar la analítica. Los reproductores de Vimeo solo se cargan después de aceptar los vídeos externos y seleccionar un vídeo. Puedes rechazar los servicios opcionales o cambiar y retirar tu consentimiento mediante Preferencias de cookies, al pie de cada página. Al retirar el consentimiento de analítica, la página se recarga para descargar Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Detalles del tratamiento de datos personales",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): servicio estadístico que utiliza los datos recogidos para seguir y examinar el uso de este sitio web. Las direcciones IP se anonimizan antes de registrarse.",
+            "WhatsApp Business API: se utiliza para facilitar la comunicación directa y el envío de facturas o catálogos. Los datos introducidos en los formularios se transfieren a WhatsApp para generar el chat.",
+            "Integración con Google Sheets: los datos recogidos mediante el formulario de los «10 mandamientos» se almacenan en servidores seguros de Google para gestionar las solicitudes."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Datos de sensores y experiencia 3D",
+          "paragraphs": [
+            "Para ofrecer una experiencia visual 3D premium, solicitamos acceso a los sensores de movimiento. Estos datos se procesan exclusivamente de forma local y nunca se almacenan."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Derechos del usuario según el RGPD",
+          "paragraphs": [
+            "Los usuarios pueden ejercer determinados derechos sobre sus datos tratados. En particular, el usuario tiene derecho a:",
+            "Retirar su consentimiento en cualquier momento.",
+            "Oponerse al tratamiento de sus datos cuando se base en un fundamento jurídico distinto del consentimiento.",
+            "Acceder a sus datos y obtener una copia.",
+            "Verificar sus datos y solicitar su rectificación.",
+            "Obtener la supresión o eliminación de sus datos (derecho al olvido).",
+            "Presentar una reclamación ante la autoridad de protección de datos competente."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitación de responsabilidad y condiciones",
+          "paragraphs": [
+            "Fabio actúa como proveedor de experiencias turísticas. No nos hacemos responsables de incidentes derivados de la negligencia del usuario ni de la pérdida de objetos personales. Las reservas por WhatsApp están sujetas a las condiciones de cancelación indicadas en el momento del contacto."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definiciones y referencias legales",
+          "paragraphs": [
+            "Datos personales: cualquier información que identifique o permita identificar a una persona física. Cookies: pequeñas porciones de datos almacenadas en el navegador del usuario. RGPD: Reglamento General de Protección de Datos (UE).",
+            "Este documento se refiere exclusivamente al sitio www.fabioegypt.com y se ha redactado para garantizar la máxima transparencia con nuestros viajeros."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contacto y solicitudes",
+          "paragraphs": [
+            "Para cualquier solicitud legal, de privacidad o relacionada con el servicio, contacta con nosotros por WhatsApp en el +20 106 323 9261.",
+            "Respondemos con prontitud y profesionalidad, manteniendo los más altos estándares de servicio."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "width": 1280,
+      "theme": "dark",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Política de privacidad de www.fabioegypt.com",
+          "paragraphs": [
+            "Bienvenido a nuestra política de privacidad. Esta política se ha redactado de conformidad con el Reglamento General de Protección de Datos (RGPD - UE 2016/679) y te ayuda a comprender qué datos recogemos, por qué lo hacemos y cuáles son tus derechos.",
+            "Última actualización: 31 de diciembre de 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Responsable del tratamiento",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egipto. El responsable del tratamiento se encarga de proteger tus datos y puedes contactar con él para cualquier aclaración en: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Tipos de datos recogidos",
+          "paragraphs": [
+            "Entre los datos personales recogidos por este sitio web se encuentran: nombre, número de teléfono, nacionalidad, correo electrónico, datos de uso, herramientas de seguimiento, estadísticas de sesión y datos de sensores (giroscopio y acelerómetro). El usuario puede facilitar los datos libremente (mediante formularios) o estos pueden recogerse automáticamente (mediante Google Analytics 4)."
+          ],
+          "chips": [
+            "nombre",
+            "número de teléfono",
+            "nacionalidad",
+            "correo electrónico",
+            "datos de uso",
+            "herramientas de seguimiento",
+            "estadísticas de sesión y datos de sensores (giroscopio y acelerómetro)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Métodos y lugar del tratamiento de los datos recogidos",
+          "paragraphs": [
+            "El responsable adopta las medidas de seguridad adecuadas para evitar el acceso, la divulgación o la modificación no autorizados de los datos. El tratamiento se realiza mediante herramientas informáticas y/o telemáticas.",
+            "Los datos se tratan en las oficinas operativas del responsable y en cualquier otro lugar donde se encuentren las partes implicadas en el tratamiento (servidores de Google Cloud / GitHub Pages).",
+            "Los datos se tratan y conservan durante el tiempo necesario para las finalidades para las que se recogieron (un máximo de 24 meses para fines de marketing, salvo revocación)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Finalidades del tratamiento",
+          "paragraphs": [
+            "Los datos del usuario se recogen para permitir al responsable prestar el servicio, cumplir las obligaciones legales, responder a solicitudes y para las siguientes finalidades:",
+            "Contactar con el usuario: formulario de contacto (Google Sheets) e integración directa con WhatsApp.",
+            "Analítica: seguimiento y análisis de los datos de tráfico mediante Google Analytics 4.",
+            "Alojamiento e infraestructura de backend: GitHub Pages.",
+            "Mostrar contenido de plataformas externas: Google Fonts y widgets sociales."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Política de cookies",
+          "paragraphs": [
+            "El almacenamiento necesario del navegador recuerda tus preferencias de idioma. La cookie fabio_consent registra tus elecciones de consentimiento durante 182 días.",
+            "Google Analytics solo se carga después de aceptar la analítica. Los reproductores de Vimeo solo se cargan después de aceptar los vídeos externos y seleccionar un vídeo. Puedes rechazar los servicios opcionales o cambiar y retirar tu consentimiento mediante Preferencias de cookies, al pie de cada página. Al retirar el consentimiento de analítica, la página se recarga para descargar Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Detalles del tratamiento de datos personales",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): servicio estadístico que utiliza los datos recogidos para seguir y examinar el uso de este sitio web. Las direcciones IP se anonimizan antes de registrarse.",
+            "WhatsApp Business API: se utiliza para facilitar la comunicación directa y el envío de facturas o catálogos. Los datos introducidos en los formularios se transfieren a WhatsApp para generar el chat.",
+            "Integración con Google Sheets: los datos recogidos mediante el formulario de los «10 mandamientos» se almacenan en servidores seguros de Google para gestionar las solicitudes."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Datos de sensores y experiencia 3D",
+          "paragraphs": [
+            "Para ofrecer una experiencia visual 3D premium, solicitamos acceso a los sensores de movimiento. Estos datos se procesan exclusivamente de forma local y nunca se almacenan."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Derechos del usuario según el RGPD",
+          "paragraphs": [
+            "Los usuarios pueden ejercer determinados derechos sobre sus datos tratados. En particular, el usuario tiene derecho a:",
+            "Retirar su consentimiento en cualquier momento.",
+            "Oponerse al tratamiento de sus datos cuando se base en un fundamento jurídico distinto del consentimiento.",
+            "Acceder a sus datos y obtener una copia.",
+            "Verificar sus datos y solicitar su rectificación.",
+            "Obtener la supresión o eliminación de sus datos (derecho al olvido).",
+            "Presentar una reclamación ante la autoridad de protección de datos competente."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitación de responsabilidad y condiciones",
+          "paragraphs": [
+            "Fabio actúa como proveedor de experiencias turísticas. No nos hacemos responsables de incidentes derivados de la negligencia del usuario ni de la pérdida de objetos personales. Las reservas por WhatsApp están sujetas a las condiciones de cancelación indicadas en el momento del contacto."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definiciones y referencias legales",
+          "paragraphs": [
+            "Datos personales: cualquier información que identifique o permita identificar a una persona física. Cookies: pequeñas porciones de datos almacenadas en el navegador del usuario. RGPD: Reglamento General de Protección de Datos (UE).",
+            "Este documento se refiere exclusivamente al sitio www.fabioegypt.com y se ha redactado para garantizar la máxima transparencia con nuestros viajeros."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contacto y solicitudes",
+          "paragraphs": [
+            "Para cualquier solicitud legal, de privacidad o relacionada con el servicio, contacta con nosotros por WhatsApp en el +20 106 323 9261.",
+            "Respondemos con prontitud y profesionalidad, manteniendo los más altos estándares de servicio."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "pt",
+      "width": 390,
+      "theme": "light",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Política de privacidade de www.fabioegypt.com",
+          "paragraphs": [
+            "Bem-vindo à nossa política de privacidade. Esta política foi elaborada em conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD - UE 2016/679) e ajuda-o a compreender que dados recolhemos, por que motivo os recolhemos e quais são os seus direitos.",
+            "Última atualização: 31 de dezembro de 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Responsável pelo tratamento",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egito. O responsável pelo tratamento assegura a proteção dos seus dados e pode ser contactado para qualquer esclarecimento em: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Tipos de dados recolhidos",
+          "paragraphs": [
+            "Os dados pessoais recolhidos por este site incluem: nome, número de telefone, nacionalidade, e-mail, dados de utilização, ferramentas de rastreamento, estatísticas de sessão e dados de sensores (giroscópio e acelerómetro). Os dados podem ser fornecidos livremente pelo utilizador (através de formulários) ou recolhidos automaticamente (através do Google Analytics 4)."
+          ],
+          "chips": [
+            "nome",
+            "número de telefone",
+            "nacionalidade",
+            "e-mail",
+            "dados de utilização",
+            "ferramentas de rastreamento",
+            "estatísticas de sessão e dados de sensores (giroscópio e acelerómetro)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Métodos e local do tratamento dos dados recolhidos",
+          "paragraphs": [
+            "O responsável adota medidas de segurança adequadas para impedir o acesso, a divulgação ou a alteração não autorizados dos dados. O tratamento é efetuado com recurso a ferramentas informáticas e/ou telemáticas.",
+            "Os dados são tratados nas instalações operacionais do responsável e em qualquer outro local onde se encontrem as partes envolvidas no tratamento (servidores do Google Cloud / GitHub Pages).",
+            "Os dados são tratados e conservados pelo tempo necessário às finalidades para as quais foram recolhidos (no máximo 24 meses para fins de marketing, salvo revogação)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Finalidades do tratamento",
+          "paragraphs": [
+            "Os dados do utilizador são recolhidos para permitir ao responsável prestar o serviço, cumprir obrigações legais, responder a pedidos e para as seguintes finalidades:",
+            "Contactar o utilizador: formulário de contacto (Google Sheets) e integração direta com o WhatsApp.",
+            "Análise: monitorização e análise de dados de tráfego através do Google Analytics 4.",
+            "Alojamento e infraestrutura de backend: GitHub Pages.",
+            "Apresentação de conteúdos de plataformas externas: Google Fonts e widgets sociais."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Política de cookies",
+          "paragraphs": [
+            "O armazenamento necessário do navegador recorda as suas preferências de idioma. O cookie fabio_consent regista as suas escolhas de consentimento durante 182 dias.",
+            "O Google Analytics só é carregado depois de aceitar a análise. Os leitores do Vimeo só são carregados depois de aceitar os vídeos externos e selecionar um vídeo. Pode rejeitar os serviços opcionais ou alterar e retirar o consentimento através das Preferências de cookies, no rodapé de cada página. Retirar o consentimento de análise recarrega a página para descarregar o Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Detalhes sobre o tratamento de dados pessoais",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): serviço de estatísticas que utiliza os dados recolhidos para acompanhar e analisar a utilização deste site. Os endereços IP são anonimizados antes do registo.",
+            "WhatsApp Business API: utilizada para facilitar a comunicação direta e o envio de faturas ou catálogos. Os dados introduzidos nos formulários são transferidos para o WhatsApp para gerar a conversa.",
+            "Integração com Google Sheets: os dados recolhidos através do formulário dos «10 mandamentos» são armazenados em servidores seguros da Google para gerir os pedidos."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Dados de sensores e experiência 3D",
+          "paragraphs": [
+            "Para proporcionar uma experiência visual 3D premium, solicitamos acesso aos sensores de movimento. Estes dados são processados apenas localmente e nunca são armazenados."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Direitos do utilizador ao abrigo do RGPD",
+          "paragraphs": [
+            "Os utilizadores podem exercer determinados direitos relativos aos seus dados tratados. Em particular, o utilizador tem o direito de:",
+            "Retirar o consentimento a qualquer momento.",
+            "Opor-se ao tratamento dos seus dados quando este tenha uma base jurídica diferente do consentimento.",
+            "Aceder aos seus dados e obter uma cópia.",
+            "Verificar os seus dados e solicitar a sua retificação.",
+            "Obter a eliminação ou remoção dos seus dados (direito ao esquecimento).",
+            "Apresentar uma reclamação à autoridade de proteção de dados competente."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitação de responsabilidade e termos",
+          "paragraphs": [
+            "Fabio atua como fornecedor de experiências turísticas. Não nos responsabilizamos por incidentes resultantes de negligência do utilizador nem pela perda de objetos pessoais. As reservas pelo WhatsApp estão sujeitas às condições de cancelamento indicadas no momento do contacto."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definições e referências legais",
+          "paragraphs": [
+            "Dados pessoais: qualquer informação que identifique ou permita identificar uma pessoa singular. Cookies: pequenas porções de dados armazenadas no navegador do utilizador. RGPD: Regulamento Geral sobre a Proteção de Dados (UE).",
+            "Este documento refere-se exclusivamente ao site www.fabioegypt.com e foi elaborado para garantir a máxima transparência para os nossos hóspedes."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contacto e pedidos",
+          "paragraphs": [
+            "Para qualquer pedido jurídico, de privacidade ou relacionado com o serviço, contacte-nos pelo WhatsApp através do +20 106 323 9261.",
+            "Respondemos com prontidão e profissionalismo, mantendo os mais elevados padrões de serviço."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "pt",
+      "width": 390,
+      "theme": "dark",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Política de privacidade de www.fabioegypt.com",
+          "paragraphs": [
+            "Bem-vindo à nossa política de privacidade. Esta política foi elaborada em conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD - UE 2016/679) e ajuda-o a compreender que dados recolhemos, por que motivo os recolhemos e quais são os seus direitos.",
+            "Última atualização: 31 de dezembro de 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Responsável pelo tratamento",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egito. O responsável pelo tratamento assegura a proteção dos seus dados e pode ser contactado para qualquer esclarecimento em: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Tipos de dados recolhidos",
+          "paragraphs": [
+            "Os dados pessoais recolhidos por este site incluem: nome, número de telefone, nacionalidade, e-mail, dados de utilização, ferramentas de rastreamento, estatísticas de sessão e dados de sensores (giroscópio e acelerómetro). Os dados podem ser fornecidos livremente pelo utilizador (através de formulários) ou recolhidos automaticamente (através do Google Analytics 4)."
+          ],
+          "chips": [
+            "nome",
+            "número de telefone",
+            "nacionalidade",
+            "e-mail",
+            "dados de utilização",
+            "ferramentas de rastreamento",
+            "estatísticas de sessão e dados de sensores (giroscópio e acelerómetro)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Métodos e local do tratamento dos dados recolhidos",
+          "paragraphs": [
+            "O responsável adota medidas de segurança adequadas para impedir o acesso, a divulgação ou a alteração não autorizados dos dados. O tratamento é efetuado com recurso a ferramentas informáticas e/ou telemáticas.",
+            "Os dados são tratados nas instalações operacionais do responsável e em qualquer outro local onde se encontrem as partes envolvidas no tratamento (servidores do Google Cloud / GitHub Pages).",
+            "Os dados são tratados e conservados pelo tempo necessário às finalidades para as quais foram recolhidos (no máximo 24 meses para fins de marketing, salvo revogação)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Finalidades do tratamento",
+          "paragraphs": [
+            "Os dados do utilizador são recolhidos para permitir ao responsável prestar o serviço, cumprir obrigações legais, responder a pedidos e para as seguintes finalidades:",
+            "Contactar o utilizador: formulário de contacto (Google Sheets) e integração direta com o WhatsApp.",
+            "Análise: monitorização e análise de dados de tráfego através do Google Analytics 4.",
+            "Alojamento e infraestrutura de backend: GitHub Pages.",
+            "Apresentação de conteúdos de plataformas externas: Google Fonts e widgets sociais."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Política de cookies",
+          "paragraphs": [
+            "O armazenamento necessário do navegador recorda as suas preferências de idioma. O cookie fabio_consent regista as suas escolhas de consentimento durante 182 dias.",
+            "O Google Analytics só é carregado depois de aceitar a análise. Os leitores do Vimeo só são carregados depois de aceitar os vídeos externos e selecionar um vídeo. Pode rejeitar os serviços opcionais ou alterar e retirar o consentimento através das Preferências de cookies, no rodapé de cada página. Retirar o consentimento de análise recarrega a página para descarregar o Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Detalhes sobre o tratamento de dados pessoais",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): serviço de estatísticas que utiliza os dados recolhidos para acompanhar e analisar a utilização deste site. Os endereços IP são anonimizados antes do registo.",
+            "WhatsApp Business API: utilizada para facilitar a comunicação direta e o envio de faturas ou catálogos. Os dados introduzidos nos formulários são transferidos para o WhatsApp para gerar a conversa.",
+            "Integração com Google Sheets: os dados recolhidos através do formulário dos «10 mandamentos» são armazenados em servidores seguros da Google para gerir os pedidos."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Dados de sensores e experiência 3D",
+          "paragraphs": [
+            "Para proporcionar uma experiência visual 3D premium, solicitamos acesso aos sensores de movimento. Estes dados são processados apenas localmente e nunca são armazenados."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Direitos do utilizador ao abrigo do RGPD",
+          "paragraphs": [
+            "Os utilizadores podem exercer determinados direitos relativos aos seus dados tratados. Em particular, o utilizador tem o direito de:",
+            "Retirar o consentimento a qualquer momento.",
+            "Opor-se ao tratamento dos seus dados quando este tenha uma base jurídica diferente do consentimento.",
+            "Aceder aos seus dados e obter uma cópia.",
+            "Verificar os seus dados e solicitar a sua retificação.",
+            "Obter a eliminação ou remoção dos seus dados (direito ao esquecimento).",
+            "Apresentar uma reclamação à autoridade de proteção de dados competente."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitação de responsabilidade e termos",
+          "paragraphs": [
+            "Fabio atua como fornecedor de experiências turísticas. Não nos responsabilizamos por incidentes resultantes de negligência do utilizador nem pela perda de objetos pessoais. As reservas pelo WhatsApp estão sujeitas às condições de cancelamento indicadas no momento do contacto."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definições e referências legais",
+          "paragraphs": [
+            "Dados pessoais: qualquer informação que identifique ou permita identificar uma pessoa singular. Cookies: pequenas porções de dados armazenadas no navegador do utilizador. RGPD: Regulamento Geral sobre a Proteção de Dados (UE).",
+            "Este documento refere-se exclusivamente ao site www.fabioegypt.com e foi elaborado para garantir a máxima transparência para os nossos hóspedes."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contacto e pedidos",
+          "paragraphs": [
+            "Para qualquer pedido jurídico, de privacidade ou relacionado com o serviço, contacte-nos pelo WhatsApp através do +20 106 323 9261.",
+            "Respondemos com prontidão e profissionalismo, mantendo os mais elevados padrões de serviço."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "pt",
+      "width": 1280,
+      "theme": "light",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Política de privacidade de www.fabioegypt.com",
+          "paragraphs": [
+            "Bem-vindo à nossa política de privacidade. Esta política foi elaborada em conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD - UE 2016/679) e ajuda-o a compreender que dados recolhemos, por que motivo os recolhemos e quais são os seus direitos.",
+            "Última atualização: 31 de dezembro de 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Responsável pelo tratamento",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egito. O responsável pelo tratamento assegura a proteção dos seus dados e pode ser contactado para qualquer esclarecimento em: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Tipos de dados recolhidos",
+          "paragraphs": [
+            "Os dados pessoais recolhidos por este site incluem: nome, número de telefone, nacionalidade, e-mail, dados de utilização, ferramentas de rastreamento, estatísticas de sessão e dados de sensores (giroscópio e acelerómetro). Os dados podem ser fornecidos livremente pelo utilizador (através de formulários) ou recolhidos automaticamente (através do Google Analytics 4)."
+          ],
+          "chips": [
+            "nome",
+            "número de telefone",
+            "nacionalidade",
+            "e-mail",
+            "dados de utilização",
+            "ferramentas de rastreamento",
+            "estatísticas de sessão e dados de sensores (giroscópio e acelerómetro)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Métodos e local do tratamento dos dados recolhidos",
+          "paragraphs": [
+            "O responsável adota medidas de segurança adequadas para impedir o acesso, a divulgação ou a alteração não autorizados dos dados. O tratamento é efetuado com recurso a ferramentas informáticas e/ou telemáticas.",
+            "Os dados são tratados nas instalações operacionais do responsável e em qualquer outro local onde se encontrem as partes envolvidas no tratamento (servidores do Google Cloud / GitHub Pages).",
+            "Os dados são tratados e conservados pelo tempo necessário às finalidades para as quais foram recolhidos (no máximo 24 meses para fins de marketing, salvo revogação)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Finalidades do tratamento",
+          "paragraphs": [
+            "Os dados do utilizador são recolhidos para permitir ao responsável prestar o serviço, cumprir obrigações legais, responder a pedidos e para as seguintes finalidades:",
+            "Contactar o utilizador: formulário de contacto (Google Sheets) e integração direta com o WhatsApp.",
+            "Análise: monitorização e análise de dados de tráfego através do Google Analytics 4.",
+            "Alojamento e infraestrutura de backend: GitHub Pages.",
+            "Apresentação de conteúdos de plataformas externas: Google Fonts e widgets sociais."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Política de cookies",
+          "paragraphs": [
+            "O armazenamento necessário do navegador recorda as suas preferências de idioma. O cookie fabio_consent regista as suas escolhas de consentimento durante 182 dias.",
+            "O Google Analytics só é carregado depois de aceitar a análise. Os leitores do Vimeo só são carregados depois de aceitar os vídeos externos e selecionar um vídeo. Pode rejeitar os serviços opcionais ou alterar e retirar o consentimento através das Preferências de cookies, no rodapé de cada página. Retirar o consentimento de análise recarrega a página para descarregar o Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Detalhes sobre o tratamento de dados pessoais",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): serviço de estatísticas que utiliza os dados recolhidos para acompanhar e analisar a utilização deste site. Os endereços IP são anonimizados antes do registo.",
+            "WhatsApp Business API: utilizada para facilitar a comunicação direta e o envio de faturas ou catálogos. Os dados introduzidos nos formulários são transferidos para o WhatsApp para gerar a conversa.",
+            "Integração com Google Sheets: os dados recolhidos através do formulário dos «10 mandamentos» são armazenados em servidores seguros da Google para gerir os pedidos."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Dados de sensores e experiência 3D",
+          "paragraphs": [
+            "Para proporcionar uma experiência visual 3D premium, solicitamos acesso aos sensores de movimento. Estes dados são processados apenas localmente e nunca são armazenados."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Direitos do utilizador ao abrigo do RGPD",
+          "paragraphs": [
+            "Os utilizadores podem exercer determinados direitos relativos aos seus dados tratados. Em particular, o utilizador tem o direito de:",
+            "Retirar o consentimento a qualquer momento.",
+            "Opor-se ao tratamento dos seus dados quando este tenha uma base jurídica diferente do consentimento.",
+            "Aceder aos seus dados e obter uma cópia.",
+            "Verificar os seus dados e solicitar a sua retificação.",
+            "Obter a eliminação ou remoção dos seus dados (direito ao esquecimento).",
+            "Apresentar uma reclamação à autoridade de proteção de dados competente."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitação de responsabilidade e termos",
+          "paragraphs": [
+            "Fabio atua como fornecedor de experiências turísticas. Não nos responsabilizamos por incidentes resultantes de negligência do utilizador nem pela perda de objetos pessoais. As reservas pelo WhatsApp estão sujeitas às condições de cancelamento indicadas no momento do contacto."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definições e referências legais",
+          "paragraphs": [
+            "Dados pessoais: qualquer informação que identifique ou permita identificar uma pessoa singular. Cookies: pequenas porções de dados armazenadas no navegador do utilizador. RGPD: Regulamento Geral sobre a Proteção de Dados (UE).",
+            "Este documento refere-se exclusivamente ao site www.fabioegypt.com e foi elaborado para garantir a máxima transparência para os nossos hóspedes."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contacto e pedidos",
+          "paragraphs": [
+            "Para qualquer pedido jurídico, de privacidade ou relacionado com o serviço, contacte-nos pelo WhatsApp através do +20 106 323 9261.",
+            "Respondemos com prontidão e profissionalismo, mantendo os mais elevados padrões de serviço."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "pt",
+      "width": 1280,
+      "theme": "dark",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Política de privacidade de www.fabioegypt.com",
+          "paragraphs": [
+            "Bem-vindo à nossa política de privacidade. Esta política foi elaborada em conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD - UE 2016/679) e ajuda-o a compreender que dados recolhemos, por que motivo os recolhemos e quais são os seus direitos.",
+            "Última atualização: 31 de dezembro de 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Responsável pelo tratamento",
+          "paragraphs": [
+            "Fabio - Sharm El Sheikh, Egito. O responsável pelo tratamento assegura a proteção dos seus dados e pode ser contactado para qualquer esclarecimento em: info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Tipos de dados recolhidos",
+          "paragraphs": [
+            "Os dados pessoais recolhidos por este site incluem: nome, número de telefone, nacionalidade, e-mail, dados de utilização, ferramentas de rastreamento, estatísticas de sessão e dados de sensores (giroscópio e acelerómetro). Os dados podem ser fornecidos livremente pelo utilizador (através de formulários) ou recolhidos automaticamente (através do Google Analytics 4)."
+          ],
+          "chips": [
+            "nome",
+            "número de telefone",
+            "nacionalidade",
+            "e-mail",
+            "dados de utilização",
+            "ferramentas de rastreamento",
+            "estatísticas de sessão e dados de sensores (giroscópio e acelerómetro)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Métodos e local do tratamento dos dados recolhidos",
+          "paragraphs": [
+            "O responsável adota medidas de segurança adequadas para impedir o acesso, a divulgação ou a alteração não autorizados dos dados. O tratamento é efetuado com recurso a ferramentas informáticas e/ou telemáticas.",
+            "Os dados são tratados nas instalações operacionais do responsável e em qualquer outro local onde se encontrem as partes envolvidas no tratamento (servidores do Google Cloud / GitHub Pages).",
+            "Os dados são tratados e conservados pelo tempo necessário às finalidades para as quais foram recolhidos (no máximo 24 meses para fins de marketing, salvo revogação)."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Finalidades do tratamento",
+          "paragraphs": [
+            "Os dados do utilizador são recolhidos para permitir ao responsável prestar o serviço, cumprir obrigações legais, responder a pedidos e para as seguintes finalidades:",
+            "Contactar o utilizador: formulário de contacto (Google Sheets) e integração direta com o WhatsApp.",
+            "Análise: monitorização e análise de dados de tráfego através do Google Analytics 4.",
+            "Alojamento e infraestrutura de backend: GitHub Pages.",
+            "Apresentação de conteúdos de plataformas externas: Google Fonts e widgets sociais."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Política de cookies",
+          "paragraphs": [
+            "O armazenamento necessário do navegador recorda as suas preferências de idioma. O cookie fabio_consent regista as suas escolhas de consentimento durante 182 dias.",
+            "O Google Analytics só é carregado depois de aceitar a análise. Os leitores do Vimeo só são carregados depois de aceitar os vídeos externos e selecionar um vídeo. Pode rejeitar os serviços opcionais ou alterar e retirar o consentimento através das Preferências de cookies, no rodapé de cada página. Retirar o consentimento de análise recarrega a página para descarregar o Analytics."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Detalhes sobre o tratamento de dados pessoais",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): serviço de estatísticas que utiliza os dados recolhidos para acompanhar e analisar a utilização deste site. Os endereços IP são anonimizados antes do registo.",
+            "WhatsApp Business API: utilizada para facilitar a comunicação direta e o envio de faturas ou catálogos. Os dados introduzidos nos formulários são transferidos para o WhatsApp para gerar a conversa.",
+            "Integração com Google Sheets: os dados recolhidos através do formulário dos «10 mandamentos» são armazenados em servidores seguros da Google para gerir os pedidos."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Dados de sensores e experiência 3D",
+          "paragraphs": [
+            "Para proporcionar uma experiência visual 3D premium, solicitamos acesso aos sensores de movimento. Estes dados são processados apenas localmente e nunca são armazenados."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Direitos do utilizador ao abrigo do RGPD",
+          "paragraphs": [
+            "Os utilizadores podem exercer determinados direitos relativos aos seus dados tratados. Em particular, o utilizador tem o direito de:",
+            "Retirar o consentimento a qualquer momento.",
+            "Opor-se ao tratamento dos seus dados quando este tenha uma base jurídica diferente do consentimento.",
+            "Aceder aos seus dados e obter uma cópia.",
+            "Verificar os seus dados e solicitar a sua retificação.",
+            "Obter a eliminação ou remoção dos seus dados (direito ao esquecimento).",
+            "Apresentar uma reclamação à autoridade de proteção de dados competente."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Limitação de responsabilidade e termos",
+          "paragraphs": [
+            "Fabio atua como fornecedor de experiências turísticas. Não nos responsabilizamos por incidentes resultantes de negligência do utilizador nem pela perda de objetos pessoais. As reservas pelo WhatsApp estão sujeitas às condições de cancelamento indicadas no momento do contacto."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definições e referências legais",
+          "paragraphs": [
+            "Dados pessoais: qualquer informação que identifique ou permita identificar uma pessoa singular. Cookies: pequenas porções de dados armazenadas no navegador do utilizador. RGPD: Regulamento Geral sobre a Proteção de Dados (UE).",
+            "Este documento refere-se exclusivamente ao site www.fabioegypt.com e foi elaborado para garantir a máxima transparência para os nossos hóspedes."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Contacto e pedidos",
+          "paragraphs": [
+            "Para qualquer pedido jurídico, de privacidade ou relacionado com o serviço, contacte-nos pelo WhatsApp através do +20 106 323 9261.",
+            "Respondemos com prontidão e profissionalismo, mantendo os mais elevados padrões de serviço."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "de",
+      "width": 390,
+      "theme": "light",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Datenschutzerklärung von www.fabioegypt.com",
+          "paragraphs": [
+            "Willkommen zu unserer Datenschutzerklärung. Sie wurde gemäß der Datenschutz-Grundverordnung (DSGVO – EU 2016/679) erstellt und erklärt, welche Daten wir erheben, warum wir sie erheben und welche Rechte du hast.",
+            "Letzte Aktualisierung: 31. Dezember 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Verantwortlicher",
+          "paragraphs": [
+            "Fabio – Sharm El Sheikh, Ägypten. Der Verantwortliche schützt deine Daten und beantwortet Fragen unter info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Arten erhobener Daten",
+          "paragraphs": [
+            "Zu den von dieser Website erhobenen personenbezogenen Daten gehören: Name, Telefonnummer, Nationalität, E-Mail, Nutzungsdaten, Tracking-Werkzeuge, Sitzungsstatistiken und Sensordaten (Gyroskop und Beschleunigungssensor). Daten werden vom Nutzer freiwillig über Formulare bereitgestellt oder automatisch über Google Analytics 4 erhoben."
+          ],
+          "chips": [
+            "Name",
+            "Telefonnummer",
+            "Nationalität",
+            "E-Mail",
+            "Nutzungsdaten",
+            "Tracking-Werkzeuge",
+            "Sitzungsstatistiken und Sensordaten (Gyroskop und Beschleunigungssensor)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Verfahren und Ort der Verarbeitung erhobener Daten",
+          "paragraphs": [
+            "Der Verantwortliche ergreift geeignete Sicherheitsmaßnahmen gegen unbefugten Zugriff, Offenlegung oder Veränderung der Daten. Die Verarbeitung erfolgt mit IT- und/oder telematischen Werkzeugen.",
+            "Daten werden an den Betriebsstandorten des Verantwortlichen und überall dort verarbeitet, wo sich die beteiligten Parteien befinden (Google-Cloud-Server / GitHub Pages).",
+            "Daten werden so lange verarbeitet und gespeichert, wie es die Erhebungszwecke erfordern, für Marketingzwecke höchstens 24 Monate, sofern die Einwilligung nicht widerrufen wird."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Zwecke der Datenverarbeitung",
+          "paragraphs": [
+            "Nutzerdaten werden erhoben, damit der Verantwortliche den Dienst anbieten, gesetzlichen Pflichten nachkommen und Anfragen beantworten kann, sowie für folgende Zwecke:",
+            "Kontakt mit dem Nutzer: Kontaktformular (Google Sheets) und direkte WhatsApp-Integration.",
+            "Analyse: Überwachung und Auswertung von Verkehrsdaten mit Google Analytics 4.",
+            "Hosting und Backend-Infrastruktur: GitHub Pages.",
+            "Anzeige von Inhalten externer Plattformen: Google Fonts und Social Widgets."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Cookie-Richtlinie",
+          "paragraphs": [
+            "Notwendiger Browserspeicher merkt sich deine Spracheinstellungen. Das Cookie fabio_consent speichert deine Einwilligungsauswahl für 182 Tage.",
+            "Google Analytics wird erst nach deiner Zustimmung zur Analyse geladen. Vimeo-Player laden erst nach Zustimmung zu externen Videos und Auswahl eines Videos. Du kannst optionale Dienste ablehnen und deine Einwilligung über die Cookie-Einstellungen am Ende jeder Seite ändern oder widerrufen. Beim Widerruf der Analyse-Einwilligung wird die Seite neu geladen, um Analytics zu entladen."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Einzelheiten zur Verarbeitung personenbezogener Daten",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): Statistikdienst, der erhobene Daten nutzt, um die Nutzung dieser Website zu verfolgen und auszuwerten. IP-Adressen werden vor der Aufzeichnung anonymisiert.",
+            "WhatsApp Business API: Ermöglicht direkte Kommunikation und den Versand von Rechnungen oder Katalogen. Formulardaten werden an WhatsApp übertragen, um den Chat zu erzeugen.",
+            "Google-Sheets-Integration: Über das Formular „10 Gebote“ erhobene Daten werden zur Anfrageverwaltung auf sicheren Google-Servern gespeichert."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Sensordaten und 3D-Erlebnis",
+          "paragraphs": [
+            "Für ein hochwertiges visuelles 3D-Erlebnis bitten wir um Zugriff auf Bewegungssensoren. Diese Daten werden ausschließlich lokal verarbeitet und niemals gespeichert."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Nutzerrechte gemäß DSGVO",
+          "paragraphs": [
+            "Nutzer können bestimmte Rechte bezüglich ihrer verarbeiteten Daten ausüben. Insbesondere haben sie das Recht:",
+            "Eine Einwilligung jederzeit zu widerrufen.",
+            "Der Datenverarbeitung zu widersprechen, wenn sie auf einer anderen Rechtsgrundlage als der Einwilligung beruht.",
+            "Auf ihre Daten zuzugreifen und eine Kopie zu erhalten.",
+            "Ihre Daten zu prüfen und eine Berichtigung zu verlangen.",
+            "Die Löschung oder Entfernung ihrer Daten zu verlangen (Recht auf Vergessenwerden).",
+            "Beschwerde bei der zuständigen Datenschutzbehörde einzulegen."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Haftungsbeschränkung und Bedingungen",
+          "paragraphs": [
+            "Fabio ist Anbieter touristischer Erlebnisse. Wir haften nicht für Vorfälle aufgrund von Fahrlässigkeit der Nutzer oder für den Verlust persönlicher Gegenstände. WhatsApp-Buchungen unterliegen den bei der Kontaktaufnahme genannten Stornobedingungen."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definitionen und Rechtsgrundlagen",
+          "paragraphs": [
+            "Personenbezogene Daten: Informationen, die eine natürliche Person identifizieren oder identifizierbar machen. Cookies: kleine Datenmengen, die im Browser des Nutzers gespeichert werden. DSGVO: Datenschutz-Grundverordnung der EU.",
+            "Dieses Dokument betrifft ausschließlich www.fabioegypt.com und soll unseren Gästen größtmögliche Transparenz bieten."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Kontakt und Anfragen",
+          "paragraphs": [
+            "Für rechtliche, datenschutzbezogene oder dienstbezogene Anfragen kontaktiere uns über WhatsApp unter +20 106 323 9261.",
+            "Wir antworten zeitnah und professionell und wahren dabei höchste Servicestandards."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "de",
+      "width": 390,
+      "theme": "dark",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Datenschutzerklärung von www.fabioegypt.com",
+          "paragraphs": [
+            "Willkommen zu unserer Datenschutzerklärung. Sie wurde gemäß der Datenschutz-Grundverordnung (DSGVO – EU 2016/679) erstellt und erklärt, welche Daten wir erheben, warum wir sie erheben und welche Rechte du hast.",
+            "Letzte Aktualisierung: 31. Dezember 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Verantwortlicher",
+          "paragraphs": [
+            "Fabio – Sharm El Sheikh, Ägypten. Der Verantwortliche schützt deine Daten und beantwortet Fragen unter info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Arten erhobener Daten",
+          "paragraphs": [
+            "Zu den von dieser Website erhobenen personenbezogenen Daten gehören: Name, Telefonnummer, Nationalität, E-Mail, Nutzungsdaten, Tracking-Werkzeuge, Sitzungsstatistiken und Sensordaten (Gyroskop und Beschleunigungssensor). Daten werden vom Nutzer freiwillig über Formulare bereitgestellt oder automatisch über Google Analytics 4 erhoben."
+          ],
+          "chips": [
+            "Name",
+            "Telefonnummer",
+            "Nationalität",
+            "E-Mail",
+            "Nutzungsdaten",
+            "Tracking-Werkzeuge",
+            "Sitzungsstatistiken und Sensordaten (Gyroskop und Beschleunigungssensor)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Verfahren und Ort der Verarbeitung erhobener Daten",
+          "paragraphs": [
+            "Der Verantwortliche ergreift geeignete Sicherheitsmaßnahmen gegen unbefugten Zugriff, Offenlegung oder Veränderung der Daten. Die Verarbeitung erfolgt mit IT- und/oder telematischen Werkzeugen.",
+            "Daten werden an den Betriebsstandorten des Verantwortlichen und überall dort verarbeitet, wo sich die beteiligten Parteien befinden (Google-Cloud-Server / GitHub Pages).",
+            "Daten werden so lange verarbeitet und gespeichert, wie es die Erhebungszwecke erfordern, für Marketingzwecke höchstens 24 Monate, sofern die Einwilligung nicht widerrufen wird."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Zwecke der Datenverarbeitung",
+          "paragraphs": [
+            "Nutzerdaten werden erhoben, damit der Verantwortliche den Dienst anbieten, gesetzlichen Pflichten nachkommen und Anfragen beantworten kann, sowie für folgende Zwecke:",
+            "Kontakt mit dem Nutzer: Kontaktformular (Google Sheets) und direkte WhatsApp-Integration.",
+            "Analyse: Überwachung und Auswertung von Verkehrsdaten mit Google Analytics 4.",
+            "Hosting und Backend-Infrastruktur: GitHub Pages.",
+            "Anzeige von Inhalten externer Plattformen: Google Fonts und Social Widgets."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Cookie-Richtlinie",
+          "paragraphs": [
+            "Notwendiger Browserspeicher merkt sich deine Spracheinstellungen. Das Cookie fabio_consent speichert deine Einwilligungsauswahl für 182 Tage.",
+            "Google Analytics wird erst nach deiner Zustimmung zur Analyse geladen. Vimeo-Player laden erst nach Zustimmung zu externen Videos und Auswahl eines Videos. Du kannst optionale Dienste ablehnen und deine Einwilligung über die Cookie-Einstellungen am Ende jeder Seite ändern oder widerrufen. Beim Widerruf der Analyse-Einwilligung wird die Seite neu geladen, um Analytics zu entladen."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Einzelheiten zur Verarbeitung personenbezogener Daten",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): Statistikdienst, der erhobene Daten nutzt, um die Nutzung dieser Website zu verfolgen und auszuwerten. IP-Adressen werden vor der Aufzeichnung anonymisiert.",
+            "WhatsApp Business API: Ermöglicht direkte Kommunikation und den Versand von Rechnungen oder Katalogen. Formulardaten werden an WhatsApp übertragen, um den Chat zu erzeugen.",
+            "Google-Sheets-Integration: Über das Formular „10 Gebote“ erhobene Daten werden zur Anfrageverwaltung auf sicheren Google-Servern gespeichert."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Sensordaten und 3D-Erlebnis",
+          "paragraphs": [
+            "Für ein hochwertiges visuelles 3D-Erlebnis bitten wir um Zugriff auf Bewegungssensoren. Diese Daten werden ausschließlich lokal verarbeitet und niemals gespeichert."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Nutzerrechte gemäß DSGVO",
+          "paragraphs": [
+            "Nutzer können bestimmte Rechte bezüglich ihrer verarbeiteten Daten ausüben. Insbesondere haben sie das Recht:",
+            "Eine Einwilligung jederzeit zu widerrufen.",
+            "Der Datenverarbeitung zu widersprechen, wenn sie auf einer anderen Rechtsgrundlage als der Einwilligung beruht.",
+            "Auf ihre Daten zuzugreifen und eine Kopie zu erhalten.",
+            "Ihre Daten zu prüfen und eine Berichtigung zu verlangen.",
+            "Die Löschung oder Entfernung ihrer Daten zu verlangen (Recht auf Vergessenwerden).",
+            "Beschwerde bei der zuständigen Datenschutzbehörde einzulegen."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Haftungsbeschränkung und Bedingungen",
+          "paragraphs": [
+            "Fabio ist Anbieter touristischer Erlebnisse. Wir haften nicht für Vorfälle aufgrund von Fahrlässigkeit der Nutzer oder für den Verlust persönlicher Gegenstände. WhatsApp-Buchungen unterliegen den bei der Kontaktaufnahme genannten Stornobedingungen."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definitionen und Rechtsgrundlagen",
+          "paragraphs": [
+            "Personenbezogene Daten: Informationen, die eine natürliche Person identifizieren oder identifizierbar machen. Cookies: kleine Datenmengen, die im Browser des Nutzers gespeichert werden. DSGVO: Datenschutz-Grundverordnung der EU.",
+            "Dieses Dokument betrifft ausschließlich www.fabioegypt.com und soll unseren Gästen größtmögliche Transparenz bieten."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Kontakt und Anfragen",
+          "paragraphs": [
+            "Für rechtliche, datenschutzbezogene oder dienstbezogene Anfragen kontaktiere uns über WhatsApp unter +20 106 323 9261.",
+            "Wir antworten zeitnah und professionell und wahren dabei höchste Servicestandards."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "de",
+      "width": 1280,
+      "theme": "light",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Datenschutzerklärung von www.fabioegypt.com",
+          "paragraphs": [
+            "Willkommen zu unserer Datenschutzerklärung. Sie wurde gemäß der Datenschutz-Grundverordnung (DSGVO – EU 2016/679) erstellt und erklärt, welche Daten wir erheben, warum wir sie erheben und welche Rechte du hast.",
+            "Letzte Aktualisierung: 31. Dezember 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Verantwortlicher",
+          "paragraphs": [
+            "Fabio – Sharm El Sheikh, Ägypten. Der Verantwortliche schützt deine Daten und beantwortet Fragen unter info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Arten erhobener Daten",
+          "paragraphs": [
+            "Zu den von dieser Website erhobenen personenbezogenen Daten gehören: Name, Telefonnummer, Nationalität, E-Mail, Nutzungsdaten, Tracking-Werkzeuge, Sitzungsstatistiken und Sensordaten (Gyroskop und Beschleunigungssensor). Daten werden vom Nutzer freiwillig über Formulare bereitgestellt oder automatisch über Google Analytics 4 erhoben."
+          ],
+          "chips": [
+            "Name",
+            "Telefonnummer",
+            "Nationalität",
+            "E-Mail",
+            "Nutzungsdaten",
+            "Tracking-Werkzeuge",
+            "Sitzungsstatistiken und Sensordaten (Gyroskop und Beschleunigungssensor)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Verfahren und Ort der Verarbeitung erhobener Daten",
+          "paragraphs": [
+            "Der Verantwortliche ergreift geeignete Sicherheitsmaßnahmen gegen unbefugten Zugriff, Offenlegung oder Veränderung der Daten. Die Verarbeitung erfolgt mit IT- und/oder telematischen Werkzeugen.",
+            "Daten werden an den Betriebsstandorten des Verantwortlichen und überall dort verarbeitet, wo sich die beteiligten Parteien befinden (Google-Cloud-Server / GitHub Pages).",
+            "Daten werden so lange verarbeitet und gespeichert, wie es die Erhebungszwecke erfordern, für Marketingzwecke höchstens 24 Monate, sofern die Einwilligung nicht widerrufen wird."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Zwecke der Datenverarbeitung",
+          "paragraphs": [
+            "Nutzerdaten werden erhoben, damit der Verantwortliche den Dienst anbieten, gesetzlichen Pflichten nachkommen und Anfragen beantworten kann, sowie für folgende Zwecke:",
+            "Kontakt mit dem Nutzer: Kontaktformular (Google Sheets) und direkte WhatsApp-Integration.",
+            "Analyse: Überwachung und Auswertung von Verkehrsdaten mit Google Analytics 4.",
+            "Hosting und Backend-Infrastruktur: GitHub Pages.",
+            "Anzeige von Inhalten externer Plattformen: Google Fonts und Social Widgets."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Cookie-Richtlinie",
+          "paragraphs": [
+            "Notwendiger Browserspeicher merkt sich deine Spracheinstellungen. Das Cookie fabio_consent speichert deine Einwilligungsauswahl für 182 Tage.",
+            "Google Analytics wird erst nach deiner Zustimmung zur Analyse geladen. Vimeo-Player laden erst nach Zustimmung zu externen Videos und Auswahl eines Videos. Du kannst optionale Dienste ablehnen und deine Einwilligung über die Cookie-Einstellungen am Ende jeder Seite ändern oder widerrufen. Beim Widerruf der Analyse-Einwilligung wird die Seite neu geladen, um Analytics zu entladen."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Einzelheiten zur Verarbeitung personenbezogener Daten",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): Statistikdienst, der erhobene Daten nutzt, um die Nutzung dieser Website zu verfolgen und auszuwerten. IP-Adressen werden vor der Aufzeichnung anonymisiert.",
+            "WhatsApp Business API: Ermöglicht direkte Kommunikation und den Versand von Rechnungen oder Katalogen. Formulardaten werden an WhatsApp übertragen, um den Chat zu erzeugen.",
+            "Google-Sheets-Integration: Über das Formular „10 Gebote“ erhobene Daten werden zur Anfrageverwaltung auf sicheren Google-Servern gespeichert."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Sensordaten und 3D-Erlebnis",
+          "paragraphs": [
+            "Für ein hochwertiges visuelles 3D-Erlebnis bitten wir um Zugriff auf Bewegungssensoren. Diese Daten werden ausschließlich lokal verarbeitet und niemals gespeichert."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Nutzerrechte gemäß DSGVO",
+          "paragraphs": [
+            "Nutzer können bestimmte Rechte bezüglich ihrer verarbeiteten Daten ausüben. Insbesondere haben sie das Recht:",
+            "Eine Einwilligung jederzeit zu widerrufen.",
+            "Der Datenverarbeitung zu widersprechen, wenn sie auf einer anderen Rechtsgrundlage als der Einwilligung beruht.",
+            "Auf ihre Daten zuzugreifen und eine Kopie zu erhalten.",
+            "Ihre Daten zu prüfen und eine Berichtigung zu verlangen.",
+            "Die Löschung oder Entfernung ihrer Daten zu verlangen (Recht auf Vergessenwerden).",
+            "Beschwerde bei der zuständigen Datenschutzbehörde einzulegen."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Haftungsbeschränkung und Bedingungen",
+          "paragraphs": [
+            "Fabio ist Anbieter touristischer Erlebnisse. Wir haften nicht für Vorfälle aufgrund von Fahrlässigkeit der Nutzer oder für den Verlust persönlicher Gegenstände. WhatsApp-Buchungen unterliegen den bei der Kontaktaufnahme genannten Stornobedingungen."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definitionen und Rechtsgrundlagen",
+          "paragraphs": [
+            "Personenbezogene Daten: Informationen, die eine natürliche Person identifizieren oder identifizierbar machen. Cookies: kleine Datenmengen, die im Browser des Nutzers gespeichert werden. DSGVO: Datenschutz-Grundverordnung der EU.",
+            "Dieses Dokument betrifft ausschließlich www.fabioegypt.com und soll unseren Gästen größtmögliche Transparenz bieten."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Kontakt und Anfragen",
+          "paragraphs": [
+            "Für rechtliche, datenschutzbezogene oder dienstbezogene Anfragen kontaktiere uns über WhatsApp unter +20 106 323 9261.",
+            "Wir antworten zeitnah und professionell und wahren dabei höchste Servicestandards."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "locale": "de",
+      "width": 1280,
+      "theme": "dark",
+      "content": [
+        {
+          "id": "intro",
+          "heading": "Datenschutzerklärung von www.fabioegypt.com",
+          "paragraphs": [
+            "Willkommen zu unserer Datenschutzerklärung. Sie wurde gemäß der Datenschutz-Grundverordnung (DSGVO – EU 2016/679) erstellt und erklärt, welche Daten wir erheben, warum wir sie erheben und welche Rechte du hast.",
+            "Letzte Aktualisierung: 31. Dezember 2025"
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "owner",
+          "heading": "Verantwortlicher",
+          "paragraphs": [
+            "Fabio – Sharm El Sheikh, Ägypten. Der Verantwortliche schützt deine Daten und beantwortet Fragen unter info@fabioegypt.com."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/owner.svg"
+          ]
+        },
+        {
+          "id": "data_types",
+          "heading": "Arten erhobener Daten",
+          "paragraphs": [
+            "Zu den von dieser Website erhobenen personenbezogenen Daten gehören: Name, Telefonnummer, Nationalität, E-Mail, Nutzungsdaten, Tracking-Werkzeuge, Sitzungsstatistiken und Sensordaten (Gyroskop und Beschleunigungssensor). Daten werden vom Nutzer freiwillig über Formulare bereitgestellt oder automatisch über Google Analytics 4 erhoben."
+          ],
+          "chips": [
+            "Name",
+            "Telefonnummer",
+            "Nationalität",
+            "E-Mail",
+            "Nutzungsdaten",
+            "Tracking-Werkzeuge",
+            "Sitzungsstatistiken und Sensordaten (Gyroskop und Beschleunigungssensor)"
+          ],
+          "images": [
+            "/assets/images/icons/legal/data_types.svg"
+          ]
+        },
+        {
+          "id": "method",
+          "heading": "Verfahren und Ort der Verarbeitung erhobener Daten",
+          "paragraphs": [
+            "Der Verantwortliche ergreift geeignete Sicherheitsmaßnahmen gegen unbefugten Zugriff, Offenlegung oder Veränderung der Daten. Die Verarbeitung erfolgt mit IT- und/oder telematischen Werkzeugen.",
+            "Daten werden an den Betriebsstandorten des Verantwortlichen und überall dort verarbeitet, wo sich die beteiligten Parteien befinden (Google-Cloud-Server / GitHub Pages).",
+            "Daten werden so lange verarbeitet und gespeichert, wie es die Erhebungszwecke erfordern, für Marketingzwecke höchstens 24 Monate, sofern die Einwilligung nicht widerrufen wird."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/method.svg"
+          ]
+        },
+        {
+          "id": "purpose",
+          "heading": "Zwecke der Datenverarbeitung",
+          "paragraphs": [
+            "Nutzerdaten werden erhoben, damit der Verantwortliche den Dienst anbieten, gesetzlichen Pflichten nachkommen und Anfragen beantworten kann, sowie für folgende Zwecke:",
+            "Kontakt mit dem Nutzer: Kontaktformular (Google Sheets) und direkte WhatsApp-Integration.",
+            "Analyse: Überwachung und Auswertung von Verkehrsdaten mit Google Analytics 4.",
+            "Hosting und Backend-Infrastruktur: GitHub Pages.",
+            "Anzeige von Inhalten externer Plattformen: Google Fonts und Social Widgets."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/purpose.svg"
+          ]
+        },
+        {
+          "id": "cookies",
+          "heading": "Cookie-Richtlinie",
+          "paragraphs": [
+            "Notwendiger Browserspeicher merkt sich deine Spracheinstellungen. Das Cookie fabio_consent speichert deine Einwilligungsauswahl für 182 Tage.",
+            "Google Analytics wird erst nach deiner Zustimmung zur Analyse geladen. Vimeo-Player laden erst nach Zustimmung zu externen Videos und Auswahl eines Videos. Du kannst optionale Dienste ablehnen und deine Einwilligung über die Cookie-Einstellungen am Ende jeder Seite ändern oder widerrufen. Beim Widerruf der Analyse-Einwilligung wird die Seite neu geladen, um Analytics zu entladen."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/cookies.svg"
+          ]
+        },
+        {
+          "id": "third_party",
+          "heading": "Einzelheiten zur Verarbeitung personenbezogener Daten",
+          "paragraphs": [
+            "Google Analytics 4 (Google LLC): Statistikdienst, der erhobene Daten nutzt, um die Nutzung dieser Website zu verfolgen und auszuwerten. IP-Adressen werden vor der Aufzeichnung anonymisiert.",
+            "WhatsApp Business API: Ermöglicht direkte Kommunikation und den Versand von Rechnungen oder Katalogen. Formulardaten werden an WhatsApp übertragen, um den Chat zu erzeugen.",
+            "Google-Sheets-Integration: Über das Formular „10 Gebote“ erhobene Daten werden zur Anfrageverwaltung auf sicheren Google-Servern gespeichert."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/third_party.svg"
+          ]
+        },
+        {
+          "id": "motion_data",
+          "heading": "Sensordaten und 3D-Erlebnis",
+          "paragraphs": [
+            "Für ein hochwertiges visuelles 3D-Erlebnis bitten wir um Zugriff auf Bewegungssensoren. Diese Daten werden ausschließlich lokal verarbeitet und niemals gespeichert."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/intro.svg"
+          ]
+        },
+        {
+          "id": "rights",
+          "heading": "Nutzerrechte gemäß DSGVO",
+          "paragraphs": [
+            "Nutzer können bestimmte Rechte bezüglich ihrer verarbeiteten Daten ausüben. Insbesondere haben sie das Recht:",
+            "Eine Einwilligung jederzeit zu widerrufen.",
+            "Der Datenverarbeitung zu widersprechen, wenn sie auf einer anderen Rechtsgrundlage als der Einwilligung beruht.",
+            "Auf ihre Daten zuzugreifen und eine Kopie zu erhalten.",
+            "Ihre Daten zu prüfen und eine Berichtigung zu verlangen.",
+            "Die Löschung oder Entfernung ihrer Daten zu verlangen (Recht auf Vergessenwerden).",
+            "Beschwerde bei der zuständigen Datenschutzbehörde einzulegen."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/rights.svg"
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Haftungsbeschränkung und Bedingungen",
+          "paragraphs": [
+            "Fabio ist Anbieter touristischer Erlebnisse. Wir haften nicht für Vorfälle aufgrund von Fahrlässigkeit der Nutzer oder für den Verlust persönlicher Gegenstände. WhatsApp-Buchungen unterliegen den bei der Kontaktaufnahme genannten Stornobedingungen."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/liability.svg"
+          ]
+        },
+        {
+          "id": "definitions",
+          "heading": "Definitionen und Rechtsgrundlagen",
+          "paragraphs": [
+            "Personenbezogene Daten: Informationen, die eine natürliche Person identifizieren oder identifizierbar machen. Cookies: kleine Datenmengen, die im Browser des Nutzers gespeichert werden. DSGVO: Datenschutz-Grundverordnung der EU.",
+            "Dieses Dokument betrifft ausschließlich www.fabioegypt.com und soll unseren Gästen größtmögliche Transparenz bieten."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/definitions.svg"
+          ]
+        },
+        {
+          "id": "contact",
+          "heading": "Kontakt und Anfragen",
+          "paragraphs": [
+            "Für rechtliche, datenschutzbezogene oder dienstbezogene Anfragen kontaktiere uns über WhatsApp unter +20 106 323 9261.",
+            "Wir antworten zeitnah und professionell und wahren dabei höchste Servicestandards."
+          ],
+          "chips": [],
+          "images": [
+            "/assets/images/icons/legal/contact.svg"
+          ]
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

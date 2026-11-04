@@ -1,0 +1,10 @@
+---
+import type {BluCopy} from '../data/campaign';
+import type {BluLocale} from '../domain/campaign';
+interface Props {copy:BluCopy;locale:BluLocale;compact?:boolean}
+const {copy,locale,compact=false}=Astro.props;
+---
+<a href={`/${locale}/tailor-your-trip/`} class:list={['blu-planner-link',{'blu-planner-compact':compact}]} data-blu-planner>
+ <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 12-5 14 5 12-5v29l-12 5-14-5-12 5V12ZM17 7v29M31 12v29"/><path d="M11 24c5-8 12 8 18-1" stroke-dasharray="2 4"/><path d="M38 16c5 0 5 6 0 10-5-4-5-10 0-10Z"/></svg>
+ <span>{!compact&&<strong>{copy.plannerTitle}</strong>}<span class="blu-planner-label">{copy.plannerLabel}<span aria-hidden="true"> ↗</span></span><small>{compact?copy.plannerHint:copy.plannerDescription}</small></span>
+</a>

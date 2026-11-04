@@ -277,3 +277,8 @@ html[data-campaign="welcome"] .floating-whatsapp:active {
   }
 }
 html[data-campaign="welcome"] body { padding: 1rem; }
+/* Inputs sit on the light campaign card and must not inherit white body text. */
+html[data-campaign="welcome"] #contactForm input {
+  color: var(--color-primary-dark);
+  caret-color: var(--color-primary-dark);
+}

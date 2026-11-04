@@ -1,0 +1,37 @@
+{
+  "origin": "https://fabioegypt.com",
+  "results": [
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "device": "iPhone 13",
+      "languageNavigated": false,
+      "biographyOpened": true,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "device": "iPad (gen 7)",
+      "languageNavigated": false,
+      "biographyOpened": true,
+      "errors": []
+    },
+    {
+      "engine": "chromium",
+      "version": "145.0.7632.6",
+      "device": "iPhone 13",
+      "languageNavigated": true,
+      "biographyOpened": true,
+      "errors": []
+    },
+    {
+      "engine": "chromium",
+      "version": "145.0.7632.6",
+      "device": "iPad (gen 7)",
+      "languageNavigated": true,
+      "biographyOpened": true,
+      "errors": []
+    }
+  ]
+}

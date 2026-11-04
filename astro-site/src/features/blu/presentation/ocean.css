@@ -1,0 +1,24 @@
+[data-campaign='blu'] .blu-sheet-poses {position:absolute;left:6%;top:16%;width:45%;height:77%}
+.blu-sheet-poses svg {width:100%;height:100%;filter:drop-shadow(0 5px 3px #002a4666)}
+.blu-medusa {display:none;position:absolute;width:clamp(80px,12vw,188px);height:auto;object-fit:contain}
+[data-campaign='blu'][data-effects='full'] .blu-medusa {display:block}
+.blu-medusa-rose {--bell-light:#ffd7fc;--bell:#f757ad;top:13%;left:0}
+.blu-medusa-aqua {--bell-light:#bdfff2;--bell:#30cfbb;width:clamp(60px,8vw,120px);top:47%;right:1%}
+.blu-medusa-violet {--bell-light:#ebdbff;--bell:#b58cff;bottom:1%;left:42%;width:clamp(60px,9vw,142px)}
+[data-campaign='blu'][data-effects='full'] .blu-underwater {
+ background:radial-gradient(ellipse at 70% -25%,#afffe780,transparent 62%),linear-gradient(158deg,#085f8f55,#00264d77 68%,#031b4566);
+}
+[data-campaign='blu'][data-effects='full'] .blu-rays {
+ inset:-12%;background:repeating-conic-gradient(from 148deg at 67% -15%,transparent 0deg 5deg,#aaffef3d 6deg,transparent 10deg 17deg);
+}
+[data-campaign='blu'] .blu-underwater .blu-bubble {
+ border:1px solid #c4faffb3;
+ background:radial-gradient(ellipse at 27% 20%,white 0 6%,#e3ffff94 7% 12%,transparent 21%),radial-gradient(circle at 57% 62%,transparent 38%,#61d9f166 72%,#e3fffa99 92%);
+ box-shadow:inset -1px -2px 2px #b3fcff66;
+}
+@media (hover:hover) and (pointer:fine) {
+ [data-campaign='blu'][data-effects='full'] .blu-portal-panel {
+  transform:perspective(950px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) rotateZ(1deg);
+  transition:transform .18s ease-out;
+ }
+}

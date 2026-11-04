@@ -1,0 +1,26 @@
+{
+  "origin": "http://127.0.0.1:4348",
+  "results": [
+    {
+      "headed": false,
+      "device": "iPhone 14",
+      "browser": "27.2",
+      "changedPixelFraction": 0.3312,
+      "horizontalTravel": 14,
+      "constantSize": true,
+      "noTouchZoom": true,
+      "reducedMotion": true
+    },
+    {
+      "headed": true,
+      "device": "iPhone 14",
+      "browser": "27.2",
+      "changedPixelFraction": 0.3312,
+      "horizontalTravel": 14,
+      "constantSize": true,
+      "noTouchZoom": true,
+      "reducedMotion": true
+    }
+  ],
+  "externalRequestsBlocked": true
+}

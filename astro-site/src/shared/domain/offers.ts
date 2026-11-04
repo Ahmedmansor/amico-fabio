@@ -1,4 +1,5 @@
 import type { CsvRow } from './csv.ts';
+import {validateCatalogRoutes} from './catalog-routes.ts';
 export interface OfferText { title: string; short_desc: string; [key: string]: unknown }
 export type OfferDictionaries = Record<string, Record<string, OfferText>>;
 export interface Offer {
@@ -77,4 +78,5 @@ export function assertUniqueSlugs(records: readonly Offer[], source: string): vo
     if (slugs.has(record.slug)) throw new Error(`[${source}] Duplicate slug ${record.slug}.`);
     slugs.add(record.slug);
   }
+  validateCatalogRoutes(records,source);
 }

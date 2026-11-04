@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../../shared/layouts/BaseLayout.astro';
+import CatalogStructuredData from '../../../shared/seo/CatalogStructuredData.astro';
+import {catalogPlainText} from '../../../shared/domain/catalog-seo';
+import PackagePage from '../../../features/packages/presentation/PackagePage.astro';
+import CatalogRedirect from '../../../shared/components/CatalogRedirect.astro';
+import {catalogSlug,catalogPath,catalogAlternates,catalogSection} from '../../../shared/domain/catalog-routes';
+import {supportedLocales} from '../../../shared/config/languages';
+import type {Locale} from '../../../shared/config/languages';
+import {getShareImage} from '../../../shared/seo/share-image';
+import {imageAssets} from '../../../features/packages/presentation/images';
+import type {PackagePage as DetailPage} from '../domain/details';
+import type {BookingAddon} from '../../booking/domain/booking';
+interface Props {page:DetailPage;addons:BookingAddon[];redirect:boolean}
+const {page,addons,redirect}=Astro.props,locale=page.locale as Locale;
+const slug=catalogSlug(page.package,locale);
+const alternatePaths=catalogAlternates(page.package,supportedLocales,'packages');
+const shareImage=await getShareImage(imageAssets[page.package.poster],page.text.title);
+---
+{redirect?<CatalogRedirect destination={catalogPath(page.package,locale,'packages')} title={catalogPlainText(page.text.title)} locale={locale} description={catalogPlainText(page.text.short_desc)} shareImage={shareImage}/>:<BaseLayout alternatePaths={alternatePaths} locale={locale} route={`${catalogSection(locale,'packages')}/${slug}`} title={`${catalogPlainText(page.text.title)} | Fabio Egypt`} description={catalogPlainText(page.text.short_desc)} shareImage={shareImage} keywords={page.text.seo_tags.join(', ')} bodyClass="font-sans antialiased text-gray-200 package-details-page"><CatalogStructuredData slot="head-start" image={shareImage} product={{kind:'package',locale,slug,title:page.text.title,description:page.text.short_desc,adultPrice:page.package.prices.adult,program:page.text.program,included:page.included.map(item=>({slug:catalogSlug(item.trip,locale),title:item.text.title}))}}/><PackagePage page={page} addons={addons}/></BaseLayout>}

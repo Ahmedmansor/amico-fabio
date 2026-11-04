@@ -1,0 +1,22 @@
+<svg viewBox="0 0 400 400">
+                                <path d="M0 320 Q200 305 400 325 L400 400 L0 400 Z" fill="#F4E2B8" stroke="#0F172A" stroke-width="3.5"/>
+                                <path d="M135 322 L115 400 L165 400 L155 322 Z" fill="#94A3B8" stroke="#0F172A" stroke-width="3"/>
+                                <!-- Patrick's Rock -->
+                                <path d="M15 325 C15 270, 85 270, 85 325 Z" fill="#7F4F24" stroke="#0F172A" stroke-width="3.5"/>
+                                <line x1="50" y1="270" x2="50" y2="250" stroke="#F59E0B" stroke-width="3"/>
+                                <!-- Squiddi's Moai -->
+                                <path d="M105 322 L112 200 L168 200 L175 322 Z" fill="#3B526B" stroke="#0F172A" stroke-width="3.5"/>
+                                <rect x="106" y="215" width="68" height="14" rx="4" fill="#293B4F" stroke="#0F172A" stroke-width="3"/>
+                                <path d="M133 229 L129 275 L151 275 L147 229 Z" fill="#4C6885" stroke="#0F172A" stroke-width="3"/>
+                                <circle cx="122" cy="242" r="9" fill="#38BDF8" stroke="#0F172A" stroke-width="3"/>
+                                <circle cx="158" cy="242" r="9" fill="#38BDF8" stroke="#0F172A" stroke-width="3"/>
+                                <path d="M128 322 L128 292 C128 280, 152 280, 152 292 L152 322 Z" fill="#B45309" stroke="#0F172A" stroke-width="3"/>
+                                <!-- SpongeBob's Pineapple -->
+                                <path d="M240 205 C215 155, 250 140, 260 190 C265 135, 290 135, 285 190 C305 145, 330 165, 300 205 Z" fill="#2EC4B6" stroke="#0F172A" stroke-width="3.5"/>
+                                <path d="M225 325 C215 230, 240 190, 272 190 C304 190, 328 230, 318 325 Z" fill="#F77F00" stroke="#0F172A" stroke-width="3.5"/>
+                                <path d="M235 225 L308 295 M248 200 L315 265 M225 260 L285 320" stroke="#D62828" stroke-width="2.5" opacity="0.6"/>
+                                <path d="M308 225 L235 295 M295 200 L228 265 M315 260 L255 320" stroke="#D62828" stroke-width="2.5" opacity="0.6"/>
+                                <circle cx="252" cy="235" r="10" fill="#7DD3FC" stroke="#0F172A" stroke-width="3.5"/>
+                                <circle cx="294" cy="272" r="9" fill="#7DD3FC" stroke="#0F172A" stroke-width="3.5"/>
+                                <path d="M256 325 L256 286 C256 270, 286 270, 286 286 L286 325 Z" fill="#94A3B8" stroke="#0F172A" stroke-width="3.5"/>
+                            </svg>

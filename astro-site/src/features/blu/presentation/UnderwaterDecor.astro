@@ -1,0 +1,15 @@
+---
+import './ocean.css';
+import rose from './assets/jelly-rose.webp';
+import aqua from './assets/jelly-aqua.webp';
+import violet from './assets/jelly-violet.webp';
+const flower='M60 22 C72 -2, 102 15, 84 40 C115 46, 104 84, 78 78 C84 110, 48 115, 48 84 C16 95, 4 60, 32 50 C10 26, 44 4, 60 22 Z';
+---
+<div class="blu-underwater" aria-hidden="true">
+ <div class="blu-rays"></div>
+ {[0,1,2].map(n=><svg class={`blu-flower blu-flower-${n}`} viewBox="0 0 120 120"><path d={flower} fill="none" stroke="currentColor" stroke-width="5"/><circle cx="60" cy="56" r="12" fill="none" stroke="currentColor" stroke-width="4"/></svg>)}
+ {[{tone:'rose',image:rose},{tone:'aqua',image:aqua},{tone:'violet',image:violet}].map(({tone,image})=>
+  <img class={`blu-medusa blu-medusa-${tone}`} src={image.src} width="280" height="350" alt="" decoding="async"/>
+ )}
+ <div data-blu-bubbles></div>
+</div>

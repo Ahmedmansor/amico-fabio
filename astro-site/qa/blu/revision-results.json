@@ -1,0 +1,69 @@
+{
+  "results": [
+    {
+      "locale": "it",
+      "width": 390,
+      "experienceCards": 6,
+      "programs": 4,
+      "programStopsVerified": true,
+      "programInquiryUpdatesBottle": true,
+      "otherProgramLinksPreserved": true,
+      "plannerLinks": 1,
+      "plannerDestinationVerified": true,
+      "sandyUpdatesBottle": true,
+      "artContained": true,
+      "noPricesOrForms": true,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "it",
+      "width": 1440,
+      "experienceCards": 6,
+      "programs": 4,
+      "programStopsVerified": true,
+      "programInquiryUpdatesBottle": true,
+      "otherProgramLinksPreserved": true,
+      "plannerLinks": 1,
+      "plannerDestinationVerified": true,
+      "sandyUpdatesBottle": true,
+      "artContained": true,
+      "noPricesOrForms": true,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "experienceCards": 6,
+      "programs": 4,
+      "programStopsVerified": true,
+      "programInquiryUpdatesBottle": true,
+      "otherProgramLinksPreserved": true,
+      "plannerLinks": 1,
+      "plannerDestinationVerified": true,
+      "sandyUpdatesBottle": true,
+      "artContained": true,
+      "noPricesOrForms": true,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "experienceCards": 6,
+      "programs": 4,
+      "programStopsVerified": true,
+      "programInquiryUpdatesBottle": true,
+      "otherProgramLinksPreserved": true,
+      "plannerLinks": 1,
+      "plannerDestinationVerified": true,
+      "sandyUpdatesBottle": true,
+      "artContained": true,
+      "noPricesOrForms": true,
+      "overflow": false,
+      "errors": []
+    }
+  ],
+  "externalSubmission": false
+}
