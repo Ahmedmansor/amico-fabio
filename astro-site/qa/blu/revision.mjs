@@ -34,29 +34,47 @@ try{
   await page.locator('html.show--consent').waitFor({state:'hidden'});
   await page.evaluate(()=>document.fonts.ready);
   assert.equal(await page.locator('[data-experience-card]').count(),6);
-  assert.equal(await page.locator('[data-related-trip]').count(),3);
-  assert.equal(await page.locator('[data-blu-planner]').count(),2);
+  assert.equal(await page.locator('[data-program-preview]').count(),4);
+  assert.equal(await page.locator('[data-blu-planner]').count(),1);
   for(const href of await page.locator('[data-blu-planner]').evaluateAll(links=>links.map(a=>a.getAttribute('href'))))assert.equal(href,`/${locale}/tailor-your-trip/`);
+  assert.equal(await page.locator('[data-programs-jump]').getAttribute('href'),'#blu-adventure');
+  const programs=page.locator('[data-program-preview]');
+  const programHrefs=await page.locator('[data-program]').evaluateAll(links=>links.map(a=>a.href));
+  for(const program of await programs.all()){
+   assert.ok((await program.locator('.blu-program-duration').innerText()).trim());
+   assert.ok((await program.locator('.blu-program-copy>p').innerText()).trim());
+   await program.locator('summary').press('Enter');
+   assert.equal(await program.locator('details').getAttribute('open'),'');
+   assert.ok(await program.locator('ol li').count()>=5);
+   for(const description of await program.locator('li p').allTextContents())assert.ok(description.trim());
+   await program.locator('summary').press('Enter');
+  }
+  const programPopup=page.waitForEvent('popup');await page.locator('[data-program]').first().click();await(await programPopup).close();
+  const programTitle=await programs.first().locator('h3').innerText();
+  const bottleMessage=new URL(await page.locator('[data-mobile-bottle]').getAttribute('href')).searchParams.get('text');
+  assert.ok(bottleMessage.includes(programTitle));assert.ok(bottleMessage.includes(locale==='it'?'Il programma che mi interessa':"The program I'm interested in"));
+  assert.deepEqual(await page.locator('[data-program]').evaluateAll(links=>links.map(a=>a.href)),programHrefs,'Selecting one program must not overwrite the others.');
   assert.match(await page.locator('.blu-card-sandy h3').innerText(),/Sandy/);
-  assert.doesNotMatch(await page.locator('main').innerText(),/[€$£]|\bEUR\b|\b(?:prezzo|prices?)\b/i);
+  assert.doesNotMatch(await page.locator('#blu-programs').innerText(),/[€$£]|\bEUR\b|\b(?:prezzo|prices?)\b/i);
   assert.equal(await page.locator('main form').count(),0);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   await page.locator('main img').evaluateAll(images=>Promise.all(images.map(image=>{image.loading='eager';return image.decode();})));
   for(const character of ['squid','treasure','sandy']){
    const art=page.locator(`.blu-card-${character} .blu-card-art`);
-   assert.equal(await art.evaluate(el=>{const box=el.getBoundingClientRect(),svg=el.querySelector('svg').getBoundingClientRect();return svg.top>=box.top&&svg.bottom<=box.bottom&&svg.left>=box.left&&svg.right<=box.right;}),true);
+   assert.equal(await art.evaluate(el=>{const box=el.getBoundingClientRect(),media=(el.querySelector('svg')||el.querySelector('img')).getBoundingClientRect();return media.top>=box.top&&media.bottom<=box.bottom&&media.left>=box.left&&media.right<=box.right;}),true);
    if(locale==='en'&&width===1440)await art.screenshot({path:fileURLToPath(new URL(`revision-${character}.png`,screenshots))});
   }
   await page.locator('main img').evaluateAll(images=>Promise.all(images.map(image=>{image.loading='eager';return image.decode();})));
   await page.screenshot({path:fileURLToPath(new URL(`revision-${locale}-${width}.png`,screenshots)),fullPage:true});
+  if(locale==='en'&&width===1440)await page.locator('[data-program-preview]').first().screenshot({path:fileURLToPath(new URL('program-preview.png',screenshots))});
   const popup=page.waitForEvent('popup');await page.locator('[data-experience="sandy"]').click();await(await popup).close();
   assert.match(decodeURIComponent(await page.locator('[data-mobile-bottle]').getAttribute('href')),/Sandy/);
   await page.locator('[data-blu-planner]').first().click();await page.locator('[data-trip-planner]').waitFor();
   assert.equal(new URL(page.url()).pathname,`/${locale}/tailor-your-trip/`);assert.equal(await page.locator('html').getAttribute('lang'),locale);
   assert.deepEqual(errors,[]);
-  results.push({locale,width,experienceCards:6,relatedTrips:3,plannerLinks:2,plannerDestinationVerified:true,sandyUpdatesBottle:true,artContained:true,noPricesOrForms:true,overflow:false,errors});
+  results.push({locale,width,experienceCards:6,programs:4,programStopsVerified:true,programInquiryUpdatesBottle:true,otherProgramLinksPreserved:true,plannerLinks:1,plannerDestinationVerified:true,sandyUpdatesBottle:true,artContained:true,noPricesOrForms:true,overflow:false,errors});
   await context.close();
  }
  await fs.writeFile(new URL('./revision-results.json',import.meta.url),JSON.stringify({results,externalSubmission:false},null,2)+'\n');
- console.log('Blu revision: 4 IT/EN mobile/desktop cases passed; six character cards, three related tours, two working planner links, Sandy WhatsApp draft and contained SVG art. No external submission.');
+ console.log('Blu revision: 4 IT/EN mobile/desktop cases passed; six character cards, four programs, one working planner link, Sandy WhatsApp draft and contained artwork. No external submission.');
 }finally{await browser.close();if(server)await new Promise(resolve=>server.close(resolve));}

@@ -1,3 +1,7 @@
+# Current landing journey
+
+See JOURNEY.md for the owner-approved redesign, visible character cards, catalog-based choices and current checks. Earlier sections below are historical revision evidence.
+
 # Blu campaign — 2026-11-04
 
 ## Current revision: characters and complete-trip planner

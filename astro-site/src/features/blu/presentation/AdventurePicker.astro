@@ -1,0 +1,21 @@
+---
+import {Image} from 'astro:assets';
+import type {BluCopy} from '../data/campaign';
+import sea from '../../../shared/assets/catalog/trips/sharm/sea/ras_mohammed_white_island_vip/poster.webp';
+import desert from '../../../shared/assets/catalog/trips/sharm/desert/super_safari_5_senses/poster.webp';
+import both from '../../../shared/assets/catalog/packages/sharm/sharm_confidential/poster.webp';
+const {copy}=Astro.props as {copy:BluCopy};
+const choices=[{id:'sea',title:copy.choiceSea,text:copy.choiceSeaDesc,image:sea},{id:'desert',title:copy.choiceDesert,text:copy.choiceDesertDesc,image:desert},{id:'both',title:copy.choiceBoth,text:copy.choiceBothDesc,image:both}];
+---
+<section class="blu-reality" aria-labelledby="blu-reality-title">
+ <Image src={sea} alt={copy.choiceSea} widths={[600,1000,1600]} sizes="100vw" loading="lazy" format="webp"/>
+ <div class="blu-reality-caption"><span class="blu-eyebrow">SHARM EL SHEIKH</span><h2 id="blu-reality-title">{copy.realityTitle}</h2><p>{copy.realityText}</p></div>
+</section>
+<section id="blu-adventure" class="blu-adventure" aria-labelledby="blu-adventure-title">
+ <div class="blu-section-heading"><span class="blu-eyebrow">01 / SHARM EL SHEIKH</span><h2 id="blu-adventure-title">{copy.journeyTitle}</h2><p>{copy.journeyIntro}</p></div>
+ <div class="blu-choices">{choices.map((choice,index)=><button class="blu-choice" type="button" data-adventure={choice.id} data-title={choice.title} aria-pressed="false" aria-controls="blu-programs" disabled>
+  <Image src={choice.image} alt="" widths={[360,600]} sizes="(min-width:768px) 30vw, 90vw" loading="lazy" format="webp"/>
+  <span class="blu-choice-content"><span class="blu-choice-number">0{index+1}</span><strong>{choice.title}</strong><span>{choice.text}</span><span class="blu-choice-arrow" aria-hidden="true">↗</span></span>
+ </button>)}</div>
+ <div class="blu-choice-feedback"><p data-adventure-status role="status" aria-live="polite">{copy.choiceAll}</p><button type="button" data-adventure-reset hidden>{copy.journeyReset}</button><a href="#secret-bottle-section" data-adventure-continue hidden>{copy.journeyContinue} ↓</a></div>
+</section>

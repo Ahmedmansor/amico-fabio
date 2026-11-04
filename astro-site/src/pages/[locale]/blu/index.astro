@@ -1,11 +1,12 @@
 ---
 import {getBluCampaign} from '../../../features/blu/data/campaign';
-import {getBluRelatedTrips} from '../../../features/blu/data/related-trips';
+import {getBluPrograms} from '../../../features/blu/data/programs';
 import {bluLocales} from '../../../features/blu/domain/campaign';
+import {getBluJourney} from '../../../features/blu/data/journey';
 import BluPage from '../../../features/blu/presentation/BluPage.astro';
 export async function getStaticPaths() {
- return Promise.all(bluLocales.map(async locale=>({params:{locale},props:{campaign:getBluCampaign(locale),trips:await getBluRelatedTrips(locale)}})));
+ return Promise.all(bluLocales.map(async locale=>({params:{locale},props:{campaign:getBluCampaign(locale),programs:await getBluPrograms(locale),journey:await getBluJourney(locale)}})));
 }
-const {campaign,trips}=Astro.props;
+const {campaign,programs,journey}=Astro.props;
 ---
-<BluPage campaign={campaign} trips={trips}/>
+<BluPage campaign={campaign} programs={programs} journey={journey}/>

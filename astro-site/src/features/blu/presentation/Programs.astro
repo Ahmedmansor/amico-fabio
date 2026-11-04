@@ -1,0 +1,27 @@
+---
+import {Image} from 'astro:assets';
+import type {ImageMetadata} from 'astro';
+import type {BluCopy} from '../data/campaign';
+import type {BluProgram} from '../domain/programs';
+import type {BluLocale} from '../domain/campaign';
+import PlannerLink from './PlannerLink.astro';
+import {buildBluMessage,buildBluWhatsApp} from '../domain/campaign';
+import {siteConfig} from '../../../shared/config/site';
+interface Props {copy:BluCopy;programs:BluProgram[];locale:BluLocale;matches:{id:string;adventures:string[]}[]}
+const {copy,programs,locale,matches}=Astro.props;
+const images=import.meta.glob<ImageMetadata>('/src/shared/assets/catalog/packages/sharm/**/poster.webp',{eager:true,import:'default'});
+for(const program of programs)if(!images[program.poster])throw new Error(`[blu:${program.id}] Missing program image ${program.poster}.`);
+---
+<aside class="blu-related" id="blu-programs" aria-labelledby="blu-programs-title">
+ <div class="blu-related-inner"><span class="blu-eyebrow">SHARM EL SHEIKH</span><h2 id="blu-programs-title">{copy.programsTitle}</h2><p>{copy.programsIntro}</p>
+  <PlannerLink copy={copy} locale={locale}/>
+  <div class="blu-related-cards">{programs.map(program=><article class="blu-program blu-box" data-program-preview={program.id} data-adventures={matches.find(item=>item.id===program.id)?.adventures.join(" ")}>
+   <Image src={images[program.poster]} alt={program.title} widths={[360,600,900]} sizes="(min-width:768px) 45vw, 90vw" loading="lazy" format="webp"/>
+   <div class="blu-program-copy"><span class="blu-program-duration">{program.duration}</span><h3 id={`program-${program.id}`}>{program.title}</h3><p>{program.description}</p>
+    <button type="button" class="blu-button blu-button-yellow" data-select-program={program.id} data-title={program.title} aria-pressed="false" hidden>{copy.journeySelect}<span aria-hidden="true">＋</span></button>
+    <details><summary>{copy.programStops}</summary><ol>{program.stops.map(stop=><li><span>{stop.label}</span><h4>{stop.title}</h4><p>{stop.description}</p></li>)}</ol></details>
+    <a class="blu-button blu-button-green" href={buildBluWhatsApp(siteConfig.whatsapp.number,buildBluMessage(copy.waDefaultMsg,copy.programSelectedLabel,program.title))} target="_blank" rel="noopener noreferrer" data-blu-whatsapp data-program={program.id} data-program-title={program.title} aria-describedby={`program-${program.id}`}>{copy.programCta}<span aria-hidden="true">↗</span></a>
+   </div>
+  </article>)}</div>
+ </div>
+</aside>

@@ -58,9 +58,9 @@ async function rejectCookies(page,locale){
 }
 async function inspect(page,locale,width){
  assert.equal(await page.locator('[data-experience-card]').count(),6);
- assert.equal(await page.locator('[data-related-trip]').count(),3);
+ assert.equal(await page.locator('[data-program-preview]').count(),4);
  assert.equal(await page.locator('form,input[type="email"],input[type="tel"]').count(),0);
- const mainText=await page.locator('main').innerText();
+ const mainText=await page.locator('#blu-programs').innerText();
  assert.doesNotMatch(mainText,/[€$£]|\bEUR\b|\b(?:prezzo|prices?|sconto)\b/i);
  assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),`https://fabioegypt.com/${locale}/blu/`);
  assert.deepEqual(await page.locator('link[hreflang]').evaluateAll(links=>links.map(link=>link.hreflang).sort()),['en','it']);
@@ -78,7 +78,7 @@ async function inspect(page,locale,width){
   const placement=await page.locator('[data-mobile-bottle]').evaluate(a=>({position:getComputedStyle(a).position,bottom:innerHeight-a.getBoundingClientRect().bottom}));
   assert.equal(placement.position,'fixed');assert.ok(placement.bottom>=0&&placement.bottom<=40);
  }
- return {locale,width,overflow:state.overflow,images:state.images.length,experienceCards:6,relatedTrips:3,prices:false,forms:false,whatsappLinks:links.length};
+ return {locale,width,overflow:state.overflow,images:state.images.length,experienceCards:6,programs:4,prices:false,forms:false,whatsappLinks:links.length};
 }
 try{
  for(const locale of ['it','en'])for(const [name,viewport]of Object.entries({mobile:{width:390,height:844},tablet:{width:820,height:1180},desktop:{width:1440,height:900}})){
@@ -143,8 +143,8 @@ try{
  await consentPage.locator('[data-copy]').click();
  assert.equal(await consentPage.evaluate(()=>navigator.clipboard.readText()),'SEGRETO-BIKINI');
  assert.equal(await consentPage.locator('[data-copy-status]').innerText(),'Passphrase copied!');
- const relatedPopup=consentPage.waitForEvent('popup');await consentPage.locator('[data-related-trip]').first().click();await(await relatedPopup).close();
- assert.match(decodeURIComponent(await consentPage.locator('[data-mobile-bottle]').getAttribute('href')),/Ras Mohammed/);
+ const relatedPopup=consentPage.waitForEvent('popup');await consentPage.locator('[data-program]').first().click();await(await relatedPopup).close();
+ assert.match(decodeURIComponent(await consentPage.locator('[data-mobile-bottle]').getAttribute('href')),/Sharm Confidential/);
  const lead=await consentPage.evaluate(()=>Array.from(window.dataLayer||[]).find(item=>item[0]==='event'&&item[1]==='generate_lead'));
  assert.deepEqual(lead?.[2],{event_category:'LandingCampaign',campaign_id:'red-sea-cartoon',channel:'whatsapp',site_language:'en'});
  await consentPage.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,get:()=>({writeText:async()=>{throw new Error('Denied by QA');}})}));

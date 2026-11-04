@@ -22,7 +22,8 @@ try {
       assert.equal(await page.locator('.blu-bubble').count(), full ? 26 : 0);
       if (full) {
         const rising = await page.evaluate(async()=>{
-          const bubble = document.querySelectorAll('.blu-bubble')[3];
+          const bubble = [...document.querySelectorAll('.blu-bubble')].find(item=>{const y=item.getBoundingClientRect().y;return y>innerHeight*.3&&y<innerHeight*.7;});
+          if(!bubble)return false;
           const y = bubble.getBoundingClientRect().y;
           await new Promise(resolve=>setTimeout(resolve,180));
           return bubble.getBoundingClientRect().y < y;

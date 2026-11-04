@@ -1,6 +1,6 @@
 ---
 import type {BluCampaign} from '../data/campaign';
-import avatar from './assets/avatar.svg?raw';
+import sheet from './assets/fabio-sheet.webp';
 interface Props {campaign:BluCampaign}
 const {campaign:{copy,locale,alternates}}=Astro.props;
 ---
@@ -19,8 +19,8 @@ const {campaign:{copy,locale,alternates}}=Astro.props;
 </div>
 <header class="blu-width blu-header" id="blu-top">
  <a href={`/${locale}/`} class="blu-brand" aria-label="Fabio Egypt">
-  <span class="blu-avatar" aria-hidden="true" set:html={avatar}/>
+  <span class="blu-avatar" aria-hidden="true"><svg viewBox="723 62 140 140"><image href={sheet.src} width="1536" height="1024"/></svg></span>
   <span><strong>FABIO EGYPT</strong><small>{copy.navTag}</small></span>
  </a>
- <a class="blu-button blu-button-yellow blu-header-cta" href="#secret-bottle-section">{copy.navCta}<span aria-hidden="true">↘</span></a>
+ <a class="blu-button blu-button-yellow blu-header-cta" href="#blu-adventure">{copy.navCta}<span aria-hidden="true">↘</span></a>
 </header>

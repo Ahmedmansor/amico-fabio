@@ -2,6 +2,8 @@ import {buildBluMessage,buildBluWhatsApp,canEnhanceMotion,passphrase,smoothFrame
 import type {BluCopy} from '../data/campaign';
 import {trackBluInquiry} from '../../../shared/analytics/lead';
 
+import {initializeJourney} from './journey';
+
 interface BrowserConfig {locale:string;number:string;copy:BluCopy;experiences:{id:string;title:string}[]}
 const root=document.querySelector<HTMLElement>('body[data-campaign="blu"]');
 const node=document.getElementById('blu-config');
@@ -9,6 +11,7 @@ if(root&&node)initialize(root,JSON.parse(node.textContent||'{}') as BrowserConfi
 
 function initialize(root:HTMLElement,config:BrowserConfig) {
   const {copy}=config;
+  initializeJourney(root,copy,config.number);
   const range=root.querySelector<HTMLInputElement>('#blu-portal-range');
   const overlay=root.querySelector<HTMLElement>('[data-cartoon-overlay]');
   const divider=root.querySelector<HTMLElement>('[data-portal-divider]');
@@ -33,12 +36,13 @@ function initialize(root:HTMLElement,config:BrowserConfig) {
     if(!link)return;
     const experience=config.experiences.find(item=>item.id===link.dataset.experience);
     const relatedTitle=link.dataset.relatedTrip?link.querySelector('h3')?.textContent?.trim():undefined;
-    const selectedTitle=experience?.title||relatedTitle;
-    if(selectedTitle){
-      const href=buildBluWhatsApp(config.number,buildBluMessage(copy.waDefaultMsg,copy.selectedLabel,selectedTitle));
-      root.querySelectorAll<HTMLAnchorElement>('[data-blu-whatsapp]:not([data-related-trip])').forEach(anchor=>anchor.href=href);
+    const programTitle=link.dataset.programTitle;
+    const selectedTitle=programTitle||experience?.title||relatedTitle;
+    if(selectedTitle&&!programTitle){
+      const href=buildBluWhatsApp(config.number,buildBluMessage(copy.waDefaultMsg,programTitle?copy.programSelectedLabel:copy.selectedLabel,selectedTitle));
+      root.querySelectorAll<HTMLAnchorElement>('[data-blu-whatsapp]:not([data-related-trip]):not([data-program])').forEach(anchor=>anchor.href=href);
       const status=root.querySelector<HTMLElement>('[data-selection-status]');
-      if(status)status.textContent=copy.selectionStatus.replace('{experience}',selectedTitle);
+      if(status)status.textContent=(programTitle?copy.programSelectionStatus:copy.selectionStatus).replace('{experience}',selectedTitle);
     }
     trackBluInquiry(config.locale);
   });
