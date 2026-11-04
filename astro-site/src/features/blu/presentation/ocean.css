@@ -1,6 +1,6 @@
 [data-campaign='blu'] .blu-sheet-poses {position:absolute;left:6%;top:16%;width:45%;height:77%}
 .blu-sheet-poses svg {width:100%;height:100%;filter:drop-shadow(0 5px 3px #002a4666)}
-.blu-medusa {display:none;position:absolute;width:clamp(80px,12vw,188px);overflow:visible}
+.blu-medusa {display:none;position:absolute;width:clamp(80px,12vw,188px);height:auto;object-fit:contain}
 [data-campaign='blu'][data-effects='full'] .blu-medusa {display:block}
 .blu-medusa-rose {--bell-light:#ffd7fc;--bell:#f757ad;top:13%;left:0}
 .blu-medusa-aqua {--bell-light:#bdfff2;--bell:#30cfbb;width:clamp(60px,8vw,120px);top:47%;right:1%}

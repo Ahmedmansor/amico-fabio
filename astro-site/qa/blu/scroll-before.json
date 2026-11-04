@@ -1,0 +1,25 @@
+{
+  "environment": "Headless Edge on this host, automated four-second scroll. Not a physical user device measurement.",
+  "results": [
+    {
+      "mode": "lite",
+      "finalMode": "lite",
+      "frames": 928,
+      "slowFrames": 1,
+      "meanMs": 4.314762931034483,
+      "taskSeconds": 0.5713760000000001,
+      "layoutSeconds": 0.008162,
+      "styleSeconds": 0.009798
+    },
+    {
+      "mode": "full",
+      "finalMode": "full",
+      "frames": 305,
+      "slowFrames": 0,
+      "meanMs": 13.156065573770492,
+      "taskSeconds": 1.402776,
+      "layoutSeconds": 0.031558,
+      "styleSeconds": 0.335586
+    }
+  ]
+}

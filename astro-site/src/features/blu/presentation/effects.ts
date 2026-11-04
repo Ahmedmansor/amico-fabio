@@ -11,30 +11,44 @@ export function createBluEffects(root: HTMLElement) {
     bubbleLayer?.append(bubble);
     return bubble;
   });
-  const ambient = new Map<Element,gsap.core.Animation[]>();
-  const context = gsap.context(() => {
-    gsap.to('.blu-rays', {rotation: 5, xPercent: 3, duration: 9, repeat: -1, yoyo: true, ease: 'sine.inOut'});
-    gsap.to('.blu-flower', {y: 25, rotation: 12, duration: 14, repeat: -1, yoyo: true, ease: 'sine.inOut', stagger: 2});
-    root.querySelectorAll<SVGSVGElement>('.blu-medusa').forEach((jelly, index) => {
-      const swim = gsap.timeline({repeat: -1, yoyo: true, paused:true});
-      swim.fromTo(jelly, {xPercent: -18, rotation: -12}, {
-        xPercent: index === 1 ? -54 : 74, yPercent: -46, rotation: 14,
-        duration: 4 + index, ease: 'sine.inOut'
-      });
-      const bell=gsap.to(jelly.querySelector('.blu-bell'), {scaleX: .84, scaleY: 1.12, transformOrigin: '50% 80%', paused:true, duration: .9 + index * .12, repeat: -1, yoyo: true, ease: 'sine.inOut'});
-      const tendrils=gsap.to(jelly.querySelector('.blu-tendrils'), {skewX: 9, scaleY: .87, transformOrigin: '50% 0%', paused:true, duration: 1.2 + index * .14, repeat: -1, yoyo: true, ease: 'sine.inOut'});
-      ambient.set(jelly,[swim,bell,tendrils]);
-    });
-    bubbles.forEach((bubble, index) => {
-      // Start at different depths so the water is already alive on the first frame.
-      gsap.to(bubble, {y: () => -innerHeight - 100, duration: 5 + index % 7, repeat: -1, ease: 'none'})
-        .progress(((index * 17) % 26) / 26);
-      gsap.to(bubble, {x: 16 + index % 5 * 6, duration: 1.5 + index % 3, repeat: -1, yoyo: true, ease: 'sine.inOut'});
-    });
-
-  }, root);
+  const animations:Animation[]=[];
+  const ambient=new Map<Element,Animation>();
+  function animate(element:Element,keyframes:Keyframe[],options:KeyframeAnimationOptions) {
+    const animation=element.animate(keyframes,options);
+    animations.push(animation);
+    return animation;
+  }
+  const rays=root.querySelector('.blu-rays');
+  if(rays)animate(rays,[{transform:'translate3d(0,0,0) rotate(0deg)'},{transform:'translate3d(2%,0,0) rotate(4deg)'}],{duration:9000,iterations:Infinity,direction:'alternate',easing:'ease-in-out'});
+  root.querySelectorAll('.blu-flower').forEach((flower,index)=>{
+    const animation=animate(flower,[{transform:'translate3d(0,0,0) rotate(0deg)'},{transform:'translate3d(0,25px,0) rotate(12deg)'}],{duration:14000,delay:index*500,iterations:Infinity,direction:'alternate',easing:'ease-in-out'});
+    animation.pause();ambient.set(flower,animation);
+  });
+  root.querySelectorAll('.blu-medusa').forEach((jelly,index)=>{
+    const direction=index===1?-45:55;
+    const animation=animate(jelly,[
+      {transform:'translate3d(-12%,0,0) rotate(-8deg) scale(1,1)'},
+      {transform:`translate3d(${direction/2}%,-20%,0) rotate(0deg) scale(.93,1.04)`},
+      {transform:`translate3d(${direction}%,-40%,0) rotate(10deg) scale(1,1)`}
+    ],{duration:5000+index*800,iterations:Infinity,direction:'alternate',easing:'ease-in-out'});
+    animation.pause();ambient.set(jelly,animation);
+  });
+  const rise=innerHeight+100;
+  bubbles.forEach((bubble,index)=>{
+    const duration=(7+index%7)*1000;
+    const sway=16+index%5*6;
+    const animation=animate(bubble,[
+      {transform:'translate3d(0,0,0)'},
+      {transform:`translate3d(${sway}px,${-rise/2}px,0)`},
+      {transform:`translate3d(0,${-rise}px,0)`}
+    ],{duration,iterations:Infinity,easing:'linear'});
+    animation.currentTime=duration*((index*17)%26)/26;
+  });
   const ambientObserver=new IntersectionObserver(entries=>{
-    for(const entry of entries)ambient.get(entry.target)?.forEach(animation=>entry.isIntersecting?animation.resume():animation.pause());
+    for(const entry of entries){
+      const animation=ambient.get(entry.target);
+      if(entry.isIntersecting)animation?.play();else animation?.pause();
+    }
   });
   ambient.forEach((_,element)=>ambientObserver.observe(element));
   let disposed=false;
@@ -91,6 +105,6 @@ export function createBluEffects(root: HTMLElement) {
     disposed=true;revealGeneration++;revealObserver.disconnect();reveal?.destroy();ambientObserver.disconnect();
     observer.disconnect();
     for(const tween of cardTweens.values()){tween.kill();gsap.set(tween.targets(),{clearProps:'transform'});}
-    context.revert();bubbles.forEach(bubble=>bubble.remove());
+    animations.forEach(animation=>animation.cancel());bubbles.forEach(bubble=>bubble.remove());
   }};
 }

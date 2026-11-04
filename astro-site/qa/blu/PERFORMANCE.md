@@ -1,3 +1,5 @@
+Current continuous ocean motion uses native Web Animations and rasterized existing jellyfish. See COMPOSITOR.md for the latest implementation, scroll-budget tests and measurement limits.
+
 # Blu animation performance rules — 2026-11-04
 
 1. IntersectionObserver starts and pauses card reveals and jellyfish. The scroll

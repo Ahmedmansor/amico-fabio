@@ -1,23 +1,15 @@
 ---
 import './ocean.css';
+import rose from './assets/jelly-rose.webp';
+import aqua from './assets/jelly-aqua.webp';
+import violet from './assets/jelly-violet.webp';
 const flower='M60 22 C72 -2, 102 15, 84 40 C115 46, 104 84, 78 78 C84 110, 48 115, 48 84 C16 95, 4 60, 32 50 C10 26, 44 4, 60 22 Z';
 ---
 <div class="blu-underwater" aria-hidden="true">
  <div class="blu-rays"></div>
  {[0,1,2].map(n=><svg class={`blu-flower blu-flower-${n}`} viewBox="0 0 120 120"><path d={flower} fill="none" stroke="currentColor" stroke-width="5"/><circle cx="60" cy="56" r="12" fill="none" stroke="currentColor" stroke-width="4"/></svg>)}
- {['rose','aqua','violet'].map((tone,index)=>
-  <svg class={`blu-medusa blu-medusa-${tone}`} viewBox="0 0 140 175">
-   <defs><radialGradient id={`blu-bell-${tone}`} cx="35%" cy="20%" r="85%">
-    <stop stop-color="#fff"/><stop offset=".27" stop-color="var(--bell-light)"/><stop offset=".8" stop-color="var(--bell)" stop-opacity=".85"/><stop offset="1" stop-color="var(--bell-light)"/>
-   </radialGradient></defs>
-   <g class="blu-tendrils" fill="none" stroke-linecap="round">
-    {[0,1,2,3,4].map(n=><path d={`M${32+n*18} 69 q -16 20 0 41 t -5 ${30+(n+index)%3*8}`} stroke={n%2?'var(--bell-light)':'var(--bell)'} stroke-width={n%2?5:2.5}/>)}
-   </g>
-   <g class="blu-bell">
-    <path d="M11 69C16 0 112 -9 130 66Q129 78 115 72Q103 83 90 74Q74 86 60 76Q44 84 34 74Q18 81 11 69Z" fill={`url(#blu-bell-${tone})`} stroke="var(--bell-light)" stroke-width="2"/>
-    <path d="M23 53Q35 22 60 20M20 67Q68 53 120 67" fill="none" stroke="#fff" stroke-opacity=".7" stroke-linecap="round" stroke-width="3"/>
-    <g fill="#fff" opacity=".8"><circle cx="78" cy="30" r="2"/><circle cx="85" cy="36" r="1.4"/><circle cx="51" cy="44" r="1.8"/></g>
-   </g>
-  </svg>)}
+ {[{tone:'rose',image:rose},{tone:'aqua',image:aqua},{tone:'violet',image:violet}].map(({tone,image})=>
+  <img class={`blu-medusa blu-medusa-${tone}`} src={image.src} width="280" height="350" alt="" decoding="async"/>
+ )}
  <div data-blu-bubbles></div>
 </div>

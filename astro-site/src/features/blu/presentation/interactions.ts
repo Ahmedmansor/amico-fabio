@@ -58,11 +58,13 @@ function initialize(root:HTMLElement,config:BrowserConfig) {
   let frame=0;
   let frameCancel:(()=>void)|undefined;
   let downgrade:PerformanceObserver|undefined;
+  let scrollAudit:(()=>void)|undefined;
   let degraded=false;
   let disposed=false;
   const blocked=()=>document.hidden||document.documentElement.matches('.show--consent,.show--preferences');
   const signals=()=>({reducedMotion:reduced.matches,saveData:device.connection?.saveData===true,cores:device.hardwareConcurrency||undefined,memory:device.deviceMemory});
   function stop(){
+    if(scrollAudit)window.removeEventListener('scroll',scrollAudit);scrollAudit=undefined;
     generation++;cancelAnimationFrame(frame);frameCancel?.();frameCancel=undefined;
     effects?.destroy();effects=undefined;downgrade?.disconnect();downgrade=undefined;
     root.dataset.effects='lite';
@@ -95,6 +97,15 @@ function initialize(root:HTMLElement,config:BrowserConfig) {
       // Check actual animation cost once; no permanent FPS or timer loop.
       if(!await sample(token,90)&&token===generation){degraded=true;stop();return;}
       if(token!==generation)return;
+      // One bounded sample under real scrolling catches rendering pressure that
+      // a still-page sample or main-thread long-task observer can miss.
+      scrollAudit=()=>{
+        scrollAudit=undefined;
+        void sample(token,60).then(smooth=>{
+          if(!smooth&&token===generation){degraded=true;stop();}
+        });
+      };
+      window.addEventListener('scroll',scrollAudit,{once:true,passive:true});
       if(typeof PerformanceObserver!=='undefined'&&PerformanceObserver.supportedEntryTypes.includes('longtask')){
         let recent:number[]=[];
         downgrade=new PerformanceObserver(list=>{
